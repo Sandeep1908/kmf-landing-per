@@ -56,6 +56,10 @@ module.exports = {
     fontFamily: {
       lato: ['Lato', 'sans-serif'],
     },
+    width:{
+      100: '411px',
+    },
+    
     },
   },
   plugins: [],

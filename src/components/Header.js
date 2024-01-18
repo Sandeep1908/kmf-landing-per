@@ -1,6 +1,6 @@
 'use client';
 
-import { useState} from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../images/logo/logo.png';
 import AccordionItem from '../components/Accordion';
 import { mobileHeader } from '@/configtext/header';
@@ -10,13 +10,105 @@ import locationIco from '../images/header-ico/location.svg';
 import contactIco from '../images/header-ico/contact.svg';
 import searchIco from '../images/header-ico/search.svg';
 import { RxCrossCircled } from 'react-icons/rx';
+import useLocale from '@/hooks/useLocale';
+import Link from 'next/link';
+import { IoHomeOutline } from 'react-icons/io5';
+import facebookIco from '../images/footer/facbook.png';
+import mailIco from '../images/footer/mail.png';
+import twitterIco from '../images/footer/twitter.png';
+ 
+import useApi from '@/hooks/useApi';
+import { useParams, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export const Header = () => {
   const [openAccordion, SetOpenAccordion] = useState(null);
-
   const [openNav, setOpenNav] = useState(false);
   const [open, setOpen] = useState(null);
-  const headItem = mobileHeader['eng'];
+  const [productSub, setProductSub] = useState([]);
+  const [unionSub, setUnionSub] = useState([]);
+  const [kmfUnits, setKmfUnits] = useState([]);
+  const [headerItem,setHeaderItem]=useState([])
+  const { locale } = useLocale();
+  const axios = useApi();
+  let headItem = mobileHeader[locale];
+  const params = useParams();
+  const pathname=usePathname()
+  const router=useRouter()
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/categories');
+      const { data: milkunion } = await axios.get('/api/milk-unions');
+      const { data: kmfUnit } = await axios.get('/api/units-of-kmfs');
+      const {data:header}=await axios.get('/api/header')
+      
+      
+
+      const productSubitems = data?.data?.map((category, idx) => {
+  
+        return {
+          title: category?.attributes?.title,
+          link: `/${locale}/our-product/${category?.id}`
+        };
+      });
+
+ 
+
+      const unionSubitems = milkunion?.data?.map((category, idx) => {
+        return {
+          title: category?.attributes?.name,
+          link: `/${locale}/milk-union/${category?.id}`
+        };
+      });
+
+      const kmfSubitems = kmfUnit?.data?.map((category, idx) => {
+        return {
+          title: category?.attributes?.title,
+          link: `/${locale}/kmf-unit/${category?.id}`
+        };
+      });
+
+      setUnionSub(unionSubitems);
+      setProductSub(productSubitems);
+      setKmfUnits(kmfSubitems);
+      setHeaderItem(header?.data)
+    })();
+  }, [params.locale]);
+
+  
+  for (let i = 0; i < headItem?.length; i++) {
+    if (headItem[i].title === 'OUR PRODUCT' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನ') {
+      headItem[i].subItems = productSub;
+    }
+    if (headItem[i].title === 'MILK UNION' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟ') {
+      headItem[i].subItems = [
+        ...[
+          {
+            title: headItem[i].title === 'MILK UNION' ? 'Milk Unions' : 'ಹಾಲು ಒಕ್ಕೂಟಗಳು',
+            link: `/${locale}/milk-union/`
+          }
+        ],
+        ...unionSub
+      ];
+    }
+    if (headItem[i].title === 'KMF UNITS' || headItem[i].title === 'KMF ಘಟಕಗಳು') {
+      headItem[i].subItems = kmfUnits;
+    }
+  }
+
+  const handleLanguageChange = () => {
+    if(pathname==='/'){
+       return router.push('/en')
+    }
+    if(pathname==='/en'){
+      return router.push('/')
+    }
+    const newLanguagePrefix = pathname.startsWith('/en') ? '/kn' : '/en';
+    const newUrl = pathname.replace(/^\/(en|kn)\//, newLanguagePrefix + '/');
+    router.push(newUrl)
+
+  };
 
   const arrows = {
     down: downarrowIco.src,
@@ -27,46 +119,76 @@ export const Header = () => {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
 
-
+ 
   return (
     <>
       <div className="w-full h-full relative  ">
         {/* UPPER HEADER  */}
 
-        <div className="w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-center sm:justify-between" onMouseEnter={()=>setOpen(null)}>
-          <div className="flex justify-center items-center">
+        <div
+          className="w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between"
+          onMouseEnter={() => setOpen(null)}>
+          <div className="flex justify-center items-center space-x-5">
             <img src={logo.src} alt="logo-home" className="w-[150px]" />
           </div>
 
-          <div className=" w-full hidden sm:flex justify-end space-x-8   ">
-            <div className="flex justify-center items-center space-x-3  border-r-2 border-[#F6AE2E;] p-10">
-              <div className="">
-                <img src={locationIco.src} />
+          <div className="flex justify-center items-center space-x-5">
+            <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
+              <div className="flex justify-center items-center      ">
+                <div className="">
+                  <img
+                    src={locationIco.src}
+                    className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                  />
+                </div>
+
+                <p className="text-xs font-sans flex flex-col font-black/10  ">
+                  {headerItem?.attributes?.address?.map((item,id)=>{
+                    return(
+                      <span key={id} className='block'>{item?.children[0]?.text}</span>
+                    )
+                  })}
+                 
+                </p>
               </div>
 
-              <p className="text-sm font-sans font-[200]  ">
-                2915, KMF Complex,
-                <br />
-                Bengaluru - 560 029
-              </p>
+              <div className="flex justify-center items-center   ">
+                <div>
+                  <img
+                    src={contactIco.src}
+                    className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                  />
+                </div>
+                <p className="text-xs font-sans font-black/10 ">
+                {headerItem?.attributes?.time?.map((item,id)=>{
+                    return(
+                      <span key={id} className='block'>{item?.children[0]?.text}</span>
+                    )
+                  })}
+                </p>
+              </div>
+
+              <div className="flex space-x-10 justify-center p-2 items-center">
+                <Link href={"https://www.facebook.com/kmfnandini.coop"}><img src={facebookIco.src} className="w-7" /></Link>
+               <Link href={"https://twitter.com/kmfnandinimilk"}><img src={twitterIco.src} className="w-7" /></Link> 
+               <Link href={"https://www.kmfnandini.coop/en/contact-us"}>  <img src={mailIco.src} className="w-7" /></Link> 
+               
+              </div>
             </div>
 
-            <div className="flex justify-center items-center space-x-3  ">
-              <div>
-                <img src={contactIco.src} />
-              </div>
-              <p className="text-sm font-sans font-[200] ">
-                1800 425 8030
-                <br />
-                Call us
-              </p>
+            <div>
+              <button
+                className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md"
+                onClick={handleLanguageChange}>
+                {locale === 'en' ? 'KN' : 'EN'}
+              </button>
             </div>
           </div>
         </div>
 
         {/* MAIN HEADER DOWN  */}
 
-        <div className="w-[85%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 ">
+        <div className="max-w-[90%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 ">
           <div className=" w-full h-full flex justify-between items-center lg:hidden ">
             <div onClick={() => setOpenNav((prev) => !prev)}>
               <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
@@ -78,88 +200,42 @@ export const Header = () => {
           </div>
 
           <div className="w-full h-full hidden lg:block   ">
-            <ul className=" h-full text-light-light4 flex  space-x-10 items-center text-[12px]">
-              <li className="border-r border-light-light4 pl-2 pr-2  " onMouseEnter={()=>setOpen(null)}>HOME</li>
-              <li className="border-r border-light-light4 pl-2 pr-2 relative" onMouseEnter={()=>setOpen('OUR PRODUCT')}>
-                OUR PRODUCTS
-                
-                <div className={`p-4 bg-primary-darker absolute top-[2.14rem] left-[-40px] w-[200px] ${open==='OUR PRODUCT'?'visible':'invisible'}`}   onMouseLeave={()=>setOpen(null)} >
-                    <ul className='space-y-4'>
-                      {headItem.map(item=>{
-                        if(item.title==='OUR PRODUCT'){
-                          return item.subItems?.map((subItem,idx)=>{
-                            return(
-                              <li key={idx} className='text-[14px] '>{subItem.title}</li>
-                            )
-                          })
-                        }
-                      
-                      })}
-                    </ul>
-                </div>
-                
-              </li>
-              <li className="border-r border-light-light4 pl-2 pr-2  relative " onMouseEnter={()=>setOpen('MILK UNION')}>MILK UNION
-              
-              <div className={`p-4 bg-primary-darker absolute top-[2.14rem] left-[-40px] w-[200px] ${open==='MILK UNION'?'visible':'invisible'}`} onMouseLeave={()=>setOpen(null)} >
-                    <ul className='space-y-4'>
-                      {headItem.map(item=>{
-                        if(item.title==='MILK UNION'){
-               
-                          return item.subItems?.map((subItem,idx)=>{
-                            return(
-                              <li key={idx} className='text-[14px] '>{subItem.title}</li>
-                            )
-                          })
-                        }
-                      
-                      })}
-                    </ul>
-                </div>
-              
-              </li>
-              <li className="border-r border-light-light4 pl-2 pr-2 relative " onMouseEnter={()=>setOpen('KMF UNITS')}>KMF UNITS
-                      
-              <div className={`p-4 bg-primary-darker absolute top-[2.14rem] left-[-40px] w-[200px] ${open==='KMF UNITS'?'visible':'invisible'}`} onMouseLeave={()=>setOpen(null)} >
-                    <ul className='space-y-4'>
-                      {headItem.map(item=>{
-                        if(item.title==='KMF UNITS'){
-               
-                          return item.subItems?.map((subItem,idx)=>{
-                            return(
-                              <li key={idx} className='text-[14px] '>{subItem.title}</li>
-                            )
-                          })
-                        }
-                      
-                      })}
-                    </ul>
-                </div>
-              
-              
-              </li>
-              <li className="border-r border-light-light4 pl-2 pr-2 relative  " onMouseEnter={()=>setOpen('ABOUT US')}>ABOUT US
-              
-              <div className={`p-4 bg-primary-darker absolute top-[2.14rem] left-[-40px] w-[200px] ${open==='ABOUT US'?'visible':'invisible'}`} onMouseLeave={()=>setOpen(null)} >
-                    <ul className='space-y-4'>
-                      {headItem.map(item=>{
-                        if(item.title==='ABOUT US'){
-               
-                          return item.subItems?.map((subItem,idx)=>{
-                            return(
-                              <li  key={idx} className='text-[14px] '>{subItem.title}</li>
-                            )
-                          })
-                        }
-                      
-                      })}
-                    </ul>
-                </div>
-              
-              
-              </li>
-              <li className="border-r border-light-light4 pl-2 pr-2  " onMouseEnter={()=>setOpen(null)}>WOMEN EMPOWERMENT</li>
-              <li className="border-r border-light-light4 pl-2 pr-2  " onMouseEnter={()=>setOpen(null)}>CONTACT US</li>
+            <ul className=" h-full w-full text-light-light4 flex   space-x-2 items-center text-[12px]">
+              {headItem?.map((header, i) => {
+                const hasItems = header?.subItems?.length;
+                const isLink = header?.link;
+                return (
+                  <Link href={isLink ? isLink : '#'} key={i}>
+                    <li
+                      className="border-r text-[10px] border-light-light4 pl-2 pr-2 relative "
+                      onMouseEnter={() => setOpen(hasItems ? i : null)}>
+                      {header.title}
+                      {hasItems && (
+                        <div
+                          className={`p-4 bg-primary-darker absolute top-[2.71rem] left-[20px] w-[200px] ${
+                            open === i ? 'visible' : 'invisible'
+                          }  `}
+                          onMouseLeave={() => setOpen(null)}>
+                          <ul className="w-full space-y-4">
+                            {header.subItems?.map((subItem, idx) => {
+                              return (
+                                <Link
+                                  href={subItem?.link || ''}
+                                  className="text-[10px] block"
+                                  key={idx}
+                                  onClick={() => setOpen(null)}>
+                                  <li key={idx}>{subItem.title}</li>
+                                </Link>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  </Link>
+                );
+              })}
+
               <li>
                 {' '}
                 <img src={searchIco.src} />
@@ -193,27 +269,50 @@ export const Header = () => {
             <div>
               <ul className=" ">
                 {headItem?.map((items, idx) => {
-                  return (
-                    <AccordionItem
-                      title={items.title}
-                      id={idx}
-                      open={openAccordion == idx}
-                      arrow={arrows}
-                      onToggle={handleAccordionClick}
-                      key={idx}>
-                      <ul className="">
-                        {items?.subItems?.map((items, index) => {
-                          return (
-                            <li
-                              key={index}
-                              className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
+                  const hasItems = items?.subItems?.length;
+                  if (hasItems) {
+                    return (
+                      <AccordionItem
+                        title={items.title}
+                        id={idx}
+                        open={openAccordion == idx}
+                        arrow={arrows}
+                        onToggle={handleAccordionClick}
+                        key={idx}>
+                        <ul className="">
+                          {items?.subItems?.map((items, index) => {
+                            return (
+                              <Link
+                                href={items?.link || ''}
+                                key={index}
+                                onClick={() => setOpenNav((prev) => !prev)}>
+                                <li
+                                  key={index}
+                                  className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
+                                  <span>{items.title}</span>
+                                </li>
+                              </Link>
+                            );
+                          })}
+                        </ul>
+                      </AccordionItem>
+                    );
+                  } else {
+                    return (
+                      <Link
+                        href={items?.link || ''}
+                        key={idx}
+                        onClick={() => setOpenNav((prev) => !prev)}>
+                        <li className=" " key={idx}>
+                          <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
+                            <div className="flex space-x-2 ">
                               <span>{items.title}</span>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </AccordionItem>
-                  );
+                            </div>
+                          </button>
+                        </li>
+                      </Link>
+                    );
+                  }
                 })}
               </ul>
             </div>

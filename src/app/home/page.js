@@ -11,136 +11,193 @@ import image2 from '../../images/homeImages/image2.png';
 import image3 from '../../images/homeImages/image3.png';
 import aboutSecImg from '../../images/homeImages/about-sec.png';
 import notificationImg1 from '../../images/homeImages/notification/cow-grass.png';
-import Card from './Card.js';
 import { LinkCard } from './Card.js';
 import { CarouselNotification } from '@/components/CarouselImage';
 import cartIco from '../../images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '../../images/homeImages/quikLink/location.tif.svg';
 import newsIco from '../../images/homeImages/quikLink/news.tif.svg';
 import commercialIco from '../../images/homeImages/quikLink/commercial.svg';
-import Slider from 'react-slick';
-import logo from '../../images/logo/logo.png';
 import milkglassImg from '../../images/homeImages/milkglass.png';
 import kymIco1 from '../../images/homeImages/kym/importance.tif.svg';
 import kymIco2 from '../../images/homeImages/kym/type.tif.svg';
 import kymIco3 from '../../images/homeImages/kym/nutrition.svg';
 import kymIco4 from '../../images/homeImages/kym/age.tif.svg';
 import cowBlogImg from '../../images/homeImages/cowBlog.png';
-import locationVectorIco from '../../images/footer/locationVector.svg'
-import callVectorIco from '../../images/footer/callVector.svg'
-import msgVectorIco from '../../images/footer/msgVector.svg'
-import nearMeIco from '../../images/footer/near_me.svg'
-import facebookIco from '../../images/footer/facbook.png'
-import xIco from '../../images/footer/x-icon.png'
-import ytIco from '../../images/footer/yt.png'
+import { v4 as uuidv4 } from 'uuid';
 import Fade from 'react-reveal/Fade';
+import Footer from '@/components/Footer';
+// import {Swiper, SwiperSlide} from 'swiper/react'
+// import { EffectCoverflow, Pagination } from 'swiper/components';
+import TypeWriter from '../../components/TypeWriter';
+import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Card from './Card.js';
 
 const Home = () => {
+
+  const [previewCount, setPreviewCount]=useState(1)
   const images = [image12.src, image2.src, image3.src];
   const notificationImg = [notificationImg1.src];
   const aboutVideo = '/video/video1.mp4';
   const aboutVideo2 = '/video/video2.mp4';
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
-  };
+  let cards = [
+    {
+      key: uuidv4(),
+      content: <Card imgUrl={feturedImg.src} title="
+      ರಂದು ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಲಾಗಿದೆ" />
+    },
+    {
+      key: uuidv4(),
+      content: <Card imgUrl={galleryImg.src} title="ಗ್ಯಾಲರಿ" />
+    },
+    {
+      key: uuidv4(),
+      content: <Card imgUrl={portfolioImg.src} title="ಪೋರ್ಟ್ಫೋಲಿಯೋ KMF" />
+    },
+ 
+  ];
+
+  useEffect(()=>{
+    const updateScreensize =()=>{
+      const screenWidth=window.innerWidth;
+      if(screenWidth>768){
+        setPreviewCount(3)
+      }
+      else{
+        setPreviewCount(1)
+      }
+    }
+
+    updateScreensize()
+    window.addEventListener('resize',updateScreensize)
+    return ()=>window.removeEventListener('resize',updateScreensize)
+  })
+
 
   return (
     <div className="w-full h-full absolute top-[151px] z-[-1]">
       {/* HOME CARAOUSAL IMAGE */}
       <CarouselImage images={images} />
 
-      <section className="w-full before:h-[1700px] pt-20  relative z-[1] before:absolute before:inset-0 before:bg-secondary-main before:z-[-1] before:md:h-[600px] ">
+      <section className="w-full   pt-20  relative z-[1] before:absolute before:inset-0 before:bg-secondary-main before:z-[-1] before:md:h-[600px] ">
         <div>
           <div className="flex justify-center items-center flex-col p-10">
             <h1 className="text-[40px] text-[#242424] text-center font-lato font-[400] tracking-wide md:text-4xl">
-              Welcome to KMF Nandhini
+            ಕೆಎಂಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
             </h1>
             <p className="text-[#595959] text-center ">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore
+              
+ಡೈರಿ ಉತ್ಪನ್ನಗಳು ಹಾಲಿನಿಂದ ಪಡೆದ ಪೌಷ್ಟಿಕ ಆಹಾರಗಳಾಗಿವೆ, ಕ್ಯಾಲ್ಸಿಯಂ ಮತ್ತು ಪ್ರೋಟೀನ್‌ನಂತಹ ಅಗತ್ಯ ಪೋಷಕಾಂಶಗಳನ್ನು ನೀಡುತ್ತವೆ, ಒಟ್ಟಾರೆ ಆರೋಗ್ಯ ಮತ್ತು ಯೋಗಕ್ಷೇಮವನ್ನು ಬೆಂಬಲಿಸುತ್ತವೆ.
             </p>
           </div>
 
-          <div className="flex gap-10 flex-wrap overflow-x-auto">
-            <Card imgUrl={feturedImg.src} title="Featured On" />
-            <Card imgUrl={galleryImg.src} title="Gallery" />
-            <Card imgUrl={portfolioImg.src} title="Portfolio KMF" />
+          <div className="w-full relative z-10   ">
+            <Swiper
+              effect={'coverflow'}
+              grabCursor={true}
+              centeredSlides={true}
+              coverflowEffect={{
+                rotate: 30,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
+              
+              }}
+          
+              modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+              spaceBetween={40}
+              slidesPerView={previewCount}
+              navigation={true}
+              controller={true}
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+              initialSlide={1}
+              slide
+              loop={true}
+              className={`max-w-[1400px]  `}>
+              {cards.map((card) => {
+                return (
+                  <SwiperSlide className="swiper-sldier-card lg:p-10" key={card.key}>
+                    {card.content}
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
           </div>
         </div>
       </section>
 
       <section className="w-full p-2  bg-primary-subtle  mt-[50px]">
         <div>
-          <div className=" mt-10  lg:space-x-10 lg:flex justify-center items-center m-auto max-w-[1300px]">
+          <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-[1300px]">
             <div
-              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start   lg: max-w-[60rem] lg:pr-10 bg-img`} style={{background:"url('/images/cow1.png')center center/cover"}}>
-              <h1 className="text-[40px]">About KMF</h1>
+              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-[60rem]     lg:pr-10 bg-img`}>
+              <h1 className="text-[40px]">ಕೆಎಂಎಫ್ ಬಗ್ಗೆ</h1>
 
-              <div className="space-y-6" >
-                <p className="text-justify font-[100] text-neutral-dark1">
-                  KMF stands for KARNATAKA MILK FEDRATION’S LTD., KMF is a 4Decade Organization
-                  covering around 24,000 Villages procuring about 85Lakh Kgs of milk per day.
-                  Emphasizing on “Quality Excellence from Cow to Consumer”. KMF Heralding economic,
-                  social and cultural prosperity in the lives of our milk producer members by
-                  promoting vibrant, self-sustaining and holistic cooperative dairy development in
-                  Karnataka State.
-                </p>
+              <div className="space-y-6">
+                <TypeWriter
+                  text={`KMF ಎಂದರೆ KARNATAKA MILK FEDRATION'S LTD., KMF 4 ದಶಕಗಳ ಸಂಸ್ಥೆಯಾಗಿದೆ.
+                  ಸುಮಾರು 24,000 ಹಳ್ಳಿಗಳು ದಿನಕ್ಕೆ ಸುಮಾರು 85 ಲಕ್ಷ ಕೆಜಿ ಹಾಲು ಸಂಗ್ರಹಿಸುತ್ತವೆ.
+                  "ಗೋವಿನಿಂದ ಗ್ರಾಹಕನಿಗೆ ಗುಣಮಟ್ಟದ ಉತ್ಕೃಷ್ಟತೆ"ಗೆ ಒತ್ತು ನೀಡುವುದು. KMF ಹೆರಾಲ್ಡಿಂಗ್ ಆರ್ಥಿಕ,
+                  ನಮ್ಮ ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರ ಜೀವನದಲ್ಲಿ ಸಾಮಾಜಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಸಮೃದ್ಧಿ
+                  ರೋಮಾಂಚಕ, ಸ್ವಾವಲಂಬಿ ಮತ್ತು ಸಮಗ್ರ ಸಹಕಾರಿ ಡೈರಿ ಅಭಿವೃದ್ಧಿಯನ್ನು ಉತ್ತೇಜಿಸುವುದು
+                  ಕರ್ನಾಟಕ ರಾಜ್ಯ.`}
+                  delay={70}
+                />
               </div>
 
-              <button className="bg-primary-main w-[200px] h-[56px]  text-neutral-light4 font-[600] rounded-md">
-                Read More
+              <button className="bg-primary-main w-[200px] h-[56px]  text-neutral-light4 font-semibold rounded-md">
+              ಮತ್ತಷ್ಟು ಓದು
               </button>
             </div>
 
             <Fade right>
-              <div className="p-4 flex justify-center items-center w-full h-[400px]   lg:max-w-[32rem]">
+              <div className="p-4 flex justify-center items-center w-full h-96    ">
                 <video
                   src={aboutVideo}
                   playsInline
                   muted
                   autoPlay
                   loop
-                  className="w-[500px] h-[400px] object-cover"
+                  className="w-full h-96 object-cover"
                 />
               </div>
             </Fade>
           </div>
 
-          <div className=" mt-10 mb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-[1300px]">
+          <div className=" mt-10 mb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center   m-auto max-w-[1300px]">
             <Fade left>
-              <div className="p-4 flex justify-center items-center w-full h-[400px]   lg:max-w-[32rem]">
+              <div className="p-4 flex justify-center items-center w-full h-96    ">
                 <video
                   src={aboutVideo2}
                   playsInline
                   muted
                   autoPlay
                   loop
-                  className="w-[500px] h-[400px] object-cover"
+                  className="w-full h-96 object-cover"
                 />
               </div>
             </Fade>
             <div
-              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10 bg-img`} style={{background:"url('/images/cow2.png')center center/cover"}}>
-              <h1 className="text-[40px]">About OUR BRAND NANDINI</h1>
+              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center  lg: max-w-[60rem] lg:pr-10 bg-img-2`}>
+              <h1 className="text-[40px]">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ ಬಗ್ಗೆ</h1>
 
-              <div className="space-y-6">
-                <p className="text-justify font-[100] text-neutral-dark1">
-                  NANDINI MILK is a brand owned by KMF. Nandini was founded in 1974 by the
-                  government of Karnataka as Karnataka Dairy Development Corporation (KDDC). NANDINI
-                  brand became household name in state of Karnataka. In 1955 First Dairy was
-                  established in the State of Karnataka, belonging to KODAGU district at KUDIGE
-                  Village, later in the Year 1965 The Biggest Dairy was Built in Bengaluru. Nandini
-                  Brand Includes verities of Milk & Milk Products.
-                </p>
+              <div className="space-y-6 h-[">
+                <TypeWriter
+                  text={`ನಂದಿನಿ ಹಾಲು ಕೆಎಂಎಫ್ ಒಡೆತನದ ಬ್ರಾಂಡ್ ಆಗಿದೆ. ನಂದಿನಿಯನ್ನು 1974 ರಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾಯಿತು
+                  ಕರ್ನಾಟಕ ಸರ್ಕಾರವು ಕರ್ನಾಟಕ ಡೈರಿ ಅಭಿವೃದ್ಧಿ ನಿಗಮ (ಕೆಡಿಡಿಸಿ). ನಂದಿನಿ
+                  ಬ್ರ್ಯಾಂಡ್ ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಮನೆಮಾತಾಗಿದೆ. 1955 ರಲ್ಲಿ ಮೊದಲ ಡೈರಿ ಆಗಿತ್ತು
+                  ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಕೊಡಗು ಜಿಲ್ಲೆಗೆ ಸೇರಿದ ಕೂಡಿಗೆಯಲ್ಲಿ ಸ್ಥಾಪಿಸಲಾಗಿದೆ
+                  ಗ್ರಾಮ, ನಂತರ 1965 ರಲ್ಲಿ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಅತಿದೊಡ್ಡ ಡೈರಿಯನ್ನು ನಿರ್ಮಿಸಲಾಯಿತು. ನಂದಿನಿ
+                  ಬ್ರ್ಯಾಂಡ್ ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ನೈಜತೆಯನ್ನು ಒಳಗೊಂಡಿದೆ.`}
+                  delay={70}
+                />
               </div>
 
-              <button className="bg-primary-main w-[200px] h-[56px]  text-neutral-light4 font-[600] rounded-md">
-                Read More
+              <button className="bg-primary-main w-[200px] h-[56px]  text-neutral-light4 font-semibold rounded-md">
+              ಮತ್ತಷ್ಟು ಓದು
               </button>
             </div>
           </div>
@@ -177,7 +234,7 @@ const Home = () => {
               </p>
             </div>
 
-            <button className="bg-primary-main w-[200px] h-[56px]  text-neutral-light4 font-[600] rounded-md">
+            <button className="bg-primary-main w-[200px] h-[56px]  text-neutral-light4 font-semibold rounded-md">
               Read More
             </button>
           </div>
@@ -190,40 +247,41 @@ const Home = () => {
 
       {/* NOTIFICATION SECTION  */}
 
-      <section className="w-full h-[316px]   ">
+      <section className="w-full h-80   ">
         <CarouselNotification
           images={notificationImg}
-          title="Notification"
-          description="11 OCT Tender Notification"
+          title="ಅಧಿಸೂಚನೆ"
+          description="
+          11 OCT ಟೆಂಡರ್ ಅಧಿಸೂಚನೆ"
         />
       </section>
 
       {/* QUICK LINK  */}
 
-      <section className="w-full h-auto pt-[180px]   ">
+      <section className="w-full h-auto pt-[180px]    ">
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-[40px] ">Quick Links</h1>
-            <p className="text-center text-[16px] text-[#595959]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore
+            <h1 className="text-[40px] ">
+ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h1>
+            <p className="text-center text-sm text-[#595959]">
+            ಕೆಲವು ಲಿಂಕ್‌ಗಳು ಇಲ್ಲಿವೆ
             </p>
           </div>
 
           <div className='mt-20 w-full h-auto  relative  before:absolute before:top-0   before:lg:top-1/3 before:w-full before:h-full before:z-[-1] before:bg-[url("/images/quickLinkbg.png")] before:bg-no-repeat before:bg-cover'>
             <Fade bottom>
               <div className="max-w-[1600px] m-auto p-3 flex flex-col justify-center items-center gap-10  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
-                <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
-                <LinkCard title="Latest News" imgUrl={newsIco.src} />
-                <LinkCard title="Daily Tour" imgUrl={locationIco.src} />
-                <LinkCard title="Nandhini Commercials" imgUrl={commercialIco.src} />
+                <LinkCard title="ಬೇಡಿಕೆಯನ್ನು ಸಲ್ಲಿಸಿ" imgUrl={cartIco.src} />
+                <LinkCard title="ಇತ್ತೀಚಿನ ಸುದ್ದಿ" imgUrl={newsIco.src} />
+                <LinkCard title="ದೈನಂದಿನ ಪ್ರವಾಸ" imgUrl={locationIco.src} />
+                <LinkCard title="ನಂದಿನಿ ಕಮರ್ಷಿಯಲ್ಸ್" imgUrl={commercialIco.src} />
               </div>
             </Fade>
           </div>
         </div>
       </section>
 
-      <section className="w-full pt-20 bg-secondary-subtle h-auto ">
+      <section className="w-full   bg-secondary-subtle h-auto ">
         <div>
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-[1300px]">
             <Fade left>
@@ -233,17 +291,12 @@ const Home = () => {
             </Fade>
             <div className="flex flex-col justify-center space-y-10 items-center">
               <div
-                className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10 bg-img`}>
-                <h1 className="text-[40px]">Know Your Milk</h1>
+                className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
+                <h1 className="text-[40px]">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
 
                 <div className="space-y-6">
                   <p className="text-justify font-[100] text-neutral-dark1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore
+                  ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ: ವೈವಿಧ್ಯಮಯ ಪ್ರಧಾನ ಆಹಾರ, ಹಾಲು ಹಸು, ಮೇಕೆ ಮತ್ತು ಕುರಿಗಳಂತಹ ವಿಧಗಳಲ್ಲಿ ಬದಲಾಗುತ್ತದೆ, ಪ್ರತಿಯೊಂದೂ ವಿಶಿಷ್ಟವಾದ ಸುವಾಸನೆ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಪ್ರೊಫೈಲ್ಗಳನ್ನು ನೀಡುತ್ತದೆ. ಕ್ಯಾಲ್ಸಿಯಂ, ಪ್ರೋಟೀನ್ ಮತ್ತು ವಿಟಮಿನ್ಗಳಲ್ಲಿ ಸಮೃದ್ಧವಾಗಿರುವ ಹಾಲು ಮೂಳೆಯ ಆರೋಗ್ಯವನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ ಮತ್ತು ರೋಗನಿರೋಧಕ ಶಕ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ. ಸಂಪೂರ್ಣ ಹಾಲು ನೈಸರ್ಗಿಕವಾಗಿ ಉಳಿಸಿಕೊಳ್ಳುತ್ತದೆ. ಕೊಬ್ಬುಗಳು, ಆದರೆ ಕೆನೆರಹಿತ ಆಯ್ಕೆಗಳು ಕೊಬ್ಬಿನಂಶವನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. ಲ್ಯಾಕ್ಟೋಸ್-ಮುಕ್ತ ಮತ್ತು ಸಸ್ಯ-ಆಧಾರಿತ ಪರ್ಯಾಯಗಳು ಆಹಾರದ ಆದ್ಯತೆಗಳನ್ನು ಪೂರೈಸುತ್ತವೆ. ನಿಮ್ಮ ಹಾಲಿನ ಆಯ್ಕೆಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಉತ್ತಮವಾದ, ರುಚಿಕರವಾದ ಮತ್ತು ಆರೋಗ್ಯ-ಪ್ರಜ್ಞೆಯ ಜೀವನಶೈಲಿಗಾಗಿ ವೈಯಕ್ತಿಕ ಅಗತ್ಯಗಳಿಗೆ ಪೋಷಣೆಯನ್ನು ಹೊಂದಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.
                   </p>
                 </div>
               </div>
@@ -252,31 +305,31 @@ const Home = () => {
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco1.src} alt="imp-milk" />
                   <p className="text-neutral-dark1">
-                    Importance of <br /> milk
+                  ನ ಪ್ರಾಮುಖ್ಯತೆ <br /> ಹಾಲು
                   </p>
                 </div>
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco2.src} alt="imp-milk" />
                   <p className="text-neutral-dark1">
-                    Class & type <br />
-                    of milk
+                  ವರ್ಗ ಮತ್ತು ಪ್ರಕಾರ <br />
+                  ಹಾಲಿನ
                   </p>
                 </div>
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco3.src} alt="imp-milk" />
                   <p className="text-neutral-dark1">
-                    Essential nutrition <br />
-                    in milk
+                  ಅಗತ್ಯ ಪೋಷಣೆ<br />
+                  ಹಾಲಿನಲ್ಲಿ
                   </p>
                 </div>
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco4.src} alt="imp-milk" />
                   <p className="text-neutral-dark1">
-                    Milk for every <br />
-                    Age group
+                  ಪ್ರತಿಯೊಂದಕ್ಕೂ ಹಾಲು <br />
+                  ವಯಸ್ಸಿನ ಗುಂಪು
                   </p>
                 </div>
               </div>
@@ -289,142 +342,60 @@ const Home = () => {
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-[40px]">Latest News</h1>
+              <h1 className="text-[40px]">ಇತ್ತೀಚಿನ ಸುದ್ದಿ</h1>
               <div className="w-[100px] h-[5px] bg-black"></div>
             </div>
-            <p className="text-neutral-dark1">Ut enim ad minim veniam, quik</p>
+            <p className="text-neutral-dark1">ವೈವಿಧ್ಯಮಯ ಹಾಲಿನ ಆಯ್ಕೆಗಳು, ಪೋಷಕಾಂಶಗಳಲ್ಲಿ ಸಮೃದ್ಧವಾಗಿವೆ, ವೈಯಕ್ತಿಕಗೊಳಿಸಿದ ಆರೋಗ್ಯ ಮತ್ತು ರುಚಿಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ</p>
           </div>
 
           <div className=" relative w-full flex flex-col justify-center items-center gap-5 flex-wrap space-y-10 sm:space-y-0 sm:flex-row sm:justify-evenly ">
             <div className="relative">
-              <div className='max-w-[500px] overflow-hidden'>
-                <img src={cowBlogImg.src} className="w-full hover:scale-[1.2]  "  style={{transition:'1s all'}}/>
+              <div className="max-w-[500px] overflow-hidden">
+                <img
+                  src={cowBlogImg.src}
+                  className="w-full hover:scale-[1.2]  "
+                  style={{ transition: '1s all' }}
+                />
               </div>
               <div className="absolute bottom-9 left-7">
-                <p className="text-light-light4 text-[12px]">Dec 13, 2023</p>
-                <p className="text-light-light4 text-[24px]">Latest News....</p>
+                <p className="text-light-light4 text-[12px]">ಡಿಸೆಂಬರ್ 13, 2023</p>
+                <p className="text-light-light4 text-[24px]">ಇತ್ತೀಚಿನ ಸುದ್ದಿ....</p>
               </div>
             </div>
 
             <div className="relative">
-            <div className='max-w-[500px] overflow-hidden'>
-                <img src={cowBlogImg.src} className="w-full hover:scale-[1.2]  "  style={{transition:'1s all'}}/>
+              <div className="max-w-[500px] overflow-hidden">
+                <img
+                  src={cowBlogImg.src}
+                  className="w-full hover:scale-[1.2]  "
+                  style={{ transition: '1s all' }}
+                />
               </div>
               <div className="absolute bottom-9 left-7">
-                <p className="text-light-light4 text-[12px]">Dec 13, 2023</p>
-                <p className="text-light-light4 text-[24px]">Latest News....</p>
+                <p className="text-light-light4 text-[12px]">ಡಿಸೆಂಬರ್ 13, 2023</p>
+                <p className="text-light-light4 text-[24px]">ಇತ್ತೀಚಿನ ಸುದ್ದಿ....</p>
               </div>
             </div>
 
             <div className="relative">
-            <div className='max-w-[500px] overflow-hidden'>
-                <img src={cowBlogImg.src} className="w-full hover:scale-[1.2]  "  style={{transition:'1s all'}}/>
+              <div className="max-w-[500px] overflow-hidden">
+                <img
+                  src={cowBlogImg.src}
+                  className="w-full hover:scale-[1.2]  "
+                  style={{ transition: '1s all' }}
+                />
               </div>
               <div className="absolute bottom-9 left-7">
-                <p className="text-light-light4 text-[12px]">Dec 13, 2023</p>
-                <p className="text-light-light4 text-[24px]">Latest News....</p>
+                <p className="text-light-light4 text-[12px]">ಡಿಸೆಂಬರ್ 13, 2023</p>
+                <p className="text-light-light4 text-[24px]">ಇತ್ತೀಚಿನ ಸುದ್ದಿ....</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
-
       {/* FOOTER SECTION  */}
-
-      <section  className="w-full h-full md:h-auto pt-10  bg-primary-subtle relative footer-bg  ">
-        <div className=' z-[10] relative p-5 max-w-[1400px] h-[600px] m-auto flex flex-col justify-between items-center md:p-10 md:items-start'>
-
-              <div>
-              <img src={logo.src} className='w-[100px]'/>
-              </div>
-
-              <div className='  pt-10 w-full flex flex-col justify-center items-center  gap-5 md:flex-row md:justify-between md:items-start'>
-
-                  <div className='flex flex-col justify-center items-center md:items-start p-2 max-w-[400px] space-y-5'>
-                    <h1 className='text-[24px] mb-5 relative before:absolute before:bottom-[-10px] before:w-[40px] before:h-1 before:bg-primary-lighter'>
-                    Address
-                    </h1>
-
-                    <div className='flex justify-center items-start space-x-3'>
-                      <img src={locationVectorIco.src}/>
-
-                      <div className='flex flex-col justify-center items-center md:items-start space-y-5'>
-                        <p className='text-neutral-dark1 text-justify'>Karnataka Cooperative Milk Producers Mahamandal Regt.Kahama Complex, Post Box No- 2915,D. R. College Post, Dr.MH Marigowda Road,Bangalore-560029, Karnataka.</p>
-                        <butto className="flex justify-center items-center bg-primary-main w-[170px] h-[40px]   text-neutral-light4 font-[600] rounded-full"> <img src={nearMeIco.src} className='m-2' /> Get Direction</butto>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div className='flex flex-col p-2 max-w-[400px] justify-center space-y-5 items-center md:items-start'>
-                    <h1 className='text-[24px] mb-5 relative before:absolute before:bottom-[-10px] before:w-[40px] before:h-1 before:bg-primary-lighter'>
-                    Telephone
-                    </h1>
-
-                    <div className='flex justify-center items-start space-x-3'>
-                      <img src={callVectorIco.src}/>
-
-                      <div className='flex flex-col justify-center items-start space-y-5'>
-                        <p className='text-neutral-dark1 text-justify'>080-260 96800
-Helpline :
-1800 425 8030 toll free 10.00AM - 5.30PM
-(Except Second Saturday, Fourth Saturday, Sunday and other State Government Holidays)
-Nandini Helpline Number (24*7) :
-080-66660000
-Fax: : 080-255 36105</p>
-                    
-                      </div>
-
-                    </div>
-                  </div>
-
-
-
-
-
-                  <div className='flex flex-col p-2 max-w-[400px] space-y-5 justify-center items-center md:items-start'>
-                    <h1 className='text-[24px] mb-5 relative before:absolute before:bottom-[-10px] before:w-[40px] before:h-1 before:bg-primary-lighter'>
-                    E-mail
-                    </h1>
-
-                    <div className='flex justify-center items-start space-x-3'>
-                      <img src={msgVectorIco.src}/>
-
-                      <div className='flex flex-col justify-center items-start space-y-5'>
-                        <p className='text-neutral-dark1 text-justify'>customercare.nandini@kmf.coop</p>
-                    
-                      </div>
-
-                    </div>
-                  </div>
-
-              </div>
-
-
-              <div className='flex flex-col w-full justify-between items-center mt-10 space-y-6  flex-wrap md:flex-row'>
-
-                <div className='flex justify-center items-center'>
-                  <p className='text-[12px]'>© 2009 - 2020 Karnataka Milk Federation.</p>
-                </div>
-
-                <div className='flex space-x-10 justify-between items-center'>
-                      <img src={facebookIco.src}/>
-                      <img src={xIco.src}/>
-                      <img src={ytIco.src}/>
-                </div>
-
-                <div className='flex justify-center items-center'>
-                <p className='text-justify text-[12px]'>Login for Member Unions Privacy Policy Site Map</p>
-                </div>
-
-              </div>
-
-
-        </div>
-      </section>
-
+      <Footer />
     </div>
   );
 };

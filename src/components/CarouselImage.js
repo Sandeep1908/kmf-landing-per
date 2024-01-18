@@ -1,7 +1,9 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel as Carousels } from 'react-responsive-carousel';
+ 
+
 const CarouselImage = ({ images }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -13,7 +15,7 @@ const CarouselImage = ({ images }) => {
 
   return (
     <div className="relative w-full">
-      <Carousel
+      <Carousels 
         ref={carouselRef}
         autoPlay={isPlaying}
         showArrows={true}
@@ -27,17 +29,12 @@ const CarouselImage = ({ images }) => {
         {images.map((img, idx) => {
           return (
             <div key={idx}>
-              <img src={img} alt="" className="w-full h-[800px] object-cover" />
+              <img src={img} alt="" className="w-full h-[600px] object-cover" />
             </div>
           );
         })}
-      </Carousel>
-
-      <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 flex flex-col  space-y-4  ">
-        <button className=" bg-light-light4 text-sm  text-black w-[200px] h-[50px] rounded-sm tracking-wide  hover:text-white after:absolute after:inset-0 after:bg-primary-gradient after:w-0 hover:after:w-full transform origin-left after:transition-all after:duration-[.7s]  hover:after:z-[-1]"  >
-          VIEW ALL PRODUCT
-        </button>
-      </div>
+      </Carousels >
+ 
     </div>
   );
 };
@@ -57,7 +54,7 @@ export const CarouselNotification = ({ images, title, description, link }) => {
 
   return (
     <div className="relative w-full">
-      <Carousel
+      <Carousels 
         ref={carouselRef}
         autoPlay={isPlaying}
         interval={4000}
@@ -70,7 +67,7 @@ export const CarouselNotification = ({ images, title, description, link }) => {
         {images.map((img, idx) => {
           return (
             <div key={idx}>
-              <img src={img} alt="" className="w-full h-[316px] object-cover" />
+              <img src={img} alt="" className="w-full h-80 object-cover" />
 
               <div className="absolute top-1/3 w-full left-0 flex flex-col justify-center space-y-7 items-center pl-10 pr-10 sm:flex-row   sm:items-end sm:justify-between ">
                 <div className="flex justify-start items-start flex-col lg:pl-20">
@@ -87,9 +84,13 @@ export const CarouselNotification = ({ images, title, description, link }) => {
             </div>
           );
         })}
-      </Carousel>
+      </Carousels >
     </div>
   );
 };
+
+
+
+ 
 
 export default CarouselImage;

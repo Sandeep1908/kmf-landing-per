@@ -6,7 +6,19 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './page.module.css'
 import Footer from '../components/Footer'
 
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+ 
+
+ 
+
+
+
+
 export default function RootLayout({ children }) {
+  
+ 
    
   return (
     <>
@@ -18,8 +30,9 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           {''}
+       
         </body>
-        {/* <Footer /> */}
+        
       </html>
      
     </>
