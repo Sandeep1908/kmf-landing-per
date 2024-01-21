@@ -5,6 +5,7 @@ import founderOfMilkImg from '@/images/portfolio/founder-of-milk.jpeg';
 import brandAmbasImg from '@/images/portfolio/brand.jpeg';
 import mdkn from '@/images/portfolio/md-kn.png';
 import mden from '@/images/portfolio/md-en.png';
+import md from '@/images/portfolio/md.jpeg';
 import milkImg from '@/images/portfolio/milkImg.png';
 import Footer from '@/components/Footer';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -250,17 +251,17 @@ KMF ಸಾಧನೆಗಳು`}{' '}
       </section>
 
       <section className="max-w-7xl m-auto h-auto pt-10  ">
-        <div className="w-full  h-full flex flex-col  justify-around p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
+        <div className="w-full  h-full flex flex-col items-start justify-around p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className='w-full flex flex-col items-center justify-center'>
             <h1 className="text-2xl text-primary-main uppercase">Chairman of kmf</h1>
 
-            <img src={locale === 'en' ? headengImg.src : headImg.src} className="w-full " />
+            <img src={locale === 'en' ? headengImg.src : headImg.src} className="w-72 " />
           </div>
 
           <div className='w-full flex flex-col justify-center items-center'>
           <h1 className="text-2xl text-primary-main uppercase">MD of kmf</h1>
 
-<img src={locale === 'en' ? mden.src : mdkn.src} className=" " />
+<img src={md.src} className="w-60 " />
           </div>
         </div>
       </section>

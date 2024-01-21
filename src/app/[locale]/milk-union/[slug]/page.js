@@ -23,7 +23,8 @@ function MilkUnionDetail({ slug }) {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`/api/milk-unions/${param?.slug}`);
+      const { data } = await axios.get(`/api/milk-unions/${param?.slug}`)
+      
       setUnion(data?.data);
       setUnionImages(data?.data?.attributes?.image?.data);
     })();
@@ -44,7 +45,7 @@ function MilkUnionDetail({ slug }) {
             <div className="w-full flex flex-col justify-center items-center space-y-5">
               <div className="  max-w-[458px]    ">
                 <img
-                  src={unionImages[currentIndex]?.attributes?.url}
+                  src={unionImages?.[currentIndex]?.attributes?.url}
                   alt="slider-img"
                   className="w-96 h-70"
                 />

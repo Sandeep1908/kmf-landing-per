@@ -13,8 +13,13 @@ function Notification() {
   const [tenderItems, setTenderItems] = useState([]);
   const [pastTenders, setPastTenders] = useState([]);
   const [liveTenders, setLiveTenders] = useState([]);
-  const listItems = ['Live Tender', 'Past Tender'];
+  const listItems = ['Live Tender', 'Past Tender','All Tenders'];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = tenderItems?.slice(indexOfFirstItem, indexOfLastItem);
   const axios = useApi();
 
   const handleClickItem = (idx) => {
@@ -22,7 +27,9 @@ function Notification() {
     const tenderItemsData = idx === 0 ? liveTenders : pastTenders;
     setTenderItems(tenderItemsData);
   };
- 
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     (async () => {
@@ -65,7 +72,7 @@ function Notification() {
         </div>
 
         <div className="w-full h-full pt-10 p-4 space-y-4 bg-[#F6F6F6]">
-          {tenderItems?.map((item, idx) => {
+          {currentProducts?.map((item, idx) => {
  
          
             
@@ -83,7 +90,18 @@ function Notification() {
           })}
         </div>
       </section>
-
+      <div className="flex justify-center mt-10 mb-10">
+          {Array.from({ length: Math.ceil(tenderItems.length / itemsPerPage) })?.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`mx-1 px-3 py-1 rounded ${
+                currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
+              }`}>
+              {index + 1}
+            </button>
+          ))}
+        </div>
       <Footer />
     </div>
   );

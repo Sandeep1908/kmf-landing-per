@@ -53,7 +53,7 @@ function MilkUnion() {
                 key={union?.id}
                 name={union?.attributes?.name}
                 address={union?.attributes?.address}
-                image={union?.attributes?.image?.data[0]?.attributes?.url}
+                image={union?.attributes?.image?.data?.[0]?.attributes?.url}
                 fax={union?.attributes?.fax}
                 email={union?.attributes?.email}
                 phone={union?.attributes?.phone}

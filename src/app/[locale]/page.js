@@ -58,7 +58,13 @@ const Home = () => {
        
 
       const liveTenders = data?.data?.filter((item) => item.attributes?.status === 'live tender');
-      setLiveTenders(liveTenders);
+      const pastTenders = data?.data?.filter((item) => item.attributes?.status === 'past tender');
+      if(liveTenders.length===0){
+        setLiveTenders(pastTenders)
+      }else{
+        setLiveTenders(liveTenders);
+      }
+
       setHomeNotification(homenotification?.data)
       if(recentnew?.data?.length > 3){
         setRecentNew(recentnew.data?.slice(0,3));
