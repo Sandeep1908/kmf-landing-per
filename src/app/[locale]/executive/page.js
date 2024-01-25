@@ -58,7 +58,7 @@ const Executive = () => {
                 <p className='text-base font-normal text-neutral-dark2'>{md?.attributes?.description}</p>
               </div>
               <div className='mt-3 lg:mt-12 p-3 md:p-0'>
-                
+            
               </div>
             </div>
         </div>
