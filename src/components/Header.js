@@ -1,23 +1,22 @@
 'use client';
-
 import { useEffect, useState } from 'react';
-import logo from '../images/logo/logo.png';
-import logokn from '../images/logo/logo-kn.png';
-import AccordionItem from '../components/Accordion';
+import logo from '@/images/logo/logo.png';
+import logokn from '@/images/logo/logo-kn.png';
+import AccordionItem from '@/components/Accordion';
 import { mobileHeader } from '@/configtext/header';
-import downarrowIco from '../images/icons/downarrow.svg';
-import uparrowIco from '../images/icons/uparrow.svg';
-import locationIco from '../images/header-ico/location.svg';
-import contactIco from '../images/header-ico/contact.svg';
-import searchIco from '../images/header-ico/search.svg';
+import downarrowIco from '@/images/icons/downarrow.svg';
+import uparrowIco from '@/images/icons/uparrow.svg';
+import locationIco from '@/images/header-ico/location.svg';
+import contactIco from '@/images/header-ico/contact.svg';
+import searchIco from '@/images/header-ico/search.svg';
 import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { IoHomeOutline } from 'react-icons/io5';
-import facebookIco from '../images/footer/fb.svg';
-import mailIco from '../images/footer/Email.svg';
-import twitterIco from '../images/footer/x.svg';
-import insta from '../images/footer/insta.svg';
+import facebookIco from '@/images/footer/fb.svg';
+import mailIco from '@/images/footer/Email.svg';
+import twitterIco from '@/images/footer/x.svg';
+import insta from '@/images/footer/insta.svg';
  
 import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
