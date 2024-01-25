@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import AboutHeroImg from '@/images/about/mission/about-hero.png';
+import evolutionImg from '@/images/about/mission/evolution.jpeg';
 import CowImg1 from '@/images/about/mission/about-cow-1.png';
 import CowImg2 from '@/images/about/mission/about-cow-2.png';
 import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
@@ -11,13 +11,13 @@ function MissionVission() {
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
+        <img src={evolutionImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
       <section className="w-full h-auto pt-10  ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col justify-center items-start ">
-            <h1 className="text-2xl text-primary-main uppercase">
+        <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
+          <div className="w-full flex flex-col justify-center items-start shadow-md ">
+            <h1 className="text-2xl text-primary-main uppercase p-2">
               {locale === 'en' ? 'Vision' : 'ದೃಷ್ಟಿ'}
             </h1>
 
@@ -87,7 +87,7 @@ function MissionVission() {
           </div>
 
           <div className="w-full relative  flex justify-center items-center company-bg ">
-            <div className="  flex flex-col justify-center items-start">
+            <div className="  flex flex-col justify-center items-start   ">
               <h1 className="text-2xl text-primary-main uppercase">
                 {locale === 'en'
                   ? ` Mission`
@@ -96,7 +96,7 @@ function MissionVission() {
 
                
 ಮಿಷನ್`}
-                Mission
+             
               </h1>
               <p className="text-sm text-justify p-6">
                 {locale === 'en'
@@ -119,14 +119,14 @@ function MissionVission() {
         </div>
       </section>
 
-      <section className="w-full h-auto pt-10  ">
+      <section className="w-full h-auto pt-10   ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full   flex justify-center items-center">
             <img src={CowImg1.src} />
           </div>
 
-          <div className="w-full flex flex-col justify-center items-start ">
-            <h1 className="text-2xl text-primary-main uppercase">
+          <div className="w-full flex flex-col justify-center items-start shadow-md ">
+            <h1 className="text-2xl text-primary-main uppercase p-2">
               {locale === 'en'
                 ? ` Objectives`
                 : `
@@ -253,8 +253,8 @@ function MissionVission() {
 
       <section className=" relative w-full h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col justify-center items-start ">
-            <h1 className="text-2xl text-primary-main uppercase">
+          <div className="w-full flex flex-col justify-center items-start shadow-md ">
+            <h1 className="text-2xl text-primary-main uppercase p-2">
             {locale === 'en'
                   ? `                    Evolution`
                   : `

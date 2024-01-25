@@ -20,6 +20,7 @@ export const mobileHeader = {
 
     {
       title: 'ABOUT US',
+      link:'/en/about/company-profile',
       subItems: [
         {
           title: 'Company Profile',
@@ -58,6 +59,10 @@ export const mobileHeader = {
         {
           title: 'Board of Directors',
           link: '/en/directors'
+        },
+        {
+          title: 'KMF Executives',
+          link: '/en/executive'
         },
   
       ]
@@ -140,12 +145,13 @@ export const mobileHeader = {
       //     link: ''
       //   }
       // ],
-      link: '',
+      link: '/en/milk-union',
       imgUrl: milkUnionIco.src
     },
 
     {
       title: 'KMF UNITS',
+       
       // subItems: [
       //   {
       //     title: 'KMF Corporate Office',

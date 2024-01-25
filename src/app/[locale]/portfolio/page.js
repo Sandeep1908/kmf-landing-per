@@ -28,11 +28,19 @@ function Portfolio() {
   const axios = useApi();
   const locale = useParams().locale;
   const [portfilioData, setPortfolioData] = useState([]);
+  const [md,setMd]=useState([])
+  const [chairman,setChairman]=useState([])
+
+   
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/kmf-acheivment');
+      const {data:md}= await axios.get('/api/md')
+      const {data:chairman}= await axios.get('/api/chairmain')
       setPortfolioData(data.data);
+      setMd(md?.data)
+      setChairman(chairman?.data)
     })();
   }, []);
 
@@ -54,12 +62,14 @@ function Portfolio() {
     return () => window.removeEventListener('resize', handleSlideView);
   }, []);
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
+    <div
+      className="w-full h-full absolute top-36 z-[-1]  bg-white   "
+       >
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img src={portfolioImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
-      <section className="max-w-7xl m-auto pt-10 ">
+      <section className="max-w-7xl m-auto pt-10  bg-white">
         <div className="w-full space-y-5 p-4 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
           <h1 className="text-center text-xl text-primary-main uppercase">
             {locale === 'en'
@@ -81,7 +91,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
         </div>
       </section>
 
-      <section className="max-w-7xl m-auto h-auto pt-10  ">
+      <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full   flex justify-center items-center">
             <img src={milkImg.src} className="  h-96" />
@@ -122,7 +132,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
         </div>
       </section>
 
-      <section className="max-w-7xl m-auto h-auto pt-10  ">
+      <section className="max-w-7xl m-auto h-auto pt-10 bg-white ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main uppercase">
@@ -195,8 +205,14 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
           </div>
         </div>
       </section> */}
+ 
 
-      <section className="max-w-7xl m-auto pt-10 ">
+
+<section className="max-w-7xl h-full m-auto pt-10 relative z-[-10]   "  >
+      <img src='/images/footerbg.png' className='fixed w-full h-full inset-0 object-contain'/>
+    </section>
+
+      <section className="max-w-7xl m-auto pt-10  bg-white">
         <h1 className="text-center text-xl text-primary-main uppercase">
           {locale === 'en'
             ? `KMF Acheivments`
@@ -216,7 +232,7 @@ KMF ಸಾಧನೆಗಳು`}{' '}
         </div>
       </section>
 
-      <section className="max-w-7xl m-auto h-auto pt-10  ">
+      <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main uppercase">
@@ -245,24 +261,51 @@ KMF ಸಾಧನೆಗಳು`}{' '}
           </div>
 
           <div className="w-full   flex justify-center items-center">
-            <img src={brandAmbasImg.src} className=" h-96" />
+          <iframe width="560" height="315" src={"https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo"} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl m-auto h-auto pt-10  ">
+      <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
         <div className="w-full  h-full flex flex-col items-start justify-around p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className='w-full flex flex-col items-center justify-center'>
-            <h1 className="text-2xl text-primary-main uppercase">Chairman of kmf</h1>
 
-            <img src={locale === 'en' ? headengImg.src : headImg.src} className="w-72 " />
-          </div>
 
-          <div className='w-full flex flex-col justify-center items-center'>
-          <h1 className="text-2xl text-primary-main uppercase">MD of kmf</h1>
+        <div className="max-w-80 h-[500px] relative rounded-tl-3xl rounded-br-3xl  shadow-md  overflow-hidden  group  transition-all duration-400 ease-in-out ">
+      <div className="max-h-[80%] overflow-hidden ">
+        <img
+          src={chairman?.attributes?.image?.data?.attributes?.url}
+          alt="featured-img"
+          className="w-full h-full group-hover:scale-[1.1]"
+          style={{ transition: '.4s all' }}
+        />
+      </div>
 
-<img src={md.src} className="w-60 " />
-          </div>
+      <div className="mt-5  flex justify-center items-center flex-col p-4 space-y-3 ">
+        <p className="text-md font-bold text-neutral-dark1">{chairman?.attributes?.name}</p>
+        <h1 className="text-sm text-center ">{chairman?.attributes?.description}</h1>
+      </div>
+    </div>
+
+
+
+
+    <div className="max-w-80  h-[500px] relative rounded-tl-3xl rounded-br-3xl  shadow-md  overflow-hidden  group  transition-all duration-400 ease-in-out ">
+      <div className="max-h-[80%] overflow-hidden ">
+        <img
+          src={md?.attributes?.image?.data?.attributes?.url}
+          alt="featured-img"
+          className="w-full h-full group-hover:scale-[1.1]"
+          style={{ transition: '.4s all' }}
+        />
+      </div>
+
+      <div className="mt-5  flex justify-center items-center flex-col p-4 space-y-3 ">
+        <p className="text-md font-bold text-neutral-dark1">{md?.attributes?.name}</p>
+        <h1 className="text-sm text-center ">{md?.attributes?.description}</h1>
+      </div>
+    </div>
+
+ 
         </div>
       </section>
 

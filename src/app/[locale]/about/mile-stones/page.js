@@ -15,13 +15,19 @@ function OrganizationChart() {
   const [selectedYear, setSelectedYear] = useState(1955);
   const [nextYear, setNextYear] = useState(1955);
   const [description, setDescription] = useState([]);
-
+  const pagesToShow = 4; // Number of pagination numbers to show
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = description?.slice(indexOfFirstItem, indexOfLastItem);
+const [banner,setBanner]=useState([])
   const axios = useApi();
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/milestones?sort[0]=year:asc');
-      console.log("milestone",data.data)
+      const {data:banner}=await axios.get('/api/milestone-banner')
       const milestones = data?.data?.map((item) => {
         return { year: item?.attributes?.year, description: item?.attributes?.description };
       });
@@ -31,41 +37,78 @@ function OrganizationChart() {
         (item) => parseInt(item.year) >= selectedYear && parseInt(item.year) <= nextYear
       );
  
-      
+      setBanner(banner?.data)
       setDescription(filterdata);
     })();
 
     setMileStone(mileStone);
   }, [selectedYear, nextYear]);
 
-  const handleYear = (year,idx) => {
- 
-    setSelectedYear(nextYear)
-    setNextYear(year);
-    
-     
+  
+  const handleYear = (year, idx) => {
+    if (year === selectedYear) {
+      // If the clicked year is the same as the selected year, reset the range
+      setNextYear(selectedYear);
+      setSelectedYear(selectedYear);
+    } else {
+      // Update the range with the clicked year
+      setNextYear(year);
+      setSelectedYear(selectedYear);
+    }
   };
 
-  const handleSlideChange = (idx) => {
-    console.log(idx)
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
+
+  const renderPaginationNumbers = () => {
+    const totalPages = Math.ceil(description.length / itemsPerPage);
+    const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+    const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
+
+    const paginationNumbers = [];
+    for (let i = startPage; i <= endPage; i++) {
+      paginationNumbers.push(
+        <button
+          key={i}
+          onClick={() => paginate(i)}
+          className={`mx-1 px-3 py-1 rounded ${
+            currentPage === i ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    if (startPage > 1) {
+      paginationNumbers.unshift(<span key="ellipsis-start">...</span>);
+    }
+
+    if (endPage < totalPages) {
+      paginationNumbers.push(<span key="ellipsis-end">...</span>);
+    }
+
+    return paginationNumbers;
+  };
+
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img
-          src={organizationHero.src}
+          src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
           className="w-full h-full object-cover absolute top-0 z-[-1]"
         />
       </section>
 
-      <section className="w-full h-full pt-10  ">
-        <div className="  w-full  h-full lg:flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full h-full flex flex-col justify-center items-start ">
+      <section className="w-full  pt-10  ">
+        <div className="  w-full    lg:flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
+          <div className="w-full  flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main">Mile Stone</h1>
 
             <div className="w-full  pt-5 overflow-auto">
               <ul className="w-full h-full flex flex-col space-y-5 justify-start items-start">
-                {description?.map((item, id) => {
+                {currentProducts?.map((item, id) => {
                   return (
                     <li key={id} className="flex justify-start items-center space-x-4">
                       <div className='relative'>
@@ -77,9 +120,33 @@ function OrganizationChart() {
                   );
                 })}
               </ul>
+
+
+  
             </div>
 
+            <div className={`flex justify-center items-center mt-10 space-x-2 mb-10 ${description?.length>8?'block':'hidden'}`}>
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
+          >
+            Previous
+          </button>
+
+          {renderPaginationNumbers()}
+
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === Math.ceil(description.length / itemsPerPage)}
+            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
+          >
+            Next
+          </button>
+        </div>
+
             <ul className="flex  justify-between  items-center p-6 w-full mt-10  overflow-auto">
+
               {mileStones?.map((item, idx) => {
                 return (
                   <li

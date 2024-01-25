@@ -6,6 +6,10 @@ import CarouselImage from '@/components/CarouselImage';
 import feturedImg from '@/images/homeImages/featured.png';
 import portfolioImg from '@/images/homeImages/portfolio.png';
 import galleryImg from '@/images/homeImages/gallery.png';
+import acheivmentImg from '@/images/homeImages/achievment.jpeg';
+import KsImg from '@/images/homeImages/Ksagara.jpeg';
+
+
 import image12 from '@/images/homeImages/image12.png';
 import image2 from '@/images/homeImages/image2.png';
 import image3 from '@/images/homeImages/image3.png';
@@ -35,6 +39,7 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
 import TenderNotification from '@/components/TenderNotification.js';
+import ArrivalCard from '@/components/ArrivalCard.js';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
@@ -43,38 +48,60 @@ const Home = () => {
   const aboutVideo = '/video/video1.mp4';
   const aboutVideo2 = '/video/video2.mp4';
   const [liveTenders, setLiveTenders] = useState([]);
-  const [recentNews, setRecentNew] = useState([]);
+ 
+  const [allTenders,setAllTenders]=useState([])
   const [homeNotification,setHomeNotification]=useState([])
+  const [homeVideo,setHomeVideo]=useState([])
+  const [newArrivals,setNewArrivals]=useState([])
   const axios = useApi();
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/tender-notifications?sort=status:DESC&_limit=3');
+      const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
       const { data: recentnew } = await axios.get(
         '/api/blog-posts?sort[0]=date:desc&_limit=3'
       );
+      const {data:arrivals}=await axios.get('/api/latestproducts')
 
       const { data:homenotification } = await axios.get('/api/homenotifications');
+      const { data:gallery } = await axios.get('/api/galleries');
+      const videos=gallery?.data?.map(item=> item?.attributes?.video?.data?.attributes?.url)
        
-
+      
       const liveTenders = data?.data?.filter((item) => item.attributes?.status === 'live tender');
       const pastTenders = data?.data?.filter((item) => item.attributes?.status === 'past tender');
+
       if(liveTenders.length===0){
         setLiveTenders(pastTenders)
       }else{
         setLiveTenders(liveTenders);
       }
 
-      setHomeNotification(homenotification?.data)
-      if(recentnew?.data?.length > 3){
-        setRecentNew(recentnew.data?.slice(0,3));
+   
+
+          
+      
+      if(videos?.length>2){
+        setHomeVideo(videos?.slice(0,2))
       }
       else{
-        setRecentNew(recentnew?.data)
+        setHomeVideo(videos)
       }
+
+
+      setNewArrivals(arrivals?.data)
+      setHomeNotification(homenotification?.data)
+      setAllTenders(data?.data)
+
+  
+       
+
+
     })();
   }, []);
 
+
+ 
   let cards = [
     {
       key: uuidv4(),
@@ -90,11 +117,11 @@ const Home = () => {
     },
     {
       key: uuidv4(),
-      content: <Card imgUrl={portfolioImg.src} title="Achievments" link="/en/portfolio" />
+      content: <Card imgUrl={acheivmentImg.src} title="Achievments" link="/en/portfolio" />
     },
     {
       key: uuidv4(),
-      content: <Card imgUrl={portfolioImg.src} title="Ksheera Sagara" />
+      content: <Card imgUrl={KsImg.src} title="Ksheera Bhagya" />
     }
   ];
 
@@ -117,13 +144,14 @@ const Home = () => {
       {/* HOME CARAOUSAL IMAGE */}
       <CarouselImage images={images} />
 
-      <section className="w-full   pt-20  relative z-[1] before:absolute before:inset-0 before:bg-secondary-main before:z-[-1] before:md:h-[600px] ">
-        <div>
-          <div className="flex justify-center items-center flex-col p-10">
-            <h1 className="text-4xl text-[#242424] text-center font-lato font-[400] tracking-wide md:text-4xl uppercase">
+      <section className="w-full   pt-20  relative z-[1]  ">
+        <video src='/video/home-vid.mp4' autoPlay muted loop className='absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4'/>
+        <div className='w-full'>
+          <div className=" w-full          p-10  ">
+            <h1 className="text-4xl text-[#242424] text-center font-lato font-[400] tracking-wide md:text-4xl uppercase ">
               Welcome to KMF Nandini
             </h1>
-            <p className="text-[#595959] text-center ">A Milk Brand Trusted by</p>
+            <p className="text-[#595959] text-center   ">A Milk Brand Trusted by</p>
           </div>
 
           <div className="w-full relative z-10 p-2   ">
@@ -159,6 +187,8 @@ const Home = () => {
             </Swiper>
           </div>
         </div>
+
+        {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
       </section>
 
       <section className="w-full p-2  bg-primary-subtle  mt-12">
@@ -236,16 +266,18 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className="w-full h-auto pt-40 pb-20   ">
+      <section className=" relative w-full h-auto pt-20 pb-20   ">
+      <video src='/video/vid.webm' autoPlay muted loop className='absolute w-full h-full inset-0 object-cover   z-[-10] opacity-[.3]'/>
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-4xl uppercase">Quick Links</h1>
             <p className="text-center text-sm text-[#595959]">Here&apos;s some quick links.</p>
           </div>
 
-          <div className='mt-20 w-full h-auto  relative  before:absolute before:top-0   before:lg:top-1/3 before:w-full before:h-full before:z-[-1] before:bg-[url("/images/quickLinkbg.png")] before:bg-no-repeat before:bg-cover'>
+          <div className='  w-full h-auto  relative   '>
+     
             <Fade bottom>
-              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-10  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
+              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
                 <Link href="/kn/404">
                   <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
                 </Link>
@@ -268,7 +300,7 @@ const Home = () => {
         <div>
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
-              <div className="p-4 flex justify-center items-center w-full h-[500px]   lg:max-w-xl">
+              <div className="p-4 flex justify-center bg-secondary-main items-center w-full h-[500px]   lg:max-w-xl">
                 <img src={milkglassImg.src} className="w-full h-full" />
               </div>
             </Fade>
@@ -330,6 +362,7 @@ const Home = () => {
 
       <section className="w-full h-auto  bg-primary-subtle  ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+    
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
               <h1 className="text-4xl uppercase">Notification</h1>
@@ -338,7 +371,7 @@ const Home = () => {
             <p className="text-neutral-dark1">Here&apos;s some latest update</p>
           </div>
 
-          <div className="w-full flex flex-col justify-center space-y-10 items-center lg:flex-row lg:space-x-5 lg:items-start ">
+          <div className="w-full flex flex-col justify-center items-center lg:flex-row lg:space-x-5 lg:items-start ">
             <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <Swiper
                 grabCursor={true}
@@ -353,7 +386,6 @@ const Home = () => {
                 }}
                 modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]}
                 navigation={true}
-                controller={true}
                 scrollbar={{ draggable: true }}
                 slide
                 autoplay={{
@@ -362,7 +394,7 @@ const Home = () => {
                 }}
                 loop={true}>
                 {liveTenders?.map((item, id) => {
-                  console.log(item);
+              
                   return (
                     <SwiperSlide className="swiper-sldier-card  " key={id}>
                       <TenderNotification
@@ -375,7 +407,35 @@ const Home = () => {
                 })}
               </Swiper>
 
-              <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+
+
+                        
+
+               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
+
+                  <div className='w-full marquee h-full flex flex-col space-y-3 '>
+                  {allTenders?.map((item, id) => {
+                  
+                     
+                  return (
+                    
+
+                        <p key={id} className='bg-white p-2 text-xs rounded w-full '>{id} - {item?.attributes?.title}</p>
+                     
+                    
+                  
+                  );
+                })}
+                      
+
+                  </div>
+           
+              </div> 
+
+
+
+
+              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
                 <div className=" w-full flex items-center">
                   <div className="flex flex-col justify-center items-start">
                     <h1>Export Enquiry</h1>
@@ -389,9 +449,12 @@ const Home = () => {
                     </button>
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
-                {homeNotification?.map((item,idx)=>{
+
+
+
+                {/* {homeNotification?.map((item,idx)=>{
                   console.log("notification",item)
                   return(
                     <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
@@ -408,11 +471,18 @@ const Home = () => {
                     </div>
                   </div>
                   )
-                })}
+                })} */}
         
  
 
-              <div>
+              <div className='flex flex-col justify-start space-y-2'>
+              <div className="w-full flex justify-end ">
+      <Link href={""}>
+        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+         View All
+        </button>
+      </Link>
+    </div>
                 <p>
                   karnataka milk federation has adoptede-procurement portal for tenders 080 25501216
                   / 25501227 for Registration
@@ -420,19 +490,104 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="w-full justify-center items-center space-y-5">
-              <div className="flex  w-full flex-col justify-center items-center  space-y-3 ">
-                <div className="flex justify-center flex-wrap   items-end  ">
-                  <h1 className="text-4xl uppercase">Latest Product</h1>
-                  <div className="w-28 h-1 bg-black"></div>
-                </div>
-                <p className="text-neutral-dark1">Product yet to be launched</p>
-              </div>
 
-              <div className="w-full">
-                <Card title="New Arrival" imgUrl={portfolioImg.src} />
+            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
+              
+                     
+         
+
+            <div className="w-full flex flex-col space-y-4 justify-center items-center mt-10 bg-white p-5   rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between lg:mt-0">
+    <div className=" w-full flex items-center space-x-3">
+   
+
+      <div className="flex flex-col justify-center items-start">
+        <h1 className="text-4xl uppercase p-3">New Arrivals</h1>
+      
+      </div>
+    </div>
+
+   
+  </div>
+
+                        
+
+               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
+
+                  <div className='w-full marquee-notification h-full flex flex-col space-y-3 '>
+
+                  {newArrivals?.map((item,id)=>{
+              
+                    return(
+                      <ArrivalCard 
+                      key={id}
+                      title={item?.attributes?.title}
+                      imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                      />
+                    )
+                  })}
+
+                  </div>
+           
+              </div> 
+
+
+
+
+              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                <div className=" w-full flex items-center">
+                  <div className="flex flex-col justify-center items-start">
+                    <h1>Export Enquiry</h1>
+                  </div>
+                </div>
+
+                <div className="">
+                  <Link href="/en/export-enquiry">
+                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                      View all
+                    </button>
+                  </Link>
+                </div>
+              </div> */}
+
+
+
+
+                {/* {homeNotification?.map((item,idx)=>{
+                  console.log("notification",item)
+                  return(
+                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                    <div className=" w-full flex items-center">
+                      <div className="flex flex-col justify-center items-start">
+                        <h1>{item?.attributes?.title}</h1>
+                      </div>
+                    </div>
+    
+                    <div className="">
+                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                        View all
+                      </Link>
+                    </div>
+                  </div>
+                  )
+                })} */}
+        
+ 
+
+              <div className='flex flex-col justify-end w-full space-y-2'>
+              <div className="w-full flex justify-end ">
+      <Link href={""}  className='flex justify-end '>
+        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+         View All
+        </button>
+      </Link>
+    </div>
+               
               </div>
             </div>
+
+  
+
+
           </div>
         </div>
       </section>
@@ -447,19 +602,36 @@ const Home = () => {
             <p className="text-neutral-dark1">Here some latest News and blog</p>
           </div>
 
-          <div className=" relative w-full flex flex-col justify-center items-center gap-5 flex-wrap space-y-10 sm:space-y-0 sm:flex-row sm:justify-evenly ">
-            {recentNews?.map((item, idx) => {
-              return (
-                <News
-                  key={idx}
-                  image={item?.attributes?.image?.data?.attributes?.url}
-                  date={item?.attributes?.date}
-                  title={item?.attributes?.title}
-                  link={`/${item?.attributes?.locale}/blog/${item?.id}`}  
-                />
-              );
-            })}
+          <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
+          
+                <div  className="p-4  max-w-2xl flex justify-center items-center h-96    ">
+
+                  
+
+<iframe   height="315" src={"https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo"} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className='w-full sm:w-[540px]' ></iframe>
+              </div>
+
+              <iframe   height="315" src="https://www.youtube.com/embed/noTHHLsuLUA?si=eI6SZK_av1Sb4HCP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className='w-full sm:w-[540px]'></iframe>
+          
           </div>
+
+          <div className="w-full flex justify-center  space-x-5">
+
+
+      <Link href={"/en/blog/gallery"}>
+        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md hover:bg-primary-main hover:text-white">
+         See more
+        </button>
+      </Link>
+
+      <Link href={"/en/contact"}>
+        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md hover:bg-primary-main hover:text-white">
+         Get In Touch
+        </button>
+      </Link>
+
+
+    </div>
         </div>
       </section>
 

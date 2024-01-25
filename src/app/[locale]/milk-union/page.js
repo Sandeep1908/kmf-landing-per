@@ -45,18 +45,16 @@ function MilkUnion() {
       </section>
 
       <section className="w-full bg-[#F6F6F6] pt-10">
-        <div className="max-w-7xl m-auto p-2 flex flex-wrap gap-3">
+        <div className="max-w-7xl m-auto p-2 flex flex-wrap justify-around gap-5">
           {milkUnion.map((union, id) => {
+            console.log(union)
             return (
             <Link href={`/${params.locale}/milk-union/${union?.id}`} key={id}>
               <UnionCard
                 key={union?.id}
                 name={union?.attributes?.name}
-                address={union?.attributes?.address}
                 image={union?.attributes?.image?.data?.[0]?.attributes?.url}
-                fax={union?.attributes?.fax}
-                email={union?.attributes?.email}
-                phone={union?.attributes?.phone}
+            
               />
               </Link>
             );

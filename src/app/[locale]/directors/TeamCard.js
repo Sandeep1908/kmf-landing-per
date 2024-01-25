@@ -3,8 +3,8 @@ import propTypes from 'prop-types';
 
 const TeamCard = ({ imgUrl, desc, fullName }) => {
   return (
-    <div className="max-w-80 relative rounded-tl-3xl rounded-br-3xl bg-light-light4 overflow-hidden  group  overflow-hidden transition-all duration-400 ease-in-out ">
-      <div className="max-h-[70%]">
+    <div className="max-w-80 relative rounded-tl-3xl rounded-br-3xl  shadow-md  overflow-hidden  group  transition-all duration-400 ease-in-out ">
+      <div className="max-h-[70%] overflow-hidden ">
         <img
           src={imgUrl}
           alt="featured-img"
@@ -13,10 +13,10 @@ const TeamCard = ({ imgUrl, desc, fullName }) => {
         />
       </div>
 
-      {/* <div className="mt-5 mb-4 p-2 space-y-3 ">
+      <div className="mt-5  flex justify-center items-center flex-col p-4 space-y-3 ">
         <p className="text-md font-bold text-neutral-dark1">{fullName}</p>
-        <h1 className="text-sm text-justify ">{desc}</h1>
-      </div> */}
+        <h1 className="text-sm text-center ">{desc}</h1>
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import organizationHero from '@/images/about/organization-chart/organization-hero.png';
 import milkRight from '@/images/about/organization-chart/milk-right.png';
 import { mileStone } from '@/configtext/milestone';
-import bottleImg from '@/images/about/organization-chart/bottle.png';
+import qualityImg from '@/images/about/organization-chart/quality.jpg';
 import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -11,13 +11,24 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
+import useApi from '@/hooks/useApi';
 function OrganizationChart() {
   const locale = useParams().locale;
+  const axios= useApi()
+  const [banner,setBanner]=useState([])
+  useEffect(()=>{
+    (
+      async()=>{
+        const {data:banner}=await axios.get('/api/food-safety')
+        setBanner(banner?.data)
+      }
+    )()
+  },[])
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img
-          src={organizationHero.src}
+          src={banner? banner?.attributes?.banner?.data?.attributes?.url:  organizationHero.src}
           className="w-full h-full object-cover absolute top-0 z-[-1]"
         />
       </section>
@@ -25,12 +36,12 @@ function OrganizationChart() {
       <section className=" relative w-full h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full   flex justify-center items-center">
-            <img src={bottleImg.src} className=" w-full h-full" />
+            <img src={qualityImg.src} className=" w-full h-full" />
           </div>
 
           {locale === 'en' ? (
-            <div className="w-full flex flex-col justify-center items-start ">
-              <h1 className="text-2xl text-primary-main uppercase">Quality And Food Safety</h1>
+            <div className="w-full flex flex-col justify-center items-start shadow-md p-2 ">
+              <h1 className="text-2xl text-primary-main uppercase  ">Quality And Food Safety</h1>
 
               <p className="text-sm text-justify p-2">
                 During the last ten years, the Federation is giving greater emphasis on procuring

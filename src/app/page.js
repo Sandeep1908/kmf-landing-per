@@ -9,6 +9,8 @@ import galleryImg from '@/images/homeImages/gallery.png';
 import image12 from '@/images/homeImages/image12.png';
 import image2 from '@/images/homeImages/image2.png';
 import image3 from '@/images/homeImages/image3.png';
+import acheivmentImg from '@/images/homeImages/achievment.jpeg';
+import KsImg from '@/images/homeImages/Ksagara.jpeg';
 import aboutSecImg from '@/images/homeImages/about-sec.png';
 import notificationImg1 from '@/images/homeImages/notification/cow-grass.png';
 import { LinkCard } from './[locale]/Card.js';
@@ -96,11 +98,11 @@ export default function Home() {
     },
     {
       key: uuidv4(),
-      content: <Card imgUrl={portfolioImg.src} title="ಸಾಧನೆಗಳು"  link="/kn/portfolio"/>
+      content: <Card imgUrl={acheivmentImg.src} title="ಸಾಧನೆಗಳು"  link="/kn/portfolio"/>
     },
     {
       key: uuidv4(),
-      content: <Card imgUrl={portfolioImg.src} title="ಕ್ಷೀರ ಸಾಗರ" link="/kn/404" />
+      content: <Card imgUrl={KsImg.src} title="ಕ್ಷೀರ ಸಾಗರ" link="/kn/404" />
     }
   ];
 

@@ -28,8 +28,8 @@ const CarouselImage = ({ images }) => {
         onChange={handleSlide}>
         {images.map((img, idx) => {
           return (
-            <div key={idx}>
-              <img src={img} alt="" className="w-full h-[600px] object-cover" />
+            <div key={idx} className='w-full h-[600px]  '>
+              <img src={img} alt="" className="w-full  h-full object-cover md:object-fill" />
             </div>
           );
         })}

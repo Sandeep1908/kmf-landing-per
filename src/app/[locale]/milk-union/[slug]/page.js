@@ -18,12 +18,13 @@ function MilkUnionDetail({ slug }) {
   const [union, setUnion] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const param = useParams();
-
+  const [banner,setBanner]=useState()
   const axios = useApi();
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/milk-unions/${param?.slug}`)
+      setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
       
       setUnion(data?.data);
       setUnionImages(data?.data?.attributes?.image?.data);
@@ -32,39 +33,32 @@ function MilkUnionDetail({ slug }) {
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6]">
-      <section className={`w-full h-72 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-        <img src={Logo.src} alt="milk-union-logo" className="w-[200px] " />
+        <section className={`w-full h-72 pt-28 relative  grid place-items-center company-bg`}>
+        <img src={banner?banner:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+        <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
       </section>
 
       <section className="w-full  p-2 bg-[#F6F6F6]">
         <div
-          className="max-w-[1282px]   m-auto p-3  rounded-tl-3xl  rounded-br-3xl  bg-white  "
-          style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
+          className="max-w-[1282px]   m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+          >
           <div className="w-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
-            <div className="w-full flex flex-col justify-center items-center space-y-5">
+
+            {unionImages?.[currentIndex]?
+              <div className="w-full flex flex-col justify-center items-center space-y-5">
               <div className="  max-w-[458px]    ">
                 <img
                   src={unionImages?.[currentIndex]?.attributes?.url}
                   alt="slider-img"
-                  className="w-96 h-70"
+                  className="w-full h-full"
                 />
               </div>
 
-              <div className=" max-w-[458px] flex  justify-center items-center gap-5 overflow-auto ">
-                {unionImages?.map((img, idx) => {
-                  return (
-                    <img
-                      key={idx}
-                      src={img?.attributes?.url}
-                      alt="slider-img"
-                      className="w-32 h-40"
-                      onClick={() => setCurrentIndex(idx)}
-                    />
-                  );
-                })}
-              </div>
+          
             </div>
+            
+            :''}
+          
 
             <div className=" w-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
               <h1 className="text-2xl text-justify ">{union?.attributes?.name}</h1>
@@ -84,8 +78,8 @@ function MilkUnionDetail({ slug }) {
 
       <section className="w-full   p-2 bg-[#F6F6F6]">
         <div
-          className="max-w-[1282px] h-full  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  "
-          style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
+          className="max-w-[1282px] h-full  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm "
+         >
           <div className="flex flex-col h-full space-y-5  p-3 justify-between items-start">
             <h1 className="text-2xl">{union?.attributes?.name}</h1>
 

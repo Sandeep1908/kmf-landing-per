@@ -11,13 +11,23 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
+import useApi from '@/hooks/useApi';
 function OrganizationChart() {
   const locale = useParams().locale;
+  const [banner,setBanner]=useState([])
+  useEffect(()=>{
+    (
+      async()=>{
+        const {data:banner}=await axios.get('/api/food-safety')
+        setBanner(banner?.data)
+      }
+    )()
+  },[])
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img
-          src={organizationHero.src}
+          src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
           className="w-full h-full object-cover absolute top-0 z-[-1]"
         />
       </section>

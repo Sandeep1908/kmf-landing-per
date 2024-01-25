@@ -3,7 +3,7 @@ import React from 'react'
 function ProductCard({title,image,description1,description2}) {
   return (
       
-    <div className='max-w-96 h-96 flex flex-col justify-center items-center   p-5 rounded-lg bg-neutral-light4  '  style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
+    <div className='max-w-96 h-auto flex flex-col justify-center items-center   p-5 rounded-lg bg-neutral-light4 shadow-md '   >
     <div className='text-center'>
         <h1 className='text-primary-main text-2xl font-semibold'>{title}</h1>
     </div>

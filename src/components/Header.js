@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import logo from '../images/logo/logo.png';
+import logokn from '../images/logo/logo-kn.png';
 import AccordionItem from '../components/Accordion';
 import { mobileHeader } from '@/configtext/header';
 import downarrowIco from '../images/icons/downarrow.svg';
@@ -13,9 +14,10 @@ import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { IoHomeOutline } from 'react-icons/io5';
-import facebookIco from '../images/footer/facbook.png';
-import mailIco from '../images/footer/mail.png';
-import twitterIco from '../images/footer/twitter.png';
+import facebookIco from '../images/footer/fb.svg';
+import mailIco from '../images/footer/Email.svg';
+import twitterIco from '../images/footer/x.svg';
+import insta from '../images/footer/insta.svg';
  
 import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
@@ -29,6 +31,7 @@ export const Header = () => {
   const [unionSub, setUnionSub] = useState([]);
   const [kmfUnits, setKmfUnits] = useState([]);
   const [headerItem,setHeaderItem]=useState([])
+  const [latestNews,setLateatNews]=useState([])
   const { locale } = useLocale();
   const axios = useApi();
   let headItem = mobileHeader[locale];
@@ -42,6 +45,8 @@ export const Header = () => {
       const { data: milkunion } = await axios.get('/api/milk-unions');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs');
       const {data:header}=await axios.get('/api/header')
+      const {data:latestNews}=await axios.get('/api/latest-new')
+      
       
       
 
@@ -73,6 +78,7 @@ export const Header = () => {
       setProductSub(productSubitems);
       setKmfUnits(kmfSubitems);
       setHeaderItem(header?.data)
+      setLateatNews(latestNews?.data)
     })();
   }, [params.locale]);
 
@@ -126,15 +132,24 @@ export const Header = () => {
         {/* UPPER HEADER  */}
 
         <div
-          className="w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between"
+          className="w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center"
           onMouseEnter={() => setOpen(null)}>
-          <div className="flex justify-center items-center space-x-5">
-            <img src={logo.src} alt="logo-home" className="w-[150px]" />
+
+          <div className="flex justify-center items-center space-x-6">
+            <img src={locale==='en'?logo.src:logokn.src} alt="logo-home" className="w-[150px]" />
+            <p className='font-bold font-lato text-xs sm:text-xl'>KARNATAKA CO-OPERATIVE MILK <br/> PRODUCER’S FEDERATION LTD (KMF)</p>
           </div>
 
-          <div className="flex justify-center items-center space-x-5">
+          <div className="flex flex-col  ">
+            <div className='flex justify-center items-end space-x-5'>
+
+       
             <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
+
+            <div className='w-full flex space-x-5'>
               <div className="flex justify-center items-center      ">
+
+
                 <div className="">
                   <img
                     src={locationIco.src}
@@ -150,6 +165,16 @@ export const Header = () => {
                   })}
                  
                 </p>
+              </div>
+
+              <div className="flex space-x-5 justify-center p-2 items-center">
+                <Link href={"https://www.facebook.com/kmfnandini.coop"} className='hover:scale-125 transition-all duration-300'><img src={facebookIco.src} className="w-7" /></Link>
+               <Link href={"https://twitter.com/kmfnandinimilk"}className='hover:scale-125 transition-all duration-300'><img src={twitterIco.src} className="w-7" /></Link> 
+               <Link href={"https://www.kmfnandini.coop/en/contact-us"} className='hover:scale-125 transition-all duration-300'>  <img src={mailIco.src} className="w-7" /></Link> 
+               <Link href={"#"} className='hover:scale-125 transition-all duration-300'>  <img src={insta.src} className="w-7" /></Link> 
+               
+              </div>
+
               </div>
 
               <div className="flex justify-center items-center   ">
@@ -168,22 +193,24 @@ export const Header = () => {
                 </p>
               </div>
 
-              <div className="flex space-x-10 justify-center p-2 items-center">
-                <Link href={"https://www.facebook.com/kmfnandini.coop"}><img src={facebookIco.src} className="w-7" /></Link>
-               <Link href={"https://twitter.com/kmfnandinimilk"}><img src={twitterIco.src} className="w-7" /></Link> 
-               <Link href={"https://www.kmfnandini.coop/en/contact-us"}>  <img src={mailIco.src} className="w-7" /></Link> 
-               
-              </div>
+           
             </div>
 
-            <div>
+            <div className='flex flex-col justify-between  space-y-3'>
+       
               <button
                 className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md"
                 onClick={handleLanguageChange}>
                 {locale === 'en' ? 'KN' : 'EN'}
               </button>
+
+        
             </div>
+            </div>
+
+            <p className='text-xs flex justify-end pt-4 marquee-notification overflow-hidden'>{latestNews? latestNews?.attributes?.title:''}</p>
           </div>
+    
         </div>
 
         {/* MAIN HEADER DOWN  */}
@@ -194,9 +221,7 @@ export const Header = () => {
               <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
             </div>
 
-            <div>
-              <img src={searchIco.src} />
-            </div>
+         
           </div>
 
           <div className="w-full h-full hidden lg:block   ">
@@ -205,24 +230,25 @@ export const Header = () => {
                 const hasItems = header?.subItems?.length;
                 const isLink = header?.link;
                 return (
-                  <Link href={isLink ? isLink : '#'} key={i}>
+                  <Link href={isLink ? isLink : '#'} key={i} className=' transition-all duration-300 hover:scale-[1.1] '>
                     <li
-                      className="border-r text-[10px] border-light-light4 pl-2 pr-2 relative "
+                      className="border-r text-[10px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
                       onMouseEnter={() => setOpen(hasItems ? i : null)}>
                       {header.title}
                       {hasItems && (
                         <div
-                          className={`p-4 bg-primary-darker absolute top-[2.71rem] left-[20px] w-[200px] ${
+                          className={`p-4 bg-primary-darker absolute top-[2.71rem] left-[20px] w-[200px] overflow-auto max-h-[300px] ${
                             open === i ? 'visible' : 'invisible'
                           }  `}
                           onMouseLeave={() => setOpen(null)}>
-                          <ul className="w-full space-y-4">
+                          <ul className="w-full  space-y-4 text-white">
                             {header.subItems?.map((subItem, idx) => {
                               return (
                                 <Link
                                   href={subItem?.link || ''}
-                                  className="text-[10px] block"
+                                  className="text-[10px] block hover:text-secondary-lighter"
                                   key={idx}
+                                
                                   onClick={() => setOpen(null)}>
                                   <li key={idx}>{subItem.title}</li>
                                 </Link>
@@ -236,10 +262,7 @@ export const Header = () => {
                 );
               })}
 
-              <li>
-                {' '}
-                <img src={searchIco.src} />
-              </li>
+          
             </ul>
           </div>
         </div>

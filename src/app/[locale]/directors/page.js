@@ -12,20 +12,25 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 
 
+
 function Directors() {
   const [directors,setDirectors]=useState([])
   const axios =useApi()
   const locale=useParams().locale
+  const [chairmain,setChairman]=useState([])
 
   useEffect(()=>{
     (
       async()=>{
         const {data}=await axios.get('/api/directors?sort[0]=createdAt:asc')
+
+        const {data:chairman}= await axios.get('/api/chairmain')
+
         const directorsData=data?.data?.map((item,id)=>{
      
           return(
             {
-              title:item?.attributes?.title,
+              title:item?.attributes?.name,
               image:item?.attributes?.image?.data?.map(item=>item?.attributes?.url),
               description:item?.attributes?.description
 
@@ -33,6 +38,7 @@ function Directors() {
           )
         })
         setDirectors(directorsData)
+        setChairman(chairman?.data)
         
     
       }
@@ -46,20 +52,17 @@ function Directors() {
       <img src={directorImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
-      <section className="w-full  bg-[#F6F6F6] pt-10  ">
+      <section className="w-full   pt-10  ">
       <h1 className='text-center text-primary-main text-xl'>{locale==='en'?'Board of Directors':'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}</h1>
       <div className='p-12 h-full  '>
-        <div className='w-full min-h-80 md:h-3/4 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
+        <div className='w-full min-h-56 shadow-md md:h-2/4 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
             <div className='md:w-1/2 flex justify-center items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 ' >
-              <img className='w-3/4' src={locale==='en'?headengImg.src:headImg.src} alt="" />
+              <img className='w-2/4' src={chairmain?.attributes?.image?.data?.attributes?.url} alt="" />
             </div>
             <div className=' md:w-1/2 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 '>
               <div>
-                <p className='text-2xl font-bold text-neutral-dark1'>{locale==='en'?`Mr. Shri L.B.P. Bhimanayka`:`
-ಶ್ರೀ ಶ್ರೀ ಎಲ್.ಬಿ.ಪಿ. ಭೀಮಾನಾಯ್ಕ`}</p>
-                <p className='text-base font-normal text-neutral-dark2'>{locale==='en'?`Honorable President, Kahama`:`
-
-ಗೌರವಾನ್ವಿತ ಅಧ್ಯಕ್ಷರು, ಕಹಾಮಾ`} </p>
+                <p className='text-2xl font-bold text-neutral-dark1'>{chairmain?.attributes?.name}</p>
+                <p className='text-base font-normal text-neutral-dark2'>{chairmain?.attributes?.description}</p>
               </div>
               <div className='mt-3 lg:mt-12 p-3 md:p-0'>
                 <p className='text-base font-normal text-justify'>
@@ -74,9 +77,10 @@ function Directors() {
 
           
           {directors?.map((item,id)=>{
+      
     
             return(
-              <TeamCard key={id} imgUrl={item?.image?.[0]} fullName={"Mr.Name"} desc={"Lorem Ipsum is simply dummy text of the printing."} />
+              <TeamCard key={id} imgUrl={item?.image?.[0]} fullName={item?.title} desc={item?.description} />
             )
           })}
  

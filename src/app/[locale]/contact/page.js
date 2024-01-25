@@ -18,7 +18,14 @@ const Contact = () => {
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
       <section className={`w-full h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={mapImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
+      <iframe
+            align="middle"
+            allowfullscreen=""
+            frameborder="0"
+            height="100%"
+           scrolling={true}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.518745456276!2d77.60279164133709!3d12.938623223603017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15ef1a5c4365%3A0xf0eb81ef4c8cd455!2sKMF!5e0!3m2!1sen!2sin!4v1456068635330"
+            width="100%" className='z-[100]'></iframe>
       </section>
 
       {/* <div className='w-full'>
@@ -26,11 +33,11 @@ const Contact = () => {
       </div> */}
 
       <div className="w-full bg-[#F6F6F6]">
-        <p className="text-2xl	text-primary-main font-bold text-center pt-9">{locale==='en'?'CONTACT US':'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ'}</p>
+        <p className="text-2xl	text-primary-main   text-center pt-9">{locale==='en'?'CONTACT US':'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ'}</p>
         <div className="w-full grid  md:grid-cols-3  md:p-9">
           <div className=" m-4 col-span-2  border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl">
             <div className="w-full p-12">
-              <p className="text-xl text-primary-darker font-semibold">{locale==='en'?'Get in Touch':'ಸಂಪರ್ಕದಲ್ಲಿರಲು'}</p>
+              <p className="text-xl text-primary-darker  ">{locale==='en'?'Get in Touch':'ಸಂಪರ್ಕದಲ್ಲಿರಲು'}</p>
 
               <p className=" mt-6 text-base font-semibold text-neutral-dark1">
               {locale==='en'?' Kindly fill in the particulars given below. We will be pleased to revert back to you':`

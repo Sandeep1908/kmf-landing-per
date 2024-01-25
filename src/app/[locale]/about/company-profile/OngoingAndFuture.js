@@ -20,7 +20,7 @@ function OngoingAndFuture({ futureProject}) {
   },[])
   return (
     <div className="w-full flex-col   overflow-auto  items-start justify-start p-10 space-y-5">
-      <table className="table-fixed   border-spacing-y-2	 border-collapse border     min-w-full">
+      <table className="table-fixed  shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
         <thead className=" ">
           <tr className="text-md   bg-secondary-gradient ">
             <th className="p-2 ">S.NO</th>
@@ -44,7 +44,7 @@ function OngoingAndFuture({ futureProject}) {
 
 
 
-      <table className="table-auto  border-spacing-y-2	 border-collapse border      min-w-full">
+      <table className="table-auto shadow-md  border-spacing-y-2	 border-collapse border      min-w-full">
         <thead className="  ">
           <tr className="text-md bg-secondary-gradient ">
             <th className="p-2">S.NO</th>
