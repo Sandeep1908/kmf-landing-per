@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 
-const page = () => {
+const Executive = () => {
   const [md,setMd]=useState([])
   const [unionCheifs,setUnionCheif]=useState([])
 
@@ -91,7 +91,7 @@ const page = () => {
 
  return(
     
-    <tr className='border-t' >
+    <tr className='border-t' key={id}>
     <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
     <td className="p-2 text-xs">{item?.attributes?.designation}</td>
     <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>
@@ -135,7 +135,7 @@ const page = () => {
 
  return(
     
-  <tr className='border-t' >
+  <tr className='border-t' key={id} >
   <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
   <td className="p-2 text-xs">{item?.attributes?.designation}</td>
   <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>
@@ -178,7 +178,7 @@ const page = () => {
 
  return(
     
-  <tr className='border-t' >
+  <tr className='border-t'  key={id}>
   <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
   <td className="p-2 text-xs">{item?.attributes?.designation}</td>
   <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>
@@ -205,4 +205,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Executive
