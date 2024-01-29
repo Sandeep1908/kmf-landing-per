@@ -148,10 +148,10 @@ const Home = () => {
         <video src='/video/home-vid.mp4' autoPlay muted loop className='absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4'/>
         <div className='w-full'>
           <div className=" w-full          p-10  ">
-            <h1 className="text-4xl text-[#242424] text-center font-lato font-[400] tracking-wide md:text-4xl uppercase ">
+            <h1 className="text-4xl text-[#242424] text-center font-alfa font-[400] tracking-wide md:text-4xl uppercase ">
               Welcome to KMF Nandini
             </h1>
-            <p className="text-[#595959] text-center   ">A Milk Brand Trusted by</p>
+            <p className="text-[#595959] text-center     ">A Milk Brand Trusted by</p>
           </div>
 
           <div className="w-full relative z-10 p-2   ">
@@ -196,7 +196,7 @@ const Home = () => {
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-              <h1 className="text-4xl uppercase">About KMF</h1>
+              <h1 className="text-4xl uppercase font-alfa">About KMF</h1>
 
               <div className="space-y-6">
                 <TypeWriter
@@ -363,11 +363,11 @@ const Home = () => {
       <section className="w-full h-auto  bg-primary-subtle  ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
     
-          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
-            <div className="flex justify-center flex-wrap   items-end  ">
+          <div className="flex    flex-col justify-center items-center  space-y-3  ">
+             
               <h1 className="text-4xl uppercase">Notification</h1>
-              <div className="w-28 h-1 bg-black"></div>
-            </div>
+              
+            
             <p className="text-neutral-dark1">Here&apos;s some latest update</p>
           </div>
 
@@ -475,18 +475,15 @@ const Home = () => {
         
  
 
-              <div className='flex flex-col justify-start space-y-2'>
+              <div className='flex w-full  justify-end space-y-2'>
               <div className="w-full flex justify-end ">
-      <Link href={""}>
+      <Link href={""} className=''>
         <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
          View All
         </button>
       </Link>
     </div>
-                <p>
-                  karnataka milk federation has adoptede-procurement portal for tenders 080 25501216
-                  / 25501227 for Registration
-                </p>
+               
               </div>
             </div>
 
@@ -496,22 +493,13 @@ const Home = () => {
                      
          
 
-            <div className="w-full flex flex-col space-y-4 justify-center items-center mt-10 bg-white p-5   rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between lg:mt-0">
-    <div className=" w-full flex items-center space-x-3">
-   
-
-      <div className="flex flex-col justify-center items-start">
-        <h1 className="text-4xl uppercase p-3">New Arrivals</h1>
-      
-      </div>
-    </div>
-
-   
-  </div>
+             
 
                         
 
-               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
+               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[545px] p-5 rounded-lg border-b-2 border-primary-main  "> 
+
+               <h1 className='text-4xl uppercase'>New Arrivals & Best Selling</h1>
 
                   <div className='w-full marquee-notification h-full flex flex-col space-y-3 '>
 
@@ -597,7 +585,7 @@ const Home = () => {
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
               <h1 className="text-4xl uppercase">Latest News</h1>
-              <div className="w-28 h-1 bg-black"></div>
+            
             </div>
             <p className="text-neutral-dark1">Here some latest News and blog</p>
           </div>
@@ -619,13 +607,13 @@ const Home = () => {
 
 
       <Link href={"/en/blog/gallery"}>
-        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md hover:bg-primary-main hover:text-white">
+        <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
          See more
         </button>
       </Link>
 
       <Link href={"/en/contact"}>
-        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md hover:bg-primary-main hover:text-white">
+        <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
          Get In Touch
         </button>
       </Link>

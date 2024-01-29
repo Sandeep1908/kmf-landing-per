@@ -58,7 +58,7 @@ const Executive = () => {
                 <p className='text-base font-normal text-neutral-dark2'>{md?.attributes?.description}</p>
               </div>
               <div className='mt-3 lg:mt-12 p-3 md:p-0'>
-            
+                
               </div>
             </div>
         </div>
@@ -178,7 +178,7 @@ const Executive = () => {
 
  return(
     
-  <tr className='border-t'  key={id}>
+  <tr className='border-t' key={id} >
   <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
   <td className="p-2 text-xs">{item?.attributes?.designation}</td>
   <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>

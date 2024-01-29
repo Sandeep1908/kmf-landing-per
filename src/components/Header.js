@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import logo from '@/images/logo/logo.png';
 import logokn from '@/images/logo/logo-kn.png';
@@ -13,9 +14,9 @@ import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { IoHomeOutline } from 'react-icons/io5';
-import facebookIco from '@/images/footer/FB.svg';
+import facebookIco from '@/images/footer/fb.svg';
 import mailIco from '@/images/footer/Email.svg';
-import twitterIco from '@/images/footer/X.svg';
+import twitterIco from '@/images/footer/x.svg';
 import insta from '@/images/footer/insta.svg';
  
 import useApi from '@/hooks/useApi';
