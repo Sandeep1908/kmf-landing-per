@@ -3,7 +3,7 @@ import React from 'react';
 // import { growhtProcess, growthProcessTableHeader } from '@/configtext/companyProfile.js';
 import { useState,useEffect } from 'react';
 
-function GrowthProcess() {
+function GrowthProcess({setLoading}) {
   const [growthProcess,setGrowthProcess]=useState([])
   const [growthProcessHeader,setGrowthProcessHeader]=useState([])
  const axios=useApi()
@@ -17,6 +17,7 @@ function GrowthProcess() {
 
         setGrowthProcessHeader(growthProcessHeaderData?.data)
         setGrowthProcess(data?.data)
+        setLoading(false)
         
       }
     )()

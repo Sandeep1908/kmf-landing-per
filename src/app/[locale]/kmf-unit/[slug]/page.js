@@ -1,14 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Logo from '@/images/logo/logo.png';
-import HeroImg from '@/images/milk-union/milk-union-home.png';
-import bengaluruMilkImg from '@/images/milk-union/bengaluru-milk.png';
-import Union1 from '@/images/milk-union/union-1.png';
-import Union2 from '@/images/milk-union/union-2.png';
-import locationIco from '@/images/milk-union/icons/location_on.svg';
-import mailIco from '@/images/milk-union/icons/mail.svg';
-import callIco from '@/images/milk-union/icons/call.svg';
-import printIco from '@/images/milk-union/icons/print.svg';
+import HeroImg from '@/images/milk-union/milk-union-home.png'
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -20,6 +13,8 @@ function KmfUnitDetail() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [banner,setBanner]=useState()
   const param = useParams();
+  const [unitImages,setUnitImages]=useState([])
+  const [loading,setLoading]=useState(true)
 
   const axios = useApi();
 
@@ -29,6 +24,8 @@ function KmfUnitDetail() {
      
       setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
       setUnit(data?.data);
+      setUnitImages(data?.data?.attributes?.image?.data);
+      setLoading(false)
     })();
   }, []);
 
@@ -44,6 +41,21 @@ function KmfUnitDetail() {
           className="max-w-[1282px]   m-auto p-3  rounded-tl-3xl  rounded-br-3xl  bg-white  "
            >
           <div className="w-full flex flex-col space-x-5 justify-start items-start lg:flex-row lg:justify-start">
+
+          {unitImages?.[currentIndex]?
+              <div className="w-full flex flex-col justify-center items-center space-y-5">
+              <div className="  max-w-[458px]    ">
+                <img
+                  src={unitImages?.[currentIndex]?.attributes?.url}
+                  alt="slider-img"
+                  className="w-full h-full"
+                />
+              </div>
+
+          
+            </div>
+            
+            :''}
           
 
             <div className=" w-full flex flex-col justify-start items-start pt-10 space-y-5  ">

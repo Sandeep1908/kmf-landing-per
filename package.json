@@ -19,6 +19,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-reveal": "^1.2.2",
     "react-slick": "^0.29.0",
+    "rodal": "^2.1.0",
     "swiper": "^10.0.0",
     "uuid": "^9.0.1"
   },

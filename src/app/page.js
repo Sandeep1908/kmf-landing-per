@@ -53,12 +53,9 @@ export default function Home() {
   const [recentNews, setRecentNew] = useState([]);
   const [homeNotification,setHomeNotification]=useState([])
   const axios = useApi();
-const router=useRouter()
 
   useEffect(() => {
-   
     (async () => {
-      router.push('/en')
       const { data } = await axios.get('/api/tender-notifications?sort=status:DESC&_limit=3');
       const { data: recentnew } = await axios.get(
         '/api/blog-posts?sort=date:desc'

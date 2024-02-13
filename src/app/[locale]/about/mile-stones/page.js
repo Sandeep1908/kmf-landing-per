@@ -21,7 +21,8 @@ function OrganizationChart() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = description?.slice(indexOfFirstItem, indexOfLastItem);
-const [banner,setBanner]=useState([])
+  const [banner,setBanner]=useState([])
+  const [loading,setLoading]=useState(true)
   const axios = useApi();
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const [banner,setBanner]=useState([])
  
       setBanner(banner?.data)
       setDescription(filterdata);
+      setLoading(false)
     })();
 
     setMileStone(mileStone);

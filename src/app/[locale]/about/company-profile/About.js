@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useApi from '@/hooks/useApi';
 
-function About() {
+function About({setLoading}) {
   const [aboutUs, setAboutUs] = useState([]);
 
   const axios = useApi();
@@ -9,6 +9,7 @@ function About() {
     (async () => {
       const { data } = await axios.get('/api/our-journeys');
       setAboutUs(data?.data[0]?.attributes?.description);
+      setLoading(false)
     })();
   }, []);
   return (

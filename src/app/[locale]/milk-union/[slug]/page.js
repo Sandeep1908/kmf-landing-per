@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import React, { useEffect, useState } from 'react';
 import Logo from '@/images/logo/logo.png';
 import HeroImg from '@/images/milk-union/milk-union-home.png';
@@ -20,6 +20,7 @@ function MilkUnionDetail({ slug }) {
   const param = useParams();
   const [banner,setBanner]=useState()
   const axios = useApi();
+  const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     (async () => {
@@ -28,6 +29,7 @@ function MilkUnionDetail({ slug }) {
       
       setUnion(data?.data);
       setUnionImages(data?.data?.attributes?.image?.data);
+      setLoading(false)
     })();
   }, []);
 

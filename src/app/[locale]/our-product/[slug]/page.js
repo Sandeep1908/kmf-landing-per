@@ -15,10 +15,12 @@ function Milk() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = products?.slice(indexOfFirstItem, indexOfLastItem);
+  const [loading,setLoading]=useState(true)
   const [banner,setBanner]=useState()
   const axios = useApi();
   const param=useParams()
   const pagesToShow = 4; // Number of pagination numbers to show
+  
  
  
   useEffect(() => {
@@ -31,6 +33,7 @@ function Milk() {
       const product=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(param?.slug) )
     
       setProducts(product)
+      setLoading(false)
 
       
     })();

@@ -3,13 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import CarouselImage from '@/components/CarouselImage';
 
-import feturedImg from '@/images/homeImages/featured.png';
-import portfolioImg from '@/images/homeImages/portfolio.png';
-import galleryImg from '@/images/homeImages/gallery.png';
-import acheivmentImg from '@/images/homeImages/achievment.jpeg';
-import KsImg from '@/images/homeImages/Ksagara.jpeg';
-
-
 import image12 from '@/images/homeImages/image12.png';
 import image2 from '@/images/homeImages/image2.png';
 import image3 from '@/images/homeImages/image3.png';
@@ -18,24 +11,18 @@ import notificationImg1 from '@/images/homeImages/notification/cow-grass.png';
 import { LinkCard } from './Card.js';
 import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
-import newsIco from '@/images/homeImages/quikLink/news.tif.svg';
 import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
 import kymIco1 from '@/images/homeImages/kym/importance.tif.svg';
 import kymIco2 from '@/images/homeImages/kym/type.tif.svg';
 import kymIco3 from '@/images/homeImages/kym/nutrition.svg';
 import kymIco4 from '@/images/homeImages/kym/age.tif.svg';
-import cowBlogImg from '@/images/homeImages/cowBlog.png';
-import { v4 as uuidv4 } from 'uuid';
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './Card.js';
-import News from '@/components/News';
-
-import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
 import TenderNotification from '@/components/TenderNotification.js';
@@ -48,82 +35,85 @@ const Home = () => {
   const aboutVideo = '/video/video1.mp4';
   const aboutVideo2 = '/video/video2.mp4';
   const [liveTenders, setLiveTenders] = useState([]);
- 
-  const [allTenders,setAllTenders]=useState([])
-  const [homeNotification,setHomeNotification]=useState([])
-  const [homeVideo,setHomeVideo]=useState([])
-  const [newArrivals,setNewArrivals]=useState([])
+  const [banners, setAllBanners] = useState([]);
+  const [cardDetails, setCardDetails] = useState([]);
+  const [homeAboutDetails, setHomeAboutDetails] = useState([]);
+
+  const [allTenders, setAllTenders] = useState([]);
+  const [homeNotification, setHomeNotification] = useState([]);
+  const [homeVideo, setHomeVideo] = useState([]);
+  const [newArrivals, setNewArrivals] = useState([]);
   const axios = useApi();
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-      const { data: recentnew } = await axios.get(
-        '/api/blog-posts?sort[0]=date:desc&_limit=3'
-      );
-      const {data:arrivals}=await axios.get('/api/latestproducts')
+      const { data: banner } = await axios.get('/api/banners');
 
-      const { data:homenotification } = await axios.get('/api/homenotifications');
-      const { data:gallery } = await axios.get('/api/galleries');
-      const videos=gallery?.data?.map(item=> item?.attributes?.video?.data?.attributes?.url)
-       
+      const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
+      setAllBanners(images);
+      const { data: arrivals } = await axios.get('/api/latestproducts');
+      const { data: homenotification } = await axios.get('/api/homenotifications');
+      const { data: gallery } = await axios.get('/api/galleries');
+
+      const { data: homecard } = await axios.get('/api/homecards');
+      const { data: homeabout } = await axios.get('/api/homeabouts');
       
+
+      const videos = gallery?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url);
       const liveTenders = data?.data?.filter((item) => item.attributes?.status === 'live tender');
       const pastTenders = data?.data?.filter((item) => item.attributes?.status === 'past tender');
+      const homedetials = homeabout?.data?.map((item) => {
+        return {
+          about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
+          about2: item?.attributes?.about2?.[0]?.children?.[0]?.text,
+          video1: item?.attributes?.video1?.data?.attributes?.url,
+          video2: item?.attributes?.video2?.data?.attributes?.url
+        };
+      });
 
-      if(liveTenders.length===0){
-        setLiveTenders(pastTenders)
-      }else{
+      if (liveTenders.length === 0) {
+        setLiveTenders(pastTenders);
+      } else {
         setLiveTenders(liveTenders);
       }
 
-   
-
-          
-      
-      if(videos?.length>2){
-        setHomeVideo(videos?.slice(0,2))
-      }
-      else{
-        setHomeVideo(videos)
+      if (videos?.length > 2) {
+        setHomeVideo(videos?.slice(0, 2));
+      } else {
+        setHomeVideo(videos);
       }
 
-
-      setNewArrivals(arrivals?.data)
-      setHomeNotification(homenotification?.data)
-      setAllTenders(data?.data)
-
-  
-       
-
-
+      setNewArrivals(arrivals?.data);
+      setHomeNotification(homenotification?.data);
+      setAllTenders(data?.data);
+      setCardDetails(homecard?.data);
+      setHomeAboutDetails(homedetials);
     })();
   }, []);
 
-
- 
-  let cards = [
-    {
-      key: uuidv4(),
-      content: <Card imgUrl={feturedImg.src} link="/en/about/company-profile" title="Featured On" />
-    },
-    {
-      key: uuidv4(),
-      content: <Card imgUrl={galleryImg.src} link="/en/blog/gallery" title="Gallery" />
-    },
-    {
-      key: uuidv4(),
-      content: <Card imgUrl={portfolioImg.src} link="/en/portfolio" title="Portfolio KMF" />
-    },
-    {
-      key: uuidv4(),
-      content: <Card imgUrl={acheivmentImg.src} title="Achievments" link="/en/portfolio" />
-    },
-    {
-      key: uuidv4(),
-      content: <Card imgUrl={KsImg.src} title="Ksheera Bhagya" />
-    }
-  ];
+  // let cards = [
+  //   {
+  //     key: uuidv4(),
+  //     content: <Card imgUrl={feturedImg.src} link="/en/about/company-profile" title="Featured On" />
+  //   },
+  //   {
+  //     key: uuidv4(),
+  //     content: <Card imgUrl={galleryImg.src} link="/en/blog/gallery" title="Gallery" />
+  //   },
+  //   {
+  //     key: uuidv4(),
+  //     content: <Card imgUrl={portfolioImg.src} link="/en/portfolio" title="Portfolio KMF" />
+  //   },
+  //   {
+  //     key: uuidv4(),
+  //     content: <Card imgUrl={acheivmentImg.src} title="Achievments" link="/en/portfolio" />
+  //   },
+  //   {
+  //     key: uuidv4(),
+  //     content: <Card imgUrl={KsImg.src} title="Ksheera Bhagya" />
+  //   }
+  // ];
 
   useEffect(() => {
     const updateScreensize = () => {
@@ -142,11 +132,17 @@ const Home = () => {
   return (
     <div className="w-full h-full absolute top-36 z-[-1]">
       {/* HOME CARAOUSAL IMAGE */}
-      <CarouselImage images={images} />
+      <CarouselImage images={banners || []} />
 
       <section className="w-full   pt-20  relative z-[1]  ">
-        <video src='/video/home-vid.mp4' autoPlay muted loop className='absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4'/>
-        <div className='w-full'>
+        <video
+          src="/video/home-vid.mp4"
+          autoPlay
+          muted
+          loop
+          className="absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4"
+        />
+        <div className="w-full">
           <div className=" w-full          p-10  ">
             <h1 className="text-4xl text-[#242424] text-center font-alfa font-[400] tracking-wide md:text-4xl uppercase ">
               Welcome to KMF Nandini
@@ -174,13 +170,17 @@ const Home = () => {
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
               slide
-              initialSlide={2}
+            
               loop={true}
               className={`max-w-7xl  `}>
-              {cards.map((card) => {
+              {cardDetails?.map((card, id) => {
                 return (
-                  <SwiperSlide className="swiper-sldier-card lg:p-10" key={card.key}>
-                    {card.content}
+                  <SwiperSlide className="swiper-sldier-card lg:p-10" key={id}>
+                    <Card
+                      imgUrl={card?.attributes?.image?.data?.attributes?.url}
+                      title={card?.attributes?.title}
+                      link={card?.attributes?.link}
+                    />
                   </SwiperSlide>
                 );
               })}
@@ -199,22 +199,14 @@ const Home = () => {
               <h1 className="text-4xl uppercase font-alfa">About KMF</h1>
 
               <div className="space-y-6">
-                <TypeWriter
-                  text="   KMF stands for KARNATAKA MILK FEDRATION’S LTD., KMF is a 4Decade Organization
-              covering around 24,000 Villages procuring about 85Lakh Kgs of milk per day.
-              Emphasizing on “Quality Excellence from Cow to Consumer”. KMF Heralding economic,
-              social and cultural prosperity in the lives of our milk producer members by
-              promoting vibrant, self-sustaining and holistic cooperative dairy development in
-              Karnataka State."
-                  delay={70}
-                />
+                <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
               </div>
             </div>
 
             <Fade right>
               <div className="p-4 flex justify-center items-center w-full h-96    ">
                 <video
-                  src={aboutVideo}
+                  src={homeAboutDetails[0]?.video1}
                   playsInline
                   muted
                   autoPlay
@@ -229,7 +221,7 @@ const Home = () => {
             <Fade left>
               <div className="p-4 flex justify-center items-center w-full h-96    ">
                 <video
-                  src={aboutVideo2}
+                  src={homeAboutDetails[0]?.video2}
                   playsInline
                   muted
                   autoPlay
@@ -243,15 +235,7 @@ const Home = () => {
               <h1 className="text-4xl uppercase">OUR BRAND NANDINI</h1>
 
               <div className="space-y-6 h-[">
-                <TypeWriter
-                  text="NANDINI MILK is a brand owned by KMF. Nandini was founded in 1974 by the
-              government of Karnataka as Karnataka Dairy Development Corporation (KDDC). NANDINI
-              brand became household name in state of Karnataka. In 1955 First Dairy was
-              established in the State of Karnataka, belonging to KODAGU district at KUDIGE
-              Village, later in the Year 1965 The Biggest Dairy was Built in Bengaluru. Nandini
-              Brand Includes verities of Milk & Milk Products."
-                  delay={70}
-                />
+                <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
               </div>
 
               <Link
@@ -266,26 +250,29 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-20 pb-20   ">
-      <video src='/video/vid.webm' autoPlay muted loop className='absolute w-full h-full inset-0 object-cover   z-[-10] opacity-[.3]'/>
+      <section className=" relative w-full h-auto pt-5 pb-5   ">
+        <video
+          src="/video/vid.webm"
+          autoPlay
+          muted
+          loop
+          className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
+        />
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-4xl uppercase">Quick Links</h1>
             <p className="text-center text-sm text-[#595959]">Here&apos;s some quick links.</p>
           </div>
 
-          <div className='  w-full h-auto  relative   '>
-     
+          <div className="  w-full h-auto  relative   ">
             <Fade bottom>
               <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
-                <Link href="/kn/404">
+                <Link href="/en/comingsoon">
                   <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
                 </Link>
-                <Link href="/kn/404">
-                  <LinkCard title="Latest News" imgUrl={newsIco.src} />
-                </Link>
-                <Link href="/kn/404">
-                  <LinkCard title="Daily Tour" imgUrl={locationIco.src} />
+
+                <Link href="/en/comingsoon">
+                  <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
                 </Link>
                 <Link href="/kn/404">
                   <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
@@ -313,12 +300,12 @@ const Home = () => {
                   <p className="text-justify font-[100] text-neutral-dark1">
                     Milk is a nutrient-rich beverage, widely consumed for its high calcium content
                     essential for bone health. It is a source of protein, vitamins, and minerals,
-                    contributing to overall well-being. Varieties include cow&apos;s milk, known for its
-                    widespread availability, and alternatives like almond or soy milk for those with
-                    dietary preferences or lactose intolerance. Milk&apos;s versatility extends to
-                    culinary uses, featuring prominently in recipes from creamy desserts to savory
-                    dishes, showcasing its cultural and nutritional significance in various global
-                    cuisines.
+                    contributing to overall well-being. Varieties include cow&apos;s milk, known for
+                    its widespread availability, and alternatives like almond or soy milk for those
+                    with dietary preferences or lactose intolerance. Milk&apos;s versatility extends
+                    to culinary uses, featuring prominently in recipes from creamy desserts to
+                    savory dishes, showcasing its cultural and nutritional significance in various
+                    global cuisines.
                   </p>
                 </div>
               </div>
@@ -362,12 +349,9 @@ const Home = () => {
 
       <section className="w-full h-auto  bg-primary-subtle  ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-    
           <div className="flex    flex-col justify-center items-center  space-y-3  ">
-             
-              <h1 className="text-4xl uppercase">Notification</h1>
-              
-            
+            <h1 className="text-4xl uppercase">Notification</h1>
+
             <p className="text-neutral-dark1">Here&apos;s some latest update</p>
           </div>
 
@@ -394,7 +378,6 @@ const Home = () => {
                 }}
                 loop={true}>
                 {liveTenders?.map((item, id) => {
-              
                   return (
                     <SwiperSlide className="swiper-sldier-card  " key={id}>
                       <TenderNotification
@@ -407,33 +390,17 @@ const Home = () => {
                 })}
               </Swiper>
 
-
-
-                        
-
-               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
-
-                  <div className='w-full marquee h-full flex flex-col space-y-3 '>
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
+                <div className="w-full marquee h-full flex flex-col space-y-3 ">
                   {allTenders?.map((item, id) => {
-                  
-                     
-                  return (
-                    
-
-                        <p key={id} className='bg-white p-2 text-xs rounded w-full '>{id} - {item?.attributes?.title}</p>
-                     
-                    
-                  
-                  );
-                })}
-                      
-
-                  </div>
-           
-              </div> 
-
-
-
+                    return (
+                      <p key={id} className="bg-white p-2 text-xs rounded w-full ">
+                        {id} - {item?.attributes?.title}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
 
               {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
                 <div className=" w-full flex items-center">
@@ -451,10 +418,7 @@ const Home = () => {
                 </div>
               </div> */}
 
-
-
-
-                {/* {homeNotification?.map((item,idx)=>{
+              {/* {homeNotification?.map((item,idx)=>{
                   console.log("notification",item)
                   return(
                     <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
@@ -472,54 +436,26 @@ const Home = () => {
                   </div>
                   )
                 })} */}
-        
- 
 
-              <div className='flex w-full  justify-end space-y-2'>
-              <div className="w-full flex justify-end ">
-      <Link href={""} className=''>
-        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-         View All
-        </button>
-      </Link>
-    </div>
-               
-              </div>
+          
             </div>
-
 
             <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
-              
-                     
-         
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[570px] p-5 rounded-lg border-b-2 border-primary-main  ">
+                <h1 className="text-4xl uppercase">New Arrivals & Best Selling</h1>
 
-             
-
-                        
-
-               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[545px] p-5 rounded-lg border-b-2 border-primary-main  "> 
-
-               <h1 className='text-4xl uppercase'>New Arrivals & Best Selling</h1>
-
-                  <div className='w-full marquee-notification h-full flex flex-col space-y-3 '>
-
-                  {newArrivals?.map((item,id)=>{
-              
-                    return(
-                      <ArrivalCard 
-                      key={id}
-                      title={item?.attributes?.title}
-                      imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                <div className="w-full marquee-notification h-full flex  space-x-3 ">
+                  {newArrivals?.map((item, id) => {
+                    return (
+                      <ArrivalCard
+                        key={id}
+                        title={item?.attributes?.title}
+                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
                       />
-                    )
+                    );
                   })}
-
-                  </div>
-           
-              </div> 
-
-
-
+                </div>
+              </div>
 
               {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
                 <div className=" w-full flex items-center">
@@ -537,10 +473,7 @@ const Home = () => {
                 </div>
               </div> */}
 
-
-
-
-                {/* {homeNotification?.map((item,idx)=>{
+              {/* {homeNotification?.map((item,idx)=>{
                   console.log("notification",item)
                   return(
                     <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
@@ -558,24 +491,9 @@ const Home = () => {
                   </div>
                   )
                 })} */}
-        
- 
 
-              <div className='flex flex-col justify-end w-full space-y-2'>
-              <div className="w-full flex justify-end ">
-      <Link href={""}  className='flex justify-end '>
-        <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-         View All
-        </button>
-      </Link>
-    </div>
-               
-              </div>
+            
             </div>
-
-  
-
-
           </div>
         </div>
       </section>
@@ -585,41 +503,45 @@ const Home = () => {
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
               <h1 className="text-4xl uppercase">Latest News</h1>
-            
             </div>
             <p className="text-neutral-dark1">Here some latest News and blog</p>
           </div>
 
           <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
-          
-                <div  className="p-4  max-w-2xl flex justify-center items-center h-96    ">
+            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
+              <iframe
+                height="315"
+                src={'https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo'}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                className="w-full sm:w-[540px]"></iframe>
+            </div>
 
-                  
-
-<iframe   height="315" src={"https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo"} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className='w-full sm:w-[540px]' ></iframe>
-              </div>
-
-              <iframe   height="315" src="https://www.youtube.com/embed/noTHHLsuLUA?si=eI6SZK_av1Sb4HCP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className='w-full sm:w-[540px]'></iframe>
-          
+            <iframe
+              height="315"
+              src="https://www.youtube.com/embed/noTHHLsuLUA?si=eI6SZK_av1Sb4HCP"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              className="w-full sm:w-[540px]"></iframe>
           </div>
 
           <div className="w-full flex justify-center  space-x-5">
+            <Link href={'/en/blog'}>
+              <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
+                See more
+              </button>
+            </Link>
 
-
-      <Link href={"/en/blog/gallery"}>
-        <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
-         See more
-        </button>
-      </Link>
-
-      <Link href={"/en/contact"}>
-        <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
-         Get In Touch
-        </button>
-      </Link>
-
-
-    </div>
+            <Link href={'/en/contact'}>
+              <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
+                Get In Touch
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 

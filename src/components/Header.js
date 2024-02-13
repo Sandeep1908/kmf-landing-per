@@ -14,9 +14,9 @@ import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { IoHomeOutline } from 'react-icons/io5';
-import facebookIco from '@/images/footer/FB.svg';
+import facebookIco from '@/images/footer/fb.svg';
 import mailIco from '@/images/footer/Email.svg';
-import twitterIco from '@/images/footer/X.svg';
+import twitterIco from '@/images/footer/x.svg';
 import insta from '@/images/footer/insta.svg';
  
 import useApi from '@/hooks/useApi';
@@ -38,6 +38,27 @@ export const Header = () => {
   const params = useParams();
   const pathname=usePathname()
   const router=useRouter()
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const threshold = 153; // Adjust this threshold as needed
+
+      
+      // Set isSticky based on the scroll position
+      setIsSticky(scrollPosition > threshold);
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Run this effect only once on component mount
+
 
   useEffect(() => {
     (async () => {
@@ -125,19 +146,23 @@ export const Header = () => {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
 
+   
  
   return (
     <>
       <div className="w-full h-full relative  ">
         {/* UPPER HEADER  */}
 
+
+        <div className={`w-full `}  >
+
         <div
-          className="w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center"
+          className={`w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center `}
           onMouseEnter={() => setOpen(null)}>
 
-          <div className="flex justify-center items-center space-x-6">
+          <div className=" max-w-xl flex justify-center items-center space-x-6">
             <img src={locale==='en'?logo.src:logokn.src} alt="logo-home" className="w-[150px]" />
-            <p className='font-bold font-lato text-xs sm:text-xl'>KARNATAKA CO-OPERATIVE MILK <br/> PRODUCER’S FEDERATION LTD (KMF)</p>
+            <p className='font-bold font-lato text-xs sm:text-xl'>{headerItem?.attributes?.title}</p>
           </div>
 
           <div className="flex flex-col  ">
@@ -171,7 +196,7 @@ export const Header = () => {
                 <Link href={"https://www.facebook.com/kmfnandini.coop"} className='hover:scale-125 transition-all duration-300'><img src={facebookIco.src} className="w-7" /></Link>
                <Link href={"https://twitter.com/kmfnandinimilk"}className='hover:scale-125 transition-all duration-300'><img src={twitterIco.src} className="w-7" /></Link> 
                <Link href={"https://www.kmfnandini.coop/en/contact-us"} className='hover:scale-125 transition-all duration-300'>  <img src={mailIco.src} className="w-7" /></Link> 
-               <Link href={"#"} className='hover:scale-125 transition-all duration-300'>  <img src={insta.src} className="w-7" /></Link> 
+               <Link href={"https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="} className='hover:scale-125 transition-all duration-300'>  <img src={insta.src} className="w-7" /></Link> 
                
               </div>
 
@@ -208,14 +233,18 @@ export const Header = () => {
             </div>
             </div>
 
-            <p className='text-xs flex justify-end pt-4 marquee-notification overflow-hidden'>{latestNews? latestNews?.attributes?.title:''}</p>
+            <p className='text-sm text-red-600 font-bold flex justify-end pt-4 marquee-notification overflow-hidden'>{latestNews? latestNews?.attributes?.title:''}</p>
           </div>
     
         </div>
 
         {/* MAIN HEADER DOWN  */}
 
-        <div className="max-w-[90%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 ">
+        <div className={`w-full   ${isSticky ? 'sticky-header' : ''}`}>
+
+  
+
+        <div className={`max-w-[90%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 relative     `}>
           <div className=" w-full h-full flex justify-between items-center lg:hidden ">
             <div onClick={() => setOpenNav((prev) => !prev)}>
               <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
@@ -267,16 +296,20 @@ export const Header = () => {
           </div>
         </div>
 
+        </div>
+
+        </div>
+
         {/* Mobile Header  */}
 
         <div
-          className={`w-full h-screen bg-[#f7bd00] fixed top-0 opacity-[0.60] lg:hidden  z-10   ${
+          className={`w-full h-screen bg-[#f7bd00]  fixed top-0 opacity-[0.60] lg:hidden  z-[10]   ${
             openNav ? 'left-0 ' : 'left-[-1200px] '
           }`}
           style={{ transition: 'all .5s' }}></div>
 
         <div
-          className={`w-[305px] h-screen bg-primary-darker fixed top-0 z-10   lg:hidden  ${
+          className={`w-[305px] h-screen  bg-primary-darker fixed top-0 z-[20]   lg:hidden  ${
             openNav ? 'left-0 ' : 'left-[-1200px]   '
           }`}
           style={{ transition: 'all .8s' }}>
@@ -290,7 +323,7 @@ export const Header = () => {
             </div>
 
             <div>
-              <ul className=" ">
+              <ul className="overflow-auto">
                 {headItem?.map((items, idx) => {
                   const hasItems = items?.subItems?.length;
                   if (hasItems) {

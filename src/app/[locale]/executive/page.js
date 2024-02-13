@@ -5,6 +5,8 @@ import personImg from '@/images/directors/person.png';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
+import Zoom from 'react-reveal/Zoom';
+import Flash from 'react-reveal/Zoom';
 
 const Executive = () => {
   const [md,setMd]=useState([])
@@ -12,6 +14,7 @@ const Executive = () => {
 
   const [unitCheifs,setUnitCheif]=useState([])
   const [executives,setExecutives]=useState([])
+  const [loading,setLoading]=useState(true)
 
 
   const axios =useApi()
@@ -26,13 +29,14 @@ const Executive = () => {
         const {data:excecutive}=await axios.get('/api/executives')
         const {data:unitchief}=await axios.get('/api/unitcheifs')
         const {data:unioncheif}=await axios.get('/api/unioncheifs')
+      
 
 
         setMd(chairman?.data)
         setUnionCheif(unioncheif?.data)
         setUnitCheif(unitchief?.data)
         setExecutives(excecutive?.data)
-        
+        setLoading(false)
     
       }
     )()
@@ -41,25 +45,27 @@ const Executive = () => {
     <div className="w-full h-full absolute top-36 z-[-1] ">
     <section
       className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
+       
       <img src={directorImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
+    
     </section>
 
-    <section className="w-full  bg-[#F6F6F6] pt-10  ">
-    <h1 className='text-center text-primary-main text-xl'>KMF Executives</h1>
+    <section className="w-full   pt-10  ">
+    <h1 className='text-center text-primary-main text-2xl uppercase'>KMF Executives</h1>
 
-    <div className='p-12 h-full  '>
-        <div className='w-full min-h-56 shadow-md md:h-2/4 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
-            <div className='md:w-1/2 flex justify-center items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 ' >
-              <img className='w-2/4' src={md?.attributes?.image?.data?.attributes?.url} alt="" />
+    <div className='p-10 h-full flex justify-center items-center   '>
+        <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4 shadow-lg bg-primary-gradient rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
+            <div className='md:w-1/2 flex justify-around  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full '  >
+              <Zoom>
+              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[350px]' src={md?.attributes?.image?.data?.attributes?.url} alt="" />
+              </Zoom>
             </div>
-            <div className=' md:w-1/2 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 '>
+            <div className=' md:w-2/3 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 '>
               <div>
-                <p className='text-2xl font-bold text-neutral-dark1'>{md?.attributes?.name}</p>
-                <p className='text-base font-normal text-neutral-dark2'>{md?.attributes?.description}</p>
+                <p className='text-3xl md:text-5xl font-lato font-bold text-start text-white'>{md?.attributes?.name}</p>
+                <p className=' text-2xl text-center  md:text-3xl font-lato md:text-start text-white '>{md?.attributes?.description}</p>
               </div>
-              <div className='mt-3 lg:mt-12 p-3 md:p-0'>
-                
-              </div>
+           
             </div>
         </div>
     
@@ -67,7 +73,7 @@ const Executive = () => {
     <div>
 
 
-    <div className='w-full p-5 md:p-20'>
+    <div className='w-full max-w-7xl m-auto p-5  '>
       <div className=''>
         <h1 className='text-3xl font-bold'>
             Executive
@@ -75,12 +81,14 @@ const Executive = () => {
       </div>
 
 
-      <table className="mt-10 table-fixed   border-spacing-y-2	 border-collapse border overflow-auto    w-full">
+      <table className="mt- table-fixed    border-spacing-y-2	 border-collapse border overflow-auto    w-full">
         <thead className=" bg-primary-main text-white ">
           <tr className="text-md    ">
-            <th className="p-2 ">Name</th>
+            <th className="p-2 text-start ">Name</th>
+            <th className="p-2 text-start ">Department</th>
             <th className="p-2 text-start">Designation	</th>
-            <th className="p-2 text-start">Place of working	</th>
+            <th className="p-2 text-start ">Place of working</th>
+ 
           </tr>
         </thead>
 
@@ -91,10 +99,11 @@ const Executive = () => {
 
  return(
     
-    <tr className='border-t' key={id}>
-    <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
-    <td className="p-2 text-xs">{item?.attributes?.designation}</td>
-    <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>
+    <tr className='border-t ' key={id}>
+    <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
+    <td className="p-2 text-sm  "> </td>
+    <td className="p-2 text-sm">{item?.attributes?.designation}</td>
+    <td className="p-2 text-sm"> </td>
   </tr>
    
  )
@@ -111,7 +120,7 @@ const Executive = () => {
       </div>
 
 
-      <div className='w-full p-5 md:p-20'>
+      <div className='w-full max-w-7xl m-auto  p-5 '>
       <div className=''>
         <h1 className='text-3xl font-bold'>
             Union Chief
@@ -119,10 +128,10 @@ const Executive = () => {
       </div>
 
 
-      <table className="mt-10 table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
+      <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className="bg-primary-main text-white  ">
           <tr className="text-md ">
-            <th className="p-2 ">Name</th>
+            <th className="p-2 text-start ">Name</th>
             <th className="p-2 text-start">Designation	</th>
             <th className="p-2 text-start">Place of working	</th>
           </tr>
@@ -136,9 +145,9 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
-  <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
-  <td className="p-2 text-xs">{item?.attributes?.designation}</td>
-  <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
+  <td className="p-2 text-sm">{item?.attributes?.designation}</td>
+  <td className="p-2 text-sm overflow-auto">{item?.attributes?.working}</td>
 </tr>
  )
 
@@ -154,7 +163,7 @@ const Executive = () => {
       </div>
 
 
-      <div className='w-full p-5 md:p-20 overflow-auto'>
+      <div className='w-full p-5  max-w-7xl  m-auto overflow-auto'>
       <div className=''>
         <h1 className='text-3xl font-bold'>
             Unit Chief
@@ -162,10 +171,10 @@ const Executive = () => {
       </div>
 
 
-      <table className="mt-10 table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
+      <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className=" w-full bg-primary-main text-white ">
           <tr className="text-md    ">
-            <th className="p-2 ">Name</th>
+            <th className="p-2 text-start">Name</th>
             <th className="p-2 text-start">Designation	</th>
             <th className="p-2 text-start ">Place of working	</th>
           </tr>
@@ -179,9 +188,9 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
-  <td className="p-2 text-xs text-center ">{item?.attributes?.name}</td>
-  <td className="p-2 text-xs">{item?.attributes?.designation}</td>
-  <td className="p-2 text-xs overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
+  <td className="p-2 text-sm">{item?.attributes?.designation}</td>
+  <td className="p-2 text-sm overflow-auto">{item?.attributes?.working}</td>
 </tr>
    
  )

@@ -47,12 +47,12 @@ export const LinkCard = ({ imgUrl, title, description }) => {
   return (
     <div className=" ">
       <div
-        className="p-2 w-48 h-48 flex justify-center items-center border-neutral-dark1   bg-neutral-light4 rounded-full"
+        className="p-2 w-40 h-40 flex justify-center items-center border-neutral-dark1   bg-neutral-light4 rounded-full"
         style={{ boxShadow: '0px 8px 24px 0px rgba(0, 0, 0, 0.12)' }}>
         <img
           src={imgUrl}
           alt="featured-img"
-          className=" w-24 h-32 object-contain hover:rotate-45 "
+          className=" w-14 h-28 object-contain hover:rotate-45 "
           style={{ transition: '.4s all' }}
         />
       </div>

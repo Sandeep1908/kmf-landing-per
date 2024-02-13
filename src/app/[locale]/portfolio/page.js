@@ -30,6 +30,7 @@ function Portfolio() {
   const [portfilioData, setPortfolioData] = useState([]);
   const [md,setMd]=useState([])
   const [chairman,setChairman]=useState([])
+  const [loading,setLoading]=useState(true)
 
    
 
@@ -41,6 +42,7 @@ function Portfolio() {
       setPortfolioData(data.data);
       setMd(md?.data)
       setChairman(chairman?.data)
+      setLoading(false)
     })();
   }, []);
 

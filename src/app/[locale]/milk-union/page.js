@@ -14,12 +14,14 @@ function MilkUnion() {
   const [milkUnion, setMilkUnions] = useState([]);
   const Api = useApi();
   const params=useParams()
+  const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     (async () => {
       const { data } = await Api.get('/api/milk-unions');
       
       setMilkUnions(data.data);
+      setLoading(false)
     })();
   }, []);
   return (

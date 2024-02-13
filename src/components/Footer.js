@@ -35,10 +35,10 @@ function Footer() {
   },[params?.locale])
   return (
     <section className="w-full h-full md:h-auto pt-10 relative bg-primary-subtle  footer-bg  ">
-      <div className=" z-10 relative p-5 max-w-7xl   m-auto flex flex-col justify-between items-center md:items-start">
+      <div className=" z-10 relative  max-w-7xl   m-auto flex flex-col justify-between items-center md:items-start">
       
 
-        <div className="  pt-10 w-full flex flex-col justify-center items-center  gap-5 md:flex-row md:justify-between md:items-start">
+        <div className="    w-full flex flex-col justify-center items-center  gap-5 md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-2 max-w-96 space-y-5">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter">
               Address
@@ -87,7 +87,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full justify-between items-center mt-10 space-y-6  flex-wrap md:flex-row">
+        <div className="flex flex-col w-full justify-between items-center mt-3 space-y-6  flex-wrap md:flex-row">
           <div className="flex flex-col justify-start items-start">
             <p className="text-sm">©    {footerItem?.[0]?.copyright}</p>
             <p className="text-sm">    All rights reserved to <Link href={""} className='text-blue-500 font-bold'> KMF-MIS (CENTRAL OFFICE).</Link></p>

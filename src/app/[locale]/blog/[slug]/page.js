@@ -13,14 +13,16 @@ function BlogDetail() {
   const axios = useApi();
   const [blog, setBlog] = useState([]);
   const [recentNew, setRecentNew] = useState([]);
+  const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/blog-posts/${param?.slug}`);
       const { data: recentnew } = await axios.get(
-        '/api/blog-posts?sort[0]=createdAt:desc&_limit=3'
+        '/api/blog-posts?sort[0]=date:desc&_limit=3'
       );
       setBlog(data.data);
+      setLoading(false)
       if(recentnew?.data?.length > 3){
         setRecentNew(recentnew.data?.slice(0,3));
       }

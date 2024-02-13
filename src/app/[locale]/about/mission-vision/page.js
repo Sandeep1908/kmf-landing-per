@@ -16,9 +16,9 @@ function MissionVission() {
 
       <section className="w-full h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col justify-center items-start shadow-md ">
-            <h1 className="text-2xl text-primary-main uppercase p-2">
-              {locale === 'en' ? 'Vision' : 'ದೃಷ್ಟಿ'}
+          <div className="w-full flex flex-col justify-center items-center shadow-md ">
+            <h1 className="text-2xl text-primary-main uppercase  p-2">
+              {locale === 'en' ? 'Mission & Vision' : 'ದೃಷ್ಟಿ'}
             </h1>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
@@ -83,39 +83,27 @@ function MissionVission() {
 ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ತಮ ಗುಣಮಟ್ಟದ MNCಗಳು ಮತ್ತು ಖಾಸಗಿ ಡೈರಿಗಳೊಂದಿಗೆ ಸ್ಪರ್ಧಿಸಲು
 ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ಸಹಕಾರಿಗಳ ಅಜೇಯತೆಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳುತ್ತವೆ.`}
               </li>
+
+             
+             
+              <li>
+                {locale === 'en'
+                  ? `     
+                  Heralding economic, social and cultural prosperity in the lives of our milk producer
+                  members by promoting vibrant, self-sustaining and holistic cooperative dairy
+                  development in Karnataka State.`
+                  : `
+                
+
+        
+                  ನಮ್ಮ ಹಾಲು ಉತ್ಪಾದಕರ ಜೀವನದಲ್ಲಿ ಆರ್ಥಿಕ, ಸಾಮಾಜಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಏಳಿಗೆಗೆ ನಾಂದಿ ಹಾಡುವುದು
+                  ರೋಮಾಂಚಕ, ಸ್ವಾವಲಂಬಿ ಮತ್ತು ಸಮಗ್ರ ಸಹಕಾರಿ ಡೈರಿಯನ್ನು ಉತ್ತೇಜಿಸುವ ಮೂಲಕ ಸದಸ್ಯರು
+                  ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಅಭಿವೃದ್ಧಿ`}
+              </li>
             </ul>
           </div>
 
-          <div className="w-full relative  flex justify-center items-center company-bg ">
-            <div className="  flex flex-col justify-center items-start   ">
-              <h1 className="text-2xl text-primary-main uppercase">
-                {locale === 'en'
-                  ? ` Mission`
-                  : `
-                
-
-               
-ಮಿಷನ್`}
-             
-              </h1>
-              <p className="text-sm text-justify p-6">
-                {locale === 'en'
-                  ? `   Heralding economic, social and cultural prosperity in the lives of our milk producer
-                members by promoting vibrant, self-sustaining and holistic cooperative dairy
-                development in Karnataka State.`
-                  : `
-                
-
-               
-                
-ನಮ್ಮ ಹಾಲು ಉತ್ಪಾದಕರ ಜೀವನದಲ್ಲಿ ಆರ್ಥಿಕ, ಸಾಮಾಜಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಏಳಿಗೆಗೆ ನಾಂದಿ ಹಾಡುವುದು
-ರೋಮಾಂಚಕ, ಸ್ವಾವಲಂಬಿ ಮತ್ತು ಸಮಗ್ರ ಸಹಕಾರಿ ಡೈರಿಯನ್ನು ಉತ್ತೇಜಿಸುವ ಮೂಲಕ ಸದಸ್ಯರು
-ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಅಭಿವೃದ್ಧಿ`}
-              </p>
-            </div>
-
-            <h1 className=" text-3xl rotate-90 relative opacity-[0.15]">Mission</h1>
-          </div>
+        
         </div>
       </section>
 

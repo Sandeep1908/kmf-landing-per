@@ -3,15 +3,16 @@ import { KMFunits } from '@/configtext/companyProfile'
 import useApi from '@/hooks/useApi'
 import { useState,useEffect } from 'react'
 import Link from 'next/link'
-function UnitOfKMF() {
+function UnitOfKMF({setLoading}) {
   const axios=useApi()
   const[kmfUnits,setKmfUnits]=useState([])
 
   useEffect(()=>{
     (
     async()=>{
-      const {data}=await axios.get('/api/about-unit-kmfs')
+      const {data}=await axios.get('/api/about-unit-kmfs?sort[0]=createdAt:asc')
       setKmfUnits(data?.data)
+      setLoading(false)
     }
 
     )()

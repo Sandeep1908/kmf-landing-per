@@ -3,29 +3,23 @@ import Link from 'next/link';
 
 function Tenders({ title, description, tenderNo, image, date, link }) {
   return (
-    <div className="flex flex-col  justify-evenly items-center p-5   bg-white rounded-tl-3xl  rounded-br-3xl sm:flex-row ">
-      <div className="w-2/5 sm:w-1/5 relative before:absolute before:-right-3 before:w-1 before:h-full before:rounded-lg before:bg-secondary-main before:hidden lg:before:block">
-        <img src={image} className=" w-full h-full md:w-40 md:h-60 " />
-      </div>
-
-      <div className=" w-full justify-center sm:w-2/5 flex flex-col sm:justify-between items-start space-y-5">
-        <div className="flex flex-col justify-center items-center sm:justify-start sm:items-start">
-          <h1 className="text-lg">{title}</h1>
-          <p className="text-justify text-neutral-dark1 text-sm">{description}</p>
-          <p className="text-md mt-4 text-justify">{tenderNo}</p>
+    <ul role="list" className="divide-y  bg-white divide-gray-100 w-full border-b-2 shadow-md p-3 border-primary-main  ">
+  
+      <li className="flex justify-between gap-x-6 py-5">
+        <div className="flex min-w-0 gap-x-4">
+          
+          <div className="min-w-0 flex-auto">
+            <p className="text-sm font-semibold leading-6 text-gray-900">{title}</p>
+            <p className="mt-1 truncate text-xs leading-5 text-gray-500">{tenderNo}</p>
+            <p className="mt-1 truncate text-xs leading-5 text-gray-500">{date}</p>
+          </div>
         </div>
-
-        <div className=" w-full flex flex-col  justify-between items-center sm:flex-row">
-          <p className="text-neutral-dark2">Last date: {date}</p>
-
-          <Link
-            href={link || ''}
-            className="bg-primary-main w-28 h-10 flex justify-center items-center  text-neutral-light4 font-semibold rounded-md">
-            Download
-          </Link>
+        <div className=" shrink-0  flex  flex-col  items-end  justify-end">
+         <Link href={link || ''}><p className="text-sm leading-6 cursor-pointer bg-primary-gradient p-2 text-white text-gray-900">Download</p></Link> 
         </div>
-      </div>
-    </div>
+      </li>
+    
+  </ul>
   );
 }
 

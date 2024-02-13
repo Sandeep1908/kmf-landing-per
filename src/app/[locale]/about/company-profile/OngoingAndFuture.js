@@ -3,7 +3,7 @@ import React from 'react';
 import useApi from '@/hooks/useApi';
 import { useState,useEffect } from 'react';
 import { useParams } from 'next/navigation';
-function OngoingAndFuture({ futureProject}) {
+function OngoingAndFuture({ setLoading}) {
 
   const [futureProjects,setFutureProjects]=useState([])
   const [ongoingProjects,setOngoingProjects]=useState([])
@@ -16,6 +16,7 @@ function OngoingAndFuture({ futureProject}) {
       const incomingOngoingProjects=data?.data?.filter(item=>item?.attributes?.status==='ongoing')
       setFutureProjects(incomingFutureProjects)
       setOngoingProjects(incomingOngoingProjects)
+      setLoading(false)
     })()
   },[])
   return (

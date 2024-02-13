@@ -13,25 +13,26 @@ import Footer from '@/components/Footer';
 
 function CompanyProfile() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading,setLoading]=useState(true)
   const locale=useParams().locale
 
    
   const tabs = [
     {
       tabName: locale==='en'?'About us':'ನಮ್ಮ ಬಗ್ಗೆ',
-      data:  <About/>
+      data:  <About setLoading={setLoading}/>
     },
     {
       tabName: locale==='en'?'The Growth Process':'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
-      data: <GrowthProcess />
+      data: <GrowthProcess setLoading={setLoading} />
     },
     {
       tabName:  locale==='en'?'UNITS OF KMF':'KMF ನ ಘಟಕಗಳು',
-      data: <UnitOfKMF/>
+      data: <UnitOfKMF setLoading={setLoading}/>
     },
     {
       tabName: locale==='en'?'Ongoing and Future Projects':'ನಡೆಯುತ್ತಿರುವ ಮತ್ತು ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
-      data: <OngoingAndFuture  />
+      data: <OngoingAndFuture setLoading={setLoading}  />
     }
   ];
   const handleTabs = (idx) => {
@@ -39,6 +40,8 @@ function CompanyProfile() {
     setCurrentIndex(idx);
   };
    
+
+  
 
   return (
     <div className="w-full absolute top-36 z-[-1]    ">

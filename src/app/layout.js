@@ -9,6 +9,7 @@ import Footer from '../components/Footer'
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import 'rodal/lib/rodal.css';
  
 
  
