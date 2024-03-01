@@ -25,7 +25,7 @@ function GrowthProcess({setLoading}) {
   return (
     <div className="w-full flex-col   overflow-auto  items-start justify-start p-10 space-y-5">
       <table className="table-fixed  border-spacing-y-2	 border-collapse border      min-w-full">
-        <thead className="">
+        <thead className=" ">
           <tr className="text-md bg-secondary-gradient ">
             <th className="p-2">KEY ITEMS</th>
             <th className="p-2">UNIT</th>
@@ -39,13 +39,13 @@ function GrowthProcess({setLoading}) {
           {growthProcessHeader.map((header, id) => {
          
             return (
-              <tr key={id}>
-                <td>{header?.attributes?.header}</td>
-                <td>{header?.attributes?.unit}</td>
+              <tr key={id} className='border-t '>
+                <td className='p-2'>{header?.attributes?.header}</td>
+                <td className='p-2'>{header?.attributes?.unit}</td>
 
                 {growthProcess.map((gp, id) => {
                   console.log(`key-- ${header?.attributes?.key} value - ${gp?.attributes[header?.attributes?.key]}`)
-                  return <td key={id}>{gp?.attributes[header?.attributes?.key]}</td>;
+                  return <td className='p-2' key={id}>{gp?.attributes[header?.attributes?.key]}</td>;
                 })}
               </tr>
             );
