@@ -5,40 +5,37 @@ import { Carousel as Carousels } from 'react-responsive-carousel';
  
 
 const CarouselImage = ({ images }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const carouselRef = useRef(null);
-
+  const [currentSlide, setCurrentSlide] = useState(0); // Start from the first slide (index 0)
+const [isPlaying,setIsPlaying]=useState(false)
   const handleSlide = (index) => {
     setCurrentSlide(index);
   };
 
+  useEffect(()=>{
+setIsPlaying(true)
+  },)
   return (
     <div className="relative w-full">
-      <Carousels 
-        ref={carouselRef}
+      <Carousels
         autoPlay={isPlaying}
         showArrows={true}
         interval={4000}
         showStatus={false}
-        infiniteLoop
+        infiniteLoop={true} // Use curly braces for boolean props
         showThumbs={false}
         showIndicators={false}
         selectedItem={currentSlide}
-        onChange={handleSlide}>
-        {images.map((img, idx) => {
-          return (
-            <div key={idx} className='w-full h-[600px]  '>
-              <img src={img} alt="" className="w-full  h-full object-cover md:object-fill" />
-            </div>
-          );
-        })}
-      </Carousels >
- 
+        onChange={handleSlide}
+      >
+        {images.map((img, idx) => (
+          <div key={idx} className='w-full max-h-[600px]'>
+            <img src={img} alt="" className="w-full h-full object-cover md:object-fill" /> {/* Ensure to fill container */}
+          </div>
+        ))}
+      </Carousels>
     </div>
   );
 };
-
 CarouselImage.propTypes = {
   images: PropTypes.array
 };
@@ -55,7 +52,7 @@ export const CarouselNotification = ({ images, title, description, link }) => {
   return (
     <div className="relative w-full">
       <Carousels 
-        ref={carouselRef}
+    
         autoPlay={isPlaying}
         interval={4000}
         showStatus={false}
