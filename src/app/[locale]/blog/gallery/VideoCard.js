@@ -1,29 +1,43 @@
 import React from 'react';
 import propTypes from 'prop-types';
- 
 
-
-function VideCard({ video }) {
+import { useState, useEffect } from 'react';
+import useApi from '@/hooks/useApi';
+import Link from 'next/link';
+import useLocale from '@/hooks/useLocale';
  
+function VideCard() {
+  const [imageItems, setImageItems] = useState([]);
+  const axios = useApi();
+  const locale=useLocale().locale;
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/imagecategories');
+
+      setImageItems(data.data);
+    })();
+  }, []);
+
   return (
- 
-    <div className="  h-full relative  rounded-md bg-light-light4 overflow-hidden m-auto group hover:bg-primary-main transition-all duration-400 ease-in-out">
-    <div className=" w-full h-96">
-      <video
-        src={video}
-         
-        loop
-        controls
+    <div className="w-full h-full  grid place-content-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4   pt-10 p-4  gap-5 bg-[#F6F6F6]">
+      {imageItems?.map((item, idx) => {
         
-        alt="featured-video"
-        className="w-full h-full   object-cover"
-        style={{ transition: '.4s all' }}
-      />
+        return (
+        <Link href={`/${locale}/blog/gallery/videos/${item?.id}` || ''} key={idx}>
+          <div className="card">
+            <div className="card-image">
+              <img
+                src={item?.attributes?.banner?.data?.attributes?.url}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="category"> Illustration </div>
+            <div className="heading uppercase"> {item?.attributes?.name}</div>
+          </div>
+          </Link>
+        );
+      })}
     </div>
- 
-  </div>
-  
- 
   );
 }
 
@@ -32,5 +46,4 @@ VideCard.propTypes = {
   title: propTypes.string
 };
 
- 
 export default VideCard;

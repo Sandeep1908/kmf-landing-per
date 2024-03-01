@@ -55,6 +55,7 @@ module.exports = {
     },
     fontFamily: {
       lato: ['Lato', 'sans-serif'],
+      alfa:[ 'Oswald', 'sans-serif']
     },
     width:{
       100: '411px',

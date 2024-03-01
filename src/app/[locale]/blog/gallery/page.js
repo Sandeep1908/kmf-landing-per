@@ -11,38 +11,28 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 
 function Gallery() {
-  const [galleryItems, setGalleryItesm] = useState([]);
-  const listItems = ['Video', 'Images'];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [videos, setVideos] = useState([]);
-  const [imageItems, setImageItems] = useState([]);
-
-  const axios = useApi();
-  const locale=useParams().locale
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get('/api/galleries');
-      const imagesItem = data?.data?.map((items) => {
  
-        return {
-          title: items?.attributes?.title,
-          date: items?.attributes?.date,
-          image: items?.attributes?.images?.data?.attributes?.url
-        };
-      });
-      setImageItems(imagesItem);
-      setVideos([
-        ...videos,
-        data?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url)
-      ]);
-      setGalleryItesm(videos);
-    })();
-  }, []);
+  const [currentIndex, setCurrentIndex] = useState(0);
+ 
+ 
+  const tabs=[
+    {
+      tabs:'Video',
+      data:<VideCard/>
+    },
+    {
+      tabs:'Images',
+      data:<ImgaeCard/>
+    }
+  ]
+
+ 
+  const locale=useParams().locale
+  
 
   const handleClickItem = (idx) => {
     setCurrentIndex(idx);
-    const galleryItems = idx === 0 ? videos : imageItems;
-    setGalleryItesm(galleryItems);
+ 
   };
 
   return (
@@ -57,7 +47,7 @@ function Gallery() {
 
           <div className="w-full flex justify-center items-center pt-10 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
             <ul className="flex gap-5">
-              {listItems?.map((item, idx) => {
+              {tabs?.map((item, idx) => {
                 return (
                   <li
                     key={idx}
@@ -67,7 +57,7 @@ function Gallery() {
                         : ''
                     } uppercase`}
                     onClick={() => handleClickItem(idx)}>
-                    {item}
+                    {item?.tabs}
                   </li>
                 );
               })}
@@ -75,19 +65,14 @@ function Gallery() {
           </div>
         </div>
 
-        <div className="w-full h-full flex justify-center items-center flex-wrap pt-10 p-4 space-y-4 bg-[#F6F6F6]">
-          {galleryItems?.map((item, idx) => {
-     
 
-            if (item.image) {
-              return (
-                <ImgaeCard key={idx} title={item.title} imgUrl={item.image} date={item.date} />
-              );
-            } else {
-              return <VideCard key={idx} video={item} />;
-            }
-          })}
-        </div>
+        {tabs?.map((tab, id) => {
+        if (currentIndex === id) {
+          return tab.data;
+        }
+      })} 
+
+       
       </section>
 
       <Footer />

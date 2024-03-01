@@ -10,7 +10,7 @@ import { useParams } from 'next/navigation';
 function Milk() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 12;
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -28,7 +28,7 @@ function Milk() {
  
       const { data } = await axios.get(`/api/products`);
       const {data:category}= await axios.get('/api/categories')
-      console.log(category?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
+ 
       setBanner(category?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
       const product=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(param?.slug) )
     
@@ -85,7 +85,7 @@ function Milk() {
      
       </section>
       <section className="w-full pt-10 pb-10">
-        <div className="w-full flex flex-col gap-5 justify-center items-center flex-wrap lg:flex-row">
+        <div className="w-full p-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
           {currentProducts.map((product, id) => {
             return (
               <ProductCard

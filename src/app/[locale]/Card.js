@@ -3,9 +3,10 @@ import propTypes from 'prop-types';
  
 import { useState } from 'react';
 import Link from 'next/link';
+import useLocale from '@/hooks/useLocale';
 
 function Card({ imgUrl, title, link }) {
-  
+  const locale=useLocale().locale
  
   return (
  
@@ -27,7 +28,7 @@ function Card({ imgUrl, title, link }) {
 
         <div class="absolute h-full w-full bg-black/80 inset-0 flex items-center justify-center -bottom-10 hover:bottom-0 opacity-0 transition-all duration-300  card-hover">
         <Link href={link|| ''}> <button className="bg-primary-main  w-48 h-12     text-neutral-light4 font-semibold rounded-md">
-                See details
+                {locale==='en'?'See Detials':'ವಿವರಗಳನ್ನು ನೋಡಿ'}
               </button>
 
               </Link>
@@ -45,7 +46,7 @@ Card.propTypes = {
 
 export const LinkCard = ({ imgUrl, title, description }) => {
   return (
-    <div className=" ">
+    <div className="flex flex-col justify-center items-center ">
       <div
         className="p-2 w-40 h-40 flex justify-center items-center border-neutral-dark1   bg-neutral-light4 rounded-full"
         style={{ boxShadow: '0px 8px 24px 0px rgba(0, 0, 0, 0.12)' }}>

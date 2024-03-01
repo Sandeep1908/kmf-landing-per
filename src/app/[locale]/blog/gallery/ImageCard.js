@@ -1,29 +1,44 @@
 import React from 'react';
 import propTypes from 'prop-types';
- 
-import { useState } from 'react';
+import './style.css'
 
-function ImgaeCard({ imgUrl, title, date }) {
- 
+import { useState, useEffect } from 'react';
+import useApi from '@/hooks/useApi';
+import Link from 'next/link';
+import useLocale from '@/hooks/useLocale';
+
+function ImgaeCard() {
+  const [imageItems, setImageItems] = useState([]);
+  const axios = useApi();
+  const locale=useLocale().locale;
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/imagecategories');
+
+      setImageItems(data.data);
+    })();
+  }, []);
+
   return (
- 
-    <div className="max-w-80 relative rounded-tl-3xl rounded-br-3xl bg-light-light4 overflow-hidden m-auto group hover:bg-primary-main transition-all duration-400 ease-in-out">
-    <div className="max-h-[70%]">
-      <img
-        src={imgUrl}
-        alt="featured-img"
-        className="w-full h-full group-hover:scale-[1.1]"
-        style={{ transition: '.4s all' }}
-      />
+    <div className="w-full h-full  grid place-content-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4   pt-10 p-4  gap-5 bg-[#F6F6F6]">
+      {imageItems?.map((item, idx) => {
+        
+        return (
+        <Link href={`/${locale}/blog/gallery/images/${item?.id}` || ''} key={idx}>
+          <div className="card">
+            <div className="card-image">
+              <img
+                src={item?.attributes?.banner?.data?.attributes?.url}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="category"> Illustration </div>
+            <div className="heading uppercase"> {item?.attributes?.name}</div>
+          </div>
+          </Link>
+        );
+      })}
     </div>
-  
-    <div className="mt-5 mb-4 p-2 space-y-3 ">
-      <p className="text-sm text-neutral-dark1 group-hover:text-white">{date}</p>
-      <h1 className="text-md text-justify group-hover:text-white">{title}</h1>
-    </div>
-  </div>
-  
- 
   );
 }
 
@@ -32,5 +47,4 @@ ImgaeCard.propTypes = {
   title: propTypes.string
 };
 
- 
 export default ImgaeCard;

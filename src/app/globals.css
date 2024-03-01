@@ -200,6 +200,21 @@ body {
   animation: marquee-notification 12s linear infinite;
 }
 
+.marquee-sponser{
+  animation: marquee-sponsoer 12s linear infinite;
+}
+
+@keyframes marquee-sponsoer {
+  0% {
+      transform: translateX(0);
+  }
+
+  100%{
+      transform: translateX(-100%);
+  }
+  
+}
+
 @keyframes marquee {
   0% {
       transform: translateY(0);
@@ -278,4 +293,27 @@ h1{
   border: none;
   font-size: 16px;
   color: #333;
+}
+
+
+/* gallery card */
+
+
+.milk-bg::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+ 
+  width: 100%;
+  height: 100%;
+  background: url('/images/milk-bg-cat.jpg');
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  padding-bottom: 20px;
+  z-index: -1;
+  opacity: .4;
+  
+  
+
+
 }

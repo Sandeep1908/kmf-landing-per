@@ -15,10 +15,11 @@ import useApi from '@/hooks/useApi';
 function OrganizationChart() {
   const locale = useParams().locale;
   const [banner,setBanner]=useState([])
+  const axios=useApi()
   useEffect(()=>{
     (
       async()=>{
-        const {data:banner}=await axios.get('/api/food-safety')
+        const {data:banner}=await axios.get('/api/organization-chart')
         setBanner(banner?.data)
       }
     )()

@@ -37,6 +37,7 @@ function Portfolio() {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/kmf-acheivment');
+       
       const {data:md}= await axios.get('/api/md')
       const {data:chairman}= await axios.get('/api/chairmain')
       setPortfolioData(data.data);
@@ -139,7 +140,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
           <div className="w-full flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main uppercase">
               {locale === 'en'
-                ? `Founder of milk`
+                ? `Ksheera Pithamha - Founder of milk`
                 : `
 
 ಹಾಲಿನ ಸ್ಥಾಪಕ`}{' '}
@@ -214,7 +215,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
       <img src='/images/footerbg.png' className='fixed w-full h-full inset-0 object-contain'/>
     </section>
 
-      <section className="max-w-7xl m-auto pt-10  bg-white">
+      <section className="max-w-7xl m-auto pt-10  bg-white overflow-hidden">
         <h1 className="text-center text-xl text-primary-main uppercase">
           {locale === 'en'
             ? `KMF Acheivments`
@@ -225,7 +226,7 @@ KMF ಸಾಧನೆಗಳು`}{' '}
           <div className="w-full flex flex-col items-start justify-start space-y-5">
             <h1 className="text-lg font-bold">{portfilioData?.attributes?.title}</h1>
 
-            <div className="w-full h-auto md:h-96 flex-wrap md:flex-nowrap flex justify-center gap-2 items-center">
+            <div className="w-full h-auto md:h-96 flex-wrap md:flex-nowrap flex justify-center gap-2 items-center marquee-sponser">
               {portfilioData?.attributes?.image?.data?.map((item, id) => {
                 return <img key={id} src={item?.attributes?.url} className="w-full h-full " />;
               })}

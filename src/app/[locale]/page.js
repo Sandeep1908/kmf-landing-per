@@ -28,25 +28,24 @@ import useApi from '@/hooks/useApi.js';
 import TenderNotification from '@/components/TenderNotification.js';
 import ArrivalCard from '@/components/ArrivalCard.js';
 
+
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
-  const images = [image12.src, image2.src, image3.src];
-  const notificationImg = [notificationImg1.src];
-  const aboutVideo = '/video/video1.mp4';
-  const aboutVideo2 = '/video/video2.mp4';
   const [liveTenders, setLiveTenders] = useState([]);
   const [banners, setAllBanners] = useState([]);
   const [cardDetails, setCardDetails] = useState([]);
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
-
   const [allTenders, setAllTenders] = useState([]);
-  const [homeNotification, setHomeNotification] = useState([]);
-  const [homeVideo, setHomeVideo] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
+  const [certificate,setCertificate]=useState([])
+  
   const axios = useApi();
+  
 
   useEffect(() => {
     (async () => {
+      const {data:certificate}= await axios.get('/api/certificates')
+   
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
       const { data: banner } = await axios.get('/api/banners');
 
@@ -58,6 +57,8 @@ const Home = () => {
 
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
+
+  
       
 
       const videos = gallery?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url);
@@ -78,17 +79,18 @@ const Home = () => {
         setLiveTenders(liveTenders);
       }
 
-      if (videos?.length > 2) {
-        setHomeVideo(videos?.slice(0, 2));
-      } else {
-        setHomeVideo(videos);
-      }
+      // if (videos?.length > 2) {
+      //   setHomeVideo(videos?.slice(0, 2));
+      // } else {
+      //   setHomeVideo(videos);
+      // }
 
       setNewArrivals(arrivals?.data);
-      setHomeNotification(homenotification?.data);
+      // setHomeNotification(homenotification?.data);
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
+      setCertificate(certificate.data?.[0]?.attributes?.image?.data)
     })();
   }, []);
 
@@ -355,7 +357,7 @@ const Home = () => {
             <p className="text-neutral-dark1">Here&apos;s some latest update</p>
           </div>
 
-          <div className="w-full flex flex-col justify-center items-center lg:flex-row lg:space-x-5 lg:items-start ">
+          <div className="w-full flex flex-col justify-center space-y-5 items-center lg:flex-row lg:space-x-5 lg:items-start ">
             <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <Swiper
                 grabCursor={true}
@@ -541,6 +543,27 @@ const Home = () => {
                 Get In Touch
               </button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section className="w-full h-auto overflow-hidden    ">
+        <div className=" p-10 flex flex-col items-center space-y-10 justify-center  max-w-[1600px] md:items-start m-auto">
+          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
+            <div className="flex justify-center flex-wrap   items-end  ">
+              <h1 className="text-4xl uppercase">Certificates</h1>
+            </div>
+           
+          </div>
+                
+          <div className=' w-full max-w-[5xl] m-auto marquee-sponser flex  space-x-7  '>
+                  {certificate?.map((item,idx)=>{
+                    return(
+                      <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>
+                    )
+                  })}
           </div>
         </div>
       </section>

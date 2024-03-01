@@ -14,9 +14,9 @@ import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { IoHomeOutline } from 'react-icons/io5';
-import facebookIco from '@/images/footer/FB.svg';
+import facebookIco from '@/images/footer/fb.svg';
 import mailIco from '@/images/footer/Email.svg';
-import twitterIco from '@/images/footer/X.svg';
+import twitterIco from '@/images/footer/x.svg';
 import insta from '@/images/footer/insta.svg';
  
 import useApi from '@/hooks/useApi';
@@ -40,25 +40,7 @@ export const Header = () => {
   const router=useRouter()
   const [isSticky, setIsSticky] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const threshold = 153; // Adjust this threshold as needed
-
-      
-      // Set isSticky based on the scroll position
-      setIsSticky(scrollPosition > threshold);
-    };
-
-    // Attach the scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); // Run this effect only once on component mount
-
+ 
 
   useEffect(() => {
     (async () => {
@@ -66,7 +48,7 @@ export const Header = () => {
       const { data: milkunion } = await axios.get('/api/milk-unions');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs');
       const {data:header}=await axios.get('/api/header')
-      const {data:latestNews}=await axios.get('/api/latest-new')
+      // const {data:latestNews}=await axios.get('/api/latest-new')
       
       
       
@@ -80,6 +62,7 @@ export const Header = () => {
       });
 
  
+
 
       const unionSubitems = milkunion?.data?.map((category, idx) => {
         return {
@@ -103,7 +86,27 @@ export const Header = () => {
     })();
   }, [params.locale]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const threshold = 153; // Adjust this threshold as needed
+
+      
+      // Set isSticky based on the scroll position
+      setIsSticky(scrollPosition > threshold);
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Run this effect only once on component mount
+
   
+
   for (let i = 0; i < headItem?.length; i++) {
     if (headItem[i].title === 'OUR PRODUCT' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನ') {
       headItem[i].subItems = productSub;
@@ -160,8 +163,8 @@ export const Header = () => {
           className={`w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center `}
           onMouseEnter={() => setOpen(null)}>
 
-          <div className=" max-w-xl flex justify-center items-center space-x-6">
-            <img src={locale==='en'?logo.src:logokn.src} alt="logo-home" className="w-[150px]" />
+          <div className=" max-w-xl flex justify-center items-center space-x-3">
+            <img src={locale==='en'?logo.src:logokn.src} alt="logo-home" className=" w-[100px] sm:w-[150px]" />
             <p className='font-bold font-lato text-xs sm:text-xl'>{headerItem?.attributes?.title}</p>
           </div>
 

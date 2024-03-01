@@ -82,8 +82,9 @@ function Blog() {
         <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
-      <h1 className='text-primary-gradient text-center pt-5  pb-5 text-3xl'>LATEST NEWS</h1>
-      <section className="w-full h-auto pt-10 relative news-bg ">
+      <section className="w-full h-auto pt-10 relative news-bg  ">
+
+      <h1 className='text-primary-gradient text-center pt-5  pb-5 text-3xl '>LATEST NEWS</h1>
         <div className="w-4/5 m-auto flex flex-wrap justify-evenly items-center gap-6 p-3  ">
           {currentProducts?.map((blog,id)=>{
             return(

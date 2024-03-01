@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import directorImg from '@/images/directors/directorsbg.png';
+import directorImg from '@/images/directors/bod.jpg';
 import personImg from '@/images/directors/person.png';
 import headImg from '@/images/directors/1-1.png';
 import headengImg from '@/images/directors/headeng.png';

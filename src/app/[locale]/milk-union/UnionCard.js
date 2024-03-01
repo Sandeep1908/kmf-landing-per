@@ -8,7 +8,7 @@ import printIco from '@/images/milk-union/icons/print.svg'
 function UnionCard({name,image}) {
   console.log(image)
   return (
-<div className='group max-w-80  h-96 z-[10] bg-slate-400 shadow-md rounded-md '>
+<div className='group max-w-80  h-96 z-[10]   bg-slate-400 shadow-md rounded-md '>
   <div class=" relative w-full h-full flex items-end">
     <div className='w-full h-full absolute top-0 left-0  '>
       <img className='w-full h-full' src={image} alt="" />
