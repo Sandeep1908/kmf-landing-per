@@ -106,7 +106,7 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl font-semibold	text-primary-darker ">Troll Free:</p>
+                <p className="text-xl font-semibold	text-primary-darker ">Toll Free:</p>
                 <div className="flex items-start flex-col lg:flex-row ">
                   <div className="w-1/5">
                     <img src={supportImg.src} alt="" className="w-full h-8" />
