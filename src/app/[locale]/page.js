@@ -38,6 +38,7 @@ const Home = () => {
   const [allTenders, setAllTenders] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [certificate,setCertificate]=useState([])
+  const [isCertificated,setIsCertificate]=useState(false)
   
   const axios = useApi();
   
@@ -136,7 +137,7 @@ const Home = () => {
       {/* HOME CARAOUSAL IMAGE */}
       <CarouselImage images={banners || []} />
 
-      <section className="w-full   pt-20  relative z-[1]  ">
+      <section className="w-full    pt-20  relative z-[1]  ">
         <video
           src="/video/home-vid.mp4"
           autoPlay
@@ -379,9 +380,10 @@ const Home = () => {
                   disableOnInteraction: false
                 }}
                 loop={true}>
-                {liveTenders?.map((item, id) => {
+                {allTenders?.map((item, id) => {
+                  console.log("items",item)
                   return (
-                    <SwiperSlide className="swiper-sldier-card  " key={id}>
+                    <SwiperSlide className="swiper-sldier-card " key={id}>
                       <TenderNotification
                         title={item?.attributes?.title}
                         date={item?.attributes?.last_date}
@@ -392,7 +394,7 @@ const Home = () => {
                 })}
               </Swiper>
 
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[460px] p-5 rounded-lg border-b-2 border-primary-main  ">
                 <div className="w-full marquee h-full flex flex-col space-y-3 ">
                   {allTenders?.map((item, id) => {
                     return (
@@ -558,7 +560,7 @@ const Home = () => {
            
           </div>
                 
-          <div className=' w-full max-w-[5xl] m-auto marquee-sponser flex  space-x-7  '>
+          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7 ${isCertificated?'marquee-sponser':''} `} onClick={()=>setIsCertificate(true)}>
                   {certificate?.map((item,idx)=>{
                     return(
                       <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>

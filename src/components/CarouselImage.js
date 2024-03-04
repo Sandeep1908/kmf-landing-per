@@ -12,8 +12,8 @@ const [isPlaying,setIsPlaying]=useState(false)
   };
 
   useEffect(()=>{
-   setIsPlaying(true)
-  },[])
+setIsPlaying(true)
+  },)
   return (
     <div className="relative w-full">
       <Carousels
@@ -28,7 +28,7 @@ const [isPlaying,setIsPlaying]=useState(false)
         onChange={handleSlide}
       >
         {images.map((img, idx) => (
-          <div key={idx} className='w-full h-full h-[600px'>
+          <div key={idx} className='w-full max-h-[600px]'>
             <img src={img} alt="" className="w-full h-full object-cover md:object-fill" /> {/* Ensure to fill container */}
           </div>
         ))}

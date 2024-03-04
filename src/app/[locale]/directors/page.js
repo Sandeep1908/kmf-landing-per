@@ -43,7 +43,7 @@ function Directors() {
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={directorImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
+        <img src={directorImg.src} className="w-full h-full object-cover absolute top-10 z-[-1]" />
       </section>
 
 

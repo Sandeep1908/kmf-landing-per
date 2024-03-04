@@ -36,6 +36,7 @@ const Home = () => {
   const [newArrivals, setNewArrivals] = useState([]);
   const [sponsored,setSponsored]=useState([])
   const [certificate,setCertificate]=useState([])
+  const [isCertificated,setIsCertificate]=useState(false)
   const axios = useApi();
   
 
@@ -536,16 +537,15 @@ KMF ನಂದಿನಿ ಅವರಿಗೆ ಸ್ವಾಗತ
 
 
       <section className="w-full h-auto overflow-hidden    ">
-        <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+        <div className=" p-10 flex flex-col items-center space-y-10 justify-center  max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase">
-ಪ್ರಾಯೋಜಿತ</h1>
+              <h1 className="text-4xl uppercase">ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
             </div>
-            
+           
           </div>
                 
-          <div className='w-full marquee-sponser flex  space-x-7  '>
+          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7 ${isCertificated?'marquee-sponser':''} `} onClick={()=>setIsCertificate(true)}>
                   {certificate?.map((item,idx)=>{
                     return(
                       <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>

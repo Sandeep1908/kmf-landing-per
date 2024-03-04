@@ -21,7 +21,7 @@ function Images() {
           const { data } = await axios.get(`/api/galleries`);
           const { data:category } = await axios.get('/api/imagecategories');
             
-            
+            console.log("data",data)
      
          const categoryName=category?.data?.filter(item=>item?.id===parseInt(param?.slug))
            
