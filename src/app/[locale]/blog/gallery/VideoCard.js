@@ -31,7 +31,7 @@ function VideCard() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="category"> Illustration </div>
+            <div className="category"> {item?.attributes?.name} </div>
             <div className="heading uppercase"> {item?.attributes?.name}</div>
           </div>
           </Link>

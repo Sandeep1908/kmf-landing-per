@@ -358,8 +358,8 @@ const Home = () => {
             <p className="text-neutral-dark1">Here&apos;s some latest update</p>
           </div>
 
-          <div className="w-full flex flex-col justify-center space-y-5 items-center lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
+          <div className="w-full flex flex-col justify-center space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
+            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start    sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <Swiper
                 grabCursor={true}
                 centeredSlides={true}
@@ -394,8 +394,8 @@ const Home = () => {
                 })}
               </Swiper>
 
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[460px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <div className="w-full marquee h-full flex flex-col space-y-3 ">
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden  justify-center items-center  h-[425px] p-5 rounded-lg border-b-2 border-primary-main  ">
+                <div className="w-full marquee h-full flex flex-col   ">
                   {allTenders?.map((item, id) => {
                     return (
                       <p key={id} className="bg-white p-2 text-xs rounded w-full ">

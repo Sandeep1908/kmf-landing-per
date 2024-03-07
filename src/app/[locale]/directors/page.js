@@ -12,6 +12,7 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Loader from '@/components/Loader';
 
+
 function Directors() {
   const [directors, setDirectors] = useState([]);
   const axios = useApi();
@@ -71,10 +72,7 @@ function Directors() {
               </div>
               <div className="mt-3 lg:mt-12 p-3 md:p-0">
                 <p className="text-base font-normal text-justify">
-                  {locale === 'en'
-                    ? `                Former Hagaribommanahalli Congress MLA Bhima Nayak has been elected unopposed as the new Chairman of Karnataka Milk Federation ...`
-                    : `
-ಕರ್ನಾಟಕ ಹಾಲು ಒಕ್ಕೂಟದ ನೂತನ ಅಧ್ಯಕ್ಷರಾಗಿ ಹಗರಿಬೊಮ್ಮನಹಳ್ಳಿ ಕಾಂಗ್ರೆಸ್ ಮಾಜಿ ಶಾಸಕ ಭೀಮಾ ನಾಯಕ್ ಅವಿರೋಧವಾಗಿ ಆಯ್ಕೆಯಾಗಿದ್ದಾರೆ.`}
+                  {chairmain?.attributes?.message}
                 </p>
               </div>
             </div>

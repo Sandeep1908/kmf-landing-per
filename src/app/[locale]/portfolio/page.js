@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import headImg from '@/images/directors/1-1.png';
 import headengImg from '@/images/directors/headeng.png';
+import './style.css'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -21,6 +22,7 @@ import AchienvmentCard from './AchienvmentCard';
 import { achievements as achievementItems } from '@/configtext/companyProfile';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
+import { ParallaxBanner } from "react-scroll-parallax";
 
 function Portfolio() {
   const [achievments, setAchievments] = useState([]);
@@ -66,13 +68,14 @@ function Portfolio() {
   }, []);
   return (
     <div
-      className="w-full h-full absolute top-36 z-[-1]  bg-white   "
+      className="w-full h-full absolute top-36 z-[-1]   
+           "
        >
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img src={portfolioImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
-      <section className="max-w-7xl m-auto pt-10  bg-white">
+      <section className="max-w-7xl m-auto pt-10     ">
         <div className="w-full space-y-5 p-4 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
           <h1 className="text-center text-xl text-primary-main uppercase">
             {locale === 'en'
@@ -94,13 +97,30 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
         </div>
       </section>
 
-      <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
+
+
+      <ParallaxBanner
+        layers={[
+          { image: "/images/pt-bg.png", speed: -20 },
+          {
+            speed: -15,
+            children: (
+              <div className="">
+                <h1 className="text">Hello World!</h1>
+              </div>
+            ),
+          },
+          // { image: "/images/pt-bg.webp", speed: -10 },
+        ]}
+        className="fixed w-full   inset-0 object-cover"
+      >
+ <section className="max-w-7xl m-auto h-auto pt-10  pt-bg relative  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full   flex justify-center items-center">
             <img src={milkImg.src} className="  h-96" />
           </div>
 
-          <div className="w-full flex flex-col justify-center items-start ">
+          <div className="w-full flex flex-col justify-center items-start bg-white ">
             <h1 className="text-2xl text-primary-main uppercase">
               {locale === 'en'
                 ? `History of milk`
@@ -134,8 +154,12 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
           </div>
         </div>
       </section>
+       
+      </ParallaxBanner>
 
-      <section className="max-w-7xl m-auto h-auto pt-10 bg-white ">
+      
+
+      <section className="max-w-7xl m-auto h-auto pt-10   ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main uppercase">
@@ -211,11 +235,36 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
  
 
 
-<section className="max-w-7xl h-full m-auto pt-10 relative z-[-10]   "  >
-      <img src='/images/footerbg.png' className='fixed w-full h-full inset-0 object-contain'/>
-    </section>
 
-      <section className="max-w-7xl m-auto pt-10  bg-white overflow-hidden">
+
+ 
+
+
+
+
+
+
+
+
+
+ <div className="w-full h-screen m-auto pt-10 relative z-[-10]   ">
+      <ParallaxBanner
+        layers={[
+          { image: "/images/milk-bg-cat.jpg", speed: -20 },
+          {
+            speed: -15,
+            children: (
+              <div className="">
+                <h1 className="text">Hello World!</h1>
+              </div>
+            ),
+          },
+          { image: "/images/footer-bg-2.png", speed: -10 },
+        ]}
+        className="fixed w-full h-[100vh] inset-0 object-cover"
+      >
+
+<section className="max-w-7xl m-auto pt-10   relative z-[100] bg-white  overflow-hidden">
         <h1 className="text-center text-xl text-primary-main uppercase">
           {locale === 'en'
             ? `KMF Acheivments`
@@ -234,8 +283,10 @@ KMF ಸಾಧನೆಗಳು`}{' '}
           </div>
         </div>
       </section>
-
-      <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
+       
+      </ParallaxBanner>
+    </div>
+    <section className="max-w-7xl m-auto h-auto pt-10 relative z-[100] bg-white ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main uppercase">
@@ -268,6 +319,12 @@ KMF ಸಾಧನೆಗಳು`}{' '}
           </div>
         </div>
       </section>
+   
+
+    
+
+
+   
 
       <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
         <div className="w-full  h-full flex flex-col items-start justify-around p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">

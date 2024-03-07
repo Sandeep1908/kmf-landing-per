@@ -14,6 +14,13 @@ function Videos() {
     const [loading,setLoading]=useState(true)
     const [title,setTitle]=useState('')
     const locale=useLocale().locale
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 8;
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentProducts = product?.slice(indexOfFirstItem, indexOfLastItem);
+    const pagesToShow = 4; // Number of pagination numbers to show
+
 
     useEffect(() => {
         (async () => {
@@ -40,6 +47,41 @@ function Videos() {
         })();
       }, []);
 
+
+      const renderPaginationNumbers = () => {
+        const totalPages = Math.ceil(product?.length / itemsPerPage);
+        const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
+        const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
+    
+        const paginationNumbers = [];
+        for (let i = startPage; i <= endPage; i++) {
+          paginationNumbers.push(
+            <button
+              key={i}
+              onClick={() => paginate(i)}
+              className={`mx-1 px-3 py-1 rounded ${
+                currentPage === i ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
+              }`}
+            >
+              {i}
+            </button>
+          );
+        }
+    
+        if (startPage > 1) {
+          paginationNumbers.unshift(<span key="ellipsis-start">...</span>);
+        }
+    
+        if (endPage < totalPages) {
+          paginationNumbers.push(<span key="ellipsis-end">...</span>);
+        }
+    
+        return paginationNumbers;
+      };
+    
+      const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+      };
   return (
 
     <section className="max-w-7xl m-auto pt-10  ">
@@ -70,7 +112,25 @@ function Videos() {
 
 
  
+  <div className="flex justify-center items-center mt-10 pb-10 space-x-2 ">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
+          >
+            Previous
+          </button>
 
+          {renderPaginationNumbers()}
+
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === Math.ceil(product?.length / itemsPerPage)}
+            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
+          >
+            Next
+          </button>
+        </div>
    
   </section>
 
