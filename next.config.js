@@ -4,7 +4,9 @@ const nextConfig = {}
 module.exports = nextConfig
 
 module.exports = {
+  
     webpack: (config) => {
+      config.resolve.alias.canvas = false;
       config.module.rules.push({
         test: /\.(mp4|webm)$/,
         use: {

@@ -13,11 +13,11 @@ function Card({ imgUrl, title, link }) {
       <div
         className=" max-w-96 relative  h-96 bg-light-light4 rounded-md overflow-hidden   m-auto   "
         style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
-        <div className="p-2 w-[90%] m-auto h-[70%]">
+        <div className="p-2 h-[70%]">
           <img
             src={imgUrl}
             alt="featured-img"
-            className=" w-full h-full hover:scale-[1.1] "
+            className=" w-full    h-full hover:scale-[1.1] "
             style={{ transition: '.4s all' }}
           />
         </div>

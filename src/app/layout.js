@@ -14,7 +14,12 @@ import 'rodal/lib/rodal.css';
 
 import { ParallaxProvider } from "react-scroll-parallax";
 import { useRouter } from 'next/navigation';
+import { pdfjs } from 'react-pdf';
 
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url,
+).toString();
 
 
 export default function RootLayout({ children }) {

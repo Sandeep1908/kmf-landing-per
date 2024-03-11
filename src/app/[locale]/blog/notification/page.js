@@ -9,7 +9,7 @@ import { previousTenders } from '@/configtext/previousTender';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import documentIco from '@/images/notification/Document.svg';
- 
+ import PdfPreview from './PdfPreview';
 function Notification() {
   const [tenderItems, setTenderItems] = useState([]);
   const [alltenderItems, setAllTenderItems] = useState([]);
@@ -39,7 +39,17 @@ function Notification() {
   ];
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedYear, setSelectedYear] = useState(0);
+  
 
+  const [showPdfPreview, setShowPdfPreview] = useState(false); // State to manage PDF preview visibility
+  const [selectedPdfUrl, setSelectedPdfUrl] = useState(''); // State to store the URL of the selected PDF
+
+ 
+
+  const handlePdfPreview = (pdfUrl) => {
+    setSelectedPdfUrl(pdfUrl); // Set the URL of the selected PDF
+    setShowPdfPreview(true); // Show the PDF preview
+  };
 
 
   const paginate = (pageNumber) => {
@@ -186,6 +196,7 @@ function Notification() {
             </ul>
           </div>
         </div>
+        {showPdfPreview && <PdfPreview pdfUrl={selectedPdfUrl} onClose={() => setShowPdfPreview(false)} />}
 
         <div className="w-full h-full flex flex-col justify-evenly items-center flex-wrap pt-10 p-4 space-y-4   ">
           {currentProducts?.map((item, idx) => {
@@ -199,6 +210,7 @@ function Notification() {
                 tenderNo={item?.tenderNo}
                 date={item?.last_date}
                 link={item?.link}
+                handlePdfPreview={handlePdfPreview}
                 
               />
                

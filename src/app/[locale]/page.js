@@ -214,7 +214,7 @@ const Home = () => {
                   muted
                   autoPlay
                   loop
-                  className="w-full h-80 object-fill"
+                  className="w-full h-96 object-cover"
                 />
               </div>
             </Fade>
@@ -229,8 +229,7 @@ const Home = () => {
                   muted
                   autoPlay
                   loop
-                  className="w-full h-80 object-fill"
-
+                  className="w-full h-96 object-cover"
                 />
               </div>
             </Fade>
@@ -380,13 +379,11 @@ const Home = () => {
                   delay: 2000,
                   disableOnInteraction: false
                 }}
-                loop={true}
-                className='h-[160px]'>
-                  
+                loop={true}>
                 {allTenders?.map((item, id) => {
-                   
+                  console.log("items",item)
                   return (
-                    <SwiperSlide className=" h-100px " key={id}>
+                    <SwiperSlide className="swiper-sldier-card " key={id}>
                       <TenderNotification
                         title={item?.attributes?.title}
                         date={item?.attributes?.last_date}
@@ -409,7 +406,41 @@ const Home = () => {
                 </div>
               </div>
 
-              
+              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                <div className=" w-full flex items-center">
+                  <div className="flex flex-col justify-center items-start">
+                    <h1>Export Enquiry</h1>
+                  </div>
+                </div>
+
+                <div className="">
+                  <Link href="/en/export-enquiry">
+                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                      View all
+                    </button>
+                  </Link>
+                </div>
+              </div> */}
+
+              {/* {homeNotification?.map((item,idx)=>{
+                  console.log("notification",item)
+                  return(
+                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                    <div className=" w-full flex items-center">
+                      <div className="flex flex-col justify-center items-start">
+                        <h1>{item?.attributes?.title}</h1>
+                      </div>
+                    </div>
+    
+                    <div className="">
+                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                        View all
+                      </Link>
+                    </div>
+                  </div>
+                  )
+                })} */}
+
           
             </div>
 
@@ -430,7 +461,40 @@ const Home = () => {
                 </div>
               </div>
 
-               
+              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                <div className=" w-full flex items-center">
+                  <div className="flex flex-col justify-center items-start">
+                    <h1>Export Enquiry</h1>
+                  </div>
+                </div>
+
+                <div className="">
+                  <Link href="/en/export-enquiry">
+                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                      View all
+                    </button>
+                  </Link>
+                </div>
+              </div> */}
+
+              {/* {homeNotification?.map((item,idx)=>{
+                  console.log("notification",item)
+                  return(
+                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                    <div className=" w-full flex items-center">
+                      <div className="flex flex-col justify-center items-start">
+                        <h1>{item?.attributes?.title}</h1>
+                      </div>
+                    </div>
+    
+                    <div className="">
+                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                        View all
+                      </Link>
+                    </div>
+                  </div>
+                  )
+                })} */}
 
             
             </div>
