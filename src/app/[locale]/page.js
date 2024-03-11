@@ -214,7 +214,7 @@ const Home = () => {
                   muted
                   autoPlay
                   loop
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-contain"
                 />
               </div>
             </Fade>
@@ -229,7 +229,7 @@ const Home = () => {
                   muted
                   autoPlay
                   loop
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-contain"
                 />
               </div>
             </Fade>
