@@ -19,7 +19,7 @@ const CarouselImage = ({ images }) => {
    
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full h-full">
       <Swiper
         grabCursor={true}
         centeredSlides={true}
@@ -44,7 +44,7 @@ const CarouselImage = ({ images }) => {
           disableOnInteraction: false
         }}
         loop={true}
-        className={`w-full `}>
+        className={`w-full h-full `}>
         {images?.map((img, id) => {
           return (
             <SwiperSlide className="  " key={id}>
