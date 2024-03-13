@@ -104,6 +104,7 @@ const Home = () => {
           autoPlay
           muted
           loop
+          playsInline
           className="absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4"
         />
         <div className="w-full">
