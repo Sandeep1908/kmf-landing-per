@@ -320,7 +320,7 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col justify-center space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start    sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
+            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start h-[570px]    sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <Swiper
                 grabCursor={true}
                 centeredSlides={true}

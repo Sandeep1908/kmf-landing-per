@@ -44,7 +44,7 @@ const CarouselImage = ({ images }) => {
           disableOnInteraction: false
         }}
         loop={true}
-        className={`w-full h-full `}>
+        className={`w-full h-[600px] pb-0`}>
         {images?.map((img, id) => {
           return (
             <SwiperSlide className="  " key={id}>

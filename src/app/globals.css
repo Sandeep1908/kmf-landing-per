@@ -171,6 +171,11 @@ body {
   padding-top: 50px;
 }
 
+.swiper{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 
 
 .footer-bg::after{
