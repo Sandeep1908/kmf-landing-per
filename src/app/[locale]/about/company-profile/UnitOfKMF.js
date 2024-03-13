@@ -10,8 +10,9 @@ function UnitOfKMF({setLoading}) {
   useEffect(()=>{
     (
     async()=>{
-      const {data}=await axios.get('/api/about-unit-kmfs?sort[0]=createdAt:asc')
+      const {data}=await axios.get('/api/about-unit-kmfs?sort[0]=order:asc')
       setKmfUnits(data?.data)
+ 
       setLoading(false)
     }
 
@@ -30,7 +31,7 @@ function UnitOfKMF({setLoading}) {
           <ul className='w-full flex flex-col space-y-4 justify-start items-start'>
             {kmfUnits?.map((item,idx)=>{
                 return(
-                    <Link key={idx} href={item?.attributes?.link || ''} className='text-[#356CFC] bg-white shadow-md w-full rounded-xl p-4'>{item?.attributes?.title}</Link>
+                    <Link key={idx} href={item?.attributes?.url || ''} className='text-[#356CFC] bg-white shadow-md w-full rounded-xl p-4'>{item?.attributes?.title}</Link>
                 )
             })}
 

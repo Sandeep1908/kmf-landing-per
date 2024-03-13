@@ -21,7 +21,7 @@ function Milk() {
   const param=useParams()
   const pagesToShow = 4; // Number of pagination numbers to show
   
- 
+  const [title,setTitle]=useState('')
  
   useEffect(() => {
     (async () => {
@@ -29,9 +29,12 @@ function Milk() {
       const { data } = await axios.get(`/api/products`);
       const {data:category}= await axios.get('/api/categories')
  
+
+      const product=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(param?.slug) ) 
+      const categoryName=category?.data?.filter(item=>item?.id===parseInt(param?.slug))
+       
+      setTitle(categoryName[0])
       setBanner(category?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
-      const product=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(param?.slug) )
-    
       setProducts(product)
       setLoading(false)
 
@@ -45,7 +48,7 @@ function Milk() {
     const totalPages = Math.ceil(products.length / itemsPerPage);
     const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
     const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
-
+  
     const paginationNumbers = [];
     for (let i = startPage; i <= endPage; i++) {
       paginationNumbers.push(
@@ -60,17 +63,18 @@ function Milk() {
         </button>
       );
     }
-
+  
     if (startPage > 1) {
-      paginationNumbers.unshift(<span key="ellipsis-start">...</span>);
+      paginationNumbers.unshift(<button key="prev" onClick={() => paginate(currentPage - 1)} className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800">Previous</button>);
     }
-
+  
     if (endPage < totalPages) {
-      paginationNumbers.push(<span key="ellipsis-end">...</span>);
+      paginationNumbers.push(<button key="next" onClick={() => paginate(currentPage + 1)} className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800">Next</button>);
     }
-
+  
     return paginationNumbers;
   };
+  
 
 
 
@@ -84,7 +88,9 @@ function Milk() {
         <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
      
       </section>
+      
       <section className="w-full pt-10 pb-10">
+      <h1 className="text-center text-2xl text-primary-main uppercase">{title?.attributes?.title}</h1>
         <div className="w-full p-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
           {currentProducts.map((product, id) => {
             return (

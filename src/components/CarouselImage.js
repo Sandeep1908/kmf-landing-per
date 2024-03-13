@@ -2,37 +2,57 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Carousel as Carousels } from 'react-responsive-carousel';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  
+  Autoplay,
+  EffectCoverflow
+} from 'swiper/modules';
+import { Swiper , SwiperSlide } from 'swiper/react';
  
 
-const CarouselImage = ({ images }) => {
-  const [currentSlide, setCurrentSlide] = useState(0); // Start from the first slide (index 0)
-const [isPlaying,setIsPlaying]=useState(false)
-  const handleSlide = (index) => {
-    setCurrentSlide(index);
-  };
 
-  useEffect(()=>{
-setIsPlaying(true)
-  },)
+const CarouselImage = ({ images }) => {
+   
+
   return (
     <div className="relative w-full">
-      <Carousels
-        autoPlay={isPlaying}
-        showArrows={true}
-        interval={4000}
-        showStatus={false}
-        infiniteLoop={true} // Use curly braces for boolean props
-        showThumbs={false}
-        showIndicators={false}
-        selectedItem={currentSlide}
-        onChange={handleSlide}
-      >
-        {images.map((img, idx) => (
-          <div key={idx} className='w-full max-h-[600px]'>
-            <img src={img} alt="" className="w-full h-full object-cover md:object-fill" /> {/* Ensure to fill container */}
-          </div>
-        ))}
-      </Carousels>
+      <Swiper
+        grabCursor={true}
+        centeredSlides={true}
+        effect={'coverflow'}
+
+        coverflowEffect={{
+          rotate: 45,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: false
+          
+        }}
+        slidesPerView={1}
+        modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+ 
+        controller={true}
+        scrollbar={{ draggable: true }}
+        slide
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false
+        }}
+        loop={true}
+        className={`w-full `}>
+        {images?.map((img, id) => {
+          return (
+            <SwiperSlide className="  " key={id}>
+              <img src={img} className="w-full h-[600px] object-fill " />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </div>
   );
 };
@@ -51,8 +71,7 @@ export const CarouselNotification = ({ images, title, description, link }) => {
 
   return (
     <div className="relative w-full">
-      <Carousels 
-    
+      <Carousels
         autoPlay={isPlaying}
         interval={4000}
         showStatus={false}
@@ -81,13 +100,9 @@ export const CarouselNotification = ({ images, title, description, link }) => {
             </div>
           );
         })}
-      </Carousels >
+      </Carousels>
     </div>
   );
 };
-
-
-
- 
 
 export default CarouselImage;

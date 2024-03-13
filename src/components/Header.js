@@ -45,9 +45,9 @@ export const Header = () => {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/categories');
-      const { data: milkunion } = await axios.get('/api/milk-unions');
-      const { data: kmfUnit } = await axios.get('/api/units-of-kmfs');
+      const { data } = await axios.get('/api/categories?sort[0]=order:asc');
+      const { data: milkunion } = await axios.get('/api/milk-unions?sort[0]=order:asc');
+      const { data: kmfUnit } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
       const {data:header}=await axios.get('/api/header')
       // const {data:latestNews}=await axios.get('/api/latest-new')
       

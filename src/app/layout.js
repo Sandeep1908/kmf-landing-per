@@ -11,18 +11,23 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import 'rodal/lib/rodal.css';
  
-
+ 
+import { register } from 'swiper/element/bundle';
 import { ParallaxProvider } from "react-scroll-parallax";
 import { useRouter } from 'next/navigation';
 import { pdfjs } from 'react-pdf';
+
+ import Swiper from 'swiper';
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
   import.meta.url,
 ).toString();
-
+register();
 
 export default function RootLayout({ children }) {
+   
   
  
    

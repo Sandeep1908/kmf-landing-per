@@ -11,7 +11,7 @@ function OngoingAndFuture({ setLoading}) {
   const locale=useParams()?.locale
   useEffect(()=>{
     (async()=>{
-      const {data}= await axios.get('/api/projects?sort[0]=createdAt:desc')
+      const {data}= await axios.get('/api/projects?sort[0]=order:asc')
       const incomingFutureProjects=data?.data?.filter(item=>item?.attributes?.status==='future')
       const incomingOngoingProjects=data?.data?.filter(item=>item?.attributes?.status==='ongoing')
       setFutureProjects(incomingFutureProjects)

@@ -22,7 +22,7 @@ function Directors() {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/directors?sort[0]=createdAt:asc');
+      const { data } = await axios.get('/api/directors?sort[0]=order:asc');
 
       const { data: chairman } = await axios.get('/api/chairmain');
 

@@ -14,7 +14,7 @@ function UnionCard({name,image}) {
       <img className='w-full h-full' src={image} alt="" />
     </div>
 
-       <div className='overflow-hidden h-[50%] rounded-md'>
+       <div className='overflow-hidden w-full h-[50%] rounded-md'>
        <div class="z-[10] bg-white p-4 flex   h-full justify-center   translate-y-[115px] group-hover:translate-y-0 duration-700  ">
       
 

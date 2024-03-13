@@ -2,12 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import CarouselImage from '@/components/CarouselImage';
-
-import image12 from '@/images/homeImages/image12.png';
-import image2 from '@/images/homeImages/image2.png';
-import image3 from '@/images/homeImages/image3.png';
-import notificationImg1 from '@/images/homeImages/notification/cow-grass.png';
-
 import { LinkCard } from './Card.js';
 import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
@@ -31,14 +25,13 @@ import ArrivalCard from '@/components/ArrivalCard.js';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
-  const [liveTenders, setLiveTenders] = useState([]);
   const [banners, setAllBanners] = useState([]);
   const [cardDetails, setCardDetails] = useState([]);
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
   const [allTenders, setAllTenders] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [certificate,setCertificate]=useState([])
-  const [isCertificated,setIsCertificate]=useState(false)
+ 
   
   const axios = useApi();
   
@@ -74,49 +67,17 @@ const Home = () => {
         };
       });
 
-      if (liveTenders.length === 0) {
-        setLiveTenders(pastTenders);
-      } else {
-        setLiveTenders(liveTenders);
-      }
-
-      // if (videos?.length > 2) {
-      //   setHomeVideo(videos?.slice(0, 2));
-      // } else {
-      //   setHomeVideo(videos);
-      // }
+     
+    
 
       setNewArrivals(arrivals?.data);
-      // setHomeNotification(homenotification?.data);
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
       setCertificate(certificate.data?.[0]?.attributes?.image?.data)
     })();
   }, []);
-
-  // let cards = [
-  //   {
-  //     key: uuidv4(),
-  //     content: <Card imgUrl={feturedImg.src} link="/en/about/company-profile" title="Featured On" />
-  //   },
-  //   {
-  //     key: uuidv4(),
-  //     content: <Card imgUrl={galleryImg.src} link="/en/blog/gallery" title="Gallery" />
-  //   },
-  //   {
-  //     key: uuidv4(),
-  //     content: <Card imgUrl={portfolioImg.src} link="/en/portfolio" title="Portfolio KMF" />
-  //   },
-  //   {
-  //     key: uuidv4(),
-  //     content: <Card imgUrl={acheivmentImg.src} title="Achievments" link="/en/portfolio" />
-  //   },
-  //   {
-  //     key: uuidv4(),
-  //     content: <Card imgUrl={KsImg.src} title="Ksheera Bhagya" />
-  //   }
-  // ];
+ 
 
   useEffect(() => {
     const updateScreensize = () => {
@@ -135,7 +96,7 @@ const Home = () => {
   return (
     <div className="w-full h-full absolute top-36 z-[-1]">
       {/* HOME CARAOUSAL IMAGE */}
-      <CarouselImage images={banners || []} />
+      <CarouselImage images={banners || []}  />
 
       <section className="w-full    pt-20  relative z-[1]  ">
         <video
@@ -229,7 +190,7 @@ const Home = () => {
                   muted
                   autoPlay
                   loop
-                  className="w-full h-96 object-contain"
+                  className="w-full h-96 object-contian"
                 />
               </div>
             </Fade>
@@ -381,7 +342,7 @@ const Home = () => {
                 }}
                 loop={true}>
                 {allTenders?.map((item, id) => {
-                  console.log("items",item)
+                 
                   return (
                     <SwiperSlide className="swiper-sldier-card " key={id}>
                       <TenderNotification
@@ -560,7 +521,7 @@ const Home = () => {
            
           </div>
                 
-          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7 ${isCertificated?'marquee-sponser':''} `} onClick={()=>setIsCertificate(true)}>
+          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7  marquee-sponser `} >
                   {certificate?.map((item,idx)=>{
                     return(
                       <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>

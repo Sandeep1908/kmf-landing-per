@@ -38,7 +38,7 @@ function MilkUnion() {
           <iframe
             align="middle"
             allowfullscreen=""
-            frameborder="0"
+            frameBorder="0"
             height="100%"
            scrolling={true}
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.518745456276!2d77.60279164133709!3d12.938623223603017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15ef1a5c4365%3A0xf0eb81ef4c8cd455!2sKMF!5e0!3m2!1sen!2sin!4v1456068635330"
@@ -50,7 +50,7 @@ function MilkUnion() {
       <h1 className='text-primary-gradient text-center pt-5  pb-5 text-3xl '>MILK UNIONS</h1>
         <div className="max-w-7xl m-auto p-2 shadow-lg  border border-black shadow-white bg-white grid place-content-center md:grid-cols-3 gap-5">
           {milkUnion.map((union, id) => {
-            console.log(union)
+           
             return (
             <Link href={`/${params.locale}/milk-union/${union?.id}`} key={id}>
               <UnionCard

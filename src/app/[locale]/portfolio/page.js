@@ -71,8 +71,8 @@ function Portfolio() {
       className="w-full h-full absolute top-36 z-[-1]   
            "
        >
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={portfolioImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
+      <section className={`w-full  h-96 pt-28 relative  grid place-items-center company-bg`}>
+        <img src={portfolioImg.src} className="w-full h-full object-fill absolute top-0 z-[-1]" />
       </section>
 
       <section className="max-w-7xl m-auto pt-10     ">
@@ -267,7 +267,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
 <section className="max-w-7xl m-auto pt-10   relative z-[100] bg-white  overflow-hidden">
         <h1 className="text-center text-xl text-primary-main uppercase">
           {locale === 'en'
-            ? `KMF Acheivments`
+            ? `KMF Achievements`
             : `
 KMF ಸಾಧನೆಗಳು`}{' '}
         </h1>
