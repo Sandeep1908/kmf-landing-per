@@ -19,7 +19,7 @@ const CarouselImage = ({ images }) => {
    
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full">
       <Swiper
         grabCursor={true}
         centeredSlides={true}
