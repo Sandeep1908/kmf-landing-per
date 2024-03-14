@@ -48,7 +48,7 @@ const CarouselImage = ({ images }) => {
         {images?.map((img, id) => {
           return (
             <SwiperSlide className="  " key={id}>
-              <img src={img} className="w-full h-[600px] object-fill " />
+              <img src={img} className="w-full h-[600px] object-cover md:object-fill " />
             </SwiperSlide>
           );
         })}
