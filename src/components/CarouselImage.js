@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Carousel as Carousels } from 'react-responsive-carousel';
 import {
@@ -48,7 +48,7 @@ const CarouselImage = ({ images }) => {
         {images?.map((img, id) => {
           return (
             <SwiperSlide className="  " key={id}>
-              <img src={img} className="w-full h-[600px] object-cover md:object-fill " />
+              <img src={img} className="w-full h-[600px]  object-fill " />
             </SwiperSlide>
           );
         })}

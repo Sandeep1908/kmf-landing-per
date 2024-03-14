@@ -1,14 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import logo from '../images/logo/logo.png';
 import locationVectorIco from '../images/footer/locationVector.svg';
 import callVectorIco from '../images/footer/callVector.svg';
 import msgVectorIco from '../images/footer/msgVector.svg';
-import nearMeIco from '../images/footer/near_me.svg';
-import facebookIco from '../images/footer/facbook.png';
-import instagramIco from '../images/footer/instagram.png';
-import linkedinIco from '../images/footer/linkedin.png';
-import ytIco from '../images/footer/yt.png';
+ 
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';

@@ -9,11 +9,11 @@ import downarrowIco from '@/images/icons/downarrow.svg';
 import uparrowIco from '@/images/icons/uparrow.svg';
 import locationIco from '@/images/header-ico/location.svg';
 import contactIco from '@/images/header-ico/contact.svg';
-import searchIco from '@/images/header-ico/search.svg';
+ 
 import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
-import { IoHomeOutline } from 'react-icons/io5';
+ 
 import facebookIco from '@/images/footer/FB.svg';
 import mailIco from '@/images/footer/Email.svg';
 import twitterIco from '@/images/footer/X.svg';

@@ -44,10 +44,9 @@ const Home = () => {
       const { data: banner } = await axios.get('/api/banners');
 
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
-      setAllBanners(images);
+  
       const { data: arrivals } = await axios.get('/api/latestproducts');
-      const { data: homenotification } = await axios.get('/api/homenotifications');
-      const { data: gallery } = await axios.get('/api/galleries');
+ 
 
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
@@ -55,9 +54,7 @@ const Home = () => {
   
       
 
-      const videos = gallery?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url);
-      const liveTenders = data?.data?.filter((item) => item.attributes?.status === 'live tender');
-      const pastTenders = data?.data?.filter((item) => item.attributes?.status === 'past tender');
+   
       const homedetials = homeabout?.data?.map((item) => {
         return {
           about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
@@ -74,6 +71,7 @@ const Home = () => {
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
+      setAllBanners(images);
       setCertificate(certificate.data?.[0]?.attributes?.image?.data)
     })();
   }, []);
