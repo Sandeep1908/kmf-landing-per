@@ -101,9 +101,9 @@ const Executive = () => {
     
     <tr className='border-t ' key={id}>
     <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
-    <td className="p-2 text-sm  "> </td>
+    <td className="p-2 text-sm  ">{item?.attributes?.department}</td>
     <td className="p-2 text-sm">{item?.attributes?.designation}</td>
-    <td className="p-2 text-sm"> </td>
+    <td className="p-2 text-sm"> {item?.attributes?.working}</td>
   </tr>
    
  )

@@ -36,7 +36,7 @@ const Home = () => {
   const [newArrivals, setNewArrivals] = useState([]);
   const [sponsored,setSponsored]=useState([])
   const [certificate,setCertificate]=useState([])
-  const [isCertificated,setIsCertificate]=useState(false)
+ 
   const axios = useApi();
   
 
@@ -45,6 +45,7 @@ const Home = () => {
       const {data:certificate}= await axios.get('/api/certificates')
    
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
+      
       const { data: banner } = await axios.get('/api/banners');
 
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
@@ -195,7 +196,7 @@ KMF ನಂದಿನಿ ಅವರಿಗೆ ಸ್ವಾಗತ
                   muted
                   autoPlay
                   loop
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-contain"
                 />
               </div>
             </Fade>
@@ -210,7 +211,7 @@ KMF ನಂದಿನಿ ಅವರಿಗೆ ಸ್ವಾಗತ
                   muted
                   autoPlay
                   loop
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-contain"
                 />
               </div>
             </Fade>
@@ -364,7 +365,7 @@ KMF ನಂದಿನಿ ಅವರಿಗೆ ಸ್ವಾಗತ
                   disableOnInteraction: false
                 }}
                 loop={true}>
-                {liveTenders?.map((item, id) => {
+                {allTenders?.map((item, id) => {
                   return (
                     <SwiperSlide className="swiper-sldier-card  " key={id}>
                       <TenderNotification
@@ -545,7 +546,7 @@ KMF ನಂದಿನಿ ಅವರಿಗೆ ಸ್ವಾಗತ
            
           </div>
                 
-          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7 ${isCertificated?'marquee-sponser':''} `} onClick={()=>setIsCertificate(true)}>
+          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7  marquee-sponser `}  >
                   {certificate?.map((item,idx)=>{
                     return(
                       <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>

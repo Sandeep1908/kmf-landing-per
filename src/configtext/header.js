@@ -1,12 +1,10 @@
 import homeIco from '../images/icons/home.svg';
-import aboutIco from '../images/icons/about.svg';
+ 
 import ourproductIco from '../images/icons/ourproducts.svg';
-import contactIco from '../images/icons/contact.svg';
-import kfmUnitIco from '../images/icons/kmf-unit.svg';
-import womenIco from '../images/icons/women-empowerment.svg';
+ 
 import milkUnionIco from '../images/icons/milk-union.svg';
 import { IoHomeOutline } from 'react-icons/io5';
-import useApi from '@/hooks/useApi';
+ 
 
 
 
@@ -31,19 +29,7 @@ export const mobileHeader = {
           title:'Our Purpose',
           link:'/en/about/mission-vision'
         },
-        // {
-        //   title: 'Vision & Mission',
-        //   link: '/en/about/mission-vision'
-        // },
-        // {
-        //   title: 'Objectives',
-        //   link: '/en/about/mission-vision'
-        // },
-
-        // {
-        //   title: 'Evolution',
-        //   link: '/en/about/mission-vision'
-        // },
+       
         {
           title: 'Organization Chart',
           link: '/en/about/organization-chart'
@@ -203,48 +189,7 @@ export const mobileHeader = {
     {
       title: 'OUR PRODUCT',
 
-      // subItems: [
-      //   {
-      //     title: 'Milk',
-      //     link: '/en/our-product/milk'
-      //   },
-      //   {
-      //     title: 'UHT Milk',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Flexipack Milk',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Curd & Fermented Products',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Ghee & Butter',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Milk Powder',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Ice Cream & Frozen Dessert',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Milk Sweets',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Chocolate',
-      //     link: ''
-      //   },
-      //   {
-      //     title: 'Other Products',
-      //     link: ''
-      //   }
-      // ],
+      link:'/en/our-product/21',
       imgUrl: ourproductIco.src
     },
 
