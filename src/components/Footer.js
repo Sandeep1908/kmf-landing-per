@@ -29,7 +29,7 @@ function Footer() {
     )()
   },[params?.locale])
   return (
-    <section className="w-full h-full md:h-auto pt-10 relative bg-primary-subtle  footer-bg  ">
+    <section className="w-full  md:h-auto pt-10 relative bg-primary-subtle  footer-bg  ">
       <div className=" z-10 relative  max-w-7xl   m-auto flex flex-col justify-between items-center md:items-start">
       
 

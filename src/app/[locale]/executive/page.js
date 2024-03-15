@@ -1,12 +1,12 @@
 'use client'
 import React,{useState,useEffect} from 'react'
 import directorImg from '@/images/directors/directorsbg.png';
-import personImg from '@/images/directors/person.png';
+
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Zoom from 'react-reveal/Zoom';
-import Flash from 'react-reveal/Zoom';
+ 
 
 const Executive = () => {
   const [md,setMd]=useState([])
@@ -14,7 +14,7 @@ const Executive = () => {
 
   const [unitCheifs,setUnitCheif]=useState([])
   const [executives,setExecutives]=useState([])
-  const [loading,setLoading]=useState(true)
+  const [executiveState,setExecutiveState]=useState([])
 
 
   const axios =useApi()
@@ -26,21 +26,69 @@ const Executive = () => {
    
 
         const {data:chairman}= await axios.get('/api/md')
-        const {data:excecutive}=await axios.get('/api/executives?sort[0]=order:asc')
+        const {data:executive}=await axios.get('/api/executives?sort[0]=order:asc')
         const {data:unitchief}=await axios.get('/api/unitcheifs?sort[0]=order:asc')
         const {data:unioncheif}=await axios.get('/api/unioncheifs?sort[0]=order:asc')
-      
+        
+        let orderExecutive = new Array(executive?.data?.length).fill(null);
+        let indexE = 0;
+
+        executive?.data.forEach(item => {
+          if (item?.attributes?.order != null) {
+            orderExecutive[item?.attributes?.order - 1] = item;
+          }
+        });
+
+        executive?.data.forEach(item => {
+          if (item.attributes.order === null) {
+            while (orderExecutive[indexE] !== null) {
+              indexE++;
+            }
+            if (index < orderExecutive.length) {
+              orderExecutive[indexE] = item;
+            }
+          }
+        });
 
 
+
+        let orderunitcheif = new Array(executive?.data?.length).fill(null);
+        let index = 0;
+
+        executive?.data.forEach(item => {
+          if (item?.attributes?.order != null) {
+            orderunitcheif[item?.attributes?.order - 1] = item;
+          }
+        });
+
+        executive?.data.forEach(item => {
+          if (item.attributes.order === null) {
+            while (orderunitcheif[index] !== null) {
+              index++;
+            }
+            if (index < orderunitcheif.length) {
+              orderunitcheif[index] = item;
+            }
+          }
+        });
+
+
+
+        
+        
+        
+       
         setMd(chairman?.data)
         setUnionCheif(unioncheif?.data)
         setUnitCheif(unitchief?.data)
-        setExecutives(excecutive?.data)
-        setLoading(false)
+        setExecutives(orderExecutive)
+     
     
       }
     )()
   },[])
+
+   
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
     <section
@@ -94,8 +142,8 @@ const Executive = () => {
 
         <tbody className="text-start  text-sm  bg-secondary-gradient">
         {executives?.map((item,id)=>{
- 
-
+        
+         
 
  return(
     

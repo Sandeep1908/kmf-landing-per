@@ -33,19 +33,21 @@ function Portfolio() {
   const [md,setMd]=useState([])
   const [chairman,setChairman]=useState([])
   const [loading,setLoading]=useState(true)
-
+  const [sponsers,setSponsor]=useState([])
    
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/kmf-acheivment');
-       
+      const {data:sponsor}= await axios.get('/api/Sponsoreds')
       const {data:md}= await axios.get('/api/md')
       const {data:chairman}= await axios.get('/api/chairmain')
+      
       setPortfolioData(data.data);
       setMd(md?.data)
       setChairman(chairman?.data)
       setLoading(false)
+      setSponsor(sponsor.data?.[0]?.attributes?.image?.data)
     })();
   }, []);
 
@@ -101,7 +103,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
 
       <ParallaxBanner
         layers={[
-          { image: "/images/pt-bg.png", speed: -20 },
+          { image: "/images/milk-bg.jpg", speed: -20 },
           {
             speed: -15,
             children: (
@@ -250,7 +252,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
  <div className="w-full h-screen m-auto pt-10 relative z-[-10]   ">
       <ParallaxBanner
         layers={[
-          { image: "/images/milk-bg-cat.jpg", speed: -20 },
+          { image: "/images/milk-bg.jpg", speed: -20 },
           {
             speed: -15,
             children: (
@@ -259,7 +261,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
               </div>
             ),
           },
-          { image: "/images/footer-bg-2.png", speed: -10 },
+          { image: "/images/milk-bg.png", speed: -10 },
         ]}
         className="fixed w-full h-[100vh] inset-0 object-cover"
       >
@@ -323,49 +325,74 @@ KMF ಸಾಧನೆಗಳು`}{' '}
 
     
 
+      <section className="max-w-7xl m-auto h-auto pt-10 relative z-[100]  shadow-md bg-primary-darker ">
+        <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
+          <div className="w-full flex flex-col justify-center items-start ">
+          <p className="text-2xl   font-bold text-white">{chairman?.attributes?.name}</p>
+        <h1 className="text-sm text-center text-white ">{chairman?.attributes?.description}</h1>
+ 
+              <p className='text-sm text-white text-justify pt-2'>{chairman?.attributes?.message}</p>
+          
+          </div>
 
-   
-
-      <section className="max-w-7xl m-auto h-auto pt-10  bg-white ">
-        <div className="w-full  h-full flex flex-col items-start justify-around p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-
-
-        <div className="max-w-80 h-[500px] relative rounded-tl-3xl rounded-br-3xl  shadow-md  overflow-hidden  group  transition-all duration-400 ease-in-out ">
-      <div className="max-h-[80%] overflow-hidden ">
-        <img
+          <div className="w-full   flex justify-center items-center">
+          <img
           src={chairman?.attributes?.image?.data?.attributes?.url}
           alt="featured-img"
-          className="w-full h-full group-hover:scale-[1.1]"
+          className="w-96 h-96 object-contain group-hover:scale-[1.1]"
           style={{ transition: '.4s all' }}
         />
-      </div>
-
-      <div className="mt-5  flex justify-center items-center flex-col p-4 space-y-3 ">
-        <p className="text-md font-bold text-neutral-dark1">{chairman?.attributes?.name}</p>
-        <h1 className="text-sm text-center ">{chairman?.attributes?.description}</h1>
-      </div>
-    </div>
+          </div>
+        </div>
+      </section>
 
 
+      <section className="max-w-7xl m-auto mt-10 h-auto pt-10 relative z-[100]  shadow-md  bg-primary-darker   ">
+        <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
 
 
-    <div className="max-w-80  h-[500px] relative rounded-tl-3xl rounded-br-3xl  shadow-md  overflow-hidden  group  transition-all duration-400 ease-in-out ">
-      <div className="max-h-[80%] overflow-hidden ">
-        <img
+        <div className="w-full   flex justify-center items-center">
+          <img
           src={md?.attributes?.image?.data?.attributes?.url}
           alt="featured-img"
-          className="w-full h-full group-hover:scale-[1.1]"
+          className="w-96 h-96 object-contain group-hover:scale-[1.1]"
           style={{ transition: '.4s all' }}
         />
-      </div>
+          </div>
 
-      <div className="mt-5  flex justify-center items-center flex-col p-4 space-y-3 ">
-        <p className="text-md font-bold text-neutral-dark1">{md?.attributes?.name}</p>
-        <h1 className="text-sm text-center ">{md?.attributes?.description}</h1>
-      </div>
-    </div>
 
+          <div className="w-full flex flex-col justify-center items-start ">
+          <p className="text-2xl   font-bold text-white">{md?.attributes?.name}</p>
+        <h1 className="text-sm text-center text-white ">{md?.attributes?.description}</h1>
  
+              <p className='text-sm text-white text-justify pt-2'>{md?.attributes?.message}</p>
+          
+          </div>
+
+      
+        </div>
+      </section>
+
+   
+ 
+
+      <section className="w-full h-auto overflow-hidden    ">
+        <div className=" p-10 flex flex-col items-center space-y-10 justify-center  max-w-[1600px] md:items-start m-auto">
+          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
+            <div className="flex justify-center flex-wrap   items-end  ">
+              <h1 className="text-4xl uppercase">Sponsored</h1>
+            </div>
+           
+          </div>
+                
+          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7  marquee-sponser `} >
+                  {sponsers?.map((item,idx)=>{
+                  console.log(item?.attributes?.image?.data)
+                    return(
+                      <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>
+                    )
+                  })}
+          </div>
         </div>
       </section>
 

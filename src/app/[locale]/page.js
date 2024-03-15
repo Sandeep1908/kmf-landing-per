@@ -110,7 +110,7 @@ const Home = () => {
             <h1 className="text-4xl text-[#242424] text-center font-alfa font-[400] tracking-wide md:text-4xl uppercase ">
               Welcome to KMF Nandini
             </h1>
-            <p className="text-[#595959] text-center     ">A Milk Brand Trusted by</p>
+            <p className="text-[#595959] text-center     ">A Milk Brand Trusted by millions</p>
           </div>
 
           <div className="w-full relative z-10 p-2   ">

@@ -24,16 +24,22 @@ function VideCard() {
         
         return (
         <Link href={`/${locale}/blog/gallery/videos/${item?.id}` || ''} key={idx}>
-          <div className="card">
-            <div className="card-image">
-              <img
-                src={item?.attributes?.banner?.data?.attributes?.url}
-                className="w-full h-full object-contain"
-              />
+          <div className="flex flex-col justify-center items-center bg-gray-50">
+              <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500">
+                <a href="#">
+                  <img
+                    src={item?.attributes?.banner?.data?.attributes?.url}
+                    alt="Product image"
+                    className="h-80 w-72 object-cover"
+                  />
+                </a>
+                <div className="px-4 py-3 w-72">
+                  <span className="text-gray-400 mr-3 uppercase text-xs">Category</span>
+                  <p className="text-lg font-bold text-black truncate block uppercase">{item?.attributes?.name}</p>
+                 
+                </div>
+              </div>
             </div>
-            <div className="category"> {item?.attributes?.name} </div>
-            <div className="heading uppercase"> {item?.attributes?.name}</div>
-          </div>
           </Link>
         );
       })}

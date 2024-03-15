@@ -21,7 +21,7 @@ function KmfUnitDetail() {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/units-of-kmfs/${param?.slug}`);
-     
+      
       setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
       setUnit(data?.data);
       setUnitImages(data?.data?.attributes?.image?.data);

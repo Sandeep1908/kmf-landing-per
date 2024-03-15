@@ -44,16 +44,16 @@ function Directors() {
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={directorImg.src} className="w-full h-full object-cover absolute top-10 z-[-1]" />
+        <img src={directorImg.src} className="w-full h-full object-cover absolute   z-[-1]" />
       </section>
 
 
-      <section className="w-full   pt-10  shadow-lg ">
-        <h1 className="text-center text-primary-main text-xl">
+      <section className="w-full   pt-10  shadow-lg bg-primary-subtle ">
+        <h1 className="text-center uppercase text-primary-main text-xl">
           {locale === 'en' ? 'Board of Directors' : 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}
         </h1>
         <div className="p-12 h-full  ">
-          <div className="w-full max-w-7xl m-auto min-h-42 shadow-md md:h-2/4 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3">
+          <div className="w-full max-w-7xl m-auto min-h-30 bg-primary-gradient shadow-md md:h-2/4 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3">
             <div className="md:w-1/2 flex justify-center items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 ">
               <img
                 className="w-full max-w-[300px]"
@@ -63,15 +63,15 @@ function Directors() {
             </div>
             <div className=" md:w-1/2 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 ">
               <div>
-                <p className="text-2xl text-center font-bold text-neutral-dark1">
+                <p className="text-2xl  text-center font-bold text-white">
                   {chairmain?.attributes?.name}
                 </p>
-                <p className="text-base text-center font-normal text-neutral-dark2">
+                <p className="text-base text-center font-normal text-white">
                   {chairmain?.attributes?.description}
                 </p>
               </div>
               <div className="mt-3 lg:mt-12 p-3 md:p-0">
-                <p className="text-base font-normal text-justify">
+                <p className="text-base font-normal text-white text-justify">
                   {chairmain?.attributes?.message}
                 </p>
               </div>

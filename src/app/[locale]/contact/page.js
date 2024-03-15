@@ -140,20 +140,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
-              <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl font-semibold	text-primary-darker ">Fax:</p>
-                <div className="flex items-start flex-col lg:flex-row ">
-                  <div className="w-1/5">
-                    <img src={faxImg.src} alt="" className="w-full h-8" />
-                  </div>
-
-                  <div className="ml-2 w-full">
-                    <p className="text-base text-neutral-dark1"> 080-260 96800</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">

@@ -84,7 +84,7 @@ function Images() {
   return (
     <div className="w-full h-full absolute top-36 z-[-1]  ">
 
-    <section className="w-full m-auto pt-10 relative h-full milk-bg  ">
+    <section className="w-full   m-auto pt-10 relative  milk-bg  ">
     <div className="w-full space-y-5 p-4 ">
       <h1 className="text-center text-2xl text-primary-main uppercase">{title?.attributes?.name}</h1>
     </div>

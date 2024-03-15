@@ -3,27 +3,23 @@ import './style.css'
 
 function ShowCard({imgUrl,title}) {
   return (
-    <div
-  className="relative group cursor-pointer overflow-hidden duration-500 w-72 h-80  bg-white rounded-md shadow-md text-gray-50 p-5"
->
-  <div className="">
-    <div
-      className="group-hover:scale-110 w-full h-60  duration-500"
-    >
-        <img src={imgUrl} className='w-full h-full object-contain'/>
-    </div>
-    <div
-      className="absolute w-56 left-0 p-5 -bottom-1 duration-500 group-hover:-translate-y-12"
-    >
-      <div
-        className="absolute -z-10 left-0 w-72 h-28 opacity-0 duration-500 group-hover:opacity-50 group-hover:bg-blue-900"
-      ></div>
-      <span className="text-xl uppercase text-primary-main font-bold group-hover:text-white">{title}</span>
+    <div className="flex flex-col justify-center items-center bg-gray-50">
+    <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500">
+      <a href="#">
+        <img
+          src={imgUrl}
+          alt="Product image"
+          class="h-80 w-72 object-contain"
+        />
+      </a>
+      <div className="px-4 py-3 w-72">
+        <span className="text-gray-400 mr-3 uppercase text-xs">product</span>
+        <p className="text-lg font-bold text-black truncate block capitalize">{title}</p>
        
+      </div>
     </div>
   </div>
-</div>
   )
 }
 
-export default ShowCard
+export default ShowCard;

@@ -8,24 +8,21 @@ import printIco from '@/images/milk-union/icons/print.svg'
 function UnionCard({name,image}) {
   console.log(image)
   return (
-<div className='group max-w-80  h-96 z-[10]   bg-slate-400 shadow-md rounded-md '>
-  <div class=" relative w-full h-full flex items-end">
-    <div className='w-full h-full absolute top-0 left-0  '>
-      <img className='w-full h-full' src={image} alt="" />
-    </div>
-
-       <div className='overflow-hidden w-full h-[50%] rounded-md'>
-       <div class="z-[10] bg-white p-4 flex   h-full justify-center   translate-y-[115px] group-hover:translate-y-0 duration-700  ">
-      
-
-      <h1 class="text-2xl font-semibold text-center"><a href="#">{name}</a></h1>
-      {/* <p class="text-sm font-normal text-center mt-5">The highly anticipated world championship fight will take place at 10am and is the second major boxing blockbuster in the nation after 43 years.</p> */}
-  
-
-     </div>
-       </div>
+    <div className="flex flex-col justify-center items-center bg-gray-50">
+    <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500">
+      <a href="#">
+        <img
+          src={image}
+          alt="Product image"
+          className="h-80 w-72 object-cover"
+        />
+      </a>
+      <div className="px-4 py-3 w-72">
+        <span className="text-gray-400 mr-3 uppercase text-xs">Union</span>
+        <p className="text-lg font-bold text-black truncate block uppercase">{name}</p>
        
-  </div>
+      </div>
+    </div>
   </div>
   )
 }
