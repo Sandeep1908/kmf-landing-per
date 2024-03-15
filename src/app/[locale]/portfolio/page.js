@@ -348,7 +348,7 @@ KMF ಸಾಧನೆಗಳು`}{' '}
 
 
       <section className="max-w-7xl m-auto mt-10 h-auto pt-10 relative z-[100]  shadow-md  bg-primary-darker   ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
+        <div className="w-full  h-full flex flex-col   space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
 
 
         <div className="w-full   flex justify-center items-center">
@@ -378,9 +378,9 @@ KMF ಸಾಧನೆಗಳು`}{' '}
 
       <section className="w-full h-auto overflow-hidden    ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center  max-w-[1600px] md:items-start m-auto">
-          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
-            <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase">Sponsored</h1>
+          <div className="flex w-full flex-col justify-center items-center  space-y-3 md:items-start">
+            <div className="  w-full justify-center        ">
+              <h1 className="text-4xl uppercase text-primary-main text-center">Sponsored</h1>
             </div>
            
           </div>

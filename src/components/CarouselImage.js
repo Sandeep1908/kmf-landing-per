@@ -35,7 +35,8 @@ const CarouselImage = ({ images }) => {
         }}
         slidesPerView={1}
         modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectCoverflow]}
- 
+ observeParents={true}
+ observer={true}
         controller={true}
         scrollbar={{ draggable: true }}
         slide

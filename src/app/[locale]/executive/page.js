@@ -44,33 +44,14 @@ const Executive = () => {
             while (orderExecutive[indexE] !== null) {
               indexE++;
             }
-            if (index < orderExecutive.length) {
+            if (indexE < orderExecutive.length) {
               orderExecutive[indexE] = item;
             }
           }
         });
 
 
-
-        let orderunitcheif = new Array(executive?.data?.length).fill(null);
-        let index = 0;
-
-        executive?.data.forEach(item => {
-          if (item?.attributes?.order != null) {
-            orderunitcheif[item?.attributes?.order - 1] = item;
-          }
-        });
-
-        executive?.data.forEach(item => {
-          if (item.attributes.order === null) {
-            while (orderunitcheif[index] !== null) {
-              index++;
-            }
-            if (index < orderunitcheif.length) {
-              orderunitcheif[index] = item;
-            }
-          }
-        });
+ 
 
 
 
