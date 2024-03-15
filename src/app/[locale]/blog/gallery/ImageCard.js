@@ -23,7 +23,7 @@ function ImgaeCard() {
     <div className="w-full h-full  grid place-content-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4   pt-10 p-4  gap-5 bg-[#F6F6F6]">
       {imageItems?.map((item, idx) => {
         return (
-          <Link href={`/${locale}/blog/gallery/images/${item?.id}` || ''} key={idx}>
+          <Link href={`/${locale}/blog/gallery/images/${item?.id}` || ''} key={item?.id}>
             
               <div className="bg-white  shadow-md hover:scale-105 hover:shadow-xl duration-500">
                 <a href="#">

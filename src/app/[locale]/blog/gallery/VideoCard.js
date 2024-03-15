@@ -23,7 +23,7 @@ function VideCard() {
       {imageItems?.map((item, idx) => {
         
         return (
-        <Link href={`/${locale}/blog/gallery/videos/${item?.id}` || ''} key={idx}>
+        <Link href={`/${locale}/blog/gallery/videos/${item?.id}` || ''} key={item?.id}>
           <div className="flex flex-col justify-center items-center bg-gray-50">
               <div className="bg-white shadow-md hover:scale-105 hover:shadow-xl duration-500">
                 <a href="#">

@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Carousel as Carousels } from 'react-responsive-carousel';
 import {
@@ -11,12 +11,24 @@ import {
   Autoplay,
   EffectCoverflow
 } from 'swiper/modules';
-import { Swiper , SwiperSlide } from 'swiper/react';
+import { Swiper , SwiperSlide,  useSwiper } from 'swiper/react';
  
 
+const NextSlider = () => {
+  const swiper = useSwiper()
+  useEffect(() => {
+    if (swiper.activeIndex === 0) {
+      setTimeout(() => {
+          swiper.slideTo(1, 1000)  
+      }, 3000) 
+    }
+  }, [swiper])
+
+  return <></>
+}
 
 const CarouselImage = ({ images }) => {
-   
+
 
   return (
     <div className="relative w-full">
@@ -24,7 +36,7 @@ const CarouselImage = ({ images }) => {
         grabCursor={true}
         centeredSlides={true}
         effect={'coverflow'}
-
+        ref={r => r.s}
         coverflowEffect={{
           rotate: 45,
           stretch: 0,
@@ -35,8 +47,8 @@ const CarouselImage = ({ images }) => {
         }}
         slidesPerView={1}
         modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectCoverflow]}
- observeParents={true}
- observer={true}
+        observeParents={true}
+        observer={true}
         controller={true}
         scrollbar={{ draggable: true }}
         slide
@@ -53,6 +65,7 @@ const CarouselImage = ({ images }) => {
             </SwiperSlide>
           );
         })}
+          <NextSlider />
       </Swiper>
     </div>
   );

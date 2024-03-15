@@ -32,7 +32,7 @@ function OrganizationChart() {
       const milestones = data?.data?.map((item) => {
         return { year: item?.attributes?.year, description: item?.attributes?.description };
       });
-
+console.log("milestones",data.data)
       
       const filterdata = milestones?.filter(
         (item) => parseInt(item.year) >= selectedYear && parseInt(item.year) <= nextYear

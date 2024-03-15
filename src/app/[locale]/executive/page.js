@@ -110,12 +110,13 @@ const Executive = () => {
       </div>
 
 
-      <table className="mt- table-fixed    border-spacing-y-2	 border-collapse border overflow-auto    w-full">
+      <table className="      border-spacing-y-2	 border-collapse w-full border overflow-auto ">
         <thead className=" bg-primary-main text-white ">
           <tr className="text-md    ">
             <th className="p-2 text-start ">Name</th>
-            <th className="p-2 text-start ">Department</th>
+          
             <th className="p-2 text-start">Designation	</th>
+            <th className="p-2 text-start ">Department</th>
             <th className="p-2 text-start ">Place of working</th>
  
           </tr>
@@ -129,10 +130,11 @@ const Executive = () => {
  return(
     
     <tr className='border-t ' key={id}>
-    <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
-    <td className="p-2 text-sm  ">{item?.attributes?.department}</td>
-    <td className="p-2 text-sm">{item?.attributes?.designation}</td>
-    <td className="p-2 text-sm"> {item?.attributes?.working}</td>
+    <td className="p-1 text-sm  ">{item?.attributes?.name}</td>
+   
+    <td className="p-1 text-sm">{item?.attributes?.designation}</td>
+    <td className="p-1 text-sm  ">{item?.attributes?.department}</td>
+    <td className="p-1 text-sm"> {item?.attributes?.working}</td>
   </tr>
    
  )
@@ -174,9 +176,9 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
-  <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
-  <td className="p-2 text-sm">{item?.attributes?.designation}</td>
-  <td className="p-2 text-sm overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1 text-sm  ">{item?.attributes?.name}</td>
+  <td className="p-1 text-sm">{item?.attributes?.designation}</td>
+  <td className="p-1 text-sm overflow-auto">{item?.attributes?.working}</td>
 </tr>
  )
 
@@ -217,9 +219,9 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
-  <td className="p-2 text-sm  ">{item?.attributes?.name}</td>
-  <td className="p-2 text-sm">{item?.attributes?.designation}</td>
-  <td className="p-2 text-sm overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1 text-sm  ">{item?.attributes?.name}</td>
+  <td className="p-1 text-sm">{item?.attributes?.designation}</td>
+  <td className="p-1 text-sm overflow-auto">{item?.attributes?.working}</td>
 </tr>
    
  )

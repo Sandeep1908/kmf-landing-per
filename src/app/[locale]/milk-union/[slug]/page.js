@@ -40,11 +40,11 @@ function MilkUnionDetail({ slug }) {
         <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
       </section>
 
-      <section className="w-full  p-2 bg-[#F6F6F6]">
+      <section className="w-full h-fit   p-2 bg-[#F6F6F6]">
         <div
-          className="max-w-[1282px]   m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+          className="max-w-[1282px]    m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
           >
-          <div className="w-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
+          <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
 
             {unionImages?.[currentIndex]?
               <div className="w-full flex flex-col justify-center items-center space-y-5">
@@ -62,13 +62,13 @@ function MilkUnionDetail({ slug }) {
             :''}
           
 
-            <div className=" w-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
+            <div className=" w-full  flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
               <h1 className="text-2xl text-justify ">{union?.attributes?.name}</h1>
               <p className="text-md"> {union?.attributes?.union_code}</p>
 
               {union?.attributes?.about?.map((item, idx) => {
                 return (
-                  <p key={idx} className="text-neutral-dark1 text-sm">
+                  <p key={idx} className="   text-neutral-dark1 text-sm">
                     {item?.children[0]?.text}
                   </p>
                 );
