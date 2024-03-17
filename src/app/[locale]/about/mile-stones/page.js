@@ -4,8 +4,7 @@ import organizationHero from '@/images/about/organization-chart/organization-her
 import mileStoneIco from '@/images/about/milestone/milestone.png';
 import { mileStone } from '@/configtext/milestone';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+ 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from '@/components/Footer';

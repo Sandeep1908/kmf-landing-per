@@ -61,19 +61,18 @@ function MilkUnionDetail({ slug }) {
             
             :''}
           
+          <div className="w-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
+  <h1 className="text-2xl">{union?.attributes?.name}</h1>
+  <p className="text-md"> {union?.attributes?.union_code}</p>
 
-            <div className=" w-full  flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
-              <h1 className="text-2xl text-justify ">{union?.attributes?.name}</h1>
-              <p className="text-md"> {union?.attributes?.union_code}</p>
-
-              {union?.attributes?.about?.map((item, idx) => {
-                return (
-                  <p key={idx} className="   text-neutral-dark1 text-sm">
-                    {item?.children[0]?.text}
-                  </p>
-                );
-              })}
-            </div>
+  <div className="about-container max-h-96 overflow-y-auto">
+    {union?.attributes?.about?.map((item, idx) => (
+      <p key={idx} className="text-neutral-dark1 text-sm">
+        {item?.children[0]?.text}
+      </p>
+    ))}
+  </div>
+</div>
           </div>
         </div>
       </section>

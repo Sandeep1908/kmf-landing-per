@@ -24,7 +24,7 @@ function Directors() {
     (async () => {
       const { data } = await axios.get('/api/directors?sort[0]=order:asc');
 
-      const { data: chairman } = await axios.get('/api/chairmain');
+      const { data: chairman } = await axios.get('/api/chairmans');
 
       const directorsData = data?.data?.map((item, id) => {
         return {

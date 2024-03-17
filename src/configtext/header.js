@@ -54,11 +54,11 @@ export const mobileHeader = {
       ]
     },
 
-    {
-      title: 'KMF PORTFOLIO',
-      link: '/en/portfolio',
-      imgUrl: homeIco.src
-    },
+    // {
+    //   title: 'KMF PORTFOLIO',
+    //   link: '/en/portfolio',
+    //   imgUrl: homeIco.src
+    // },
 
     {
       title: 'MILK UNION',
@@ -265,15 +265,18 @@ export const mobileHeader = {
           title: 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ',
           link: '/kn/directors'
         },
-   
+        {
+          title: 'kmf ಕಾರ್ಯನಿರ್ವಾಹಕರು',
+          link: '/kn/executive'
+        },
       ]
     },
 
-    {
-      title: 'KMF ಪೋರ್ಟ್ಫೋಲಿಯೋ',
-      link: '/kn/portfolio',
-      imgUrl: homeIco.src
-    },
+    // {
+    //   title: 'KMF ಪೋರ್ಟ್ಫೋಲಿಯೋ',
+    //   link: '/kn/portfolio',
+    //   imgUrl: homeIco.src
+    // },
 
     {
       title: 'ಹಾಲು ಒಕ್ಕೂಟ',

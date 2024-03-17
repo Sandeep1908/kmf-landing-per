@@ -14,7 +14,7 @@ const Executive = () => {
 
   const [unitCheifs,setUnitCheif]=useState([])
   const [executives,setExecutives]=useState([])
-  const [executiveState,setExecutiveState]=useState([])
+ 
 
 
   const axios =useApi()
@@ -31,8 +31,18 @@ const Executive = () => {
         const {data:unioncheif}=await axios.get('/api/unioncheifs?sort[0]=order:asc')
         
         let orderExecutive = new Array(executive?.data?.length).fill(null);
-        let indexE = 0;
+        let orderUnion = new Array(unioncheif?.data?.length).fill(null);
 
+        let orderUnits = new Array(unitchief?.data?.length).fill(null);
+
+        
+
+
+        let indexE = 0;
+        let indexUT=0;
+        let indexUN=0;
+
+        // Executives
         executive?.data.forEach(item => {
           if (item?.attributes?.order != null) {
             orderExecutive[item?.attributes?.order - 1] = item;
@@ -51,13 +61,31 @@ const Executive = () => {
         });
 
 
+    
  
 
+        // unitCheifs
 
+        unitchief?.data.forEach(item => {
+          if (item?.attributes?.order != null) {
+            orderUnits[item?.attributes?.order - 1] = item;
+          }
+        });
 
+        unitchief?.data.forEach(item => {
+          if (item.attributes.order === null) {
+            while (orderUnits[indexUT] !== null) {
+              indexUT++;
+            }
+            if (indexUT < orderExecutive.length) {
+              orderUnits[indexUT] = item;
+            }
+          }
+        });
         
         
-        
+
+   
        
         setMd(chairman?.data)
         setUnionCheif(unioncheif?.data)

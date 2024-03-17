@@ -21,6 +21,7 @@ import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
 import TenderNotification from '@/components/TenderNotification.js';
 import ArrivalCard from '@/components/ArrivalCard.js';
+import { ParallaxBanner } from "react-scroll-parallax";
 
 
 const Home = () => {
@@ -310,7 +311,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto  bg-primary-subtle  ">
+      <section className="w-full h-auto relative  bg-primary-subtle     ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex    flex-col justify-center items-center  space-y-3  ">
             <h1 className="text-4xl uppercase">Notification</h1>
@@ -404,7 +405,7 @@ const Home = () => {
           
             </div>
 
-            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
+            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[570px] p-5 rounded-lg border-b-2 border-primary-main  ">
                 <h1 className="text-4xl uppercase">New Arrivals & Best Selling</h1>
 
@@ -462,7 +463,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto  bg-primary-lighter  ">
+      <section className="w-full h-auto  bg-primary-lighter   ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
@@ -510,25 +511,39 @@ const Home = () => {
       </section>
 
 
-
-      <section className="w-full h-auto overflow-hidden    ">
-        <div className=" p-10 flex flex-col items-center space-y-10 justify-center  max-w-[1600px] md:items-start m-auto">
-          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
-            <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase">Certificates</h1>
+      <ParallaxBanner
+        layers={[
+          { image: "/images/certificate.jpg", speed: -10 },
+         
+          
+        ]}
+        className="fixed w-full   inset-0 object-cover"
+      >
+      <section className="w-full h-auto  relative      ">
+        <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
+          <div className="flex   h-full    justify-between items-center    ">
+            <div className="flex h-96 bg-white w-96    justify-center flex-wrap z-[10]   items-center  ">
+              
+              <h1 className="text-4xl uppercase">Our <br/> Certificates</h1>
             </div>
            
-          </div>
-                
-          <div className={` w-full max-w-[5xl] m-auto   flex justify-center  space-x-7  marquee-sponser `} >
+
+            <div className={` w-full max-w-[2xl]     flex justify-center  space-x-7  marquee-sponser `} >
                   {certificate?.map((item,idx)=>{
                     return(
                       <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>
                     )
                   })}
           </div>
+          </div>
+                
+       
         </div>
       </section>
+       
+      </ParallaxBanner>
+
+  
 
       {/* FOOTER SECTION  */}
       <Footer />

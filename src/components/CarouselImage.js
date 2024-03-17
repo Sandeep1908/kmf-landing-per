@@ -35,7 +35,7 @@ const CarouselImage = ({ images }) => {
       <Swiper
         grabCursor={true}
         centeredSlides={true}
-        effect={'coverflow'}
+        effect={'fade'}
         ref={r => r.s}
         coverflowEffect={{
           rotate: 45,

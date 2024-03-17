@@ -22,6 +22,7 @@ function KmfUnitDetail() {
     (async () => {
       const { data } = await axios.get(`/api/units-of-kmfs/${param?.slug}`);
       
+       
       setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
       setUnit(data?.data);
       setUnitImages(data?.data?.attributes?.image?.data);
@@ -63,6 +64,9 @@ function KmfUnitDetail() {
              
 
               {unit?.attributes?.description?.map((item, idx) => {
+              
+                
+            
                 return (
                   <p key={idx} className="text-neutral-dark1 text-sm">
                     {item?.children[0]?.text}
