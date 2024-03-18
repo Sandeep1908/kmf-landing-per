@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-import AchienvmentCard from '../../portfolio/AchienvmentCard';
+import AchienvmentCard from '../organization-chart/AchienvmentCard';
 import { achievements as achievementItems } from '@/configtext/companyProfile';
 import GrowthProcess from './GrowthProcess';
 import About from './About';

@@ -18,7 +18,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 
-import AchienvmentCard from './AchienvmentCard';
+import AchienvmentCard from '../about/organization-chart/AchienvmentCard';
 import { achievements as achievementItems } from '@/configtext/companyProfile';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';

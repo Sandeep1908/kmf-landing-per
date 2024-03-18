@@ -265,7 +265,7 @@ export const Header = () => {
                 return (
                   <Link href={isLink ? isLink : '#'} key={i} className=' transition-all duration-300 hover:scale-[1.1] '>
                     <li
-                      className="border-r text-[14px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
+                      className="border-r text-[16px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
                       onMouseEnter={() => setOpen(hasItems ? i : null)}>
                       {header.title}
                       {hasItems && (
@@ -279,7 +279,7 @@ export const Header = () => {
                               return (
                                 <Link
                                   href={subItem?.link || ''}
-                                  className="text-[12px] block hover:text-secondary-lighter"
+                                  className="text-[14px] block hover:text-secondary-lighter"
                                   key={idx}
                                 
                                   onClick={() => setOpen(null)}>
