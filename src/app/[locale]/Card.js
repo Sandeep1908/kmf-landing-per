@@ -26,7 +26,7 @@ function Card({ imgUrl, title, link }) {
           <h1 className="text-2xl text-center ">{title}</h1>
         </div>
 
-        <div class="absolute h-full w-full bg-black/80 inset-0 flex items-center justify-center -bottom-10 hover:bottom-0 opacity-0 transition-all duration-300  card-hover">
+        <div className="absolute h-full w-full bg-black/80 inset-0 flex items-center justify-center -bottom-10 hover:bottom-0 opacity-0 transition-all duration-300  card-hover">
         <Link href={link|| ''}> <button className="bg-primary-main  w-48 h-12     text-neutral-light4 font-semibold rounded-md">
                 {locale==='en'?'See Details':'ವಿವರಗಳನ್ನು ನೋಡಿ'}
               </button>

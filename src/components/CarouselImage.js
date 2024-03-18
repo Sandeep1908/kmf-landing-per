@@ -15,11 +15,14 @@ import { Swiper , SwiperSlide,  useSwiper } from 'swiper/react';
  
 
 const NextSlider = () => {
+  
   const swiper = useSwiper()
+ 
   useEffect(() => {
     if (swiper.activeIndex === 0) {
+      
       setTimeout(() => {
-          swiper.slideTo(1, 1000)  
+          swiper.slideTo(1,1000)  
       }, 3000) 
     }
   }, [swiper])
@@ -28,14 +31,14 @@ const NextSlider = () => {
 }
 
 const CarouselImage = ({ images }) => {
-
+ 
 
   return (
     <div className="relative w-full">
       <Swiper
         grabCursor={true}
         centeredSlides={true}
-        effect={'fade'}
+        effect={'coverflow'}
         ref={r => r.s}
         coverflowEffect={{
           rotate: 45,
@@ -59,13 +62,14 @@ const CarouselImage = ({ images }) => {
         loop={true}
         className={`w-full h-[600px] pb-0`}>
         {images?.map((img, id) => {
+          
           return (
             <SwiperSlide className="  " key={id}>
               <img src={img} className="w-full h-[600px]  object-fill " />
             </SwiperSlide>
           );
         })}
-          <NextSlider />
+     <NextSlider />
       </Swiper>
     </div>
   );
