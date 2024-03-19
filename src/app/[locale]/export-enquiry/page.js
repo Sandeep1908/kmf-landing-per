@@ -33,7 +33,7 @@ function ExportEnquiry() {
                 ? `            Nandini has, over the years, grown to have now become the 2nd largest brand in the co-operative dairy industry in India and the undisputed leader in the South India. Karnataka Milk Federation (KMF) and the milk Unions affiliated to it are handling, on an average, over 5.2 million kgs. of milk PER DAY. A very wide range of milk products- of short and long life- are made in well equipped hygienic manufacturing facilities (ISO certified/HACCP compliant) managed by highly qualified and experienced professionals and skilled workmen. `
                 : `
 
-ನಂದಿನಿಯು ವರ್ಷಗಳಲ್ಲಿ, ಭಾರತದಲ್ಲಿ ಸಹಕಾರಿ ಡೈರಿ ಉದ್ಯಮದಲ್ಲಿ 2 ನೇ ಅತಿದೊಡ್ಡ ಬ್ರ್ಯಾಂಡ್ ಮತ್ತು ದಕ್ಷಿಣ ಭಾರತದಲ್ಲಿ ನಿರ್ವಿವಾದ ನಾಯಕನಾಗಿ ಬೆಳೆದಿದೆ. ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳ (ಕೆಎಂಎಫ್) ಮತ್ತು ಅದಕ್ಕೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಹಾಲು ಒಕ್ಕೂಟಗಳು ಸರಾಸರಿ 5.2 ಮಿಲಿಯನ್ ಕೆ.ಜಿ.ಗೂ ಹೆಚ್ಚು ನಿರ್ವಹಣೆ ಮಾಡುತ್ತಿವೆ. ದಿನಕ್ಕೆ ಹಾಲು. ಅತ್ಯಂತ ವ್ಯಾಪಕ ಶ್ರೇಣಿಯ ಹಾಲಿನ ಉತ್ಪನ್ನಗಳು- ಕಡಿಮೆ ಮತ್ತು ದೀರ್ಘಾವಧಿಯ- ಸುಸಜ್ಜಿತ ನೈರ್ಮಲ್ಯ ಉತ್ಪಾದನಾ ಸೌಲಭ್ಯಗಳಲ್ಲಿ (ISO ಪ್ರಮಾಣೀಕೃತ/HACCP ಕಂಪ್ಲೈಂಟ್) ಹೆಚ್ಚು ಅರ್ಹ ಮತ್ತು ಅನುಭವಿ ವೃತ್ತಿಪರರು ಮತ್ತು ನುರಿತ ಕೆಲಸಗಾರರಿಂದ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತವೆ.`}
+ನಂದಿನಿಯು ವರ್ಷಗಳಲ್ಲಿ, ಭಾರತದಲ್ಲಿ ಸಹಕಾರಿ ಡೇರಿ ಉದ್ಯಮದಲ್ಲಿ 2 ನೇ ಅತಿದೊಡ್ಡ ಬ್ರ್ಯಾಂಡ್ ಮತ್ತು ದಕ್ಷಿಣ ಭಾರತದಲ್ಲಿ ನಿರ್ವಿವಾದ ನಾಯಕನಾಗಿ ಬೆಳೆದಿದೆ. ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳ (ಕೆಎಂಎಫ್) ಮತ್ತು ಅದಕ್ಕೆ ಸಂಯೋಜಿತವಾಗಿರುವ ಹಾಲು ಒಕ್ಕೂಟಗಳು ಸರಾಸರಿ 5.2 ಮಿಲಿಯನ್ ಕೆ.ಜಿ.ಗೂ ಹೆಚ್ಚು ನಿರ್ವಹಣೆ ಮಾಡುತ್ತಿವೆ. ದಿನಕ್ಕೆ ಹಾಲು. ಅತ್ಯಂತ ವ್ಯಾಪಕ ಶ್ರೇಣಿಯ ಹಾಲಿನ ಉತ್ಪನ್ನಗಳು- ಕಡಿಮೆ ಮತ್ತು ದೀರ್ಘಾವಧಿಯ- ಸುಸಜ್ಜಿತ ನೈರ್ಮಲ್ಯ ಉತ್ಪಾದನಾ ಸೌಲಭ್ಯಗಳಲ್ಲಿ (ISO ಪ್ರಮಾಣೀಕೃತ/HACCP ಕಂಪ್ಲೈಂಟ್) ಹೆಚ್ಚು ಅರ್ಹ ಮತ್ತು ಅನುಭವಿ ವೃತ್ತಿಪರರು ಮತ್ತು ನುರಿತ ಕೆಲಸಗಾರರಿಂದ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತವೆ.`}
             </p>
 
             <p>

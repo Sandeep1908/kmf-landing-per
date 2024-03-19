@@ -31,7 +31,7 @@ function CompanyProfile() {
       data: <UnitOfKMF setLoading={setLoading}/>
     },
     {
-      tabName: locale==='en'?'Ongoing and Future Projects':'ನಡೆಯುತ್ತಿರುವ ಮತ್ತು ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
+      tabName: locale==='en'?'Ongoing and Future Projects':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
       data: <OngoingAndFuture setLoading={setLoading}  />
     }
   ];
@@ -50,7 +50,7 @@ function CompanyProfile() {
       <section className="w-full h-auto p-10 pt-36  relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
           <div>
-            <h1 className="text-xl text-primary-main uppercase">{locale==='en'?'Company Profile':'ಕಂಪನಿ ಪ್ರೊಫೈಲ್'}</h1>
+            <h1 className="text-xl text-primary-main uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
           </div>
 
           <div className="relative w-full flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">

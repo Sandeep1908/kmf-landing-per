@@ -126,13 +126,13 @@ const Home = () => {
           <div className=" w-full          p-10  ">
             <h1 className="text-4xl text-[#242424] text-center font-alfa font-[400] tracking-wide md:text-4xl uppercase ">
               
-KMF ನಂದಿನಿ ಅವರಿಗೆ ಸ್ವಾಗತ
+            ಕಹಮಾ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
             </h1>
             <p className="text-[#595959] text-center     ">
  
 
 
-ಹಾಲಿನ ಬ್ರಾಂಡ್ ಅನ್ನು ನಂಬಲಾಗಿದೆ</p>
+            ಲಕ್ಷಾಂತರ ಜನರು ನಂಬಿರುವ ಹಾಲಿನ ಬ್ರಾಂಡ್</p>
           </div>
 
           <div className="w-full relative z-10 p-2   ">

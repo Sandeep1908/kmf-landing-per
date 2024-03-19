@@ -38,11 +38,12 @@ const Home = () => {
   
 
   useEffect(() => {
+ 
     (async () => {
+      const { data: banner } = await axios.get('/api/banners');
       const {data:certificate}= await axios.get('/api/certificates')
    
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-      const { data: banner } = await axios.get('/api/banners');
 
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
   
@@ -550,5 +551,7 @@ const Home = () => {
     </div>
   );
 };
+ 
+
 
 export default Home;

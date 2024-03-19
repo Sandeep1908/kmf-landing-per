@@ -10,60 +10,56 @@ import uparrowIco from '@/images/icons/uparrow.svg';
 import locationIco from '@/images/header-ico/location.svg';
 import contactIco from '@/images/header-ico/contact.svg';
  
+
 import { RxCrossCircled } from 'react-icons/rx';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
- 
+
 import facebookIco from '@/images/footer/FB.svg';
 import mailIco from '@/images/footer/Email.svg';
 import twitterIco from '@/images/footer/X.svg';
 import insta from '@/images/footer/insta.svg';
- 
+import ytIco from '@/images/footer/yt.svg';
 
 import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
-export const Header = () => {
+ 
+export const Header = (props) => {
   const [openAccordion, SetOpenAccordion] = useState(null);
   const [openNav, setOpenNav] = useState(false);
   const [open, setOpen] = useState(null);
   const [productSub, setProductSub] = useState([]);
   const [unionSub, setUnionSub] = useState([]);
   const [kmfUnits, setKmfUnits] = useState([]);
-  const [headerItem,setHeaderItem]=useState([])
-  const [latestNews,setLateatNews]=useState([])
+  const [headerItem, setHeaderItem] = useState([]);
+  const [latestNews, setLateatNews] = useState([]);
   const { locale } = useLocale();
   const axios = useApi();
   let headItem = mobileHeader[locale];
   const params = useParams();
-  const pathname=usePathname()
-  const router=useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
 
  
-
   useEffect(() => {
+   
     (async () => {
+      console.log("props",props)
       const { data } = await axios.get('/api/categories?sort[0]=order:asc');
       const { data: milkunion } = await axios.get('/api/milk-unions?sort[0]=order:asc');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
-      const {data:header}=await axios.get('/api/header')
+      const { data: header } = await axios.get('/api/header');
       // const {data:latestNews}=await axios.get('/api/latest-new')
-      
-      
-      
 
       const productSubitems = data?.data?.map((category, idx) => {
-  
         return {
           title: category?.attributes?.title,
           link: `/${locale}/our-product/${category?.id}`
         };
       });
-
- 
-
 
       const unionSubitems = milkunion?.data?.map((category, idx) => {
         return {
@@ -72,6 +68,7 @@ export const Header = () => {
         };
       });
 
+       
       const kmfSubitems = kmfUnit?.data?.map((category, idx) => {
         return {
           title: category?.attributes?.title,
@@ -82,37 +79,31 @@ export const Header = () => {
       setUnionSub(unionSubitems);
       setProductSub(productSubitems);
       setKmfUnits(kmfSubitems);
-      setHeaderItem(header?.data)
-      setLateatNews(latestNews?.data)
+      setHeaderItem(header?.data);
+      setLateatNews(latestNews?.data);
     })();
   }, [params.locale]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const threshold = 153; // Adjust this threshold as needed
+      const threshold = 153;
 
-      
-      // Set isSticky based on the scroll position
       setIsSticky(scrollPosition > threshold);
     };
 
-    // Attach the scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Run this effect only once on component mount
-
-  
+  }, []);
 
   for (let i = 0; i < headItem?.length; i++) {
     if (headItem[i].title === 'OUR PRODUCT' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನ') {
       headItem[i].subItems = productSub;
     }
-    if (headItem[i].title === 'MILK UNION' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟ') {
+    if (headItem[i].title === 'MILK UNIONS' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟಗಳು') {
       headItem[i].subItems = [
         ...[
           {
@@ -123,22 +114,21 @@ export const Header = () => {
         ...unionSub
       ];
     }
-    if (headItem[i].title === 'KMF UNITS' || headItem[i].title === 'KMF ಘಟಕಗಳು') {
+    if (headItem[i].title === 'KMF UNITS' || headItem[i].title === 'ಕಹಾಮ ಘಟಕಗಳು') {
       headItem[i].subItems = kmfUnits;
     }
   }
 
   const handleLanguageChange = () => {
-    if(pathname==='/'){
-       return router.push('/en')
+    if (pathname === '/') {
+      return router.push('/en');
     }
-    if(pathname==='/en'){
-      return router.push('/')
+    if (pathname === '/en') {
+      return router.push('/');
     }
     const newLanguagePrefix = pathname.startsWith('/en') ? '/kn' : '/en';
     const newUrl = pathname.replace(/^\/(en|kn)\//, newLanguagePrefix + '/');
-    router.push(newUrl)
-
+    router.push(newUrl);
   };
 
   const arrows = {
@@ -150,158 +140,173 @@ export const Header = () => {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
 
-   
- 
   return (
     <>
       <div className="w-full h-full relative  ">
         {/* UPPER HEADER  */}
 
+        <div className={`w-full `}>
+          <div
+            className={`w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center `}
+            onMouseEnter={() => setOpen(null)}>
+            <div className=" max-w-xl flex justify-center items-center space-x-3">
+              <img
+                src={locale === 'en' ? logo.src : logokn.src}
+                alt="logo-home"
+                className=" w-[100px] sm:w-[150px]"
+              />
+              <p className="font-bold font-lato text-xs sm:text-xl">
+                {headerItem?.attributes?.title}
+              </p>
+            </div>
 
-        <div className={`w-full `}  >
+            <div className="flex flex-col  ">
+              <div className="flex justify-center items-end space-x-5">
+                <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
+                  <div className="w-full flex space-x-5">
+                    <div className="flex justify-center items-center      ">
+                      <div className="">
+                        <img
+                          src={locationIco.src}
+                          className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                        />
+                      </div>
 
-        <div
-          className={`w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center `}
-          onMouseEnter={() => setOpen(null)}>
+                      <p className="text-xs font-sans flex flex-col font-black/10  ">
+                        {headerItem?.attributes?.address?.map((item, id) => {
+                          return (
+                            <span key={id} className="block">
+                              {item?.children[0]?.text}
+                            </span>
+                          );
+                        })}
+                      </p>
+                    </div>
 
-          <div className=" max-w-xl flex justify-center items-center space-x-3">
-            <img src={locale==='en'?logo.src:logokn.src} alt="logo-home" className=" w-[100px] sm:w-[150px]" />
-            <p className='font-bold font-lato text-xs sm:text-xl'>{headerItem?.attributes?.title}</p>
-          </div>
+                    <div className="flex space-x-5 justify-center p-2 items-center">
+                      <Link
+                        href={'https://www.facebook.com/kmfnandini.coop'}
+                        className="hover:scale-125 transition-all duration-300">
+                        <img src={facebookIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={'https://twitter.com/kmfnandinimilk'}
+                        className="hover:scale-125 transition-all duration-300">
+                        <img src={twitterIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={'https://www.kmfnandini.coop/en/contact-us'}
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={mailIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={
+                          'https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+                        }
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={insta.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={
+                          'https://www.youtube.com/@kmfnandini12'
+                        }
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={ytIco.src} className="w-7" />
+                      </Link>
+                    </div>
+                  </div>
 
-          <div className="flex flex-col  ">
-            <div className='flex justify-center items-end space-x-5'>
-
-       
-            <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
-
-            <div className='w-full flex space-x-5'>
-              <div className="flex justify-center items-center      ">
-
-
-                <div className="">
-                  <img
-                    src={locationIco.src}
-                    className="w-10 h-7 hover:scale-125 transition-all duration-300"
-                  />
+                  <div className="flex justify-center items-center   ">
+                    <div>
+                      <img
+                        src={contactIco.src}
+                        className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                      />
+                    </div>
+                    <p className="text-xs font-sans font-black/10 ">
+                      {headerItem?.attributes?.time?.map((item, id) => {
+                        return (
+                          <span key={id} className="block">
+                            {item?.children[0]?.text}
+                          </span>
+                        );
+                      })}
+                    </p>
+                  </div>
                 </div>
 
-                <p className="text-xs font-sans flex flex-col font-black/10  ">
-                  {headerItem?.attributes?.address?.map((item,id)=>{
-                    return(
-                      <span key={id} className='block'>{item?.children[0]?.text}</span>
-                    )
-                  })}
-                 
-                </p>
-              </div>
-
-              <div className="flex space-x-5 justify-center p-2 items-center">
-                <Link href={"https://www.facebook.com/kmfnandini.coop"} className='hover:scale-125 transition-all duration-300'><img src={facebookIco.src} className="w-7" /></Link>
-               <Link href={"https://twitter.com/kmfnandinimilk"}className='hover:scale-125 transition-all duration-300'><img src={twitterIco.src} className="w-7" /></Link> 
-               <Link href={"https://www.kmfnandini.coop/en/contact-us"} className='hover:scale-125 transition-all duration-300'>  <img src={mailIco.src} className="w-7" /></Link> 
-               <Link href={"https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="} className='hover:scale-125 transition-all duration-300'>  <img src={insta.src} className="w-7" /></Link> 
-               
-              </div>
-
-              </div>
-
-              <div className="flex justify-center items-center   ">
-                <div>
-                  <img
-                    src={contactIco.src}
-                    className="w-10 h-7 hover:scale-125 transition-all duration-300"
-                  />
+                <div className="flex flex-col justify-between  space-y-3">
+                  <button
+                    className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md"
+                    onClick={handleLanguageChange}>
+                    {locale === 'en' ? 'KN' : 'EN'}
+                  </button>
                 </div>
-                <p className="text-xs font-sans font-black/10 ">
-                {headerItem?.attributes?.time?.map((item,id)=>{
-                    return(
-                      <span key={id} className='block'>{item?.children[0]?.text}</span>
-                    )
-                  })}
-                </p>
               </div>
 
-           
+              <p className="text-sm text-red-600 font-bold flex justify-end pt-4 marquee-notification overflow-hidden">
+                {latestNews ? latestNews?.attributes?.title : ''}
+              </p>
             </div>
-
-            <div className='flex flex-col justify-between  space-y-3'>
-       
-              <button
-                className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md"
-                onClick={handleLanguageChange}>
-                {locale === 'en' ? 'KN' : 'EN'}
-              </button>
-
-        
-            </div>
-            </div>
-
-            <p className='text-sm text-red-600 font-bold flex justify-end pt-4 marquee-notification overflow-hidden'>{latestNews? latestNews?.attributes?.title:''}</p>
-          </div>
-    
-        </div>
-
-        {/* MAIN HEADER DOWN  */}
-
-        <div className={`w-full   ${isSticky ? 'sticky-header' : ''}`}>
-
-  
-
-        <div className={`max-w-[90%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 relative     `}>
-          <div className=" w-full h-full flex justify-between items-center lg:hidden ">
-            <div onClick={() => setOpenNav((prev) => !prev)}>
-              <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
-            </div>
-
-         
           </div>
 
-          <div className="w-full h-full hidden lg:block   ">
-            <ul className=" h-full w-full text-light-light4 flex   space-x-2 items-center text-[12px]">
-              {headItem?.map((header, i) => {
-                const hasItems = header?.subItems?.length;
-                const isLink = header?.link;
-                return (
-                  <Link href={isLink ? isLink : '#'} key={i} className=' transition-all duration-300 hover:scale-[1.1] '>
-                    <li
-                      className="border-r text-[16px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
-                      onMouseEnter={() => setOpen(hasItems ? i : null)}>
-                      {header.title}
-                      {hasItems && (
-                        <div
-                          className={`p-4 bg-primary-darker absolute top-[2.71rem] left-[20px] w-[200px] overflow-auto max-h-[300px] ${
-                            open === i ? 'visible' : 'invisible'
-                          }  `}
-                          onMouseLeave={() => setOpen(null)}>
-                          <ul className="w-full  space-y-4 text-white">
-                            {header.subItems?.map((subItem, idx) => {
-                              return (
-                                <Link
-                                  href={subItem?.link || ''}
-                                  className="text-[14px] block hover:text-secondary-lighter"
-                                  key={idx}
-                                
-                                  onClick={() => setOpen(null)}>
-                                  <li key={idx}>{subItem.title}</li>
-                                </Link>
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      )}
-                    </li>
-                  </Link>
-                );
-              })}
+          {/* MAIN HEADER DOWN  */}
 
-          
-            </ul>
+          <div className={`w-full   ${isSticky ? 'sticky-header' : ''}`}>
+            <div
+              className={`max-w-[90%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 relative     `}>
+              <div className=" w-full h-full flex justify-between items-center lg:hidden ">
+                <div onClick={() => setOpenNav((prev) => !prev)}>
+                  <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
+                </div>
+              </div>
+
+              <div className="w-full h-full hidden lg:block   ">
+                <ul className=" h-full w-full text-light-light4 flex   space-x-2 items-center text-[12px]">
+                  {headItem?.map((header, i) => {
+                    const hasItems = header?.subItems?.length;
+                    const isLink = header?.link;
+                    return (
+                      <Link
+                        href={isLink ? isLink : '#'}
+                        key={i}
+                        className=" transition-all duration-300 hover:scale-[1.1] ">
+                        <li
+                          className="border-r text-[16px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
+                          onMouseEnter={() => setOpen(hasItems ? i : null)}>
+                          {header.title}
+                          {hasItems && (
+                            <div
+                              className={`p-4 bg-primary-darker absolute top-[2.71rem] left-[20px] w-[200px] overflow-auto max-h-[300px] ${
+                                open === i ? 'visible' : 'invisible'
+                              }  `}
+                              onMouseLeave={() => setOpen(null)}>
+                              <ul className="w-full  space-y-4 text-white">
+                                {header.subItems?.map((subItem, idx) => {
+                                  return (
+                                    <Link
+                                      href={subItem?.link || ''}
+                                      className="text-[14px] block hover:text-secondary-lighter"
+                                      key={idx}
+                                      onClick={() => setOpen(null)}>
+                                      <li key={idx}>{subItem.title}</li>
+                                    </Link>
+                                  );
+                                })}
+                              </ul>
+                            </div>
+                          )}
+                        </li>
+                      </Link>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-
-        </div>
-
         </div>
 
         {/* Mobile Header  */}
@@ -383,5 +388,3 @@ export const Header = () => {
   );
 };
 
-
- 

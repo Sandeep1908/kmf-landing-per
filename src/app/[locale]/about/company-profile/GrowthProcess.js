@@ -37,14 +37,15 @@ function GrowthProcess({setLoading}) {
 
         <tbody className="text-center  text-md">
           {growthProcessHeader.map((header, id) => {
-         
+            console.log("header",header)
+          
             return (
               <tr key={id} className='border-t  '>
                 <td className='p-2 text-md'>{header?.attributes?.header}</td>
                 <td className='p-2 text-md'>{header?.attributes?.unit}</td>
 
                 {growthProcess.map((gp, id) => {
-                 
+                  console.log("item",gp)
                   return <td className='p-2 text-md' key={id}>{gp?.attributes[header?.attributes?.key]}</td>;
                 })}
               </tr>

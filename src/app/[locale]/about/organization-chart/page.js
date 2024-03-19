@@ -131,7 +131,7 @@ function OrganizationChart() {
 
               <ul className="flex flex-col space-y-5 p-6 w-full  justify-center items-start list-disc text-justify text-sm  md:justify-normal md:items-start">
                 <li>
-ತಳಮಟ್ಟದಲ್ಲಿ ಡೈರಿ ಸಹಕಾರ ಸಂಘಗಳು.</li>
+ತಳಮಟ್ಟದಲ್ಲಿ ಡೇರಿ ಸಹಕಾರ ಸಂಘಗಳು.</li>
 
                 <li>
 ಏಕ / ಬಹು ಜಿಲ್ಲಾ ಮಟ್ಟದಲ್ಲಿ ಜಿಲ್ಲಾ ಸಹಕಾರ ಹಾಲು ಒಕ್ಕೂಟಗಳು.</li>

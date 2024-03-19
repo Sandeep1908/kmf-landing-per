@@ -61,7 +61,7 @@ export const mobileHeader = {
     // },
 
     {
-      title: 'MILK UNION',
+      title: 'MILK UNIONS',
  
       // subItems: [
       //   {
@@ -241,7 +241,7 @@ export const mobileHeader = {
       title: 'ನಮ್ಮ ಬಗ್ಗೆ',
       subItems: [
         {
-          title: 'ಕಂಪನಿ ಪ್ರೊಫೈಲ್',
+          title: 'ಕಹಾಮ ಪರಿಚಯ',
           link: '/kn/about/company-profile'
         },
         {
@@ -250,7 +250,7 @@ export const mobileHeader = {
         },
  
         {
-          title: 'ಸಂಸ್ಥೆಯ ಚಾರ್ಟ್',
+          title: 'ಸಂಸ್ಥೆಯ ರಚನೆ',
           link: '/kn/about/organization-chart'
         },
         {
@@ -262,11 +262,11 @@ export const mobileHeader = {
           link: '/kn/about/quality-food'
         },
         {
-          title: 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ',
+          title: 'ಆಡಳಿತಮಂಡಳಿ ನಿರ್ದೇಶಕರು',
           link: '/kn/directors'
         },
         {
-          title: 'kmf ಕಾರ್ಯನಿರ್ವಾಹಕರು',
+          title: 'ಕಹಾಮ ಅಧಿಕಾರಿಗಳ',
           link: '/kn/executive'
         },
       ]
@@ -279,14 +279,14 @@ export const mobileHeader = {
     // },
 
     {
-      title: 'ಹಾಲು ಒಕ್ಕೂಟ',
+      title: 'ಹಾಲು ಒಕ್ಕೂಟಗಳು',
        
 
       imgUrl: milkUnionIco.src
     },
 
     {
-      title: 'KMF ಘಟಕಗಳು',
+      title: 'ಕಹಾಮ ಘಟಕಗಳು',
       
     },
 
