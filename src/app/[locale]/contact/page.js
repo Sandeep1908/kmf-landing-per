@@ -78,7 +78,8 @@ const Contact = () => {
           <div className=" md:m-4 p-4 md:p-0 w-full space-y-9	">
             <div className=" p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4 w-full">
-                <p className="text-xl font-semibold	text-primary-darker ">Address:</p>
+                <p className="text-xl font-semibold	text-primary-darker ">{locale==='en'?'           Address':`
+ವಿಳಾಸ`}</p>
                 <div className="flex flex-col lg:flex-row items-start w-full ">
                   <div className="w-1/5">
                     <img src={locImg.src} alt="" className="w-full h-8" />
@@ -106,7 +107,8 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl font-semibold	text-primary-darker ">Toll Free:</p>
+                <p className="text-xl font-semibold	text-primary-darker ">{locale==='en'?'           Toll Free':`
+ಶುಲ್ಕರಹಿತ`}</p>
                 <div className="flex items-start flex-col lg:flex-row ">
                   <div className="w-1/5">
                     <img src={supportImg.src} alt="" className="w-full h-8" />
@@ -128,7 +130,8 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl font-semibold	text-primary-darker ">Phone:</p>
+                <p className="text-xl font-semibold	text-primary-darker ">{locale==='en'?'           Phone':`
+ದೂರವಾಣಿ`}</p>
                 <div className="flex items-start flex-col lg:flex-row  ">
                   <div className="w-1/5">
                     <img src={callImg.src} alt="" className="w-full h-8" />
@@ -144,7 +147,8 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl	text-primary-darker font-semibold ">WhatsApp:</p>
+                <p className="text-xl	text-primary-darker font-semibold ">{locale==='en'?'           Whatsapp':`
+ವಾಟ್ಸ್ ಆ್ಯಪ್ `}</p>
                 <div className="flex items-start flex-col lg:flex-row  ">
                   <div className="w-1/5">
                     <img src={waImg.src} alt="" className="w-full h-8" />
@@ -159,7 +163,8 @@ const Contact = () => {
 
             <div className=" p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4 w-full">
-                <p className="text-xl font-semibold	text-primary-darker ">Email:</p>
+                <p className="text-xl font-semibold	text-primary-darker ">{locale==='en'?'           Email':`
+ಮಿಂಚಂಚೆ`}</p>
                 <div className="flex items-start w-full flex-col lg:flex-row ">
                   <div className="w-1/5">
                     <img src={mailImg.src} alt="" className="w-full h-8" />

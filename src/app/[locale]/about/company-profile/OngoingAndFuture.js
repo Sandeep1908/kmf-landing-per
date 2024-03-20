@@ -24,8 +24,8 @@ function OngoingAndFuture({ setLoading}) {
       <table className="table-fixed  shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
         <thead className=" ">
           <tr className="text-md   bg-secondary-gradient ">
-            <th className="p-2 ">S.NO</th>
-            <th className="p-2 text-start">{locale==='en'?'ONGOING PROJECTS':'ನಡೆಯುತ್ತಿರುವ ಯೋಜನೆಗಳು'}</th>
+          <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>
+            <th className="p-2 text-start">{locale==='en'?'ONGOING PROJECTS':'ಪ್ರಸ್ತುತ ಯೋಜನೆಗಳ'}</th>
           </tr>
         </thead>
 
@@ -48,7 +48,7 @@ function OngoingAndFuture({ setLoading}) {
       <table className="table-auto shadow-md  border-spacing-y-2	 border-collapse border      min-w-full">
         <thead className="  ">
           <tr className="text-md bg-secondary-gradient ">
-            <th className="p-2">S.NO</th>
+            <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>
             <th className="p-2 text-start">{locale==='en'?'FUTURE PROJECTS':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು'}</th>
           </tr>
         </thead>

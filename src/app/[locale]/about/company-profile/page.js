@@ -26,10 +26,10 @@ function CompanyProfile() {
       tabName: locale==='en'?'The Growth Process':'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
       data: <GrowthProcess setLoading={setLoading} />
     },
-    {
-      tabName:  locale==='en'?'UNITS OF KMF':'ಕಹಾಮ ಘಟಕಗಳು',
-      data: <UnitOfKMF setLoading={setLoading}/>
-    },
+    // {
+    //   tabName:  locale==='en'?'UNITS OF KMF':'ಕಹಾಮ ಘಟಕಗಳು',
+    //   data: <UnitOfKMF setLoading={setLoading}/>
+    // },
     {
       tabName: locale==='en'?'Ongoing and Future Projects':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
       data: <OngoingAndFuture setLoading={setLoading}  />

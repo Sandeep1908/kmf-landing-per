@@ -54,11 +54,11 @@ export const mobileHeader = {
       ]
     },
 
-    // {
-    //   title: 'KMF PORTFOLIO',
-    //   link: '/en/portfolio',
-    //   imgUrl: homeIco.src
-    // },
+    {
+      title: 'KMF PORTFOLIO',
+      link: '/en/portfolio',
+      imgUrl: homeIco.src
+    },
 
     {
       title: 'MILK UNIONS',
@@ -187,7 +187,7 @@ export const mobileHeader = {
     },
 
     {
-      title: 'OUR PRODUCT',
+      title: 'OUR PRODUCTS',
 
       link:'/en/our-product/21',
       imgUrl: ourproductIco.src

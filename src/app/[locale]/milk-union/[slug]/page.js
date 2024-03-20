@@ -35,7 +35,7 @@ function MilkUnionDetail({ slug }) {
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6]">
-        <section className={`w-full h-72 pt-28 relative  grid place-items-center company-bg`}>
+        <section className={`w-full h-96 pt-28 relative  grid place-items-center company-bg`}>
         <img src={banner?banner:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
         <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
       </section>
