@@ -27,7 +27,7 @@ function CompanyProfile() {
       data: <GrowthProcess setLoading={setLoading} />
     },
     {
-      tabName:  locale==='en'?'UNITS OF KMF':'KMF ನ ಘಟಕಗಳು',
+      tabName:  locale==='en'?'UNITS OF KMF':'ಕಹಾಮ ಘಟಕಗಳು',
       data: <UnitOfKMF setLoading={setLoading}/>
     },
     {

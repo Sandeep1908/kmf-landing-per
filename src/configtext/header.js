@@ -62,7 +62,7 @@ export const mobileHeader = {
 
     {
       title: 'MILK UNIONS',
- 
+      
       // subItems: [
       //   {
       //     title: 'Bangalore Milk Union',
@@ -238,7 +238,8 @@ export const mobileHeader = {
     },
 
     {
-      title: 'ನಮ್ಮ ಬಗ್ಗೆ',
+      title: 'ಕಹಾಮ ಬಗ್ಗೆ',
+      link:'/kn/about/company-profile',
       subItems: [
         {
           title: 'ಕಹಾಮ ಪರಿಚಯ',
@@ -280,7 +281,7 @@ export const mobileHeader = {
 
     {
       title: 'ಹಾಲು ಒಕ್ಕೂಟಗಳು',
-       
+       link:'/kn/milk-union',
 
       imgUrl: milkUnionIco.src
     },
@@ -291,7 +292,7 @@ export const mobileHeader = {
     },
 
     {
-      title: 'ನಮ್ಮ ಉತ್ಪನ್ನ',
+      title: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
       link: '',
   
       imgUrl: ourproductIco.src

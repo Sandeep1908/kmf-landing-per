@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import organizationHero from '@/images/about/organization-chart/organization-hero.png';
 import milkRight from '@/images/about/organization-chart/milk-right.png';
 import { mileStone } from '@/configtext/milestone';
-import bottleImg from '@/images/about/organization-chart/bottle.png';
-import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
+ 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -59,7 +58,7 @@ function OrganizationChart() {
         />
       </section>
 
-      <section className="max-w-7xl m-auto relative pb-10 pt-36     company-bg">
+      <section className="w-full relative pb-10 pt-36     company-bg">
         <div className="w-full flex pr-10 pl-10 flex-col    justify-center items-center space-y-10 lg:flex-row lg:justify-between lg:space-x-10">
           <div className="grid place-content-center w-1/4">
             <h1 className="text-[40px] text-primary-main uppercase">

@@ -105,12 +105,7 @@ export const Header = (props) => {
     }
     if (headItem[i].title === 'MILK UNIONS' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟಗಳು') {
       headItem[i].subItems = [
-        ...[
-          {
-            title: headItem[i].title === 'MILK UNION' ? 'Milk Unions' : 'ಹಾಲು ಒಕ್ಕೂಟಗಳು',
-            link: `/${locale}/milk-union/`
-          }
-        ],
+       
         ...unionSub
       ];
     }
