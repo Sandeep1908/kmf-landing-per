@@ -267,7 +267,7 @@ export const mobileHeader = {
           link: '/kn/directors'
         },
         {
-          title: 'ಕಹಾಮ ಅಧಿಕಾರಿಗಳ',
+          title: 'ಕಹಾಮ ಅಧಿಕಾರಿಗಳು',
           link: '/kn/executive'
         },
       ]

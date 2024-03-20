@@ -100,7 +100,7 @@ export const Header = (props) => {
   }, []);
 
   for (let i = 0; i < headItem?.length; i++) {
-    if (headItem[i].title === 'OUR PRODUCT' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನ') {
+    if (headItem[i].title === 'OUR PRODUCT' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು') {
       headItem[i].subItems = productSub;
     }
     if (headItem[i].title === 'MILK UNIONS' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟಗಳು') {
