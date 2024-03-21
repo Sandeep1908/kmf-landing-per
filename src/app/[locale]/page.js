@@ -101,14 +101,7 @@ const Home = () => {
       <CarouselImage images={banners || []}  />
 
       <section className="w-full    pt-20  relative z-[1]  ">
-        <video
-          src="/video/home-vid.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4"
-        />
+     
         <div className="w-full">
           <div className=" w-full         ">
             <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
@@ -217,7 +210,7 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-5 pb-5   ">
+      <section className=" relative w-full h-auto pt-5 pb-5     ">
         <video
           src="/video/vid.webm"
           autoPlay
@@ -250,21 +243,21 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full   bg-secondary-subtle h-auto ">
+      <section className="w-full  relative  h-auto  bg-curved   ">
         <div>
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
-              <div className="p-4 flex justify-center bg-secondary-main items-center w-full h-[500px]   lg:max-w-xl">
+              <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
                 <img src={milkglassImg.src} className="w-full h-full" />
               </div>
             </Fade>
             <div className="flex flex-col justify-center space-y-10 items-center">
               <div
-                className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-4xl uppercase font-heading">Know Your Milk</h1>
+                className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
+                <h1 className="text-4xl uppercase font-heading z-[1] relative">Know Your Milk</h1>
 
                 <div className="space-y-6">
-                  <p className="text-justify  text-lg  text-neutral-dark1">
+                  <p className="text-justify   text-lg  text-white  ">
                     Milk is a nutrient-rich beverage, widely consumed for its high calcium content
                     essential for bone health. It is a source of protein, vitamins, and minerals,
                     contributing to overall well-being. Varieties include cow&apos;s milk, known for
@@ -280,14 +273,14 @@ const Home = () => {
               <div className=" w-full flex flex-wrap  justify-center  p-2 gap-5 items-center md:justify-between">
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco1.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1 font-heading">
+                  <p className="text-white font-heading">
                     Importance of <br /> milk
                   </p>
                 </div>
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco2.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1 font-heading">
+                  <p className="text-white font-heading">
                     Class & type <br />
                     of milk
                   </p>
@@ -295,7 +288,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco3.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1 font-heading">
+                  <p className="text-white font-heading">
                     Essential nutrition <br />
                     in milk
                   </p>
@@ -303,7 +296,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco4.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1 font-heading">
+                  <p className="text-white font-heading">
                     Milk for every <br />
                     Age group
                   </p>
@@ -314,10 +307,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto relative  bg-primary-subtle     ">
+      <section className="w-full h-auto relative  bg-primary-subtle    ">
         <div className=" p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-          <div className="flex    flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-4xl uppercase font-heading">Notification</h1>
+          <div className="flex w-full   flex-col justify-center items-center  space-y-3  ">
+            <h1 className="text-4xl w-full flex justify-center items-center uppercase font-heading">Notification</h1>
 
            
           </div>
@@ -327,8 +320,8 @@ const Home = () => {
              
               
               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden  justify-center h-[425px] items-center rounded-lg border-b-2 border-primary-main  ">
-                <div className='w-full h-[90px]  shadow-md bg-white   z-30'>
-                  <h1 className='p-5'>Tender Notifications</h1>
+                <div className='w-full h-[90px] shadow-black  shadow-md bg-white   z-30'>
+                  <h1 className='p-5 bg-primary-gradient text-white  uppercase text-center'>Tender Notifications</h1>
                 </div>
                 <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
                   {allTenders?.map((item, id) => {
@@ -386,7 +379,7 @@ const Home = () => {
 
             <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <h1 className="text-4xl uppercase font-heading">New Arrivals & Best Selling</h1>
+                <h1 className="text-4xl uppercase font-heading shadow-md shadow-black bg-primary-gradient text-white">New Arrivals & Best Selling</h1>
 
                 <div className="w-full marquee-notification h-full flex  space-x-3 ">
                   {newArrivals?.map((item, id) => {
@@ -442,11 +435,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto      ">
-        <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
-            <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase font-heading">Latest News</h1>
+      <section className="w-full h-auto relative     ">
+        <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+          <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
+            <div className="flex justify-center w-full   flex-wrap   items-end  ">
+              <h1 className="text-4xl uppercase w-full flex justify-center items-center  
+               font-heading">Latest News</h1>
             </div>
              
           </div>
@@ -490,16 +484,16 @@ const Home = () => {
       </section>
 
 
-      <section className="w-full h-auto  relative      ">
+      <section className="w-full h-auto  relative          ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
-          <div className="flex   h-full    justify-between items-center    ">
-            <div className="flex h-96 bg-white w-96    justify-center flex-wrap z-[10]   items-center  ">
+          <div className="   h-full    justify-between items-center    ">
+            <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
               
-              <h1 className="text-4xl uppercase font-heading">Our <br/> Certificates</h1>
+              <h1 className="text-4xl text-center w-full justify-center flex items-centerd uppercase font-heading">Our <br/> Certificates</h1>
             </div>
            
 
-            <div className={` w-full max-w-[2xl]     flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
+            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
                   {certificate?.map((item,idx)=>{
                     return(
                       <div key={idx} className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>

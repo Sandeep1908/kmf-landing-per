@@ -12,22 +12,28 @@ import printIco from '@/images/milk-union/icons/print.svg';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 function MilkUnionDetail({ slug }) {
   const imagesArr = [bengaluruMilkImg.src, Union1.src, Union2.src];
   const [unionImages, setUnionImages] = useState([]);
   const [union, setUnion] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [allUnions,setAllUnions]=useState([])
   const param = useParams();
   const [banner,setBanner]=useState()
   const axios = useApi();
   const [loading,setLoading]=useState(true)
   const [readMore, setReadMore] = useState(false);
+  const locale=useParams().locale
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/milk-unions/${param?.slug}`)
-      setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
+      const { data:unions } = await axios.get('/api/milk-unions');
       
+      
+      setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
+      setAllUnions(unions?.data);
       setUnion(data?.data);
       setUnionImages(data?.data?.attributes?.image?.data);
       setLoading(false)
@@ -41,9 +47,9 @@ function MilkUnionDetail({ slug }) {
         <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
       </section>
 
-      <section className="w-full    p-2 bg-[#F6F6F6]">
+      <section className="max-w-[1282px]  m-auto grid grid-cols-3 gap-5   p-2 bg-[#F6F6F6]">
         <div
-          className="max-w-[1282px] h-full   m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+          className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
           >
           <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
 
@@ -104,6 +110,24 @@ function MilkUnionDetail({ slug }) {
 </div>
           </div>
         </div>
+
+
+        <div className="w-full h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+                <div className='w-full    shadow-md bg-white  '>
+                  <h1 className='p-5'>Milk Unions</h1>
+                </div>
+                
+                {allUnions?.map((item, id) => {
+                  console.log("in miltunion",item)
+                    return (
+                      <Link key={id} href={`/${locale}/milk-union/${item?.id}`}>
+                      <p  className="bg-white border m-1 p-1 text-xs rounded w-full hover:bg-primary-main hover:text-white ">
+                        {id+1} - {item?.attributes?.name}
+                      </p>
+                      </Link>
+                    );
+                  })}
+              </div>
       </section>
 
       <section className="w-full   p-2 bg-[#F6F6F6]">

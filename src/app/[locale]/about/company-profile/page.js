@@ -20,11 +20,11 @@ function CompanyProfile() {
   const tabs = [
     {
       tabName: locale==='en'?'About us':'ನಮ್ಮ ಬಗ್ಗೆ',
-      data:  <About setLoading={setLoading}/>
+      data:  <About setLoading={setLoading} name={"About us"}/>
     },
     {
       tabName: locale==='en'?'The Growth Process':'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
-      data: <GrowthProcess setLoading={setLoading} />
+      data: <GrowthProcess setLoading={setLoading} name={"The Growth Process"} />
     },
     // {
     //   tabName:  locale==='en'?'UNITS OF KMF':'ಕಹಾಮ ಘಟಕಗಳು',
@@ -32,7 +32,7 @@ function CompanyProfile() {
     // },
     {
       tabName: locale==='en'?'Ongoing and Future Projects':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
-      data: <OngoingAndFuture setLoading={setLoading}  />
+      data: <OngoingAndFuture setLoading={setLoading} name={"Ongoing and Future Projects"}  />
     }
   ];
   const handleTabs = (idx) => {
@@ -66,18 +66,26 @@ function CompanyProfile() {
                 );
               })}
             </ul>
+            
+       
+
           </div>
+          <h1 className=' w-fit text-secondary-darker text-7xl flex justify-center items-center  font-heading relative before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-20 '>{tabs[currentIndex].tabName}</h1>
         </div>
       </section>
  
 
- 
+ <div>
 
-      {tabs?.map((tab, id) => {
+  <h1 className='w-full text-center'>{}</h1>
+ {tabs?.map((tab, id) => {
         if (currentIndex === id) {
           return tab.data;
         }
       })} 
+ </div>
+
+     
 
 
       <Footer/>

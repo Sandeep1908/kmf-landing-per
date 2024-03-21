@@ -20,10 +20,10 @@ function OngoingAndFuture({ setLoading}) {
     })()
   },[])
   return (
-    <div className="w-full flex-col max-w-5xl m-auto h-full   overflow-auto  items-start justify-start p-10 space-y-5">
+    <div className="w-full flex-col bg-[#FDF9F7]  max-w-5xl m-auto h-full   overflow-auto  items-start justify-start p-10 space-y-5">
       <table className="table-fixed  shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
         <thead className=" ">
-          <tr className="text-md   bg-secondary-gradient ">
+          <tr className="text-md   bg-secondary-lighter ">
           <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>
             <th className="p-2 text-start">{locale==='en'?'ONGOING PROJECTS':'ಪ್ರಸ್ತುತ ಯೋಜನೆಗಳ'}</th>
           </tr>
@@ -47,7 +47,7 @@ function OngoingAndFuture({ setLoading}) {
 
       <table className="table-auto shadow-md  border-spacing-y-2	 border-collapse border      min-w-full">
         <thead className="  ">
-          <tr className="text-md bg-secondary-gradient ">
+          <tr className="text-md bg-secondary-lighter ">
             <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>
             <th className="p-2 text-start">{locale==='en'?'FUTURE PROJECTS':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು'}</th>
           </tr>

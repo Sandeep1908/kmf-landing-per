@@ -16,7 +16,7 @@ function About({ setLoading }) {
   }, []);
 
   return (
-    <div className="w-full max-w-4xl m-auto shadow-md shadow-black rounded-lg  mb-10 mt-10  flex-col items-start justify-start p-10 space-y-5">
+    <div className="w-full max-w-4xl m-auto shadow-md shadow-black rounded-lg bg-[#FDF9F7]   mb-10 mt-10  flex-col items-start justify-start p-10 space-y-5">
       {aboutUs.length > 2
         ? aboutUs?.map((item, idx) => {
             if (idx < 2) {

@@ -11,24 +11,22 @@ function Card({ imgUrl, title, link }) {
   return (
  
       <div
-        className="w-full max-w-72 relative  h-72 bg-light-light4 rounded-md overflow-hidden   m-auto   "
+        className="w-full max-w-96 relative  h-96 bg-light-light4 rounded-md overflow-hidden   m-auto   "
         style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
-        <div className="p-2 w-full h-[70%]">
+        <div className="  w-full h-full">
           <img
             src={imgUrl}
             alt="featured-img"
-            className="  w-full   h-full hover:scale-[1.1] "
+            className="  w-full  object-fill  h-full hover:scale-[1.1] "
             style={{ transition: '.4s all' }}
           />
         </div>
 
-        <div className="mt-10">
-          <h1 className="text-2xl text-center ">{title}</h1>
-        </div>
+   
 
         <div className="absolute h-full w-full bg-black/80 inset-0 flex items-center justify-center -bottom-10 hover:bottom-0 opacity-0 transition-all duration-300  card-hover">
-        <Link href={link|| ''}> <button className="bg-primary-main  w-48 h-12     text-neutral-light4 font-semibold rounded-md">
-                {locale==='en'?'See Details':'ವಿವರಗಳನ್ನು ನೋಡಿ'}
+        <Link href={link|| ''}> <button className="bg-primary-main  w-48 h-12  uppercase    text-neutral-light4 font-semibold rounded-md">
+                {title}
               </button>
 
               </Link>

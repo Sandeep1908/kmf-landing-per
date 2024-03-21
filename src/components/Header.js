@@ -167,7 +167,7 @@ export const Header = (props) => {
                         />
                       </div>
 
-                      <p className="text-xs font-subheading flex flex-col font-black/10  ">
+                      <p className="text-[12px] font-heading flex flex-col font-black/10  ">
                         {headerItem?.attributes?.address?.map((item, id) => {
                           return (
                             <span key={id} className="block">
@@ -178,7 +178,7 @@ export const Header = (props) => {
                       </p>
                     </div>
 
-                    <div className="flex space-x-5 justify-center p-2 items-center">
+                    <div className="flex space-x-5 justify-center p-2  items-center">
                       <Link
                         href={'https://www.facebook.com/kmfnandini.coop'}
                         className="hover:scale-125 transition-all duration-300">
@@ -221,10 +221,10 @@ export const Header = (props) => {
                         className="w-10 h-7 hover:scale-125 transition-all duration-300"
                       />
                     </div>
-                    <p className="text-xs font-subheading font-black/10 ">
+                    <p className="text-[12px] w-[350px] font-heading  font-black/10 ">
                       {headerItem?.attributes?.time?.map((item, id) => {
                         return (
-                          <span key={id} className="block">
+                          <span key={id} className="block ">
                             {item?.children[0]?.text}
                           </span>
                         );
