@@ -5,6 +5,7 @@ import HeroImg from '@/images/milk-union/milk-union-home.png'
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 
 function KmfUnitDetail() {
@@ -13,16 +14,20 @@ function KmfUnitDetail() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [banner,setBanner]=useState()
   const param = useParams();
+  const [allUnits,setAllUnits]=useState([])
   const [unitImages,setUnitImages]=useState([])
   const [loading,setLoading]=useState(true)
 
   const axios = useApi();
+  const [readMore, setReadMore] = useState(false);
+  const locale=useParams().locale
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/units-of-kmfs/${param?.slug}`);
       
-       
+      const { data:unions } = await axios.get('/api/units-of-kmfs');
+      setAllUnits(unions?.data)
       setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
       setUnit(data?.data);
       setUnitImages(data?.data?.attributes?.image?.data);
@@ -32,56 +37,100 @@ function KmfUnitDetail() {
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6]">
-      <section className={`w-full h-72 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={banner?banner:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-        <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
-      </section>
+    <section className={`w-full h-96 pt-28 relative  grid place-items-center company-bg`}>
+    <img src={banner?banner:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+    <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
+  </section>
 
-      <section className="w-full   p-2 bg-[#F6F6F6]">
-        <div
-          className="max-w-[1282px]   m-auto p-3  rounded-tl-3xl  rounded-br-3xl  bg-white  "
-           >
-          <div className="w-full flex flex-col space-x-5 justify-start items-start lg:flex-row lg:justify-start">
+  <section className="max-w-[1282px]  m-auto grid grid-cols-3 gap-5   p-2 bg-[#F6F6F6]">
+    <div
+      className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+      >
+      <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
 
-          {unitImages?.[currentIndex]?
-              <div className="w-full flex flex-col justify-center items-center space-y-5">
-              <div className="  max-w-[458px]    ">
-                <img
-                  src={unitImages?.[currentIndex]?.attributes?.url}
-                  alt="slider-img"
-                  className="w-full h-full"
-                />
+        {/* {unionImages?.[currentIndex]?
+          <div className="w-full flex flex-col justify-center items-center space-y-5">
+          <div className="  max-w-[458px]    ">
+            <img
+              src={unionImages?.[currentIndex]?.attributes?.url}
+              alt="slider-img"
+              className="w-full h-full"
+            />
+          </div>
+
+      
+        </div>
+        
+        :''} */}
+      
+      <div className="w-full h-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
+<h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{unit?.attributes?.title}</h1>
+ 
+{console.log("uniots",unit)}
+<div className=" w-full h-full ">
+
+{unit?.attributes?.description?.length > 2
+
+    ? unit?.attributes?.description?.map((item, idx) => {
+      
+        if (idx < 5) {
+          return (
+            <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
+              <p className="text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>
+
+         
+            </div>
+          );
+        }
+      })
+    : unit?.attributes?.description?.map((item, idx) => {
+        return (
+          <p key={idx} className="text-xl font-josefin  text-justify">
+            {item?.children[0]?.text}
+          </p>
+        );
+      })}
+
+{ readMore && unit?.attributes?.description?.map((item, idx) => (
+  <p key={idx} className="text-neutral-dark1 text-lg">
+    {item?.children[0]?.text}
+  </p>
+))}
+
+<div
+                className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
+                onClick={() => setReadMore(true)}>
+                Read more...
               </div>
 
-          
+</div>
+</div>
+      </div>
+    </div>
+
+
+    <div className="w-full h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+            <div className='w-full    shadow-md bg-white  '>
+              <h1 className='p-5'>Milk Unions</h1>
             </div>
             
-            :''}
-          
-
-            <div className=" w-full flex flex-col justify-start items-start pt-10 space-y-5  ">
-              <h1 className="text-2xl text-justify font-heading ">{unit?.attributes?.title}</h1>
-             
-
-              {unit?.attributes?.description?.map((item, idx) => {
-              
-                
-            
+            {allUnits?.map((item, id) => {
+                console.log("allunits",item)
                 return (
-                  <p key={idx} className="text-neutral-dark1 text-sm">
-                    {item?.children[0]?.text}
+                  <Link key={id} href={`/${locale}/kmf-unit/${item?.id}`}>
+                  <p  className="bg-white border m-1 p-1 text-xs rounded w-full hover:bg-primary-main hover:text-white ">
+                    {id+1} - {item?.attributes?.title}
                   </p>
+                  </Link>
                 );
               })}
-            </div>
           </div>
-        </div>
-      </section>
+  </section>
 
  
 
-      <Footer />
-    </div>
+  <Footer />
+</div>
   );
 }
 

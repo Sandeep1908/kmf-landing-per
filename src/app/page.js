@@ -17,14 +17,14 @@ import kymIco4 from '@/images/homeImages/kym/age.tif.svg';
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay,FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from '@/app/[locale]/Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
-import TenderNotification from '@/components/TenderNotification.js';
+
 import ArrivalCard from '@/components/ArrivalCard.js';
-import { ParallaxBanner } from "react-scroll-parallax";
+ import { useMyContext } from '@/context/headerContext';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
@@ -37,7 +37,7 @@ const Home = () => {
   const [sponsored,setSponsored]=useState([])
   const [certificateRunning,setCertificateRunning]=useState(false)
   const [certificate,setCertificate]=useState([])
- 
+ const {isScroll,setIsScroll}=useMyContext()
   const axios = useApi();
   
 
@@ -111,13 +111,13 @@ const Home = () => {
   });
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]">
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll?'top-36':''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-      <video src='/video/banner.mov'  ref={r=>r?.autoplay?.valueOf(true)} autoPlay loop playsInline className='w-full h-[700px] object-fill  '/>
+      <video src='/video/banner.mov' muted  autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}`}/>
 
       {/* <CarouselImage images={banners || []} /> */}
 
-      <section className="w-full   pt-20  relative z-[1]  ">
+      <section className="w-full   pt-20  relative z-[1] bg-primary-subtle ">
          
         <div className="w-full">
           <div className=" w-full          p-10  ">
@@ -173,7 +173,7 @@ const Home = () => {
         {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
       </section>
 
-      <section className="w-full p-2  bg-primary-subtle  mt-12">
+      <section className="w-full p-2  bg-primary-subtle  pt-12">
         <div>
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
@@ -232,7 +232,7 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-5 pb-5   ">
+      <section className=" relative w-full h-auto pt-5 pb-5 bg-primary-subtle  ">
         <video
           src="/video/vid.webm"
           autoPlay
@@ -461,7 +461,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto  bg-primary-lighter  ">
+      <section className="w-full h-auto    ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
@@ -494,14 +494,14 @@ const Home = () => {
 
           <div className="w-full flex justify-center  space-x-5">
             <Link href={'/en/blog'}>
-              <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
+              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker     ">
                
 ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡು
               </button>
             </Link>
 
             <Link href={'/en/contact'}>
-              <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
+              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker     ">
               ಸಂಪರ್ಕದಲ್ಲಿರಲು
               </button>
             </Link>
@@ -521,13 +521,28 @@ const Home = () => {
            
 
             <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
-                  {certificate?.map((item,idx)=>{
+            <Swiper
+             slidesPerView={3}
+              freeMode={true}
+              centeredSlides={true}
+              
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              modules={[FreeMode, Autoplay]}
+              className="max-w-5xl m-auto">
+             {certificate?.map((item,idx)=>{
                     return(
-                      <div key={idx} className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
+                      <SwiperSlide key={idx}>
+                        <div   className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
                         <img  src={item?.attributes?.url} className=' w-full h-full object-contain rounded-md inline-block'/>
                         </div>
+                        </SwiperSlide>
                     )
+
                   })}
+            </Swiper>
           </div>
           </div>
                 

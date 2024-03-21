@@ -73,10 +73,10 @@ function MilkUnionDetail({ slug }) {
   <p className="text-md"> {union?.attributes?.union_code}</p>
 
   <div className=" w-full h-full ">
-
-  {union?.attributes?.about?.length > 2
+ 
+  {union?.attributes?.about?.length > 3
         ? union?.attributes?.about?.map((item, idx) => {
-            if (idx < 2) {
+            if (idx < 5) {
               return (
                 <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
                   <p className="text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>

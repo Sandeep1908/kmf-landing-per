@@ -14,15 +14,16 @@ import kymIco4 from '@/images/homeImages/kym/age.tif.svg';
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay,FreeMode } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
-import TenderNotification from '@/components/TenderNotification.js';
+import Rodal from 'rodal';
+ 
 import ArrivalCard from '@/components/ArrivalCard.js';
-import { ParallaxBanner } from "react-scroll-parallax";
-
+import { useMyContext } from '@/context/headerContext.js';
+    
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
@@ -34,10 +35,10 @@ const Home = () => {
   const [certificate,setCertificate]=useState([])
   const [certificateRunning,setCertificateRunning]=useState(false)
  
-  
+  const {isScroll,setIsScroll}=useMyContext()
   const axios = useApi();
   const video='/video/banner.mp4'
-
+ 
   useEffect(() => {
  
     (async () => {
@@ -95,12 +96,12 @@ const Home = () => {
   });
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]">
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll?'top-36':''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-      <video src='/video/banner.mov'   autoPlay loop playsInline className='w-full h-[700px] object-fill  '/>
+      <video src='/video/banner.mov'  muted  autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}/>
       {/* <CarouselImage images={banners || []}  /> */}
 
-      <section className="w-full    pt-20  relative z-[1]  ">
+      <section className="w-full    pt-20  relative z-[1] bg-primary-subtle ">
      
         <div className="w-full">
           <div className=" w-full         ">
@@ -151,7 +152,7 @@ const Home = () => {
         {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
       </section>
 
-      <section className="w-full p-2  bg-primary-subtle  mt-12">
+      <section className="w-full p-2  bg-primary-subtle  pt-12">
         <div>
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
@@ -210,7 +211,7 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-5 pb-5     ">
+      <section className=" relative w-full h-auto pt-5 pb-5  bg-primary-subtle    ">
         <video
           src="/video/vid.webm"
           autoPlay
@@ -494,13 +495,31 @@ const Home = () => {
            
 
             <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
-                  {certificate?.map((item,idx)=>{
+
+            <Swiper
+             slidesPerView={3}
+              freeMode={true}
+              centeredSlides={true}
+              
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              modules={[FreeMode, Autoplay]}
+              className="max-w-5xl m-auto">
+             {certificate?.map((item,idx)=>{
                     return(
-                      <div key={idx} className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
+                      <SwiperSlide key={idx}>
+                        <div   className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
                         <img  src={item?.attributes?.url} className=' w-full h-full object-contain rounded-md inline-block'/>
                         </div>
+                        </SwiperSlide>
                     )
+
                   })}
+            </Swiper>
+
+                  
           </div>
           </div>
                 

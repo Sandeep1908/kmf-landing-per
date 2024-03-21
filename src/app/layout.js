@@ -18,7 +18,7 @@ import { useRouter } from 'next/navigation';
 import { pdfjs } from 'react-pdf';
 
  import Swiper from 'swiper';
-
+import { MyContextProvider } from '@/context/headerContext';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -39,12 +39,12 @@ export default function RootLayout({ children }) {
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
         </head>
         <body className=''>
+          <MyContextProvider>
           <Header />
           <ParallaxProvider>
-
-        
           {children}
           </ParallaxProvider>
+          </MyContextProvider>
           {''}
        
         </body>

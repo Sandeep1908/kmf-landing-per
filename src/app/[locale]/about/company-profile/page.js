@@ -36,11 +36,16 @@ function CompanyProfile() {
     }
   ];
   const handleTabs = (idx) => {
- 
+    
+   localStorage.setItem('idx',idx)
     setCurrentIndex(idx);
   };
    
-
+useEffect(()=>{
+  if(parseInt(localStorage.getItem('idx'))===currentIndex){
+    setCurrentIndex(localStorage.getItem('idx'))
+  }
+},[currentIndex])
   
 
   return (
@@ -60,7 +65,7 @@ function CompanyProfile() {
                   <li
                     key={idx}
                     onClick={() => handleTabs(idx)}
-                    className={`${currentIndex===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
+                    className={`${parseInt(localStorage.getItem('idx'))===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
                     {tab.tabName}
                   </li>
                 );
@@ -79,7 +84,7 @@ function CompanyProfile() {
 
   <h1 className='w-full text-center'>{}</h1>
  {tabs?.map((tab, id) => {
-        if (currentIndex === id) {
+        if (parseInt(localStorage.getItem('idx')) === id) {
           return tab.data;
         }
       })} 

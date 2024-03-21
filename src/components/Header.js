@@ -24,7 +24,7 @@ import ytIco from '@/images/footer/yt.svg';
 import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-
+import { useMyContext } from '@/context/headerContext';
  
 export const Header = (props) => {
   const [openAccordion, SetOpenAccordion] = useState(null);
@@ -42,6 +42,7 @@ export const Header = (props) => {
   const pathname = usePathname();
   const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
+ const {isScroll,setIsScroll}=useMyContext()
 
  
   useEffect(() => {
@@ -88,6 +89,7 @@ export const Header = (props) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const threshold = 153;
+      setIsScroll(true)
 
       setIsSticky(scrollPosition > threshold);
     };
@@ -137,7 +139,7 @@ export const Header = (props) => {
 
   return (
     <>
-      <div className="w-full h-full relative z-20  ">
+      <div className={` w-full h-full relative z-20  ${isScroll?'block':'hidden'}  `}>
         {/* UPPER HEADER  */}
 
         <div className={`w-full `}>

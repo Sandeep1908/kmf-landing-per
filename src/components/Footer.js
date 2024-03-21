@@ -28,9 +28,9 @@ function Footer() {
     })();
   }, [params?.locale]);
   return (
-    <section className="w-full h-72   relative bg-primary-subtle  footer-bg  ">
-      <div className=" z-10 relative h-full max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
-        <div className=" h-full   w-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
+    <section className="w-full     relative bg-primary-subtle    ">
+      <div className=" z-10 relative l max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
+        <div className="    w-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-1 max-w-96 space-y-5">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
            {locale==='en'?'Address':'ವಿಳಾಸ'}
@@ -40,7 +40,7 @@ function Footer() {
               <img src={locationVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-center md:items-start space-y-5">
-                <p className="text-neutral-dark1 text-left text-lg ">
+                <p className="text-neutral-dark1 text-left text-sm ">
                   {footerItem?.[0]?.address}
                 </p>
               </div>
@@ -56,7 +56,7 @@ function Footer() {
               <img src={callVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-start space-y-5">
-                <p className="text-neutral-dark1 text-left text-lg">
+                <p className="text-neutral-dark1 text-left text-sm">
                   {footerItem?.[0]?.telephone}
                 </p>
               </div>
@@ -72,7 +72,7 @@ function Footer() {
               <img src={msgVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-start space-y-5">
-                <p className="text-neutral-dark1 text-left text-lg"> {footerItem?.[0]?.email}</p>
+                <p className="text-neutral-dark1 text-left text-sm"> {footerItem?.[0]?.email}</p>
               </div>
             </div>
           </div>
