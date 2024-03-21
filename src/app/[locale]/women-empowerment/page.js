@@ -41,7 +41,7 @@ function WomenEmpowerment() {
       </section>
 
       <section className="w-full h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
-        <h1 className="text-xl uppercase">{locale === 'en' ? 'STEP' : 'ಹಂತ'}</h1>
+        <h1 className="text-xl uppercase font-heading">{locale === 'en' ? 'STEP' : 'ಹಂತ'}</h1>
         <p className="text-justify text-sm text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
@@ -59,7 +59,7 @@ function WomenEmpowerment() {
 
       <section className="w-full h-auto p-10 flex flex-col justify-center items-center    space-y-6 bg-[#F6F6F6] xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
         <div className="w-full xl:max-w-2xl flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
-          <h1 className="text-xl uppercase">{womenEmpower[currentIndex]?.title}</h1>
+          <h1 className="text-xl uppercase font-heading">{womenEmpower[currentIndex]?.title}</h1>
           {womenEmpower[currentIndex]?.description?.map((item, id) => {
             return (
               <p  key={id} className="text-sm text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>

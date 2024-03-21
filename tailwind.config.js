@@ -24,7 +24,7 @@ module.exports = {
 
         },
         secondary:{
-          main:"#F6AE2E",
+          main:"#F9B613",
           darker:"#D4670B",
           lighter:"#FADB8D",
           subtle:"#FFF9EB",
@@ -54,8 +54,12 @@ module.exports = {
         
     },
     fontFamily: {
+      josefin:["Josefin Sans", "sans-serif"],
       lato: ['Lato', 'sans-serif'],
-      alfa:[ 'Oswald', 'sans-serif']
+      alfa:[ 'Oswald', 'sans-serif'],
+      heading:["Unbounded", "sans-serif"],
+      subheading:["Overlock SC", "sans-serif"]
+      
     },
     width:{
       100: '411px',

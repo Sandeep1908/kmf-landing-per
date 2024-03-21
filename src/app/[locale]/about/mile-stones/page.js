@@ -156,7 +156,7 @@ console.log("milestones",data.data)
                     onClick={() => handleYear(item?.year,idx)}>
                     <p
                       className={` text-xl ${
-                        nextYear === item.year ? 'text-primary-main' : 'text-neutral-light1'
+                        nextYear === item.year ? 'text-secondary-main font-heading' : 'text-primary-main'
                       }`}>
                       {item?.year}
                     </p>

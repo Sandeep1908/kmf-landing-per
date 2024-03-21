@@ -20,7 +20,7 @@ function OngoingAndFuture({ setLoading}) {
     })()
   },[])
   return (
-    <div className="w-full flex-col   overflow-auto  items-start justify-start p-10 space-y-5">
+    <div className="w-full flex-col max-w-5xl m-auto h-full   overflow-auto  items-start justify-start p-10 space-y-5">
       <table className="table-fixed  shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
         <thead className=" ">
           <tr className="text-md   bg-secondary-gradient ">

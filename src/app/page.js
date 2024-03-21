@@ -124,11 +124,11 @@ const Home = () => {
         />
         <div className="w-full">
           <div className=" w-full          p-10  ">
-            <h1 className="text-4xl text-[#242424] text-center font-alfa font-[400] tracking-wide md:text-4xl uppercase ">
+            <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
               
             ಕೆ.ಎಂ.ಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
             </h1>
-            <p className="text-[#595959] text-center     ">
+            <p className="text-[#595959] text-center font-heading     ">
  
 
 
@@ -181,7 +181,7 @@ const Home = () => {
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-              <h1 className="text-4xl uppercase font-alfa">KMF ಬಗ್ಗೆ</h1>
+              <h1 className="text-4xl uppercase font-heading">KMF ಬಗ್ಗೆ</h1>
 
               <div className="space-y-6">
                 <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
@@ -217,7 +217,7 @@ const Home = () => {
             </Fade>
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-              <h1 className="text-4xl uppercase">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ</h1>
+              <h1 className="text-4xl uppercase font-heading">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ</h1>
 
               <div className="space-y-6 h-[">
                 <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
@@ -245,9 +245,9 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl uppercase">
+            <h1 className="text-4xl uppercase font-heading">
 ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h1>
-            <p className="text-center text-sm text-[#595959]">ಕೆಲವು ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು ಇಲ್ಲಿವೆ.</p>
+             
           </div>
 
           <div className="  w-full h-auto  relative   ">
@@ -280,7 +280,7 @@ const Home = () => {
             <div className="flex flex-col justify-center space-y-10 items-center">
               <div
                 className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-4xl uppercase">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
+                <h1 className="text-4xl uppercase font-heading">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
 
                 <div className="space-y-6">
                   <p className="text-justify font-[100] text-neutral-dark1">
@@ -338,9 +338,9 @@ const Home = () => {
       <section className="w-full h-auto  bg-primary-subtle  ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex    flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-4xl uppercase">ಅಧಿಸೂಚನೆ</h1>
+            <h1 className="text-4xl uppercase font-heading">ಅಧಿಸೂಚನೆ</h1>
 
-            <p className="text-neutral-dark1">ಕೆಲವು ಇತ್ತೀಚಿನ ಅಪ್‌ಡೇಟ್ ಇಲ್ಲಿದೆ</p>
+ 
           </div>
 
           <div className="w-full flex flex-col justify-center items-center lg:flex-row lg:space-x-5 lg:items-start ">
@@ -430,7 +430,7 @@ const Home = () => {
 
             <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
               <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[570px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <h1 className="text-4xl uppercase">ಹೊಸ ಆಗಮನ ಮತ್ತು ಉತ್ತಮ ಮಾರಾಟ</h1>
+                <h1 className="text-4xl uppercase font-heading">ಹೊಸ ಆಗಮನ ಮತ್ತು ಉತ್ತಮ ಮಾರಾಟ</h1>
 
                 <div className="w-full marquee-notification h-full flex  space-x-3 ">
                   {newArrivals?.map((item, id) => {
@@ -457,10 +457,9 @@ const Home = () => {
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase">ಇತ್ತೀಚಿನ ಸುದ್ದಿ</h1>
+              <h1 className="text-4xl uppercase font-heading">ಇತ್ತೀಚಿನ ಸುದ್ದಿ</h1>
             </div>
-            <p className="text-neutral-dark1">
-ಇಲ್ಲಿ ಕೆಲವು ಇತ್ತೀಚಿನ ಸುದ್ದಿಗಳು ಮತ್ತು ಬ್ಲಾಗ್</p>
+            
           </div>
 
           <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
@@ -517,7 +516,7 @@ const Home = () => {
           <div className="flex   h-full    justify-between items-center    ">
             <div className="flex h-96 bg-white w-96    justify-center flex-wrap z-[10]   items-center  ">
               
-              <h1 className="text-4xl uppercase">ನಮ್ಮ <br/> ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
+              <h1 className="text-4xl uppercase font-heading">ನಮ್ಮ <br/> ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
             </div>
            
 

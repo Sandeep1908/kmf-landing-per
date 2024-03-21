@@ -44,23 +44,23 @@ function CompanyProfile() {
   
 
   return (
-    <div className="w-full absolute top-36 z-[-1]    ">
+    <div className="w-full  h-auto    about-bg relative    ">
  
 
       <section className="w-full h-auto p-10 pt-36  relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
-          <div>
-            <h1 className="text-xl text-primary-main uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
+          <div className='mb-20'>
+            <h1 className=" text-primary-main font-heading text-5xl font-extrabold uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
           </div>
 
-          <div className="relative w-full flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
+          <div className="relative w-full   flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
             <ul className="flex justify-center items-center  space-x-7">
               {tabs?.map((tab, idx) => {
                 return (
                   <li
                     key={idx}
                     onClick={() => handleTabs(idx)}
-                    className={`${currentIndex===idx?'text-secondary-main relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-secondary-main':''} text-xs md:text-sm uppercase cursor-pointer`}>
+                    className={`${currentIndex===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
                     {tab.tabName}
                   </li>
                 );

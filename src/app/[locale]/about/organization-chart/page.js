@@ -94,7 +94,7 @@ function OrganizationChart() {
         <div className="   w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           {locale === 'en' ? (
             <div className="w-full flex flex-col justify-center items-start ">
-              <h1 className="text-2xl text-primary-main uppercase">Organisation Chart</h1>
+              <h1 className="text-2xl text-primary-main font-heading uppercase">Organisation Chart</h1>
 
               <p className="text-sm text-justify p-2">
                 The organization is three tiered on Co-operative principles.

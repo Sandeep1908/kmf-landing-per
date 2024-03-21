@@ -137,7 +137,7 @@ export const Header = (props) => {
 
   return (
     <>
-      <div className="w-full h-full relative  ">
+      <div className="w-full h-full relative z-20  ">
         {/* UPPER HEADER  */}
 
         <div className={`w-full `}>
@@ -150,7 +150,7 @@ export const Header = (props) => {
                 alt="logo-home"
                 className=" w-[100px] sm:w-[150px]"
               />
-              <p className="font-bold font-lato text-xs sm:text-xl">
+              <p className="font-bold font-subheading text-xs sm:text-xl">
                 {headerItem?.attributes?.title}
               </p>
             </div>
@@ -167,7 +167,7 @@ export const Header = (props) => {
                         />
                       </div>
 
-                      <p className="text-xs font-sans flex flex-col font-black/10  ">
+                      <p className="text-xs font-subheading flex flex-col font-black/10  ">
                         {headerItem?.attributes?.address?.map((item, id) => {
                           return (
                             <span key={id} className="block">
@@ -221,7 +221,7 @@ export const Header = (props) => {
                         className="w-10 h-7 hover:scale-125 transition-all duration-300"
                       />
                     </div>
-                    <p className="text-xs font-sans font-black/10 ">
+                    <p className="text-xs font-subheading font-black/10 ">
                       {headerItem?.attributes?.time?.map((item, id) => {
                         return (
                           <span key={id} className="block">
@@ -235,7 +235,7 @@ export const Header = (props) => {
 
                 <div className="flex flex-col justify-between  space-y-3">
                   <button
-                    className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md"
+                    className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md "
                     onClick={handleLanguageChange}>
                     {locale === 'en' ? 'ಕನ್ನಡ' : 'English'}
                   </button>

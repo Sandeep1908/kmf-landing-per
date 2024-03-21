@@ -108,7 +108,7 @@ const Executive = () => {
     </section>
 
     <section className="w-full   pt-10  ">
-    <h1 className='text-center text-primary-main text-2xl uppercase'>KMF Executives</h1>
+    <h1 className='text-center text-primary-main text-2xl uppercase font-heading'>KMF Executives</h1>
 
     <div className='p-10 h-full flex justify-center items-center   '>
         <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4 shadow-lg bg-primary-gradient rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
@@ -132,7 +132,7 @@ const Executive = () => {
 
     <div className='w-full max-w-7xl m-auto p-5  '>
       <div className=''>
-        <h1 className='text-3xl font-bold'>
+        <h1 className='text-3xl font-bold font-heading'>
             Executive
         </h1>
       </div>
@@ -141,11 +141,11 @@ const Executive = () => {
       <table className="      border-spacing-y-2	 border-collapse w-full border overflow-auto ">
         <thead className=" bg-primary-main text-white ">
           <tr className="text-md    ">
-            <th className="p-2 text-start ">Name</th>
+            <th className="p-2 text-start font-heading ">Name</th>
           
-            <th className="p-2 text-start">Designation	</th>
-            <th className="p-2 text-start ">Department</th>
-            <th className="p-2 text-start ">Place of working</th>
+            <th className="p-2 text-start font-heading">Designation	</th>
+            <th className="p-2 text-start font-heading ">Department</th>
+            <th className="p-2 text-start  font-heading">Place of working</th>
  
           </tr>
         </thead>
@@ -181,7 +181,7 @@ const Executive = () => {
 
       <div className='w-full max-w-7xl m-auto  p-5 '>
       <div className=''>
-        <h1 className='text-3xl font-bold'>
+        <h1 className='text-3xl font-bold font-heading'>
             Union Chief
         </h1>
       </div>
@@ -190,9 +190,9 @@ const Executive = () => {
       <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className="bg-primary-main text-white  ">
           <tr className="text-md ">
-            <th className="p-2 text-start ">Name</th>
-            <th className="p-2 text-start">Designation	</th>
-            <th className="p-2 text-start">Place of working	</th>
+            <th className="p-2 text-start font-heading ">Name</th>
+            <th className="p-2 text-start font-heading">Designation	</th>
+            <th className="p-2 text-start font-heading">Place of working	</th>
           </tr>
         </thead>
 
@@ -224,7 +224,7 @@ const Executive = () => {
 
       <div className='w-full p-5  max-w-7xl  m-auto overflow-auto'>
       <div className=''>
-        <h1 className='text-3xl font-bold'>
+        <h1 className='text-3xl font-bold font-heading'>
             Unit Chief
         </h1>
       </div>
@@ -233,9 +233,9 @@ const Executive = () => {
       <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className=" w-full bg-primary-main text-white ">
           <tr className="text-md    ">
-            <th className="p-2 text-start">Name</th>
-            <th className="p-2 text-start">Designation	</th>
-            <th className="p-2 text-start ">Place of working	</th>
+            <th className="p-2 text-start font-heading">Name</th>
+            <th className="p-2 text-start font-heading">Designation	</th>
+            <th className="p-2 text-start font-heading ">Place of working	</th>
           </tr>
         </thead>
 

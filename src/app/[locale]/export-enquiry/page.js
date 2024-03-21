@@ -13,14 +13,14 @@ function ExportEnquiry() {
       </section>
 
       <section className="w-full h-auto p-10 flex flex-col justify-center items-center    space-y-6 bg-[#F6F6F6]  ">
-        <h1 className="text-xl text-primary-main ">
+        <h1 className="text-xl text-primary-main font-heading ">
           {locale === 'en'
             ? `Export Enquiry`
             : `
 ರಫ್ತು ವಿಚಾರಣೆ`}
         </h1>
         <div className="w-full   flex flex-col justify-center items-start   rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
-          <h1 className="text-lg font-black">
+          <h1 className="text-lg font-black font-heading">
             {locale === 'en'
               ? `NANDINI invites export inquiries`
               : `
@@ -122,7 +122,7 @@ function ExportEnquiry() {
                 ? `   For Enquiry.`
                 : `
 
-
+                
 
 
 

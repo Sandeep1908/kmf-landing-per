@@ -5,7 +5,7 @@ function ProductCard({title,image,description1,description2}) {
       
     <div className='w-full max-w-96 h-96 overflow-auto  flex flex-col justify-center items-center   p-5 rounded-lg bg-neutral-light4 shadow-md hover:bg-primary-lighter transition-all duration-500 '   >
     <div className='text-center h-[20%]'>
-        <h1 className='text-primary-main text-xl font-semibold'>{title}</h1>
+        <h1 className='text-primary-main text-xl font-semibold font-heading'>{title}</h1>
     </div>
 
     <div className='flex w-full h-[60%] flex-col justify-center items-center p-5    '>

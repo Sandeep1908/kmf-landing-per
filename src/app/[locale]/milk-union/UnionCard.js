@@ -19,7 +19,7 @@ function UnionCard({name,image}) {
       </a>
       <div className="px-4 py-3 w-72">
         <span className="text-gray-400 mr-3 uppercase text-xs">Union</span>
-        <p className="text-lg font-bold text-black truncate block uppercase">{name}</p>
+        <p className="text-lg font-bold text-black truncate block uppercase font-heading">{name}</p>
        
       </div>
     </div>

@@ -32,6 +32,7 @@ const Home = () => {
   const [allTenders, setAllTenders] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [certificate,setCertificate]=useState([])
+  const [certificateRunning,setCertificateRunning]=useState(false)
  
   
   const axios = useApi();
@@ -109,7 +110,7 @@ const Home = () => {
         />
         <div className="w-full">
           <div className=" w-full         ">
-            <h1 className="text-4xl text-[#242424] text-center font-alfa font-[400] tracking-wide md:text-4xl uppercase ">
+            <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
               Welcome to KMF Nandini
             </h1>
             <p className="text-[#595959] text-center     ">A Milk Brand Trusted by millions</p>
@@ -161,7 +162,7 @@ const Home = () => {
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-              <h1 className="text-4xl uppercase font-alfa">About KMF</h1>
+              <h1 className="text-4xl uppercase font-heading">About KMF</h1>
 
               <div className="space-y-6">
                 <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
@@ -197,7 +198,7 @@ const Home = () => {
             </Fade>
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-              <h1 className="text-4xl uppercase">OUR BRAND NANDINI</h1>
+              <h1 className="text-4xl uppercase font-heading">OUR BRAND NANDINI</h1>
 
               <div className="space-y-6 h-[">
                 <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
@@ -225,8 +226,8 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl uppercase">Quick Links</h1>
-            <p className="text-center text-sm text-[#595959]">Here&apos;s some quick links.</p>
+            <h1 className="text-4xl uppercase font-heading">Quick Links</h1>
+       
           </div>
 
           <div className="  w-full h-auto  relative   ">
@@ -259,10 +260,10 @@ const Home = () => {
             <div className="flex flex-col justify-center space-y-10 items-center">
               <div
                 className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-4xl uppercase">Know Your Milk</h1>
+                <h1 className="text-4xl uppercase font-heading">Know Your Milk</h1>
 
                 <div className="space-y-6">
-                  <p className="text-justify font-[100] text-neutral-dark1">
+                  <p className="text-justify  text-lg  text-neutral-dark1">
                     Milk is a nutrient-rich beverage, widely consumed for its high calcium content
                     essential for bone health. It is a source of protein, vitamins, and minerals,
                     contributing to overall well-being. Varieties include cow&apos;s milk, known for
@@ -278,14 +279,14 @@ const Home = () => {
               <div className=" w-full flex flex-wrap  justify-center  p-2 gap-5 items-center md:justify-between">
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco1.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-neutral-dark1 font-heading">
                     Importance of <br /> milk
                   </p>
                 </div>
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco2.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-neutral-dark1 font-heading">
                     Class & type <br />
                     of milk
                   </p>
@@ -293,7 +294,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco3.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-neutral-dark1 font-heading">
                     Essential nutrition <br />
                     in milk
                   </p>
@@ -301,7 +302,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco4.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-neutral-dark1 font-heading">
                     Milk for every <br />
                     Age group
                   </p>
@@ -313,54 +314,25 @@ const Home = () => {
       </section>
 
       <section className="w-full h-auto relative  bg-primary-subtle     ">
-        <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+        <div className=" p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex    flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-4xl uppercase">Notification</h1>
+            <h1 className="text-4xl uppercase font-heading">Notification</h1>
 
-            <p className="text-neutral-dark1">Here&apos;s some latest update</p>
+           
           </div>
 
-          <div className="w-full flex flex-col justify-center space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start h-[570px]    sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
-              <Swiper
-                grabCursor={true}
-                centeredSlides={true}
-                effect={'coverflow'}
-                coverflowEffect={{
-                  rotate: 30,
-                  stretch: 0,
-                  depth: 200,
-                  modifier: 1,
-                  slideShadows: false
-                }}
-                modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]}
-                navigation={true}
-                scrollbar={{ draggable: true }}
-                slide
-                autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false
-                }}
-                loop={true}>
-                {allTenders?.map((item, id) => {
-                 
-                  return (
-                    <SwiperSlide className="swiper-sldier-card " key={id}>
-                      <TenderNotification
-                        title={item?.attributes?.title}
-                        date={item?.attributes?.last_date}
-                        link="/en/blog/notification"
-                      />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden  justify-center items-center  h-[425px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <div className="w-full marquee h-full flex flex-col   ">
+          <div className="w-full flex flex-col justify-around space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
+            <div className=" relative w-full overflow-scroll flex flex-col     max-w-[400px]    ">
+             
+              
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden  justify-center h-[425px] items-center rounded-lg border-b-2 border-primary-main  ">
+                <div className='w-full h-[90px]  shadow-md bg-white   z-30'>
+                  <h1 className='p-5'>Tender Notifications</h1>
+                </div>
+                <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
                   {allTenders?.map((item, id) => {
                     return (
-                      <p key={id} className="bg-white p-2 text-xs rounded w-full ">
+                      <p key={id} className="bg-white border m-2 p-2 text-xs rounded w-full ">
                         {id} - {item?.attributes?.title}
                       </p>
                     );
@@ -407,8 +379,8 @@ const Home = () => {
             </div>
 
             <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[570px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <h1 className="text-4xl uppercase">New Arrivals & Best Selling</h1>
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg border-b-2 border-primary-main  ">
+                <h1 className="text-4xl uppercase font-heading">New Arrivals & Best Selling</h1>
 
                 <div className="w-full marquee-notification h-full flex  space-x-3 ">
                   {newArrivals?.map((item, id) => {
@@ -464,13 +436,13 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto  bg-primary-lighter   ">
+      <section className="w-full h-auto      ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase">Latest News</h1>
+              <h1 className="text-4xl uppercase font-heading">Latest News</h1>
             </div>
-            <p className="text-neutral-dark1">Here some latest News and blog</p>
+             
           </div>
 
           <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
@@ -497,13 +469,13 @@ const Home = () => {
 
           <div className="w-full flex justify-center  space-x-5">
             <Link href={'/en/blog'}>
-              <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
+              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
                 See more
               </button>
             </Link>
 
             <Link href={'/en/contact'}>
-              <button className="w-40 h-5 border bg-primary-main text-white p-5 flex items-center justify-center  rounded-md    ">
+              <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
                 Get In Touch
               </button>
             </Link>
@@ -512,27 +484,21 @@ const Home = () => {
       </section>
 
 
-      <ParallaxBanner
-        layers={[
-          { image: "/images/certificate.jpg", speed: -10 },
-         
-          
-        ]}
-        className="fixed w-full   inset-0 object-cover"
-      >
       <section className="w-full h-auto  relative      ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
           <div className="flex   h-full    justify-between items-center    ">
             <div className="flex h-96 bg-white w-96    justify-center flex-wrap z-[10]   items-center  ">
               
-              <h1 className="text-4xl uppercase">Our <br/> Certificates</h1>
+              <h1 className="text-4xl uppercase font-heading">Our <br/> Certificates</h1>
             </div>
            
 
-            <div className={` w-full max-w-[2xl]     flex justify-center  space-x-7  marquee-sponser `} >
+            <div className={` w-full max-w-[2xl]     flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
                   {certificate?.map((item,idx)=>{
                     return(
-                      <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>
+                      <div key={idx} className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
+                        <img  src={item?.attributes?.url} className=' w-full h-full object-contain rounded-md inline-block'/>
+                        </div>
                     )
                   })}
           </div>
@@ -541,8 +507,6 @@ const Home = () => {
        
         </div>
       </section>
-       
-      </ParallaxBanner>
 
   
 

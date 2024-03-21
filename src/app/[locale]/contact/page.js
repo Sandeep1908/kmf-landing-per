@@ -37,7 +37,7 @@ const Contact = () => {
         <div className="w-full grid  md:grid-cols-3  md:p-9">
           <div className=" m-4 col-span-2  border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl">
             <div className="w-full p-12">
-              <p className="text-xl text-primary-darker  ">{locale==='en'?'Get in Touch':'ಸಂಪರ್ಕದಲ್ಲಿರಲು'}</p>
+              <p className="text-xl text-primary-darker font-heading  ">{locale==='en'?'Get in Touch':'ಸಂಪರ್ಕದಲ್ಲಿರಲು'}</p>
 
               <p className=" mt-6 text-base font-semibold text-neutral-dark1">
               {locale==='en'?' Kindly fill in the particulars given below. We will be pleased to revert back to you':`
@@ -69,7 +69,7 @@ const Contact = () => {
 
               <div className="mt-10 md:mt-16 lg:mt-28 flex justify-center md:justify-end">
                 <button className="w-48 h-14 flex justify-center items-center bg-primary-main rounded-full">
-                  <p className="text-base text-neutral-light4 font-semibold">Submit</p>
+                  <p className="text-base text-neutral-light4 font-heading font-semibold">Submit</p>
                 </button>
               </div>
             </div>
@@ -107,7 +107,7 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl font-semibold	text-primary-darker ">{locale==='en'?'           Toll Free':`
+                <p className="text-xl font-semibold font-heading	text-primary-darker ">{locale==='en'?'           Toll Free':`
 ಶುಲ್ಕರಹಿತ`}</p>
                 <div className="flex items-start flex-col lg:flex-row ">
                   <div className="w-1/5">
@@ -130,7 +130,7 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl font-semibold	text-primary-darker ">{locale==='en'?'           Phone':`
+                <p className="text-xl font-semibold font-heading	text-primary-darker ">{locale==='en'?'           Phone':`
 ದೂರವಾಣಿ`}</p>
                 <div className="flex items-start flex-col lg:flex-row  ">
                   <div className="w-1/5">
@@ -147,7 +147,7 @@ const Contact = () => {
 
             <div className="mt-7 p-6 border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl max-w-100">
               <div className="space-y-3 mt-4 mb-4">
-                <p className="text-xl	text-primary-darker font-semibold ">{locale==='en'?'           Whatsapp':`
+                <p className="text-xl	text-primary-darker font-heading font-semibold ">{locale==='en'?'           Whatsapp':`
 ವಾಟ್ಸ್ ಆ್ಯಪ್ `}</p>
                 <div className="flex items-start flex-col lg:flex-row  ">
                   <div className="w-1/5">
@@ -171,7 +171,7 @@ const Contact = () => {
                   </div>
 
                   <div className="ml-2 w-full">
-                    <p className="text-base md:text-xs lg:text-base  text-neutral-dark1">
+                    <p className="text-base md:text-xs lg:text-base font-heading  text-neutral-dark1">
                       {' '}
                       customercare.nandini@kmf.coop
                     </p>

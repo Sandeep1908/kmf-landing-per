@@ -21,6 +21,7 @@ function MilkUnionDetail({ slug }) {
   const [banner,setBanner]=useState()
   const axios = useApi();
   const [loading,setLoading]=useState(true)
+  const [readMore, setReadMore] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -46,7 +47,7 @@ function MilkUnionDetail({ slug }) {
           >
           <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
 
-            {unionImages?.[currentIndex]?
+            {/* {unionImages?.[currentIndex]?
               <div className="w-full flex flex-col justify-center items-center space-y-5">
               <div className="  max-w-[458px]    ">
                 <img
@@ -59,15 +60,41 @@ function MilkUnionDetail({ slug }) {
           
             </div>
             
-            :''}
+            :''} */}
           
           <div className="w-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
-  <h1 className="text-2xl">{union?.attributes?.name}</h1>
+  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{union?.attributes?.name}</h1>
   <p className="text-md"> {union?.attributes?.union_code}</p>
 
   <div className="about-container max-h-96 overflow-y-auto">
-    {union?.attributes?.about?.map((item, idx) => (
-      <p key={idx} className="text-neutral-dark1 text-sm">
+
+  {union?.attributes?.about?.length > 2
+        ? union?.attributes?.about?.map((item, idx) => {
+            if (idx < 2) {
+              return (
+                <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
+                  <p className="text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>
+
+             
+                </div>
+              );
+            }
+          })
+        : union?.attributes?.about?.map((item, idx) => {
+            return (
+              <p key={idx} className="text-xl font-josefin  text-justify">
+                {item?.children[0]?.text}
+              </p>
+            );
+          })}
+
+<div
+                    className={`w-full flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
+                    onClick={() => setReadMore(true)}>
+                    Read more...
+                  </div>
+    { readMore && union?.attributes?.about?.map((item, idx) => (
+      <p key={idx} className="text-neutral-dark1 text-lg">
         {item?.children[0]?.text}
       </p>
     ))}
@@ -79,9 +106,9 @@ function MilkUnionDetail({ slug }) {
 
       <section className="w-full   p-2 bg-[#F6F6F6]">
         <div
-          className="max-w-[1282px] h-full  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm "
+          className="max-w-[1282px] h-full  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-primary-darker text-white  shadow-sm "
          >
-          <div className="flex flex-col h-full space-y-5  p-3 justify-between items-start">
+          <div className="flex flex-col h-full space-y-1  p-2 justify-between items-start">
             <h1 className="text-2xl">{union?.attributes?.name}</h1>
 
             <div className="flex justify-center items-start space-x-4">
@@ -95,13 +122,18 @@ function MilkUnionDetail({ slug }) {
             </div>
 
             <div className="flex justify-center items-start space-x-4">
-              <img src={printIco.src} />
+              <img src={printIco.src}  />
               <p className="text-lg"> {union?.attributes?.fax}</p>
             </div>
 
             <div className="flex justify-center items-start space-x-4">
-              <img src={mailIco.src} />
+              <img src={mailIco.src} className='bg-white' />
               <p className="text-lg"> {union?.attributes?.email}</p>
+            </div>
+
+            <div className="flex justify-end items-end w-full space-x-4">
+              
+              <p className="text-xl   transition-all duration-300 cursor-pointer hover:underline text-white "> Know More...</p>
             </div>
           </div>
         </div>

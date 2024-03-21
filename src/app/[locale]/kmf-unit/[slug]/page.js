@@ -37,7 +37,7 @@ function KmfUnitDetail() {
         <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
       </section>
 
-      <section className="w-full  p-2 bg-[#F6F6F6]">
+      <section className="w-full   p-2 bg-[#F6F6F6]">
         <div
           className="max-w-[1282px]   m-auto p-3  rounded-tl-3xl  rounded-br-3xl  bg-white  "
            >
@@ -60,7 +60,7 @@ function KmfUnitDetail() {
           
 
             <div className=" w-full flex flex-col justify-start items-start pt-10 space-y-5  ">
-              <h1 className="text-2xl text-justify ">{unit?.attributes?.title}</h1>
+              <h1 className="text-2xl text-justify font-heading ">{unit?.attributes?.title}</h1>
              
 
               {unit?.attributes?.description?.map((item, idx) => {

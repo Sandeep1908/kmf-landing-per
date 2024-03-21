@@ -41,7 +41,7 @@ function OrganizationChart() {
 
           {locale === 'en' ? (
             <div className="w-full flex flex-col justify-center items-start shadow-md p-2 ">
-              <h1 className="text-2xl text-primary-main uppercase  ">Quality And Food Safety</h1>
+              <h1 className="text-2xl text-primary-main uppercase font-heading  ">Quality And Food Safety</h1>
 
               <p className="text-sm text-justify p-2">
                 During the last ten years, the Federation is giving greater emphasis on procuring
@@ -92,7 +92,7 @@ function OrganizationChart() {
           
           (
             <div className="w-full flex flex-col justify-center items-start ">
-              <h1 className="text-2xl text-primary-main uppercase">
+              <h1 className="text-2xl text-primary-main uppercase font-heading">
 ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ</h1>
 
               <p className="text-sm text-justify p-2">

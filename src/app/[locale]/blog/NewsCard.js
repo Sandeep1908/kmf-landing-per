@@ -14,7 +14,7 @@ function NewsCard({ image, date, createdBy, title, description, link }) {
       </div>
 
       <div className="flex flex-col h-[20%]  w-full  justify-start items-start space-y-5 ">
-        <h1 className="text-md font-bold ">{title?.length > 50 ? title?.substring(0,50)+"....":title}</h1>
+        <h1 className="text-md font-bold font-heading ">{title?.length > 50 ? title?.substring(0,50)+"....":title}</h1>
          
  
       </div>

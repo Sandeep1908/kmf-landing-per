@@ -238,7 +238,7 @@ export const mobileHeader = {
     },
 
     {
-      title: 'ಕಹಾಮ ಬಗ್ಗೆ',
+      title: 'ಕ ಹಾ ಮ ಬಗ್ಗೆ',
       link:'/kn/about/company-profile',
       subItems: [
         {

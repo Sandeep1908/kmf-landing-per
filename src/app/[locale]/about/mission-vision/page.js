@@ -10,15 +10,15 @@ function MissionVission() {
   const locale = useParams().locale;
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
+      <section className={`w-full  h-96 pt-28 relative  grid place-items-center company-bg`}>
         <img src={evolutionImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
-      <section className="w-full h-auto pt-10  ">
+      <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
-            <h1 className="text-2xl text-primary-main uppercase  p-2">
-              {locale === 'en' ? 'Mission & Vision' : 'ದೃಷ್ಟಿ'}
+            <h1 className="text-2xl text-primary-main uppercase font-heading  p-2">
+              {locale === 'en' ? 'Mission & Vision' : 'ಧ್ಯೇಯದೃಷ್ಟಿ ಮತ್ತು ಘನೋದ್ದೇಶ'}
             </h1>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
@@ -114,7 +114,7 @@ function MissionVission() {
           </div>
 
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
-            <h1 className="text-2xl text-primary-main uppercase p-2">
+            <h1 className="text-2xl font-heading text-primary-main uppercase p-2">
               {locale === 'en'
                 ? ` Objectives`
                 : `
@@ -242,7 +242,7 @@ function MissionVission() {
       <section className=" relative w-full h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
-            <h1 className="text-2xl text-primary-main uppercase p-2">
+            <h1 className="text-2xl text-primary-main uppercase font-heading p-2">
             {locale === 'en'
                   ? `                    Evolution`
                   : `

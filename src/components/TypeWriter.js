@@ -17,7 +17,7 @@ function TypeWriter({ text, delay }) {
   }, [delay, currentIndex, text]);
 
   
-  return <p className="text-justify font-[100] text-neutral-dark1">{currentText}</p>;
+  return <p className="text-justify text-lg text-neutral-dark1">{currentText}</p>;
 }
 
 export default TypeWriter;
