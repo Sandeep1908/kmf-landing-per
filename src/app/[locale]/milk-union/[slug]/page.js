@@ -41,9 +41,9 @@ function MilkUnionDetail({ slug }) {
         <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
       </section>
 
-      <section className="w-full h-fit   p-2 bg-[#F6F6F6]">
+      <section className="w-full    p-2 bg-[#F6F6F6]">
         <div
-          className="max-w-[1282px]    m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+          className="max-w-[1282px] h-full   m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
           >
           <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
 
@@ -62,11 +62,11 @@ function MilkUnionDetail({ slug }) {
             
             :''} */}
           
-          <div className="w-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
+          <div className="w-full h-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
   <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{union?.attributes?.name}</h1>
   <p className="text-md"> {union?.attributes?.union_code}</p>
 
-  <div className="about-container max-h-96 overflow-y-auto">
+  <div className=" w-full h-full ">
 
   {union?.attributes?.about?.length > 2
         ? union?.attributes?.about?.map((item, idx) => {
@@ -88,16 +88,18 @@ function MilkUnionDetail({ slug }) {
             );
           })}
 
-<div
-                    className={`w-full flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
-                    onClick={() => setReadMore(true)}>
-                    Read more...
-                  </div>
-    { readMore && union?.attributes?.about?.map((item, idx) => (
+{ readMore && union?.attributes?.about?.map((item, idx) => (
       <p key={idx} className="text-neutral-dark1 text-lg">
         {item?.children[0]?.text}
       </p>
     ))}
+
+<div
+                    className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
+                    onClick={() => setReadMore(true)}>
+                    Read more...
+                  </div>
+   
   </div>
 </div>
           </div>
