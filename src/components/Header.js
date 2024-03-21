@@ -250,9 +250,9 @@ export const Header = (props) => {
 
           {/* MAIN HEADER DOWN  */}
 
-          <div className={`w-full   ${isSticky ? 'sticky-header' : ''}`}>
+          <div className={`w-full    ${isSticky ? 'sticky-header' : ''}`}>
             <div
-              className={`max-w-[90%] h-[50px] bg-gradient-to-r from-[#082649] to-primary-gradient m-auto p-5 z-20 relative     `}>
+              className={`max-w-[90%] h-[50px]  m-auto p-5 z-20 relative  ${isSticky?'bg-gradient-to-r from-[#082649] to-primary-gradient':''}   `}>
               <div className=" w-full h-full flex justify-between items-center lg:hidden ">
                 <div onClick={() => setOpenNav((prev) => !prev)}>
                   <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
@@ -270,7 +270,7 @@ export const Header = (props) => {
                         key={i}
                         className=" transition-all duration-300 hover:scale-[1.1] ">
                         <li
-                          className="border-r text-[16px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
+                          className="  text-[16px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
                           onMouseEnter={() => setOpen(hasItems ? i : null)}>
                           {header.title}
                           {hasItems && (

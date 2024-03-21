@@ -36,7 +36,7 @@ const Home = () => {
  
   
   const axios = useApi();
-  
+  const video='/video/banner.mp4'
 
   useEffect(() => {
  
@@ -97,7 +97,8 @@ const Home = () => {
   return (
     <div className="w-full h-full absolute top-36 z-[-1]">
       {/* HOME CARAOUSAL IMAGE */}
-      <CarouselImage images={banners || []}  />
+      <video src='/video/banner.mp4' muted autoPlay loop className='w-full h-[700px] object-contain  '/>
+      {/* <CarouselImage images={banners || []}  /> */}
 
       <section className="w-full    pt-20  relative z-[1]  ">
         <video
@@ -338,7 +339,9 @@ const Home = () => {
                     );
                   })}
                 </div>
+           
               </div>
+
 
               {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
                 <div className=" w-full flex items-center">
@@ -375,7 +378,10 @@ const Home = () => {
                   )
                 })} */}
 
-          
+<div className='w-full flex justify-end mt-3 rounded-md'>
+            
+<h1 className='  p-2 bg-primary-main text-white '>Read more</h1>
+</div>
             </div>
 
             <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">

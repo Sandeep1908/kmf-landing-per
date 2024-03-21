@@ -32,15 +32,15 @@ function Footer() {
       <div className=" z-10 relative  max-w-7xl   m-auto flex flex-col justify-between items-center md:items-start">
         <div className="    w-full flex flex-col justify-center items-center  gap-5 md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-2 max-w-96 space-y-5">
-            <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter">
+            <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
            {locale==='en'?'Address':'ವಿಳಾಸ'}
             </h1>
 
             <div className="flex justify-center items-start space-x-3">
-              <img src={locationVectorIco.src} />
+              <img src={locationVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-center md:items-start space-y-5">
-                <p className="text-neutral-dark1 text-justify text-sm">
+                <p className="text-neutral-dark1 text-left text-lg ">
                   {footerItem?.[0]?.address}
                 </p>
               </div>
@@ -48,15 +48,15 @@ function Footer() {
           </div>
 
           <div className="flex flex-col p-2 max-w-96 justify-center space-y-5 items-center md:items-start">
-            <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter">
+            <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
             {locale==='en'?'Telephone':'ದೂರವಾಣಿ'}
             </h1>
 
             <div className="flex justify-center items-start space-x-3">
-              <img src={callVectorIco.src} />
+              <img src={callVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-start space-y-5">
-                <p className="text-neutral-dark1 text-justify text-sm">
+                <p className="text-neutral-dark1 text-left text-lg">
                   {footerItem?.[0]?.telephone}
                 </p>
               </div>
@@ -64,21 +64,21 @@ function Footer() {
           </div>
 
           <div className="flex flex-col p-2 max-w-96 space-y-5 justify-center items-center md:items-start">
-            <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-28 before:h-1 before:bg-primary-lighter">
+            <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-28 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
             {locale==='en'?'Email':'ಮಿಂಚಂಚೆ'}
             </h1>
 
             <div className="flex justify-center items-start space-x-3">
-              <img src={msgVectorIco.src} />
+              <img src={msgVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-start space-y-5">
-                <p className="text-neutral-dark1 text-justify"> {footerItem?.[0]?.email}</p>
+                <p className="text-neutral-dark1 text-left text-lg"> {footerItem?.[0]?.email}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col w-full justify-between items-center mt-3 space-y-6  flex-wrap md:flex-row">
+        <div className="flex flex-col w-full justify-center items-center mt-3 space-y-6  flex-wrap md:flex-row">
           <div className="flex flex-col justify-start items-start">
             <p className="text-sm">© {footerItem?.[0]?.copyright}</p>
             <p className="text-sm">
