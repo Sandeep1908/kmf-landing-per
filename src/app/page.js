@@ -35,6 +35,7 @@ const Home = () => {
   const [allTenders, setAllTenders] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [sponsored,setSponsored]=useState([])
+  const [certificateRunning,setCertificateRunning]=useState(false)
   const [certificate,setCertificate]=useState([])
  
   const axios = useApi();
@@ -57,7 +58,7 @@ const Home = () => {
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
 
-  
+   
       
 
       const videos = gallery?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url);
@@ -112,16 +113,12 @@ const Home = () => {
   return (
     <div className="w-full h-full absolute top-36 z-[-1]">
       {/* HOME CARAOUSAL IMAGE */}
-      <CarouselImage images={banners || []} />
+      <video src='/video/banner.mov'   autoPlay loop playsInline className='w-full h-[700px] object-fill  '/>
+
+      {/* <CarouselImage images={banners || []} /> */}
 
       <section className="w-full   pt-20  relative z-[1]  ">
-        <video
-          src="/video/home-vid.mp4"
-          autoPlay
-          muted
-          loop
-          className="absolute w-full h-full inset-0 object-cover z-[-10] opacity-.4"
-        />
+         
         <div className="w-full">
           <div className=" w-full          p-10  ">
             <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
@@ -269,21 +266,21 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full   bg-secondary-subtle h-auto ">
+      <section className="w-full     h-auto relative  bg-curved ">
         <div>
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
-              <div className="p-4 flex justify-center bg-secondary-main items-center w-full h-[500px]   lg:max-w-xl">
+              <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
                 <img src={milkglassImg.src} className="w-full h-full" />
               </div>
             </Fade>
-            <div className="flex flex-col justify-center space-y-10 items-center">
+            <div className="flex flex-col justify-center pt-10 space-y-10 items-center">
               <div
-                className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-4xl uppercase font-heading">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
+                className={`flex relative w-full justify-center items-center flex-col space-y-7 pt-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
+                <h1 className="text-4xl uppercase font-heading ">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
 
                 <div className="space-y-6">
-                  <p className="text-justify font-[100] text-neutral-dark1">
+                  <p className="text-justify  font-heading text-white">
                   ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದೆ, ಅದರ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅಂಶಕ್ಕಾಗಿ ವ್ಯಾಪಕವಾಗಿ ಸೇವಿಸಲಾಗುತ್ತದೆ
                     ಮೂಳೆ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದೆ,
                     ಒಟ್ಟಾರೆ ಯೋಗಕ್ಷೇಮಕ್ಕೆ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ. ವೈವಿಧ್ಯಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ಸೇರಿದೆ, ಹೆಸರುವಾಸಿಯಾಗಿದೆ
@@ -299,7 +296,7 @@ const Home = () => {
               <div className=" w-full flex flex-wrap  justify-center  p-2 gap-5 items-center md:justify-between">
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco1.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-white">
                   ನ ಪ್ರಾಮುಖ್ಯತೆ <br /> 
 ಹಾಲು
                   </p>
@@ -307,7 +304,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco2.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-white">
                   ವರ್ಗ ಮತ್ತು ಪ್ರಕಾರ <br />
                   ಹಾಲಿನ
                   </p>
@@ -315,7 +312,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco3.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-white">
                     
 ಅಗತ್ಯ ಪೋಷಣೆ <br />
 ಹಾಲಿನಲ್ಲಿ
@@ -324,7 +321,7 @@ const Home = () => {
 
                 <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco4.src} alt="imp-milk" />
-                  <p className="text-neutral-dark1">
+                  <p className="text-white">
                   ಪ್ರತಿಯೊಂದಕ್ಕೂ ಹಾಲು<br />
                   ವಯಸ್ಸಿನ ಗುಂಪು
                   </p>
@@ -335,56 +332,89 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto  bg-primary-subtle  ">
-        <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-          <div className="flex    flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-4xl uppercase font-heading">ಅಧಿಸೂಚನೆ</h1>
+      <section className="w-full h-auto relative  bg-primary-subtle    ">
+        <div className=" p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+          <div className="flex w-full   flex-col justify-center items-center  space-y-3  ">
+            <h1 className="text-4xl w-full flex justify-center items-center uppercase font-heading">ಅಧಿಸೂಚನೆ</h1>
 
- 
+           
           </div>
 
-          <div className="w-full flex flex-col justify-center items-center lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
-              <Swiper
-                grabCursor={true}
-                centeredSlides={true}
-                effect={'coverflow'}
-                coverflowEffect={{
-                  rotate: 30,
-                  stretch: 0,
-                  depth: 200,
-                  modifier: 1,
-                  slideShadows: false
-                }}
-                modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]}
-                navigation={true}
-                scrollbar={{ draggable: true }}
-                slide
-                autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false
-                }}
-                loop={true}>
-                {allTenders?.map((item, id) => {
-                  return (
-                    <SwiperSlide className="swiper-sldier-card  " key={id}>
-                      <TenderNotification
-                        title={item?.attributes?.title}
-                        date={item?.attributes?.last_date}
-                        link="/en/blog/notification"
-                      />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[400px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <div className="w-full marquee h-full flex flex-col space-y-3 ">
+          <div className="w-full flex flex-col justify-around space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
+            <div className=" relative w-full overflow-scroll flex flex-col     max-w-[400px]    ">
+             
+              
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden  justify-center h-[425px] items-center rounded-lg border-b-2 border-primary-main  ">
+                <div className='w-full h-[90px] shadow-black  shadow-md bg-white   z-30'>
+                  <h1 className='p-5 bg-primary-gradient text-white  uppercase text-center'>ಟೆಂಡರ್ ಅಧಿಸೂಚನೆಗಳು</h1>
+                </div>
+                <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
                   {allTenders?.map((item, id) => {
                     return (
-                      <p key={id} className="bg-white p-2 text-xs rounded w-full ">
+                      <p key={id} className="bg-white border m-2 p-2 text-xs rounded w-full ">
                         {id} - {item?.attributes?.title}
                       </p>
+                    );
+                  })}
+                </div>
+           
+              </div>
+
+
+              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                <div className=" w-full flex items-center">
+                  <div className="flex flex-col justify-center items-start">
+                    <h1>Export Enquiry</h1>
+                  </div>
+                </div>
+
+                <div className="">
+                  <Link href="/en/export-enquiry">
+                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                      View all
+                    </button>
+                  </Link>
+                </div>
+              </div> */}
+
+              {/* {homeNotification?.map((item,idx)=>{
+                  console.log("notification",item)
+                  return(
+                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
+                    <div className=" w-full flex items-center">
+                      <div className="flex flex-col justify-center items-start">
+                        <h1>{item?.attributes?.title}</h1>
+                      </div>
+                    </div>
+    
+                    <div className="">
+                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
+                        View all
+                      </Link>
+                    </div>
+                  </div>
+                  )
+                })} */}
+
+<div className='w-full flex justify-end mt-3 rounded-md'>
+            
+<h1 className='  p-2 bg-primary-main text-white '>
+ಮತ್ತಷ್ಟು ಓದು</h1>
+</div>
+            </div>
+
+            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
+              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg border-b-2 border-primary-main  ">
+                <h1 className="text-4xl uppercase font-heading shadow-md shadow-black bg-primary-gradient text-white">ಹೊಸ ಆಗಮನಗಳು ಮತ್ತು ಅತ್ಯುತ್ತಮ ಮಾರಾಟ</h1>
+
+                <div className="w-full marquee-notification h-full flex  space-x-3 ">
+                  {newArrivals?.map((item, id) => {
+                    return (
+                      <ArrivalCard
+                        key={id}
+                        title={item?.attributes?.title}
+                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                      />
                     );
                   })}
                 </div>
@@ -424,28 +454,6 @@ const Home = () => {
                   </div>
                   )
                 })} */}
-
-          
-            </div>
-
-            <div className=" relative w-full overflow-scroll flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[570px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <h1 className="text-4xl uppercase font-heading">ಹೊಸ ಆಗಮನ ಮತ್ತು ಉತ್ತಮ ಮಾರಾಟ</h1>
-
-                <div className="w-full marquee-notification h-full flex  space-x-3 ">
-                  {newArrivals?.map((item, id) => {
-                    return (
-                      <ArrivalCard
-                        key={id}
-                        title={item?.attributes?.title}
-                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-
-              
 
             
             </div>
@@ -503,27 +511,21 @@ const Home = () => {
 
 
 
-      <ParallaxBanner
-        layers={[
-          { image: "/images/certificate.jpg", speed: -10 },
-         
-          
-        ]}
-        className="fixed w-full   inset-0 object-cover"
-      >
-      <section className="w-full h-auto  relative      ">
+      <section className="w-full h-auto  relative          ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
-          <div className="flex   h-full    justify-between items-center    ">
-            <div className="flex h-96 bg-white w-96    justify-center flex-wrap z-[10]   items-center  ">
+          <div className="   h-full    justify-between items-center    ">
+            <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
               
-              <h1 className="text-4xl uppercase font-heading">ನಮ್ಮ <br/> ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
+              <h1 className="text-4xl text-center w-full justify-center flex items-centerd uppercase font-heading">Our <br/> Certificates</h1>
             </div>
            
 
-            <div className={` w-full max-w-[2xl]     flex justify-center  space-x-7  marquee-sponser `} >
+            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
                   {certificate?.map((item,idx)=>{
                     return(
-                      <img key={idx} src={item?.attributes?.url} className='w-40 h-40 rounded-md inline-block'/>
+                      <div key={idx} className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
+                        <img  src={item?.attributes?.url} className=' w-full h-full object-contain rounded-md inline-block'/>
+                        </div>
                     )
                   })}
           </div>
@@ -532,8 +534,6 @@ const Home = () => {
        
         </div>
       </section>
-       
-      </ParallaxBanner>
 
       {/* FOOTER SECTION  */}
       <Footer />
