@@ -113,7 +113,7 @@ const Home = () => {
   return (
     <div className="w-full h-full absolute top-36 z-[-1]">
       {/* HOME CARAOUSAL IMAGE */}
-      <video src='/video/banner.mov'   autoPlay loop playsInline className='w-full h-[700px] object-fill  '/>
+      <video src='/video/banner.mov'  ref={r=>r?.autoplay?.valueOf(true)} autoPlay loop playsInline className='w-full h-[700px] object-fill  '/>
 
       {/* <CarouselImage images={banners || []} /> */}
 
