@@ -113,7 +113,7 @@ const Home = () => {
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll?'top-36':''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-      <video src='/video/banner.mov' muted  autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}`}/>
+      <video src='/video/banner.mov'    autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}`}/>
 
       {/* <CarouselImage images={banners || []} /> */}
 
