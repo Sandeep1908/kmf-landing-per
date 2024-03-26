@@ -98,12 +98,12 @@ const Home = () => {
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll?'top-36':''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-      <video   autoPlay loop   className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}>
+      {/* <video   autoPlay loop   className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}>
         <source src="/video/banner.mov"   />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       {/* <video src='/video/banner.mov'     autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}/> */}
-      {/* <CarouselImage images={banners || []}  /> */}
+      <CarouselImage images={banners || []}  />
 
       <section className="w-full    pt-20  relative z-[1] bg-primary-subtle ">
      
