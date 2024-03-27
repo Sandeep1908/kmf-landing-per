@@ -26,7 +26,7 @@ import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
  
-export const Header = (props) => {
+export const Header = () => {
   const [openAccordion, SetOpenAccordion] = useState(null);
   const [openNav, setOpenNav] = useState(false);
   const [open, setOpen] = useState(null);
@@ -43,12 +43,12 @@ export const Header = (props) => {
   const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
  const {isScroll,setIsScroll}=useMyContext()
-
+ 
  
   useEffect(() => {
    
     (async () => {
-      console.log("props",props)
+       
       const { data } = await axios.get('/api/categories?sort[0]=order:asc');
       const { data: milkunion } = await axios.get('/api/milk-unions?sort[0]=order:asc');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
@@ -89,7 +89,8 @@ export const Header = (props) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const threshold = 153;
-      setIsScroll(true)
+      if(scrollPosition>threshold) setIsScroll(true)
+     
 
       setIsSticky(scrollPosition > threshold);
     };
@@ -117,14 +118,15 @@ export const Header = (props) => {
   }
 
   const handleLanguageChange = () => {
-    if (pathname === '/') {
-      return router.push('/en');
-    }
-    if (pathname === '/en') {
+    
+    if (pathname === '/kn') {
       return router.push('/');
     }
-    const newLanguagePrefix = pathname.startsWith('/en') ? '/kn' : '/en';
-    const newUrl = pathname.replace(/^\/(en|kn)\//, newLanguagePrefix + '/');
+    if (pathname === '/') {
+      return router.push('/kn');
+    }
+    const newLanguagePrefix = pathname.startsWith('/kn') ? '/en' : '/kn';
+    const newUrl = pathname.replace(/^\/(kn|en)\//, newLanguagePrefix + '/');
     router.push(newUrl);
   };
 
@@ -136,6 +138,8 @@ export const Header = (props) => {
   const handleAccordionClick = (accordionId) => {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
+
+ 
 
   return (
     <>
@@ -152,7 +156,7 @@ export const Header = (props) => {
                 alt="logo-home"
                 className=" w-[100px] sm:w-[150px]"
               />
-              <p className="font-bold font-subheading text-xs sm:text-xl">
+              <p className={`font-extrabold font-heading  ${locale==='kn'?'text-[18px]':'text-xs sm:text-[14px]'}`}>
                 {headerItem?.attributes?.title}
               </p>
             </div>
@@ -169,7 +173,7 @@ export const Header = (props) => {
                         />
                       </div>
 
-                      <p className="text-[12px] font-heading flex flex-col font-black/10  ">
+                      <p className={` font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[12px]'}  `}>
                         {headerItem?.attributes?.address?.map((item, id) => {
                           return (
                             <span key={id} className="block">
@@ -254,7 +258,7 @@ export const Header = (props) => {
 
           <div className={`w-full    ${isSticky ? 'sticky-header' : ''}`}>
             <div
-              className={`max-w-[90%] h-[50px]  m-auto p-5 z-20 relative  ${isSticky?'bg-gradient-to-r from-[#082649] to-primary-gradient':''}   `}>
+              className={`max-w-[80%] h-[50px]  m-auto p-5 z-20 relative  ${isSticky?'bg-gradient-to-r from-[#082649] to-primary-gradient':''}   `}>
               <div className=" w-full h-full flex justify-between items-center lg:hidden ">
                 <div onClick={() => setOpenNav((prev) => !prev)}>
                   <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />

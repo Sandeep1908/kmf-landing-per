@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation'
 
 function useLocale() {
     return {
-        locale: useParams().locale ||'kn'
+        locale: useParams().locale ||'en'
     };
   
 }

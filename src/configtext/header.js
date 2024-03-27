@@ -12,7 +12,7 @@ export const mobileHeader = {
   en: [
     {
       title: <IoHomeOutline size={20} />,
-      link: '/en',
+      link: '/',
       imgUrl: homeIco.src
     },
 
@@ -233,7 +233,7 @@ export const mobileHeader = {
   kn: [
     {
       title: <IoHomeOutline size={20} />,
-      link: '/',
+      link: '/kn',
       imgUrl: homeIco.src
     },
 

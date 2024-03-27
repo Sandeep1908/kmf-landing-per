@@ -7,7 +7,7 @@ const useApi = (locale) => {
   const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     params: {
-      locale: params.locale === 'kn' ? 'kn-IN' : params.locale || 'kn-IN',
+      locale: params.locale === 'kn' ? 'kn-IN' : params.locale || 'en',
       populate: '*'
     },
     headers: {

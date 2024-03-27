@@ -9,13 +9,16 @@ import UnitOfKMF from './UnitOfKMF';
 import OngoingAndFuture from './OngoingAndFuture';
 import { useParams } from 'next/navigation';
 import Footer from '@/components/Footer';
+import useApi from '@/hooks/useApi';
+import CarouselImage from '@/components/CarouselImage';
 
 
 function CompanyProfile() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading,setLoading]=useState(true)
   const locale=useParams().locale
-
+const axios=useApi()
+const [allbanners,setAllBanners]=useState([])
    
   const tabs = [
     {
@@ -47,10 +50,20 @@ useEffect(()=>{
   }
 },[currentIndex])
   
+useEffect(()=>{
+  (
+    async()=>{
+      const { data: banner } = await axios.get('/api/banners');
+      const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
+      setAllBanners(images);
+    }
+  )()
+},[])
 
   return (
-    <div className="w-full  h-auto    about-bg relative    ">
+    <div className="w-full  h-auto  top-36   about-bg absolute    ">
  
+    <CarouselImage images={allbanners || []} />
 
       <section className="w-full h-auto p-10 pt-36  relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
