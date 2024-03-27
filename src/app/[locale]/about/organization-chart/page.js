@@ -61,7 +61,7 @@ function OrganizationChart() {
       <section className="w-full relative pb-10 pt-36     company-bg">
         <div className="w-full flex pr-10 pl-10 flex-col    justify-center items-center space-y-10 lg:flex-row lg:justify-between lg:space-x-10">
           <div className="grid place-content-center w-1/4">
-            <h1 className="text-[40px] text-primary-main uppercase">
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
               About <br />  The Organization 
             </h1>
           </div>

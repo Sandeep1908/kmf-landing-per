@@ -41,8 +41,8 @@ function WomenEmpowerment() {
       </section>
 
       <section className="w-full h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
-        <h1 className="text-xl uppercase font-heading">{locale === 'en' ? 'STEP' : 'ಹಂತ'}</h1>
-        <p className="text-justify text-sm text-neutral-dark1">
+        <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale === 'en' ? 'STEP' : 'ಹಂತ'}</h1>
+        <p className="text-justify text-md text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
           of Women & Child Development, Government of India, as one of the measures to ensure well

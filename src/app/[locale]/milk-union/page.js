@@ -47,7 +47,7 @@ function MilkUnion() {
       </section>
 
       <section className="w-full bg-[#F6F6F6]  pt-10 ">
-      <h1 className='text-primary-gradient text-center pt-5  pb-5 text-3xl font-heading '>MILK UNIONS</h1>
+      <h1 className='text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white '>MILK UNIONS</h1>
         <div className="max-w-7xl m-auto p-2 shadow-lg    shadow-white bg-white grid place-content-center md:grid-cols-3 gap-5">
           {milkUnion.map((union, id) => {
            

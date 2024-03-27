@@ -86,7 +86,7 @@ function Images() {
 
     <section className="w-full   m-auto pt-10 relative  milk-bg  ">
     <div className="w-full space-y-5 p-4 ">
-      <h1 className="text-center text-2xl text-primary-main uppercase">{title?.attributes?.name}</h1>
+      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{title?.attributes?.name}</h1>
     </div>
 
 

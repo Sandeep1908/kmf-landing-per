@@ -108,7 +108,7 @@ const Executive = () => {
     </section>
 
     <section className="w-full   pt-10  ">
-    <h1 className='text-center text-primary-main text-2xl uppercase font-heading'>KMF Executives</h1>
+    <h1 className='text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white'>KMF Executives</h1>
 
     <div className='p-10 h-full flex justify-center items-center   '>
         <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4 shadow-lg bg-primary-gradient rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>

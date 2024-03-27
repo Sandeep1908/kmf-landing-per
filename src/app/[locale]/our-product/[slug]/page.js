@@ -90,7 +90,7 @@ function Milk() {
       </section>
       
       <section className="w-full pt-10 pb-10">
-      <h1 className="text-center text-2xl text-primary-main uppercase font-heading">{title?.attributes?.title}</h1>
+      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{title?.attributes?.title}</h1>
         <div className="w-full p-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
           {currentProducts.map((product, id) => {
             return (

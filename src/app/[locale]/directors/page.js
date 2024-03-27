@@ -49,7 +49,7 @@ function Directors() {
 
 
       <section className="w-full   pt-10  shadow-lg bg-primary-subtle ">
-        <h1 className="text-center font-heading uppercase text-primary-main text-xl">
+        <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
           {locale === 'en' ? 'Board of Directors' : 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}
         </h1>
         <div className="p-12 h-full  ">

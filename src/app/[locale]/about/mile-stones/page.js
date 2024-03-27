@@ -105,7 +105,7 @@ console.log("milestones",data.data)
       <section className="w-full  pt-10  ">
         <div className="  w-full    lg:flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full  flex flex-col justify-center items-start ">
-            <h1 className="text-2xl text-primary-main">Mile Stone</h1>
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Mile Stone</h1>
 
             <div className="w-full  pt-5 overflow-auto">
               <ul className="w-full h-full flex flex-col space-y-5 justify-start items-start">
@@ -146,13 +146,13 @@ console.log("milestones",data.data)
           </button>
         </div>
 
-            <ul className="flex  justify-between  items-center p-6 w-full mt-10  overflow-auto">
+            <ul className="flex  justify-between  items-center  p-3 w-full mt-10  overflow-auto relative before:absolute before:w-full before:h-2 before:bg-primary-main before:top-3   ">
 
               {mileStones?.map((item, idx) => {
                 return (
                   <li
                     key={idx}
-                    className=" flex items-center justify-center space-x-3 relative cursor-pointer     "
+                    className={` flex items-center justify-center space-x-3 relative cursor-pointer ${nextYear===item.year?'border-t-8 border-secondary-main':''}       `}
                     onClick={() => handleYear(item?.year,idx)}>
                     <p
                       className={` text-xl ${

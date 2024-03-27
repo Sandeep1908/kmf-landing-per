@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CarouselImage from '@/components/CarouselImage';
 
  
@@ -39,7 +39,11 @@ const Home = () => {
   const [certificate,setCertificate]=useState([])
  const {isScroll,setIsScroll}=useMyContext()
   const axios = useApi();
-  
+  const videoRef=useRef()
+
+  useEffect(()=>{
+    videoRef.current.muted=true
+  },[])
 
   useEffect(() => {
     (async () => {
@@ -113,13 +117,11 @@ const Home = () => {
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll?'top-36':''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-      {/* <video   autoPlay loop   className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}>
-        <source src="/video/banner.mov"   />
-        Your browser does not support the video tag.
-      </video> */}
-      {/* <video src='/video/banner.mov'    autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}`}/> */}
+   
+ 
+      <video ref={videoRef}src='/video/banner.mp4'   muted   autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `} />
 
-      <CarouselImage images={banners || []} />
+      {/* <CarouselImage images={banners || []} /> */}
 
       <section className="w-full   pt-20  relative z-[1] bg-primary-subtle ">
          
@@ -182,7 +184,7 @@ const Home = () => {
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-              <h1 className="text-4xl uppercase font-heading">KMF ಬಗ್ಗೆ</h1>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">KMF ಬಗ್ಗೆ</h1>
 
               <div className="space-y-6">
                 <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
@@ -218,7 +220,7 @@ const Home = () => {
             </Fade>
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-              <h1 className="text-4xl uppercase font-heading">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ</h1>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ</h1>
 
               <div className="space-y-6 h-[">
                 <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
@@ -246,7 +248,7 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-4xl uppercase font-heading">
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
 ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h1>
              
           </div>
@@ -281,7 +283,7 @@ const Home = () => {
             <div className="flex flex-col justify-center pt-10 space-y-10 items-center">
               <div
                 className={`flex relative w-full justify-center items-center flex-col space-y-7 pt-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-4xl uppercase font-heading ">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
+                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white ">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
 
                 <div className="space-y-6">
                   <p className="text-justify  font-heading text-white">
@@ -339,7 +341,7 @@ const Home = () => {
       <section className="w-full h-auto relative  bg-primary-subtle    ">
         <div className=" p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex w-full   flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-4xl w-full flex justify-center items-center uppercase font-heading">ಅಧಿಸೂಚನೆ</h1>
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಅಧಿಸೂಚನೆ</h1>
 
            
           </div>
@@ -402,7 +404,7 @@ const Home = () => {
 
 <div className='w-full flex justify-end mt-3 rounded-md'>
             
-<h1 className='  p-2 bg-primary-main text-white '>
+<h1 className='  text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white '>
 ಮತ್ತಷ್ಟು ಓದು</h1>
 </div>
             </div>
@@ -469,7 +471,7 @@ const Home = () => {
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-4xl uppercase font-heading">ಇತ್ತೀಚಿನ ಸುದ್ದಿ</h1>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಇತ್ತೀಚಿನ ಸುದ್ದಿ</h1>
             </div>
             
           </div>
@@ -520,7 +522,7 @@ const Home = () => {
           <div className="   h-full    justify-between items-center    ">
             <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
               
-              <h1 className="text-4xl text-center w-full justify-center flex items-centerd uppercase font-heading">Our <br/> Certificates</h1>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ <br/> ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
             </div>
            
 

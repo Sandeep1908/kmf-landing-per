@@ -140,7 +140,7 @@ function Notification() {
 
     
         <div className="w-full space-y-5 p-4 ">
-          <h1 className="text-center text-xl text-primary-main uppercase">Tender Notification</h1>
+          <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Tender Notification</h1>
 
           <div className="w-full  flex justify-center items-center pt-10 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
             <ul className="flex gap-5">

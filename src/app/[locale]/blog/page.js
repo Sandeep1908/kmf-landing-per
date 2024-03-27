@@ -84,7 +84,7 @@ function Blog() {
 
       <section className="w-full h-auto pt-10 relative news-bg  ">
 
-      <h1 className='text-primary-gradient text-center pt-5  pb-5 text-3xl font-heading '>LATEST NEWS</h1>
+      <h1 className='text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white '>LATEST NEWS</h1>
         <div className="w-4/5 m-auto flex flex-wrap justify-evenly items-center gap-6 p-3  ">
           {currentProducts?.map((blog,id)=>{
             return(

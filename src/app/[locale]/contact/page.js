@@ -33,7 +33,7 @@ const Contact = () => {
       </div> */}
 
       <div className="w-full bg-[#F6F6F6]">
-        <p className="text-2xl	text-primary-main   text-center pt-9">{locale==='en'?'CONTACT US':'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ'}</p>
+        <p className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale==='en'?'CONTACT US':'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ'}</p>
         <div className="w-full grid  md:grid-cols-3  md:p-9">
           <div className=" m-4 col-span-2  border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl">
             <div className="w-full p-12">

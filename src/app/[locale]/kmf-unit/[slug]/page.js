@@ -111,7 +111,7 @@ function KmfUnitDetail() {
 
     <div className="w-full h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
             <div className='w-full    shadow-md bg-white  '>
-              <h1 className='p-5'>Milk Unions</h1>
+              <h1 className='p-5'>KMF UNITS</h1>
             </div>
             
             {allUnits?.map((item, id) => {
