@@ -40,15 +40,11 @@ const [allbanners,setAllBanners]=useState([])
   ];
   const handleTabs = (idx) => {
     
-   localStorage.setItem('idx',idx)
+   
     setCurrentIndex(idx);
   };
    
-useEffect(()=>{
-  if(parseInt(localStorage.getItem('idx'))===currentIndex){
-    setCurrentIndex(localStorage.getItem('idx'))
-  }
-},[currentIndex])
+ 
   
 useEffect(()=>{
   (
@@ -78,7 +74,7 @@ useEffect(()=>{
                   <li
                     key={idx}
                     onClick={() => handleTabs(idx)}
-                    className={`${parseInt(localStorage.getItem('idx'))===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
+                    className={`${currentIndex===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
                     {tab.tabName}
                   </li>
                 );
@@ -93,14 +89,34 @@ useEffect(()=>{
       </section>
  
 
- <div>
+ <div className=' w-full max-w-7xl m-auto  gap-5  flex justify-start items-start '>
+  
 
-  <h1 className='w-full text-center'>{}</h1>
+ 
  {tabs?.map((tab, id) => {
-        if (parseInt(localStorage.getItem('idx')) === id) {
+        if (currentIndex === id) {
           return tab.data;
         }
       })} 
+
+
+<div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+            <div className='w-full    shadow-md bg-white  '>
+              <h1 className='p-5'>About Us</h1>
+            </div>
+            
+            {tabs?.map((item, id) => {
+                 
+                return (
+                   
+                  <p  key={id} className="bg-white border m-1 p-1 text-md rounded w-full hover:bg-primary-main hover:text-white " onClick={() => handleTabs(id)}>
+                    {id+1} - {item?.tabName}
+                  </p>
+                
+                );
+              })}
+          </div>
+      
  </div>
 
      

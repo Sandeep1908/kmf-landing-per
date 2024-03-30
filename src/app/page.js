@@ -23,6 +23,8 @@ import Rodal from 'rodal';
 import { ParallaxBanner } from "react-scroll-parallax";
 import ArrivalCard from '@/components/ArrivalCard.js';
 import { useMyContext } from '@/context/headerContext.js';
+import BlogModal from './[locale]/blog/BlogModal.js';
+import KnmModel from '@/components/KymModel.js';
     
 
 const Home = () => {
@@ -34,16 +36,28 @@ const Home = () => {
   const [newArrivals, setNewArrivals] = useState([]);
   const [certificate,setCertificate]=useState([])
   const [certificateRunning,setCertificateRunning]=useState(false)
+  const [knowMilk,setKnowMilk]=useState([])
  
   const {isScroll,setIsScroll}=useMyContext()
   const axios = useApi();
-  const video='/video/banner.mp4'
+  const [knowMilkItem,setKnowMilkItem]=useState([])
+ 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMuted,setIsMuted]=useState(false)
+
+  // ... (existing code)
+
+   const handleKnowMilk=(item)=>{
+    setKnowMilkItem(item)
+    setIsModalOpen(true);
+   }
  
   useEffect(() => {
  
     (async () => {
       const { data: banner } = await axios.get('/api/banners');
       const {data:certificate}= await axios.get('/api/certificates')
+      
    
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
 
@@ -54,9 +68,12 @@ const Home = () => {
 
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
-
-  
       
+
+      // const {data:knm}=await axios.get('/api/knowyourmilks')
+      
+  
+   
 
    
       const homedetials = homeabout?.data?.map((item) => {
@@ -77,6 +94,7 @@ const Home = () => {
       setHomeAboutDetails(homedetials);
       setAllBanners(images);
       setCertificate(certificate.data?.[0]?.attributes?.image?.data)
+      // setKnowMilk(knm.data)
     })();
   }, []);
  
@@ -101,7 +119,7 @@ const Home = () => {
    
       <video  src='/video/banner.mp4'   muted   autoPlay loop playsInline  className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}/>
       {/* <CarouselImage images={banners || []}  /> */}
-
+ 
       <section className="w-full    pt-20  relative z-[1] bg-primary-subtle ">
      
         <div className="w-full">
@@ -278,8 +296,26 @@ const Home = () => {
                 </div>
               </div>
 
+              <KnmModel
+          closeModal={isModalOpen}
+         kymMilk={knowMilkItem}
+          close={setIsModalOpen}
+          
+               />
               <div className=" w-full flex flex-wrap  justify-center  p-2 gap-5 items-center md:justify-between">
-                <div className="flex flex-col justify-center items-center space-y-4">
+
+                {knowMilk?.map((item,idx)=>{
+                   
+                  return(
+                    <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex flex-col justify-center items-center space-y-4">
+                    <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" />
+                    <p className="text-white font-heading">
+                      {item?.attributes?.title}
+                    </p>
+                  </div>
+                  )
+                })}
+                {/* <div className="flex flex-col justify-center items-center space-y-4">
                   <img src={kymIco1.src} alt="imp-milk" />
                   <p className="text-white font-heading">
                     Importance of <br /> milk
@@ -308,7 +344,7 @@ const Home = () => {
                     Milk for every <br />
                     Age group
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -343,41 +379,7 @@ const Home = () => {
            
               </div>
 
-
-              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                <div className=" w-full flex items-center">
-                  <div className="flex flex-col justify-center items-start">
-                    <h1>Export Enquiry</h1>
-                  </div>
-                </div>
-
-                <div className="">
-                  <Link href="/en/export-enquiry">
-                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                      View all
-                    </button>
-                  </Link>
-                </div>
-              </div> */}
-
-              {/* {homeNotification?.map((item,idx)=>{
-                  console.log("notification",item)
-                  return(
-                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                    <div className=" w-full flex items-center">
-                      <div className="flex flex-col justify-center items-start">
-                        <h1>{item?.attributes?.title}</h1>
-                      </div>
-                    </div>
-    
-                    <div className="">
-                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                        View all
-                      </Link>
-                    </div>
-                  </div>
-                  )
-                })} */}
+ 
 
 <div className='w-full flex justify-end mt-3 rounded-md'>
             
@@ -402,40 +404,7 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                <div className=" w-full flex items-center">
-                  <div className="flex flex-col justify-center items-start">
-                    <h1>Export Enquiry</h1>
-                  </div>
-                </div>
-
-                <div className="">
-                  <Link href="/en/export-enquiry">
-                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                      View all
-                    </button>
-                  </Link>
-                </div>
-              </div> */}
-
-              {/* {homeNotification?.map((item,idx)=>{
-                  console.log("notification",item)
-                  return(
-                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                    <div className=" w-full flex items-center">
-                      <div className="flex flex-col justify-center items-start">
-                        <h1>{item?.attributes?.title}</h1>
-                      </div>
-                    </div>
-    
-                    <div className="">
-                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                        View all
-                      </Link>
-                    </div>
-                  </div>
-                  )
-                })} */}
+              
 
             
             </div>
@@ -443,7 +412,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto relative  bg-up-curved    ">
+      <section className="w-full h-auto relative       ">
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center w-full   flex-wrap   items-end  ">
@@ -500,7 +469,7 @@ const Home = () => {
             </div>
            
 
-            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
+            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `}     >
 
             <Swiper
              slidesPerView={3}
@@ -512,7 +481,7 @@ const Home = () => {
                 disableOnInteraction: false
               }}
               modules={[FreeMode, Autoplay]}
-              className="max-w-5xl m-auto">
+              className="max-w-7xl m-auto">
              {certificate?.map((item,idx)=>{
                     return(
                       <SwiperSlide key={idx}>

@@ -54,7 +54,7 @@ function OrganizationChart() {
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img
           src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
-          className="w-full h-full object-cover absolute top-0 z-[-1]"
+          className="w-full h-full object-conatain absolute top-0 z-[-1]"
         />
       </section>
 

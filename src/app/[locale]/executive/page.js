@@ -112,9 +112,9 @@ const Executive = () => {
 
     <div className='p-10 h-full flex justify-center items-center   '>
         <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4 shadow-lg bg-primary-gradient rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
-            <div className='md:w-1/2 flex justify-around  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full '  >
+            <div className='md:w-1/2 flex justify-around  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full  '  >
               <Zoom>
-              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[350px]' src={md?.attributes?.image?.data?.attributes?.url} alt="" />
+              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[350px] transition-all duration-300   ' src={md?.attributes?.image?.data?.attributes?.url} alt="" />
               </Zoom>
             </div>
             <div className=' md:w-2/3 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 '>
@@ -150,7 +150,7 @@ const Executive = () => {
           </tr>
         </thead>
 
-        <tbody className="text-start  text-sm  bg-secondary-gradient">
+        <tbody className="text-start  text-md  bg-secondary-gradient">
         {executives?.map((item,id)=>{
         
          
@@ -158,11 +158,11 @@ const Executive = () => {
  return(
     
     <tr className='border-t ' key={id}>
-    <td className="p-1 text-sm  ">{item?.attributes?.name}</td>
+    <td className="p-1 text-md  ">{item?.attributes?.name}</td>
    
-    <td className="p-1 text-sm">{item?.attributes?.designation}</td>
-    <td className="p-1 text-sm  ">{item?.attributes?.department}</td>
-    <td className="p-1 text-sm"> {item?.attributes?.working}</td>
+    <td className="p-1 text-md">{item?.attributes?.designation}</td>
+    <td className="p-1 text-md  ">{item?.attributes?.department}</td>
+    <td className="p-1 text-md"> {item?.attributes?.working}</td>
   </tr>
    
  )
@@ -196,7 +196,7 @@ const Executive = () => {
           </tr>
         </thead>
 
-        <tbody className="text-start  text-sm  bg-secondary-gradient">
+        <tbody className="text-start  text-md  bg-secondary-gradient">
         {unionCheifs?.map((item,id)=>{
  
 
@@ -204,9 +204,9 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
-  <td className="p-1 text-sm  ">{item?.attributes?.name}</td>
-  <td className="p-1 text-sm">{item?.attributes?.designation}</td>
-  <td className="p-1 text-sm overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1 text-md  ">{item?.attributes?.name}</td>
+  <td className="p-1 text-md">{item?.attributes?.designation}</td>
+  <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
 </tr>
  )
 
@@ -239,7 +239,7 @@ const Executive = () => {
           </tr>
         </thead>
 
-        <tbody className="text-start  text-sm  bg-secondary-gradient">
+        <tbody className="text-start  text-md  bg-secondary-gradient">
         {unitCheifs?.map((item,id)=>{
  
 
@@ -247,9 +247,9 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
-  <td className="p-1 text-sm  ">{item?.attributes?.name}</td>
-  <td className="p-1 text-sm">{item?.attributes?.designation}</td>
-  <td className="p-1 text-sm overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1 text-md  ">{item?.attributes?.name}</td>
+  <td className="p-1 text-md">{item?.attributes?.designation}</td>
+  <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
 </tr>
    
  )

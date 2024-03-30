@@ -33,7 +33,7 @@ function Footer() {
         <div className="    w-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-1 max-w-96 space-y-5">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
-           {locale==='en'?'Address':'ವಿಳಾಸ'}
+           {locale==='kn'?'ವಿಳಾಸ':'Address'}
             </h1>
 
             <div className="flex justify-center items-start space-x-3">
@@ -49,7 +49,9 @@ function Footer() {
 
           <div className="flex flex-col w-full h-full p-2 max-w-96 justify-center space-y-5 items-center md:items-start">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
-            {locale==='en'?'Telephone':'ದೂರವಾಣಿ'}
+          
+            {locale==='kn'?'ದೂರವಾಣಿ':'Telephone'}
+
             </h1>
 
             <div className="flex justify-center items-start space-x-3">
@@ -65,7 +67,9 @@ function Footer() {
 
           <div className="flex w-full h-full flex-col p-2 max-w-96 space-y-5 justify-center items-center md:items-start">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-28 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
-            {locale==='en'?'Email':'ಮಿಂಚಂಚೆ'}
+            
+            {locale==='kn'?'ಮಿಂಚಂಚೆ':'Email'}
+
             </h1>
 
             <div className="flex justify-center items-start space-x-3">

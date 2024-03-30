@@ -43,6 +43,7 @@ export const Header = () => {
   const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
  const {isScroll,setIsScroll}=useMyContext()
+ const [products,setProducts]=useState([])
  
  
   useEffect(() => {
@@ -53,15 +54,19 @@ export const Header = () => {
       const { data: milkunion } = await axios.get('/api/milk-unions?sort[0]=order:asc');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
       const { data: header } = await axios.get('/api/header');
+      const {data:product}=await axios.get('/api/products')
+      
       // const {data:latestNews}=await axios.get('/api/latest-new')
 
       const productSubitems = data?.data?.map((category, idx) => {
         return {
           title: category?.attributes?.title,
-          link: `/${locale}/our-product/${category?.id}`
+          link: `/${locale}/our-product/${category?.id}`,
+          product:product?.data?.filter(item=>item?.attributes?.category?.data?.attributes?.title===category?.attributes?.title)
         };
       });
 
+       
       const unionSubitems = milkunion?.data?.map((category, idx) => {
         return {
           title: category?.attributes?.name,
@@ -78,10 +83,11 @@ export const Header = () => {
       });
 
       setUnionSub(unionSubitems);
-      setProductSub(productSubitems);
+      setProductSub(productSubitems.sort((a,b)=>b.product.length-a.product.length));
       setKmfUnits(kmfSubitems);
       setHeaderItem(header?.data);
       setLateatNews(latestNews?.data);
+      setProducts(product.data)
     })();
   }, [params.locale]);
 
@@ -105,6 +111,7 @@ export const Header = () => {
   for (let i = 0; i < headItem?.length; i++) {
     if (headItem[i].title === 'OUR PRODUCTS' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು') {
       headItem[i].subItems = productSub;
+      
     }
     if (headItem[i].title === 'MILK UNIONS' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟಗಳು') {
       headItem[i].subItems = [
@@ -270,39 +277,125 @@ export const Header = () => {
                   {headItem?.map((header, i) => {
                     const hasItems = header?.subItems?.length;
                     const isLink = header?.link;
-                    return (
-                      <Link
-                        href={isLink ? isLink : '#'}
-                        key={i}
-                        className=" transition-all duration-300 hover:scale-[1.1] ">
-                        <li
-                          className="  text-[14px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
-                          onMouseEnter={() => setOpen(hasItems ? i : null)}>
-                          {header.title}
-                          {hasItems && (
-                            <div
-                              className={`p-4 bg-primary-darker absolute top-[2.71rem] left-[20px] w-[200px] overflow-auto max-h-[300px] ${
-                                open === i ? 'visible' : 'invisible'
-                              }  `}
-                              onMouseLeave={() => setOpen(null)}>
-                              <ul className="w-full  space-y-4 text-white">
-                                {header.subItems?.map((subItem, idx) => {
-                                  return (
-                                    <Link
-                                      href={subItem?.link || ''}
-                                      className="text-[12px] block hover:text-secondary-lighter"
-                                      key={idx}
-                                      onClick={() => setOpen(null)}>
-                                      <li key={idx}>{subItem.title}</li>
-                                    </Link>
-                                  );
-                                })}
-                              </ul>
-                            </div>
-                          )}
-                        </li>
-                      </Link>
-                    );
+                     if(header.title==='OUR PRODUCTS'){
+                      return (
+                        <div  key={i}>
+
+                        <Link
+                          href={isLink ? isLink : '#'}
+                         
+                          className=" w-full transition-all duration-300 hover:scale-[1.1] ">
+                          <li
+                            className="   text-[14px] border-light-light4 pl-2 pr-2   relative hover:text-secondary-lighter "
+                            onMouseEnter={() => setOpen(hasItems ? i : null)}
+                            >
+                            {header.title}
+                           
+                          </li>
+
+                        </Link>
+
+
+                        {hasItems && (
+                              <div
+                                className={`p-4 bg-primary-darker absolute   top-[3.71rem] transition-all duration-500 left-[20px]  w-[90%]     ${
+                                  open === i ? 'opacity-1' : 'hidden '
+                                }  `}
+                                onMouseLeave={() => setOpen(null)}>
+                                <ul className=" grid grid-cols-5 justify-center items-start gap-5      text-white">
+                                  {header.subItems?.map((subItem, idx) => {
+                                     
+                                    return (
+                                      <div  key={idx}>
+
+                                 
+                                      <Link
+                                        href={subItem?.link || ''}
+                                        className="text-[16px] block hover:text-secondary-lighter"
+                                       
+                                        onClick={() => setOpen(null)}>
+                                        <li className=' '  >
+                                        {subItem.title}
+
+                                      
+                                        </li>
+                                      </Link>
+
+                                      <ul className='list-disc p-1'>
+                                        {subItem?.product?.map((item,id)=>{
+                                          if(subItem?.product.length>10){
+                                            if(id<10){
+                                              return(
+                                                <li className='p-1' key={id}>
+                                                  {item?.attributes?.title}
+                                                </li>
+                                              )
+                                            }
+                                           
+                                            
+                                          }else{
+                                            return(
+                                              <li key={id}>
+                                                {item?.attributes?.title}
+                                              </li>
+                                            )
+                                          }
+                                         
+                                        })}
+                                      </ul>
+                                      </div>
+                                    );
+                                  })}
+                                </ul>
+                              </div>
+                            )}
+                              </div>
+                      );
+                     }
+
+
+                     else{
+                      return (
+                        <Link
+                          href={isLink ? isLink : '#'}
+                          key={i}
+                          className=" transition-all duration-300 hover:scale-[1.1] ">
+                          <li
+                            className="  text-[14px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
+                            onMouseEnter={() => setOpen(hasItems ? i : null)}>
+                            {header.title}
+                            {hasItems && (
+                              <div
+                                className={`p-4 bg-primary-darker z-50 absolute   top-[2.71rem] left-[20px] w-[200px] overflow-auto max-h-[300px] ${
+                                  open === i ? 'visible' : 'invisible'
+                                }  `}
+                                onMouseLeave={() => setOpen(null)}>
+                                <ul className="w-full  space-y-4 text-white">
+                                  {header.subItems?.map((subItem, idx) => {
+                                  
+                                    return (
+                                      <Link
+                                        href={subItem?.link || ''}
+                                        className="text-[12px] block hover:text-secondary-lighter"
+                                        key={idx}
+                                        onClick={() => setOpen(null)}>
+                                        <li key={idx}>
+                                          {subItem.title}
+                                          
+
+                                       
+                                          </li>
+                                      </Link>
+                                    );
+                                  })}
+                                </ul>
+                              </div>
+                            )}
+                          </li>
+                        </Link>
+                      );
+                     }
+                  
                   })}
                 </ul>
               </div>

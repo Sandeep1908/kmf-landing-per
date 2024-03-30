@@ -102,6 +102,11 @@ function KmfUnitDetail() {
                 onClick={() => setReadMore(true)}>
                 Read more...
               </div>
+              <div
+                className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${!readMore?'hidden':'block'}`}
+                onClick={() => setReadMore(false)}>
+                Read Less...
+              </div>
 
 </div>
 </div>

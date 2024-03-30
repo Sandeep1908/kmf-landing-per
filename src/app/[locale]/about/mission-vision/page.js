@@ -6,14 +6,16 @@ import CowImg2 from '@/images/about/mission/about-cow-2.png';
 import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
+import Counter from '@/components/Counter';
 function MissionVission() {
   const locale = useParams().locale;
+ 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
+    <div className="w-full h-full absolute top-36 z-[-1]   ">
       <section className={`w-full  h-96 pt-28 relative  grid place-items-center company-bg`}>
         <img src={evolutionImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
-
+ 
       <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
@@ -21,7 +23,7 @@ function MissionVission() {
               {locale === 'en' ? 'Mission & Vision' : 'ಧ್ಯೇಯದೃಷ್ಟಿ ಮತ್ತು ಘನೋದ್ದೇಶ'}
             </h1>
 
-            <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
+            <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
               <li>
                 {locale === 'en'
                   ? `    To march forward with a missionary zeal which will make KMF a trailblazer of
@@ -114,7 +116,7 @@ function MissionVission() {
           </div>
 
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
-            <h1 className="text-2xl font-heading text-primary-main uppercase p-2">
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
               {locale === 'en'
                 ? ` Objectives`
                 : `
@@ -124,7 +126,7 @@ function MissionVission() {
                 ಉದ್ದೇಶಗಳು`}{' '}
             </h1>
 
-            <p className="text-sm text-justify p-2">
+            <p className="text-lg text-justify p-2">
               {locale === 'en'
                 ? `       KMF is a Cooperative Apex Body in the State of Karnataka representing organisations of
               milk producer and implementing all round dairy development activities to achieve the
@@ -138,7 +140,7 @@ function MissionVission() {
               ಕೆಳಗಿನ ಉದ್ದೇಶಗಳು:`}
             </p>
 
-            <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
+            <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
               <li>
                 {locale === 'en'
                   ? `         To ensure assured and remunerative market round the year for the milk produced by
@@ -209,7 +211,7 @@ function MissionVission() {
               </li>
             </ul>
 
-            <p className="text-sm text-justify p-2">
+            <p className="text-lg text-justify p-2">
             {locale === 'en'
                   ? `                              The philosophy of dairy development is to eliminate middlemen and organise
                   institutions to be owned and managed by the milk producers themselves, employing
@@ -242,7 +244,7 @@ function MissionVission() {
       <section className=" relative w-full h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
-            <h1 className="text-2xl text-primary-main uppercase font-heading p-2">
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
             {locale === 'en'
                   ? `                    Evolution`
                   : `
@@ -253,7 +255,7 @@ function MissionVission() {
 
                   ವಿಕಾಸ.`}</h1>
 
-            <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
+            <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
               <li>
               {locale === 'en'
                   ? `                               Karnataka Milk Federation which is most popular as KMF, evolved itself as a premier
@@ -357,7 +359,26 @@ function MissionVission() {
           </div>
         </div>
 
-        <img src={MilkBottomImg.src} className="w-full h-full" />
+        <div className='w-full max-w-7xl  m-auto flex flex-col space-y-5 mb-5 '>
+          <div className='w-full flex justify-center items-center'>
+                  <h1 className='text-5xl text-primary-main relative before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main '>Our Achievements</h1>
+          </div>
+          <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5'>
+          <Counter  title={"Villages"} targetNumber={2000}/>
+          <Counter  title={"Villages"} targetNumber={2000}/>
+
+          <Counter  title={"Villages"} targetNumber={2000}/>
+
+          <Counter  title={"Villages"} targetNumber={2000}/>
+
+          <Counter  title={"Villages"} targetNumber={2000}/>
+          </div>
+         
+          
+
+        </div>
+
+        {/* <img src={MilkBottomImg.src} className="w-full h-full " /> */}
       </section>
 
       <Footer />

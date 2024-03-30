@@ -41,7 +41,7 @@ function WomenEmpowerment() {
       </section>
 
       <section className="w-full h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
-        <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale === 'en' ? 'STEP' : 'ಹಂತ'}</h1>
+        <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale === 'en' ? 'STEP' : 'ಸ್ಟೆಪ್ ಯೋಜನೆ'}</h1>
         <p className="text-justify text-md text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
@@ -49,11 +49,7 @@ function WomenEmpowerment() {
           being of women in the traditional informal sector in the year 1986 and advocates the
           objective of extending training for upgradation of skills and sustainable employment for
           women through a variety of action oriented projects which employ women in large numbers.`
-            : `ಮಹಿಳೆಯರಿಗಾಗಿ ತರಬೇತಿ ಮತ್ತು ಉದ್ಯೋಗ ಕಾರ್ಯಕ್ರಮಕ್ಕೆ (STEP) ಬೆಂಬಲವನ್ನು ಸಚಿವಾಲಯವು ಪ್ರಾರಂಭಿಸಿದೆ
-          ಮಹಿಳಾ ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ, ಭಾರತ ಸರ್ಕಾರ, ಉತ್ತಮವಾಗಿ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು ಕ್ರಮಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ
-          1986 ರಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಅನೌಪಚಾರಿಕ ವಲಯದಲ್ಲಿ ಮಹಿಳೆಯರಾಗಿರುವುದು ಮತ್ತು ಪ್ರತಿಪಾದಿಸುತ್ತದೆ
-          ಕೌಶಲ್ಯಗಳ ಉನ್ನತೀಕರಣ ಮತ್ತು ಸುಸ್ಥಿರ ಉದ್ಯೋಗಕ್ಕಾಗಿ ತರಬೇತಿಯನ್ನು ವಿಸ್ತರಿಸುವ ಉದ್ದೇಶ
-          ಮಹಿಳೆಯರು ಹೆಚ್ಚಿನ ಸಂಖ್ಯೆಯಲ್ಲಿ ಮಹಿಳೆಯರನ್ನು ಬಳಸಿಕೊಳ್ಳುವ ವಿವಿಧ ಕ್ರಿಯಾ ಆಧಾರಿತ ಯೋಜನೆಗಳ ಮೂಲಕ.`}
+            : `ಮಹಿಳೆಯರಿಗಾಗಿ ವೃತ್ತಿ ತರಬೇತಿ ಮತ್ತು ಉದ್ಯೋಗ ಬೆಂಬಲಿತ ಯೋಜನೆಯನ್ನು(ಸ್ಟೆಪ್) ಭಾರತ ಸರ್ಕಾರದ ಮಹಿಳಾ ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಸಚಿವಾಲಯದ 1986ರಲ್ಲ್ಲಿ ಪ್ರಾರಂಭವಾಗಿರುತ್ತದೆ. ಅಸಂಘಟಿತ ವಲಯದಲ್ಲಿರುವ ಮಹಿಳೆಯರನ್ನು ಸಾಮಾಜಿಕವಾಗಿ ಮತ್ತು ಆರ್ಥಿಕವಾಗಿ ಅಭಿವೃದ್ಧಿಪಡಿಸುವುದು  ಯೋಜನೆಯ ಮುಖ್ಯ ಉದ್ದೇಶವಾಗಿರುತ್ತದೆ. ಅಲ್ಲದೇ ಮಹಿಳೆಯರಲ್ಲಿ ವೃತ್ತಿ ಕೌಶಲ್ಯತೆ ಅಭಿವೃದ್ಧಿ ಪಡಿಸುವ ತರಬೇತಿಗಳನ್ನು ಹಾಗೂ ನಿರಂತರ ಆದಾಯ ತರುವಂತಹ ಉದ್ಯೋಗಗಳನ್ನು ಕಲ್ಪಿಸಿ ಹೆಚ್ಚಿನ ಮಹಿಳೆಯರನ್ನು ಉದ್ಯೋಗಗಳಲ್ಲಿ ತೊಡಗಿಸುವ ಉದ್ದೇಶ ಹೊಂದಿದೆ.`}
         </p>
       </section>
 

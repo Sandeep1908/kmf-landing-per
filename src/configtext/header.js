@@ -189,7 +189,7 @@ export const mobileHeader = {
     {
       title: 'OUR PRODUCTS',
 
-      link:'/en/our-product/21',
+      link:'/en/our-product/',
       imgUrl: ourproductIco.src
     },
 

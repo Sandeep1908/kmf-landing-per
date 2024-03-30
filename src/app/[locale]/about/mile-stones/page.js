@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import organizationHero from '@/images/about/organization-chart/organization-hero.png';
 import mileStoneIco from '@/images/about/milestone/milestone.png';
 import { mileStone } from '@/configtext/milestone';
+import barIco from '@/images/about/milestone/bar.svg'
 
  
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
+import Counter from '@/components/Counter';
 function OrganizationChart() {
   const [mileStones, setMileStone] = useState([]);
   const [selectedYear, setSelectedYear] = useState(1955);
@@ -146,13 +148,13 @@ console.log("milestones",data.data)
           </button>
         </div>
 
-            <ul className="flex  justify-between  items-center  p-3 w-full mt-10  overflow-auto relative before:absolute before:w-full before:h-2 before:bg-primary-main before:top-3   ">
+            <ul className="flex  justify-between  items-center    w-full mt-10  overflow-auto relative before:absolute before:w-full before:h-2 before:bg-primary-main before:top-0   ">
 
               {mileStones?.map((item, idx) => {
                 return (
                   <li
                     key={idx}
-                    className={` flex items-center justify-center space-x-3 relative cursor-pointer ${nextYear===item.year?'border-t-8 border-secondary-main':''}       `}
+                    className={` flex items-center justify-center pt-5 space-x-3 relative cursor-pointer ${nextYear===item.year?'border-t-8 border-secondary-main':''}       `}
                     onClick={() => handleYear(item?.year,idx)}>
                     <p
                       className={` text-xl ${
@@ -161,6 +163,9 @@ console.log("milestones",data.data)
                       {item?.year}
                     </p>
                     {nextYear === item?.year && <img src={item?.image} />}
+                    {nextYear === item?.year && <img src={barIco.src} className='w-10 h-10 z-[-10] absolute top-[-4px] left-4'/>}
+
+                    
                   </li>
                 );
               })}
@@ -168,64 +173,10 @@ console.log("milestones",data.data)
           </div>
         </div>
 
-        {/* <div className="  flex w-full  h-60 lg:hidden flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col justify-center items-start ">
-            <h1 className="text-2xl text-primary-main uppercase">Mile Stone</h1>
-
-            <div className="w-full pt-5">
-              <ul className="w-full flex flex-col space-y-5 justify-start items-start">
-                <li className="flex justify-start items-center space-x-4">
-                  {' '}
-                  <div>
-                    <img src={mileStoneIco.src} />
-                  </div>
-                  <span>
-                    8 Launching of New Products Jamoon Mix (March1998), Mysuru Pak (Dec.1998), Tetra
-                    Fino Packaged Nandini “Goodlife”milk(1999)
-                  </span>
-                </li>
-
-                <li className="flex justify-start items-center space-x-4">
-                  {' '}
-                  <div>
-                    <img src={mileStoneIco.src} />
-                  </div>
-                  <span>
-                    8 Launching of New Products Jamoon Mix (March1998), Mysuru Pak (Dec.1998), Tetra
-                    Fino Packaged Nandini “Goodlife”milk(1999)
-                  </span>
-                </li>
-
-                <li className="flex justify-start items-center space-x-4">
-                  {' '}
-                  <div>
-                    <img src={mileStoneIco.src} />
-                  </div>
-                  <span>
-                    8 Launching of New Products Jamoon Mix (March1998), Mysuru Pak (Dec.1998), Tetra
-                    Fino Packaged Nandini “Goodlife”milk(1999)
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <Swiper
-              navigation={true}
-              modules={[Navigation]}
-              className="mySwiper flex justify-center items-center w-full pt-10"
-              onSlideChange={(e) => handleSlideChange(e.realIndex)}>
-              {mileStones?.map((item, idx) => {
-                return (
-                  <SwiperSlide key={idx} className="  w-full h-auto p-5 my-swiper ">
-                    <p>{item.year}</p>
-                    <img src={item.image} className="flex justify-center items-center" />
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </div>
-        </div> */}
+        
       </section>
 
+      
       <Footer />
     </div>
   );

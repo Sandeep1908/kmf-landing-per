@@ -63,10 +63,10 @@ function Directors() {
             </div>
             <div className=" md:w-1/2 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 ">
               <div>
-                <p className="text-2xl  text-center font-bold text-white">
+                <p className="text-5xl  text-left font-bold text-white">
                   {chairmain?.attributes?.name}
                 </p>
-                <p className="text-base text-center font-normal text-white">
+                <p className="text-xl text-left font-normal text-white">
                   {chairmain?.attributes?.description}
                 </p>
               </div>

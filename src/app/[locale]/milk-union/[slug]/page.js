@@ -49,7 +49,7 @@ function MilkUnionDetail({ slug }) {
 
       <section className="max-w-[1282px]  m-auto grid grid-cols-3 gap-5   p-2 bg-[#F6F6F6]">
         <div
-          className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+          className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl   shadow-sm"
           >
           <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
 
@@ -72,7 +72,7 @@ function MilkUnionDetail({ slug }) {
   <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{union?.attributes?.name}</h1>
   <p className="text-md"> {union?.attributes?.union_code}</p>
 
-  <div className=" w-full h-full ">
+  <div className=" w-full h-full transition-all duration-300  ">
  
   {union?.attributes?.about?.length > 3
         ? union?.attributes?.about?.map((item, idx) => {
@@ -104,6 +104,12 @@ function MilkUnionDetail({ slug }) {
                     className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
                     onClick={() => setReadMore(true)}>
                     Read more...
+                  </div>
+
+                  <div
+                    className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${!readMore?'hidden':'block'}`}
+                    onClick={() => setReadMore(false)}>
+                    Read less...
                   </div>
    
   </div>

@@ -83,50 +83,49 @@ function Milk() {
     setCurrentPage(pageNumber);
   };
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]">
-   <section className={`w-full h-72 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+    <div className="w-full h-full relative   ">
+      
+      <section className={`w-full h-[50vh] pt-28 relative  grid place-items-center`}>
+        <img src={'https://kmf-public.s3.ap-south-1.amazonaws.com/products_fb68460da6.jpg'} className="w-full h-full object-fill fixed top-0   z-[-1]" />
      
       </section>
-      
-      <section className="w-full pt-10 pb-10">
-      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{title?.attributes?.title}</h1>
-        <div className="w-full p-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
-          {currentProducts.map((product, id) => {
-            return (
-              <ProductCard
-                key={id}
-                title={product?.attributes?.title}
-                image={product?.attributes?.image?.data?.attributes?.url}
-                description1={product?.attributes?.description}
-                
-              />
-            );
-          })}
-        </div>
+     
 
-        <div className="flex justify-center items-center mt-10 space-x-2">
-          <button
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
-          >
-            Previous
-          </button>
+      <section className='w-full h-full     bg-[#FFFFFF] '>
+        
+                  <div className='w-full  max-w-7xl m-auto pb-10'>
+                      
+                      <div className='w-full flex flex-col space-y-4 pt-10'>
+                            <h1 className='text-5xl text-primary-main font-subheading'>A twisty snacking sensation, Fulltoss brings a little flavour and fun to everyone.</h1>
+                            <p className='text-2xl '>Available in exciting flavours: Masala Masti, Tangy Tomato, Thai Sriracha and Noodle Masala</p>
+                      </div>
 
-          {renderPaginationNumbers()}
+                      <div className='w-full h-full mt-32 flex flex-col space-y-5 '>
+                          <h1 className='text-4xl'>Milk Family</h1>
+                          <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
 
-          <button
-            onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === Math.ceil(products.length / itemsPerPage)}
-            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
-          >
-            Next
-          </button>
-        </div>
+                              <div className='w-80 h-96 bg-[#F7F7F7] flex flex-col justify-between items-center overflow-hidden'>
+                                    <div className='w-full h-[80%] '>
+                                      <img src='https://kmf-public.s3.ap-south-1.amazonaws.com/Family_Pack_Fresh_Milk_Ice_Cream_Anjir_b_bea5279bfa.png'
+                                      className='w-full h-full transition-all duration-300 hover:scale-[1.1]'
+                                      />  
+
+                                    </div>
+
+                                    <div className='w-full h-[10%] flex justify-center items-center
+                                    '>
+                                      <p className='text-lg'>Fulltoss Masala Masti</p>
+                                    </div>
+                              </div>
+                           
+
+
+                          </div>
+                      </div>
+                  </div>
       </section>
 
-      <Footer />
+  <Footer/>
     </div>
   );
 }
