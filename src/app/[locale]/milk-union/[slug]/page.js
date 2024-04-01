@@ -141,7 +141,7 @@ function MilkUnionDetail({ slug }) {
           className="max-w-[1282px] h-full  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-primary-darker text-white  shadow-sm "
          >
           <div className="flex flex-col h-full space-y-1  p-2 justify-between items-start">
-            <h1 className="text-2xl">{union?.attributes?.name}</h1>
+            <h1 className="text-2xl">{union?.attributes?.longtitle}</h1>
 
             <div className="flex justify-center items-start space-x-4">
               <img src={locationIco.src} />
