@@ -5,7 +5,7 @@ import HeroImg from '@/images/milk-union/milk-union-home.png';
 import bengaluruMilkImg from '@/images/milk-union/bengaluru-milk.png';
 import Union1 from '@/images/milk-union/union-1.png';
 import Union2 from '@/images/milk-union/union-2.png';
-import locationIco from '@/images/milk-union/icons/location_on .svg';
+import locationIco from '@/images/milk-union/icons/location_on.svg';
 import mailIco from '@/images/milk-union/icons/mail.svg';
 import callIco from '@/images/milk-union/icons/call.svg';
 import printIco from '@/images/milk-union/icons/print.svg';
