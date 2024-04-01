@@ -165,7 +165,7 @@ function MilkUnionDetail({ slug }) {
 
             <div className="flex justify-end items-end w-full space-x-4">
               
-              <p className="text-xl   transition-all duration-300 cursor-pointer hover:underline text-white "> Know More...</p>
+              <Link href={union?.attributes?.unionlink || ''}><p className="text-xl   transition-all duration-300 cursor-pointer hover:underline text-white "> Know More...</p></Link>
             </div>
           </div>
         </div>
