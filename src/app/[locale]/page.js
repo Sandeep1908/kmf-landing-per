@@ -22,6 +22,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from '@/app/[locale]/Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
+import { ParallaxBanner } from "react-scroll-parallax";
+
 
 import ArrivalCard from '@/components/ArrivalCard.js';
  import { useMyContext } from '@/context/headerContext';
@@ -179,62 +181,66 @@ const Home = () => {
         {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
       </section>
 
-      <section className="w-full p-2  bg-primary-subtle  pt-12">
-        <div>
-          <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
-            <div
-              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಕಹಾಮ ಬಗ್ಗೆ</h1>
+      <ParallaxBanner
+        layers={[
+          { image: "/images/home-about.png", speed: -20 },
+          {
+            speed: -15,
+            children: (
+<h></h>
+            ),
+          },
+           
+        ]}
+        className="  w-full h-[600px]   object-contain "
+      >
+              <section className="w-full h-auto p-5     pt-12">
 
-              <div className="space-y-6">
-                <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
-              </div>
-            </div>
+ 
+  <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
+    <div className='w-full h-full justify-center items-center flex  '>
+    <div
+      className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
+      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಕಹಾಮ ಬಗ್ಗೆ
+</h1>
 
-            <Fade right>
-              <div className="p-4 flex justify-center items-center w-full h-96    ">
-                <video
-                  src={homeAboutDetails[0]?.video1}
-                  playsInline
-                  muted
-                  autoPlay
-                  loop
-                  className="w-full h-96 object-contain"
-                />
-              </div>
-            </Fade>
-          </div>
+      <div className="space-y-6">
+        <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
+      </div>
+    </div>
 
-          <div className=" mt-10 mb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center   m-auto max-w-7xl md:flex-row">
-            <Fade left>
-              <div className="p-4 flex justify-center items-center w-full h-96    ">
-                <video
-                  src={homeAboutDetails[0]?.video2}
-                  playsInline
-                  muted
-                  autoPlay
-                  loop
-                  className="w-full h-96 object-contain"
-                />
-              </div>
-            </Fade>
-            <div
-              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ</h1>
+    <div
+      className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
+      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ
+</h1>
 
-              <div className="space-y-6 h-[">
-                <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
-              </div>
+      <div className="space-y-6 h-[">
+        <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
+      </div>
 
-              <Link
-                href="/en/about/company-profile"
-                className="bg-primary-main flex justify-center items-center w-48 h-12 z-30 text-neutral-light4 font-semibold rounded-md">
-                Read More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    
+    </div>
+    </div>
+    
+    
+      <Link
+        href="/en/about/company-profile"
+        className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
+       ಮತ್ತಷ್ಟು ಓದು
+      </Link>
+   
+  
+   
+  </div>
+
+ 
+ 
+ 
+
+</section>
+
+       
+      </ParallaxBanner>
 
       {/* QUICK LINK  */}
 
@@ -257,14 +263,14 @@ const Home = () => {
             <Fade bottom>
               <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
                 <Link href="/en/comingsoon">
-                  <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
+                  <LinkCard title="ಬೇಡಿಕೆಯನ್ನು ಸಲ್ಲಿಸಿ" imgUrl={cartIco.src} />
                 </Link>
 
                 <Link href="/en/comingsoon">
-                  <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
+                  <LinkCard title="ಡೈರಿ ಪ್ರವಾಸ" imgUrl={locationIco.src} />
                 </Link>
                 <Link href="/kn/404">
-                  <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
+                  <LinkCard title="ನಂದಿನಿ ಕಮರ್ಷಿಯಲ್ಸ್" imgUrl={commercialIco.src} />
                 </Link>
               </div>
             </Fade>
@@ -520,13 +526,13 @@ const Home = () => {
       <section className="w-full h-auto  relative          ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
           <div className="   h-full    justify-between items-center    ">
-            <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
+            <div className="     w-full flex   justify-center p-10 z-[10]   items-center  ">
               
-              <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ  ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
+              <h1 className="text-2xl flex justify-center items-center font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ  ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
             </div>
            
 
-            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
+            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
             <Swiper
              slidesPerView={3}
               freeMode={true}

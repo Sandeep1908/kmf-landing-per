@@ -1,16 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import CarouselImage from '@/components/CarouselImage';
+ 
 import { LinkCard } from './[locale]/Card.js';
 import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
 import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
-import kymIco1 from '@/images/homeImages/kym/importance.tif.svg';
-import kymIco2 from '@/images/homeImages/kym/type.tif.svg';
-import kymIco3 from '@/images/homeImages/kym/nutrition.svg';
-import kymIco4 from '@/images/homeImages/kym/age.tif.svg';
+ 
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
@@ -23,7 +20,7 @@ import Rodal from 'rodal';
 import { ParallaxBanner } from "react-scroll-parallax";
 import ArrivalCard from '@/components/ArrivalCard.js';
 import { useMyContext } from '@/context/headerContext.js';
-import BlogModal from './[locale]/blog/BlogModal.js';
+
 import KnmModel from '@/components/KymModel.js';
     
 
