@@ -5,7 +5,7 @@ import HeroImg from '@/images/milk-union/milk-union-home.png';
 import bengaluruMilkImg from '@/images/milk-union/bengaluru-milk.png';
 import Union1 from '@/images/milk-union/union-1.png';
 import Union2 from '@/images/milk-union/union-2.png';
-import locationIco from '@/images/milk-union/icons/location_on.svg';
+import locationIco from '@/images/milk-union/icons/location_on .svg';
 import mailIco from '@/images/milk-union/icons/mail.svg';
 import callIco from '@/images/milk-union/icons/call.svg';
 import printIco from '@/images/milk-union/icons/print.svg';
@@ -144,22 +144,22 @@ function MilkUnionDetail({ slug }) {
             <h1 className="text-2xl">{union?.attributes?.longtitle}</h1>
 
             <div className="flex justify-center items-start space-x-4">
-              <img src={locationIco.src} />
+              <img src={locationIco.src} className='w-5 h-5' />
               <p className="text-lg">{union?.attributes?.address}</p>
             </div>
 
             <div className="flex justify-center items-start space-x-4">
-              <img src={callIco.src} />
+              <img src={callIco.src}  className='w-5 h-5'/>
               <p className="text-lg"> {union?.attributes?.phone}</p>
             </div>
 
             <div className="flex justify-center items-start space-x-4">
-              <img src={printIco.src}  />
+              <img src={printIco.src}className='w-5 h-5'  />
               <p className="text-lg"> {union?.attributes?.fax}</p>
             </div>
 
             <div className="flex justify-center items-start space-x-4">
-              <img src={mailIco.src} className='bg-white' />
+              <img src={mailIco.src} className='w-5 h-5'/>
               <p className="text-lg"> {union?.attributes?.email}</p>
             </div>
 

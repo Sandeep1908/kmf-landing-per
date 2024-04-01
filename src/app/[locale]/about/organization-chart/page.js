@@ -79,17 +79,17 @@ function OrganizationChart() {
                   <h1 className='text-5xl text-white relative before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-white flex justify-center items-center  '>About Organization</h1>
           </div>
           <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 relative organization-bg'>
-          <Counter  title={"Villages"} targetNumber={24000}/>
-          <Counter  title={"Lakh Milk Producer Members"} targetNumber={26}/>
+          <Counter  title={"Villages"} endNumber={24000}/>
+          <Counter  title={"Lakh Milk Producer Members"} endNumber={26}/>
 
-          <Counter  title={"Functioning Dairy co-coperatives societies"} targetNumber={15500}/>
+          <Counter  title={"Functioning Dairy co-coperatives societies"} endNumber={15500}/>
 
-          <Counter  title={"Lakh KGs of Milk Procurement Per day"} targetNumber={84}/>
+          <Counter  title={"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
 
-          <Counter  title={"Milk and Milk Products"} targetNumber={148}/>
-          <Counter  title={"  Milk Unions"} targetNumber={15}/>
-          <Counter  title={"Kmf Units"} targetNumber={15}/>
-          <Counter  title={"Crores Payment Per day to farmers"} targetNumber={24}/>
+          <Counter  title={"Milk and Milk Products"} endNumber={148}/>
+          <Counter  title={"  Milk Unions"} endNumber={15}/>
+          <Counter  title={"Kmf Units"} endNumber={15}/>
+          <Counter  title={"Crores Payment Per day to farmers"} endNumber={24}/>
 
 
 

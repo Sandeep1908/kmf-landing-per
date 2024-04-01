@@ -3,37 +3,41 @@ import React, { useEffect, useState } from 'react'
 import useApi from '@/hooks/useApi'
 import HeroImg from '@/images/milk-union/milk-union-home.png';
 import Footer from '@/components/Footer';
+import ProductCard from './[slug]/ProductCard';
+import useLocale from '@/hooks/useLocale';
 
 
 function Products() {
   const [categories,setCategories]=useState([])
-  const [products,setProducts]=useState([])
+  const [subcategory,setSubcategory]=useState([])
   const [banner,setBanner]=useState()
   const axios =useApi()
-  
+  const locale=useLocale().locale
 
   useEffect(()=>{
     (
       async()=>{
         const { data } = await axios.get('/api/categories?sort[0]=order:asc');
-        const { data:product } = await axios.get('/api/products');
+        const { data:subcategory } = await axios.get('/api/subcategories');
+     
         setBanner(data?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
 
         setCategories(data.data)
-        setProducts(product.data)
+        setSubcategory(subcategory.data)
       }
     )()
   },[])
 
   const handleProduct=async(id)=>{
     
-    const { data } = await axios.get(`/api/products`);
+    const { data } = await axios.get(`/api/subcategories`);
+    
     if(id==='all'){
-      setProducts(data.data)
+      setSubcategory(data.data)
     }
     else{
-      const product=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(id) ) 
-      setProducts(product)
+      const subcategory=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(id) ) 
+      setSubcategory(subcategory)
     }
   
     
@@ -49,7 +53,7 @@ function Products() {
      
       </section>
 
-            <section className='w-full max-w-[1400px] m-auto'>
+            <section className='w-full max-w-[1400px] m-auto mb-10'>
                 <div className='w-full h-40 flex justify-center items-center relative '>
                     <h1 className='text-5xl font-bold flex justify-center items-center relative font-heading text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-red-700 '>Our Products</h1>
                 </div>
@@ -64,15 +68,18 @@ function Products() {
                 </div>
 
 
-                <div className='w-full grid grid-cols-1 place-items-center gap-5 pt-20   space-x-4 sm:grid-cols-2 md:grid-cols-5 '>
+                <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-10'>
        
-                      {products?.map((item,id)=>{
-                  
+                      {subcategory?.map((item,id)=>{
+                   
                         return(
-                          <div key={id} className='w-52 h-52    ' >
-
-                          <img  src={item?.attributes?.image?.data?.attributes?.url} className='w-full h-full transition-all duration-300 object-contain hover:border-8 border-white hover:rounded-full '/>
-                          </div>
+                          <ProductCard
+                           key={id}
+                            title={item?.attributes?.title}
+                             image={item?.attributes?.image?.data[0]?.attributes?.url}
+                             link={`/${locale}/our-product/${item?.id}`}
+                             />
+                           
                         )
                       })}
                 </div>

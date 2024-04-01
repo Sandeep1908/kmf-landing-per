@@ -26,15 +26,17 @@ function Milk() {
   useEffect(() => {
     (async () => {
  
-      const { data } = await axios.get(`/api/products`);
-      const {data:category}= await axios.get('/api/categories')
+      const { data } = await axios.get(`/api/subcategories`);
+      const {data:subItems}= await axios.get('/api/product-sub-items')
+       
  
 
-      const product=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(param?.slug) ) 
-      const categoryName=category?.data?.filter(item=>item?.id===parseInt(param?.slug))
-       
+      const product=subItems?.data?.filter((item)=>item?.attributes?.subcategory?.data?.id === parseInt(param?.slug) ) 
+      console.log("product",product)
+      const categoryName=data?.data?.filter(item=>item?.id===parseInt(param?.slug))
+      
       setTitle(categoryName[0])
-      setBanner(category?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
+      setBanner(subItems?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
       setProducts(product)
       setLoading(false)
 
@@ -101,22 +103,31 @@ function Milk() {
                       </div>
 
                       <div className='w-full h-full mt-32 flex flex-col space-y-5 '>
-                          <h1 className='text-4xl'>Milk Family</h1>
+                          <h1 className='text-4xl'>{title?.attributes?.title} Family</h1>
                           <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
+                            {
+                              products?.map((item,id)=>{
+                                return(
+                                  <div key={id} className='w-80 h-96 bg-[#F7F7F7] flex flex-col justify-between items-center overflow-hidden'>
+                                  <div className='w-full h-[80%] '>
+                                    <img src={item?.attributes?.image?.data[0]?.attributes?.url}
+                                    className='w-full h-full transition-all duration-300 hover:scale-[1.1]'
+                                    />  
 
-                              <div className='w-80 h-96 bg-[#F7F7F7] flex flex-col justify-between items-center overflow-hidden'>
-                                    <div className='w-full h-[80%] '>
-                                      <img src='https://kmf-public.s3.ap-south-1.amazonaws.com/Family_Pack_Fresh_Milk_Ice_Cream_Anjir_b_bea5279bfa.png'
-                                      className='w-full h-full transition-all duration-300 hover:scale-[1.1]'
-                                      />  
+                                  </div>
 
-                                    </div>
+                                  <div className='w-full h-[10%] flex flex-col pb-3 justify-center items-center
+                                  '>
+                                    <p className='text-2xl'>{item?.attributes?.name}</p>
+                                    <p className='text-md'>{item?.attributes?.description}</p>
+                                    
+                                  </div>
+                            </div>
+                                )
+                              })
+                            }
 
-                                    <div className='w-full h-[10%] flex justify-center items-center
-                                    '>
-                                      <p className='text-lg'>Fulltoss Masala Masti</p>
-                                    </div>
-                              </div>
+                             
                            
 
 
