@@ -20,8 +20,8 @@ function OngoingAndFuture({ setLoading}) {
     })()
   },[])
   return (
-    <div className="w-full flex-col bg-[#FDF9F7]  max-w-5xl m-auto h-full   overflow-auto  items-start justify-start p-10 space-y-5">
-      <table className="table-fixed  shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
+    <div className="w-full flex-col    max-w-5xl m-auto h-full   overflow-auto  items-start justify-start p-10 space-y-5">
+      <table className="table-fixed  bg-[#FDF9F7] rounded-ld shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
         <thead className=" ">
           <tr className="text-md   bg-secondary-lighter ">
           <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>
@@ -45,7 +45,7 @@ function OngoingAndFuture({ setLoading}) {
 
 
 
-      <table className="table-auto shadow-md  border-spacing-y-2	 border-collapse border      min-w-full">
+      <table className="table-auto shadow-md bg-[#FDF9F7] rounded-lg  border-spacing-y-2	 border-collapse border      min-w-full">
         <thead className="  ">
           <tr className="text-md bg-secondary-lighter ">
             <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>

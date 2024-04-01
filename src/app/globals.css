@@ -138,6 +138,8 @@ body {
 
 }
 
+
+ 
 .news-bg::before {
   content: '';
   position: absolute;
@@ -151,6 +153,24 @@ body {
   padding-bottom: 20px;
   z-index: -1;
   opacity: .4;
+
+
+
+
+}
+ 
+.bg-organization::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/certificate.jpg') center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 20px;
+  z-index: -1;
+  /* opacity: .4; */
 
 
 

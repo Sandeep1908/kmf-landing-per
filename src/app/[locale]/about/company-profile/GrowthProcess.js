@@ -23,13 +23,13 @@ function GrowthProcess({setLoading}) {
     )()
   },[])
   return (
-    <div className="w-full flex-col max-w-7xl m-auto  bg-[#FDF9F7]     overflow-auto  items-start justify-start p-10 space-y-5">
-      <table className="table-fixed  border-spacing-y-2	 border-collapse border      min-w-full">
+    <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-[#FDF9F7]     overflow-auto  items-start justify-start p-10 space-y-5">
+      <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
         <thead className=" text-left ">
-          <tr className="text-md bg-primary-darker text-white  ">
+          <tr className="text-md bg-secondary-main   ">
           <th className="p-2">S.NO</th>
             <th className="p-2">KEY ITEMS</th>
-            <th className="p-2">UNIT</th>
+            <th className="p-2 ">UNIT</th>
             {growthProcess?.map((gp, id) => (
               <th className='w-20' key={id}>{gp?.attributes?.year}</th>
             ))}
@@ -41,10 +41,10 @@ function GrowthProcess({setLoading}) {
              
           
             return (
-              <tr key={id} className='border-t  '>
+              <tr key={id} className='border-t-2 border-black  '>
                  <td className='p-2 text-md uppercase text-start font-content'>{id+1}</td>
-                <td className='p-2 text-md uppercase text-start border border-r font-content'>{header?.attributes?.header}</td>
-                <td className='p-2 text-md font-content'>{header?.attributes?.unit}</td>
+                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>{header?.attributes?.header}</td>
+                <td className='p-2 text-md font-content border-r border-black'>{header?.attributes?.unit}</td>
 
                 {growthProcess.map((gp, id) => {
                   

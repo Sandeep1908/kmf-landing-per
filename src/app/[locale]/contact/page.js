@@ -37,11 +37,11 @@ const Contact = () => {
         <div className="w-full grid  md:grid-cols-3  md:p-9">
           <div className=" m-4 col-span-2  border border-neutral-light1 bg-neutral-light4 rounded-tl-3xl rounded-br-3xl">
             <div className="w-full p-12">
-              <p className="text-xl text-primary-darker font-heading  ">{locale==='en'?'Get in Touch':'ಸಂಪರ್ಕದಲ್ಲಿರಲು'}</p>
+              <p className="text-xl text-primary-darker font-heading  ">{locale==='en'?'Get in Touch':'ಸಂಪರ್ಕಿಸಿ'}</p>
 
               <p className=" mt-6 text-base font-semibold text-neutral-dark1">
               {locale==='en'?' Kindly fill in the particulars given below. We will be pleased to revert back to you':`
-ಕೆಳಗೆ ನೀಡಿರುವ ವಿವರಗಳನ್ನು ದಯವಿಟ್ಟು ಭರ್ತಿ ಮಾಡಿ. ನಿಮ್ಮ ಬಳಿಗೆ ಹಿಂತಿರುಗಲು ನಾವು ಸಂತೋಷಪಡುತ್ತೇವೆ`}
+ಕೆಳಗೆ ನೀಡಿರುವ ವಿವರಗಳನ್ನು ದಯವಿಟ್ಟು ಭರ್ತಿ ಮಾಡಿ. ಪ್ರತಿಕ್ರಿಯೆಗಾಗಿ ದಯಮಾಡಿ ನಿರೀಕ್ಷಣೆಯಲ್ಲಿರಿ`}
                
               </p>
 

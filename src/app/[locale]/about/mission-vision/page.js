@@ -6,7 +6,6 @@ import CowImg2 from '@/images/about/mission/about-cow-2.png';
 import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
-import Counter from '@/components/Counter';
 function MissionVission() {
   const locale = useParams().locale;
  
@@ -16,7 +15,9 @@ function MissionVission() {
         <img src={evolutionImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
  
+    
       <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
+
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
             <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
@@ -30,9 +31,7 @@ function MissionVission() {
                 exemplary performance and achievements beckoning other Milk Federations in the
                 country in pursuit of total emulation of its good deeds.`
                   : `
-                KMF ಅನ್ನು ಟ್ರಯಲ್‌ಬ್ಲೇಜರ್ ಮಾಡುವ ಮಿಷನರಿ ಉತ್ಸಾಹದಿಂದ ಮುನ್ನಡೆಯಲು
-                                ಇತರ ಹಾಲು ಒಕ್ಕೂಟಗಳನ್ನು ಕೈಬೀಸಿ ಕರೆಯುವ ಅನುಕರಣೀಯ ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ಸಾಧನೆಗಳು
-                                ತನ್ನ ಒಳ್ಳೆಯ ಕಾರ್ಯಗಳ ಸಂಪೂರ್ಣ ಅನುಕರಣೆಯ ಅನ್ವೇಷಣೆಯಲ್ಲಿ ದೇಶ.`}
+                  ಉದಾತ್ತ ಧ್ಯೇಯೋದ್ದೇಶಗಳು ಮತ್ತು ಉತ್ತಮ ಚಿಂತನೆಗಳಿಂದ ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳಿಯನ್ನು ರಾಷ್ಟ್ರದಲ್ಲಿಯೇ ಅನುಕರಣೀಯ ಸಂಸ್ಥೆಯನ್ನಾಗಿ ರೂಪಿಸುವುದರ ಜೊತೆಗೆ ವಿಶಿಷ್ಟ ಸಾಧನೆಗಳ ಮೂಲಕ ಇತರ ಹಾಲು ಮಹಾಮಂಡಳಿಗಳಿಗೆ ಮಾದರಿಯಾಗುವಂತಹ ಸಂಸ್ಥೆಯನ್ನಾಗಿ ರೂಪಿಸಲು ಶ್ರದ್ಧೆಯಿಂದ ಮುನ್ನಡೆಯುವುದು.`}
               </li>
 
               <li>
@@ -40,8 +39,7 @@ function MissionVission() {
                   ? ` To ensure prosperity of the rural Milk producers who are ultimate owners of the
                 Federation.`
                   : `
-                ಇದರ ಅಂತಿಮ ಮಾಲೀಕರಾಗಿರುವ ಗ್ರಾಮೀಣ ಹಾಲು ಉತ್ಪಾದಕರ ಏಳಿಗೆಯನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು
-                                ಫೆಡರೇಶನ್.`}
+                  ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳಿಯ ಬೆನ್ನೆಲುಬಾಗಿರುವ ಗ್ರಾಮೀಣ ಹಾಲು ಉತ್ಪಾದಕರಿಗೆ ಆರ್ಥಿಕ ಮತ್ತು ಸಾಮಾಜಿಕ ಸದೃಢತೆ ಹಾಗೂ ಶ್ರೇಯಸ್ಸು ಲಭಿಸುವಂತೆ ಮಾಡುವುದು.`}
               </li>
 
               <li>
@@ -50,8 +48,7 @@ function MissionVission() {
                 rural income, dairy productivity and rural employment.`
                   : `
                 
-ಉತ್ಪಾದಕ ಆಧಾರಿತ ಕಾರ್ಯಸಾಧ್ಯವಾದ ಸಹಕಾರಿ ಸಂಘವನ್ನು ಉತ್ತೇಜಿಸಲು ಪ್ರಚೋದನೆಯನ್ನು ನೀಡಲು
-ಗ್ರಾಮೀಣ ಆದಾಯ, ಡೇರಿ ಉತ್ಪಾದಕತೆ ಮತ್ತು ಗ್ರಾಮೀಣ ಉದ್ಯೋಗ.`}
+                  ಗ್ರಾಮೀಣ ಉದ್ಯೋಗ, ಹೈನು ಉತ್ಪಾದನೆ ಹಾಗೂ ವರಮಾನ ಹೆಚ್ಚಳವನ್ನು ಪ್ರೇರೇಪಿಸುವಂತಹ, ಹಾಲು ಉತ್ಪಾದಕರ ಹಿತದೃಷ್ಟಿಯನ್ನು ಕಾಯುವಂತಹ ಸಹಕಾರಿ ಸಮಾಜವನ್ನು ವೃದ್ಧಿಗೊಳಿಸುವುದು.`}
               </li>
 
               <li>
@@ -60,7 +57,7 @@ function MissionVission() {
                   : `
                 
 
-                ಹಾಲು ಸಂಗ್ರಹಣೆ ಮತ್ತು ಮಾರಾಟ ದರದ ನಡುವಿನ ಅಂತರವನ್ನು ಕಡಿಮೆ ಮಾಡಲು.`}
+                  ಹಾಲಿನ ಮಾರಾಟ ಮತ್ತು ಹಾಲಿನ ಶೇಖರಣಾ ದರಗಳ ನಡುವಿನ ಅಂತರವನ್ನು ಕಡಿಮೆ ಮಾಡುವುದು.`}
               </li>
               <li>
                 {locale === 'en'
@@ -69,8 +66,7 @@ function MissionVission() {
                   : `
                 
 
-                ಸೇವೆ ಸಲ್ಲಿಸಲು ಮಾರ್ಕೆಟಿಂಗ್ ಮತ್ತು ವ್ಯಾಪಾರ ವಿಭಾಗಗಳಲ್ಲಿ ವ್ಯಾಪಾರ ಕುಶಾಗ್ರಮತಿಯನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು
-                ಗುಣಮಟ್ಟದ ಹಾಲನ್ನು ಹೊಂದಿರುವ ಗ್ರಾಹಕರು, ಹಾಲು ಉತ್ಪಾದಕರ ಆದಾಯವನ್ನು ತುಂಬುತ್ತಾರೆ.`}
+                  ಗ್ರಾಹಕರಿಗೆ ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಹಾಲನ್ನು ಒದಗಿಸುವಲ್ಲಿ ಉತ್ತಮ ಮೌಲ್ಯದ ತೀಕ್ಷ್ಣತಮ ವ್ಯಾಪಾರಿ ಚಟುವಟಿಕೆಯನ್ನು ಅಳವಡಿಸಿಕೊಳ್ಳುವುದರ ಜೊತೆಗೆ ಹಾಲು ಉತ್ಪಾದಕರ ವರಮಾನಕ್ಕೆ ಪ್ರೇರಣೆಯಾಗುವುದು.`}
               </li>
 
               <li>
@@ -82,8 +78,7 @@ function MissionVission() {
                 
 
         
-ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ತಮ ಗುಣಮಟ್ಟದ MNCಗಳು ಮತ್ತು ಖಾಸಗಿ ಡೇರಿಗಳೊಂದಿಗೆ ಸ್ಪರ್ಧಿಸಲು
-ಉತ್ಪನ್ನಗಳು ಮತ್ತು ಪ್ರಕ್ರಿಯೆಯಲ್ಲಿ ಸಹಕಾರಿಗಳ ಅಜೇಯತೆಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳುತ್ತವೆ.`}
+                  ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳನ್ನು ನೀಡುವುದರೊಂದಿಗೆ ಖಾಸಗಿ ಡೇರಿಗಳು ಮತ್ತು ಬಹುರಾಷ್ಟ್ರೀಯ ಸಂಸ್ಥೆಗಳೊಂದಿಗೆ ಆರೋಗ್ಯಕರ ಸ್ಪರ್ಧೆಯನ್ನು ಮಾಡುತ್ತ, ಸಹಕಾರಿ ಸಂಸ್ಥೆಯ ಉತ್ತಮ ಸ್ಥಿತಿಯನ್ನು ಕಾಯ್ದುಕೊಳ್ಳುವುದು.`}
               </li>
 
              
@@ -98,9 +93,7 @@ function MissionVission() {
                 
 
         
-                  ನಮ್ಮ ಹಾಲು ಉತ್ಪಾದಕರ ಜೀವನದಲ್ಲಿ ಆರ್ಥಿಕ, ಸಾಮಾಜಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಏಳಿಗೆಗೆ ನಾಂದಿ ಹಾಡುವುದು
-                  ರೋಮಾಂಚಕ, ಸ್ವಾವಲಂಬಿ ಮತ್ತು ಸಮಗ್ರ ಸಹಕಾರಿ ಡೇರಿಯನ್ನು ಉತ್ತೇಜಿಸುವ ಮೂಲಕ ಸದಸ್ಯರು
-                  ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಅಭಿವೃದ್ಧಿ`}
+                  ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಒಂದು ಸಶಕ್ತ, ಸ್ವಾವಲಂಬಿ ಮತ್ತು ಸಂಪೂರ್ಣವಾದ ಸಹಕಾರಿ ಹೈನು ಅಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮವನ್ನು ಅನುಷ್ಠಾನಗೊಳಿಸುವ ಮೂಲಕ ನಮ್ಮ ಸದಸ್ಯ ಹಾಲು ಉತ್ಪಾದಕರ ಜೀವನದಲ್ಲಿ ಆರ್ಥಿಕ, ಸಾಮಾಜಿಕ ಹಾಗೂ ಸಾಂಸ್ಕೃತಿಕ ಸಮೃದ್ಧಿಯನ್ನು ಉಂಟುಮಾಡುವುದೇ ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳಿಯ ಘನೋದ್ದೇಶವಾಗಿದೆ.`}
               </li>
             </ul>
           </div>
@@ -359,24 +352,7 @@ function MissionVission() {
           </div>
         </div>
 
-        <div className='w-full max-w-7xl  m-auto flex flex-col space-y-5 mb-5 '>
-          <div className='w-full flex justify-center items-center'>
-                  <h1 className='text-5xl text-primary-main relative before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main '>Our Achievements</h1>
-          </div>
-          <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5'>
-          <Counter  title={"Villages"} targetNumber={2000}/>
-          <Counter  title={"Villages"} targetNumber={2000}/>
-
-          <Counter  title={"Villages"} targetNumber={2000}/>
-
-          <Counter  title={"Villages"} targetNumber={2000}/>
-
-          <Counter  title={"Villages"} targetNumber={2000}/>
-          </div>
-         
-          
-
-        </div>
+        
 
         {/* <img src={MilkBottomImg.src} className="w-full h-full " /> */}
       </section>

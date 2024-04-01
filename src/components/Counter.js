@@ -7,18 +7,18 @@ function Counter({targetNumber,title}) {
       const timer = setInterval(() => {
       
         if (count < targetNumber) {
-          setCount(prevCount => prevCount + 1);  
+          setCount(prevCount => prevCount +1);  
         } else {
           clearInterval(timer);
         }
-      }, 1);  
+      }, 0.3);  
   
       return () => clearInterval(timer);  
     }, [count, targetNumber]);
   return (
-    <div className='flex flex-col justify-center items-center'>
-        <p className='text-5xl text-primary-gradient flex justify-center items-center'>{count}+</p>
-        <p className='text-2xl text-primary-main '>{title}</p>
+    <div className='flex flex-col  space-y-2  justify-center items-center'>
+        <p className='text-[100px] text-white font-subheading flex justify-center items-center'>{count}+</p>
+        <p className='text-sm text-white text-center uppercase '>{title}</p>
     </div>
   )
 }

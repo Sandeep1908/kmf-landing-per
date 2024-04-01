@@ -100,16 +100,16 @@ useEffect(()=>{
       })} 
 
 
-<div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+<div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white  p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
             <div className='w-full    shadow-md bg-white  '>
-              <h1 className='p-5'>About Us</h1>
+              <h1 className='p-5 bg-primary-main text-white'>About Us</h1>
             </div>
             
             {tabs?.map((item, id) => {
                  
                 return (
                    
-                  <p  key={id} className="bg-white border m-1 p-1 text-md rounded w-full hover:bg-primary-main hover:text-white " onClick={() => handleTabs(id)}>
+                  <p  key={id} className="bg-white border cursor-pointer m-1 p-1 text-md rounded w-full hover:bg-primary-main hover:text-white " onClick={() => handleTabs(id)}>
                     {id+1} - {item?.tabName}
                   </p>
                 

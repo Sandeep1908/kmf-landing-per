@@ -184,7 +184,7 @@ const Home = () => {
           <div className=" mt-10  lg:space-x-10  flex flex-col justify-center items-center m-auto max-w-7xl md:flex-row">
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">KMF ಬಗ್ಗೆ</h1>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಕಹಾಮ ಬಗ್ಗೆ</h1>
 
               <div className="space-y-6">
                 <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />

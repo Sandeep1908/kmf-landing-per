@@ -83,7 +83,7 @@ export const Header = () => {
       });
 
       setUnionSub(unionSubitems);
-      setProductSub(productSubitems.sort((a,b)=>b.product.length-a.product.length));
+      setProductSub(productSubitems);
       setKmfUnits(kmfSubitems);
       setHeaderItem(header?.data);
       setLateatNews(latestNews?.data);
@@ -265,7 +265,7 @@ export const Header = () => {
 
           <div className={`w-full    ${isSticky ? 'sticky-header' : ''}`}>
             <div
-              className={`max-w-[80%] h-[50px]  m-auto p-5 z-20 relative  ${isSticky?'bg-gradient-to-r from-[#082649] to-primary-gradient':''}   `}>
+              className={`w-full max-w-[100%] h-[50px]  m-auto p-5 z-20 relative  ${isSticky?'bg-gradient-to-r from-[#082649] to-primary-gradient':'bg-gradient-to-r from-[#082649] to-primary-gradient'}   `}>
               <div className=" w-full h-full flex justify-between items-center lg:hidden ">
                 <div onClick={() => setOpenNav((prev) => !prev)}>
                   <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
@@ -298,11 +298,11 @@ export const Header = () => {
 
                         {hasItems && (
                               <div
-                                className={`p-4 bg-primary-darker absolute   top-[3.71rem] transition-all duration-500 left-[20px]  w-[90%]     ${
+                                className={`p-4 bg-gradient-to-r from-[#082649] to-primary-gradient absolute   top-[3.2rem] left-0 transition-all duration-500   w-full    ${
                                   open === i ? 'opacity-1' : 'hidden '
                                 }  `}
                                 onMouseLeave={() => setOpen(null)}>
-                                <ul className=" grid grid-cols-5 justify-center items-start gap-5      text-white">
+                                <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%]      text-white">
                                   {header.subItems?.map((subItem, idx) => {
                                      
                                     return (

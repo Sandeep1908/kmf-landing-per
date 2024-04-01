@@ -238,7 +238,7 @@ export const mobileHeader = {
     },
 
     {
-      title: 'ಕ ಹಾ ಮ ಬಗ್ಗೆ',
+      title: 'ಕಹಾಮ ಬಗ್ಗೆ',
       link:'/kn/about/company-profile',
       subItems: [
         {
@@ -246,12 +246,12 @@ export const mobileHeader = {
           link: '/kn/about/company-profile'
         },
         {
-          title: 'ನಮ್ಮ ಉದ್ದೇಶ',
+          title: 'ಕಹಾಮ ಉದ್ದೇಶ',
           link: '/kn/about/mission-vision'
         },
  
         {
-          title: 'ಸಂಸ್ಥೆಯ ರಚನೆ',
+          title: 'ಸಾಂಸ್ಥಿಕ ರಚನೆ',
           link: '/kn/about/organization-chart'
         },
         {
@@ -263,7 +263,7 @@ export const mobileHeader = {
           link: '/kn/about/quality-food'
         },
         {
-          title: 'ಆಡಳಿತಮಂಡಳಿ ನಿರ್ದೇಶಕರು',
+          title: 'ಮಂಡಳಿ ನಿರ್ದೇಶಕರುಗಳು',
           link: '/kn/directors'
         },
         {
@@ -309,7 +309,7 @@ export const mobileHeader = {
      
       subItems: [
         {
-          title: "ಇತ್ತೀಚಿನ ಸುದ್ದಿ",
+          title: "ಇತ್ತೀಚಿನ ಸುದ್ದಿಗಳು",
           link: '/kn/blog/'
         },
         {
