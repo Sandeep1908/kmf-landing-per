@@ -19,7 +19,8 @@ function Products() {
       async()=>{
         const { data } = await axios.get('/api/categories?sort[0]=order:asc');
         const { data:subcategory } = await axios.get('/api/subcategories?sort[0]=createdAt:asc');
-        
+        console.log("category",data.data)
+        console.log("subcateogy",subcategory.data)
      
         setBanner(data?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
 
@@ -30,6 +31,7 @@ function Products() {
   },[])
 
   const handleProduct=async(id)=>{
+    
     
     const { data } = await axios.get(`/api/subcategories?sort[0]=createdAt:asc`);
      

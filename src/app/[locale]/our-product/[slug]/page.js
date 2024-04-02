@@ -22,6 +22,7 @@ function Milk() {
   const pagesToShow = 4; // Number of pagination numbers to show
   
   const [title,setTitle]=useState('')
+  const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
  
   useEffect(() => {
     (async () => {
@@ -45,6 +46,11 @@ function Milk() {
     })();
   }, []);
 
+
+
+  const handleSeeMoreClick = (index) => {
+    setExpandedDescriptionIndex(index === expandedDescriptionIndex ? null : index);
+  };
 
 
   const renderPaginationNumbers = () => {
@@ -108,20 +114,32 @@ function Milk() {
                           <div className='w-full h-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
                             {
                               products?.map((item,id)=>{
+                                
                                 return(
                                   <div key={id} className='w-96 h-fit bg-[#F7F7F7] flex flex-col justify-between items-start '>
-                                  <div className='w-full justify-center items-center flex p-2 h-[60%] '>
+                                  <div className='w-full  justify-center items-center flex p-2 h-[50%] '>
                                     <img src={item?.attributes?.image?.data?.[0]?.attributes?.url}
                                     className='w-[50%] h-full transition-all duration-300 hover:scale-[1.1]'
                                     />  
 
                                   </div>
 
-                                  <div className='w-full h-[40%] p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
+                                  <div className='w-full h-[50%] p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
                                   '>
-                                    <p className='text-2xl'>{item?.attributes?.name}</p>
-                                    <p className='text-center w-[80%] m-auto bg-yellow-300 p-3 rounded-lg'>{item?.attributes?.quantity}</p>
-                                    <p className='text-md'>{item?.attributes?.description}</p>
+                                    <p className='text-2xl text-center w-full'>{item?.attributes?.name}</p>
+                                    <p className={`text-center w-[80%] m-auto  p-3 rounded-lg ${item?.attributes?.quantity?'bg-yellow-300':'hidden'}`}>{item?.attributes?.quantity}</p>
+                                    <p className='text-md'>
+                                      
+                                    {expandedDescriptionIndex === id || item?.attributes?.description.length <= 100
+                        ? item?.attributes?.description
+                        : `${item?.attributes?.description.substring(0, 100)}... `}
+
+                      {item?.attributes?.description.length > 100 &&
+                        <button className='text-primary-main' onClick={() => handleSeeMoreClick(id)}>
+                          {expandedDescriptionIndex === id ? "See less" : "See more"}
+                        </button>
+                      }
+                                      </p>
                                     
                                   </div>
                             </div>
