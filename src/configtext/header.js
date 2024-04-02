@@ -196,7 +196,7 @@ export const mobileHeader = {
     {
       title: 'NANDINI RECIPES',
 
-      link:'',
+      link:'/en/nandini-recipes',
       imgUrl: ourproductIco.src
     },
     {
@@ -306,7 +306,7 @@ export const mobileHeader = {
     {
       title: 'ನಂದಿನಿ ಪಾಕವಿಧಾನಗಳು',
 
-      link:'',
+      link:'/kn/nandini-recipes',
       imgUrl: ourproductIco.src
     },
 
