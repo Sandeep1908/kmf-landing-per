@@ -329,7 +329,7 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col justify-around space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col     max-w-[400px]    ">
+            <div className=" relative w-full overflow-scroll flex flex-col     max-w-[400px]  overflow-x-hidden overflow-y-hidden ">
              
               
               <div className="w-full flex flex-col shadow-2xl shadow-blue-300   overflow-hidden  justify-center h-[425px] items-center rounded-lg border-2 border-primary-main  ">
@@ -358,7 +358,7 @@ const Home = () => {
 </div>
             </div>
 
-            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
+            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]  overflow-x-hidden overflow-y-hidden   ">
               <div className="w-full flex flex-col shadow-md   overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg   ">
                 <h1 className="text-4xl uppercase font-heading shadow-md shadow-black bg-primary-gradient text-white">New Arrivals & Best Selling</h1>
 
