@@ -50,22 +50,27 @@ export const Header = () => {
    
     (async () => {
        
-      const { data } = await axios.get('/api/categories?sort[0]=order:asc');
+      const { data } = await axios.get('/api/subcategories?sort[0]=createdAt:asc');
       const { data: milkunion } = await axios.get('/api/milk-unions?sort[0]=order:asc');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
       const { data: header } = await axios.get('/api/header');
-      const {data:product}=await axios.get('/api/products')
+      const {data:product}=await axios.get('/api/product-sub-items?sort[0]=createdAt:asc')
+ 
+
       
       // const {data:latestNews}=await axios.get('/api/latest-new')
 
       const productSubitems = data?.data?.map((category, idx) => {
+   
         return {
           title: category?.attributes?.title,
           link: `/${locale}/our-product/${category?.id}`,
-          product:product?.data?.filter(item=>item?.attributes?.category?.data?.attributes?.title===category?.attributes?.title)
+          product:product?.data?.filter(item=>item?.attributes?.subcategory?.data?.attributes?.title===category?.attributes?.title),
+    
+
         };
       });
-
+ 
        
       const unionSubitems = milkunion?.data?.map((category, idx) => {
         return {
@@ -277,7 +282,7 @@ export const Header = () => {
                   {headItem?.map((header, i) => {
                     const hasItems = header?.subItems?.length;
                     const isLink = header?.link;
-                     if(header.title==='OUR PRODUCTS'){
+                     if(header.title==='OUR PRODUCTS' || header.title==='ಮಹಿಳಾ ಸಬಲೀಕರಣ'){
                       return (
                         <div  key={i}>
 
@@ -302,7 +307,7 @@ export const Header = () => {
                                   open === i ? 'opacity-1' : 'hidden '
                                 }  `}
                                 onMouseLeave={() => setOpen(null)}>
-                                <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%]      text-white">
+                                <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%]  m-auto    text-white">
                                   {header.subItems?.map((subItem, idx) => {
                                      
                                     return (
@@ -326,18 +331,22 @@ export const Header = () => {
                                           if(subItem?.product.length>10){
                                             if(id<10){
                                               return(
-                                                <li className='p-1' key={id}>
-                                                  {item?.attributes?.title}
+                                                <Link key={id} href={subItem?.link || ''} onClick={()=>setOpen(null)}>
+                                                <li className='p-1 cursor-pointer' >
+                                                  {item?.attributes?.name}
                                                 </li>
+                                                </Link>
                                               )
                                             }
                                            
                                             
                                           }else{
                                             return(
-                                              <li key={id}>
-                                                {item?.attributes?.title}
-                                              </li>
+                                              <Link key={id} href={subItem?.link || ''} onClick={()=>setOpen(null)}>
+                                                <li className='p-1 cursor-pointer' >
+                                                  {item?.attributes?.name}
+                                                </li>
+                                                </Link>
                                             )
                                           }
                                          

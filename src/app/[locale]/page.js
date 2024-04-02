@@ -23,7 +23,8 @@ import Card from '@/app/[locale]/Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
 import { ParallaxBanner } from "react-scroll-parallax";
-
+import { FaRegHandPointRight } from "react-icons/fa";
+import KnmModel from '@/components/KymModel.js';
 
 import ArrivalCard from '@/components/ArrivalCard.js';
  import { useMyContext } from '@/context/headerContext';
@@ -42,6 +43,10 @@ const Home = () => {
  const {isScroll,setIsScroll}=useMyContext()
   const axios = useApi();
   const videoRef=useRef()
+  const [knowMilk,setKnowMilk]=useState([])
+  const [knowMilkItem,setKnowMilkItem]=useState([])
+ 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(()=>{
     videoRef.current.muted=true
@@ -64,7 +69,8 @@ const Home = () => {
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
 
-   
+      const {data:knm}=await axios.get('/api/knowyourmilks')
+      console.log("kmd",knm.data)
       
 
       const videos = gallery?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url);
@@ -97,10 +103,14 @@ const Home = () => {
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
       setCertificate(certificate.data?.[0]?.attributes?.image?.data)
+      setKnowMilk(knm.data)
     })();
   }, []);
 
-   
+  const handleKnowMilk=(item)=>{
+    setKnowMilkItem(item)
+    setIsModalOpen(true);
+   }
 
   useEffect(() => {
     const updateScreensize = () => {
@@ -305,39 +315,24 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className=" w-full flex flex-wrap  justify-center  p-2 gap-5 items-center md:justify-between">
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco1.src} alt="imp-milk" />
-                  <p className="text-white">
-                  ನ ಪ್ರಾಮುಖ್ಯತೆ <br /> 
-ಹಾಲು
-                  </p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco2.src} alt="imp-milk" />
-                  <p className="text-white">
-                  ವರ್ಗ ಮತ್ತು ಪ್ರಕಾರ <br />
-                  ಹಾಲಿನ
-                  </p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco3.src} alt="imp-milk" />
-                  <p className="text-white">
-                    
-ಅಗತ್ಯ ಪೋಷಣೆ <br />
-ಹಾಲಿನಲ್ಲಿ
-                  </p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco4.src} alt="imp-milk" />
-                  <p className="text-white">
-                  ಪ್ರತಿಯೊಂದಕ್ಕೂ ಹಾಲು<br />
-                  ವಯಸ್ಸಿನ ಗುಂಪು
-                  </p>
-                </div>
+              <KnmModel
+          closeModal={isModalOpen}
+         kymMilk={knowMilkItem}
+          close={setIsModalOpen}
+          
+               />
+              <div className=" w-full flex flex-wrap z-[10]  justify-center  p-2 gap-5 items-center md:justify-between">
+              {knowMilk?.map((item,idx)=>{
+                  
+                   return(
+                     <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex w-40  flex-col justify-center items-center space-y-4">
+                     <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" />
+                     <p className="text-white  text-center font-heading">
+                       {item?.attributes?.title}
+                     </p>
+                   </div>
+                   )
+                 })}
               </div>
             </div>
           </div>
@@ -363,9 +358,11 @@ const Home = () => {
                 <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
                   {allTenders?.map((item, id) => {
                     return (
-                      <p key={id} className="bg-white border m-2 p-2 text-xs rounded w-full ">
-                        {id} - {item?.attributes?.title}
-                      </p>
+                      <div key={id} className="bg-white border m-2 p-2 text-xs flex justify-center  items-center space-x-2 rounded w-full ">
+                      <FaRegHandPointRight size={20} color='red' /> 
+                      <p className='w-full'> {item?.attributes?.title}</p>
+                     
+                    </div>
                     );
                   })}
                 </div>
@@ -373,46 +370,12 @@ const Home = () => {
               </div>
 
 
-              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                <div className=" w-full flex items-center">
-                  <div className="flex flex-col justify-center items-start">
-                    <h1>Export Enquiry</h1>
-                  </div>
-                </div>
+               
 
-                <div className="">
-                  <Link href="/en/export-enquiry">
-                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                      View all
-                    </button>
-                  </Link>
-                </div>
-              </div> */}
-
-              {/* {homeNotification?.map((item,idx)=>{
-                  console.log("notification",item)
-                  return(
-                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                    <div className=" w-full flex items-center">
-                      <div className="flex flex-col justify-center items-start">
-                        <h1>{item?.attributes?.title}</h1>
-                      </div>
-                    </div>
-    
-                    <div className="">
-                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                        View all
-                      </Link>
-                    </div>
-                  </div>
-                  )
-                })} */}
-
-<div className='w-full flex justify-end mt-3 rounded-md'>
+              <div className='w-full flex justify-end mt-3 rounded-md'>
             
-<h1 className='  text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white '>
-ಮತ್ತಷ್ಟು ಓದು</h1>
-</div>
+            <Link href={'/kn/blog/notification'} className='  p-2 bg-primary-main text-white '>Read more</Link>
+            </div>
             </div>
 
             <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
@@ -432,40 +395,7 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* <div className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                <div className=" w-full flex items-center">
-                  <div className="flex flex-col justify-center items-start">
-                    <h1>Export Enquiry</h1>
-                  </div>
-                </div>
-
-                <div className="">
-                  <Link href="/en/export-enquiry">
-                    <button className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                      View all
-                    </button>
-                  </Link>
-                </div>
-              </div> */}
-
-              {/* {homeNotification?.map((item,idx)=>{
-                  console.log("notification",item)
-                  return(
-                    <div key={idx} className="w-full flex flex-col space-y-4 justify-center items-center bg-white p-5 rounded-lg border-b-2 border-primary-main sm:flex-row sm:justify-between">
-                    <div className=" w-full flex items-center">
-                      <div className="flex flex-col justify-center items-start">
-                        <h1>{item?.attributes?.title}</h1>
-                      </div>
-                    </div>
-    
-                    <div className="">
-                      <Link href={item?.attributes?.pdf?.data?.attributes?.url || ''} className="w-40 h-5 border border-primary-main p-5 flex items-center justify-center text-primary-main rounded-md">
-                        View all
-                      </Link>
-                    </div>
-                  </div>
-                  )
-                })} */}
+               
 
             
             </div>

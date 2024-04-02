@@ -7,6 +7,8 @@ import { milkProducts } from '@/configtext/milk.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
+import { useMyContext } from '@/context/headerContext';
+
 function Milk() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,6 +25,8 @@ function Milk() {
   
   const [title,setTitle]=useState('')
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
+
+  const {isScroll,setIsScroll}=useMyContext()
  
   useEffect(() => {
     (async () => {
@@ -92,10 +96,10 @@ function Milk() {
     setCurrentPage(pageNumber);
   };
   return (
-    <div className="w-full h-full relative   ">
+    <div className={`w-full h-full relative ${isScroll?'top-36':''}  `}  >
       
-      <section className={`w-full h-[50vh] pt-28 relative  grid place-items-center`}>
-        <img src={'https://kmf-public.s3.ap-south-1.amazonaws.com/products_fb68460da6.jpg'} className="w-full h-full object-fill fixed top-0   z-[-1]" />
+      <section className={`w-full  pt-28 relative  grid place-items-center ${isScroll?'h-[400px]':'h-[80vh]'}`}>
+        <video muted playsInline autoPlay loop src={'/video/milk-video.mp4'} className={`w-full h-full object-fill fixed top-0   z-[-1]`}  />
      
       </section>
      
@@ -105,7 +109,7 @@ function Milk() {
                   <div className='w-full  max-w-7xl m-auto pb-10'>
                       
                       <div className='w-full flex flex-col justify-center items-center space-y-4 pt-10'>
-                            <h1 className='text-5xl text-primary-main font-subheading'>{title?.attributes?.Heading}</h1>
+                            <h1 className='text-5xl text-primary-main text-center font-subheading'>{title?.attributes?.Heading}</h1>
                             <p className='text-2xl '>{title?.attributes?.description}</p>
                       </div>
 
@@ -128,13 +132,14 @@ function Milk() {
                                   '>
                                     <p className='text-2xl text-center w-full'>{item?.attributes?.name}</p>
                                     <p className={`text-center w-[80%] m-auto  p-3 rounded-lg ${item?.attributes?.quantity?'bg-yellow-300':'hidden'}`}>{item?.attributes?.quantity}</p>
-                                    <p className='text-md'>
+                                    <p className={`text-md ${item?.attributes?.description?'':'hidden'}`}>
                                       
-                                    {expandedDescriptionIndex === id || item?.attributes?.description.length <= 100
+ 
+                                    {expandedDescriptionIndex === id || item?.attributes?.description?.length <= 100
                         ? item?.attributes?.description
-                        : `${item?.attributes?.description.substring(0, 100)}... `}
+                        : `${item?.attributes?.description?.substring(0, 100)}... `}
 
-                      {item?.attributes?.description.length > 100 &&
+                      {item?.attributes?.description?.length > 100 &&
                         <button className='text-primary-main' onClick={() => handleSeeMoreClick(id)}>
                           {expandedDescriptionIndex === id ? "See less" : "See more"}
                         </button>

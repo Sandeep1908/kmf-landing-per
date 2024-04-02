@@ -76,20 +76,20 @@ function OrganizationChart() {
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>
           <div className='w-full flex justify-center items-center'>
-                  <h1 className='text-5xl text-white relative before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-white flex justify-center items-center  '>About Organization</h1>
+                  <h1 className='text-5xl text-white relative before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-white flex justify-center items-center  '>{locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}</h1>
           </div>
           <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 relative organization-bg'>
-          <Counter  title={"Villages"} endNumber={24000}/>
-          <Counter  title={"Lakh Milk Producer Members"} endNumber={26}/>
+          <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
+          <Counter  title={locale==='kn'?"ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರು":"Lakh Milk Producer Members"} endNumber={26}/>
 
-          <Counter  title={"Functioning Dairy co-coperatives societies"} endNumber={15500}/>
+          <Counter  title={locale==='kn'?"ಹಾಲು ಸಹಕಾರಿ ಸಂಘಗಳು":"Functioning Dairy co-coperatives societies"} endNumber={15500}/>
 
-          <Counter  title={"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
 
-          <Counter  title={"Milk and Milk Products"} endNumber={148}/>
-          <Counter  title={"  Milk Unions"} endNumber={15}/>
-          <Counter  title={"Kmf Units"} endNumber={15}/>
-          <Counter  title={"Crores Payment Per day to farmers"} endNumber={24}/>
+          <Counter  title={locale==='kn'?"ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳು":"Milk and Milk Products"} endNumber={148}/>
+          <Counter  title={locale==='kn'?"ಹಾಲು ಒಕ್ಕೂಟಗಳು":"Milk Unions"} endNumber={15}/>
+          <Counter  title={locale==='kn'?"ಕಹಾಮ ಘಟಕಗಳು":"Kmf Units"} endNumber={15}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ರೈತರಿಗೆ ಪಾವತಿ ":"Crores Payment Per day to farmers"} endNumber={24}/>
 
 
 
@@ -133,17 +133,17 @@ function OrganizationChart() {
           ) :
           
           (
-            <div className="w-full flex flex-col justify-center items-start ">
-              <h1 className="text-2xl text-primary-main uppercase">ಸಂಸ್ಥೆಯ ವಿನ್ಯಾಸ
+            <div className="w-full flex flex-col justify-center items-start shadow-md ">
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಸಂಸ್ಥೆಯ ವಿನ್ಯಾಸ
 </h1>
 
-              <p className="text-sm text-justify p-2">
+              <p className="text-lg text-justify p-2">
               
               ಸಹಕಾರಿ ತತ್ವಗಳ ಆಧಾರದ ಮೇಲೆ ರೂಪಗೊಂಡಿದ್ದು, ಸಂಸ್ಥೆಯು 3 ಹಂತಗಳಲ್ಲಿ ವಿನ್ಯಾಸಗೊಂಡಿದೆ.
 
               </p>
 
-              <ul className="flex flex-col space-y-5 p-6 w-full  justify-center items-start list-disc text-justify text-sm  md:justify-normal md:items-start">
+              <ul className="flex flex-col space-y-5 p-6 w-full  justify-center items-start list-disc text-justify text-lg  md:justify-normal md:items-start">
                 <li>
                 ⁠ಪ್ರಾಥಮಿಕ ಹಂತದಲ್ಲಿ ಹಾಲು ಉತ್ಪಾದಕರ ಸಹಕಾರ ಸಂಘಗಳು
 </li>
@@ -156,7 +156,7 @@ function OrganizationChart() {
                 ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿ ಸಹಕಾರಿ ಹಾಲು ಮಹಾಮಂಡಳಿ
 </li>
               </ul>
-              <p className="text-sm text-justify p-2">
+              <p className="text-lg text-justify p-2">
               ಮೇಲಿನ ಮೂರು ಹಂತಗಳು ಹಾಲು ಉತ್ಪಾದಕರಿಂದ ಚುನಾಯಿತ ಆಡಳಿತ ಮಂಡಳಿಯ ಸದಸ್ಯರಿಂದ ನಿರ್ವಹಿಸಲಾಗುತ್ತಿದೆ. ರಾಜ್ಯಮಟ್ಟದ ಕೆ.ಎಂ.ಎಫ್ ಘಟಕಗಳು, ಜಿಲ್ಲಾ ಹಾಲು ಒಕ್ಕೂಟಗಳು ಹಾಗೂ ಪ್ರಾಥಮಿಕ ಹಾಲು ಉತ್ಪಾದಕರ ಸಹಕಾರ ಸಂಘಗಳು ಸಹಕಾರಿ ಹೈನೋದ್ಯಮದ ಧ್ಯೇಯೋದ್ದೇಶಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅನುಷ್ಠಾನಗೊಳಿಸಲು ಕೈ ಜೋಡಿಸಿ ಕೆಲಸ ಮಾಡುತ್ತಿವೆ.
               </p>
             </div>

@@ -21,10 +21,12 @@ function MissionVission() {
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
             <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-              {locale === 'en' ? 'Mission & Vision' : 'ಧ್ಯೇಯದೃಷ್ಟಿ ಮತ್ತು ಘನೋದ್ದೇಶ'}
+              {locale === 'en' ? 'Vission & Mission' : 'ಘನೋದ್ದೇಶ  ಮತ್ತು  ಧ್ಯೇಯದೃಷ್ಟಿ'}
             </h1>
 
-            <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
+            <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center  list-disc text-justify text-lg  md:justify-normal md:items-start">
+
+            <h1 className='text-xl'>{locale==='kn'?'ಘನೋದ್ದೇಶ':'Vission'}</h1>
               <li>
                 {locale === 'en'
                   ? `    To march forward with a missionary zeal which will make KMF a trailblazer of
@@ -83,8 +85,16 @@ function MissionVission() {
 
              
              
+      
+            </ul>
+
+
+            <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc   text-justify text-lg  md:justify-normal md:items-start">
+
+            <h1 className='text-xl'>{locale==='kn'?'ಧ್ಯೇಯದೃಷ್ಟಿ':'Mission'}</h1>
+
               <li>
-                {locale === 'en'
+              {locale === 'en'
                   ? `     
                   Heralding economic, social and cultural prosperity in the lives of our milk producer
                   members by promoting vibrant, self-sustaining and holistic cooperative dairy
@@ -95,7 +105,8 @@ function MissionVission() {
         
                   ಕರ್ನಾಟಕ ರಾಜ್ಯದಲ್ಲಿ ಒಂದು ಸಶಕ್ತ, ಸ್ವಾವಲಂಬಿ ಮತ್ತು ಸಂಪೂರ್ಣವಾದ ಸಹಕಾರಿ ಹೈನು ಅಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮವನ್ನು ಅನುಷ್ಠಾನಗೊಳಿಸುವ ಮೂಲಕ ನಮ್ಮ ಸದಸ್ಯ ಹಾಲು ಉತ್ಪಾದಕರ ಜೀವನದಲ್ಲಿ ಆರ್ಥಿಕ, ಸಾಮಾಜಿಕ ಹಾಗೂ ಸಾಂಸ್ಕೃತಿಕ ಸಮೃದ್ಧಿಯನ್ನು ಉಂಟುಮಾಡುವುದೇ ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳಿಯ ಘನೋದ್ದೇಶವಾಗಿದೆ.`}
               </li>
-            </ul>
+                
+              </ul>
           </div>
 
         

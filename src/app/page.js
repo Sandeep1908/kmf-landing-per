@@ -20,6 +20,7 @@ import Rodal from 'rodal';
 import { ParallaxBanner } from "react-scroll-parallax";
 import ArrivalCard from '@/components/ArrivalCard.js';
 import { useMyContext } from '@/context/headerContext.js';
+import { FaRegHandPointRight } from "react-icons/fa";
 
 import KnmModel from '@/components/KymModel.js';
     
@@ -67,7 +68,7 @@ const Home = () => {
       const { data: homeabout } = await axios.get('/api/homeabouts');
       
 
-      // const {data:knm}=await axios.get('/api/knowyourmilks')
+      const {data:knm}=await axios.get('/api/knowyourmilks')
       
   
    
@@ -91,7 +92,7 @@ const Home = () => {
       setHomeAboutDetails(homedetials);
       setAllBanners(images);
       setCertificate(certificate.data?.[0]?.attributes?.image?.data)
-      // setKnowMilk(knm.data)
+      setKnowMilk(knm.data)
     })();
   }, []);
  
@@ -299,49 +300,20 @@ const Home = () => {
           close={setIsModalOpen}
           
                />
-              <div className=" w-full flex flex-wrap  justify-center  p-2 gap-5 items-center md:justify-between">
+              <div className=" w-full flex flex-wrap  justify-center  p-2 gap-3 items-center md:justify-around">
 
                 {knowMilk?.map((item,idx)=>{
                    
                   return(
-                    <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex flex-col justify-center items-center space-y-4">
+                    <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex w-40 flex-col justify-center items-center space-y-4">
                     <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" />
-                    <p className="text-white font-heading">
+                    <p className="  text-white  text-center font-heading">
                       {item?.attributes?.title}
                     </p>
                   </div>
                   )
                 })}
-                {/* <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco1.src} alt="imp-milk" />
-                  <p className="text-white font-heading">
-                    Importance of <br /> milk
-                  </p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco2.src} alt="imp-milk" />
-                  <p className="text-white font-heading">
-                    Class & type <br />
-                    of milk
-                  </p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco3.src} alt="imp-milk" />
-                  <p className="text-white font-heading">
-                    Essential nutrition <br />
-                    in milk
-                  </p>
-                </div>
-
-                <div className="flex flex-col justify-center items-center space-y-4">
-                  <img src={kymIco4.src} alt="imp-milk" />
-                  <p className="text-white font-heading">
-                    Milk for every <br />
-                    Age group
-                  </p>
-                </div> */}
+                 
               </div>
             </div>
           </div>
@@ -367,9 +339,11 @@ const Home = () => {
                 <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
                   {allTenders?.map((item, id) => {
                     return (
-                      <p key={id} className="bg-white border m-2 p-2 text-xs rounded w-full ">
-                        {id} - {item?.attributes?.title}
-                      </p>
+                      <div key={id} className="bg-white border m-2 p-2 text-xs flex justify-center  items-center space-x-2 rounded w-full ">
+                        <FaRegHandPointRight size={20} color='red' /> 
+                        <p className='w-full'> {item?.attributes?.title}</p>
+                       
+                      </div>
                     );
                   })}
                 </div>
@@ -380,7 +354,7 @@ const Home = () => {
 
 <div className='w-full flex justify-end mt-3 rounded-md'>
             
-<h1 className='  p-2 bg-primary-main text-white '>Read more</h1>
+<Link href={'/en/blog/notification'} className='  p-2 bg-primary-main text-white '>Read more</Link>
 </div>
             </div>
 

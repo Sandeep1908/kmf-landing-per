@@ -27,8 +27,8 @@ const Executive = () => {
 
         const {data:chairman}= await axios.get('/api/md')
         const {data:executive}=await axios.get('/api/executives?sort[0]=order:asc')
-        const {data:unitchief}=await axios.get('/api/unitcheifs?sort[0]=order:asc')
-        const {data:unioncheif}=await axios.get('/api/unioncheifs?sort[0]=order:asc')
+        const {data:unitchief}=await axios.get('/api/unitcheifs?sort[0]=createdAt:asc')
+        const {data:unioncheif}=await axios.get('/api/unioncheifs?sort[0]=createdAt:asc')
         
         let orderExecutive = new Array(executive?.data?.length).fill(null);
         let orderUnion = new Array(unioncheif?.data?.length).fill(null);

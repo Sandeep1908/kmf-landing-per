@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import Counter from '@/components/Counter';
+import useLocale from '@/hooks/useLocale';
 function OrganizationChart() {
   const [mileStones, setMileStone] = useState([]);
   const [selectedYear, setSelectedYear] = useState(1955);
@@ -25,6 +26,7 @@ function OrganizationChart() {
   const [banner,setBanner]=useState([])
   const [loading,setLoading]=useState(true)
   const axios = useApi();
+  const locale=useLocale().locale
 
   useEffect(() => {
     (async () => {
@@ -107,7 +109,7 @@ console.log("milestones",data.data)
       <section className="w-full  pt-10  ">
         <div className="  w-full    lg:flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full  flex flex-col justify-center items-start ">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Mile Stone</h1>
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale==='kn'?'ಮೈಲಿಗಲ್ಲು':'Milestones'}</h1>
 
             <div className="w-full  pt-5 overflow-auto">
               <ul className="w-full h-full flex flex-col space-y-5 justify-start items-start">

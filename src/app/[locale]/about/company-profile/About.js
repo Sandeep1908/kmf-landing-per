@@ -19,6 +19,7 @@ function About({ setLoading }) {
     <div className="w-full  m-auto shadow-md shadow-black rounded-lg bg-[#FDF9F7]   mb-10 mt-10  flex-col items-start justify-start p-10 space-y-5">
       {aboutUs.length > 2
         ? aboutUs?.map((item, idx) => {
+          
             if (idx < 2) {
               return (
                 <div key={idx} className={`${readMore ? 'hidden' : ''}`}>

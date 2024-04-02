@@ -11,6 +11,7 @@ import { useParams } from 'next/navigation';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import CarouselImage from '@/components/CarouselImage';
+import { useMyContext } from '@/context/headerContext';
 
 
 function CompanyProfile() {
@@ -19,14 +20,15 @@ function CompanyProfile() {
   const locale=useParams().locale
 const axios=useApi()
 const [allbanners,setAllBanners]=useState([])
+ const {isScroll,setIsScroll}=useMyContext()
    
   const tabs = [
     {
-      tabName: locale==='en'?'About us':'ನಮ್ಮ ಬಗ್ಗೆ',
+      tabName: locale==='en'?'About us':'ಕಹಾಮ ಬಗ್ಗೆ',
       data:  <About setLoading={setLoading} name={"About us"}/>
     },
     {
-      tabName: locale==='en'?'The Growth Process':'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
+      tabName: locale==='en'?'The Growth Process':'ಪ್ರಕ್ರಿಯೆಯ ಬೆಳವಣಿಗೆ',
       data: <GrowthProcess setLoading={setLoading} name={"The Growth Process"} />
     },
     // {
@@ -57,11 +59,12 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className="w-full  h-auto  top-36   about-bg absolute    ">
+    <div className={`w-full h-full about-bg relative     ${isScroll?' ':''}  `}>
+      <video  src='/video/company-profile.mp4'   muted   autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
  
-    <CarouselImage images={allbanners || []} />
+    {/* <CarouselImage images={allbanners || []} /> */}
 
-      <section className="w-full h-auto p-10 pt-36  relative flex justify-center items-center flex-col  space-y-6  ">
+      <section className="w-full h-auto p-10   relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
           <div className='mb-20'>
             <h1 className=" text-primary-main font-heading text-5xl font-extrabold uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
@@ -102,7 +105,7 @@ useEffect(()=>{
 
 <div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white  p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
             <div className='w-full    shadow-md bg-white  '>
-              <h1 className='p-5 bg-primary-main text-white'>About Us</h1>
+              <h1 className='p-5 bg-primary-main text-white'>{locale==='kn'?'ಕಹಾಮ ಬಗ್ಗೆ':'About Us'}</h1>
             </div>
             
             {tabs?.map((item, id) => {
