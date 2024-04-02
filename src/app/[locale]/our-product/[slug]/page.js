@@ -28,12 +28,13 @@ function Milk() {
  
       const { data } = await axios.get(`/api/subcategories`);
       const {data:subItems}= await axios.get('/api/product-sub-items')
+
        
  
 
       const product=subItems?.data?.filter((item)=>item?.attributes?.subcategory?.data?.id === parseInt(param?.slug) ) 
-      console.log("product",product)
       const categoryName=data?.data?.filter(item=>item?.id===parseInt(param?.slug))
+      
       
       setTitle(categoryName[0])
       setBanner(subItems?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
@@ -97,28 +98,29 @@ function Milk() {
         
                   <div className='w-full  max-w-7xl m-auto pb-10'>
                       
-                      <div className='w-full flex flex-col space-y-4 pt-10'>
-                            <h1 className='text-5xl text-primary-main font-subheading'>A twisty snacking sensation, Fulltoss brings a little flavour and fun to everyone.</h1>
-                            <p className='text-2xl '>Available in exciting flavours: Masala Masti, Tangy Tomato, Thai Sriracha and Noodle Masala</p>
+                      <div className='w-full flex flex-col justify-center items-center space-y-4 pt-10'>
+                            <h1 className='text-5xl text-primary-main font-subheading'>{title?.attributes?.Heading}</h1>
+                            <p className='text-2xl '>{title?.attributes?.description}</p>
                       </div>
 
                       <div className='w-full h-full mt-32 flex flex-col space-y-5 '>
-                          <h1 className='text-4xl'>{title?.attributes?.title} Family</h1>
-                          <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
+                          <h1 className='text-5xl font-bold flex justify-center items-center relative font-heading text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-red-700'>{title?.attributes?.title} Family</h1>
+                          <div className='w-full h-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5'>
                             {
                               products?.map((item,id)=>{
                                 return(
-                                  <div key={id} className='w-80 h-96 bg-[#F7F7F7] flex flex-col justify-between items-center overflow-hidden'>
-                                  <div className='w-full h-[80%] '>
-                                    <img src={item?.attributes?.image?.data[0]?.attributes?.url}
-                                    className='w-full h-full transition-all duration-300 hover:scale-[1.1]'
+                                  <div key={id} className='w-96 h-fit bg-[#F7F7F7] flex flex-col justify-between items-start '>
+                                  <div className='w-full justify-center items-center flex p-2 h-[60%] '>
+                                    <img src={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                                    className='w-[50%] h-full transition-all duration-300 hover:scale-[1.1]'
                                     />  
 
                                   </div>
 
-                                  <div className='w-full h-[10%] flex flex-col pb-3 justify-center items-center
+                                  <div className='w-full h-[40%] p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
                                   '>
                                     <p className='text-2xl'>{item?.attributes?.name}</p>
+                                    <p className='text-center w-[80%] m-auto bg-yellow-300 p-3 rounded-lg'>{item?.attributes?.quantity}</p>
                                     <p className='text-md'>{item?.attributes?.description}</p>
                                     
                                   </div>

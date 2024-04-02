@@ -18,11 +18,12 @@ function Products() {
     (
       async()=>{
         const { data } = await axios.get('/api/categories?sort[0]=order:asc');
-        const { data:subcategory } = await axios.get('/api/subcategories');
+        const { data:subcategory } = await axios.get('/api/subcategories?sort[0]=createdAt:asc');
+        
      
         setBanner(data?.data?.map(item=>item?.attributes?.banner?.data?.attributes?.url))
 
-        setCategories(data.data)
+        setCategories(data.data.sort((a,b)=>b.attributes.updatedAt-a.attributes?.updatedAt))
         setSubcategory(subcategory.data)
       }
     )()
@@ -30,13 +31,14 @@ function Products() {
 
   const handleProduct=async(id)=>{
     
-    const { data } = await axios.get(`/api/subcategories`);
+    const { data } = await axios.get(`/api/subcategories?sort[0]=createdAt:asc`);
+     
     
     if(id==='all'){
       setSubcategory(data.data)
     }
     else{
-      const subcategory=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(id) ) 
+      const subcategory=data?.data?.filter((item)=>item?.attributes?.category?.data?.id === parseInt(id) )
       setSubcategory(subcategory)
     }
   
@@ -62,7 +64,7 @@ function Products() {
                   <p className='font-subheading transition-all text-sm cursor-pointer  hover:scale-[1.1]' onClick={()=>handleProduct('all')}>All</p>
                       {categories?.map((item,id)=>{
                         return(
-                          <p key={id} onClick={()=>handleProduct(item?.id)} className='font-subheading transition-all duration-300 text-md cursor-pointer  hover:scale-[1.1] '>{item?.attributes?.title}</p>
+                          <p key={item?.id} onClick={()=>handleProduct(item?.id)} className='font-subheading transition-all duration-300 text-md cursor-pointer  hover:scale-[1.1] '>{item?.attributes?.title}</p>
                         )
                       })}
                 </div>
@@ -74,7 +76,7 @@ function Products() {
                    
                         return(
                           <ProductCard
-                           key={id}
+                           key={item?.id}
                             title={item?.attributes?.title}
                              image={item?.attributes?.image?.data[0]?.attributes?.url}
                              link={`/${locale}/our-product/${item?.id}`}
