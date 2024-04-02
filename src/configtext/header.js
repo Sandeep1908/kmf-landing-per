@@ -194,6 +194,12 @@ export const mobileHeader = {
     },
 
     {
+      title: 'NANDINI RECIPES',
+
+      link:'',
+      imgUrl: ourproductIco.src
+    },
+    {
       title: 'WOMEN EMPOWERMENT',
       link: '/en/women-empowerment',
       imgUrl: homeIco.src
@@ -295,6 +301,12 @@ export const mobileHeader = {
       title: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
       link: '',
   
+      imgUrl: ourproductIco.src
+    },
+    {
+      title: 'ನಂದಿನಿ ಪಾಕವಿಧಾನಗಳು',
+
+      link:'',
       imgUrl: ourproductIco.src
     },
 
