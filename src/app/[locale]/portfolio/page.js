@@ -23,6 +23,11 @@ import { achievements as achievementItems } from '@/configtext/companyProfile';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import { ParallaxBanner } from "react-scroll-parallax";
+import HistoryOfMilk from './HistoryOfMilk';
+import BrandAmbassador from './BrandAmbassador';
+import KmfAchivements from './KmfAchivements';
+import DepartmentUnderGovt from './DepartmentUnderGovt';
+import Sponsored from './Sponsored';
 
 function Portfolio() {
   const [achievments, setAchievments] = useState([]);
@@ -34,7 +39,36 @@ function Portfolio() {
   const [chairman,setChairman]=useState([])
   const [loading,setLoading]=useState(true)
   const [sponsers,setSponsor]=useState([])
+  const [currentIndex, setCurrentIndex] = useState(0);
    
+
+  const tabs = [
+    {
+      tabName: "HISTORY OF MILK",
+      data:  <HistoryOfMilk setLoading={setLoading} name={"History Of Milk"}/>
+    },
+    {
+      tabName: 'BRAND AMBASSADOR',
+      data: <BrandAmbassador setLoading={setLoading} name={"Brand Ambassador"} />
+    },
+    {
+      tabName:  'KMF ACHIEVEMENTS',
+      data: <KmfAchivements setLoading={setLoading} name={"Kmf Achivements"}/>
+    },
+    {
+      tabName: 'DEPARTMENT UNDER GOVT.',
+      data: <DepartmentUnderGovt setLoading={setLoading} name={"Department Under Govt."}  />
+    },
+    {
+      tabName: 'SPONSORED',
+      data: <Sponsored setLoading={setLoading} name={"Sponsored"}  />
+    }
+  ];
+  const handleTabs = (idx) => {
+    
+   
+    setCurrentIndex(idx);
+  };
 
   useEffect(() => {
     (async () => {
@@ -77,7 +111,39 @@ function Portfolio() {
         <img src={portfolioImg.src} className="w-full h-full object-fill absolute top-0 z-[-1]" />
       </section>
 
-      <section className="max-w-7xl m-auto pt-10     ">
+
+     <section className='w-full h-auto mt-10 mb-10  '>
+          <div className='max-w-7xl m-auto bg-slate-300 shadow-lg'>
+              <div className='w-full'>
+                <ul className='flex flex-col md:flex-row justify-between m-0 p-0'>
+                {tabs?.map((tab, idx) => {
+                  // console.log( "jajshdjas",tabs)
+                return (
+                  <li
+                    key={idx}
+                    onClick={() => handleTabs(idx)}
+                    className={`${currentIndex===idx?'bg-sky-500 w-fit  ':''} p-5 hover:bg-sky-500 text-center w-full`}>
+                    {tab.tabName}
+                  </li>
+                );
+              })}
+                  
+                </ul>
+              </div>
+              <div className='w-full p-7 bg-slate-200'>
+              {tabs?.map((tab, id) => {
+        if (currentIndex === id) {
+          return tab.data;
+        }
+      })} 
+          </div>
+          </div>
+         
+     </section>
+
+
+
+      {/* <section className="max-w-7xl m-auto pt-10     ">
         <div className="w-full space-y-5 p-4 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
           <h1 className="text-center text-xl text-primary-main uppercase">
             {locale === 'en'
@@ -97,11 +163,11 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
 
-      <ParallaxBanner
+      {/* <ParallaxBanner
         layers={[
           { image: "/images/milk-bg.jpg", speed: -20 },
           {
@@ -157,10 +223,10 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
         </div>
       </section>
        
-      </ParallaxBanner>
+      </ParallaxBanner> */}
 
       
-
+{/* 
       <section className="max-w-7xl m-auto h-auto pt-10   ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
@@ -201,7 +267,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
             <img src={founderOfMilkImg.src} className=" h-96" />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <section className="max-w-7xl m-auto relative pb-10 pt-36     company-bg">
         <div className="w-full flex pr-10 pl-10 flex-col    justify-center items-center space-y-10 lg:flex-row lg:justify-between lg:space-x-10">
@@ -248,7 +314,7 @@ KMF ಪೋರ್ಟ್‌ಫೋಲಿಯೋ`}
 
 
 
-
+{/* 
  <div className="w-full h-screen m-auto pt-10 relative z-[-10]   ">
       <ParallaxBanner
         layers={[
@@ -287,8 +353,8 @@ KMF ಸಾಧನೆಗಳು`}{' '}
       </section>
        
       </ParallaxBanner>
-    </div>
-    <section className="max-w-7xl m-auto h-auto pt-10 relative z-[100] bg-white ">
+    </div> */}
+    {/* <section className="max-w-7xl m-auto h-auto pt-10 relative z-[100] bg-white ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
             <h1 className="text-2xl text-primary-main uppercase">
@@ -320,12 +386,12 @@ KMF ಸಾಧನೆಗಳು`}{' '}
           <iframe width="560" height="315" src={"https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo"} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
-      </section>
+      </section> */}
    
 
     
 
-      <section className="max-w-7xl m-auto h-auto pt-10 relative z-[100]  shadow-md bg-primary-darker ">
+      {/* <section className="max-w-7xl m-auto h-auto pt-10 relative z-[100]  shadow-md bg-primary-darker ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-start ">
           <p className="text-2xl   font-bold text-white">{chairman?.attributes?.name}</p>
@@ -344,10 +410,10 @@ KMF ಸಾಧನೆಗಳು`}{' '}
         />
           </div>
         </div>
-      </section>
+      </section> */}
 
 
-      <section className="max-w-7xl m-auto mt-10 h-auto pt-10 relative z-[100]  shadow-md  bg-primary-darker   ">
+      {/* <section className="max-w-7xl m-auto mt-10 h-auto pt-10 relative z-[100]  shadow-md  bg-primary-darker   ">
         <div className="w-full  h-full flex flex-col   space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
 
 
@@ -371,12 +437,12 @@ KMF ಸಾಧನೆಗಳು`}{' '}
 
       
         </div>
-      </section>
+      </section> */}
 
    
  
 
-      <section className="w-full h-auto overflow-hidden    ">
+      {/* <section className="w-full h-auto overflow-hidden    ">
         <div className=" p-10 flex flex-col items-center space-y-10 justify-center  max-w-[1600px] md:items-start m-auto">
           <div className="flex w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="  w-full justify-center        ">
@@ -394,7 +460,7 @@ KMF ಸಾಧನೆಗಳು`}{' '}
                   })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

@@ -16,6 +16,16 @@ module.exports = {
             name: 'static/media/[name].[hash].[ext]',
           },
         },
+        test: /\.(pdf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'pdfs/' // adjust the output path as needed
+            }
+          }
+        ]
       });
   
       return config;
