@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'; // Required for CSS styles
-import './style.css'; // Custom CSS file for styling
+import './stylePdf.css'; // Custom CSS file for styling
 
 // Set worker URL for pdf.js
  

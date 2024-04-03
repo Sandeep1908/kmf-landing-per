@@ -1,4 +1,8 @@
 import React from 'react'
+import './style-2.css'
+import Link from 'next/link'
+import comingSoonImg from '@/images/notfound/comingsoon.png'
+import { IoHomeOutline } from 'react-icons/io5';
 
 const DepartmentUnderGovt = () => {
   return (
@@ -13,7 +17,21 @@ const DepartmentUnderGovt = () => {
             
 
             <div className='w-full text-center mt-20 mb-10'>
-                <h1 className='text-4xl text-primary-main'>Coming Soon...</h1>
+            <div class="flex-container">
+    <div class="text-center">
+      <h1 className='text-primary-main'>
+        <span class="fade-in" id="digit1">C</span>
+        <span class="fade-in" id="digit2">O</span>
+        <span class="fade-in" id="digit3">M</span>
+        <span class="fade-in" id="digit3">I</span>
+        <span class="fade-in" id="digit3">N</span>
+        <span class="fade-in" id="digit3">G</span>
+      </h1>
+      <h3 class="fadeIn text-primary-main">COMING SOON</h3>
+      
+    </div>
+    <img src={comingSoonImg.src}/>
+  </div>
             </div>
             
           

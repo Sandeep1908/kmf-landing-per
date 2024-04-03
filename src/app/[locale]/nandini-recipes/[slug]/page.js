@@ -1,6 +1,21 @@
+'use client'
 import React from 'react'
 import sweet from '@/images/recipes/sweet.jpg'
 import Footer from '@/components/Footer'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+import { Carousel as Carousels } from 'react-responsive-carousel';
+
+
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 
 
 
@@ -26,11 +41,49 @@ const page = () => {
                    </div>
                 </div>
 
+
+              
+
+                {/* <Swiper
+                 spaceBetween={0}
+                 slidesPerView={1}
+          
+                 onSwiper={(swiper) => console.log(swiper)}
+                 onSlideChange={() => console.log('slide change')}
+           
+            >
+                <SwiperSlide>
                 <div className='w-full flex justify-center items-center'>
                     <img className=' w-80  md:w-[40%]  ' src={sweet.src} alt="" />
-                </div>
-               
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                <div className='w-full flex justify-center items-center'>
+                    <video className=' w-80 h-80  md:w-[40%] md:h-[40%]  ' autoPlay muted loop  src="/video/banner.mp4"></video>
+                    </div>
+                </SwiperSlide>
+                </Swiper> */}
+                    
+              
+                <Carousels
+                className='w-2xl h-96'
+        autoPlay={true}
+        interval={4000}
+        showStatus={false}
+        infiniteLoop
+        showThumbs={false}
+        showIndicators={true}
+       >
+                         <div className='m-auto max-w-xl h-96 flex justify-center items-center p-1'>
+                    <img className=' w-80  md:w-[40%]  ' src={sweet.src} alt="" />
+                    </div>
 
+                    <div className='m-auto max-w-xl h-96 flex justify-center items-center p-1'>
+                    <video className=' w-full h-full object-fill' autoPlay muted loop  src="/video/banner.mp4"></video>
+                    </div>
+      </Carousels>
+               
+       
                
             </div>
       </div>
