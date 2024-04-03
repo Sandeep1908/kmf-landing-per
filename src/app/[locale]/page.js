@@ -162,7 +162,11 @@ const Home = () => {
                 modifier: 1,
                 slideShadows: false
               }}
-              modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+              modules={[Navigation, Pagination, Scrollbar,Autoplay, A11y, EffectCoverflow]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false
+              }}
               spaceBetween={40}
               slidesPerView={previewCount}
               navigation={true}
