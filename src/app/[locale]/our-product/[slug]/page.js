@@ -25,17 +25,7 @@ function Milk() {
   const [title, setTitle] = useState('');
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
   const { isScroll, setIsScroll } = useMyContext();
-
-  const videoObj=[
-    {
-      title:'Milk',
-      video:'/video/milk-video.mp4'
-    },
-    {
-      title:'Curd',
-      video:'/video/curd.mp4'
-    }
-  ]
+  
 
   useEffect(() => {
     (async () => {
@@ -45,7 +35,7 @@ function Milk() {
         (item) => item?.attributes?.subcategory?.data?.id === parseInt(param?.slug)
       );
       const categoryName = data?.data?.filter((item) => item?.id === parseInt(param?.slug));
-
+ 
       setTitle(categoryName[0]);
       setBanner(subItems?.data?.map((item) => item?.attributes?.banner?.data?.attributes?.url));
       setProducts(product);
@@ -111,34 +101,15 @@ function Milk() {
           isScroll ? 'h-[400px]' : 'h-[80vh]'
         }`}>
         
-        {
-          videoObj?.map((item,id)=>{
-            if(item.title===title?.attributes?.title){
-              return(
-                <video
-                key={id}
+        <video
+            
                 muted
                 playsInline
                 autoPlay
                 loop
-                src={item.video}
+                src={title?.attributes?.video?.data?.attributes?.url || '/video/our-product.mp4'}
                 className={`w-full h-full object-fill fixed top-0   z-[-1]`}
               />
-              )
-            }
-            else{
-              <video
-                key={id}
-                muted
-                playsInline
-                autoPlay
-                loop
-                src={'/video/our-product.mp4'}
-                className={`w-full h-full object-fill fixed top-0   z-[-1]`}
-              />
-            }
-          })
-        }
       
       </section>
 
@@ -151,7 +122,7 @@ function Milk() {
             <p className="text-2xl ">{title?.attributes?.description}</p>
           </div>
 
-          <div className="w-full h-full mt-32 flex flex-col space-y-5 ">
+          <div className={`w-full h-full   flex flex-col space-y-5 ${title?.attributes?.Heading?'mt-36':''} `}>
             <h1 className="text-5xl font-bold flex justify-center items-center relative font-heading text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-red-700">
               {title?.attributes?.title} Family
             </h1>

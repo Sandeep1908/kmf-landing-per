@@ -362,9 +362,9 @@ const Home = () => {
 </div>
             </div>
 
-            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]  overflow-x-hidden overflow-y-hidden   ">
+            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]  overflow-x-hidden    ">
               <div className="w-full flex flex-col shadow-md   overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg   ">
-                <h1 className="text-4xl uppercase font-heading shadow-md shadow-black bg-primary-gradient text-white">New Arrivals & Best Selling</h1>
+                <h1 className="text-4xl mt-10 uppercase   p-4 flex justify-center items-center   shadow-md shadow-black bg-primary-gradient text-white">New Arrivals & Best Selling</h1>
 
                 <div className="w-full marquee-notification h-full flex  space-x-3 ">
                   {newArrivals?.map((item, id) => {
@@ -398,24 +398,15 @@ const Home = () => {
 
           <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
             <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
-              <iframe
-                height="315"
-                src={'https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo'}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                className="w-full sm:w-[540px]"></iframe>
+            <iframe  height="315" src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+            className="w-full sm:w-[540px]"></iframe>
+            </div>
+       
+            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
+            <iframe   height="315" src="https://www.youtube.com/embed/L0yXRCdIF-M?si=eMZep5m-dhjEodgH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" className="w-full sm:w-[540px] allowfullscreen"></iframe>
             </div>
 
-            <iframe
-              height="315"
-              src="https://www.youtube.com/embed/noTHHLsuLUA?si=eI6SZK_av1Sb4HCP"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              className="w-full sm:w-[540px]"></iframe>
+           
           </div>
 
           <div className="w-full flex justify-center  space-x-5">

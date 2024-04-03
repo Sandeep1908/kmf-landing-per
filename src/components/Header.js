@@ -304,11 +304,11 @@ export const Header = () => {
                         {hasItems && (
                               <div
                                 className={`p-4 bg-gradient-to-r from-[#082649] to-primary-gradient absolute   top-[3.2rem] left-0 transition-all duration-500   w-full    ${
-                                  open === i ? 'opacity-1' : 'hidden '
+                                  open === i ? 'opacity-1' : 'hidden'
                                 }  `}
                                 onMouseLeave={() => setOpen(null)}>
                                 <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%]  m-auto    text-white">
-                                  {header.subItems?.map((subItem, idx) => {
+                                  {header.subItems?.sort((a,b)=>b.product?.length-a.product?.length)?.map((subItem, idx) => {
                                      
                                     return (
                                       <div  key={idx}>

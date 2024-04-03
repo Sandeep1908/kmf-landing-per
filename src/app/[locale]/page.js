@@ -417,25 +417,14 @@ const Home = () => {
           </div>
 
           <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
-            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
-              <iframe
-                height="315"
-                src={'https://www.youtube.com/embed/CHII1bdx5Sg?si=Z4aAkimBAHviYXmo'}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                className="w-full sm:w-[540px]"></iframe>
+          <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
+            <iframe  height="315" src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+            className="w-full sm:w-[540px]"></iframe>
             </div>
-
-            <iframe
-              height="315"
-              src="https://www.youtube.com/embed/noTHHLsuLUA?si=eI6SZK_av1Sb4HCP"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              className="w-full sm:w-[540px]"></iframe>
+       
+            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
+            <iframe   height="315" src="https://www.youtube.com/embed/L0yXRCdIF-M?si=eMZep5m-dhjEodgH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" className="w-full sm:w-[540px] allowfullscreen"></iframe>
+            </div>
           </div>
 
           <div className="w-full flex justify-center  space-x-5">
