@@ -49,7 +49,7 @@ const BrandAmbassador = () => {
                     </div>
                     <div className='w-[100%] md:w-[50%] text-center'>
                         <h1 className='text-primary-main text-3xl'>Dr. Puneet Rajkumar</h1>
-                        <p className='mt-10 md:text-lg'>Following in his father’s footsteps, Dr. Rajakumar’s third son, Karnataka Rathna Dr. Puneeth Rajakumar, continued the legacy by becoming the brand ambassador for KMF Nandini products. In an advertisement, Puneeth Rajakumar even featured consuming milk from a massive pot, further endorsing the state farmers’ products without seeking any personal favors.
+                        <p className='mt-10 md:text-lg'>Following in his fathers footsteps, Dr. Rajakumars third son, Karnataka Rathna Dr. Puneeth Rajakumar, continued the legacy by becoming the brand ambassador for KMF Nandini products. In an advertisement, Puneeth Rajakumar even featured consuming milk from a massive pot, further endorsing the state farmers products without seeking any personal favors.
 
 </p>
                     </div>
@@ -60,7 +60,7 @@ const BrandAmbassador = () => {
                 <div className=' w-full flex flex-col md:flex-row border-2 border-slate-300 p-10 m-auto'>
                 <div className='order-last md:order-1 w-[100%] md:w-[50%] text-center'>
                         <h1 className='text-primary-main text-3xl'>Dr. ShivarajRajkumar</h1>
-                        <p className='mt-10 md:text-lg'>Kannada film actor Shivarajkumar has been named the new brand ambassador of Nandini milk products. Shivarajkumar’s father and matinee idol Rajkumar and subsequently his late brother Puneeth Rajkumar were ambassadors of the Nandini milk products for several years. In a special event, CM Siddaramaiah honoured KMF New Brand Ambassador Dr. Shivarajkumar and launched the products of KMF Nandini brand 'Nandini Buffalo Milk' and 'Nandini Yogurt Light'
+                        <p className='mt-10 md:text-lg'>Kannada film actor Shivarajkumar has been named the new brand ambassador of Nandini milk products. Shivarajkumars father and matinee idol Rajkumar and subsequently his late brother Puneeth Rajkumar were ambassadors of the Nandini milk products for several years. In a special event, CM Siddaramaiah honoured KMF New Brand Ambassador Dr. Shivarajkumar and launched the products of KMF Nandini brand 'Nandini Buffalo Milk' and 'Nandini Yogurt Light'
 
 </p>
                     </div>
