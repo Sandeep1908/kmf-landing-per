@@ -115,20 +115,23 @@ function Portfolio() {
      <section className='w-full h-auto mt-10 mb-10  '>
           <div className='max-w-7xl m-auto bg-slate-300 shadow-lg'>
               <div className='w-full'>
-                <ul className='flex flex-col md:flex-row justify-between m-0 p-0'>
+                <div className='flex flex-col md:flex-row justify-between m-0 p-0'>
                 {tabs?.map((tab, idx) => {
                   // console.log( "jajshdjas",tabs)
                 return (
-                  <li
+                  <>
+                  <div
                     key={idx}
                     onClick={() => handleTabs(idx)}
-                    className={`${currentIndex===idx?'bg-sky-500 w-fit  ':''} p-5 hover:bg-sky-500 text-center w-full`}>
+                    className={`${currentIndex===idx?'bg-sky-500 w-fit  ':''} p-5 hover:bg-sky-500 text-center w-full relative`}>
                     {tab.tabName}
-                  </li>
+                  <div className= {`${currentIndex===idx?'bg-sky-500  ':''}  absolute bottom-[-6px] md:bottom-[-10px] left-[48%]  md:left-[43%]  w-3 h-3 md:w-5 md:h-5 rotate-45`} ></div>
+                  </div>
+                  </>
                 );
               })}
                   
-                </ul>
+                </div>
               </div>
               <div className='w-full p-7 bg-slate-200'>
               {tabs?.map((tab, id) => {
