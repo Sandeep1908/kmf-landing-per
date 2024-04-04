@@ -1,42 +1,92 @@
-import React from 'react'
-import sweet from '@/images/recipes/sweet.jpg'
-import Footer from '@/components/Footer'
+'use client';
+import React, { useEffect, useState } from 'react';
+import sweet from '@/images/recipes/sweet.jpg';
+import Footer from '@/components/Footer';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
+import useApi from '@/hooks/useApi';
 
+import useLocale from '@/hooks/useLocale';
 
-const page = () => {
+import { Carousel as Carousels } from 'react-responsive-carousel';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { useParams } from 'next/navigation';
+
+const RecipeDetail = ({ slug }) => {
+  const [recipeDetail, SetRecipeDetail] = useState([]);
+  const axios = useApi();
+  const param = useParams();
+  console.log(param);
+  const locale = useLocale().locale;
+  useEffect(() => {
+    (async () => {
+      const { data: recipe } = await axios.get('/api/recipes');
+      const recipeDetail = recipe?.data?.filter((item) => item?.id === parseInt(param.slug));
+      SetRecipeDetail(recipeDetail[0]);
+    })();
+  }, []);
+  console.log(recipeDetail);
+
   return (
-    <div className='w-full'>
-      <div className='w-full mt-20 mb-20'>
-      <div className='flex flex-col justify-center items-center'>
-            <h1 className='text-primary-main  text-4xl md:text-5xl'>
-                            NANDINI RECIPES
-                        </h1>
-                        <div className='w-40 h-1 bg-primary-main mt-8'></div>
-                        <h1 className='text-primary-main  text-2xl md:text-4xl mt-10'>
-                        NUTTY BARFI
-                        </h1>
+    <div className="w-full h-full">
+      <div className="w-full h-full mt-20 pb-40">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-primary-main  text-4xl md:text-5xl">NANDINI RECIPES</h1>
+          <div className="w-40 h-1 bg-primary-main mt-8"></div>
+          <h1 className="text-primary-main  text-2xl md:text-4xl mt-10">
+            {recipeDetail && recipeDetail?.attributes?.title}
+          </h1>
+        </div>
+
+        <div className="w-full relative mt-10 md:mt-20 ">
+          <div className="absolute w-full h-full z-[-10] ">
+            <div className="w-full h-full flex justify-between items-center">
+              <div className="w-40 h-8 bg-red-600"></div>
+              <div className="w-40 h-8 bg-red-600"></div>
+            </div>
+          </div>
+
+          <Carousels
+            className="w-2xl h-96"
+            autoPlay={true}
+            interval={4000}
+            showStatus={false}
+            infiniteLoop
+            showThumbs={false}
+            showIndicators={true}>
+            <div className="m-auto max-w-xl h-96 flex justify-center items-center p-1">
+              <img
+                className=" w-80  md:w-[40%]  "
+                src={recipeDetail && recipeDetail?.attributes?.image?.data?.[0]?.attributes?.url}
+                alt=""
+              />
             </div>
 
-            <div className='w-full relative mt-10 md:mt-20'>
-                <div className='absolute w-full h-full z-[-10] ' >
-                   <div className='w-full h-full flex justify-between items-center'>
-                       <div className='w-40 h-8 bg-red-600' ></div>
-                       <div className='w-40 h-8 bg-red-600' ></div>
-                   </div>
-                </div>
-
-                <div className='w-full flex justify-center items-center'>
-                    <img className=' w-80  md:w-[40%]  ' src={sweet.src} alt="" />
-                </div>
-               
-
-               
+            <div className="m-auto max-w-3xl h-[500px] flex justify-center items-center p-1">
+              <video
+                className=" w-full h-full object-fill"
+                autoPlay
+                muted
+                controls
+                loop
+                playsInline
+                src={
+                  recipeDetail && recipeDetail?.attributes?.video?.data?.[0]?.attributes?.url
+                }></video>
             </div>
+          </Carousels>
+        </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default RecipeDetail;

@@ -38,10 +38,7 @@ export const mobileHeader = {
           title: 'Mile Stones',
           link: '/en/about/mile-stones'
         },
-        {
-          title: 'Quality and Food Safety',
-          link: '/en/about/quality-food'
-        },
+        
         {
           title: 'Board of Directors',
           link: '/en/directors'
@@ -200,6 +197,10 @@ export const mobileHeader = {
       imgUrl: ourproductIco.src
     },
     {
+      title: 'QUALITY AND FOOD SAFETY',
+      link: '/en/about/quality-food'
+    },
+    {
       title: 'WOMEN EMPOWERMENT',
       link: '/en/women-empowerment',
       imgUrl: homeIco.src
@@ -217,12 +218,13 @@ export const mobileHeader = {
           title: "Tender Notificaiton",
           link: '/en/blog/notification'
         },
-        {
-          title: 'Gallery',
-          link: '/en/blog/gallery'
-        },
+        
       ],
  
+    },
+    {
+      title: 'GALLERY',
+      link: '/en/blog/gallery'
     },
  
 
@@ -264,10 +266,7 @@ export const mobileHeader = {
           title: 'ಮೈಲಿಗಲ್ಲುಗಳು',
           link: '/kn/about/mile-stones'
         },
-        {
-          title: 'ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ',
-          link: '/kn/about/quality-food'
-        },
+    
         {
           title: 'ಮಂಡಳಿ ನಿರ್ದೇಶಕರುಗಳು',
           link: '/kn/directors'
@@ -309,6 +308,10 @@ export const mobileHeader = {
       link:'/kn/nandini-recipes',
       imgUrl: ourproductIco.src
     },
+    {
+      title: 'ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ',
+      link: '/kn/about/quality-food'
+    },
 
     {
       title: ' ಮಹಿಳಾ ಸಬಲೀಕರಣ',
@@ -328,14 +331,14 @@ export const mobileHeader = {
           title: "ಟೆಂಡರ್ ಅಧಿಸೂಚನೆ",
           link: '/kn/blog/notification'
         },
-        {
-          title: 'ಗ್ಯಾಲರಿ',
-          link: '/kn/blog/gallery'
-        },
+        
       ],
       imgUrl: homeIco.src
     },
-
+    {
+      title: 'ಗ್ಯಾಲರಿ',
+      link: '/kn/blog/gallery'
+    },
     {
       title: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ',
       link: '/kn/contact',

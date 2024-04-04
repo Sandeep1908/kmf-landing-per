@@ -28,8 +28,17 @@ body {
   padding: 0;
   font-family: Josefin Sans, sans-serif;
   /* background-color: #F6F6F6; */
+ 
+  
 }
+*{
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+  -webkit-scrollbar{
+    display: none;
 
+  }
+}
  
 
 :root {

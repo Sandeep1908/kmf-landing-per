@@ -21,6 +21,8 @@ function CompanyProfile() {
 const axios=useApi()
 const [allbanners,setAllBanners]=useState([])
  const {isScroll,setIsScroll}=useMyContext()
+ const [isMuted,setIsMuted]=useState(true)
+ 
    
   const tabs = [
     {
@@ -31,10 +33,7 @@ const [allbanners,setAllBanners]=useState([])
       tabName: locale==='en'?'The Growth Process':'ಪ್ರಕ್ರಿಯೆಯ ಬೆಳವಣಿಗೆ',
       data: <GrowthProcess setLoading={setLoading} name={"The Growth Process"} />
     },
-    // {
-    //   tabName:  locale==='en'?'UNITS OF KMF':'ಕಹಾಮ ಘಟಕಗಳು',
-    //   data: <UnitOfKMF setLoading={setLoading}/>
-    // },
+ 
     {
       tabName: locale==='en'?'Ongoing and Future Projects':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
       data: <OngoingAndFuture setLoading={setLoading} name={"Ongoing and Future Projects"}  />
@@ -60,7 +59,7 @@ useEffect(()=>{
 
   return (
     <div className={`w-full h-full about-bg relative     ${isScroll?' ':''}  `}>
-      <video  src='/video/company-profile.mp4'   muted   autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
+      <video  src='/video/company-profile.mp4'  controls muted  autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
  
     {/* <CarouselImage images={allbanners || []} /> */}
 

@@ -15,7 +15,7 @@ function PdfPreview({ pdfUrl }) {
   }
 
   return (
-    <div className="pdf-preview-container shadow-lg shadow-black">
+    <div className="pdf-preview-container shadow-lg shadow-black  ">
       <Document
         file={pdfUrl}
         onLoadSuccess={onDocumentLoadSuccess}

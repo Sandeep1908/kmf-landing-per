@@ -16,7 +16,7 @@ function ProductCard({title,image,link}) {
 
     <div className='w-full bg-[#F7F7F7] h-[10%] flex justify-center items-center
     '>
-      <p className='text-lg'>{title}</p>
+      <p className='text-lg uppercase'>{title}</p>
     </div>
 </div>
 </Link>

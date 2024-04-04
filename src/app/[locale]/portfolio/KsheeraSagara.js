@@ -1,12 +1,13 @@
 import React from 'react'
-// import PdfPreview from '../blog/notification/PdfPreview'
+import PdfPreview from './PdfPreview'
 // import pdf1 from  '@/images/portfolio/pdfM.pdf'
 
 
 const KsheeraSagara = () => {
   return (
-    <div>
-      {/* <PdfPreview pdfUrl={pdf1}/> */}
+    <div className='flex flex-col md:flex-row gap-6'>
+      <PdfPreview  pdfUrl="/pdfM.pdf"/>
+      <PdfPreview  pdfUrl="/pdfMay.pdf"/>
     </div>
   )
 }

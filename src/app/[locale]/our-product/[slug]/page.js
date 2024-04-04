@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
+import { Carousel } from 'react-responsive-carousel';
 
 function Milk() {
   const [products, setProducts] = useState([]);
@@ -108,7 +109,7 @@ function Milk() {
                 autoPlay
                 loop
                 src={title?.attributes?.video?.data?.attributes?.url || '/video/our-product.mp4'}
-                className={`w-full h-full object-fill fixed top-0   z-[-1]`}
+                className={`w-full h-full object-contain fixed top-0   z-[-1]`}
               />
       
       </section>
@@ -131,16 +132,32 @@ function Milk() {
                 return (
                   <div
                     key={id}
-                    className="w-96 h-fit bg-[#F7F7F7] flex flex-col justify-between items-start ">
-                    <div className="w-full  justify-center items-center flex p-2 h-[50%] ">
-                      <img
-                        src={item?.attributes?.image?.data?.[0]?.attributes?.url}
-                        className="w-40 h-60   transition-all duration-300 hover:scale-[1.1]"
+                    className="w-96  bg-[#F7F7F7] flex flex-col justify-between items-start ">
+                    <div className="w-full   justify-center items-center flex p-2  ">
+                    <Carousel
+            className="w-2xl h-96"
+            autoPlay={true}
+            interval={2000}
+            showStatus={false}
+            infiniteLoop
+            showThumbs={false}
+            showIndicators={false}>
+                {item?.attributes?.image?.data?.map((item,id)=>{
+                  return(
+<img
+                       key={id} src={item?.attributes?.url}
+                        className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
                       />
+                  )
+                })}
+              
+           
+          </Carousel>
+                      
                     </div>
 
                     <div
-                      className="w-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
+                      className="w-full h-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
                                   ">
                       <p className="text-2xl text-center w-full">{item?.attributes?.name}</p>
                       <p

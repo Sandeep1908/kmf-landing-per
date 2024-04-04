@@ -293,6 +293,7 @@ export const Header = () => {
                           <li
                             className="   text-[14px] border-light-light4 pl-2 pr-2   relative hover:text-secondary-lighter "
                             onMouseEnter={() => setOpen(hasItems ? i : null)}
+                            onClick={()=>setOpen(null)}
                             >
                             {header.title}
                            

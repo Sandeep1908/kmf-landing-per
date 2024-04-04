@@ -1,9 +1,25 @@
-import React from 'react'
+'use client'
+import React,{useEffect,useState} from 'react'
 import Recipes from './Recipes'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import useApi from '@/hooks/useApi'
 
-function page() {
+import useLocale from '@/hooks/useLocale'
+
+function Recipe() {
+
+  const [recipe,setRecipe]=useState([])
+const axios =useApi()
+const locale=useLocale().locale
+  useEffect(()=>{
+    (
+      async()=>{
+        const {data:recipe}=await axios.get('/api/recipes')
+        setRecipe(recipe.data)
+      }
+    )()
+  },[])
   return (
     <div className='w-full mt-10  md:mt-20 '>
           <div className='w-full text-center mb-20'>
@@ -19,11 +35,17 @@ function page() {
 
              {/* <Link > */}
         
-
-                 <Recipes/>
-            {/* </Link>   */}
-              <Recipes/>
-              <Recipes/>
+        {
+          recipe?.map((item,id)=>{
+            console.log("item",item)
+            return(
+              <Recipes key={id} title={item?.attributes?.title} image={item?.attributes?.image?.data?.[0]?.attributes?.url}
+              link={`/${locale}/nandini-recipes/${item?.id}`}
+              />
+            )
+          })
+        }
+ 
                 </div>
             </div>
            
@@ -33,4 +55,4 @@ function page() {
   )
 }
 
-export default page
+export default Recipe

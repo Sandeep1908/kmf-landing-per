@@ -130,7 +130,7 @@ const Executive = () => {
     <div>
 
 
-    <div className='w-full max-w-7xl m-auto p-5  '>
+    <div className='w-full max-w-[1400px] m-auto p-5  '>
       <div className=''>
         <h1 className='text-3xl font-bold font-heading'>
             Executive
@@ -146,6 +146,10 @@ const Executive = () => {
             <th className="p-2 text-start font-heading">Designation	</th>
             <th className="p-2 text-start font-heading ">Department</th>
             <th className="p-2 text-start  font-heading">Place of working</th>
+            <th className="p-2 text-start  font-heading">Mobile No</th>
+
+            <th className="p-2 text-start  font-heading">Email Id</th>
+
  
           </tr>
         </thead>
@@ -179,7 +183,7 @@ const Executive = () => {
       </div>
 
 
-      <div className='w-full max-w-7xl m-auto  p-5 '>
+      <div className='w-full max-w-[1400px] m-auto  p-5 '>
       <div className=''>
         <h1 className='text-3xl font-bold font-heading'>
             Union Chief
@@ -193,6 +197,9 @@ const Executive = () => {
             <th className="p-2 text-start font-heading ">Name</th>
             <th className="p-2 text-start font-heading">Designation	</th>
             <th className="p-2 text-start font-heading">Place of working	</th>
+            <th className="p-2 text-start  font-heading">Mobile No</th>
+
+<th className="p-2 text-start  font-heading">Email Id</th>
           </tr>
         </thead>
 
@@ -222,7 +229,7 @@ const Executive = () => {
       </div>
 
 
-      <div className='w-full p-5  max-w-7xl  m-auto overflow-auto'>
+      <div className='w-full p-5  max-w-[1400px]  m-auto overflow-auto'>
       <div className=''>
         <h1 className='text-3xl font-bold font-heading'>
             Unit Chief
@@ -236,6 +243,9 @@ const Executive = () => {
             <th className="p-2 text-start font-heading">Name</th>
             <th className="p-2 text-start font-heading">Designation	</th>
             <th className="p-2 text-start font-heading ">Place of working	</th>
+            <th className="p-2 text-start  font-heading">Mobile No</th>
+
+<th className="p-2 text-start  font-heading">Email Id</th>
           </tr>
         </thead>
 

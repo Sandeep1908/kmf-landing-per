@@ -84,7 +84,7 @@ function Products() {
                           <ProductCard
                            key={item?.id}
                             title={item?.attributes?.title}
-                             image={item?.attributes?.image?.data[0]?.attributes?.url}
+                             image={item?.attributes?.image?.data?.[0]?.attributes?.url}
                              link={`/${locale}/our-product/${item?.id}`}
                              />
                            
