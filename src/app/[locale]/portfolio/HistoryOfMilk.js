@@ -1,7 +1,7 @@
 import React from 'react'
 import historyImg from '@/images/portfolio/history-of-milk.png'
-import founderOfMilkImg from '@/images/portfolio/founder-of-milk.jpeg';
-import KRISHNAPPA from '@/images/portfolio/KRISHNAPPA.jpeg';
+import founderOfMilkImg from '@/images/portfolio/founder-of-milk.png';
+import KRISHNAPPA from '@/images/portfolio/KRISHNAPPA.png';
 
 const HistoryOfMilk = () => {
   return (
