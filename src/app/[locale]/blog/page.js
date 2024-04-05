@@ -102,7 +102,7 @@ function Blog() {
          
                 {item?.attributes?.content?.map((item,id)=>{
                   return(
-                    <p className='mt-10  md:text-lg'>
+                    <p className='mt-10  md:text-lg' key={id}>
                       {item?.children[0].text}
                       </p>
                   )
@@ -127,7 +127,7 @@ function Blog() {
          
                 {item?.attributes?.content?.map((item,id)=>{
                   return(
-                    <p className='mt-10  md:text-lg'>
+                    <p className='mt-10  md:text-lg' key={id}>
                       {item?.children[0].text}
                       </p>
                   )
