@@ -41,7 +41,7 @@ function Blog() {
     })();
   }, []);
 
-
+ 
   const renderPaginationNumbers = () => {
     const totalPages = Math.ceil(blogs?.length / itemsPerPage);
     const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
@@ -77,16 +77,76 @@ function Blog() {
     setCurrentPage(pageNumber);
   };
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]  ">
+    <div className="w-full h-full absolute top-36 z-[-1] shadow-md  ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg `}>
         <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
 
-      <section className="w-full h-auto pt-10 relative news-bg  ">
+      <section className="w-full h-auto pt-10 relative    ">
 
       <h1 className='text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white '>LATEST NEWS</h1>
         <div className="w-4/5 m-auto flex flex-wrap justify-evenly items-center gap-6 p-3  ">
-          {currentProducts?.map((blog,id)=>{
+
+
+{currentProducts?.map((item,id)=>{
+  if(id % 2 == 0){
+    return(
+           
+      <div className='w-full p-2 lg:p-10 bg-[#ededed]' key={id}>
+      <div className=' w-full flex flex-col lg:flex-row  p-6 md:p-10 m-auto'>
+          <div className=' w-[100%] lg:w-[50%] flex justify-center items-center'>
+              <img className=' h-72 md:h-96 w-96' src={item?.attributes?.image?.data?.attributes?.url} alt="" />
+          </div>
+          <div className=' w-[100%] lg:w-[50%] '>
+              <h1 className='text-primary-main text-2xl md:text-4xl  lg:text-5xl mt-5 lg:mt-0 text-center lg:text-start'>{item?.attributes?.title}</h1>
+         
+                {item?.attributes?.content?.map((item,id)=>{
+                  return(
+                    <p className='mt-10  md:text-lg' key={id}>
+                      {item?.children[0].text}
+                      </p>
+                  )
+                })}
+ 
+        
+  
+          </div>
+      </div>
+  </div>
+    )
+  }
+  else{
+    return(
+      <div className='w-full p-2 lg:p-10' key={id}>
+      <div className=' w-full flex flex-col lg:flex-row  p-6 md:p-10 m-auto'>
+          <div className=' w-[100%] lg:w-[50%] flex justify-center items-center'>
+              <img className=' h-72 md:h-96 w-96' src={item?.attributes?.image?.data?.attributes?.url} alt="" />
+          </div>
+          <div className=' w-[100%] lg:w-[50%] '>
+              <h1 className='text-primary-main text-2xl md:text-4xl  lg:text-5xl mt-5 lg:mt-0 text-center lg:text-start' >{item?.attributes?.title}</h1>
+         
+                {item?.attributes?.content?.map((item,id)=>{
+                  return(
+                    <p className='mt-10  md:text-lg' key={id}>
+                      {item?.children[0].text}
+                      </p>
+                  )
+                })}
+        
+  
+          </div>
+      </div>
+  </div>
+    )
+   
+  }
+
+})}
+
+          
+
+
+          {/* {currentProducts?.map((blog,id)=>{
             return(
               <div key={id} onClick={() => handleBlogItem(blog)}>
 
@@ -111,7 +171,7 @@ function Blog() {
           
         />
       )}
-          
+           */}
         </div>
 
         <div className="flex justify-center items-center mt-10 pb-10 space-x-2 ">
