@@ -40,9 +40,9 @@ function WomenEmpowerment() {
         />
       </section>
 
-      <section className="w-full h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
+      <section className="w-full max-w-7xl m-auto h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
         <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale === 'en' ? 'STEP' : 'ಸ್ಟೆಪ್ ಯೋಜನೆ'}</h1>
-        <p className="text-justify text-md text-neutral-dark1">
+        <p className="text-justify text-lg text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
           of Women & Child Development, Government of India, as one of the measures to ensure well
@@ -53,12 +53,16 @@ function WomenEmpowerment() {
         </p>
       </section>
 
-      <section className="w-full h-auto p-10 flex flex-col justify-center items-center    space-y-6 bg-[#F6F6F6] xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
+      <div className='w-full bg-[#F6F6F6]'>
+
+     
+
+      <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
         <div className="w-full xl:max-w-2xl flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
           <h1 className="text-xl uppercase font-heading">{womenEmpower[currentIndex]?.title}</h1>
           {womenEmpower[currentIndex]?.description?.map((item, id) => {
             return (
-              <p  key={id} className="text-sm text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
+              <p  key={id} className="text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
             );
           })}
         </div>
@@ -90,6 +94,7 @@ function WomenEmpowerment() {
           </div>
         </div>
       </section>
+      </div>
       <Footer />
     </div>
   );
