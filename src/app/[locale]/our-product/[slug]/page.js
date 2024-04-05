@@ -9,6 +9,8 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
 import { Carousel } from 'react-responsive-carousel';
+import Link from 'next/link';
+import useLocale from '@/hooks/useLocale';
 
 function Milk() {
   const [products, setProducts] = useState([]);
@@ -26,7 +28,7 @@ function Milk() {
   const [title, setTitle] = useState('');
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
   const { isScroll, setIsScroll } = useMyContext();
-  
+  const locale=useLocale().locale
 
   useEffect(() => {
     (async () => {
@@ -116,7 +118,13 @@ function Milk() {
 
       <section className="w-full h-full     bg-[#FFFFFF] ">
         <div className="w-full  max-w-7xl m-auto pb-10">
-          <div className="w-full flex flex-col justify-center items-center space-y-4 pt-10">
+          <div className='flex justify-start pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main'>
+            <Link className='  text-sm font-bold text-primary-main' href={ `/${locale}/our-product/` ||''}>Our Proudcts</Link>
+
+          <p className='text-primary-main'>&gt;</p>
+            <Link className='  text-sm font-bold text-primary-main' href={''}>{title?.attributes?.title}</Link>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center space-y-4 pt-10 ">
             <h1 className="text-5xl text-primary-main text-center font-subheading">
               {title?.attributes?.Heading}
             </h1>

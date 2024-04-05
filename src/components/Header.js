@@ -307,8 +307,13 @@ export const Header = () => {
                                 className={`p-4 bg-gradient-to-r from-[#082649] to-primary-gradient absolute   top-[3.2rem] left-0 transition-all duration-500   w-full    ${
                                   open === i ? 'opacity-1' : 'hidden'
                                 }  `}
+                                
                                 onMouseLeave={() => setOpen(null)}>
-                                <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%]  m-auto    text-white">
+                                  <div className="flex justify-end items-center p-5 absolute top-0 cursor-pointer right-0 ">
+              <RxCrossCircled size={40} color="white" onClick={() => setOpen(null)} />
+            </div>
+                                <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%] h-screen overflow-auto  m-auto    text-white relative">
+                                
                                   {header.subItems?.sort((a,b)=>b.product?.length-a.product?.length)?.map((subItem, idx) => {
                                      
                                     return (

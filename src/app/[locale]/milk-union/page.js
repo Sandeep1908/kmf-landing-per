@@ -35,14 +35,7 @@ function MilkUnion() {
         <div
           className="max-w-7xl  m-auto p-3  rounded-tl-3xl  rounded-br-3xl  bg-white md:h-[674px] "
           style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
-          <iframe
-            align="middle"
-            allowfullscreen=""
-            frameBorder="0"
-            height="100%"
-           scrolling={true}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.518745456276!2d77.60279164133709!3d12.938623223603017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15ef1a5c4365%3A0xf0eb81ef4c8cd455!2sKMF!5e0!3m2!1sen!2sin!4v1456068635330"
-            width="100%"></iframe>
+      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=14_yIj9s5_1n5VOPDac5zG7F_0hRgLFo&ehbc=2E312F&noprof=1" width="100%" height="100%"></iframe>
         </div>
       </section>
 
