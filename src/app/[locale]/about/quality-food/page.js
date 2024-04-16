@@ -12,26 +12,38 @@ import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import useApi from '@/hooks/useApi';
+import { useMyContext } from '@/context/headerContext';
+ 
 function OrganizationChart() {
   const locale = useParams().locale;
   const axios= useApi()
   const [banner,setBanner]=useState([])
+  const { isScroll, setIsScroll, id, setId } = useMyContext();
   useEffect(()=>{
     (
       async()=>{
         const {data:banner}=await axios.get('/api/food-safety')
+        console.log(banner.data)
         setBanner(banner?.data)
       }
     )()
   },[])
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img
-          src={banner? banner?.attributes?.banner?.data?.attributes?.url:  organizationHero.src}
-          className="w-full h-full object-cover absolute top-0 z-[-1]"
-        />
-      </section>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+     {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+      */}
+     <video
+       src={banner?.attributes?.banner?.data?.attributes?.url}
+       muted
+       autoPlay
+       loop
+       playsInline
+       className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+         isScroll ? 'h-[400px]' : ''
+       } `}
+     />
+   </section>
 
       <section className=" relative w-full max-w-7xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">

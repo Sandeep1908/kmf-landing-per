@@ -59,7 +59,7 @@ useEffect(()=>{
 
   return (
     <div className={`w-full h-full about-bg relative     ${isScroll?' ':''}  `}>
-      <video  src='/video/company-profile.mp4'  controls muted  autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
+      <video  src='/video/company-profile.mov'  controls muted  autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
  
     {/* <CarouselImage images={allbanners || []} /> */}
 

@@ -185,43 +185,91 @@ export const mobileHeader = {
 
     {
       title: 'OUR PRODUCTS',
+      link: '/en/our-product',
+      subItems: [
+        {
+          title: "Products",
+          link: '/en/our-product'
+        },
+        {
+          title: "Nandini Recipes",
+          link: '/en/nandini-recipes'
+        },
+       
 
-      link:'/en/our-product/',
-      imgUrl: ourproductIco.src
+        
+      ],
+      imgUrl: homeIco.src
     },
 
-    {
-      title: 'NANDINI RECIPES',
 
-      link:'/en/nandini-recipes',
-      imgUrl: ourproductIco.src
-    },
     {
       title: 'QUALITY AND FOOD SAFETY',
       link: '/en/about/quality-food'
     },
     {
-      title: 'WOMEN EMPOWERMENT',
+      title: 'ANIMAL HUSBANDARY',
       link: '/en/women-empowerment',
+      subItems: [
+        {
+          title: "Procurement",
+          link: '/en/animal-husbandery/procurement'
+        },
+        {
+          title: "Animal Health",
+          link: '/en/animal-husbandery/animal-health'
+        },
+        {
+          title: "Animal Breeding",
+          link: '/en/animal-husbandery/animal-breeding'
+        },
+        {
+          title: "Feed & Fodder",
+          link: '/en/animal-husbandery/feed-and-fodder'
+        },
+    
+      
+     
+        
+        {
+          title: "Cattle Insurance",
+          link: '/en/animal-husbandery/cattle-insurance'
+        },
+        {
+          title: "Subsidies/Grants",
+          link: '/en/animal-husbandery/subsidies-grants'
+        },
+        {
+          title: "Schemes",
+          link: '/en/animal-husbandery/scheme'
+        },
+        {
+          title: "Step",
+          link: '/en/women-empowerment'
+        },
+
+        {
+          title: "Cattle Feed",
+          link: ''
+        },
+        {
+          title: "Health Camps",
+          link: ''
+        },
+        {
+          title: "Routes",
+          link: ''
+        },
+        
+
+       
+
+        
+      ],
       imgUrl: homeIco.src
     },
 
-    {
-      title: 'NEWS/BLOGS',
-
-      subItems: [
-        {
-          title: "Latest New's",
-          link: '/en/blog/'
-        },
-        {
-          title: "Tender Notificaiton",
-          link: '/en/blog/notification'
-        },
-        
-      ],
- 
-    },
+    
     {
       title: 'GALLERY',
       link: '/en/blog/gallery'
@@ -230,7 +278,30 @@ export const mobileHeader = {
 
 
  
- 
+    {
+      title: 'CSR',
+      link: '',
+      subItems: [
+        {
+          title: "Nandini Hostels",
+          link: ''
+        },
+        {
+          title: "Awarness For Children",
+          link: ''
+        },
+        {
+          title: "Insurance to Farmers",
+          link: ''
+        },
+        {
+          title: "Veterinary Services",
+          link: ''
+        },
+       
+        
+      ],
+    },
 
     {
       title: 'CONTACT US',

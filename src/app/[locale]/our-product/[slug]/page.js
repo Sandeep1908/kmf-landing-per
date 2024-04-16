@@ -11,12 +11,17 @@ import { useMyContext } from '@/context/headerContext';
 import { Carousel } from 'react-responsive-carousel';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import ProductAccordion from '@/components/ProductAccordion';
+import downarrowIco from '@/images/icons/downarrow.svg';
+import uparrowIco from '@/images/icons/uparrow.svg';
+ 
+
 
 function Milk() {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
-
+  const [openAccordion, SetOpenAccordion] = useState(null);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = products?.slice(indexOfFirstItem, indexOfLastItem);
@@ -28,17 +33,32 @@ function Milk() {
   const [title, setTitle] = useState('');
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
   const { isScroll, setIsScroll } = useMyContext();
-  const locale=useLocale().locale
+  const locale = useLocale().locale;
+  const [categoryName, setCategoryName] = useState('');
+  const [allSubCategories, setAllSubCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const {setId}=useMyContext()
+  const [showMore,setShowMore]=useState(false)
+  const arrows = {
+    down: downarrowIco.src,
+    up: uparrowIco.src
+  };
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`/api/subcategories`);
-      const { data: subItems } = await axios.get('/api/product-sub-items');
+      const { data } = await axios.get(`/api/subcategories?sort[0]=createdAt:asc`);
+      const { data: categories } = await axios.get('/api/categories?sort[0]=order:asc');
+      const { data: subItems } = await axios.get('/api/product-sub-items?sort[0]=createdAt:asc');
+
       const product = subItems?.data?.filter(
         (item) => item?.attributes?.subcategory?.data?.id === parseInt(param?.slug)
       );
+
       const categoryName = data?.data?.filter((item) => item?.id === parseInt(param?.slug));
- 
+      const categoryTitle = categories?.data?.filter((item) => item?.id === parseInt(param?.slug));
+
+      setCategories(categories.data);
+      setAllSubCategories(data.data);
       setTitle(categoryName[0]);
       setBanner(subItems?.data?.map((item) => item?.attributes?.banner?.data?.attributes?.url));
       setProducts(product);
@@ -48,6 +68,9 @@ function Milk() {
 
   const handleSeeMoreClick = (index) => {
     setExpandedDescriptionIndex(index === expandedDescriptionIndex ? null : index);
+  };
+  const handleAccordionClick = (accordionId) => {
+    SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
 
   const renderPaginationNumbers = () => {
@@ -98,100 +121,226 @@ function Milk() {
     setCurrentPage(pageNumber);
   };
   return (
-    <div className={`w-full h-full relative ${isScroll ? 'top-36' : ''}  `}>
+    <div className={`w-full h-full relative ${isScroll ? 'top-0' : 'top-36'}  `}>
       <section
-        className={`w-full  pt-28 relative  grid place-items-center ${
-          isScroll ? 'h-[400px]' : 'h-[80vh]'
+        className={`w-full    pt-28 relative  grid place-items-center ${
+          isScroll ? 'h-[600px]' : 'h-[80vh]'
         }`}>
-        
         <video
-            
-                muted
-                playsInline
-                autoPlay
-                loop
-                src={title?.attributes?.video?.data?.attributes?.url || '/video/our-product.mp4'}
-                className={`w-full h-full object-contain fixed top-0   z-[-1]`}
-              />
-      
+          muted
+          playsInline
+          autoPlay
+          loop
+          controls
+          src={title?.attributes?.video?.data?.attributes?.url || '/video/our-product.mp4'}
+          className={`w-full h-full  object-fill absolute top-0    `}
+        />
       </section>
 
       <section className="w-full h-full     bg-[#FFFFFF] ">
-        <div className="w-full  max-w-7xl m-auto pb-10">
-          <div className='flex justify-start pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main'>
-            <Link className='  text-sm font-bold text-primary-main' href={ `/${locale}/our-product/` ||''}>Our Proudcts</Link>
+        <div className="w-full     pb-10">
+          <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+            <Link className="  text-sm font-bold  " href={`/${locale}/our-product/` || ''}>
+              Our Products
+            </Link>
 
-          <p className='text-primary-main'>&gt;</p>
-            <Link className='  text-sm font-bold text-primary-main' href={''}>{title?.attributes?.title}</Link>
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold  " href={`/${locale}/our-product/`}>
+              {title?.attributes?.title}
+            </Link>
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main" href={''}>
+              {title?.attributes?.title} Family
+            </Link>
           </div>
-          <div className="w-full flex flex-col justify-center items-center space-y-4 pt-10 ">
+          <div className="w-full max-w-7xl m-auto flex flex-col justify-center items-center space-y-4 pt-10 ">
             <h1 className="text-5xl text-primary-main text-center font-subheading">
               {title?.attributes?.Heading}
             </h1>
             <p className="text-2xl ">{title?.attributes?.description}</p>
           </div>
 
-          <div className={`w-full h-full   flex flex-col space-y-5 ${title?.attributes?.Heading?'mt-36':''} `}>
+          <div
+            className={`w-full h-full mt-10 max-w-[1600px] m-auto  flex flex-col space-y-5 ${
+              title?.attributes?.Heading ? 'mt-36' : ''
+            } `}>
             <h1 className="text-5xl font-bold flex justify-center items-center relative font-heading text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-red-700">
               {title?.attributes?.title} Family
             </h1>
-            <div className="w-full h-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {products?.map((item, id) => {
-                return (
-                  <div
-                    key={id}
-                    className="w-96  bg-[#F7F7F7] flex flex-col justify-between items-start ">
-                    <div className="w-full   justify-center items-center flex p-2  ">
-                    <Carousel
-            className="w-2xl h-96"
-            autoPlay={true}
-            interval={2000}
-            showStatus={false}
-            infiniteLoop
-            showThumbs={false}
-            showIndicators={false}>
-                {item?.attributes?.image?.data?.map((item,id)=>{
-                  return(
-<img
-                       key={id} src={item?.attributes?.url}
-                        className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
-                      />
-                  )
-                })}
-              
-           
-          </Carousel>
-                      
-                    </div>
 
+            <div className="flex w-full justify-evenly items-start space-x-5">
+              <div className="w-full max-w-7xl m-auto h-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                {products?.map((item, id) => {
+                  return (
                     <div
-                      className="w-full h-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
-                                  ">
-                      <p className="text-2xl text-center w-full">{item?.attributes?.name}</p>
-                      <p
-                        className={`text-center w-[80%] m-auto  p-3 rounded-lg ${
-                          item?.attributes?.quantity ? 'bg-yellow-300' : 'hidden'
-                        }`}>
-                        {item?.attributes?.quantity}
-                      </p>
-                      <p className={`text-md text-center w-full ${item?.attributes?.description ? '' : 'hidden'}`}>
-                        {expandedDescriptionIndex === id ||
-                        item?.attributes?.description?.length <= 50
-                          ? item?.attributes?.description
-                          : `${item?.attributes?.description?.substring(0, 100)}... `}
+                      key={id}
+                      className="w-96  bg-[#F7F7F7] flex flex-col justify-between items-start ">
+                      <div className="w-full   justify-center items-center flex p-2  ">
+                        <Carousel
+                          className="w-2xl h-96"
+                          autoPlay={false}
+                          interval={2000}
+                          showStatus={false}
+                          infiniteLoop
+                          showThumbs={false}
+                          showIndicators={false}>
+                          {item?.attributes?.image?.data?.map((item, id) => {
+                            const validExtensions = ['.png', '.jpg', '.jpeg'];
+                            if (validExtensions.includes(item?.attributes?.ext)) {
+                              return (
+                                <img
+                                  key={id}
+                                  src={item?.attributes?.url}
+                                  className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
+                                />
+                              );
+                            } else {
+                              return (
+                                <video
+                                  autoPlay
+                                  controls
+                                  loop
+                                  muted
+                                  key={id}
+                                  src={item?.attributes?.url}
+                                  className="w-full h-80   object-contain  transition-all duration-300 hover:scale-[1.1]"
+                                />
+                              );
+                            }
+                          })}
+                        </Carousel>
+                      </div>
 
-                        {item?.attributes?.description?.length > 100 && (
-                          <button
-                            className="text-primary-main"
-                            onClick={() => handleSeeMoreClick(id)}>
-                            {expandedDescriptionIndex === id ? 'See less' : 'See more'}
-                          </button>
-                        )}
-                      </p>
+                      <div
+                        className="w-full h-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
+                                  ">
+                        <p className="text-2xl text-center w-full">{item?.attributes?.name}</p>
+                        <p
+                          className={`text-center w-[80%] m-auto  p-3 rounded-lg ${
+                            item?.attributes?.quantity ? 'bg-yellow-300' : 'hidden'
+                          }`}>
+                          {item?.attributes?.quantity}
+                        </p>
+                        <p
+                          className={`text-md text-center w-full ${
+                            item?.attributes?.description ? '' : 'hidden'
+                          }`}>
+                          {expandedDescriptionIndex === id ||
+                          item?.attributes?.description?.length <= 50
+                            ? item?.attributes?.description
+                            : `${item?.attributes?.description?.substring(0, 100)}... `}
+
+                          {item?.attributes?.description?.length > 100 && (
+                            <button
+                              className="text-primary-main"
+                              onClick={() => handleSeeMoreClick(id)}>
+                              {expandedDescriptionIndex === id ? 'See less' : 'See more'}
+                            </button>
+                          )}
+                        </p>
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
+
+              <div className="w-60 pt-10 transition-all duration-300">
+                <div className="w-full h-fit transition-all duration-300 flex flex-col  shadow-lg    justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+                  <div className="w-full mb-2    shadow-md bg-primary-main  ">
+                    <h1 className="p-5 text-lg uppercase   text-white text-center w-full">Our Products</h1>
                   </div>
-                );
-              })}
+
+
+                  {showMore ? 
+                      allSubCategories?.map((items, idx) => {
+                     
+                         
+                          return(
+                            <ProductAccordion
+                            title={items?.attributes?.title}
+                            id={idx}
+                            open={openAccordion == idx}
+                            arrow={arrows}
+                            onToggle={handleAccordionClick}
+                            key={idx}>
+                            <ul className="">
+                              {items?.attributes?.product_sub_items?.data?.map((item, index) => {
+                                return (
+                                  <Link
+                                  
+                                    href={`/${locale}/our-product/${items?.id}` || ''}
+                                    key={index}
+                                    onClick={() => setOpenNav((prev) => !prev)}>
+                                    <li
+                                      key={index}
+                                      className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
+                                      <span>{item?.attributes?.name}</span>
+                                    </li>
+                                  </Link>
+                                );
+                              })}
+                            </ul>
+                          </ProductAccordion>
+                          )
+                       
+                   
+                       
+                      
+                      
+    
+                         
+                      })
+                  :
+
+                  allSubCategories?.map((items, idx) => {
+                     
+                    if(idx<=10){
+                      return(
+                        <ProductAccordion
+                        title={items?.attributes?.title}
+                        id={idx}
+                        open={openAccordion == idx}
+                        arrow={arrows}
+                        onToggle={handleAccordionClick}
+                        key={idx}>
+                        <ul className="">
+                          {items?.attributes?.product_sub_items?.data?.map((item, index) => {
+                            return (
+                              <Link
+                              
+                                href={`/${locale}/our-product/${items?.id}` || ''}
+                                key={index}
+                                onClick={() => setOpenNav((prev) => !prev)}>
+                                <li
+                                  key={index}
+                                  className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
+                                  <span>{item?.attributes?.name}</span>
+                                </li>
+                              </Link>
+                            );
+                          })}
+                        </ul>
+                      </ProductAccordion>
+                      )
+                    }
+               
+                   
+                  
+                  
+
+                     
+                  })}
+                  
+                  
+                  
+                  
+
+              
+
+                  <p className={`text-sm bg-primary-main cursor-pointer p-4 w-full text-white ${showMore?'hidden':'block'}`} onClick={()=>setShowMore(true)}>Show More...</p>
+                  <p className={`text-sm bg-primary-main cursor-pointer p-4 w-full text-white ${showMore?'block':'hidden'}`} onClick={()=>setShowMore(false)}>Show Less...</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

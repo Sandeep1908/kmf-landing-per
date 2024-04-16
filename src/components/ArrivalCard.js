@@ -4,9 +4,9 @@ function ArrivalCard({imgUrl,title}) {
     
   return (
     <div
-    className=" max-w-80 w-full shadow-md  h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-500  "
+    className="  w-72   shadow-md  h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-500  "
      >
-    <div className="p-2 h-[70%]">
+    <div className="p-2 w-full h-[70%]">
       <img
         src={imgUrl}
         alt="featured-img"

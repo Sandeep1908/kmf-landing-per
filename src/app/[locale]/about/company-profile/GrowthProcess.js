@@ -10,8 +10,9 @@ function GrowthProcess({setLoading}) {
   useEffect(()=>{
     (
       async()=>{
-        const {data}=await axios.get('/api/growht-processes')
+        const {data}=await axios.get('/api/growht-processes?sort[0]=year:asc')
         const {data:growthProcessHeaderData}=await axios.get('/api/growthprocessheaders')
+      
  
        
 
