@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import logo from '@/images/logo/logo.png';
 import logokn from '@/images/logo/logo-kn.png';
+import rotatedLogo from '@/images/logo/logo-letter.png';
+
 import AccordionItem from '@/components/Accordion';
 import { mobileHeader } from '@/configtext/header';
 import downarrowIco from '@/images/icons/downarrow.svg';
@@ -42,30 +44,44 @@ export const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
- const {isScroll,setIsScroll}=useMyContext()
+ const {isScroll,setIsScroll,id,setId}=useMyContext()
  const [products,setProducts]=useState([])
- 
+ const [rotateLogo, setRotateLogo] = useState(false); // State to control logo rotation
+
+ useEffect(() => {
+   // When component mounts, trigger logo rotation after 1 second
+   const timeout = setInterval(() => {
+     setRotateLogo(true);
+   }, 1000);
+
+   return () => clearInterval(timeout);
+ }, []);
  
   useEffect(() => {
    
     (async () => {
        
-      const { data } = await axios.get('/api/categories?sort[0]=order:asc');
+      const { data } = await axios.get('/api/subcategories?sort[0]=createdAt:asc');
       const { data: milkunion } = await axios.get('/api/milk-unions?sort[0]=order:asc');
       const { data: kmfUnit } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
       const { data: header } = await axios.get('/api/header');
-      const {data:product}=await axios.get('/api/products')
+      const {data:product}=await axios.get('/api/product-sub-items?sort[0]=createdAt:asc')
+ 
+ 
       
       // const {data:latestNews}=await axios.get('/api/latest-new')
 
       const productSubitems = data?.data?.map((category, idx) => {
+        
         return {
           title: category?.attributes?.title,
           link: `/${locale}/our-product/${category?.id}`,
-          product:product?.data?.filter(item=>item?.attributes?.category?.data?.attributes?.title===category?.attributes?.title)
+          product:product?.data?.filter(item=>item?.attributes?.subcategory?.data?.attributes?.title===category?.attributes?.title),
+          id:category?.attributes?.category?.data?.id
+
         };
       });
-
+ 
        
       const unionSubitems = milkunion?.data?.map((category, idx) => {
         return {
@@ -109,15 +125,12 @@ export const Header = () => {
   }, []);
 
   for (let i = 0; i < headItem?.length; i++) {
-    if (headItem[i].title === 'OUR PRODUCTS' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು') {
-      headItem[i].subItems = productSub;
+    // if (headItem[i].title === 'OUR PRODUCTS' || headItem[i].title === 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು') {
+    //   headItem[i].subItems =[...productSub]
       
-    }
+    // }
     if (headItem[i].title === 'MILK UNIONS' || headItem[i].title === 'ಹಾಲು ಒಕ್ಕೂಟಗಳು') {
-      headItem[i].subItems = [
-       
-        ...unionSub
-      ];
+      headItem[i].subItems =unionSub
     }
     if (headItem[i].title === 'KMF UNITS' || headItem[i].title === 'ಕಹಾಮ ಘಟಕಗಳು') {
       headItem[i].subItems = kmfUnits;
@@ -145,8 +158,14 @@ export const Header = () => {
   const handleAccordionClick = (accordionId) => {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
+  const handleMainHeader=(idx)=>{
+  
+    setOpen(null)
+    setId(idx)
+  }
 
  
+
 
   return (
     <>
@@ -155,14 +174,14 @@ export const Header = () => {
 
         <div className={`w-full `}>
           <div
-            className={`w-full h-[150px] relative bg-gradient-to-r from-[#FDEEC8] to-secondary-gradient p-10 flex justify-between items-center `}
+            className={`w-full h-[150px] relative   bg-white p-10 flex justify-between items-center `}
             onMouseEnter={() => setOpen(null)}>
             <div className=" max-w-xl flex justify-center items-center space-x-3">
-              <img
-                src={locale === 'en' ? logo.src : logokn.src}
-                alt="logo-home"
-                className=" w-[100px] sm:w-[150px]"
-              />
+            <img
+          src={locale === 'kn' ? logokn.src : logo.src} // Use rotated logo when rotateLogo is true
+          alt="logo-home"
+          className={`w-[100px] sm:w-[150px] ${rotateLogo ? 'rotate-logo' : ''}`} // Apply rotation class
+        />
               <p className={`font-extrabold font-heading  ${locale==='kn'?'text-[18px]':'text-xs sm:text-[14px]'}`}>
                 {headerItem?.attributes?.title}
               </p>
@@ -277,84 +296,66 @@ export const Header = () => {
                   {headItem?.map((header, i) => {
                     const hasItems = header?.subItems?.length;
                     const isLink = header?.link;
-                     if(header.title==='OUR PRODUCTS'){
-                      return (
-                        <div  key={i}>
+                    //  if(header.title==='OUR PRODUCTS' || header.title==='ಮಹಿಳಾ ಸಬಲೀಕರಣ'){
+                    //   return (
+                    //     <div  key={i}>
 
-                        <Link
-                          href={isLink ? isLink : '#'}
+                    //     <Link
+                    //       href={isLink ? isLink : '#'}
                          
-                          className=" w-full transition-all duration-300 hover:scale-[1.1] ">
-                          <li
-                            className="   text-[14px] border-light-light4 pl-2 pr-2   relative hover:text-secondary-lighter "
-                            onMouseEnter={() => setOpen(hasItems ? i : null)}
-                            >
-                            {header.title}
+                    //       className=" w-full transition-all duration-300 hover:scale-[1.1] ">
+                    //       <li
+                    //         className="   text-[14px] border-light-light4 pl-2 pr-2   relative hover:text-secondary-lighter "
+                    //         onMouseEnter={() => setOpen(hasItems ? i : null)}
+                    //         onClick={()=>setOpen(null)}
+                    //         >
+                    //         {header.title}
                            
-                          </li>
+                    //       </li>
 
-                        </Link>
+                    //     </Link>
 
 
-                        {hasItems && (
-                              <div
-                                className={`p-4 bg-gradient-to-r from-[#082649] to-primary-gradient absolute   top-[3.2rem] left-0 transition-all duration-500   w-full    ${
-                                  open === i ? 'opacity-1' : 'hidden '
-                                }  `}
-                                onMouseLeave={() => setOpen(null)}>
-                                <ul className=" grid grid-cols-5 justify-center items-start gap-5 max-w-[90%]      text-white">
-                                  {header.subItems?.map((subItem, idx) => {
+                    //     {hasItems && (
+                    //           <div
+                    //             className={`p-4 bg-gradient-to-r from-[#082649] to-primary-gradient absolute   top-[3.2rem] left-0 transition-all duration-500       ${
+                    //               open === i ? 'opacity-1' : 'hidden'
+                    //             }  `}
+                                
+                    //             onMouseLeave={() => setOpen(null)}>
+                    
+                    //             <ul className=" grid grid-cols-5 justify-center items-start gap-5   overflow-auto  m-auto    text-white relative">
+                                
+                    //               {header.subItems?.map((subItem, idx) => {
+                                    
                                      
-                                    return (
-                                      <div  key={idx}>
+                    //                 return (
+                    //                   <div  key={idx}>
 
                                  
-                                      <Link
-                                        href={subItem?.link || ''}
-                                        className="text-[16px] block hover:text-secondary-lighter"
+                    //                   <Link
+                    //                     href={subItem?.link || ''}
+                    //                     className="text-[16px] block hover:text-secondary-lighter"
                                        
-                                        onClick={() => setOpen(null)}>
-                                        <li className=' '  >
-                                        {subItem.title}
+                    //                     onClick={() => handleMainHeader(subItem?.id)}>
+                    //                     <li className=' '  >
+                    //                     {subItem.title}
+                    //                     </li>
+                    //                   </Link>
 
-                                      
-                                        </li>
-                                      </Link>
-
-                                      <ul className='list-disc p-1'>
-                                        {subItem?.product?.map((item,id)=>{
-                                          if(subItem?.product.length>10){
-                                            if(id<10){
-                                              return(
-                                                <li className='p-1' key={id}>
-                                                  {item?.attributes?.title}
-                                                </li>
-                                              )
-                                            }
-                                           
-                                            
-                                          }else{
-                                            return(
-                                              <li key={id}>
-                                                {item?.attributes?.title}
-                                              </li>
-                                            )
-                                          }
-                                         
-                                        })}
-                                      </ul>
-                                      </div>
-                                    );
-                                  })}
-                                </ul>
-                              </div>
-                            )}
-                              </div>
-                      );
-                     }
+                                
+                    //                   </div>
+                    //                 );
+                    //               })}
+                    //             </ul>
+                    //           </div>
+                    //         )} 
+                    //           </div>
+                    //   );
+                    //  }
 
 
-                     else{
+                    
                       return (
                         <Link
                           href={isLink ? isLink : '#'}
@@ -394,7 +395,7 @@ export const Header = () => {
                           </li>
                         </Link>
                       );
-                     }
+                     
                   
                   })}
                 </ul>

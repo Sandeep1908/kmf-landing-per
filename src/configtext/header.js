@@ -38,10 +38,7 @@ export const mobileHeader = {
           title: 'Mile Stones',
           link: '/en/about/mile-stones'
         },
-        {
-          title: 'Quality and Food Safety',
-          link: '/en/about/quality-food'
-        },
+        
         {
           title: 'Board of Directors',
           link: '/en/directors'
@@ -188,47 +185,123 @@ export const mobileHeader = {
 
     {
       title: 'OUR PRODUCTS',
+      link: '/en/our-product',
+      subItems: [
+        {
+          title: "Products",
+          link: '/en/our-product'
+        },
+        {
+          title: "Nandini Recipes",
+          link: '/en/nandini-recipes'
+        },
+       
 
-      link:'/en/our-product/',
-      imgUrl: ourproductIco.src
-    },
-
-    {
-      title: 'NANDINI RECIPES',
-
-      link:'',
-      imgUrl: ourproductIco.src
-    },
-    {
-      title: 'WOMEN EMPOWERMENT',
-      link: '/en/women-empowerment',
+        
+      ],
       imgUrl: homeIco.src
     },
 
-    {
-      title: 'NEWS/BLOGS',
 
+    {
+      title: 'QUALITY AND FOOD SAFETY',
+      link: '/en/about/quality-food'
+    },
+    {
+      title: 'ANIMAL HUSBANDARY',
+      link: '/en/women-empowerment',
       subItems: [
         {
-          title: "Latest New's",
-          link: '/en/blog/'
+          title: "Procurement",
+          link: '/en/animal-husbandery/procurement'
         },
         {
-          title: "Tender Notificaiton",
-          link: '/en/blog/notification'
+          title: "Animal Health",
+          link: '/en/animal-husbandery/animal-health'
         },
         {
-          title: 'Gallery',
-          link: '/en/blog/gallery'
+          title: "Animal Breeding",
+          link: '/en/animal-husbandery/animal-breeding'
         },
+        {
+          title: "Feed & Fodder",
+          link: '/en/animal-husbandery/feed-and-fodder'
+        },
+    
+      
+     
+        
+        {
+          title: "Cattle Insurance",
+          link: '/en/animal-husbandery/cattle-insurance'
+        },
+        {
+          title: "Subsidies/Grants",
+          link: '/en/animal-husbandery/subsidies-grants'
+        },
+        {
+          title: "Schemes",
+          link: '/en/animal-husbandery/scheme'
+        },
+        {
+          title: "Step",
+          link: '/en/women-empowerment'
+        },
+
+        {
+          title: "Cattle Feed",
+          link: ''
+        },
+        {
+          title: "Health Camps",
+          link: ''
+        },
+        {
+          title: "Routes",
+          link: ''
+        },
+        
+
+       
+
+        
       ],
- 
+      imgUrl: homeIco.src
+    },
+
+    
+    {
+      title: 'GALLERY',
+      link: '/en/blog/gallery'
     },
  
 
 
  
- 
+    {
+      title: 'CSR',
+      link: '',
+      subItems: [
+        {
+          title: "Nandini Hostels",
+          link: ''
+        },
+        {
+          title: "Awarness For Children",
+          link: ''
+        },
+        {
+          title: "Insurance to Farmers",
+          link: ''
+        },
+        {
+          title: "Veterinary Services",
+          link: ''
+        },
+       
+        
+      ],
+    },
 
     {
       title: 'CONTACT US',
@@ -264,10 +337,7 @@ export const mobileHeader = {
           title: 'ಮೈಲಿಗಲ್ಲುಗಳು',
           link: '/kn/about/mile-stones'
         },
-        {
-          title: 'ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ',
-          link: '/kn/about/quality-food'
-        },
+    
         {
           title: 'ಮಂಡಳಿ ನಿರ್ದೇಶಕರುಗಳು',
           link: '/kn/directors'
@@ -306,8 +376,12 @@ export const mobileHeader = {
     {
       title: 'ನಂದಿನಿ ಪಾಕವಿಧಾನಗಳು',
 
-      link:'',
+      link:'/kn/nandini-recipes',
       imgUrl: ourproductIco.src
+    },
+    {
+      title: 'ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ',
+      link: '/kn/about/quality-food'
     },
 
     {
@@ -328,14 +402,14 @@ export const mobileHeader = {
           title: "ಟೆಂಡರ್ ಅಧಿಸೂಚನೆ",
           link: '/kn/blog/notification'
         },
-        {
-          title: 'ಗ್ಯಾಲರಿ',
-          link: '/kn/blog/gallery'
-        },
+        
       ],
       imgUrl: homeIco.src
     },
-
+    {
+      title: 'ಗ್ಯಾಲರಿ',
+      link: '/kn/blog/gallery'
+    },
     {
       title: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ',
       link: '/kn/contact',

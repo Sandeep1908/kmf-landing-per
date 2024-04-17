@@ -12,38 +12,48 @@ import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import useApi from '@/hooks/useApi';
+import { useMyContext } from '@/context/headerContext';
+ 
 function OrganizationChart() {
   const locale = useParams().locale;
   const axios= useApi()
   const [banner,setBanner]=useState([])
+  const { isScroll, setIsScroll, id, setId } = useMyContext();
   useEffect(()=>{
     (
       async()=>{
         const {data:banner}=await axios.get('/api/food-safety')
+        console.log(banner.data)
         setBanner(banner?.data)
       }
     )()
   },[])
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img
-          src={banner? banner?.attributes?.banner?.data?.attributes?.url:  organizationHero.src}
-          className="w-full h-full object-cover absolute top-0 z-[-1]"
-        />
-      </section>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+     {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+      */}
+     <video
+       src={banner?.attributes?.banner?.data?.attributes?.url}
+       muted
+       autoPlay
+       loop
+       playsInline
+       className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+         isScroll ? 'h-[400px]' : ''
+       } `}
+     />
+   </section>
 
-      <section className=" relative w-full h-auto pt-10  ">
+      <section className=" relative w-full max-w-7xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full   flex justify-center items-center">
-            <img src={qualityImg.src} className=" w-full h-full" />
-          </div>
+          
 
           {locale === 'en' ? (
             <div className="w-full flex flex-col justify-center items-start shadow-md p-2 ">
               <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white  ">Quality And Food Safety</h1>
 
-              <p className="text-sm text-justify p-2">
+              <p className="text-lg text-justify p-2">
                 During the last ten years, the Federation is giving greater emphasis on procuring
                 quality milk from DCSs under the concept of “Quality Excellence from Cow to
                 Consumer.” Many Clean Milk Production (CMP) initiatives have been implemented at all
@@ -51,7 +61,7 @@ function OrganizationChart() {
                 noteworthy initiative is the setting up of Community Milking Parlours in villages.
               </p>
 
-              <p className="text-sm text-justify p-2">
+              <p className="text-lg text-justify p-2">
                 The KMF is forerunner to introduce this innovative technological initiative for
                 bringing about revolutionary improvement in quality of milk collected in DCSs. This
                 system has several advantages such as elimination of mastitis in milch animals and
@@ -63,7 +73,7 @@ function OrganizationChart() {
                 products, for both domestic as well as international markets.
               </p>
 
-              <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
+              <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
                 <li>Other Clean Milk Production (CMP) Initiatives include: -</li>
 
                 <li>
@@ -91,11 +101,11 @@ function OrganizationChart() {
           
           
           (
-            <div className="w-full flex flex-col justify-center items-start ">
-              <h1 className="text-2xl text-primary-main uppercase font-heading">
+            <div className="w-full flex flex-col justify-center shadow-md items-start ">
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
 ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ</h1>
 
-              <p className="text-sm text-justify p-2">
+              <p className="text-lg text-justify p-2">
               ಕಳೆದ ಹತ್ತು ವರ್ಷಗಳಲ್ಲಿ ಒಕ್ಕೂಟವು ಸಂಗ್ರಹಣೆಗೆ ಹೆಚ್ಚಿನ ಒತ್ತು ನೀಡುತ್ತಿದೆ
                 ಕ್ವಾಲಿಟಿ ಎಕ್ಸಲೆನ್ಸ್ ಫ್ರಂ ಹಸು ಎಂಬ ಪರಿಕಲ್ಪನೆಯಡಿಯಲ್ಲಿ ಡಿಸಿಎಸ್‌ಗಳಿಂದ ಗುಣಮಟ್ಟದ ಹಾಲು
                 ಗ್ರಾಹಕ. ಅನೇಕ ಶುದ್ಧ ಹಾಲು ಉತ್ಪಾದನೆ (CMP) ಉಪಕ್ರಮಗಳನ್ನು ಎಲ್ಲಾ ಕಾರ್ಯಗತಗೊಳಿಸಲಾಗಿದೆ
@@ -103,7 +113,7 @@ function OrganizationChart() {
                 ಗಮನಾರ್ಹ ಉಪಕ್ರಮವೆಂದರೆ ಹಳ್ಳಿಗಳಲ್ಲಿ ಸಮುದಾಯ ಮಿಲ್ಕಿಂಗ್ ಪಾರ್ಲರ್‌ಗಳನ್ನು ಸ್ಥಾಪಿಸುವುದು.
               </p>
 
-              <p className="text-sm text-justify p-2">
+              <p className="text-lg text-justify p-2">
               KMF ಈ ನವೀನ ತಾಂತ್ರಿಕ ಉಪಕ್ರಮವನ್ನು ಪರಿಚಯಿಸಲು ಮುಂದಾಗಿದೆ
                 DCS ಗಳಲ್ಲಿ ಸಂಗ್ರಹಿಸಿದ ಹಾಲಿನ ಗುಣಮಟ್ಟದಲ್ಲಿ ಕ್ರಾಂತಿಕಾರಿ ಸುಧಾರಣೆಯನ್ನು ತರುವುದು. ಈ
                 ಈ ವ್ಯವಸ್ಥೆಯು ಹಾಲುಣಿಸುವ ಪ್ರಾಣಿಗಳಲ್ಲಿ ಮಾಸ್ಟಿಟಿಸ್ ಅನ್ನು ತೊಡೆದುಹಾಕುವಂತಹ ಹಲವಾರು ಪ್ರಯೋಜನಗಳನ್ನು ಹೊಂದಿದೆ
@@ -115,7 +125,7 @@ function OrganizationChart() {
                 ಉತ್ಪನ್ನಗಳು, ದೇಶೀಯ ಹಾಗೂ ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗಳಿಗೆ.
               </p>
 
-              <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-sm  md:justify-normal md:items-start">
+              <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
                 <li>
 ಇತರ ಶುದ್ಧ ಹಾಲು ಉತ್ಪಾದನೆ (CMP) ಉಪಕ್ರಮಗಳು ಸೇರಿವೆ: -</li>
 

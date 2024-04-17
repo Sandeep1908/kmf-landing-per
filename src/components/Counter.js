@@ -1,7 +1,9 @@
+import useLocale from '@/hooks/useLocale';
 import React,{useState,useEffect} from 'react'
 
 function Counter({endNumber,title}) {
   const [currentNumber, setCurrentNumber] = useState(0);
+  const locale=useLocale().locale
 
   useEffect(() => {
     const duration = 3000; // Animation duration in milliseconds
@@ -19,8 +21,12 @@ function Counter({endNumber,title}) {
 
   return (
     <div className='flex flex-col  space-y-2  justify-center items-center'>
-        <p className='text-[100px] text-white font-subheading flex justify-center items-center'>{currentNumber.toLocaleString()}+</p>
-        <p className='text-sm text-white text-center uppercase '>{title}</p>
+        <p className='text-[100px] text-white font-subheading flex justify-center items-center'>
+          {title==='Milk Unions' || title==='Kmf Units' || title==='ಹಾಲು ಒಕ್ಕೂಟಗಳು' || title==='ಕಹಾಮ ಘಟಕಗಳು' ?currentNumber.toLocaleString():currentNumber.toLocaleString().concat('+')}
+          
+          
+          </p>
+        <p className={` text-white text-center uppercase ${locale==='kn'?'text-lg':'text-sm'} `}>{title}</p>
     </div>
   )
 }

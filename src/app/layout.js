@@ -17,7 +17,7 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import { useRouter } from 'next/navigation';
 import { pdfjs } from 'react-pdf';
 
- import Swiper from 'swiper';
+import 'react-photo-view/dist/react-photo-view.css';
 import { MyContextProvider } from '@/context/headerContext';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(

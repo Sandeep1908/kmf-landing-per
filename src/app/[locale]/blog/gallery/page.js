@@ -7,6 +7,7 @@ import AboutHeroImg from '@/images/about/mission/about-hero.png';
 import ImgaeCard from './ImageCard';
 import Footer from '@/components/Footer';
 import VideCard from './VideoCard';
+import BlogCard from './BlogCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 
@@ -17,13 +18,25 @@ function Gallery() {
  
   const tabs=[
     {
-      tabs:'Video',
-      data:<VideCard/>
+      tabs:'News and Events',
+      data:<BlogCard/>
+      
+    },
+    { 
+      tabs:'Press Release'
+
     },
     {
-      tabs:'Images',
-      data:<ImgaeCard/>
+      tabs:'Tv Commercials'
     }
+    // {
+    //   tabs:'Video',
+    //   data:<VideCard/>
+    // },
+    // {
+    //   tabs:'Images',
+    //   data:<ImgaeCard/>
+    // }
   ]
 
  
@@ -36,13 +49,13 @@ function Gallery() {
   };
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]  bg-[#F6F6F6]  ">
+    <div className="w-full h-full absolute top-36 z-[-1]     ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
-      <section className="max-w-7xl m-auto pt-10 bg-[#F6F6F6] ">
+      <section className="max-w-7xl m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
-          <h1 className="text-center text-xl text-primary-main">{locale==='en'?`Gallery`:`
+          <h1 className="text-center text-5xl text-primary-main">{locale==='en'?`Gallery`:`
 ಗ್ಯಾಲರಿ`}</h1>
 
           <div className="w-full flex justify-center items-center pt-10 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
@@ -53,8 +66,8 @@ function Gallery() {
                     key={idx}
                     className={`${
                       currentIndex === idx
-                        ? 'text-secondary-main relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-secondary-main'
-                        : ''
+                        ? 'text-primary-main text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main'
+                        : 'text-sm'
                     } uppercase`}
                     onClick={() => handleClickItem(idx)}>
                     {item?.tabs}
@@ -66,11 +79,15 @@ function Gallery() {
         </div>
 
 
+<div className='w-full mt-10'>
+
+
         {tabs?.map((tab, id) => {
         if (currentIndex === id) {
           return tab.data;
         }
       })} 
+      </div>
 
        
       </section>

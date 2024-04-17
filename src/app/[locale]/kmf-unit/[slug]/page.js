@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-
+import { useMyContext } from '@/context/headerContext';
 
 function KmfUnitDetail() {
   
@@ -17,18 +17,20 @@ function KmfUnitDetail() {
   const [allUnits,setAllUnits]=useState([])
   const [unitImages,setUnitImages]=useState([])
   const [loading,setLoading]=useState(true)
+  const [bannerImg,setBannerImg]=useState()
 
   const axios = useApi();
   const [readMore, setReadMore] = useState(false);
   const locale=useParams().locale
-
+  const { isScroll, setIsScroll, id, setId } = useMyContext();
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/units-of-kmfs/${param?.slug}`);
       
       const { data:unions } = await axios.get('/api/units-of-kmfs');
       setAllUnits(unions?.data)
-      setBanner(data?.data?.attributes?.banner?.data?.attributes?.url)
+      setBanner(data?.data?.attributes?.bannervideo?.data?.attributes?.url)
+      setBannerImg(data?.data?.attributes?.banner?.data?.attributes?.url)
       setUnit(data?.data);
       setUnitImages(data?.data?.attributes?.image?.data);
       setLoading(false)
@@ -36,13 +38,43 @@ function KmfUnitDetail() {
   }, []);
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6]">
-    <section className={`w-full h-96 pt-28 relative  grid place-items-center company-bg`}>
-    <img src={banner?banner:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-    <img src={Logo.src} alt="milk-union-logo" className={`w-[200px] ${banner?'hidden':'block'}`} />
-  </section>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
 
-  <section className="max-w-[1282px]  m-auto grid grid-cols-3 gap-5   p-2 bg-[#F6F6F6]">
+      {banner?
+       <section className={`w-full h-[600px] pt-28 relative  grid place-items-center `}>
+       {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+        */}
+       
+       <video
+         src={banner || ''}
+         muted
+         autoPlay
+         loop
+         controls
+         playsInline
+         className={`w-full  h-full    object-cover absolute top-0   ${
+           isScroll ? 'h-[400px]' : ''
+         } `}
+       />
+     </section>:
+      <section className={`w-full h-[500px] pt-28 relative  grid place-items-center `}>
+      {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+       */}
+      
+      <img
+        src={bannerImg || ''}
+        
+        className={`w-full  h-full    object-fill absolute top-0 z-[-1] ${
+          isScroll ? 'h-[400px]' : ''
+        } `}
+      />
+    </section>
+      }
+ 
+<div className='w-full bg-[#F6F6F6]'>
+
+
+  <section className="max-w-[1282px]  m-auto grid grid-cols-3 gap-5   p-2 ">
     <div
       className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
       >
@@ -120,10 +152,10 @@ function KmfUnitDetail() {
             </div>
             
             {allUnits?.map((item, id) => {
-                console.log("allunits",item)
+                console.log("allunits", param?.slug)
                 return (
                   <Link key={id} href={`/${locale}/kmf-unit/${item?.id}`}>
-                  <p  className="bg-white border m-1 p-1 text-xs rounded w-full hover:bg-primary-main hover:text-white ">
+                  <p  className={`  border m-1 p-1 text-xs rounded w-full ${item?.id===parseInt(param?.slug) ?'bg-primary-main text-white':''} `}>
                     {id+1} - {item?.attributes?.title}
                   </p>
                   </Link>
@@ -131,7 +163,7 @@ function KmfUnitDetail() {
               })}
           </div>
   </section>
-
+  </div>
  
 
   <Footer />

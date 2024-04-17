@@ -23,7 +23,7 @@ function Directors() {
 
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/directors?sort[0]=order:asc');
+      const { data } = await axios.get('/api/directors?sort[0]=createdAt:asc');
 
       const { data: chairman } = await axios.get('/api/chairmain');
 
@@ -50,21 +50,21 @@ function Directors() {
 
 
       <section className="w-full   pt-10  shadow-lg bg-primary-subtle ">
-        <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+        <h1 className="text-5xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
           {locale === 'en' ? 'Board of Directors' : 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}
         </h1>
         <div className="p-12 h-full  ">
         <div className='p-10 h-full flex justify-center items-center   '>
-        <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4 shadow-lg bg-primary-gradient rounded-tl-3xl rounded-br-3xl flex flex-col md:flex-row p-3'>
-            <div className='md:w-1/2 flex justify-around  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full  '  >
+        <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4   justify-center items-center  rounded-tl-3xl rounded-br-3xl flex flex-col   p-3'>
+            <div className='md:w-1/2 flex   justify-center  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full transition-all duration-300 hover:scale-[1.1]  '  >
               <Zoom>
-              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[350px] transition-all duration-300   ' src={chairmain?.attributes?.image?.data?.attributes?.url} alt="" />
+              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[290px] transition-all duration-300   ' src={chairmain?.attributes?.image?.data?.attributes?.url} alt="" />
               </Zoom>
             </div>
-            <div className=' md:w-2/3 flex flex-col justify-center items-center mt-3 md:p-3 md:items-start lg:mt-0 '>
+            <div className=' md:w-2/3 flex flex-col justify-center items-center mt-3 md:p-3 md:items-center lg:mt-0 '>
               <div>
-                <p className='text-3xl md:text-5xl font-lato font-bold text-start text-white'>{chairmain?.attributes?.name}</p>
-                <p className=' text-2xl text-center  md:text-3xl font-lato md:text-start text-white '>{chairmain?.attributes?.description}</p>
+                <p className='text-3xl md:text-4xl font-lato font-bold text-start text-black'>{chairmain?.attributes?.name}</p>
+                <p className=' text-lg flex justify-center items-center  w-full  font-lato md:text-start text-black '>{chairmain?.attributes?.description}</p>
               </div>
            
             </div>
