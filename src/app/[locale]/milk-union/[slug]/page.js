@@ -158,49 +158,7 @@ function MilkUnionDetail({ slug }) {
                     />
                   )}
 
-                  {/* {union?.attributes?.about?.length > 3
-                  ? union?.attributes?.about?.map((item, idx) => {
-                    
-                      if (idx < 5) {
-                        return (
-                          <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
-                            <p className="text-xl font-josefin  text-justify">
-                              {item?.children[0]?.text}
-                            </p>
-                          </div>
-                        );
-                      }
-                    })
-                  : union?.attributes?.about?.map((item, idx) => {
-                      return (
-                        <p key={idx} className="text-xl font-josefin  text-justify">
-                          {item?.children[0]?.text}
-                        </p>
-                      );
-                    })}
-
-                {readMore &&
-                  union?.attributes?.about?.map((item, idx) => (
-                    <p key={idx} className="text-neutral-dark1 text-lg">
-                      {item?.children[0]?.text}
-                    </p>
-                  ))}
-
-                <div
-                  className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${
-                    readMore ? 'hidden' : ''
-                  }`}
-                  onClick={() => setReadMore(true)}>
-                  Read more...
-                </div>
-
-                <div
-                  className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${
-                    !readMore ? 'hidden' : 'block'
-                  }`}
-                  onClick={() => setReadMore(false)}>
-                  Read less...
-                </div> */}
+                
                 </div>
               </div>
             </div>

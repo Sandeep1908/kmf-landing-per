@@ -50,7 +50,7 @@ function OrganizationChart() {
           
 
           {locale === 'en' ? (
-            <div className="w-full flex flex-col justify-center items-start shadow-md p-2 ">
+            <div className="w-full flex flex-col justify-center items-start  p-2 ">
               <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white  ">Quality And Food Safety</h1>
 
               <p className="text-lg text-justify p-2">
@@ -96,6 +96,552 @@ function OrganizationChart() {
 
                 <li>Posters, documentary films and booklets on Clean Milk Production (CMP).</li>
               </ul>
+
+
+           <div className="w-full h-full flex space-y-3 flex-col p-3">
+          <h1 className="text-2xl text-primary-main ">1. Home </h1>
+          <p className="text-sm">
+          Central Quality Assurance Laboratory (CQAL), KMF is an analytical laboratory at KMF Premises, Bengaluru. CQAL follows a quality management system based on ISO 17025:2017 and accredited for the same from NABL vide certificate Number (TC-7084) to ensure operational integrity and confidentiality.
+ 
+          </p>
+
+
+          <p className="text-sm">
+          With state-of-the-art equipment and qualified technical staff, CQAL offers a range of reliable and accurate analytical services in the field of Milk and dairy products, food and animal feed at an affordable cost to Units and Unions of KMF.
+ 
+          </p>
+
+          <p className="text-sm">
+          CQAL continually assesses its analytical competence by participating in the Proficiency Test (PT) programmes conducted at national and international levels.
+ 
+ 
+          </p>
+
+          <p className="text-sm">
+          CQAL follows regular quality control programmes to verify the accuracy of analytical methodologies by including in-house quality checks at various steps of analysis.
+
+          </p>
+
+
+
+        </div>
+
+
+
+        <div className="w-full h-full flex space-y-3 flex-col p-3">
+          <h1 className="text-2xl text-primary-main "> Testing Methodologies followed at CQAL: </h1>
+          <p className="text-sm">
+          CQAL follows standard analytical methods acceptable by regulatory agencies, including those published by:
+
+ 
+          </p>
+          <ul className=" list-disc p-3">
+                <li>Bureau of Indian Standards (BIS) –  <a href='https://standardsbis.bsbedge.com/'>Bureau of Indian Standards - e-Sale (bsbedge.com)</a></li>
+
+                <li>Food Safety and Standards of India (FSSAI)  –  <a href='https://standardsbis.bsbedge.com/'> FSSAI</a></li>
+                <li>International Organisation for Standardisation (ISO)   –  <a href='https://standardsbis.bsbedge.com/'> International Organisation for Standardisation (ISO) </a></li>
+
+                 
+                <li>Association of Official Analytical Chemists (AOAC)   –  <a href='https://standardsbis.bsbedge.com/'>  AOAC INTERNATIONAL - In Food & Agriculture, We Set the Standard </a></li>
+
+                <li>International Dairy Federation (IDF)  –  <a href='https://standardsbis.bsbedge.com/'>  IDF - Global Dairy Expertise Since 1903 (fil-idf.org) </a></li>
+
+                <li>CQAL also follows the methods published in National and International journals, after validation and verifications. -</li>
+                <li>In-house validated and approved methods.</li>
+              </ul>
+
+
+ 
+
+
+
+        </div>
+        
+        
+        
+        
+        
+        <div className="w-full h-full flex space-y-3 flex-col p-3">
+          <h1 className="text-2xl text-primary-main ">2. Facilities: </h1>
+          <h1 className="text-2xl text-primary-main ">Chemical Laboratory: </h1>
+
+
+          <p className="text-sm">
+          Laboratory has state-of-the-art equipment to cater to the needs of dairy, feed and food industry for quality analysis and regulatory compliance. Laboratory continuously endeavours to enhance analytical capacity and upgrades infrastructure to serve milk unions and units of KMF.
+ 
+          </p>
+
+          <p className="text-sm">
+          The major instruments of chemical laboratory are indicated as below:-
+ 
+          </p>
+
+          <ul className='list-decimal p-5'>
+
+            <li>Gas Chromatography Mass Spectrometry (GC-MS/MS)</li>
+            <li> Liquid Chromatography Mass Spectrometry (LC-MS/MS)</li>
+            <li>Induced Coupled Plasma Mass Spectrometer (ICP-MS)</li>
+            <li>Microwave digester</li>
+            <li>High Performance Liquid Chromatography (HPLC)</li>
+            <li>Automatic Fibre Analyser</li>
+            <li>Automatic Fat Analyser</li>
+            <li>Automatic Protein Analyser</li>
+            <li>Multipurpose Ion Selective Electrode (ISE) Meter</li>
+            <li>UV-Spectrophotometer</li>
+            <li>Refractometer</li>
+            <li>FTIR based Milk Analyser</li>
+
+            <li>Centrifuge</li>
+
+            <li>Electronic weighing balance</li>
+
+            <li>Hot air oven</li>
+
+            <li>Glassware Washer</li>
+
+            <li>Ultrapure Water Purification System</li>
+            <li>Muffle furnace</li>
+
+            <li>Shaking Incubator</li>
+
+            <li>Heating water bath</li>
+
+            <li>Nitrogen Evaporator</li>
+
+            <li>Refrigerated Centrifuge.</li>
+
+            <li>pH Meter</li>
+
+            <li>Viscometer</li>
+            <li>Vacuum Oven</li>
+
+            <li>Turbidity Meter
+</li>
+
+            <li>Conductivity Meter</li>
+
+
+
+
+          </ul>
+
+
+          <h1 className="text-2xl text-primary-main ">Microbiological Laboratory:</h1>
+
+          <p className="text-sm">
+          The microbiology laboratory of CQAL has all the instruments to meet the requirements of industry and regulatory bodies for testing microbial load and pathogens.
+ 
+          </p>
+
+          <ul className='list-decimal p-5'>
+
+            <li>Biosafety Cabinet</li>
+            <li>Bacteria and Somatic Cell analyser</li>
+            <li>Incubators – Bacteriological & BOD</li>
+
+            <li>Low temperature Incubators</li>
+            <li>Stability Chamber</li>
+            <li>Water bath</li>
+            <li>Sample Dilutor</li>
+            <li>Sample Homogeniser</li>
+            <li>Laminar air flow unit</li>
+            <li>Microscope</li>
+            <li>Pathogen Detection System</li>
+            <li>Weighing Balance</li>
+            <li>Autoclave.</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </ul>
+
+        </div>
+
+
+
+        <div className="w-full h-full flex space-y-3 flex-col p-3">
+          <h1 className="text-2xl text-primary-main ">3 Accreditations: </h1>
+   
+
+
+          <p className="text-sm">
+          CQAL has been accredited as per the ISO/IEC 17025 by the National Accreditation Board for Testing and Calibration Laboratories (NABL) in 2017 and the accreditation is renewed periodically for chemical testing.
+ 
+          </p>
+
+          <p className="text-sm">
+         
+NABL Certificate
+Scope of Accreditation
+
+ 
+          </p>
+
+          
+
+
+        
+
+        </div>
+
+
+
+        <div className="w-full h-full flex space-y-3 flex-col p-3">
+          <h1 className="text-2xl text-primary-main ">4. Services Offered: </h1>
+   
+
+
+            <table className='table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full'>
+              <thead className='text-left'>
+                <th className='p-2   border-r border-black'>Sr.No</th>
+                <th className='p-2   border-r border-black'>Product Name</th>
+                <th className='p-2   border-r border-black'>Services</th>
+
+              </thead>
+
+              <tbody className='text-left  text-md'>
+                <tr className="w-full  border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">1.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Milk and Milk Products</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>Quality & Compositional Parameters</li>
+                      <li>Adulteration in Milk & Ghee</li>
+                      <li>Minerals</li>
+                      <li>Fatty Acid Composition</li>
+                      <li> Pesticide Residues</li>
+                      <li> Antibiotic Residue</li>
+                      <li> Heavy Metals</li>
+                      <li>  Microbial Parameters</li>
+                      <li>  Aflatoxin M1</li>
+
+
+
+                       
+
+
+
+
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">2.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Cattle Feed and Feed Ingredients</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>Compositional Parameters</li>
+                      <li>Aflatoxin B1/B2/G1/G2</li>
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">3.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Mineral Mixture</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+ Compositional Parameters</li>
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">4.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Oils and Fats</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Fatty Acid Composition</li>
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">5.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Water</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Microbial Parameters</li>
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">6.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Spices and Condiments</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                 
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">7.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Cereals & Cereal Products</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Heavy Metals</li>
+                      <li>	
+                      Microbial Parameters</li>
+
+                 
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">8.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Ready to Eat foods</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Heavy Metals</li>
+                      <li>	
+                      Microbial Parameters</li>
+                      <li>	
+                      Pesticide Residues</li>
+
+                 
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">9.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Nuts and Nut Products</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Heavy Metals</li>
+                      <li>	
+                      Microbial Parameters</li>
+                      <li>	
+                      Pesticide Residues</li>
+
+                      <li>	
+                      Aflatoxin / Mycotoxin</li>
+
+                 
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">10.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Proprietary Food</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Heavy Metals</li>
+                      <li>	
+                      Microbial Parameters</li>
+                      <li>	
+                      Pesticide Residues</li>
+
+                
+
+                 
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+      <tr className="w-full border-2 border-black ">
+                   <td className=" p-2 text-md font-content border-r border-black ">11.</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">Bakery Products</td>
+                   <td className=" p-2 text-md font-content border-r border-black ">
+                    <ul className='list-disc p-3'>
+                      <li>	
+                      General Parameters</li>
+
+                      <li>	
+                      Heavy Metals</li>
+                      <li>	
+                      Microbial Parameters</li>
+                      <li>	
+                      Mycotoxins</li>
+
+                
+
+                 
+                     
+                      
+                    </ul>
+                  </td>
+
+                </tr>
+
+
+
+              </tbody>
+            </table>
+
+          
+
+
+        
+
+        </div>
+
+
+        <div className="w-full h-full flex space-y-3 flex-col p-3">
+          <h1 className="text-2xl text-primary-main ">
+Quality & Compositional Parameters: </h1>
+   
+
+
+         <ul className='list-decimal p-4'>
+          <li>Total Ash</li>
+          <li>Acid value of extracted fath</li>
+          <li>Acidity as Oleic Acid</li>
+          <li>Acidity as Lactic acid</li>
+          <li>Acidity of extracted fat
+</li>
+          <li>Alcoholic acidity
+</li>
+          <li>Bulk density</li>
+          <li>Viscosity</li>
+          <li>Butyrorefractrometer reading</li>
+          <li>Carbohydrates</li>
+          <li>Concentration of syrup</li>
+          <li>Crude Fiber</li>
+          <li>Curd content</li>
+          <li>Detection of Sesame Oil (Baudouin Test)</li>
+          <li>Fat</li>
+          <li>Free fatty acids</li>
+          <li>Insolubility index</li>
+          <li>lodine value</li>
+          <li>Lactose</li>
+          <li>Leavening Index</li>
+          <li>Milk Fat</li>
+          <li>Moisture</li>
+          <li>Moisture</li>
+
+          <li>Over run
+</li>
+
+          <li>Peroxide value</li>
+
+          <li>pH</li>
+
+          <li>Polenske value</li>
+          <li>Protein</li>
+          <li>Refractive index</li>
+          <li>Richerrt-Mieschal value</li>
+          <li>RM Value of extracted fat</li>
+          <li>Salt</li>
+          <li>Saponification value</li>
+          <li>Solids Not Fat (SNF)</li>
+          <li> Scorched Particles</li>
+          <li>Starch</li>
+          <li>Sterility (pH & acidity monitored upon 7 days incubation)</li>
+          <li>Sucrose</li>
+          <li>Syrup acidity</li>
+          <li>Total Fat</li>
+          <li>Total solids</li>
+          <li>Turbidity</li>
+          <li>Urea</li>
+          <li>Wettability</li>
+          <li>Creaming Index</li>
+
+
+
+         </ul>
+
+          
+
+
+        
+
+        </div>
+
             </div>
           ) : 
           
@@ -165,3 +711,6 @@ function OrganizationChart() {
 }
 
 export default OrganizationChart;
+
+
+ 
