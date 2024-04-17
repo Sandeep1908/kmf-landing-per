@@ -53,20 +53,7 @@ import { achievements as achievementItems } from '@/configtext/companyProfile';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import { ParallaxBanner } from "react-scroll-parallax";
-// import HistoryOfMilk from './HistoryOfMilk';
-// import BrandAmbassador from './BrandAmbassador';
-// import KmfAchivements from './KmfAchivements';
-// import DepartmentUnderGovt from './DepartmentUnderGovt';
-// import Sponsored from './Sponsored';
-// import KmfSanjeevini from './KmfSanjeevini';
-// import KsheeraDhare from './KsheeraDhare';
-// import KsheeraBhagya from './KsheeraBhagya';
-// import Schemes from './Schemes';
-// import Awards from './Awards';
-// import SexSortSemem from './SexSortSemem';
-// import CattleFeedToFarmers from './CattleFeedToFarmers';
-// import Defence from './Defence';
-// import GheeSupply from './GheeSupply';
+ 
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 
@@ -99,8 +86,8 @@ function Portfolio() {
     },
   
     {
-      tabName: 'Schemes',
-      link: `/${locale}/portfolio/ksheerabhagaya`,
+      tabName: 'Schemes', 
+      link: `/${locale}/animal-husbandery/scheme`,
     },
     {
       tabName: 'Awards',
@@ -108,11 +95,11 @@ function Portfolio() {
     },
     {
       tabName: 'Sex Sorted Semen',
-      link: `/${locale}/portfolio/ksheerabhagaya`,
+      link: `/${locale}/animal-husbandery/animal-breeding`,
     },
     {
       tabName: 'Cattle Feed To Farmers ',
-      link: `/${locale}/portfolio/cattlefeedtofarmers`,
+      link: `/${locale}/animal-husbandery/cattle-insurance`,
     },
     {
       tabName: 'Defence',
@@ -484,7 +471,7 @@ function Portfolio() {
       </section>
 
     
-<section className='w-full h-full'>
+<section className='w-full h-auto'>
 
 
 <div className=' h-[480px] flex flex-col lg:flex-row items-center mt-10 md:mt-20'>
