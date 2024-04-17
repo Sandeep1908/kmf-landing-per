@@ -117,7 +117,7 @@ function Blog() {
   }
   else{
     return(
-      <div className=' w-full h-full '>
+      <div className=' w-full h-full ' key={id}>
 
      
       <div className='relative w-full p-2 lg:p-10 bg-white' key={id}>

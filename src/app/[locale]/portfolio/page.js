@@ -182,7 +182,7 @@ function Portfolio() {
                   
 
 
-                < p className='text-3xl md:text-6xl font-bold'>LET'S BEGIN THE <br />
+                < p className='text-3xl md:text-6xl font-bold'>LETS BEGIN THE <br />
                                             JOURNEY OF MILK</p>
 
                    <p className='text-lg md:text-2xl  mt-6 md:mt-16 max-w-[850px] text-justify'>The history of milk is a fascinating journey that intertwines with the evolution of human civilization and the domestication of animals. As early humans transitioned from a nomadic lifestyle to settled agricultural communities, the realization that certain animals could provide a steady supply of milk marked a pivotal moment.</p>
@@ -289,7 +289,7 @@ function Portfolio() {
 
                   </li>
                   <li>
-                  Implementation of ‘Yashaswini Health Insurance Scheme’, to benefit farmer families of Dairy Cooperatives.
+                  Implementation of Yashaswini Health Insurance Scheme, to benefit farmer families of Dairy Cooperatives.
                   </li>
                   <li>
                   Extensive coverage of cross-breeding programs has catapulted the state to become one of the few pioneering states in cross-breeding in the country.
@@ -315,7 +315,7 @@ function Portfolio() {
 
                   </li>
                   <li>
-                  Farmers have earned over Rs.134.25(Nov'17)crores over the last 40 years.
+                  Farmers have earned over Rs.134.25(Nov17)crores over the last 40 years.
 
                   </li>
                   <li>
@@ -323,7 +323,7 @@ function Portfolio() {
 
                   </li>
                   <li>
-                  Implementation of ‘Yashaswini Health Insurance Scheme’, to benefit farmer families of Dairy Cooperatives.
+                  Implementation of Yashaswini Health Insurance Scheme, to benefit farmer families of Dairy Cooperatives.
                   </li>
                   <li>
                   Majority of our member milk producers are small farmers, marginal farmers and landless laborers, who need hand-holding in their critical times of distress. KMF is implementing several financial assistance programs of GOK, some of which are: Establishment of 1000 Dairy Cooperative Societies in North Karnataka; Implementation of Nanjundappa report for overcoming regional imbalances; Equity contribution for loan repayment of Northern Milk Unions; Amrutha Yojane for Devadashis and widows Rs. 750 lakhs, SC women (Special Component program) Rs. 289 lakhs, <span className='text-primary-main text-lg font-bold'>Read More</span>
@@ -378,7 +378,7 @@ function Portfolio() {
                   <li>
                   Established Mineral Mixture Plants in Gubbi, Dharwar and Hassan Cattle Feed Plants.
                   </li>
-                  <li>Fodder Densification Units - In the present days of increasing manufacturing cost of cattle feeds, the profitability of dairying to farmers is getting constantly eroded. Hence, effective utilization of locally available roughages is a promising solution to increase farmers' profitability in milk production. KMF has initiated ambitious program to commission Fodder Densification Units in the state. In these units, locally available poor quality roughages <span className='text-primary-main text-lg font-bold'>Read More</span>
+                  <li>Fodder Densification Units - In the present days of increasing manufacturing cost of cattle feeds, the profitability of dairying to farmers is getting constantly eroded. Hence, effective utilization of locally available roughages is a promising solution to increase farmers profitability in milk production. KMF has initiated ambitious program to commission Fodder Densification Units in the state. In these units, locally available poor quality roughages <span className='text-primary-main text-lg font-bold'>Read More</span>
 </li>
                   </ul>
                  </div>
