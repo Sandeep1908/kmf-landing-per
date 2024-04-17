@@ -1,6 +1,6 @@
 'use client';
 import Footer from '@/components/Footer'
-import React from 'react'
+import React, { useState } from 'react'
 import { Carousel as Carousels } from 'react-responsive-carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -23,6 +23,7 @@ import useLocale from '@/hooks/useLocale';
 
 const BrandAmbassador = () => {
     const locale =useLocale().locale
+    const [slideView, setSlideView] = useState(3);
   return (<>
       <div className='w-full h-full'>
        
@@ -135,7 +136,7 @@ const BrandAmbassador = () => {
             </div>
             <div className='max-w-4xl w-full h-96 '>
             <Swiper
-             slidesPerView={3}
+             slidesPerView={slideView}
               freeMode={true}
            
               

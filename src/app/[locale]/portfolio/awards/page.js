@@ -48,7 +48,7 @@ const Awards = () => {
                  </div>
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl  ' > 2009 : Nandini  Brand of KMF Won " The Most Valuable Brand in Karnataka Award " in the Sunday Indian & IIPM regional excellence awards. </h1>
+                       <h1 className='text-primary-main text-2xl  ' > 2009 : Nandini  Brand of KMF Won The Most Valuable Brand in Karnataka Award  in the Sunday Indian & IIPM regional excellence awards. </h1>
                  
                        </div>
                  </div>
