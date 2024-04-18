@@ -330,20 +330,7 @@ function Portfolio() {
 
 
                   </li>
-                  {/* <li>
-                  Karnataka Milk Federation is also successfully implementing Central Government Schemes, such as Clean Milk Production Program, RKVY and National Programme for Dairy Development(NPDD) in Kalaburgi, Yadagir and Bidar Districts...
-                  </li> */}
-                  {/* <li>
-                  Rs. 10 Crores sanctioned in RKVY 2015-16 for the development of Bidar district as Milk Shed Area. Under this scheme programs such as animal induction, strengthening of artificial insemination, strengthening of marketing activities are under implementation
-                  </li>
-                  <li>
-                  ‘Nandini Dairy Farmers Welfare Trust’ Hostel has been established in the Bengaluru city for the benefit of farmers’ children at the cost of Rs. 12.96 crores and is now serving around 252 girls and 246 , who are pursuing higher education in the City.
-
-                  </li>
-                  <li>
-                  Strengthening training facilities - The KMF is making great efforts to ensure that DCS operate as profitable business units and producer members play active role in the management of their DCS. Determined efforts are being made continually to build the capacities of our member producers by making large investments in member education and training. KMF is developing its training facilities into state-of-the-art facilities and has conducted many need-based training programs to farmers. Conducted many programs on Dairy animal management, First-aid, Aritificial insemination, Clean milk production, and other HRD programs.
-
-                  </li> */}
+                 
                   </ul>
                  </div>
                        </div>
