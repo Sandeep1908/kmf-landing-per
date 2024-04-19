@@ -1,5 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player';
+
 import portfolioImg from '@/images/portfolio/portfolio.png';
 // import founderOfMilkImg from '@/images/portfolio/founder-of-milk.jpeg';
 import founderOfMilkImg from '@/images/portfolio/founder-of-milk.jpeg';
@@ -58,6 +60,13 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 
 function Portfolio() {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
+
   const [achievments, setAchievments] = useState([]);
   const [slideView, setSlideView] = useState(3);
   const axios = useApi();
@@ -69,7 +78,7 @@ function Portfolio() {
   const [sponsers,setSponsor]=useState([])
   const [currentIndex, setCurrentIndex] = useState(0);
    const locale =useLocale().locale
- 
+ const [banners,setBanners]=useState([])
 
   const tabs = [
     {
@@ -120,8 +129,14 @@ function Portfolio() {
     (async () => {
       const { data } = await axios.get('/api/kmf-acheivment');
       const {data:sponsor}= await axios.get('/api/Sponsoreds')
-      const {data:md}= await axios.get('/api/md')
-      const {data:chairman}= await axios.get('/api/chairmain')
+      const {data:banner} =await axios.get('/api/banners')
+  
+
+
+      setBanners(banner.data)
+  
+      
+
       
       setPortfolioData(data.data);
       setMd(md?.data)
@@ -150,14 +165,42 @@ function Portfolio() {
   }, []);
   return (
     <div
-      className="w-full h-full absolute top-36 z-[-1]   
+      className="w-full h-full absolute top-48 z-[-1]   
            "
        >
  
-      <section className={`w-full  h-auto relative  grid place-items-center company-bg`}>
+      <section className="w-full  h-[700px] relative ">
+
+      <Swiper
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false
+      }}
+        direction={'vertical'}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination,Autoplay,FreeMode]}
+        className="h-full"
+      >
+
+        {banners?.map((item,id)=>{
+         
+          return(
+            <SwiperSlide key={id}>
+          
+            <img src={item?.attributes?.banner?.data?.attributes?.url} alt="" className='w-full h-[700px]' />
+         
+            </SwiperSlide>
+          )
+         
+        })}
+      
 
 
-     <video autoPlay muted loop controls className='w-full h-full' src="/video/portfolio.mp4"></video>
+      </Swiper>
+
+     {/* <video autoPlay muted loop controls className='w-full h-full' src="/video/portfolio.mp4"></video> */}
 
       </section>
 
@@ -195,8 +238,8 @@ function Portfolio() {
                     key={idx}
                     onClick={() => handleTabs(idx)}
                     className='flex gap-3'>
-                     <Link href={tab.link}> <p className={`${currentIndex===idx?"text-black":"text-[#7c7a7a]"} text-lg`}> {tab.tabName}</p></Link>
-                      <p className='text-2xl font-bold'>/</p>
+                     <Link href={tab.link}> <p className={`${currentIndex===idx?"text-yellow-500":"text-black hover:text-yellow-500"}  text-lg hover:text-yellow-500`}> {tab.tabName}</p></Link>
+                      <p className=' text-2xl font-bold'>/</p>
                  </div>
                 );
               })
@@ -224,7 +267,7 @@ function Portfolio() {
 
            <div className=' hidden lg:block relative w-full max-h-[500px] h-full z-[-1]'>
                 <img className='w-full h-full' src={flag.src} alt="" />
-                <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
+                <div className='absolute top-[60px] lg:top-0 xl:top-[60px] mt-10 w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
                        <h1 className='text-primary-main text-2xl md:text-3xl ' > KMF Achievement </h1>
@@ -255,40 +298,47 @@ function Portfolio() {
 
             <div className='w-full h-auto flex flex-wrap justify-center'>
                
-                 <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
-                       <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  KMF Achievement </h1>
-                 <div className=' mt-10'>
-                  <ul className='list-disc text-left'>
-                  <li>
-                  State entirely covered by Cooperative Dairy Development.
-
-                  </li>
-                  <li>
-                  Elected boards are in position in all the District Milk Unions and Federation.
-
-                  </li>
-                  <li>
+            <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
+      <div className='m-auto'>
+        <h1 className='text-primary-main text-2xl md:text-3xl'>KMF Achievement</h1>
+        <div className='mt-10'>
+          <ul className='list-disc text-left'>
+            <li>
+              State entirely covered by Cooperative Dairy Development.
+            </li>
+            <li>
+              Elected boards are in position in all the District Milk Unions and Federation.
+            </li>
+            {showMore && (
+              <>
+                <li>
                   Lowest price spread between procurement price and sale price. Due to efficiency of operations in the Federation and Unions, more than 75% of the consumer rupee is passed on to producers.
-
-                  </li>
-                  <li>
+                </li>
+                <li>
                   More than 97% of the Dairy Cooperative Societies (DCS) are earning profit.
-
-                  </li>
-                  <li>
+                </li>
+                <li>
                   Implementation of Yashaswini Health Insurance Scheme, to benefit farmer families of Dairy Cooperatives.
-                  </li>
-                  <li>
+                </li>
+                <li>
                   Extensive coverage of cross-breeding programs has catapulted the state to become one of the few pioneering states in cross-breeding in the country.
-
-
-                  </li>
-                
-                  </ul>
-                 </div>
-                       </div>
-                 </div>
+                </li>
+              </>
+            )}
+          </ul>
+          {showMore ? (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read Less
+            </button>
+          ) : (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read More
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+                 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
                        <h1 className='text-primary-main text-2xl md:text-3xl ' > Empowering Producers for Rural Prosperity </h1>
@@ -306,7 +356,10 @@ function Portfolio() {
                   Farmers have earned over Rs.134.25(Nov17)crores over the last 40 years.
 
                   </li>
-                  <li>
+
+                  {showMore && (
+              <>
+                                 <li>
                   At present, an average daily payment of around Rs. 19 Crores is paid to milk producers.
 
                   </li>
@@ -314,28 +367,27 @@ function Portfolio() {
                   Implementation of Yashaswini Health Insurance Scheme, to benefit farmer families of Dairy Cooperatives.
                   </li>
                   <li>
-                  Majority of our member milk producers are small farmers, marginal farmers and landless laborers, who need hand-holding in their critical times of distress. KMF is implementing several financial assistance programs of GOK, some of which are: Establishment of 1000 Dairy Cooperative Societies in North Karnataka; Implementation of Nanjundappa report for overcoming regional imbalances; Equity contribution for loan repayment of Northern Milk Unions; Amrutha Yojane for Devadashis and widows Rs. 750 lakhs, SC women (Special Component program) Rs. 289 lakhs, <span className='text-primary-main text-lg font-bold'>Read More</span>
+                  Majority of our member milk producers are small farmers, marginal farmers and landless laborers, who need hand-holding in their critical times of distress. KMF is implementing several financial assistance programs of GOK, some of which are: Establishment of 1000 Dairy Cooperative Societies in North Karnataka; Implementation of Nanjundappa report for overcoming regional imbalances; Equity contribution for loan repayment of Northern Milk Unions; Amrutha Yojane for Devadashis and widows Rs. 750 lakhs, SC women (Special Component program) Rs. 289 lakhs,
 
 
                   </li>
-                  {/* <li>
-                  Karnataka Milk Federation is also successfully implementing Central Government Schemes, such as Clean Milk Production Program, RKVY and National Programme for Dairy Development(NPDD) in Kalaburgi, Yadagir and Bidar Districts...
-                  </li> */}
-                  {/* <li>
-                  Rs. 10 Crores sanctioned in RKVY 2015-16 for the development of Bidar district as Milk Shed Area. Under this scheme programs such as animal induction, strengthening of artificial insemination, strengthening of marketing activities are under implementation
-                  </li>
-                  <li>
-                  ‘Nandini Dairy Farmers Welfare Trust’ Hostel has been established in the Bengaluru city for the benefit of farmers’ children at the cost of Rs. 12.96 crores and is now serving around 252 girls and 246 , who are pursuing higher education in the City.
-
-                  </li>
-                  <li>
-                  Strengthening training facilities - The KMF is making great efforts to ensure that DCS operate as profitable business units and producer members play active role in the management of their DCS. Determined efforts are being made continually to build the capacities of our member producers by making large investments in member education and training. KMF is developing its training facilities into state-of-the-art facilities and has conducted many need-based training programs to farmers. Conducted many programs on Dairy animal management, First-aid, Aritificial insemination, Clean milk production, and other HRD programs.
-
-                  </li> */}
-                  </ul>
+              </>
+            )}
+          </ul>
+          {showMore ? (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read Less
+            </button>
+          ) : (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read More
+            </button>
+          )}
                  </div>
                        </div>
                  </div>
+
+
 
 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
@@ -355,7 +407,10 @@ function Portfolio() {
                   In order to meet the increasing demand for NANDINI cattle feed, new 300 MTD (MTs per Day) each Cattle Feed Unit have been commissioned at Hassan and Shikaripur.
 
                   </li>
-                  <li>
+
+         {showMore && (
+              <>
+                             <li>
                   The capacity of Dharwar Cattle Feed plant has been expanded from 150 MTD to 200 MTD.
 
                   </li>
@@ -366,9 +421,20 @@ function Portfolio() {
                   <li>
                   Established Mineral Mixture Plants in Gubbi, Dharwar and Hassan Cattle Feed Plants.
                   </li>
-                  <li>Fodder Densification Units - In the present days of increasing manufacturing cost of cattle feeds, the profitability of dairying to farmers is getting constantly eroded. Hence, effective utilization of locally available roughages is a promising solution to increase farmers profitability in milk production. KMF has initiated ambitious program to commission Fodder Densification Units in the state. In these units, locally available poor quality roughages <span className='text-primary-main text-lg font-bold'>Read More</span>
+                  <li>Fodder Densification Units - In the present days of increasing manufacturing cost of cattle feeds, the profitability of dairying to farmers is getting constantly eroded. Hence, effective utilization of locally available roughages is a promising solution to increase farmers profitability in milk production. KMF has initiated ambitious program to commission Fodder Densification Units in the state. In these units, locally available poor quality roughages 
 </li>
-                  </ul>
+              </>
+            )}
+          </ul>
+          {showMore ? (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read Less
+            </button>
+          ) : (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read More
+            </button>
+          )}
                  </div>
                        </div>
                  </div>
@@ -394,7 +460,11 @@ function Portfolio() {
 
 
                   </li>
-                  <li>
+
+
+                  {showMore && (
+              <>
+                                <li>
                   The Unions and Units of KMF have also won many Productivity Awards from GOI.
 
 
@@ -405,12 +475,21 @@ function Portfolio() {
 
                   </li>
                   <li>
-                  The Federation is creating necessary milk processing facilities to enhance the existing processing capacities, new processing plants and other infrastructure from time to time in the state.. <span className='text-primary-main text-lg font-bold'>Read More</span>
+                  The Federation is creating necessary milk processing facilities to enhance the existing processing capacities, new processing plants and other infrastructure from time to time in the state.. 
 
                   </li>
-
-
-                  </ul>
+              </>
+            )}
+          </ul>
+          {showMore ? (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read Less
+            </button>
+          ) : (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read More
+            </button>
+          )}
                  </div>
                        </div>
                  </div>
@@ -439,7 +518,10 @@ function Portfolio() {
 
 
                   </li>
-                  <li>
+
+                  {showMore && (
+              <>
+                                <li>
                   Leader in the country in the sale of Tetra-fino UHT milk.
 
 
@@ -453,12 +535,21 @@ function Portfolio() {
                   </li>
                   <li>
                   Dividend of Rs. 1.68 Crores and bonus of Rs.1.38 Crores for the period 2014-15 have been distributed by KMF, out of its profit, to its Member Unions.
-... <span className='text-primary-main text-lg font-bold'>Read More</span>
+... 
 
                   </li>
-
-
-                  </ul>
+              </>
+            )}
+          </ul>
+          {showMore ? (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read Less
+            </button>
+          ) : (
+            <button className='text-primary-main underline' onClick={toggleShowMore}>
+              Read More
+            </button>
+          )}
                  </div>
                        </div>
                  </div>

@@ -1,33 +1,57 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
+import banner from '@/images/portfolio/Childrens-min.png';
+import useLocale from '@/hooks/useLocale';
+import Link from 'next/link';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 
 const KsheeraBhagaya = () => {
+
+  const [tableData, setTableData] = useState([]);
+
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`/api/ksheerabhagaya`);
+
+      setTableData(data?.data);
+
+    })();
+  }, []);
+
+  const locale = useLocale().locale;
   return (
      <>
     <div className='w-full h-full'>
       <section className='w-full h-full'>
+      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/` || ''}>
+            KMF ACHIEVEMENTS
+            </Link>
+
+           
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main" href={''}>
+               KSHEERABHAGAYA
+            </Link>
+          </div>
       <div className=' relative w-full h-auto flex justify-center mt-20'>
 
         <h1 className='text-primary-main text-2xl md:text-4xl  ' > KSHEERABHAGAYA </h1>
         <img className='absolute top-[-50px] left-[49%] w-40 ' src={titleBG.src} alt="" />
 </div>
       </section>
-         <section className={`w-full h-auto md:h-[90vh] relative  company-bg mt-20`}>
+         <section className={`w-full h-auto md:h-[90vh] relative  company-bg mt-10`}>
 
-                <div className='absolute w-full h-full '>
-                     <div className='w-full h-full  z-[-1] flex justify-center items-center'>
-                           <div className='bg-red-600 w-full h-7 '>
-
-                           </div>
-                     </div>
-                </div>
-                <video autoPlay muted loop controls className=' relative z-[10] w-full h-full' src="/video/ksheerabhagaya.mov"></video>
+              
+<img src={banner.src} alt="" />
 
         </section>
-        <section className='w-full h-full  '>
+        <section className='w-full h-full mt-20 '>
          
           <div className='w-full h-auto'>
       
@@ -162,6 +186,55 @@ const KsheeraBhagaya = () => {
           
         </tbody>
       </table>
+
+
+
+      {/* <BlocksRenderer
+                      content={data?.data}
+                      blocks={{
+
+                        code: ({ children }) => {
+                          const columns =
+                            children?.[0]?.props?.text.split(',')[0].trim() === 'columns'
+                              ? children?.[0]?.props?.text.split(',').slice(1)
+                              : [];
+
+                          return (
+                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
+                              <thead className=" text-left ">
+                                {columns?.map((item, id) => {
+                                  return (
+                                    <th className="p-2   border-r border-black " key={id}>
+                                      {item}
+                                    </th>
+                                  );
+                                })}
+                              </thead>
+                              <tbody className="text-left  text-md ">
+                                <tr className="w-full ">
+                                  {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
+                                    children?.[0]?.props?.text?.split(',')?.map((item, id) => {
+                                      return (
+                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                          {' '}
+                                          {item}
+                                        </td>
+                                      );
+                                    })}
+                                </tr>
+                              </tbody>
+                            </table>
+                          );
+                        },
+
+                        // For links, you may want to use the component from your router or framework
+                        link: ({ children, url }) => <Link to={url}>{children}</Link>
+                      }}
+                    /> */}
+
+
+
+
     </div>
                
           </div>

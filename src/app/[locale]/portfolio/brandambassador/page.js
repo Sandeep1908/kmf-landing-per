@@ -1,6 +1,8 @@
 'use client';
 import Footer from '@/components/Footer'
 import React, { useState } from 'react'
+import ReactPlayer from 'react-player';
+
 import { Carousel as Carousels } from 'react-responsive-carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -13,8 +15,11 @@ import rajkumar1 from '@/images/portfolio/rajkumar-1.jpg'
 import rajkumar2 from '@/images/portfolio/rajkumar-2.jpg'
 import rajkumar3 from '@/images/portfolio/rajkumar-3.jpg'
 import rajkumar4 from '@/images/portfolio/rajkumar-4.jpg'
+import rajkumar5 from '@/images/portfolio/rajkumar-5.jpg'
+import rajkumar6 from '@/images/portfolio/rajkumar-6.jpg'
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
 
@@ -131,7 +136,17 @@ const BrandAmbassador = () => {
             <div className='max-w-96 w-full h-96 pt-2 pb-2 '>
                 <div className='w-full h-full bg-[#3b75d8] shadow-xl'>
 
-              <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
+                <PhotoProvider >
+                  
+                  <PhotoView src="/video/brand-video.mp4" height="400px"  >
+
+                  <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
+                  </PhotoView>
+              
+ 
+             </PhotoProvider>
+
+              {/* <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video> */}
                 </div>
             </div>
             <div className='max-w-4xl w-full h-96 '>
@@ -166,6 +181,16 @@ const BrandAmbassador = () => {
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2'>
                      <img className='m-auto w-full h-full object-cover' src={rajkumar4.src} alt="" />
+                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2'>
+                     <img className='m-auto w-full h-full object-cover' src={rajkumar5.src} alt="" />
+                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2'>
+                     <img className='m-auto w-full h-full object-cover' src={rajkumar6.src} alt="" />
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
