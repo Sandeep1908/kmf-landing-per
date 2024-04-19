@@ -38,7 +38,7 @@ function KmfUnitDetail() {
   }, []);
 
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
 
       {banner?
        <section className={`w-full h-[600px] pt-28 relative  grid place-items-center `}>

@@ -15,7 +15,7 @@ function BlogCard() {
           const { data } = await axios.get('/api/blog-posts?sort[0]=date:desc');
      
           setBlogs(data.data);
-          setLoading(false)
+          
      
         })();
       }, []);
@@ -25,6 +25,7 @@ function BlogCard() {
 
         {
             blogs?.map((item,id)=>{
+                
                 
                 return(
                     <div key={id} className='w-full flex space-x-5 p-10 justify-center items-center'>

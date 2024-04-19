@@ -1,14 +1,43 @@
 'use client';
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
+import AnimalBreed from './AnimalBreed';
+import Link from 'next/link';
+import HealthCamps from './HeathCamps';
+
 function AnimalBreeding() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
-  const animalBreeding=['Artificial Insemination','Sexed Semen','Calf rearing Programme','Bharat Pashudhan']
-  return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+  const [currentIndex, setCurrentIndex] = useState(0);
+    
+  const tabs = [
+    {
+      tabName: locale==='en'?'Animal Breeding ':'Animal Breeding',
+      data:<AnimalBreed/>
+      
+    },
+    {
+      tabName: locale==='en'?'Health Camps':'Health Camps',
+      data:<HealthCamps/>
+      
+    },
+ 
+  
+  ];
+  
+  const handleTabs = (idx) => {
+    
+   
+    setCurrentIndex(idx);
+  };
+   
+
+
+return(
+ 
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -24,79 +53,55 @@ function AnimalBreeding() {
           } `}
         />
       </section>
-      <section className=" relative w-full   h-auto pt-10  ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
-            <h1 className="text-4xl font-heading text-center w-full relative flex justify-center items-center   text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-              Animal Breeding
-            </h1>
+      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                      <Link className="  text-sm font-bold  " href={`/` || ''}>
+              Home
+            </Link>
 
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold    " href={` `}>
+              Animal Husbandery
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main  " href={` `}>
+              Animal Breeding Program
+            </Link>
             
-
-            <div className="w-full h-full flex justify-center items-center flex-wrap">
-
-            {
-  animalBreeding.map((_, id) => (
-    <div key={id} className="max-w-3xl w-full m-10 rounded-3xl h-[400px] shadow-2xl bg-slate-50 p-16">
-      <div className="m-auto">
-        <h1 className="text-primary-main text-2xl md:text-3xl text-center "> {_} </h1>
-        <div className="mt-10">
-          {/* Your content here */}
-        </div>
-      </div>
-    </div>
-  ))
-}
-           
-              
-              
-            
-
-
-            </div>
           </div>
+
+      <section className="w-full h-auto p-10   relative flex justify-center items-center flex-col   ">
+        <div className="w-full flex flex-col justify-center items-center space-y-5">
+       
+
+          <div className="relative w-full   flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
+            <ul className="flex justify-center items-center  space-x-7">
+              {tabs?.map((tab, idx) => {
+                return (
+                  <li
+                    key={idx}
+                    onClick={() => handleTabs(idx)}
+                    className={`${currentIndex===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
+                    {tab.tabName}
+                  </li>
+                );
+              })}
+            </ul>
+            
+       
+
+          </div>
+          <h1 className=' w-fit text-secondary-darker text-7xl flex justify-center items-center  font-heading relative before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-20 '>{tabs[currentIndex].tabName}</h1>
         </div>
-
-        
-
       </section>
 
-      <section className=" relative w-full   h-auto pt-10  ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
-            <h1 className="text-4xl font-heading text-center w-full relative flex justify-center items-center   text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-              Bull Mother Farm
-            </h1>
+      {tabs?.map((tab, id) => {
+        if (currentIndex === id) {
+          return tab.data;
+        }
+      })} 
+    
 
-            
-
-            <div className="w-full h-full flex justify-center items-center flex-wrap">
-
-            {
-  Array.from({length:3}).map((_, id) => (
-    <div key={id} className="max-w-3xl w-full m-10 rounded-3xl h-[400px] shadow-2xl bg-slate-50 p-16">
-      <div className="m-auto">
-        <h1 className="text-primary-main text-2xl md:text-3xl text-center "> NSS Unit {id+1} </h1>
-        <div className="mt-10">
-          {/* Your content here */}
-        </div>
-      </div>
-    </div>
-  ))
-}
-           
-              
-              
-            
-
-
-            </div>
-          </div>
-        </div>
-
-        
-
-      </section>
       <Footer />
     </div>
   );

@@ -292,7 +292,8 @@ function Milk() {
                       })
                   :
 
-                  allSubCategories?.map((items, idx) => {
+                  categories?.map((items, idx) => {
+                     console.log('categorey',items)
                      
                     if(idx<=10){
                       return(
@@ -304,17 +305,18 @@ function Milk() {
                         onToggle={handleAccordionClick}
                         key={idx}>
                         <ul className="">
-                          {items?.attributes?.product_sub_items?.data?.map((item, index) => {
+                          {items?.attributes?.subcategories?.data?.map((item, index) => {
+                        console.log('items product',item)
                             return (
                               <Link
                               
-                                href={`/${locale}/our-product/${items?.id}` || ''}
+                                href={`/${locale}/our-product/${item?.id}` || ''}
                                 key={index}
                                 onClick={() => setOpenNav((prev) => !prev)}>
                                 <li
                                   key={index}
                                   className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
-                                  <span>{item?.attributes?.name}</span>
+                                  <span>{item?.attributes?.title}</span>
                                 </li>
                               </Link>
                             );

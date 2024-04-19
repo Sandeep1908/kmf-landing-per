@@ -3,14 +3,10 @@
 import React, { useEffect, useState } from 'react';
 
 import directorImg from '@/images/directors/bod.jpg';
-import personImg from '@/images/directors/person.png';
-import headImg from '@/images/directors/1-1.png';
-import headengImg from '@/images/directors/headeng.png';
 import Footer from '@/components/Footer';
 import TeamCard from './TeamCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
-import Loader from '@/components/Loader';
 import Zoom from 'react-reveal/Zoom';
 
 
@@ -19,7 +15,7 @@ function Directors() {
   const axios = useApi();
   const locale = useParams().locale;
   const [chairmain, setChairman] = useState([]);
-  const [loading,setLoading]=useState(true)
+   
 
   useEffect(() => {
     (async () => {
@@ -40,7 +36,7 @@ function Directors() {
     })();
   }, []);
 
-  if(loading)return <Loader/>
+ 
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
