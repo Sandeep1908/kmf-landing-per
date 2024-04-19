@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
@@ -5,12 +6,26 @@ import flag from '@/images/portfolio/flag.jpg';
 import dhare1 from '@/images/portfolio/dhare1.jpg'
 import dhare2 from '@/images/portfolio/dhare2.jpg'
 import dhare3 from '@/images/portfolio/dhare3.jpg'
+import Link from 'next/link';
+import useLocale from '@/hooks/useLocale';
 
 
 const GheeSupply = () => {
+  const locale = useLocale().locale;
   return (
     <div className='w-full h-full'>
       <section className='w-full h-full'>
+      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/` || ''}>
+            KMF ACHIEVEMENTS
+            </Link>
+
+           
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main" href={''}>
+            GHEE SUPPLY
+            </Link>
+          </div>
       <div className=' relative w-full h-full flex justify-center mt-20'>
 
             <h1 className='text-primary-main text-2xl md:text-4xl  ' > GHEE SUPPLY </h1>
@@ -20,8 +35,11 @@ const GheeSupply = () => {
        <section className={`w-full h-auto md:h-[90vh] relative company-bg mt-20`}>
 
                <div className='absolute w-full h-full '>
-                     <div className='w-full h-full  z-[-1] flex justify-center items-center'>
-                           <div className='bg-red-600 w-full h-7 '>
+                     <div className='w-full h-full  z-[-1] flex justify-between items-center'>
+                           <div className='bg-red-600 w-28 h-7 '>
+
+                           </div>
+                           <div className='bg-red-600 w-28 h-7 '>
 
                            </div>
                      </div>

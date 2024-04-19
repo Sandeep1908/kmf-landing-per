@@ -1,5 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player';
+
 import portfolioImg from '@/images/portfolio/portfolio.png';
 // import founderOfMilkImg from '@/images/portfolio/founder-of-milk.jpeg';
 import founderOfMilkImg from '@/images/portfolio/founder-of-milk.jpeg';
@@ -54,12 +56,24 @@ import Link from 'next/link';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 function Portfolio() {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
+
   const [achievments, setAchievments] = useState([]);
   const [slideView, setSlideView] = useState(3);
   const axios = useApi();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const locale = useLocale().locale;
+ 
+   const locale =useLocale().locale
+ const [banners,setBanners]=useState([])
+ 
+ 
   const [sponsore, setSponsore] = useState([]);
+ 
 
   const tabs = [
     {
@@ -102,11 +116,23 @@ function Portfolio() {
   ];
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/kmf-achievements');
-      const { data: sponsor } = await axios.get('/api/sponsoreds');
+ 
+      const { data } = await axios.get('/api/kmf-acheivment');
+      const {data:sponsor}= await axios.get('/api/Sponsoreds')
+      const {data:banner} =await axios.get('/api/banners')
+  
 
-      setSponsore(sponsor.data);
-      setAchievments(data.data);
+
+      setBanners(banner.data)
+  
+      
+
+      
+      setPortfolioData(data.data);
+   
+      setLoading(false)
+      setSponsor(sponsor.data?.[0]?.attributes?.image?.data)
+ 
     })();
   }, []);
 
@@ -133,16 +159,45 @@ function Portfolio() {
   }, []);
   return (
     <div
-      className="w-full h-full absolute top-36 z-[-1]   
-           ">
-      <section className={`w-full  h-auto relative  grid place-items-center company-bg`}>
-        <video
-          autoPlay
-          muted
-          loop
-          controls
-          className="w-full h-full"
-          src="/video/portfolio.mp4"></video>
+ 
+      className="w-full h-full absolute top-48 z-[-1]   
+           "
+       >
+ 
+      <section className="w-full  h-[700px] relative ">
+
+      <Swiper
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false
+      }}
+        direction={'vertical'}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination,Autoplay,FreeMode]}
+        className="h-full"
+      >
+
+        {banners?.map((item,id)=>{
+         
+          return(
+            <SwiperSlide key={id}>
+          
+            <img src={item?.attributes?.banner?.data?.attributes?.url} alt="" className='w-full h-[700px]' />
+         
+            </SwiperSlide>
+          )
+         
+        })}
+      
+
+
+      </Swiper>
+
+   
+
+ 
       </section>
 
       <section className="w-full h-auto mt-10">
@@ -167,27 +222,29 @@ function Portfolio() {
         </div>
       </section>
 
-      <section id="ACHIEVEMENTS" className="w-full h-auto mt-10 md:mt-20">
-        <div className="w-full text-center">
-          <h1 className="text-primary-main text-2xl md:text-6xl "> KMF ACHIEVEMENTS </h1>
-          <div className="w-full flex flex-col md:flex-row flex-wrap justify-center items-center mt-10 gap-5">
-            {tabs?.map((tab, idx) => {
-              return (
-                <div key={idx} onClick={() => handleTabs(idx)} className="flex gap-3">
-                  <Link href={tab.link}>
-                    {' '}
-                    <p
-                      className={`${
-                        currentIndex === idx ? 'text-black' : 'text-[#7c7a7a]'
-                      } text-lg`}>
-                      {' '}
-                      {tab.tabName}
-                    </p>
-                  </Link>
-                  <p className="text-2xl font-bold">/</p>
-                </div>
-              );
-            })}
+ 
+
+
+      <section id='ACHIEVEMENTS' className='w-full h-auto mt-10 md:mt-20'>
+          <div className='w-full text-center'>
+          <h1 className='text-primary-main text-2xl md:text-6xl ' > KMF ACHIEVEMENTS </h1>
+          <div className='w-full flex flex-col md:flex-row flex-wrap justify-center items-center mt-10 gap-5'>
+            {
+              tabs?.map((tab, idx) =>{
+                return(
+                  <div 
+                    key={idx}
+                    onClick={() => handleTabs(idx)}
+                    className='flex gap-3'>
+                     <Link href={tab.link}> <p className={`${currentIndex===idx?"text-yellow-500":"text-black hover:text-yellow-500"}  text-lg hover:text-yellow-500`}> {tab.tabName}</p></Link>
+                      <p className=' text-2xl font-bold'>/</p>
+                 </div>
+                );
+              })
+            }
+
+
+ 
           </div>
 
           <div className="w-full h-auto mt-10 mb-20">
@@ -207,6 +264,7 @@ function Portfolio() {
                 alt=""
               />
             </div>
+ 
 
             <div className="  lg:block lg:max-w-none lg:shadow-none lg:p-0   p-6 md:p-16  relative max-w-xl m-auto w-full     rounded-3xl  shadow-2xl     max-h-[500px] h-full z-[-1]">
               <img className="w-full h-full hidden  lg:block " src={flag.src} alt="" />
@@ -241,7 +299,8 @@ function Portfolio() {
                     </div>
                   </div>
                 </div>
-              </div>
+ 
+ 
             </div>
 
             <div className="w-full h-auto flex flex-wrap justify-center">

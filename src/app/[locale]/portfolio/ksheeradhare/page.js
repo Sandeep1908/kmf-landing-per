@@ -1,12 +1,27 @@
+"use client"
 import React from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
+import useLocale from '@/hooks/useLocale';
+import Link from 'next/link';
 
 
 const KsheeraDhare = () => {
+  const locale = useLocale().locale;
   return (
      <div className='w-full h-full'>
+        <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/` || ''}>
+            KMF ACHIEVEMENTS
+            </Link>
+
+           
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main" href={''}>
+               KSHEERADHARE
+            </Link>
+          </div>
         <div className='w-full h-auto'>
         <div className=' relative w-full h-full flex justify-center mt-20'>
 
