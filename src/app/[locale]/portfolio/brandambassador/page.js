@@ -1,8 +1,11 @@
 'use client';
 import Footer from '@/components/Footer'
-import React, { useState } from 'react'
+ 
 import ReactPlayer from 'react-player';
 
+ 
+import React, { useEffect, useState } from 'react'
+ 
 import { Carousel as Carousels } from 'react-responsive-carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -21,6 +24,7 @@ import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
+import useApi from '@/hooks/useApi';
 
 
 
@@ -29,6 +33,22 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const BrandAmbassador = () => {
     const locale =useLocale().locale
     const [slideView, setSlideView] = useState(3);
+    const [brandAmbassador,setBrandAmbassador]=useState([])
+
+  const axios=useApi()
+
+  useEffect(()=>{
+(
+  async()=>{
+    const {data}=await axios.get('/api/brand-ambassadors')
+    setBrandAmbassador(data.data)
+  }
+)()
+  },[])
+
+
+
+
   return (<>
       <div className='w-full h-full'>
        
@@ -42,90 +62,42 @@ const BrandAmbassador = () => {
         showThumbs={false}
         showIndicators={true}
        >
-        <div className='relative w-full h-[500px] md:h-[750px] '>
+        {
+          brandAmbassador?.map((item,id)=>{
+            return(
+              <div key={id} className='relative w-full h-[500px] md:h-[750px] '>
 
-          <div className='absolute w-full h-full top-0 left-0 bg-[#4f7ffc] opacity-80 z-[-10]'></div>
-          {/* <div className='absolute w-full h-full top-0 left-0  opacity-80 z-[-1]'> <img className='' src={KRISHNAPPA.src} alt="" /></div> */}
+              <div className='absolute w-full h-full top-0 left-0 bg-[#4f7ffc] opacity-80 z-[-10]'></div>
+              {/* <div className='absolute w-full h-full top-0 left-0  opacity-80 z-[-1]'> <img className='' src={KRISHNAPPA.src} alt="" /></div> */}
+    
+              <div className='w-full h-full flex flex-col justify-center items-center  '>
+              <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
+                 <div className='w-full h-auto mt-6 md:mt-20'>
+                  <div className='max-w-[700px] m-auto'>
+    
+                 
+                     <h1 className='text-white text-xl md:text-5xl font-bold text-center'>{item?.attributes?.name}</h1>
+                     {item?.attributes?.description?.map((des,id)=>{
 
-          <div className='w-full h-full flex flex-col justify-center items-center  '>
-          <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
-             <div className='w-full h-auto mt-6 md:mt-20'>
-              <div className='max-w-[700px] m-auto'>
+              
+                     return(
+                      <p key={id} className='text-lg text-center  mt-4 md:mt-10 text-white p-2'>
+                        {des?.children?.[0]?.text}
+    
+    </p>
 
-             
-                 <h1 className='text-white text-xl md:text-5xl font-bold text-center'>Dr. Rajakumar</h1>
-                 <p className='text-lg text-center  mt-4 md:mt-10 text-white p-2'>Dr. Rajakumar, Karnataka Rathna Padmabhushana, commenced in 1994 when he became the ambassador for Karnataka Milk Federation (KMF) products. During a special event held at Ravindra Kalakshetra, he was presented with a cow as a symbol of goodwill for the farmers of Karnataka. Remarkably, Dr. Rajakumar graciously declined any remuneration for his role. The cow presented to him was housed in Gajanur for an extended period, becoming a testament to his dedication to the cause. 
+                     )})}
+                     
+    </div>
+                 </div>
+            </div>
+            </div>
+            )
+          })
+        }
+       
 
-</p>
-</div>
-             </div>
-        </div>
-        </div>
-
-        <div className='relative w-full h-full '>
-
-          <div className='absolute w-full h-full top-0 left-0 bg-[#f99457] opacity-80 z-[-1]'></div>
-
-          <div className='w-full h-full flex flex-col justify-center items-center  '>
-          <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
-             <div className='w-full h-auto mt-20'>
-              <div className='max-w-[700px] m-auto'>
-
-             
-                 <h1 className='text-white text-xl md:text-5xl font-bold text-center'>Upendra Rao
-</h1>
-                 <p className='text-lg text-center mt-10 text-white'>A famous actor and director of Kannada Film Industry star Shri. Upendra Rao became a brand ambassador for KMF products in the year 2003.
-
-
-</p>
-</div>
-             </div>
-        </div>
-        </div>
-
-        <div className='relative w-full h-full '>
-
-          <div className='absolute w-full h-full top-0 left-0 bg-[#f99457] opacity-80 z-[-1]'></div>
-
-          <div className='w-full h-full flex flex-col justify-center items-center  '>
-          <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
-             <div className='w-full h-auto mt-20'>
-              <div className='max-w-[700px] m-auto'>
-
-             
-                 <h1 className='text-white text-xl md:text-5xl font-bold text-center'>Dr. Puneet Rajkumar
-
-</h1>
-                 <p className='text-lg text-center mt-10 text-white'>Following in his father’s footsteps, Dr. Rajakumar’s third son, Karnataka Rathna Dr. Puneeth Rajakumar, continued the legacy by becoming the brand ambassador for KMF Nandini products. In an advertisement, Puneeth Rajakumar even featured consuming milk from a massive pot, further endorsing the state farmers’ products without seeking any personal favors.
-
-
-</p>
-</div>
-             </div>
-        </div>
-        </div>
-
-        <div className='relative w-full h-full '>
-
-          <div className='absolute w-full h-full top-0 left-0 bg-[#f99457] opacity-80 z-[-1]'></div>
-
-          <div className='w-full h-full flex flex-col justify-center items-center  '>
-          <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
-             <div className='w-full h-auto mt-20'>
-              <div className='max-w-[700px] m-auto'>
-
-             
-                 <h1 className='text-white text-xl md:text-5xl font-bold text-center'>Dr. ShivarajRajkuma
-
-</h1>
-                 <p className='text-lg text-center mt-10 text-white'>Kannada film actor Shivarajkumar has been named the new brand ambassador of Nandini milk products. Shivarajkumar’s father and matinee idol Rajkumar and subsequently his late brother Puneeth Rajkumar were ambassadors of the Nandini milk products for several years. In a special event, CM Siddaramaiah honoured KMF New Brand Ambassador Dr. Shivarajkumar and launched the products of KMF Nandini brand Nandini Buffalo Milk and Nandini Yogurt Light
-
-
-</p>
-</div>
-             </div>
-        </div>
-        </div>
+        
         </Carousels>
         
       </section>

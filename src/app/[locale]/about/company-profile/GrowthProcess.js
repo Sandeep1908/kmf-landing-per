@@ -11,7 +11,7 @@ function GrowthProcess({setLoading}) {
     (
       async()=>{
         const {data}=await axios.get('/api/growht-processes?sort[0]=year:asc')
-        const {data:growthProcessHeaderData}=await axios.get('/api/growthprocessheaders')
+        const {data:growthProcessHeaderData}=await axios.get('/api/growthprocessheaders?sort[0]=createdAt:asc')
       
  
        

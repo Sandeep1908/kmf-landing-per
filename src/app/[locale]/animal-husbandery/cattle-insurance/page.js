@@ -5,6 +5,7 @@ import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
 import CattleFeed from './CattleFeed';
 import CattleInsurance from './CattleInsurance';
+import Link from 'next/link';
 function CattleInsuranceComponent() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;  
@@ -32,7 +33,7 @@ function CattleInsuranceComponent() {
   };
    
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -48,6 +49,22 @@ function CattleInsuranceComponent() {
           } `}
         />
       </section>
+      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                      <Link className="  text-sm font-bold  " href={`/` || ''}>
+              Home
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold    " href={` `}>
+              Animal Husbandery
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main  " href={` `}>
+              Cattle Insurance
+            </Link>
+            
+      </div>
 
       <section className="w-full h-auto p-10   relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">

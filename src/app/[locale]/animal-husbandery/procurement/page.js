@@ -3,11 +3,12 @@ import React from 'react'
 import Footer from '@/components/Footer'
 import { useMyContext } from '@/context/headerContext'
 import useLocale from '@/hooks/useLocale'
+import Link from 'next/link'
 function Procurement() {
     const { isScroll}=useMyContext()
     const locale=useLocale().locale
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
     <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
       {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
        */}
@@ -23,6 +24,22 @@ function Procurement() {
         } `}
       />
     </section>
+    <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                      <Link className="  text-sm font-bold  " href={`/` || ''}>
+              Home
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold    " href={` `}>
+              Animal Husbandery
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main  " href={` `}>
+             Procurement
+            </Link>
+            
+      </div>
     <section className=" relative w-full max-w-7xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           
