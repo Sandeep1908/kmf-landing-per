@@ -21,23 +21,23 @@ const locale=useLocale().locale
     )()
   },[])
   return (
-    <div className='w-full mt-10  md:mt-20 '>
-          <div className='w-full text-center mb-20'>
-          <div className='flex flex-col justify-center items-center'>
+    <div className='w-full h-full mt-10  md:mt-20 '>
+          <div className='w-full h-full text-center mb-20'>
+          <div className='flex h-full flex-col justify-center items-center'>
             <h1 className='text-primary-main text-5xl'>
                             NANDINI RECIPES
                         </h1>
                         <div className='w-40 h-1 bg-primary-main mt-8'></div>
             </div>
 
-            <div className='w-full mt-10 md:mt-20 p-5 mb-20 flex justify-center items-center'>
-            <div className='w-full m-auto flex justify-center items-center flex-wrap gap-10 '>
+            <div className='w-full h-full mt-10 md:mt-20 p-5 mb-20 flex justify-center items-center'>
+            <div className='w-full h-full m-auto grid grid-cols-3 gap-36 '>
 
              {/* <Link > */}
         
         {
           recipe?.map((item,id)=>{
-            console.log("item",item)
+           
             return(
               <Recipes key={id} title={item?.attributes?.title} image={item?.attributes?.image?.data?.[0]?.attributes?.url}
               link={`/${locale}/nandini-recipes/${item?.id}`}

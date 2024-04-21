@@ -379,7 +379,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto relative       ">
+      <section className="w-full h-fit relative       ">
+      <img src='/images/footer-top.png' className='absolute inset-0 w-full h-full object-cover z-[-1]'/>
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center w-full   flex-wrap   items-end  ">

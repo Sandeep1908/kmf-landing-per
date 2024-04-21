@@ -282,9 +282,9 @@ export const Header = () => {
 
           {/* MAIN HEADER DOWN  */}
 
-          <div className={`w-full    ${isSticky ? 'sticky-header' : ''}`}>
+          <div className={`w-full    ${isSticky ? 'sticky-header  bg-[#06498a63]':'bg-primary-gradient'} `}>
             <div
-              className={`w-full max-w-[100%] h-[50px]  m-auto p-5 z-20 relative  ${isSticky?'bg-gradient-to-r from-[#082649] to-primary-gradient':'bg-gradient-to-r from-[#082649] to-primary-gradient'}   `}>
+              className={`w-full max-w-[85%] h-[50px]  m-auto p-5 z-20 relative   `}>
               <div className=" w-full h-full flex justify-between items-center lg:hidden ">
                 <div onClick={() => setOpenNav((prev) => !prev)}>
                   <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
@@ -296,63 +296,7 @@ export const Header = () => {
                   {headItem?.map((header, i) => {
                     const hasItems = header?.subItems?.length;
                     const isLink = header?.link;
-                    //  if(header.title==='OUR PRODUCTS' || header.title==='ಮಹಿಳಾ ಸಬಲೀಕರಣ'){
-                    //   return (
-                    //     <div  key={i}>
-
-                    //     <Link
-                    //       href={isLink ? isLink : '#'}
-                         
-                    //       className=" w-full transition-all duration-300 hover:scale-[1.1] ">
-                    //       <li
-                    //         className="   text-[14px] border-light-light4 pl-2 pr-2   relative hover:text-secondary-lighter "
-                    //         onMouseEnter={() => setOpen(hasItems ? i : null)}
-                    //         onClick={()=>setOpen(null)}
-                    //         >
-                    //         {header.title}
-                           
-                    //       </li>
-
-                    //     </Link>
-
-
-                    //     {hasItems && (
-                    //           <div
-                    //             className={`p-4 bg-gradient-to-r from-[#082649] to-primary-gradient absolute   top-[3.2rem] left-0 transition-all duration-500       ${
-                    //               open === i ? 'opacity-1' : 'hidden'
-                    //             }  `}
-                                
-                    //             onMouseLeave={() => setOpen(null)}>
-                    
-                    //             <ul className=" grid grid-cols-5 justify-center items-start gap-5   overflow-auto  m-auto    text-white relative">
-                                
-                    //               {header.subItems?.map((subItem, idx) => {
-                                    
-                                     
-                    //                 return (
-                    //                   <div  key={idx}>
-
-                                 
-                    //                   <Link
-                    //                     href={subItem?.link || ''}
-                    //                     className="text-[16px] block hover:text-secondary-lighter"
-                                       
-                    //                     onClick={() => handleMainHeader(subItem?.id)}>
-                    //                     <li className=' '  >
-                    //                     {subItem.title}
-                    //                     </li>
-                    //                   </Link>
-
-                                
-                    //                   </div>
-                    //                 );
-                    //               })}
-                    //             </ul>
-                    //           </div>
-                    //         )} 
-                    //           </div>
-                    //   );
-                    //  }
+                   
 
 
                     

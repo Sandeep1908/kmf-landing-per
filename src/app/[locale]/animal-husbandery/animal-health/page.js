@@ -1,12 +1,24 @@
 'use client';
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import useApi from '@/hooks/useApi';
 function AnimalHealth() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
+  const [animalHealth,setAnimalHealth]=useState([])
+
+  const axios = useApi();
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/animal-healths')
+      setAnimalHealth(data.data);
+     
+    })();
+  }, []);
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
@@ -50,20 +62,58 @@ function AnimalHealth() {
             
 
             <div className="w-full h-full flex justify-center items-center flex-wrap">
-
-            {
-  Array.from({ length: 6 }).map((_, id) => (
-    <div key={id} className="max-w-3xl w-full m-10 rounded-3xl h-[400px] shadow-2xl bg-slate-50 p-16">
-      <div className="m-auto">
-        <h1 className="text-primary-main text-2xl md:text-3xl text-center "> Disease control and prevention </h1>
-        <div className="mt-10">
-          {/* Your content here */}
-        </div>
-      </div>
-    </div>
-  ))
-}
-           
+            {animalHealth?.map((_, id) => {
+                return (
+                  <div
+                    key={id}
+                    className="max-w-3xl w-full m-10 rounded-3xl h-[500px] overflow-auto shadow-2xl bg-slate-50 p-16">
+                    <div className="m-auto">
+                      <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
+                        {' '}
+                        {_?.attributes?.title}{' '}
+                      </h1>
+                      <div className="mt-10">
+                        {_?.attributes?.content && (
+                          <BlocksRenderer
+                            content={_?.attributes?.content}
+                            blocks={{
+                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              heading: ({ children, level }) => {
+                                switch (level) {
+                                  case 1:
+                                    return (
+                                      <h1 className="text-2xl text-primary-main">{children}</h1>
+                                    );
+                                  case 2:
+                                    return <h2 className="text-lg">{children}</h2>;
+                                  case 3:
+                                    return <h3>{children}</h3>;
+                                  case 4:
+                                    return <h4>{children}</h4>;
+                                  case 5:
+                                    return <h5>{children}</h5>;
+                                  case 6:
+                                    return <h6>{children}</h6>;
+                                  default:
+                                    return <h1>{children}</h1>;
+                                }
+                              },
+                              list: ({ children }) => {
+                                return <li>{children}</li>;
+                              },
+                              code: ({ children }) => (
+                                <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">
+                                  {children}
+                                </h1>
+                              )
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
               
               
             

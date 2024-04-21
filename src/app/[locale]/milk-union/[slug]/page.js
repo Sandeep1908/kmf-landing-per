@@ -26,10 +26,12 @@ function MilkUnionDetail({ slug }) {
   const param = useParams();
   const [banner, setBanner] = useState();
   const [bannerImg, setBannerImg] = useState();
+  const [readMore, setReadMore] = useState(false);
+
 
   const axios = useApi();
   const [loading, setLoading] = useState(true);
-  const [readMore, setReadMore] = useState(false);
+  
   const locale = useParams().locale;
   const { isScroll, setIsScroll, id, setId } = useMyContext();
   useEffect(() => {
@@ -46,6 +48,9 @@ function MilkUnionDetail({ slug }) {
       setLoading(false);
     })();
   }, []);
+  const toggleReadMore = () => {
+    setReadMore(!readMore);
+  };
 
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
@@ -93,7 +98,7 @@ function MilkUnionDetail({ slug }) {
                 <div className=" w-full h-full transition-all duration-300  ">
                   {union && union.attributes && union.attributes.about && (
                     <BlocksRenderer
-                      content={union.attributes.about}
+                      content={readMore ? union.attributes.about : union.attributes.about.slice(0, 5)}
                       blocks={{
                         // You can use the default components to set class names...
                         paragraph: ({ children }) => (
@@ -158,7 +163,9 @@ function MilkUnionDetail({ slug }) {
                     />
                   )}
 
-                
+<button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
+                  {readMore ? 'Read less' : 'Read more'}
+                </button>
                 </div>
               </div>
             </div>

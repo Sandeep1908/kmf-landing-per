@@ -91,7 +91,7 @@ useEffect(()=>{
       </section>
  
 
- <div className=' w-full max-w-7xl m-auto  gap-5  flex justify-start items-start '>
+ <div className=' w-full max-w-[1600px] m-auto  gap-5  flex justify-start items-start '>
   
 
  

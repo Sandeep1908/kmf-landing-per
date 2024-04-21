@@ -185,7 +185,8 @@ function Milk() {
                           showThumbs={false}
                           showIndicators={false}>
                           {item?.attributes?.image?.data?.map((item, id) => {
-                            const validExtensions = ['.png', '.jpg', '.jpeg'];
+                            console.log("product",item)
+                            const validExtensions = ['.png', '.jpg', '.jpeg','.JPG','.JPEG','.PNG'];
                             if (validExtensions.includes(item?.attributes?.ext)) {
                               return (
                                 <img
@@ -293,7 +294,7 @@ function Milk() {
                   :
 
                   categories?.map((items, idx) => {
-                     console.log('categorey',items)
+                    
                      
                     if(idx<=10){
                       return(
@@ -339,8 +340,7 @@ function Milk() {
 
               
 
-                  <p className={`text-sm bg-primary-main cursor-pointer p-4 w-full text-white ${showMore?'hidden':'block'}`} onClick={()=>setShowMore(true)}>Show More...</p>
-                  <p className={`text-sm bg-primary-main cursor-pointer p-4 w-full text-white ${showMore?'block':'hidden'}`} onClick={()=>setShowMore(false)}>Show Less...</p>
+                 
                 </div>
               </div>
             </div>

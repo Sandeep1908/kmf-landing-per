@@ -197,7 +197,7 @@ export const mobileHeader = {
         },
         {
           title: "Bulk Order",
-          link: '/en/'
+          link: '/en/comingsoon'
         },
        
 
