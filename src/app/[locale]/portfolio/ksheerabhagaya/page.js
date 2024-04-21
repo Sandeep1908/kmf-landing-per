@@ -6,22 +6,10 @@ import flag from '@/images/portfolio/flag.jpg';
 import banner from '@/images/portfolio/Childrens-min.png';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 
 const KsheeraBhagaya = () => {
 
-  const [tableData, setTableData] = useState([]);
-
-
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`/api/ksheerabhagaya`);
-
-      setTableData(data?.data);
-
-    })();
-  }, []);
 
   const locale = useLocale().locale;
   return (
@@ -187,50 +175,6 @@ const KsheeraBhagaya = () => {
         </tbody>
       </table>
 
-
-
-      {/* <BlocksRenderer
-                      content={data?.data}
-                      blocks={{
-
-                        code: ({ children }) => {
-                          const columns =
-                            children?.[0]?.props?.text.split(',')[0].trim() === 'columns'
-                              ? children?.[0]?.props?.text.split(',').slice(1)
-                              : [];
-
-                          return (
-                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
-                              <thead className=" text-left ">
-                                {columns?.map((item, id) => {
-                                  return (
-                                    <th className="p-2   border-r border-black " key={id}>
-                                      {item}
-                                    </th>
-                                  );
-                                })}
-                              </thead>
-                              <tbody className="text-left  text-md ">
-                                <tr className="w-full ">
-                                  {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
-                                    children?.[0]?.props?.text?.split(',')?.map((item, id) => {
-                                      return (
-                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
-                                          {' '}
-                                          {item}
-                                        </td>
-                                      );
-                                    })}
-                                </tr>
-                              </tbody>
-                            </table>
-                          );
-                        },
-
-                        // For links, you may want to use the component from your router or framework
-                        link: ({ children, url }) => <Link to={url}>{children}</Link>
-                      }}
-                    /> */}
 
 
 
