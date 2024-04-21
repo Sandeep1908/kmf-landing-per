@@ -1,10 +1,9 @@
 'use client';
 import Footer from '@/components/Footer'
- 
+import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player';
 
  
-import React, { useEffect, useState } from 'react'
  
 import { Carousel as Carousels } from 'react-responsive-carousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -23,6 +22,8 @@ import rajkumar6 from '@/images/portfolio/rajkumar-6.jpg'
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import VideoComponent from './VideoComponent';
+import Lightbox from './Lightbox';
 
 import useApi from '@/hooks/useApi';
 
@@ -33,6 +34,36 @@ import useApi from '@/hooks/useApi';
 const BrandAmbassador = () => {
     const locale =useLocale().locale
     const [slideView, setSlideView] = useState(3);
+
+
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const videoUrl = "/video/brand-video.mp4"; // Replace with your actual video URL
+  
+    const openLightbox = () => {
+      setLightboxOpen(true);
+    };
+  
+    const closeLightbox = () => {
+      setLightboxOpen(false);
+    };
+  
+    useEffect(() => {
+      
+  
+      const handleSlideView = () => {
+        const screen = window.innerWidth;
+        if (screen < 1113) {
+          setSlideView(2);
+        }
+        if (screen < 779) {
+          setSlideView(1);
+        }
+      };
+      handleSlideView();
+  
+      window.addEventListener('resize', handleSlideView);
+      return () => window.removeEventListener('resize', handleSlideView);
+    }, []);
     const [brandAmbassador,setBrandAmbassador]=useState([])
 
   const axios=useApi()
@@ -102,21 +133,16 @@ const BrandAmbassador = () => {
         
       </section>
 
-      <section className='w-full h-auto bg-[#2858ac]'>
-          <div className='max-w-6xl h-[500px]  m-auto flex flex-row gap-6 justify-center items-center '>
+      <section className='relative w-full h-auto bg-[#2858ac]'>
+          <div className='max-w-6xl  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
          
             <div className='max-w-96 w-full h-96 pt-2 pb-2 '>
-                <div className='w-full h-full bg-[#3b75d8] shadow-xl'>
+                <div className='w-full h-full bg-[#3b75d8] shadow-xl flex justify-center items-center'>
 
-                <PhotoProvider >
-                  
-                  <PhotoView src="/video/brand-video.mp4" height="400px"  >
 
-                  <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
-                  </PhotoView>
-              
- 
-             </PhotoProvider>
+                <VideoComponent onClick={openLightbox} />
+             {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />}
+
 
               {/* <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video> */}
                 </div>
