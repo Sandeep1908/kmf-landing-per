@@ -25,7 +25,7 @@ function MissionVission() {
   },[])
  
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
        <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -70,7 +70,13 @@ function MissionVission() {
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc   text-justify text-lg  md:justify-normal md:items-start">
 
             <h1 className='text-xl'>{locale==='kn'?'ಧ್ಯೇಯದೃಷ್ಟಿ':'Mission'}</h1>
-
+            {
+              purpose?.attributes?.mission?.map((item,id)=>{
+                return(
+                  <li key={id}>{item?.children[0].text}</li>
+                )
+              })
+             }
                 
               </ul>
           </div>
@@ -115,8 +121,8 @@ function MissionVission() {
       </section>
 
       <section className=" relative w-full h-auto pt-10  ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col justify-center items-start shadow-md ">
+        <div className="w-full  h-full flex flex-col p-3 justify-center items-center space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
+          <div className="w-full flex flex-col justify-center items-center shadow-md ">
             <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
             {locale === 'en'
                   ? `                    Evolution`
@@ -140,8 +146,8 @@ function MissionVission() {
             </ul>
           </div>
 
-          <div className="w-full   flex justify-center items-center">
-            <img src={CowImg2.src} className=" w-full h-full" />
+          <div className="w-full h-full flex justify-center items-center">
+            <img src={CowImg2.src} className=" w-[400px] h-full" />
           </div>
         </div>
 

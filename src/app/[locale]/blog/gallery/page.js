@@ -3,13 +3,13 @@
 import React, { useEffect, useState } from 'react';
 import AboutHeroImg from '@/images/about/mission/about-hero.png';
 
-// import { gallery } from '@/configtext/gallery';
-import ImgaeCard from './ImageCard';
+ 
 import Footer from '@/components/Footer';
-import VideCard from './VideoCard';
+ 
 import BlogCard from './BlogCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
+import PressRelease from './PressRelease';
 
 function Gallery() {
  
@@ -23,20 +23,14 @@ function Gallery() {
       
     },
     { 
-      tabs:'Press Release'
+      tabs:'Press Release',
+      data:<PressRelease/>
 
     },
     {
       tabs:'Tv Commercials'
     }
-    // {
-    //   tabs:'Video',
-    //   data:<VideCard/>
-    // },
-    // {
-    //   tabs:'Images',
-    //   data:<ImgaeCard/>
-    // }
+    
   ]
 
  
@@ -49,11 +43,11 @@ function Gallery() {
   };
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]     ">
+    <div className="w-full  absolute top-36 z-[-1]     ">
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
-      <section className="max-w-7xl m-auto pt-10   ">
+      <section className="max-w-7xl h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
           <h1 className="text-center text-5xl text-primary-main">{locale==='en'?`Gallery`:`
 ಗ್ಯಾಲರಿ`}</h1>

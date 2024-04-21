@@ -185,7 +185,8 @@ function Milk() {
                           showThumbs={false}
                           showIndicators={false}>
                           {item?.attributes?.image?.data?.map((item, id) => {
-                            const validExtensions = ['.png', '.jpg', '.jpeg'];
+                            console.log("product",item)
+                            const validExtensions = ['.png', '.jpg', '.jpeg','.JPG','.JPEG','.PNG'];
                             if (validExtensions.includes(item?.attributes?.ext)) {
                               return (
                                 <img
@@ -292,7 +293,8 @@ function Milk() {
                       })
                   :
 
-                  allSubCategories?.map((items, idx) => {
+                  categories?.map((items, idx) => {
+                    
                      
                     if(idx<=10){
                       return(
@@ -304,17 +306,18 @@ function Milk() {
                         onToggle={handleAccordionClick}
                         key={idx}>
                         <ul className="">
-                          {items?.attributes?.product_sub_items?.data?.map((item, index) => {
+                          {items?.attributes?.subcategories?.data?.map((item, index) => {
+                        console.log('items product',item)
                             return (
                               <Link
                               
-                                href={`/${locale}/our-product/${items?.id}` || ''}
+                                href={`/${locale}/our-product/${item?.id}` || ''}
                                 key={index}
                                 onClick={() => setOpenNav((prev) => !prev)}>
                                 <li
                                   key={index}
                                   className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
-                                  <span>{item?.attributes?.name}</span>
+                                  <span>{item?.attributes?.title}</span>
                                 </li>
                               </Link>
                             );
@@ -337,8 +340,7 @@ function Milk() {
 
               
 
-                  <p className={`text-sm bg-primary-main cursor-pointer p-4 w-full text-white ${showMore?'hidden':'block'}`} onClick={()=>setShowMore(true)}>Show More...</p>
-                  <p className={`text-sm bg-primary-main cursor-pointer p-4 w-full text-white ${showMore?'block':'hidden'}`} onClick={()=>setShowMore(false)}>Show Less...</p>
+                 
                 </div>
               </div>
             </div>

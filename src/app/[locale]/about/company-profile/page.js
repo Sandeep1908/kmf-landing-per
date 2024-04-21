@@ -58,7 +58,7 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className={`w-full h-full about-bg relative     ${isScroll?' ':''}  `}>
+    <div className={`w-full h-full about-bg relative     ${isScroll?'':''}  `}>
       <video  src='/video/company-profile.mov'  controls muted  autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
  
     {/* <CarouselImage images={allbanners || []} /> */}
@@ -91,7 +91,7 @@ useEffect(()=>{
       </section>
  
 
- <div className=' w-full max-w-7xl m-auto  gap-5  flex justify-start items-start '>
+ <div className=' w-full max-w-[1600px] m-auto  gap-5  flex justify-start items-start '>
   
 
  

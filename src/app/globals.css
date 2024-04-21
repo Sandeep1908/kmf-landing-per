@@ -231,14 +231,14 @@ body {
 
 
 
-.footer-bg::after {
+.footer-bg::before {
   content: "";
   inset: 0;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url('/images/about-bg.jpg');
-  background-repeat: no-repeat;
+  background: url('/images/footer-bg.png');
+  /* background-repeat: n; */
   background-size:cover;
   /* z-index: -2; */
 

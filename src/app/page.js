@@ -55,25 +55,17 @@ const Home = () => {
     (async () => {
       const { data: banner } = await axios.get('/api/banners');
       const {data:certificate}= await axios.get('/api/certificates')
-      
-   
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
-  
       const { data: arrivals } = await axios.get('/api/latestproducts');
- 
-
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
-      
-
       const {data:knm}=await axios.get('/api/knowyourmilks')
+      const {data:allProduct}=await axios.get('/api/product-sub-items')
       
-  
-   
-
-   
+      let product=allProduct?.data?.filter(item=>item?.attributes?.isLatest===true)
+      product=[...arrivals?.data,...product]
+       
       const homedetials = homeabout?.data?.map((item) => {
         return {
           about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
@@ -86,7 +78,7 @@ const Home = () => {
      
     
 
-      setNewArrivals(arrivals?.data);
+      setNewArrivals(product);
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
@@ -112,7 +104,7 @@ const Home = () => {
   });
 
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll?'top-36':''}  `}>
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll?'top-48':''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
    
       <video  src='/video/banner.mp4' controls  muted   autoPlay loop playsInline  className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}/>
@@ -387,7 +379,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto relative       ">
+      <section className="w-full h-fit relative       ">
+      <img src='/images/footer-top.png' className='absolute inset-0 w-full h-full object-cover z-[-1]'/>
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center w-full   flex-wrap   items-end  ">

@@ -25,7 +25,7 @@ function Scheme() {
     }
   ];
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-36' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -41,6 +41,22 @@ function Scheme() {
           } `}
         />
       </section>
+      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                      <Link className="  text-sm font-bold  " href={`/` || ''}>
+              Home
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold    " href={` `}>
+              Animal Husbandery
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main  " href={` `}>
+              Scheme
+            </Link>
+            
+      </div>
       <section className=" relative w-full h-auto   max-w-7xl m-auto pt-10  ">
         <h1 className="text-2xl w-full uppercase p-3 bg-primary-main text-white  shadow-lg relative flex justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
           Schemes

@@ -195,6 +195,10 @@ export const mobileHeader = {
           title: "Nandini Recipes",
           link: '/en/nandini-recipes'
         },
+        {
+          title: "Bulk Order",
+          link: '/en/comingsoon'
+        },
        
 
         
@@ -220,7 +224,7 @@ export const mobileHeader = {
           link: '/en/animal-husbandery/animal-health'
         },
         {
-          title: "Animal Breeding",
+          title: "Animal Breeding Program",
           link: '/en/animal-husbandery/animal-breeding'
         },
         {
@@ -235,12 +239,9 @@ export const mobileHeader = {
           title: "Cattle Insurance",
           link: '/en/animal-husbandery/cattle-insurance'
         },
+     
         {
-          title: "Subsidies/Grants",
-          link: '/en/animal-husbandery/subsidies-grants'
-        },
-        {
-          title: "Schemes",
+          title: "Schemes/Grants",
           link: '/en/animal-husbandery/scheme'
         },
         {
@@ -248,18 +249,8 @@ export const mobileHeader = {
           link: '/en/women-empowerment'
         },
 
-        {
-          title: "Cattle Feed",
-          link: ''
-        },
-        {
-          title: "Health Camps",
-          link: ''
-        },
-        {
-          title: "Routes",
-          link: ''
-        },
+      
+        
         
 
        

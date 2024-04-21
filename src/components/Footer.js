@@ -28,15 +28,16 @@ function Footer() {
     })();
   }, [params?.locale]);
   return (
-    <section className="w-full     relative bg-primary-subtle    ">
-      <div className=" z-10 relative l max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
+    <section className="w-full h-[230px]    relative       ">
+      <img src='/images/footer-bg.png' className='absolute inset-0 w-full h-full object-cover'/>
+      <div className=" z-10 relative h-full  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
         <div className="    w-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-1 max-w-96 space-y-5">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
            {locale==='kn'?'ವಿಳಾಸ':'Address'}
             </h1>
 
-            <div className="flex justify-center items-start space-x-3">
+            <div className="flex h-full justify-center items-start space-x-3">
               <img src={locationVectorIco.src} className='hover:scale-125 transition-all duration-300' />
 
               <div className="flex flex-col justify-center items-center md:items-start space-y-5">
