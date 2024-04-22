@@ -1,14 +1,35 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
+import { data } from 'autoprefixer';
+import axios from 'axios';
+import useApi from '@/hooks/useApi';
 
 
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 const KsheeraDhare = () => {
   const locale = useLocale().locale;
+  const [dhare, setDhare] = useState([]);
+  // const [allUnions, setAllUnions] = useState([]);
+
+  const axios = useApi();
+
+  useEffect(() => {
+    (async () => {
+      // const { data } = await axios.get(`/api/milk-unions/${param?.slug}`);
+      const { data: dhare } = await axios.get(`/api/ksheera-dhare`);
+       
+ 
+      console.log("dhare",dhare?.data)
+      setDhare(dhare?.data);
+
+    })();
+  }, []);
+
   return (
      <div className='w-full h-full'>
         <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
@@ -129,6 +150,55 @@ const KsheeraDhare = () => {
 
 
           <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-10 space-y-5">
+
+
+          {dhare && dhare.attributes && dhare.attributes.content && (
+                    <BlocksRenderer
+                      content={ dhare.attributes.content}
+                      blocks={{
+                        // You can use the default components to set class names...
+                   
+                        code: ({ children }) => {
+                          const columns =
+                            children?.[0]?.props?.text.split(',')[0].trim() === 'columns'
+                              ? children?.[0]?.props?.text.split(',').slice(1)
+                              : [];
+
+                          return (
+                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
+                              <thead className=" text-left bg-orange-400 text-primary-main">
+                                {columns?.map((item, id) => {
+                                  return (
+                                    <th className="p-2   border-r border-black " key={id}>
+                                      {item}
+                                    </th>
+                                  );
+                                })}
+                              </thead>
+                              <tbody className="text-left  text-md ">
+                                <tr className="w-full ">
+                                  {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
+                                    children?.[0]?.props?.text?.split(',')?.map((item, id) => {
+                                      return (
+                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                          {' '}
+                                          {item}
+                                        </td>
+                                      );
+                                    })}
+                                </tr>
+                              </tbody>
+                            </table>
+                          );
+                        },
+
+                 
+                      }}
+                    />
+                  )}
+
+
+{/* 
       <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
         <thead className=" text-left ">
           <tr className="text-md">
@@ -175,7 +245,7 @@ const KsheeraDhare = () => {
               </tr>
           
         </tbody>
-      </table>
+      </table> */}
     </div>
 
 
