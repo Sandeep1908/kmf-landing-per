@@ -167,6 +167,8 @@ const Executive = () => {
     <td className="p-1 text-md">{item?.attributes?.designation}</td>
     <td className="p-1 text-md  ">{item?.attributes?.department}</td>
     <td className="p-1 text-md"> {item?.attributes?.working}</td>
+    <td className="p-1 text-md"> {item?.attributes?.mobile}</td>
+    <td className="p-1 text-md"> {item?.attributes?.email}</td>
   </tr>
    
  )
@@ -214,8 +216,8 @@ const Executive = () => {
   <td className="p-1 text-md  ">{item?.attributes?.name}</td>
   <td className="p-1 text-md">{item?.attributes?.designation}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.mobile}</td>
+  <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
 
 </tr>
  )
@@ -263,6 +265,10 @@ const Executive = () => {
   <td className="p-1 text-md  ">{item?.attributes?.name}</td>
   <td className="p-1 text-md">{item?.attributes?.designation}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1 text-md overflow-auto">{item?.attributes?.mobile}</td>
+
+  <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
+
 </tr>
    
  )
