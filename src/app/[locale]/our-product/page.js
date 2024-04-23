@@ -71,11 +71,15 @@ function Products() {
       </section>
 
       <section className="w-full   max-w-[1400px]   m-auto mb-10">
-        <div className="w-full h-40 flex justify-center items-center relative ">
-          <h1 className="text-5xl font-bold flex justify-center items-center relative font-heading text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-red-700 ">
-            Our Products
-          </h1>
-        </div>
+      <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+             {locale==='kn'?'':'Our Products'}
+              </h1>
+            </div>
 
         <div className="w-full  flex flex-wrap justify-between items-center space-x-6 ">
           <p

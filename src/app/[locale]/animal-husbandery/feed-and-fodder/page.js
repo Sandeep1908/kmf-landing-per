@@ -55,9 +55,16 @@ function FeedFodder() {
         </div>
 
         <section className=" relative w-full   h-auto mt-20  ">
-        <h1 className="text-4xl  uppercase p-3  relative flex text-primary-main justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-          Feed and Fodder
-        </h1>
+        <div className="mb-20     relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'':' Feed and Fodder'}
+              </h1>
+            </div>
+       
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
             <div className="w-full h-full flex justify-center items-center flex-wrap">

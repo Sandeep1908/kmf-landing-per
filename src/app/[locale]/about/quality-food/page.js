@@ -51,7 +51,16 @@ function OrganizationChart() {
 
           {locale === 'en' ? (
             <div className="w-full flex flex-col justify-center items-start  p-2 ">
-              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white  ">Quality And Food Safety</h1>
+                  <div className="mb-20   relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'':'Quality And Food Safety'}
+              </h1>
+            </div>
+ 
 
               <p className="text-lg text-justify p-2">
                 During the last ten years, the Federation is giving greater emphasis on procuring

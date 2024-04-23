@@ -41,7 +41,16 @@ function WomenEmpowerment() {
       </section>
 
       <section className="w-full max-w-7xl m-auto h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
-        <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale === 'en' ? 'STEP' : 'ಸ್ಟೆಪ್ ಯೋಜನೆ'}</h1>
+      <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              {locale === 'en' ? 'STEP' : 'ಸ್ಟೆಪ್ ಯೋಜನೆ'}
+              </h1>
+            </div>
+         
         <p className="text-justify text-lg text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
@@ -59,7 +68,16 @@ function WomenEmpowerment() {
 
       <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
         <div className="w-full xl:max-w-2xl flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
-          <h1 className="text-xl uppercase font-heading">{womenEmpower[currentIndex]?.title}</h1>
+        <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-color/group.png"
+                className="absolute   w-[530px] top-[-70px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              {womenEmpower[currentIndex]?.title}
+              </h1>
+            </div>
+          
           {womenEmpower[currentIndex]?.description?.map((item, id) => {
             return (
               <p  key={id} className="text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>

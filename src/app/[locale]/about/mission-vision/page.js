@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useEffect, useState } from 'react';
 import evolutionImg from '@/images/about/mission/evolution.jpeg';
 import CowImg1 from '@/images/about/mission/about-cow-1.png';
@@ -10,23 +10,21 @@ import useApi from '@/hooks/useApi';
 import { useMyContext } from '@/context/headerContext';
 function MissionVission() {
   const locale = useParams().locale;
-  const axios=useApi()
-  const [purpose,setPurpose]=useState([])
+  const axios = useApi();
+  const [purpose, setPurpose] = useState([]);
   const { isScroll, setIsScroll, id, setId } = useMyContext();
-  useEffect(()=>{
-    (
-      async()=>{
-        const {data}=await axios.get('/api/mission-vissions')
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/mission-vissions');
 
-        setPurpose(data.data[0])
-        console.log(data.data[0])
-      }
-    )()
-  },[])
- 
+      setPurpose(data.data[0]);
+      console.log(data.data[0]);
+    })();
+  }, []);
+
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
         <video
@@ -41,47 +39,33 @@ function MissionVission() {
         />
       </section>
 
-    
       <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
-
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-              {locale === 'en' ? 'Vission & Mission' : 'ಘನೋದ್ದೇಶ  ಮತ್ತು  ಧ್ಯೇಯದೃಷ್ಟಿ'}
-            </h1>
+            <div className="mb-20   relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute z-[-1] w-[500px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
+                {locale === 'en' ? 'Vission & Mission' : 'ಘನೋದ್ದೇಶ  ಮತ್ತು  ಧ್ಯೇಯದೃಷ್ಟಿ'}
+              </h1>
+            </div>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center  list-disc text-justify text-lg  md:justify-normal md:items-start">
-
-            <h1 className='text-xl'>{locale==='kn'?'ಘನೋದ್ದೇಶ':'Vission'}</h1>
-             {
-              purpose?.attributes?.vission?.map((item,id)=>{
-                return(
-                  <li key={id}>{item?.children[0].text}</li>
-                )
-              })
-             }
-
-             
-             
-      
+              <h1 className="text-xl">{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vission'}</h1>
+              {purpose?.attributes?.vission?.map((item, id) => {
+                return <li key={id}>{item?.children[0].text}</li>;
+              })}
             </ul>
 
-
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc   text-justify text-lg  md:justify-normal md:items-start">
-
-            <h1 className='text-xl'>{locale==='kn'?'ಧ್ಯೇಯದೃಷ್ಟಿ':'Mission'}</h1>
-            {
-              purpose?.attributes?.mission?.map((item,id)=>{
-                return(
-                  <li key={id}>{item?.children[0].text}</li>
-                )
-              })
-             }
-                
-              </ul>
+              <h1 className="text-xl">{locale === 'kn' ? 'ಧ್ಯೇಯದೃಷ್ಟಿ' : 'Mission'}</h1>
+              {purpose?.attributes?.mission?.map((item, id) => {
+                return <li key={id}>{item?.children[0].text}</li>;
+              })}
+            </ul>
           </div>
-
-        
         </div>
       </section>
 
@@ -92,30 +76,27 @@ function MissionVission() {
           </div>
 
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-              {locale === 'en'
-                ? ` Objectives`
-                : `
+            <div className="mb-20   relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute z-[-1] w-[500px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
+                {locale === 'en'
+                  ? ` Objectives`
+                  : `
                 
 
                
                 ಉದ್ದೇಶಗಳು`}{' '}
-            </h1>
-
-          
+              </h1>
+            </div>
 
             <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
-              
-            {
-              purpose?.attributes?.objective?.map((item,id)=>{
-                return(
-                  <li key={id}>{item?.children[0].text}</li>
-                )
-              })
-             }
+              {purpose?.attributes?.objective?.map((item, id) => {
+                return <li key={id}>{item?.children[0].text}</li>;
+              })}
             </ul>
-
-        
           </div>
         </div>
       </section>
@@ -123,26 +104,24 @@ function MissionVission() {
       <section className=" relative w-full h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 justify-center items-center space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-            {locale === 'en'
+            <div className="mb-20   relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute z-[-1] w-[500px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
+                {locale === 'en'
                   ? `                    Evolution`
                   : `
-                
-
-               
-          
-
-                   ಸಂಸ್ಥೆಯ ವಿಕಸನ.`}</h1>
+        
+           ಸಂಸ್ಥೆಯ ವಿಕಸನ.`}
+              </h1>
+            </div>
 
             <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
-             
-            {
-              purpose?.attributes?.evalution?.map((item,id)=>{
-                return(
-                  <li key={id}>{item?.children[0].text}</li>
-                )
-              })
-             }
+              {purpose?.attributes?.evalution?.map((item, id) => {
+                return <li key={id}>{item?.children[0].text}</li>;
+              })}
             </ul>
           </div>
 
@@ -150,8 +129,6 @@ function MissionVission() {
             <img src={CowImg2.src} className=" w-[400px] h-full" />
           </div>
         </div>
-
-        
 
         {/* <img src={MilkBottomImg.src} className="w-full h-full " /> */}
       </section>

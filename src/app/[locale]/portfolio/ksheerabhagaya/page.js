@@ -29,7 +29,7 @@ const KsheeraBhagaya = () => {
           </div>
       <div className=' relative w-full h-auto flex justify-center mt-20'>
 
-        <h1 className='text-primary-main text-2xl md:text-4xl  ' > KSHEERABHAGAYA </h1>
+        <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' > KSHEERABHAGAYA </h1>
         <img className='absolute top-[-50px] left-[49%] w-40 ' src={titleBG.src} alt="" />
 </div>
       </section>

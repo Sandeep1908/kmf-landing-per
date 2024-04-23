@@ -24,7 +24,7 @@ function GrowthProcess({setLoading}) {
     )()
   },[])
   return (
-    <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-[#FDF9F7]     overflow-auto  items-start justify-start p-10 space-y-5">
+    <div className="w-full flex-col max-w-6xl m-auto mb-10 rounded-md shadow-md  bg-[#FDF9F7]     overflow-auto  items-start justify-start p-10 space-y-5">
       <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
         <thead className=" text-center ">
           <tr className="text-md bg-secondary-main   ">

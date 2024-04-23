@@ -58,19 +58,20 @@ useEffect(()=>{
 },[])
 
   return (
-    <div className={`w-full h-full about-bg relative     ${isScroll?'':''}  `}>
+    <div className={`w-full h-full  relative     ${isScroll?'':''}  `}>
       <video  src='/video/company-profile.mov'  controls muted  autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
  
     {/* <CarouselImage images={allbanners || []} /> */}
 
-      <section className="w-full h-auto p-10   relative flex justify-center items-center flex-col  space-y-6  ">
+      <section className="w-full h-auto p-20   relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
-          <div className='mb-20'>
-            <h1 className=" text-primary-main font-heading text-5xl font-extrabold uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
+          <div className='mb-20 relative w-[500px]  '>
+            <img src='/images/heading/heading-primary.svg' className='absolute z-[-1] w-full top-[-60px] left-[-90px]  object-contain'/>
+            <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
           </div>
 
           <div className="relative w-full   flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
-            <ul className="flex justify-center items-center  space-x-7">
+            <ul className="flex justify-center items-center  space-x-7 ">
               {tabs?.map((tab, idx) => {
                 return (
                   <li
@@ -86,8 +87,16 @@ useEffect(()=>{
        
 
           </div>
-          <h1 className=' w-fit text-secondary-darker text-7xl flex justify-center items-center  font-heading relative before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-20 '>{tabs[currentIndex].tabName}</h1>
+
+          <div className='w-[650px]   h-fit  relative   flex justify-center items-center pt-20'>
+          <img src='/images/heading/subheading.png' className='absolute z-[-1] w-fit    object-contain'/>
+
+          
+          <h1 className='     text-primary-main text-[22px] flex justify-center items-center  font-heading relative 
+          before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-10 '>{tabs[currentIndex].tabName}</h1>
+       </div>
         </div>
+
       </section>
  
 
@@ -102,7 +111,7 @@ useEffect(()=>{
       })} 
 
 
-<div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white  p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+{/* <div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white  p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
             <div className='w-full    shadow-md bg-white  '>
               <h1 className='p-5 bg-primary-main text-white'>{locale==='kn'?'ಕಹಾಮ ಬಗ್ಗೆ':'About Us'}</h1>
             </div>
@@ -117,7 +126,7 @@ useEffect(()=>{
                 
                 );
               })}
-          </div>
+          </div> */}
       
  </div>
 

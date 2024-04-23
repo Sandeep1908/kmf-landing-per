@@ -18,19 +18,30 @@ function AnimalBreed() {
     <>
       <section className=" relative w-full   h-auto   ">
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
+          <div className="w-full h-full flex flex-col space-y-2 justify-center items-start    p-1   ">
             <div className="w-full h-full flex justify-center items-center flex-wrap">
               {animalBreeding?.map((_, id) => {
                 return (
                   <div
                     key={id}
-                    className="max-w-3xl w-full m-10 rounded-3xl h-[400px] shadow-2xl bg-slate-50 p-16">
+                    className="max-w-3xl w-full m-10 rounded-3xl  min-h-[400px] shadow-2xl bg-slate-50 p-16">
                     <div className="m-auto">
-                      <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
-                        {' '}
-                        {_?.attributes?.title}{' '}
-                      </h1>
-                      <div className="mt-10">
+
+
+                    <div className=' w-full relative flex justify-center items-center'>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+
+
+                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+                          {' '}
+                          {_?.attributes?.title}
+                        </h1>
+                        </div>
+
+
+
+                      
+                      <div className="mt-20">
                         {_?.attributes?.content && (
                           <BlocksRenderer
                             content={_?.attributes?.content}

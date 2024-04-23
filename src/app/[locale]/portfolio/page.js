@@ -135,6 +135,7 @@ function Portfolio() {
     window.addEventListener('resize', handleSlideView);
     return () => window.removeEventListener('resize', handleSlideView);
   }, []);
+  console.log("acheiv",achievments)
   return (
     <div
       className="w-full h-full absolute top-36 z-[-1]   
@@ -217,18 +218,18 @@ function Portfolio() {
               <div className=" lg:absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full">
                 <div className="w-full h-full flex justify-center items-center">
                   <div className="max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto">
-                    <h1 className="text-primary-main lg:mt-10 text-2xl md:text-3xl ">
+                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-3xl ">
                       {' '}
                       KMF Achievement{' '}
                     </h1>
                     <div className="mt-6">
                       {achievments?.filter(
-                        (item) => item?.attributes?.title === 'KMF ACHIEVEMENTS'
+                        (item) => item?.attributes?.title === 'KMF Achievements'
                       )[0]?.attributes?.content && (
                         <BlocksRenderer
                           content={
                             achievments?.filter(
-                              (item) => item?.attributes?.title === 'KMF ACHIEVEMENTS'
+                              (item) => item?.attributes?.title === 'KMF Achievements'
                             )[0]?.attributes?.content
                           }
                           blocks={{
@@ -250,21 +251,26 @@ function Portfolio() {
 
             <div className="w-full h-auto flex flex-wrap justify-center">
               {achievments?.map((item, id) => {
-                if (item?.attributes?.title !== 'KMF ACHIEVEMENTS') {
+                
                   return (
                     <div
                       key={id}
                       className="max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16">
                       <div className="m-auto">
-                        <h1 className="text-primary-main text-2xl md:text-3xl ">
+                        <div className=' w-[450px] relative'>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-fit top-[-56px]   object-contain'/>
+
+
+                        <h1 className="w-full relative max-w-[300px] m-auto  text-primary-main text-xl   z-[100] ">
                           {' '}
                           {item?.attributes?.title}
                         </h1>
-                        <div className=" mt-10">
+                        </div>
+                        <div className=" mt-20">
                           <ul className="list-disc text-left">
                             {item?.attributes?.content && (
                               <BlocksRenderer
-                                content={readMore ? item?.attributes?.content: item?.attributes?.content.slice(0,1)}
+                                content={readMore ? item?.attributes?.content: item?.attributes?.content.slice(0,3)}
                                 blocks={{
                                   paragraph: ({children}) => {
                                      
@@ -284,7 +290,7 @@ function Portfolio() {
                       </div>
                     </div>
                   );
-                }
+                
               })}
             </div>
           </div>

@@ -58,9 +58,16 @@ function Scheme() {
             
       </div>
       <section className=" relative w-full h-auto   max-w-7xl m-auto pt-10  ">
-        <h1 className="text-2xl w-full uppercase p-3 bg-primary-main text-white  shadow-lg relative flex justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-          Schemes
-        </h1>
+      <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'':'    Schemes'}
+              </h1>
+            </div>
+       
 
         <div className="w-full  flex flex-wrap  pt-10 pb-10 justify-between items-center     ">
           {schemes?.map((item, id) => {

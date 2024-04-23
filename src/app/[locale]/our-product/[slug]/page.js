@@ -164,9 +164,17 @@ function Milk() {
             className={`w-full h-full mt-10 max-w-[1600px] m-auto  flex flex-col space-y-5 ${
               title?.attributes?.Heading ? 'mt-36' : ''
             } `}>
-            <h1 className="text-5xl font-bold flex justify-center items-center relative font-heading text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-red-700">
+
+<div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-color/group.png"
+                className="absolute   w-[530px] top-[-70px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
               {title?.attributes?.title} Family
-            </h1>
+              </h1>
+            </div>
+             
 
             <div className="flex w-full justify-evenly items-start space-x-5">
               <div className="w-full max-w-7xl m-auto h-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">

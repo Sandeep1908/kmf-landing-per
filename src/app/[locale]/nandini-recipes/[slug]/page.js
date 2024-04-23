@@ -38,7 +38,15 @@ const RecipeDetail = ({ slug }) => {
     <div className="w-full h-full">
       <div className="w-full h-full mt-20 pb-40">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="text-primary-main  text-4xl md:text-5xl">NANDINI RECIPES</h1>
+        <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+             {locale==='kn'?'':'Nandini Recipies'}
+              </h1>
+            </div>
           <div className="w-40 h-1 bg-primary-main mt-8"></div>
           <h1 className="text-primary-main  text-2xl md:text-4xl mt-10">
             {recipeDetail && recipeDetail?.attributes?.title}

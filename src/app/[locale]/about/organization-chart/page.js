@@ -76,7 +76,17 @@ function OrganizationChart() {
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>
           <div className='w-full flex justify-center items-center'>
-                  <h1 className='text-5xl text-white relative before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-white flex justify-center items-center  '>{locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}</h1>
+          <div className="mb-20   relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[500px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
+              </h1>
+            </div>
+            
+                
           </div>
           <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 relative organization-bg'>
           <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
@@ -103,11 +113,19 @@ function OrganizationChart() {
 
   
 
-      <section className="w-full max-w-7xl m-auto h-auto    ">
+      <section className="w-full max-w-7xl m-auto h-auto  mt-20   ">
         <div className="   w-full  h-full flex flex-col p-3 space-y-2 lg:flex-row lg:p-5 lg:space-x-10">
           {locale === 'en' ? (
             <div className="w-full flex flex-col justify-center items-start shadow-md ">
-              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Organisation Chart</h1>
+                 <div className="mb-20   relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[500px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
+              </h1>
+            </div>
 
               <p className="text-lg text-justify p-2">
                 The organization is three tiered on Co-operative principles.

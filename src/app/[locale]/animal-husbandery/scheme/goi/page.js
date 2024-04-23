@@ -49,21 +49,40 @@ const axios=useApi()
             </Link>
             
           </div>
-      <h1 className="text-2xl w-full mt-5 uppercase p-3 bg-primary-main text-white  shadow-lg relative flex justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-        Government Of India
-      </h1>
-      <section className=" relative w-full flex flex-col p-2 space-y-3 mb-10 max-w-7xl m-auto h-auto pt-10  ">
+
+          <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'':'          Government Of India'}
+              </h1>
+            </div>
+    
+      <section className=" relative w-full flex flex-col p-2 space-y-20 mb-10 max-w-7xl m-auto h-auto pt-20  ">
    
 {
   scheme?.[0]?.attributes?.GOI &&
   <BlocksRenderer
   content={scheme?.[0]?.attributes?.GOI}
   blocks={{
-    paragraph:({children})=><p className="text-md">{children}</p>,
+    paragraph:({children})=><p className="text-md mt-5">{children}</p>,
     heading: ({ children, level }) => {
       switch (level) {
         case 1:
-          return <h1 className="text-2xl text-primary-main">{children}</h1>;
+          return (
+            <div className=' w-full relative  flex justify-center  items-start'>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-46px]   object-contain'/>
+
+
+                        <h1 className="w-full relative max-w-[300px]  text-center    text-primary-main text-lg   z-[100] ">
+                          {' '}
+                          {children}
+                        </h1>
+                        </div>
+           
+          )
         case 2:
           return <h2 className="text-lg">{children}</h2>;
         case 3:
@@ -81,7 +100,7 @@ const axios=useApi()
     list:({children})=>{
       console.log("list",children)
       return(
-<li>{children}</li>
+<li className='mt-5'>{children}</li>
       )
     
   },

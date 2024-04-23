@@ -109,7 +109,10 @@ console.log("milestones",data.data)
       <section className="w-full  pt-10  ">
         <div className="  w-full    lg:flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full  flex flex-col justify-center items-start ">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">{locale==='kn'?'ಮೈಲಿಗಲ್ಲು':'Milestones'}</h1>
+          <div className='mb-20   relative w-[500px]  m-auto '>
+            <img src='/images/heading/heading-primary.svg' className='absolute z-[-1] w-full top-[-60px] left-[-120px]  object-contain'/>
+            <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">{locale==='kn'?'ಮೈಲಿಗಲ್ಲು':'Milestones'}</h1>
+</div>
 
             <div className="w-full  pt-5 overflow-auto">
               <ul className="w-full h-full flex flex-col space-y-5 justify-start items-start">

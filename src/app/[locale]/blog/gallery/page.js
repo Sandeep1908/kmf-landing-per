@@ -49,8 +49,17 @@ function Gallery() {
       </section>
       <section className="max-w-7xl h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
-          <h1 className="text-center text-5xl text-primary-main">{locale==='en'?`Gallery`:`
-ಗ್ಯಾಲರಿ`}</h1>
+        <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+              {locale==='en'?`Gallery`:`
+ಗ್ಯಾಲರಿ`}
+              </h1>
+            </div>
+          
 
           <div className="w-full flex justify-center items-center pt-10 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
             <ul className="flex gap-5">

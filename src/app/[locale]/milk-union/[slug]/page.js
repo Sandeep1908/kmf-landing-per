@@ -90,9 +90,15 @@ function MilkUnionDetail({ slug }) {
           <div className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl   shadow-sm">
             <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
-                <h1 className="text-2xl font-heading text-center w-full drop-shadow-2xl  p-3 shadow-white bg-primary-gradient  text-white">
-                  {union?.attributes?.name}
-                </h1>
+              <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-50px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              {union?.attributes?.name}
+              </h1>
+            </div>
                 <p className="text-md"> {union?.attributes?.union_code}</p>
 
                 <div className=" w-full h-full transition-all duration-300  ">

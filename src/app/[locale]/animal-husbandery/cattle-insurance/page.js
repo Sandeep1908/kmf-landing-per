@@ -70,7 +70,7 @@ function CattleInsuranceComponent() {
         <div className="w-full flex flex-col justify-center items-center space-y-5">
        
 
-          <div className="relative w-full   flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
+          <div className="relative w-full mb-20   flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
             <ul className="flex justify-center items-center  space-x-7">
               {tabs?.map((tab, idx) => {
                 return (
@@ -87,7 +87,15 @@ function CattleInsuranceComponent() {
        
 
           </div>
-          <h1 className=' w-fit text-secondary-darker text-7xl flex justify-center items-center  font-heading relative before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-20 '>{tabs[currentIndex].tabName}</h1>
+          <div className="mb-20     relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {tabs[currentIndex].tabName}
+              </h1>
+            </div>
         </div>
       </section>
        

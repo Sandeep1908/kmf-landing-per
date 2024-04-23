@@ -46,7 +46,7 @@ function BlogCard() {
                                     }
                                    
                                 })}
-                                <Link href={`/${locale}/blog/${item?.id}`} className='hover:text-green-900 uppercase'>Read More....</Link>
+                                <Link href={`/${locale}/blog/${item?.id}`} className='hover:text-green-500 uppercase'>Read More....</Link>
                         </div>
                 </div>
                     )

@@ -41,14 +41,24 @@ const locale=useLocale().locale
       </section>
 
       <section className="w-full    pt-10 ">
-      <h1 className='text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white '>MILK UNIONS</h1>
+      <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-50px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+             {locale==='kn'?'':'Milk Unions'}
+              </h1>
+            </div>
       <div className='flex justify-center space-x-3 items-center mt-10 border-b w-fit m-auto'>
         <Link className='font-bold' href={`${locale==='kn'?'/kn':'/'}`}>Home</Link>
         <Link className='text-primary-main font-bold' href={`/${locale}/milk-union`}>/ Milk Unions</Link>
       </div>
+
+    
         <div className="max-w-7xl m-auto p-2 shadow-lg mt-10    shadow-white bg-white flex flex-col justify-center items-center space-y-5">
           {milkUnion.map((union, id) => {
-           console.log(union)
+         
             return (
             
               <UnionCard

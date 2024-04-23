@@ -46,9 +46,17 @@ function Directors() {
 
 
       <section className="w-full   pt-10  shadow-lg bg-primary-subtle ">
-        <h1 className="text-5xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+      <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-primary.svg"
+                className="absolute   w-[530px] top-[-60px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+              
           {locale === 'en' ? 'Board of Directors' : 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}
-        </h1>
+              </h1>
+            </div>
+         
         <div className="p-12 h-full  ">
         <div className='p-10 h-full flex justify-center items-center   '>
         <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4   justify-center items-center  rounded-tl-3xl rounded-br-3xl flex flex-col   p-3'>
