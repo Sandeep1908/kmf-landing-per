@@ -235,10 +235,7 @@ export const mobileHeader = {
       
      
         
-        {
-          title: "Cattle Insurance",
-          link: '/en/animal-husbandery/cattle-insurance'
-        },
+        
      
         {
           title: "Schemes/Grants",
