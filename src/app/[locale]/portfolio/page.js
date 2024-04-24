@@ -59,6 +59,8 @@ function Portfolio() {
   const axios = useApi();
   const [currentIndex, setCurrentIndex] = useState(0);
   const locale = useLocale().locale;
+  const [banners,setBanners]=useState([])
+ 
   const [sponsore, setSponsore] = useState([]);
   const [readMore, setReadMore] = useState(false);
   const toggleReadMore = () => {
@@ -108,7 +110,9 @@ function Portfolio() {
     (async () => {
       const { data } = await axios.get('/api/kmf-achievements');
       const { data: sponsor } = await axios.get('/api/sponsoreds');
+      const {data:banner} =await axios.get('/api/banners')
 
+      setBanners(banner.data)
       setSponsore(sponsor.data);
       setAchievments(data.data);
     })();
@@ -140,14 +144,43 @@ function Portfolio() {
     <div
       className="w-full h-full absolute top-36 z-[-1]   
            ">
-      <section className={`w-full  h-auto relative  grid place-items-center company-bg`}>
-        <video
+      <section className={`w-full  h-[700px] relative  `}>
+      <Swiper
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false
+      }}
+        direction={'vertical'}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination,Autoplay,FreeMode]}
+        className="h-full"
+      >
+
+        {banners?.map((item,id)=>{
+         
+          return(
+            <SwiperSlide key={id}>
+          
+            <img src={item?.attributes?.banner?.data?.attributes?.url} alt="" className='w-full h-[700px]' />
+         
+            </SwiperSlide>
+          )
+         
+        })}
+      
+
+
+      </Swiper>
+
+        {/* <video
           autoPlay
           muted
           loop
           controls
           className="w-full h-full"
-          src="/video/portfolio.mp4"></video>
+          src="/video/portfolio.mp4"></video> */}
       </section>
 
       <section className="w-full h-auto mt-10">
