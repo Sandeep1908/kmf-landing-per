@@ -89,6 +89,20 @@ const Home = () => {
   }, []);
  
 
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const updateScreensize = () => {
       const screenWidth = window.innerWidth;
@@ -228,6 +242,8 @@ const Home = () => {
       </ParallaxBanner>
      
 
+     
+
       {/* QUICK LINK  */}
 
       <section className=" relative w-full h-auto pt-5 pb-5       ">
@@ -264,6 +280,8 @@ const Home = () => {
       </section>
 
       <section className="w-full  relative  h-auto  bg-curved    ">
+      <img src='/images/footer-top.png' className='absolute top-[87px] w-full h-full object-cover z-[-1]' style={{ transform: `translateY(${scrollY * 0.2}px)` }} />
+
         <div className='   relative '>
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
@@ -316,66 +334,52 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto relative         ">
-      <img src='/images/footer-top.png' className='absolute top-[87px] w-full h-full object-cover z-[-1]'/>
-        <div className=" p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-          <div className="flex w-full   flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">Notification</h1>
+      <section className="w-full h-auto relative">
+      <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+        <div className="flex w-full flex-col justify-center items-center space-y-3">
+          <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">Notification</h1>
+        </div>
 
-           
+        <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start">
+          <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
+            <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
+              <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
+                <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">Tender Notifications</h1>
+              </div>
+              <div className="w-full h-[375px] p-4 marquee flex flex-col" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+                {allTenders?.map((item, id) => {
+                  return (
+                    <div key={id} className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
+                      <FaRegHandPointRight size={20} color='red' /> 
+                      <p className='w-full'> {item?.attributes?.title}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className='w-full flex justify-end mt-3 rounded-md'>
+              <Link href={'/en/blog/notification'} className='p-2 bg-primary-main text-white '>Read more</Link>
+            </div>
           </div>
 
-          <div className="w-full flex flex-col  space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col     max-w-[400px]  overflow-x-hidden overflow-y-hidden ">
-             
-              
-              <div className="w-full flex flex-col shadow-2xl shadow-blue-300   overflow-hidden  justify-center h-[425px] items-center rounded-lg border-2 border-primary-main  ">
-                <div className='w-full h-[90px] shadow-black  shadow-md bg-white   z-30'>
-                  <h1 className='p-5 bg-primary-gradient text-white  uppercase text-center'>Tender Notifications</h1>
-                </div>
-                <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
-                  {allTenders?.map((item, id) => {
-                    return (
-                      <div key={id} className="bg-white border m-2 p-2 text-xs flex justify-center  items-center space-x-2 rounded w-full ">
-                        <FaRegHandPointRight size={20} color='red' /> 
-                        <p className='w-full'> {item?.attributes?.title}</p>
-                       
-                      </div>
-                    );
-                  })}
-                </div>
-           
+          <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[1000px]">
+            <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px] p-5 rounded-lg">
+              <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">New Arrivals & Best Selling</h1>
+              <div className="marquee-notification h-full flex justify-evenly space-x-3">
+                {newArrivals?.map((item, id) => (
+                  <ArrivalCard
+                    key={id}
+                    title={item?.attributes?.title}
+                    imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                  />
+                ))}
               </div>
-
- 
-
-<div className='w-full flex justify-end mt-3 rounded-md'>
-            
-<Link href={'/en/blog/notification'} className='  p-2 bg-primary-main text-white '>Read more</Link>
-</div>
-            </div>
-
-            <div className=" relative w-full overflow-auto  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[1000px]      ">
-              <div className="w-full flex flex-col shadow-md   overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg   ">
-                <h1 className="p-5 bg-primary-gradient text-white  uppercase text-center">New Arrivals & Best Selling</h1>
-                <div className="marquee-notification h-full flex justify-evenly space-x-3">
-  {newArrivals?.map((item, id) => (
-    <ArrivalCard
-      key={id}
-      title={item?.attributes?.title}
-      imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
-    />
-  ))}
-</div>
-              </div>
-
-              
-
-            
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+    </section>
 
       <section className="w-full h-fit relative       ">
      
