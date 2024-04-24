@@ -358,18 +358,15 @@ const Home = () => {
             <div className=" relative w-full overflow-auto  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[1000px]      ">
               <div className="w-full flex flex-col shadow-md   overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg   ">
                 <h1 className="p-5 bg-primary-gradient text-white  uppercase text-center">New Arrivals & Best Selling</h1>
-
-                <div className=" marquee-notification h-full flex justify-evenly   space-x-3 ">
-                  {newArrivals?.map((item, id) => {
-                    return (
-                      <ArrivalCard
-                        key={id}
-                        title={item?.attributes?.title}
-                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
-                      />
-                    );
-                  })}
-                </div>
+                <div className="marquee-notification h-full flex justify-evenly space-x-3">
+  {newArrivals?.map((item, id) => (
+    <ArrivalCard
+      key={id}
+      title={item?.attributes?.title}
+      imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+    />
+  ))}
+</div>
               </div>
 
               
@@ -432,9 +429,8 @@ const Home = () => {
             <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `}     >
 
             <Swiper
-             slidesPerView={3}
-              freeMode={true}
-              centeredSlides={true}
+            watchSlidesProgress={true} 
+            slidesPerView={3}
               
               autoplay={{
                 delay: 2500,

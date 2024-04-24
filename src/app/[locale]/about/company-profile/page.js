@@ -12,106 +12,127 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import CarouselImage from '@/components/CarouselImage';
 import { useMyContext } from '@/context/headerContext';
-
+import Link from 'next/link';
 
 function CompanyProfile() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading,setLoading]=useState(true)
-  const locale=useParams().locale
-const axios=useApi()
-const [allbanners,setAllBanners]=useState([])
- const {isScroll,setIsScroll}=useMyContext()
- const [isMuted,setIsMuted]=useState(true)
- 
-   
+  const [loading, setLoading] = useState(true);
+  const locale = useParams().locale;
+  const axios = useApi();
+  const [allbanners, setAllBanners] = useState([]);
+  const { isScroll, setIsScroll } = useMyContext();
+  const [isMuted, setIsMuted] = useState(true);
+
   const tabs = [
     {
-      tabName: locale==='en'?'About us':'ಕಹಾಮ ಬಗ್ಗೆ',
-      data:  <About setLoading={setLoading} name={"About us"}/>
+      tabName: locale === 'en' ? 'About us' : 'ಕಹಾಮ ಬಗ್ಗೆ',
+      data: <About setLoading={setLoading} name={'About us'} />
     },
     {
-      tabName: locale==='en'?'The Growth Process':'ಪ್ರಕ್ರಿಯೆಯ ಬೆಳವಣಿಗೆ',
-      data: <GrowthProcess setLoading={setLoading} name={"The Growth Process"} />
+      tabName: locale === 'en' ? 'The Growth Process' : 'ಪ್ರಕ್ರಿಯೆಯ ಬೆಳವಣಿಗೆ',
+      data: <GrowthProcess setLoading={setLoading} name={'The Growth Process'} />
     },
- 
+
     {
-      tabName: locale==='en'?'Ongoing and Future Projects':'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
-      data: <OngoingAndFuture setLoading={setLoading} name={"Ongoing and Future Projects"}  />
+      tabName: locale === 'en' ? 'Ongoing and Future Projects' : 'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
+      data: <OngoingAndFuture setLoading={setLoading} name={'Ongoing and Future Projects'} />
     }
   ];
   const handleTabs = (idx) => {
-    
-   
     setCurrentIndex(idx);
   };
-   
- 
-  
-useEffect(()=>{
-  (
-    async()=>{
+
+  useEffect(() => {
+    (async () => {
       const { data: banner } = await axios.get('/api/banners');
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
       setAllBanners(images);
-    }
-  )()
-},[])
+    })();
+  }, []);
 
   return (
-    <div className={`w-full h-full  relative     ${isScroll?'':''}  `}>
-      <video  src='/video/company-profile.mov'  controls muted  autoPlay loop playsInline  className={`w-full h-[600px] z-[-10] object-fill ${isScroll?'h-[400px]':'h-[90vh]'}  `}/>
- 
-    {/* <CarouselImage images={allbanners || []} /> */}
+    <div className={`w-full h-full  relative     ${isScroll ? '' : ''}  `}>
+      <video
+        src="/video/company-profile.mov"
+        controls
+        muted
+        autoPlay
+        loop
+        playsInline
+        className={`w-full h-[600px] z-[-10] object-fill ${isScroll ? 'h-[400px]' : 'h-[90vh]'}  `}
+      />
+
+      {/* <CarouselImage images={allbanners || []} /> */}
 
       <section className="w-full h-auto p-20   relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
-          <div className='mb-20 relative w-[500px]  '>
-            <img src='/images/heading/heading-primary.svg' className='absolute z-[-1] w-full top-[-60px] left-[-90px]  object-contain'/>
-            <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">{locale==='en'?'Company Profile':'ಕಹಾಮ ಪರಿಚಯ'}</h1>
+          <div className="mb-20 w-full relative flex justify-center items-center">
+            <img
+              src="/images/heading/heading-primary.svg"
+              className="absolute z-[1] w-[450px] top-[-56px]   object-contain"
+            />
+
+            <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+              {locale === 'en' ? 'Company Profile' : 'ಕಹಾಮ ಪರಿಚಯ'}
+            </h1>
           </div>
+
+{/* 
+          <li
+                    key={idx}
+                    onClick={() => handleTabs(idx)}
+                    className={`${
+                      currentIndex === idx ? 'text-secondary-main relative  ' : ''
+                    } font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
+                    {tab.tabName}
+                  </li> */}
 
           <div className="relative w-full   flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
             <ul className="flex justify-center items-center  space-x-7 ">
               {tabs?.map((tab, idx) => {
+                
                 return (
-                  <li
-                    key={idx}
-                    onClick={() => handleTabs(idx)}
-                    className={`${currentIndex===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
-                    {tab.tabName}
-                  </li>
+                  <div key={idx} className='flex justify-center items-center space-x-3'>
+                    {idx!==0 &&  <p className="text-primary-main">&gt;</p> }
+
+<p onClick={() => handleTabs(idx)}
+                    className={`${
+                      currentIndex === idx ? 'text-secondary-main relative  ' : ''
+                    } font-extrabold text-xs font-subheading md:text-sm transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`} >
+{tab.tabName}
+            </p>
+                  </div>
+
+
+                
                 );
               })}
             </ul>
-            
-       
-
           </div>
 
-          <div className='w-[650px]   h-fit  relative   flex justify-center items-center pt-20'>
-          <img src='/images/heading/subheading.png' className='absolute z-[-1] w-fit    object-contain'/>
+          <div className="w-[650px]   h-fit  relative   flex justify-center items-center pt-20">
+            <img
+              src="/images/heading/subheading.png"
+              className="absolute z-[-1] w-fit    object-contain"
+            />
 
-          
-          <h1 className='     text-primary-main text-[22px] flex justify-center items-center  font-heading relative 
-          before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-10 '>{tabs[currentIndex].tabName}</h1>
-       </div>
+            <h1
+              className="     text-primary-main text-[22px] flex justify-center items-center  font-heading relative 
+          before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-10 ">
+              {tabs[currentIndex].tabName}
+            </h1>
+          </div>
         </div>
-
       </section>
- 
 
- <div className=' w-full max-w-[1200px] m-auto  gap-5  flex justify-start items-start '>
-  
+      <div className=" w-full max-w-[1200px] m-auto  gap-5  flex justify-start items-start ">
+        {tabs?.map((tab, id) => {
+          if (currentIndex === id) {
+            return tab.data;
+          }
+        })}
 
- 
- {tabs?.map((tab, id) => {
-        if (currentIndex === id) {
-          return tab.data;
-        }
-      })} 
-
-
-{/* <div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white  p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+        {/* <div className=" w-80   mt-10 gap-6 h-fit flex flex-col  shadow-md bg-white  p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
             <div className='w-full    shadow-md bg-white  '>
               <h1 className='p-5 bg-primary-main text-white'>{locale==='kn'?'ಕಹಾಮ ಬಗ್ಗೆ':'About Us'}</h1>
             </div>
@@ -127,15 +148,9 @@ useEffect(()=>{
                 );
               })}
           </div> */}
-      
- </div>
+      </div>
 
-     
-
-
-      <Footer/>
-
-      
+      <Footer />
     </div>
   );
 }

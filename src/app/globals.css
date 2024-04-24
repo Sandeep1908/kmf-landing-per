@@ -312,9 +312,7 @@ body {
 
 }
 
-.marquee-notification {
-  animation: marquee-notification 12s linear infinite;
-}
+
 
 .marquee-sponser {
   animation: marquee-sponsoer 12s linear infinite;
@@ -342,16 +340,36 @@ body {
 
 }
 
+.marquee-notification {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-notification::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position the pseudo-element after the original content */
+  width: 100%; /* Make the pseudo-element as wide as the container */
+}
+
+.marquee-notification > * {
+  display: inline-block;
+  margin-right: 20px; /* Adjust spacing between items as needed */
+  animation: marquee-notification 4s linear infinite;
+}
+
 @keyframes marquee-notification {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
 
   100% {
     transform: translateX(-100%);
   }
-
 }
+ 
 
 h1 {
   font-family: 'Raleway', sans-serif;
