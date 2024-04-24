@@ -302,7 +302,7 @@ const Home = () => {
                    
                   return(
                     <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex w-40 flex-col justify-center items-center space-y-4">
-                    <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" />
+                    <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" className='transition-all duration-200 hover:scale-[1.1]' />
                     <p className="  text-white  text-center font-heading">
                       {item?.attributes?.title}
                     </p>

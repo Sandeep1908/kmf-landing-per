@@ -1,12 +1,27 @@
 'use client'
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Footer from '@/components/Footer'
 import { useMyContext } from '@/context/headerContext'
 import useLocale from '@/hooks/useLocale'
 import Link from 'next/link'
+import useApi from '@/hooks/useApi'
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 function Procurement() {
     const { isScroll}=useMyContext()
     const locale=useLocale().locale
+    const [procure,setProcure]=useState([])
+const axios =useApi()
+
+    useEffect(() => {
+      (async () => {
+        const { data } = await axios.get('/api/procurements');
+      setProcure(data.data)
+        
+       
+         
+      })();
+    }, []);
+
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
     <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
@@ -46,39 +61,68 @@ function Procurement() {
 
         
             <div className="w-full flex flex-col space-y-2 justify-center items-start shadow-md  p-1   ">
-              <h1 className="text-4xl font-heading text-center w-full relative flex justify-center items-center   text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">Procurement</h1>
+            <div className=' w-full relative flex justify-center items-center'>
+            <img src='/images/heading/heading-primary.svg' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
 
-              <p className="text-lg text-justify p-2">
-              KMF at present has 15 Milk Unions covering all 31 districts in the state.  The daily average milk procurement of KMF through its appliated milk union is about 83.50 lakh Kgs from 15756  MPCS.  
-              </p>
 
-              <h1 className='text-3xl '>Clean Milk Production	</h1>
-
+                        <h1 className="w-full relative   m-auto text-center  text-primary-main text-xl   z-[100] ">
+                        Procurement
+                        </h1>
+                        </div>
              
 
-              <ul className="flex flex-col space-y-3 p-6 w-full h-full justify-center items-center list-disc text-justify text-lg  md:justify-normal md:items-start">
-              <li> The following steps should be followed for ensuring clean milk production:</li>
-              <li> Before milking the cow, give sufficient amount of feed and clean water.</li>
-                <li> Before milking the cow, give sufficient amount of feed and clean water.</li>
-
-                <li>
-                The dung and urine should be removed from the shed.
-                </li>
-
-                <li>
-                The animal should be given a clean bath before milking.
-                </li>
-
-                <li>
-                The animal should not be sick or unwell.
-                </li>
-
-                <li>
-                If the animal is under treatment for disease, do not use the milk but discard the milk during the withdrawal period of the treatment.
-                </li>
-
-                <li>Posters, documentary films and booklets on Clean Milk Production (CMP).</li>
-              </ul>
+              {procure?.map((_, id) => {
+                return (
+                  <div
+                    key={id}
+                    className="  w-full m-10 rounded-3xl    p-16">
+                    <div className="m-auto">
+                      <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
+                        {' '}
+                        {_?.attributes?.title}{' '}
+                      </h1>
+                      <div className="mt-10">
+                        {_?.attributes?.content && (
+                          <BlocksRenderer
+                            content={_?.attributes?.content}
+                            blocks={{
+                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              heading: ({ children, level }) => {
+                                switch (level) {
+                                  case 1:
+                                    return (
+                                      <h1 className="text-2xl text-primary-main">{children}</h1>
+                                    );
+                                  case 2:
+                                    return <h2 className="text-lg">{children}</h2>;
+                                  case 3:
+                                    return <h3>{children}</h3>;
+                                  case 4:
+                                    return <h4>{children}</h4>;
+                                  case 5:
+                                    return <h5>{children}</h5>;
+                                  case 6:
+                                    return <h6>{children}</h6>;
+                                  default:
+                                    return <h1>{children}</h1>;
+                                }
+                              },
+                              list: ({ children }) => {
+                                return <li>{children}</li>;
+                              },
+                              code: ({ children }) => (
+                                <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">
+                                  {children}
+                                </h1>
+                              )
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
          
           

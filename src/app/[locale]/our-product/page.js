@@ -88,11 +88,16 @@ function Products() {
             All
           </p>
           {categories?.map((item, id) => {
+             
             return (
 
               <div  className='relative '  key={item?.id}>
-                
-                <img src='/images/product-new/new.gif' className='w-10 absolute -top-8'/>
+
+               
+                {item?.attributes?.hasNewProduct  &&
+                 <img src='/images/product-new/new.gif' className='w-10 absolute -top-8'/>
+                }
+               
                 <p
               
                 onClick={() => handleIdx(item?.id)}
