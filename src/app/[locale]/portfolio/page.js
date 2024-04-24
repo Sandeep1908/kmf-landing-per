@@ -142,7 +142,7 @@ function Portfolio() {
   console.log("acheiv",achievments)
   return (
     <div
-      className="w-full h-full absolute top-36 z-[-1]   
+      className="w-full h-full absolute top-48 z-[-1]  
            ">
       <section className={`w-full  h-[700px] relative  `}>
       <Swiper
