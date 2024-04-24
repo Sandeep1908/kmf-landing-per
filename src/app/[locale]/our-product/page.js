@@ -89,17 +89,23 @@ function Products() {
           </p>
           {categories?.map((item, id) => {
             return (
-              <p
-                key={item?.id}
+
+              <div  className='relative '  key={item?.id}>
+                
+                <img src='/images/product-new/new.gif' className='w-10 absolute -top-8'/>
+                <p
+              
                 onClick={() => handleIdx(item?.id)}
                 className={`font-subheading transition-all duration-300 text-md cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} `}>
                 {item?.attributes?.title}
-              </p>
+                </p>
+                </div>
+              
             );
           })}
         </div>
 
-        <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 pt-10">
+        <div className="w-full h-full grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 gap-5 pt-10">
           {subcategory?.map((item, idx) => {
             return (
               <ProductCard
