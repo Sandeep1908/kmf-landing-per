@@ -6,12 +6,28 @@ import flag from '@/images/portfolio/flag.jpg';
 import banner from '@/images/portfolio/Childrens-min.png';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
+import useApi from '@/hooks/useApi';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+
 
 
 const KsheeraBhagaya = () => {
 
 
   const locale = useLocale().locale;
+  const [bhagaya, setBhagaya] = useState([]);
+const axios = useApi();
+
+  useEffect(() => {
+    (async () => {
+      const { data: bhagaya } = await axios.get(`/api/ksheerabhagaya`);
+       
+ 
+      console.log("dhare",bhagaya?.data)
+      setBhagaya(bhagaya?.data);
+
+    })();
+  }, []);
   return (
      <>
     <div className='w-full h-full'>
@@ -97,7 +113,58 @@ const KsheeraBhagaya = () => {
 
            
           <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-10 space-y-5">
-      <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
+
+
+           
+          {bhagaya && bhagaya.attributes && bhagaya.attributes.content && (
+                    <BlocksRenderer
+                      content={ bhagaya.attributes.content}
+                      blocks={{
+                        // You can use the default components to set class names...
+                   
+                        code: ({ children }) => {
+                          const columns =
+                            children?.[0]?.props?.text.split(',')[0].trim() === 'columns'
+                              ? children?.[0]?.props?.text.split(',').slice(1)
+                              : [];
+
+                          return (
+                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
+                              <thead className=" text-left bg-orange-400 text-primary-main">
+                                {columns?.map((item, id) => {
+                                  return (
+                                    <th className="p-2   border-r border-black " key={id}>
+                                      {item}
+                                    </th>
+                                  );
+                                })}
+                              </thead>
+                              <tbody className="text-left  text-md ">
+                                <tr className="w-full ">
+                                  {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
+                                    children?.[0]?.props?.text?.split(',')?.map((item, id) => {
+                                      return (
+                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                          {' '}
+                                          {item}
+                                        </td>
+                                      );
+                                    })}
+                                </tr>
+                              </tbody>
+                            </table>
+                          );
+                        },
+
+                 
+                      }}
+                    />
+                  )}
+
+
+
+
+      {/* <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
         <thead className=" text-left ">
           <tr className="text-md">
           <th className="p-2">#</th>
@@ -173,7 +240,7 @@ const KsheeraBhagaya = () => {
               </tr>
           
         </tbody>
-      </table>
+      </table> */}
 
 
 

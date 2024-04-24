@@ -37,7 +37,7 @@ function MilkUnionDetail({ slug }) {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get(`/api/milk-unions/${param?.slug}`);
-      const { data: unions } = await axios.get('/api/milk-unions');
+      const { data: unions } = await axios.get('/ ');
 
       setBanner(data?.data?.attributes?.bannervideo?.data?.attributes?.url);
       setBannerImg(data?.data?.attributes?.banner?.data?.attributes?.url);
