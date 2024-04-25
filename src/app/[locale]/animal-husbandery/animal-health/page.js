@@ -74,7 +74,7 @@ function AnimalHealth() {
                 return (
                   <div
                     key={id}
-                    className="max-w-3xl w-full m-10 rounded-3xl min-h-[500px] overflow-auto shadow-2xl bg-slate-50 p-16">
+                    className="max-w-2xl w-full m-10 rounded-3xl min-h-[500px] overflow-auto shadow-2xl bg-slate-50 p-16">
                     <div className="m-auto">
 
                     <div className=' w-full relative flex justify-center items-center'>

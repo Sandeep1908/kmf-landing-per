@@ -95,7 +95,7 @@ function Products() {
 
                
                 {item?.attributes?.hasNewProduct  &&
-                 <img src='/images/product-new/new.gif' className='w-10 absolute -top-8'/>
+                 <img src='/images/product-new/new.gif' className='w-10 absolute left-5 -top-8'/>
                 }
                
                 <p

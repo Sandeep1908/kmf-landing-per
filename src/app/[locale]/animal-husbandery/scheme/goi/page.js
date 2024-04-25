@@ -73,10 +73,10 @@ const axios=useApi()
         case 1:
           return (
             <div className=' w-full relative  flex justify-center  items-start'>
-            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-46px]   object-contain'/>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[350px] top-[-46px]   object-contain'/>
 
 
-                        <h1 className="w-full relative max-w-[300px]  text-center    text-primary-main text-lg   z-[100] ">
+                        <h1 className="w-full relative max-w-[300px]  text-center    text-primary-main text-md   z-[100] ">
                           {' '}
                           {children}
                         </h1>
@@ -97,8 +97,11 @@ const axios=useApi()
           return <h1>{children}</h1>;
       }
     },
+    code:({children})=>{
+                return
+    },
     list:({children})=>{
-      console.log("list",children)
+      
       return(
 <li className='mt-5'>{children}</li>
       )

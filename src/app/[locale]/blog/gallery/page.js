@@ -10,6 +10,7 @@ import BlogCard from './BlogCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import PressRelease from './PressRelease';
+import Tvcommercial from './Tvcommercial';
 
 function Gallery() {
  
@@ -28,7 +29,8 @@ function Gallery() {
 
     },
     {
-      tabs:'Tv Commercials'
+      tabs:'Tv Commercials',
+      data:<Tvcommercial/>
     }
     
   ]

@@ -91,9 +91,17 @@ function AnimalBreed() {
       <section className=" relative w-full   h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
-            <h1 className="text-4xl font-heading text-center w-full relative flex justify-center items-center   text-primary-main before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-              Bull Mother Farm
-            </h1>
+
+          <div className=' w-full mb-20 relative flex justify-center items-center'>
+            <img src='/images/heading/heading-primary.svg' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+
+
+                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+                          {' '}
+                          Bull Mother Farm
+                        </h1>
+                        </div>
+            
 
             <div className="w-full h-full flex justify-center items-center flex-wrap">
             {bullMother?.map((_, id) => {

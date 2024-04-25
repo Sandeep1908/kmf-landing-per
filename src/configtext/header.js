@@ -231,12 +231,7 @@ export const mobileHeader = {
           title: "Feed & Fodder",
           link: '/en/animal-husbandery/feed-and-fodder'
         },
-    
-      
-     
-        
-        
-     
+  
         {
           title: "Schemes/Grants",
           link: '/en/animal-husbandery/scheme'
@@ -267,24 +262,24 @@ export const mobileHeader = {
 
  
     {
-      title: 'CSR',
+      title: 'SOCIAL RESPONSIBILITY',
       link: '',
       subItems: [
         {
           title: "Nandini Hostels",
-          link: ''
+          link: '/en/social-responsibility/nandini-hostels/'
         },
         {
           title: "Awarness For Children",
-          link: ''
+          link: '`/en/portfolio/ksheerabhagaya`'
         },
         {
           title: "Insurance to Farmers",
-          link: ''
+          link: '/en/portfolio/ksheeradhare'
         },
         {
           title: "Veterinary Services",
-          link: ''
+          link: '/en/animal-husbandery/animal-breeding'
         },
        
         
@@ -337,11 +332,11 @@ export const mobileHeader = {
       ]
     },
 
-    // {
-    //   title: 'KMF ಪೋರ್ಟ್ಫೋಲಿಯೋ',
-    //   link: '/kn/portfolio',
-    //   imgUrl: homeIco.src
-    // },
+    {
+      title: 'KMF ಪೋರ್ಟ್ಫೋಲಿಯೋ',
+      link: '/kn/portfolio',
+      imgUrl: homeIco.src
+    },
 
     {
       title: 'ಹಾಲು ಒಕ್ಕೂಟಗಳು',
@@ -352,52 +347,128 @@ export const mobileHeader = {
 
     {
       title: 'ಕಹಾಮ ಘಟಕಗಳು',
+       
       
     },
 
     {
       title: 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು',
-      link: '',
-  
-      imgUrl: ourproductIco.src
-    },
-    {
-      title: 'ನಂದಿನಿ ಪಾಕವಿಧಾನಗಳು',
+      link: '/kn/our-product',
+      subItems: [
+        {
+          title: "ಉತ್ಪನ್ನಗಳು",
+          link: '/kn/our-product'
+        },
+        {
+          title: "ನಂದಿನಿ ಪಾಕವಿಧಾನಗಳು",
+          link: '/kn/nandini-recipes'
+        },
+        {
+          title: "ಸಗಟು ಮಾರಾಟ",
+          link: '/kn/comingsoon'
+        },
+       
 
-      link:'/kn/nandini-recipes',
-      imgUrl: ourproductIco.src
+        
+      ],
+     
     },
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+     
     {
       title: 'ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ',
       link: '/kn/about/quality-food'
     },
 
+
+
+
     {
-      title: ' ಮಹಿಳಾ ಸಬಲೀಕರಣ',
+      title: 'ಪಶುಸಂಗೋಪನೆ ವಿಭಾಗ',
       link: '/kn/women-empowerment',
+      subItems: [
+        {
+          title: " ಹಾಲು ಶೇಖರಣೆ",
+          link: '/kn/animal-husbandery/procurement'
+        },
+        {
+          title: "ಪಶು ಆರೋಗ",
+          link: '/kn/animal-husbandery/animal-health'
+        },
+        {
+          title: "ಪಶು ಸಂತಾನೋತ್ಪತ್ತಿ ಕಾರ್ಯಕ",
+          link: '/kn/animal-husbandery/animal-breeding'
+        },
+        {
+          title: "ಮೇವು ಚಟುವಟಿಕೆಗಳು",
+          link: '/kn/animal-husbandery/feed-and-fodder'
+        },
+  
+        {
+          title: "ಯೋಜನೆಗಳು/ ಅನುದಾನಗಳು",
+          link: '/kn/animal-husbandery/scheme'
+        },
+        {
+          title: "ಸ್ಟೆಪ್ ಯೋಜನೆ",
+          link: '/kn/women-empowerment'
+        },
+
+      
+        
+        
+
+       
+
+        
+      ],
       imgUrl: homeIco.src
     },
 
     {
       title: 'ಸುದ್ದಿ/ಬ್ಲಾಗ್‌ಗಳು',
-     
-      subItems: [
-        {
-          title: "ಇತ್ತೀಚಿನ ಸುದ್ದಿಗಳು",
-          link: '/kn/blog/'
-        },
-        {
-          title: "ಟೆಂಡರ್ ಅಧಿಸೂಚನೆ",
-          link: '/kn/blog/notification'
-        },
-        
-      ],
-      imgUrl: homeIco.src
-    },
-    {
-      title: 'ಗ್ಯಾಲರಿ',
       link: '/kn/blog/gallery'
     },
+    
+
+
+    {
+      title: 'ಸಾಮಾಜಿಕ ಜವಾಬ್ದಾರಿಗಳ',
+      link: '',
+      subItems: [
+        {
+          title: "Nandini Hostels",
+          link: ''
+        },
+        {
+          title: "Awarness For Children",
+          link: ''
+        },
+        {
+          title: "Insurance to Farmers",
+          link: ''
+        },
+        {
+          title: "Veterinary Services",
+          link: ''
+        },
+       
+        
+      ],
+    },
+     
+     
     {
       title: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ',
       link: '/kn/contact',

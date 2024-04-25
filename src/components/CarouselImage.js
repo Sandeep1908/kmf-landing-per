@@ -12,6 +12,7 @@ import {
   EffectCoverflow
 } from 'swiper/modules';
 import { Swiper , SwiperSlide,  useSwiper } from 'swiper/react';
+import { Fade } from 'react-reveal';
  
 
 const NextSlider = () => {
@@ -38,7 +39,7 @@ const CarouselImage = ({ images }) => {
       <Swiper
         grabCursor={true}
         centeredSlides={true}
-        effect={'coverflow'}
+        effect={'fade'}
         ref={r => r.s}
         coverflowEffect={{
           rotate: 45,
@@ -49,7 +50,7 @@ const CarouselImage = ({ images }) => {
           
         }}
         slidesPerView={1}
-        modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+        modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
         observeParents={true}
         observer={true}
         controller={true}

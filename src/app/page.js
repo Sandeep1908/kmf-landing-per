@@ -23,6 +23,7 @@ import { useMyContext } from '@/context/headerContext.js';
 import { FaRegHandPointRight } from "react-icons/fa";
 
 import KnmModel from '@/components/KymModel.js';
+import CarouselImage from '@/components/CarouselImage.js';
     
 
 const Home = () => {
@@ -244,42 +245,10 @@ const Home = () => {
 
      
 
-      {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-5 pb-5       ">
-        <video
-          src="/video/vid.webm"
-          autoPlay
-          muted
-          loop
-          className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
-        />
-        <div className="w-full flex flex-col justify-center items-center">
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Quick Links</h1>
-       
-          </div>
+      <section className="w-full h-fit  relative       ">
+      <img src='/images/Curve.svg' className='absolute inset-0 w-full  h-full object-contain'/>
 
-          <div className="  w-full h-auto  relative   ">
-            <Fade bottom>
-              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
-                <Link href="/en/comingsoon">
-                  <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
-                </Link>
-
-                <Link href="/en/comingsoon">
-                  <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
-                </Link>
-                <Link href="/kn/404">
-                  <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
-                </Link>
-              </div>
-            </Fade>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full  relative  h-auto  bg-curved    ">
       <img src='/images/footer-top.png' className='absolute top-[87px] w-full h-full object-cover z-[-1]' style={{ transform: `translateY(${scrollY * 0.2}px)` }} />
 
         <div className='   relative '>
@@ -381,6 +350,44 @@ const Home = () => {
 
     </section>
 
+
+
+      {/* QUICK LINK  */}
+
+      <section className=" relative w-full h-auto pt-5 pb-5 z-[100]      ">
+        <video
+          src="/video/vid.webm"
+          autoPlay
+          muted
+          loop
+          className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
+        />
+        <div className="w-full flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Quick Links</h1>
+       
+          </div>
+
+          <div className="  w-full h-auto  relative   ">
+            <Fade bottom>
+              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
+                <Link href="/en/comingsoon">
+                  <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
+                </Link>
+
+                <Link href="/en/comingsoon">
+                  <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
+                </Link>
+                <Link href="/en/blog/gallery">
+                  <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
+                </Link>
+              </div>
+            </Fade>
+          </div>
+        </div>
+      </section>
+
+
       <section className="w-full h-fit relative       ">
      
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
@@ -421,7 +428,7 @@ const Home = () => {
       </section>
 
 
-      <section className="w-full h-auto  relative          ">
+      <section className="w-full h-auto mb-20  relative          ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
           <div className="   h-full    justify-between items-center    ">
             <div className="     w-full    justify-center p-10 z-[10]   items-center  ">

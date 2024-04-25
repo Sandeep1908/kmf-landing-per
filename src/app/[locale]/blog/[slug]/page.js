@@ -8,6 +8,7 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import { Carousel } from 'react-responsive-carousel';
 function BlogDetail() {
   const param = useParams();
   const axios = useApi();
@@ -62,7 +63,31 @@ const locale=useLocale().locale
         <div className="w-full p-4 flex  flex-col flex-wrap  justify-center items-center lg:flex-row lg:justify-around lg:items-start">
           <div className="max-w-4xl flex flex-col items-start justify-center space-y-5  ">
             <div className="w-full h-full flex justify-center items-center">
-              <img src={blog?.attributes?.image?.data?.attributes?.url} className="w-full h-96 object-contain"  />
+
+            <Carousel
+                          className="w-2xl h-96"
+                          autoPlay={false}
+                          interval={2000}
+                          showStatus={false}
+                          infiniteLoop
+                          showThumbs={false}
+                          showIndicators={false}>
+                          {blog?.attributes?.image?.data?.map((item, id) => {
+                            
+                            
+                             
+                                <img
+                                  key={id}
+                                  src={item?.attributes?.url}
+                                  className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
+                                />
+                           
+                            }  
+                            
+                          
+                          )}
+                        </Carousel>
+             
             </div>
 
             <div className="w-full relative flex justify-between items-center before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4 ">

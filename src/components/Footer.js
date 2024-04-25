@@ -29,7 +29,7 @@ function Footer() {
   }, [params?.locale]);
   return (
     <section className="w-full h-[230px]    relative       ">
-      <img src='/images/footer-bg.png' className='absolute inset-0 w-full h-full object-cover'/>
+      <img src='/images/Footer.png' className='absolute inset-0 w-full h-full object-cover'/>
       <div className=" z-10 relative h-full  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
         <div className="    w-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-1 max-w-96 space-y-5">

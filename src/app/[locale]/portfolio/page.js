@@ -52,6 +52,7 @@ import useApi from '@/hooks/useApi';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { useMyContext } from '@/context/headerContext';
 
 function Portfolio() {
   const [achievments, setAchievments] = useState([]);
@@ -63,6 +64,7 @@ function Portfolio() {
  
   const [sponsore, setSponsore] = useState([]);
   const [readMore, setReadMore] = useState(false);
+  const {isScroll}=useMyContext()
   const toggleReadMore = () => {
     setReadMore(!readMore);
   };
@@ -139,11 +141,10 @@ function Portfolio() {
     window.addEventListener('resize', handleSlideView);
     return () => window.removeEventListener('resize', handleSlideView);
   }, []);
-  console.log("acheiv",achievments)
+ 
   return (
     <div
-      className="w-full h-full absolute top-48 z-[-1]  
-           ">
+      className={`w-full h-full absolute   z-[-1]  ${isScroll?'top-48':''}`}>
       <section className={`w-full  h-[700px] relative  `}>
       <Swiper
       autoplay={{
@@ -505,12 +506,12 @@ function Portfolio() {
                     </h1>
                     <div className="mt-6">
                       {achievments?.filter(
-                        (item) => item?.attributes?.title === 'KMF Achievements'
+                        (item) => item?.attributes?.title === 'KMF Achievements' || item?.attributes?.title=== 'ಕಹಾಮ ಸಾಧನೆಗಳು'
                       )[0]?.attributes?.content && (
                         <BlocksRenderer
                           content={
                             achievments?.filter(
-                              (item) => item?.attributes?.title === 'KMF Achievements'
+                              (item) => item?.attributes?.title === 'KMF Achievements'|| item?.attributes?.title=== 'ಕಹಾಮ ಸಾಧನೆಗಳು'
                             )[0]?.attributes?.content
                           }
                           blocks={{
