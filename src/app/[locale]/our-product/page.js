@@ -64,7 +64,7 @@ function Products() {
           loop
           controls
           playsInline
-          className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+          className={`w-full  h-full    object-cover absolute top-0   ${
             isScroll ? 'h-[400px]' : ''
           } `}
         />

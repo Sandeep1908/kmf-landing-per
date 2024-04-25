@@ -10,7 +10,7 @@ function BlogCard() {
     const axios=useApi()
     const monthsName=['January','February','March','April','May','June','July','August','September','October','November','December']
     const locale=useLocale().locale
-    const [itemShow,setItemShow]=useState(15)
+    const [itemShow,setItemShow]=useState(10)
     useEffect(() => {
         (async () => {
           const { data } = await axios.get('/api/blog-posts?sort[0]=date:desc');
@@ -29,12 +29,12 @@ function BlogCard() {
                 if(id<itemShow){
                     return(
                         <div key={id} className='w-full flex space-x-5 p-10 justify-center items-center'>
-                        <div className='w-40 h-20 flex flex-col justify-center items-center border'>
+                        <Link href={`/${locale}/blog/${item?.id}`} className='w-40 h-20 flex flex-col justify-center items-center transition-all duration-300 border hover:scale-[1.2]'>
                                 <p className='text-xl'>{new Date(item?.attributes?.date).getDate()}</p>
                                 <div className='flex justify-center items-center text-sm text-slate-500'>
                                     <p >{monthsName[new Date(item?.attributes?.date).getMonth()]}</p>-<p>{new Date(item?.attributes?.date).getFullYear()}</p>
                                 </div>
-                        </div>
+                        </Link>
     
                         <div className='w-full'>
                                 <h1 className='text-xl text-primary-main'>{item?.attributes?.title}</h1>
