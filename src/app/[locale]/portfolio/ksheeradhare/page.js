@@ -33,7 +33,7 @@ const KsheeraDhare = () => {
   return (
      <div className='w-full h-full'>
         <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
-            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/` || ''}>
+            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
             KMF ACHIEVEMENTS
             </Link>
 
@@ -44,9 +44,11 @@ const KsheeraDhare = () => {
             </Link>
           </div>
         <div className='w-full h-auto'>
-        <div className=' relative w-full h-full flex justify-center mt-20'>
+        <div className=' relative w-full h-full flex flex-col items-center justify-center mt-20'>
 
             <h1 className='text-primary-main text-2xl md:text-5xl  ' > KSHEERADHARE </h1>
+            <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
+
             <img className='absolute top-[-50px] left-[52%] w-40 ' src={titleBG.src} alt="" />
         </div>
 
@@ -62,7 +64,7 @@ const KsheeraDhare = () => {
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > Ksheerdhare Project </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl text-center ' > Ksheerdhare Project </h1>
                  <div className='mt-6'>
                   <p className=' text-sm md:text-lg lg:text-sm xl:text-lg '>
                   An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objectives:
@@ -149,7 +151,7 @@ const KsheeraDhare = () => {
 
 
 
-          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-10 space-y-5">
+          <div className="w-full flex flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-center justify-center p-10 space-y-5">
 
 
           {dhare && dhare.attributes && dhare.attributes.content && (
@@ -165,7 +167,7 @@ const KsheeraDhare = () => {
                               : [];
 
                           return (
-                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
+                            <table className="table-fixed   border-spacing-y-2	 border-collapse border-black border   w-[80%]  md:w-[70%]  lg:w-[50%] ">
                               <thead className=" text-left bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
                                   return (
