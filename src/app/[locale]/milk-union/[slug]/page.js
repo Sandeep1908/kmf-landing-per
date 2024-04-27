@@ -28,10 +28,9 @@ function MilkUnionDetail({ slug }) {
   const [bannerImg, setBannerImg] = useState();
   const [readMore, setReadMore] = useState(false);
 
-
   const axios = useApi();
   const [loading, setLoading] = useState(true);
-  
+
   const locale = useParams().locale;
   const { isScroll, setIsScroll, id, setId } = useMyContext();
   useEffect(() => {
@@ -90,21 +89,23 @@ function MilkUnionDetail({ slug }) {
           <div className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl   shadow-sm">
             <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
-              <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute   w-[530px] top-[-50px]    object-contain"
-              />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
-              {union?.attributes?.name}
-              </h1>
-            </div>
+                <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+                  <img
+                    src="/images/heading/heading-primary.svg"
+                    className="absolute   w-[530px] top-[-50px]    object-contain"
+                  />
+                  <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+                    {union?.attributes?.name}
+                  </h1>
+                </div>
                 <p className="text-md"> {union?.attributes?.union_code}</p>
 
                 <div className=" w-full h-full transition-all duration-300  ">
                   {union && union.attributes && union.attributes.about && (
                     <BlocksRenderer
-                      content={readMore ? union.attributes.about : union.attributes.about.slice(0, 5)}
+                      content={
+                        readMore ? union.attributes.about : union.attributes.about.slice(0, 5)
+                      }
                       blocks={{
                         // You can use the default components to set class names...
                         paragraph: ({ children }) => (
@@ -151,7 +152,9 @@ function MilkUnionDetail({ slug }) {
                                   {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
                                     children?.[0]?.props?.text?.split(',')?.map((item, id) => {
                                       return (
-                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                        <td
+                                          className=" p-2 text-md font-content border-r border-black "
+                                          key={id}>
                                           {' '}
                                           {item}
                                         </td>
@@ -169,9 +172,11 @@ function MilkUnionDetail({ slug }) {
                     />
                   )}
 
-<button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
-                  {readMore ? 'Read less' : 'Read more'}
-                </button>
+                  <button
+                    onClick={toggleReadMore}
+                    className="w-full flex justify-end text-primary-main">
+                    {readMore ? 'Read less' : 'Read more'}
+                  </button>
                 </div>
               </div>
             </div>
