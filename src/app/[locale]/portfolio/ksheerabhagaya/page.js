@@ -33,7 +33,7 @@ const axios = useApi();
     <div className='w-full h-full'>
       <section className='w-full h-full'>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
-            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/` || ''}>
+            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
             KMF ACHIEVEMENTS
             </Link>
 
@@ -43,9 +43,10 @@ const axios = useApi();
                KSHEERABHAGAYA
             </Link>
           </div>
-      <div className=' relative w-full h-auto flex justify-center mt-20'>
+      <div className=' relative w-full h-auto flex flex-col items-center justify-center mt-20'>
 
         <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' > KSHEERABHAGAYA </h1>
+        <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
         <img className='absolute top-[-50px] left-[49%] w-40 ' src={titleBG.src} alt="" />
 </div>
       </section>
@@ -65,7 +66,7 @@ const axios = useApi();
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > KSHEERABHAGAYA </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl text-center ' > KSHEERABHAGAYA </h1>
                  <div className='mt-6'>
                   <ul className=' text-sm md:text-lg lg:text-sm xl:text-lg list-disc text-left'>
                   <li>

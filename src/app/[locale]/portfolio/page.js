@@ -184,7 +184,7 @@ function Portfolio() {
           src="/video/portfolio.mp4"></video> */}
       </section>
 
-      <section className="w-full h-auto mt-10">
+      <section id='history-milk' className="w-full h-auto mt-10">
         <div className=" w-full flex flex-col items-center justify-center lg:mt-20 p-3">
           <h1 className="text-primary-main text-2xl md:text-5xl " style={{ fontFamily: 'cursive' }}>
             {' '}
@@ -278,11 +278,12 @@ function Portfolio() {
             modules={[FreeMode, Autoplay]}
             className="w-full h-full">
             <SwiperSlide className="">
-              <div className="relative max-w-xl w-[100%]  h-full bg-[#f99457] group ">
+              
+       <div className="relative max-w-xl w-[100%]  h-full bg-[#f99457] group ">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <img
                     className="w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
-                    src={hom.src}
+                    src={milkImg.src}
                     alt=""
                   />
                 </div>
@@ -290,16 +291,15 @@ function Portfolio() {
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center">
                       {' '}
-                      HISTORY OF MILK
+                     HISTORY OF MILK
                     </h1>
                     <p className="mt-6 md:mt-12 text-2xl text-white">
-                      The history of milk is a fascinating journey that intertwines with the
-                      evolution of human..
+                    The history of milk is a fascinating journey that intertwines with the evolution of human..
                     </p>
                   </div>
 
                   <div className="w-40 h-14 border-[1px] border-white z-50 ">
-                    <a href="#krisna">
+                    <a href="#history-milk">
                       {' '}
                       <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
                         <p className="text-lg text-white">Know More</p>
@@ -307,7 +307,7 @@ function Portfolio() {
                     </a>
                   </div>
                 </div>
-              </div>
+    </div>
             </SwiperSlide>
 
             <SwiperSlide className="">
@@ -456,7 +456,21 @@ function Portfolio() {
 
       <section id="ACHIEVEMENTS" className="w-full h-auto mt-10 md:mt-20">
         <div className="w-full text-center">
-          <h1 className="text-primary-main text-2xl md:text-6xl "> KMF ACHIEVEMENTS </h1>
+          <div className='w-full pt-20 pb-20'>
+
+         
+        <div className="mt-1 w-full relative flex justify-center items-center">
+            <img
+              src="/images/heading/heading-primary.svg"
+              className="absolute z-[1] w-[450px] md:w-[550px] top-[-56px]   object-contain"
+            />
+
+            <h1 className="w-full relative max-w-[300px]  md:max-w-[350px] m-auto text-center  text-primary-main text-xl md:text-4xl  z-[100] ">
+            KMF ACHIEVEMENTS
+            </h1>
+          </div>
+          </div>
+          {/* <h1 className="text-primary-main text-2xl md:text-6xl "> KMF ACHIEVEMENTS </h1> */}
           <div className="w-full flex flex-col md:flex-row flex-wrap justify-center items-center mt-10 gap-5">
             {tabs?.map((tab, idx) => {
               return (
@@ -465,7 +479,7 @@ function Portfolio() {
                     {' '}
                     <p
                       className={`${
-                        currentIndex === idx ? 'text-black' : 'text-[#7c7a7a]'
+                        currentIndex === idx ? 'text-orange-300' : 'text-black hover:text-orange-300'
                       } text-lg`}>
                       {' '}
                       {tab.tabName}
@@ -477,23 +491,24 @@ function Portfolio() {
             })}
           </div>
 
-          <div className="w-full h-auto mt-10 mb-20">
+          {/* <div className="w-full h-auto mt-0 mb-20">
             {tabs?.map((tab, id) => {
               if (currentIndex === id) {
                 return tab.data;
               }
             })}
-          </div>
+          </div> */}
 
           <div className="w-full h-auto">
-            <div className=" relative w-full">
+         
+            {/* <div className=" relative w-full">
               <h1 className="text-primary-main text-2xl md:text-4xl "> KMF ACHIEVEMENTS </h1>
               <img
                 className="absolute top-[-35px] md:top-[-50px] left-[49%] md:left-[51%] w-32 md:w-40 "
                 src={titleBG.src}
                 alt=""
               />
-            </div>
+            </div> */}
 
             <div className="  lg:block lg:max-w-none lg:shadow-none lg:p-0   p-6 md:p-16  relative max-w-xl m-auto w-full     rounded-3xl  shadow-2xl     max-h-[500px] h-full z-[-1]">
               <img className="w-full h-full hidden  lg:block " src={flag.src} alt="" />
@@ -585,7 +600,21 @@ function Portfolio() {
 
       <section id="SPONSORED" className="w-full h-auto pt-10 md:pt-20 pb-10 md:pb-20  ">
         <div className="w-full text-center">
-          <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1>
+        <div className='w-full pt-20 pb-20'>
+
+         
+<div className="mt-1 w-full relative flex justify-center items-center">
+    <img
+      src="/images/heading/heading-primary.svg"
+      className="absolute z-[1] w-[450px] md:w-[550px] top-[-56px]   object-contain"
+    />
+
+    <h1 className="w-full relative max-w-[300px]  md:max-w-[350px] m-auto text-center  text-primary-main text-xl md:text-4xl  z-[100] ">
+    SPONSORED
+    </h1>
+  </div>
+  </div>
+          {/* <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1> */}
           <div className="w-full flex justify-center items-center flex-wrap mt-10">
             <Swiper
               slidesPerView={slideView}
@@ -608,6 +637,7 @@ function Portfolio() {
               })}
             </Swiper>
           </div>
+      
         </div>
       </section>
 

@@ -16,7 +16,7 @@ const GheeSupply = () => {
     <div className='w-full h-full'>
       <section className='w-full h-full'>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
-            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/` || ''}>
+            <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
             KMF ACHIEVEMENTS
             </Link>
 
@@ -26,9 +26,11 @@ const GheeSupply = () => {
             GHEE SUPPLY
             </Link>
           </div>
-      <div className=' relative w-full h-full flex justify-center mt-20'>
+      <div className=' relative w-full h-full flex flex-col items-center justify-center mt-20'>
 
             <h1 className='text-primary-main text-2xl md:text-4xl  ' > GHEE SUPPLY </h1>
+            <div className='bg-primary-main w-[150px] h-[4px] mt-2'></div>
+
             <img className='absolute md:top-[-50px] top-[-35px] left-[38%] md:left-[49%] w-32 md:w-40 ' src={titleBG.src} alt="" />
         </div>
       </section>
