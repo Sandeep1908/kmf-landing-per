@@ -97,7 +97,7 @@ function GOK() {
        list:({children})=>{
          console.log("list",children)
          return(
-   <li className='mt-5'>{children}</li>
+    children
          )
        
      },
@@ -108,7 +108,8 @@ function GOK() {
            : [];
    
        return (
-         <table className="able-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full ">
+       
+         <table className="table-fixed   border-collapse border-black border      min-w-full ">
            <thead className=" text-left ">
              {columns?.map((item, id) => {
                return (
@@ -132,6 +133,7 @@ function GOK() {
              </tr>
            </tbody>
          </table>
+       
        );
      },
        quote:({children})=><h1 className='text-2xl bg-primary-main text-white p-2 shadow-lg'>{children}</h1>

@@ -66,21 +66,27 @@ const locale=useLocale().locale
 
             <Carousel
                           className="w-2xl h-96"
-                          autoPlay={false}
+                          autoPlay={true}
                           interval={2000}
                           showStatus={false}
                           infiniteLoop
                           showThumbs={false}
-                          showIndicators={false}>
+                          showIndicators={false}
+                          showArrows={true}
+                          
+                          >
                           {blog?.attributes?.image?.data?.map((item, id) => {
-                            
+                          
+                          return(
+
+                            <img
+                            key={id}
+                            src={item?.attributes?.url}
+                            className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
+                          />
+                          )
                             
                              
-                                <img
-                                  key={id}
-                                  src={item?.attributes?.url}
-                                  className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
-                                />
                            
                             }  
                             
@@ -121,7 +127,7 @@ const locale=useLocale().locale
                       <div className=" w-full  h-full flex justify-center items-start space-x-4">
                         <div className="w-72 h-40">
                           <img
-                            src={news?.attributes?.image?.data?.attributes?.url}
+                            src={news?.attributes?.image?.data?.[0]?.attributes?.url}
                             className="w-full h-full object-cover"
                           />
                         </div>

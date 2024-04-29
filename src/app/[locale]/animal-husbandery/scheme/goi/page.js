@@ -60,7 +60,7 @@ const axios=useApi()
               </h1>
             </div>
     
-      <section className=" relative w-full flex flex-col p-2 space-y-20 mb-10 max-w-7xl m-auto h-auto pt-20  ">
+      <section className=" relative w-full flex flex-col p-2 space-y-16 mb-10 max-w-7xl m-auto h-auto pt-20  ">
    
 {
   scheme?.[0]?.attributes?.GOI &&
@@ -97,13 +97,14 @@ const axios=useApi()
           return <h1>{children}</h1>;
       }
     },
-    code:({children})=>{
-                return
-    },
+   
     list:({children})=>{
       
       return(
-<li className='mt-5'>{children}</li>
+        <ul className='list-disc'>
+          {children}
+        </ul>
+
       )
     
   },

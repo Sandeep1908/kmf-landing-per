@@ -91,7 +91,7 @@ const axios =useApi()
                                 switch (level) {
                                   case 1:
                                     return (
-                                      <h1 className="text-2xl text-primary-main">{children}</h1>
+                                      <h1 className="text-2xl text-primary-main mt-5">{children}</h1>
                                     );
                                   case 2:
                                     return <h2 className="text-lg">{children}</h2>;
@@ -108,7 +108,7 @@ const axios =useApi()
                                 }
                               },
                               list: ({ children }) => {
-                                return <li>{children}</li>;
+                                return children
                               },
                               code: ({ children }) => (
                                 <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">

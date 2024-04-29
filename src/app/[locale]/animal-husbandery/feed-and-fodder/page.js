@@ -61,7 +61,7 @@ function FeedFodder() {
                 className="absolute   w-[530px] top-[-60px]    object-contain"
               />
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {locale==='kn'?'':' Feed and Fodder'}
+              {locale==='kn'?'':' Fodder Activities'}
               </h1>
             </div>
        

@@ -3,36 +3,32 @@ import React,{useEffect,useState} from 'react';
 import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
-import AnimalBreed from './AnimalBreed';
+ 
 import Link from 'next/link';
-import HealthCamps from './HeathCamps';
+ import useApi from '@/hooks/useApi';
+ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 function AnimalBreeding() {
+  const axios =useApi()
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
-  const [currentIndex, setCurrentIndex] = useState(0);
-    
-  const tabs = [
-    {
-      tabName: locale==='en'?'Animal Breeding ':'Animal Breeding',
-      data:<AnimalBreed/>
-      
-    },
-    {
-      tabName: locale==='en'?'Health Camps':'Health Camps',
-      data:<HealthCamps/>
-      
-    },
- 
-  
-  ];
-  
-  const handleTabs = (idx) => {
-    
+  const [animalBreeding, setAnimalBreeding] = useState([]);
+  const [readMore, setReadMore] = useState(false);
+
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/animal-breedings');
+       
+      setAnimalBreeding(data.data);
    
-    setCurrentIndex(idx);
+    })();
+  }, []);
+    
+  
+  const toggleReadMore = () => {
+    setReadMore(!readMore);
   };
-   
 
 
 return(
@@ -70,46 +66,103 @@ return(
             
           </div>
 
-      <section className="w-full h-auto p-10   relative flex justify-center items-center flex-col   ">
+      <section className="w-full h-auto p-10 mt-10   relative flex justify-center items-center flex-col   ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
        
 
-          <div className="relative w-full mb-20  flex justify-center items-center    before:absolute before:w-full before:h-0.5 before:bg-neutral-dark4 before:-bottom-3  ">
-            <ul className="flex justify-center items-center  space-x-7">
-              {tabs?.map((tab, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    onClick={() => handleTabs(idx)}
-                    className={`${currentIndex===idx?'text-secondary-main relative  ':''} font-extrabold text-xs font-subheading md:text-xl transition-all duration-100  uppercase cursor-pointer hover:scale-[1.1]`}>
-                    {tab.tabName}
-                  </li>
-                );
-              })}
-            </ul>
-            
-       
-
-          </div>
-          
-          <div className="mb-20    relative w-full  flex justify-center items-center ">
+      
+          <div className="mb-20     relative w-full  flex justify-center items-center ">
               <img
                 src="/images/heading/heading-primary.svg"
                 className="absolute   w-[530px] top-[-60px]    object-contain"
               />
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {tabs[currentIndex].tabName}
+             {locale==='kn'?'':'Animal Breeding'}
               </h1>
             </div>
           
         </div>
       </section>
 
-      {tabs?.map((tab, id) => {
-        if (currentIndex === id) {
-          return tab.data;
-        }
-      })} 
+      <section className=" relative w-full   h-auto   ">
+        <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
+          <div className="w-full h-full flex flex-col space-y-2 justify-center items-start    p-1   ">
+            <div className="w-full h-full flex justify-center items-center flex-wrap">
+              {animalBreeding?.map((_, id) => {
+                return (
+                  <div
+                    key={id}
+                    className="max-w-3xl w-full m-10 rounded-3xl  min-h-[400px] shadow-2xl bg-slate-50 p-16">
+                    <div className="m-auto">
+
+
+                    <div className=' w-full relative flex justify-center items-center'>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+
+
+                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+                          {' '}
+                          {_?.attributes?.title}
+                        </h1>
+                        </div>
+
+
+
+                      
+                      <div className="mt-20">
+                      {_?.attributes?.content && (
+                          <BlocksRenderer
+                            content={readMore ? _?.attributes?.content: _?.attributes?.content.slice(0,3) }
+                            blocks={{
+                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              heading: ({ children, level }) => {
+                                switch (level) {
+                                  case 1:
+                                    return (
+                                      <h1 className="text-2xl text-primary-main">{children}</h1>
+                                    );
+                                  case 2:
+                                    return <h2 className="text-lg">{children}</h2>;
+                                  case 3:
+                                    return <h3>{children}</h3>;
+                                  case 4:
+                                    return <h4>{children}</h4>;
+                                  case 5:
+                                    return <h5>{children}</h5>;
+                                  case 6:
+                                    return <h6>{children}</h6>;
+                                  default:
+                                    return <h1>{children}</h1>;
+                                }
+                              },
+                              list: ({ children }) => {
+                                return children
+                              },
+                              code: ({ children }) => (
+                                <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">
+                                  {children}
+                                </h1>
+                              )
+                            }}
+                          />
+                        )}
+
+{
+  _?.attributes?.content.length>3 &&
+
+<button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
+                  {readMore ? 'Read less' : 'Read more'}
+                </button>
+            }
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
     
 
       <Footer />

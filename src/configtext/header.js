@@ -213,7 +213,7 @@ export const mobileHeader = {
     },
     {
       title: 'ANIMAL HUSBANDARY',
-      link: '/en/women-empowerment',
+      link: '/en/animal-husbandery/procurement',
       subItems: [
         {
           title: "Procurement",
@@ -228,7 +228,7 @@ export const mobileHeader = {
           link: '/en/animal-husbandery/animal-breeding'
         },
         {
-          title: "Feed & Fodder",
+          title: "Fodder Activities",
           link: '/en/animal-husbandery/feed-and-fodder'
         },
   
@@ -397,7 +397,7 @@ export const mobileHeader = {
 
     {
       title: 'ಪಶುಸಂಗೋಪನೆ ವಿಭಾಗ',
-      link: '/kn/women-empowerment',
+      link: '/kn/animal-husbandery/procurement',
       subItems: [
         {
           title: " ಹಾಲು ಶೇಖರಣೆ",
