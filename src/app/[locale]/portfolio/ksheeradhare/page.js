@@ -151,7 +151,7 @@ const KsheeraDhare = () => {
 
 
 
-          <div className="w-full flex flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-center justify-center p-10 space-y-5">
+          <div className="w-full flex flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-center justify-center p-10 ">
 
 
           {dhare && dhare.attributes && dhare.attributes.content && (
@@ -168,21 +168,21 @@ const KsheeraDhare = () => {
 
                           return (
                             <table className="table-fixed   border-spacing-y-2	 border-collapse border-black border   w-[80%]  md:w-[70%]  lg:w-[50%] ">
-                              <thead className=" text-left bg-orange-400 text-primary-main">
+                              <thead className=" text-center bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
                                   return (
-                                    <th className="p-2   border-r border-black " key={id}>
+                                    <th className="p-2 w-14   border-r border-black " key={id}>
                                       {item}
                                     </th>
                                   );
                                 })}
                               </thead>
-                              <tbody className="text-left  text-md ">
+                              <tbody className="text-center  text-md ">
                                 <tr className="w-full ">
                                   {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
                                     children?.[0]?.props?.text?.split(',')?.map((item, id) => {
                                       return (
-                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                        <td className=" p-2 w-14 text-md font-content border-r border-black " key={id}>
                                           {' '}
                                           {item}
                                         </td>
