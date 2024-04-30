@@ -220,7 +220,7 @@ function Portfolio() {
               </h1>
               <p className="text-sm md:text-lg  lg:mt-10 text-white text-justify">
               Dr. Verghese Kurien(26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution.
-Kurien graduated in physics from University of Madras in 1940 and received his masters in mechanical engineering from University of Michigan in 1947. In 1949, Kurien was sent by the Government of India to run its experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers' Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.
+Kurien graduated in physics from University of Madras in 1940 and received his masters in mechanical engineering from University of Michigan in 1947. In 1949, Kurien was sent by the Government of India to run its experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.
 
                 {/* Not only that, he had imported HF breed heifers from Holland and distributed them to the farmers here. With the aim of developing the countrys native breed heifers through artificial insemination, he got help from the central government and succeeded in importing 8 to 10 foreign breed bulls to Karnataka. He worked hard to increase milk production through breeding activities in Mysore, Bangalore, Mangalore and some areas of the hill country. Perhaps about dairy farming Mr. M.V.K. It is a fact that due to the influence of the foresight of Mr. R., the situation is now created that wherever you go in the entire state, you are driven by crossbred horses. */}
               </p>
@@ -388,7 +388,7 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
                       KMF ACHIEVEMENTS
                     </h1>
                     <p className="mt-6 md:mt-12 text-lg md:text-xl text-white">
-                    KMF- Nandini Brand, a proud household name of Karnataka with its slogan of “Quality Excellence from Cow to Consumer”, has evolved into the most profitable dairy farmers' organization in the state and a leading organization in South India.
+                    KMF- Nandini Brand, a proud household name of Karnataka with its slogan of Quality Excellence from Cow to Consumer, has evolved into the most profitable dairy farmers organization in the state and a leading organization in South India.
                     </p>
                   </div>
 
