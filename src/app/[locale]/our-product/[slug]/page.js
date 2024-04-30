@@ -124,7 +124,7 @@ function Milk() {
     <div className={`w-full h-full relative ${isScroll ? 'top-0' : 'top-36'}  `}>
       <section
         className={`w-full    pt-28 relative  grid place-items-center ${
-          isScroll ? 'h-[600px]' : 'h-[80vh]'
+          isScroll ? 'h-[600px]' : 'h-[85vh]'
         }`}>
         <video
           muted

@@ -331,7 +331,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[1000px]">
+          <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
             <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px] p-5 rounded-lg">
               <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">New Arrivals & Best Selling</h1>
               <div className="marquee-notification h-full flex justify-evenly space-x-3">
@@ -388,25 +388,63 @@ const Home = () => {
       </section>
 
 
-      <section className="w-full h-fit relative       ">
+      <section className="w-full h-fit relative pt-20 pb-20     ">
      
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
-            <div className="flex justify-center w-full   flex-wrap   items-end  ">
-              <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">Latest News</h1>
+            <div className="flex justify-center w-full    flex-wrap   items-end  ">
+              <h1 className="text-5xl  text-center text-primary-gradient font-josefin w-full max-w-2xl shadow-md p-3 ">Explore The World Of KMF</h1>
             </div>
              
           </div>
 
-          <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
-            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
-            <iframe  height="315" src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-            className="w-full sm:w-[540px]"></iframe>
+          <div className=" relative w-full h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
+
+          <Swiper
+            watchSlidesProgress={true} 
+            grabCursor={true}
+            centeredSlides={true}
+            effect={'fade'}
+            
+            
+            slidesPerView={1}
+            modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+            observeParents={true}
+            observer={true}
+            controller={true}
+            scrollbar={{ draggable: true }}
+            slide
+            
+            loop={true}
+              className="w-full h-full">
+           
+                      <SwiperSlide  >
+                      <div className="p-4 w-full h-full  flex justify-center items-center     ">
+            <iframe   src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+            className="w-full h-full "></iframe>
             </div>
-       
-            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
-            <iframe   height="315" src="https://www.youtube.com/embed/L0yXRCdIF-M?si=eMZep5m-dhjEodgH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" className="w-full sm:w-[540px] allowfullscreen"></iframe>
+                        </SwiperSlide>
+
+
+                        <SwiperSlide  >
+                        <div className="p-4 w-full h-full  flex justify-center items-center     ">
+            <iframe   src="https://www.youtube.com/embed/gNqoacqCryw?si=Ht2lRLBnb8MoDpyd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen  className="w-full h-full "></iframe>
             </div>
+                        </SwiperSlide>
+
+
+                 
+            </Swiper>
+
+
+           
+
+
+         
+
+
+           
+           
 
            
           </div>
@@ -428,7 +466,7 @@ const Home = () => {
       </section>
 
 
-      <section className="w-full h-auto mb-20  relative          ">
+      <section className="w-full h-fit   mb-20  relative          ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
           <div className="   h-full    justify-between items-center    ">
             <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
