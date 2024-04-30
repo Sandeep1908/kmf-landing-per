@@ -21,6 +21,7 @@ import flag from '@/images/portfolio/flag.jpg';
 import band1 from '@/images/portfolio/brand-1.jpeg';
 import band2 from '@/images/portfolio/brand-2.jpeg';
 import band3 from '@/images/portfolio/brand-3.jpeg';
+import band4 from '@/images/portfolio/brand-4.jpg';
 // import  from "'@/images/portfolio/flag.jpg"
 import { Carousel as Carousels } from 'react-responsive-carousel';
 
@@ -218,16 +219,9 @@ function Portfolio() {
 
               </h1>
               <p className="text-sm md:text-lg  lg:mt-10 text-white text-justify">
-              Dr. Verghese Kurien, the Father of the White Revolution, passed away in the early
-                hours of today, after a brief illness. He was 91 years old. He is survived by his
-                wife, Molly Kurien, daughter Nirmala and grandson, Siddharth. Dr. Kurien, was the
-                architect of Indias White Revolution, which helped India emerge as the largest milk
-                producer in the world. Founder Chairman of the National Dairy Development Board
-                (NDDB) from 1965 to 1998, the Gujarat Co-operative Milk Marketing Federation Ltd.
-                (GCMMF), from 1973 to 2006 and the Institute of Rural Management (IRMA) from 1979 to
-                2006, his professional life has been dedicated to empowering the Indian farmers
-                through co-operatives. Dr. Kurien has helped to lay the foundation of democratic
-                enterprises at the grass roots.
+              Dr. Verghese Kurien(26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution.
+Kurien graduated in physics from University of Madras in 1940 and received his masters in mechanical engineering from University of Michigan in 1947. In 1949, Kurien was sent by the Government of India to run its experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers' Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.
+
                 {/* Not only that, he had imported HF breed heifers from Holland and distributed them to the farmers here. With the aim of developing the countrys native breed heifers through artificial insemination, he got help from the central government and succeeded in importing 8 to 10 foreign breed bulls to Karnataka. He worked hard to increase milk production through breeding activities in Mysore, Bangalore, Mangalore and some areas of the hill country. Perhaps about dairy farming Mr. M.V.K. It is a fact that due to the influence of the foresight of Mr. R., the situation is now created that wherever you go in the entire state, you are driven by crossbred horses. */}
               </p>
             </div>
@@ -293,8 +287,10 @@ function Portfolio() {
                       {' '}
                      HISTORY OF MILK
                     </h1>
-                    <p className="mt-6 md:mt-12 text-2xl text-white">
-                    The history of milk is a fascinating journey that intertwines with the evolution of human..
+                    <p className="mt-6 md:mt-12 md:text-lg text-xl text-white">
+                    The history of milk is a fascinating journey that intertwines with the evolution of
+              human civilization and the domestication of animals. As early humans transitioned from
+              a nomadic lifestyle to settled agricultural communities,
                     </p>
                   </div>
 
@@ -344,6 +340,13 @@ function Portfolio() {
                         alt=""
                       />
                     </SwiperSlide>
+                    <SwiperSlide>
+                      <img
+                        className="w-full h-full object-fill opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
+                        src={band4.src}
+                        alt=""
+                      />
+                    </SwiperSlide>
                   </Swiper>
                 </div>
                 <div className="full h-full flex flex-col justify-between p-6 md:p-16 ">
@@ -352,9 +355,9 @@ function Portfolio() {
                       {' '}
                       BRAND AMBASSADOR
                     </h1>
-                    <p className="mt-6 md:mt-12 text-2xl text-white">
-                      He was originally from Kolar district who was very concerned about the
-                      farmers...
+                    <p className="mt-6 md:mt-12 text-lg md:text-xl text-white">
+                    Karnataka Milk Federation appoints ambassadors from renowned Kannada artistes from time to time to increase the market reach of its products.
+
                     </p>
                   </div>
 
@@ -384,9 +387,8 @@ function Portfolio() {
                       {' '}
                       KMF ACHIEVEMENTS
                     </h1>
-                    <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
-                      He was originally from Kolar district who was very concerned about the
-                      farmers...
+                    <p className="mt-6 md:mt-12 text-lg md:text-xl text-white">
+                    KMF- Nandini Brand, a proud household name of Karnataka with its slogan of “Quality Excellence from Cow to Consumer”, has evolved into the most profitable dairy farmers' organization in the state and a leading organization in South India.
                     </p>
                   </div>
 
@@ -576,7 +578,7 @@ function Portfolio() {
                                   paragraph: ({children}) => {
                                      
                                     return (
-                                    <p>{children}</p>
+                                    <li>{children}</li>
                                     )
                                   },
                                   list:({children}) =>{

@@ -1,6 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
+import bhagaya1 from '@/images/portfolio/bhagaya-1.png';
+import bhagaya2 from '@/images/portfolio/bhagaya-2.png';
+import bhagaya3 from '@/images/portfolio/bhagaya-3.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
 import banner from '@/images/portfolio/Childrens-min.png';
@@ -8,6 +11,18 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+
+import { SwiperSlide,Swiper } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import VideoComponent from './VideoComponent';
+import Lightbox from './Lightbox';
+
+
 
 
 
@@ -17,7 +32,6 @@ const KsheeraBhagaya = () => {
   const locale = useLocale().locale;
   const [bhagaya, setBhagaya] = useState([]);
 const axios = useApi();
-
   useEffect(() => {
     (async () => {
       const { data: bhagaya } = await axios.get(`/api/ksheerabhagaya`);
@@ -27,6 +41,38 @@ const axios = useApi();
       setBhagaya(bhagaya?.data);
 
     })();
+  }, []);
+
+  const [slideView, setSlideView] = useState(3);
+
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const videoUrl = "/video/ksheerabhagaya.mov"; // Replace with your actual video URL
+
+  const openLightbox = () => {
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  useEffect(() => {
+    
+
+    const handleSlideView = () => {
+      const screen = window.innerWidth;
+      if (screen < 1113) {
+        setSlideView(2);
+      }
+      if (screen < 779) {
+        setSlideView(1);
+      }
+    };
+    handleSlideView();
+
+    window.addEventListener('resize', handleSlideView);
+    return () => window.removeEventListener('resize', handleSlideView);
   }, []);
   return (
      <>
@@ -113,7 +159,7 @@ const axios = useApi();
             </div>
 
            
-          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-10 space-y-5">
+          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-10 ">
 
 
            
@@ -133,6 +179,15 @@ const axios = useApi();
                             <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
                               <thead className=" text-left bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
+                                  console.log(item,id)
+                                  if(id===0){
+                                    return(
+                                      <th className="p-2 w-10  border-r border-black " key={id}>
+                                      {item}
+                                    </th>
+                                    )
+                                 
+                                  }
                                   return (
                                     <th className="p-2   border-r border-black " key={id}>
                                       {item}
@@ -144,6 +199,15 @@ const axios = useApi();
                                 <tr className="w-full ">
                                   {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
                                     children?.[0]?.props?.text?.split(',')?.map((item, id) => {
+                                      if(id===0){
+                                        return(
+                                          <td className="w-10 p-2 text-md font-content border-r border-black " key={id}>
+                                          {' '}
+                                          {item}
+                                        </td>
+                                        )
+                                     
+                                      }
                                       return (
                                         <td className=" p-2 text-md font-content border-r border-black " key={id}>
                                           {' '}
@@ -253,6 +317,85 @@ const axios = useApi();
 
 
         </section>
+        
+      <section className='relative w-full h-auto bg-[#2858ac]'>
+      <div className='max-w-6xl  m-auto w-full justify-center items-center text-center  pt-20'>
+                  <p className='text-2xl text-white'>
+                  The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.
+                  </p>
+                
+                
+                
+                 </div>
+          <div className='max-w-6xl  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
+         
+            <div className='max-w-96 w-full h-96 pt-2 pb-2 '>
+              
+                <div className='w-full h-full bg-[#3b75d8] shadow-xl flex justify-center items-center'>
+
+
+                <VideoComponent onClick={openLightbox} />
+             {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />}
+
+
+              {/* <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video> */}
+                </div>
+            </div>
+            <div className='max-w-4xl w-full h-96 '>
+            <Swiper
+             slidesPerView={slideView}
+              freeMode={true}
+           
+              
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              modules={[FreeMode, Autoplay]}
+              className="max-w-7xl m-auto">
+
+                 
+                      <SwiperSlide className='' >
+                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={bhagaya1.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya1.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>
+                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={bhagaya2.src} height="400px"  >
+                          <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={bhagaya2.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>
+                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center  w-full h-96 p-2 '>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={bhagaya3.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya3.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
+                        </SwiperSlide>
+                
+            </Swiper>
+            </div>
+
+          </div>
+      </section>
        
         
     </div>

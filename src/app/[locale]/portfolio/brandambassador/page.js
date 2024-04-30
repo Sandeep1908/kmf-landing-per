@@ -163,33 +163,71 @@ const BrandAmbassador = () => {
                  
                       <SwiperSlide className='' >
                       <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                     <img className='m-auto w-full h-full object-cover' src={rajkumar1.src} alt="" />
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar1.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar1.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                     <img className='m-auto w-full h-full object-cover' src={rajkumar2.src} alt="" />
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar2.src} height="400px"  >
+                          <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={rajkumar2.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center  w-full h-96 p-2 '>
-                     <img className='m-auto w-full h-full object-cover' src={rajkumar3.src} alt="" />
-                </div>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar3.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar3.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2'>
-                     <img className='m-auto w-full h-full object-cover' src={rajkumar4.src} alt="" />
-                </div>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar4.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar4.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2'>
-                     <img className='m-auto w-full h-full object-cover' src={rajkumar5.src} alt="" />
-                </div>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar5.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar5.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2'>
-                     <img className='m-auto w-full h-full object-cover' src={rajkumar6.src} alt="" />
-                </div>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar6.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar6.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
                         </SwiperSlide>
                       <SwiperSlide>
                      <Link href={`/${locale}/blog/gallery`}><div className='flex justify-center items-center   w-full h-96 p-2 '>
