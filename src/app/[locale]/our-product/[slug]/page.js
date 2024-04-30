@@ -193,7 +193,7 @@ function Milk() {
                           showThumbs={false}
                           showIndicators={false}>
                           {item?.attributes?.image?.data?.map((item, id) => {
-                            console.log("product",item)
+                             
                             const validExtensions = ['.png', '.jpg', '.jpeg','.JPG','.JPEG','.PNG'];
                             if (validExtensions.includes(item?.attributes?.ext)) {
                               return (
