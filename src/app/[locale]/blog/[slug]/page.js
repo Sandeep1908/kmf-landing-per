@@ -67,7 +67,7 @@ const locale=useLocale().locale
             <Carousel
                           className="w-2xl h-96"
                           autoPlay={true}
-                          interval={2000}
+                          interval={4000}
                           showStatus={false}
                           infiniteLoop
                           showThumbs={false}
