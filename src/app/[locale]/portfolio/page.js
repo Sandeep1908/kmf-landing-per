@@ -114,7 +114,7 @@ function Portfolio() {
       const { data: sponsor } = await axios.get('/api/sponsoreds');
       const {data:banner} =await axios.get('/api/banners')
 
-      setBanners(banner.data)
+      setBanners(banner.data);
       setSponsore(sponsor.data);
       setAchievments(data.data);
     })();
@@ -196,7 +196,7 @@ function Portfolio() {
               JOURNEY OF MILK
             </p>
 
-            <p className="text-lg md:text-2xl  mt-6 md:mt-16 max-w-[850px] text-justify">
+            <p className="text-lg md:text-2xl  mt-6 md:mt-16 max-w-[850px] text-center">
               The history of milk is a fascinating journey that intertwines with the evolution of
               human civilization and the domestication of animals. As early humans transitioned from
               a nomadic lifestyle to settled agricultural communities, the realization that certain
@@ -277,9 +277,9 @@ function Portfolio() {
             }}
             modules={[FreeMode, Autoplay]}
             className="w-full h-full">
-            <SwiperSlide className="">
+            <SwiperSlide className="" style={{width:100}}>
               
-       <div className="relative max-w-xl w-[100%]  h-full bg-[#f99457] group ">
+       <div className="relative  w-[100%]  h-full bg-[#f99457] group ">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <img
                     className="w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
@@ -311,7 +311,7 @@ function Portfolio() {
             </SwiperSlide>
 
             <SwiperSlide className="">
-              <div className="relative max-w-xl w-[100%]  h-full bg-[#4f7ffc] group">
+              <div className="relative  w-[100%]  h-full bg-[#4f7ffc] group">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <Swiper
                     slidesPerView={1}
@@ -370,7 +370,7 @@ function Portfolio() {
               </div>
             </SwiperSlide>
             <SwiperSlide className="">
-              <div className="relative max-w-xl w-[100%]  h-full bg-[#f99457] group">
+              <div className="relative  w-[100%]  h-full bg-[#f99457] group">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <img
                     className="w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
@@ -402,7 +402,7 @@ function Portfolio() {
               </div>
             </SwiperSlide>
             <SwiperSlide className="">
-              <div className="relative max-w-xl w-[100%]  h-full bg-[#4f7ffc]  group">
+              <div className="relative  w-[100%]  h-full bg-[#4f7ffc]  group">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <Swiper
                     slidesPerView={1}
@@ -430,7 +430,7 @@ function Portfolio() {
                     </SwiperSlide>
                   </Swiper>
                 </div>
-                <div className="full h-full flex flex-col justify-center md:justify-between p-6 md:p-16 ">
+                <div className="w-full h-full flex flex-col justify-center md:justify-between p-6 md:p-16 ">
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center "> SPONSORED</h1>
                     <p className="mt-6 md:mt-12 text-2xl text-white">
@@ -479,7 +479,7 @@ function Portfolio() {
                     {' '}
                     <p
                       className={`${
-                        currentIndex === idx ? 'text-orange-300' : 'text-black hover:text-orange-300'
+                        currentIndex === idx ? 'hover:text-orange-300' : 'text-black hover:text-orange-300'
                       } text-lg`}>
                       {' '}
                       {tab.tabName}
@@ -530,12 +530,16 @@ function Portfolio() {
                             )[0]?.attributes?.content
                           }
                           blocks={{
-                            paragraph: ({ children }) => {
+                            paragraph: ({children}) => {
+                                     
                               return (
-                                <ul className="list-disc text-left">
-                                  <li>{children}</li>
-                                </ul>
-                              );
+                              <p>{children}</p>
+                              )
+                            },
+                            list:({children}) =>{
+                              return(
+                                children
+                              )
                             }
                           }}
                         />
@@ -548,7 +552,7 @@ function Portfolio() {
 
             <div className="w-full h-auto flex flex-wrap justify-center">
               {achievments?.map((item, id) => {
-                
+                console.log("content",item?.attributes?.content)
                   return (
                     <div
                       key={id}
@@ -567,12 +571,17 @@ function Portfolio() {
                           <ul className="list-disc text-left">
                             {item?.attributes?.content && (
                               <BlocksRenderer
-                                content={readMore ? item?.attributes?.content: item?.attributes?.content.slice(0,3)}
+                                content={readMore ? item?.attributes?.content: item?.attributes?.content.slice(0,1)}
                                 blocks={{
                                   paragraph: ({children}) => {
                                      
                                     return (
-                                    <li>{children}</li>
+                                    <p>{children}</p>
+                                    )
+                                  },
+                                  list:({children}) =>{
+                                    return(
+                                      children
                                     )
                                   }
                                 }}

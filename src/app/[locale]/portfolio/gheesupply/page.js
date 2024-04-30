@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
@@ -12,6 +12,18 @@ import useLocale from '@/hooks/useLocale';
 
 const GheeSupply = () => {
   const locale = useLocale().locale;
+
+  const [ghee, setGhee] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/gheesupplies');
+    
+
+      setGhee(ghee.data)
+    
+    })();
+  }, []);
+
   return (
     <div className='w-full h-full'>
       <section className='w-full h-full'>
