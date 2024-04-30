@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import rightArrow from '@/images/women-empower/rightArrow.svg';
+import Link from 'next/link';
 
 function WomenEmpowerment() {
   const [womenEmpower, setWomenEmpower] = useState([]);
@@ -40,6 +41,44 @@ function WomenEmpowerment() {
         />
       </section>
 
+
+      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                      <Link className="  text-sm font-bold  " href={`/` || ''}>
+              {locale==='kn'?'Home':'Home'}
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
+            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
+              
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
+            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Animal Health'}
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold   " href={`${locale==='kn'?'/kn/animal-husbandery/animal-breeding':'/en/animal-husbandery/animal-breeding'}`}>
+            {locale==='kn'?'ಪಶು ಸಂತಾನಾಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮ':'Animal Breeding Program'}
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/feed-and-fodder':'/en/animal-husbandery/feed-and-fodder'}`}>
+            {locale==='kn'?'ಮೇವು ಚಟುವಟಿಕೆಗಳು':'Fodder Activities'}
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold   "  href={`${locale==='kn'?'/kn/animal-husbandery/scheme':'/en/animal-husbandery/scheme'}`}>
+            {locale==='kn'?'ಯೋಜನೆಗಳು/ ಅನುದಾನಗಳು':'Schemes/Grants'}
+            </Link>
+
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold text-primary-main  " href={`${locale==='kn'?'/kn/women-empowerment':'/en/women-empowerment'}`}>
+            {locale==='kn'?'ಸ್ಟೆಪ್ ಯೋಜನೆ':'Step'}
+            </Link>
+            
+      </div>
       <section className="w-full max-w-7xl m-auto h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
       <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
               <img

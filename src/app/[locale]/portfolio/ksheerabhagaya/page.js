@@ -23,7 +23,7 @@ const axios = useApi();
       const { data: bhagaya } = await axios.get(`/api/ksheerabhagaya`);
        
  
-      console.log("dhare",bhagaya?.data)
+     
       setBhagaya(bhagaya?.data);
 
     })();

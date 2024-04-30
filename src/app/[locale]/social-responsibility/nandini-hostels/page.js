@@ -9,13 +9,13 @@ import useApi from '@/hooks/useApi';
 function NandiniHostels() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
-  const [animalHealth,setAnimalHealth]=useState([])
+  const [hostel,setHostels]=useState([])
 
   const axios = useApi();
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get('/api/animal-healths')
-      setAnimalHealth(data.data);
+      const { data } = await axios.get('/api/nandini-hostels')
+      setHostels(data.data);
      
     })();
   }, []);
@@ -73,8 +73,64 @@ function NandiniHostels() {
             
               
               
-                <div className='w-full h-[600px] max-w-7xl bg-slate-400 shadow-lg'>
+                <div className='w-full h-auto   max-w-7xl bg-white shadow-lg'>
 
+                {hostel?.map((_, id) => {
+                return (
+                  <div
+                    key={id}
+                    className="  w-full m-10 rounded-3xl    p-16">
+                    <div className="m-auto">
+                      <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
+                        {' '}
+                        {_?.attributes?.title}{' '}
+                      </h1>
+                      <div className="mt-10">
+                        {_?.attributes?.content && (
+                          <BlocksRenderer
+                            content={_?.attributes?.content}
+                            blocks={{
+                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              heading: ({ children, level }) => {
+                                switch (level) {
+                                  case 1:
+                                    return (
+                                      <h1 className="text-2xl text-primary-main mt-5">{children}</h1>
+                                    );
+                                  case 2:
+                                    return <h2 className="text-lg">{children}</h2>;
+                                  case 3:
+                                    return <h3>{children}</h3>;
+                                  case 4:
+                                    return <h4>{children}</h4>;
+                                  case 5:
+                                    return <h5>{children}</h5>;
+                                  case 6:
+                                    return <h6>{children}</h6>;
+                                  default:
+                                    return <h1>{children}</h1>;
+                                }
+                              },
+                              list: ({ children }) => {
+                                return (
+                                  <ul className='list-disc flex-col flex space-y-5'>
+                                    {children}
+                                  </ul>
+                                )
+                              },
+                              code: ({ children }) => (
+                                <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">
+                                  {children}
+                                </h1>
+                              )
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
                 </div>
 
 
