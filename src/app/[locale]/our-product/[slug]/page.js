@@ -166,10 +166,7 @@ function Milk() {
             } `}>
 
 <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-color/group.png"
-                className="absolute   w-[530px] top-[-70px]    object-contain"
-              />
+            
               <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
               {title?.attributes?.title} Family
               </h1>
@@ -182,7 +179,8 @@ function Milk() {
                   return (
                     <div
                       key={id}
-                      className="w-96  bg-[#F7F7F7] flex flex-col justify-between items-start ">
+                      className="w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ">
+                         {/* <img src='/images/product-new/new.gif' className='w-10 absolute right-5  z-[10]'/> */}
                       <div className="w-full   justify-center items-center flex p-2  ">
                         <Carousel
                           className="w-2xl h-96"

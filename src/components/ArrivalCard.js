@@ -3,10 +3,10 @@ import Link from 'next/link'
 import React from 'react'
 
 import useLocale from '@/hooks/useLocale'
-function ArrivalCard({imgUrl,title}) {
+function ArrivalCard({imgUrl,title,link}) {
     const locale=useLocale().locale
   return (
-    <Link href={`/${locale}/our-product`||''}>
+    <Link href={link||''}>
     <div
     className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-500  "
      >

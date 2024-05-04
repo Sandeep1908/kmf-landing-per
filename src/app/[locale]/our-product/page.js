@@ -72,10 +72,7 @@ function Products() {
 
       <section className="w-full   max-w-[1400px]   m-auto mb-10">
       <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute   w-[530px] top-[-60px]    object-contain"
-              />
+          
               <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
              {locale==='kn'?'':'Our Products'}
               </h1>

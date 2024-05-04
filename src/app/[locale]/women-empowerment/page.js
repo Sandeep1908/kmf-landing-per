@@ -81,10 +81,7 @@ function WomenEmpowerment() {
       </div>
       <section className="w-full max-w-7xl m-auto h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
       <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute   w-[530px] top-[-60px]    object-contain"
-              />
+          
               <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
               {locale === 'en' ? 'STEP' : 'ಸ್ಟೆಪ್ ಯೋಜನೆ'}
               </h1>

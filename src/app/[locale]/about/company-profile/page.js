@@ -67,12 +67,9 @@ function CompanyProfile() {
       <section className="w-full h-auto p-20   relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
           <div className="mb-20 w-full relative flex justify-center items-center">
-            <img
-              src="/images/heading/heading-primary.svg"
-              className="absolute z-[1] w-[450px] top-[-56px]   object-contain"
-            />
+        
 
-            <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+            <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-3xl   z-[100] ">
               {locale === 'en' ? 'Company Profile' : 'ಕಹಾಮ ಪರಿಚಯ'}
             </h1>
           </div>

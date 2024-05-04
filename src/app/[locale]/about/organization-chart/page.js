@@ -118,10 +118,7 @@ function OrganizationChart() {
           {locale === 'en' ? (
             <div className="w-full flex flex-col justify-center items-start shadow-md ">
                  <div className="mb-20   relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute   w-[500px] top-[-60px]    object-contain"
-              />
+           
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
               </h1>

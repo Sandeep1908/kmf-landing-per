@@ -11,18 +11,18 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import useLocale from '@/hooks/useLocale';
 
-function MilkUnion() {
-  const [milkUnion, setMilkUnions] = useState([]);
+function KmfUnit() {
+  const [kmfUnits, setKmfUnits] = useState([]);
   const Api = useApi();
   const params=useParams()
   const [loading,setLoading]=useState(true)
 const locale=useLocale().locale
   useEffect(() => {
     (async () => {
-      const { data } = await Api.get('/api/milk-unions?sort[0]=createdAt:asc');
+      const { data } = await Api.get('/api/units-of-kmfs?sort[0]=createdAt:asc');
       
-      setMilkUnions(data.data);
-      setLoading(false)
+      setKmfUnits(data.data);
+   
     })();
   }, []);
   return (
@@ -32,38 +32,33 @@ const locale=useLocale().locale
         <img src={Logo.src} alt="milk-union-logo" className="w-[200px] " />
       </section>
 
-      <section className="w-full p-2  ">
-        <div
-          className="max-w-7xl  m-auto p-3  rounded-tl-3xl  rounded-br-3xl  bg-white md:h-[674px] "
-          style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
-      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=14_yIj9s5_1n5VOPDac5zG7F_0hRgLFo&ehbc=2E312F&noprof=1" width="100%" height="100%"></iframe>
-        </div>
-      </section>
+   
 
       <section className="w-full    pt-10 ">
       <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
           
               <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
-             {locale==='kn'?'':'Milk Unions'}
+             {locale==='kn'?'':'KMF UNITS'}
               </h1>
             </div>
       <div className='flex justify-center space-x-3 items-center mt-10 border-b w-fit m-auto'>
         <Link className='font-bold' href={`${locale==='kn'?'/kn':'/'}`}>Home</Link>
-        <Link className='text-primary-main font-bold' href={`/${locale}/milk-union`}>/ Milk Unions</Link>
+        <Link className='text-primary-main font-bold' href={`/${locale}/milk-union`}>/ KMF UNITS</Link>
       </div>
 
     
         <div className="max-w-7xl m-auto p-2 shadow-lg mt-10    shadow-white bg-white flex flex-col justify-center items-center space-y-5">
-          {milkUnion.map((union, id) => {
+          {kmfUnits.map((unit, id) => {
+            console.log("units",unit)
          
             return (
             
               <UnionCard
-                key={union?.id}
-                name={union?.attributes?.name}
-                image={union?.attributes?.image?.data?.[0]?.attributes?.url}
-                description={union?.attributes?.about}
-                link={`/${params.locale}/milk-union/${union?.id}`}
+                key={unit?.id}
+                name={unit?.attributes?.title}
+                image={unit?.attributes?.image?.data?.[0]?.attributes?.url}
+                description={unit?.attributes?.description}
+                link={`/${params.locale}/kmf-unit/${unit?.id}`}
             
               />
             
@@ -77,4 +72,4 @@ const locale=useLocale().locale
   );
 }
 
-export default MilkUnion;
+export default KmfUnit;

@@ -59,7 +59,7 @@ const locale=useLocale().locale
             
           </div>
 
-      <section className="w-full h-auto pt-10  ">
+      <section className="w-full h-auto pt-10  mb-20 ">
         <div className="w-full p-4 flex  flex-col flex-wrap  justify-center items-center lg:flex-row lg:justify-around lg:items-start">
           <div className="max-w-4xl flex flex-col items-start justify-center space-y-5  ">
             <div className="w-full h-full flex justify-center items-center">

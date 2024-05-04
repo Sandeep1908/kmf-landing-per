@@ -31,7 +31,7 @@ function NandiniHostels() {
           loop
           controls
           playsInline
-          className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+          className={`w-full  h-full    object-cover absolute top-0   ${
             isScroll ? 'h-[400px]' : ''
           } `}
         />
@@ -57,10 +57,7 @@ function NandiniHostels() {
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
 
           <div className="mb-20    relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute   w-[530px] top-[-60px]    object-contain"
-              />
+             
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'':'Nandini Hostels'}
               </h1>

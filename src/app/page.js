@@ -1,30 +1,38 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
- 
+
 import { LinkCard } from './[locale]/Card.js';
 import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
 import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
- 
+
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay,FreeMode } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectCoverflow,
+  Autoplay,
+  FreeMode
+} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './[locale]/Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
 import Rodal from 'rodal';
-import { ParallaxBanner } from "react-scroll-parallax";
+import { ParallaxBanner } from 'react-scroll-parallax';
 import ArrivalCard from '@/components/ArrivalCard.js';
 import { useMyContext } from '@/context/headerContext.js';
-import { FaRegHandPointRight } from "react-icons/fa";
+import { FaRegHandPointRight } from 'react-icons/fa';
 
 import KnmModel from '@/components/KymModel.js';
 import CarouselImage from '@/components/CarouselImage.js';
-    
+
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
@@ -33,40 +41,39 @@ const Home = () => {
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
   const [allTenders, setAllTenders] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
-  const [certificate,setCertificate]=useState([])
-  const [certificateRunning,setCertificateRunning]=useState(false)
-  const [knowMilk,setKnowMilk]=useState([])
- 
-  const {isScroll,setIsScroll}=useMyContext()
+  const [certificate, setCertificate] = useState([]);
+  const [certificateRunning, setCertificateRunning] = useState(false);
+  const [knowMilk, setKnowMilk] = useState([]);
+
+  const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
-  const [knowMilkItem,setKnowMilkItem]=useState([])
- 
+  const [knowMilkItem, setKnowMilkItem] = useState([]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMuted,setIsMuted]=useState(false)
+  const [isMuted, setIsMuted] = useState(false);
 
   // ... (existing code)
 
-   const handleKnowMilk=(item)=>{
-    setKnowMilkItem(item)
+  const handleKnowMilk = (item) => {
+    setKnowMilkItem(item);
     setIsModalOpen(true);
-   }
- 
+  };
+
   useEffect(() => {
- 
     (async () => {
       const { data: banner } = await axios.get('/api/banners');
-      const {data:certificate}= await axios.get('/api/certificates')
+      const { data: certificate } = await axios.get('/api/certificates');
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
       const { data: arrivals } = await axios.get('/api/latestproducts');
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
-      const {data:knm}=await axios.get('/api/knowyourmilks')
-      const {data:allProduct}=await axios.get('/api/product-sub-items')
-      
-      let product=allProduct?.data?.filter(item=>item?.attributes?.isLatest===true)
-      product=[...arrivals?.data,...product]
-       
+      const { data: knm } = await axios.get('/api/knowyourmilks');
+      const { data: allProduct } = await axios.get('/api/product-sub-items');
+
+      let product = allProduct?.data?.filter((item) => item?.attributes?.isLatest === true);
+      product = [...arrivals?.data, ...product];
+
       const homedetials = homeabout?.data?.map((item) => {
         return {
           about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
@@ -76,19 +83,15 @@ const Home = () => {
         };
       });
 
-     
-    
-
       setNewArrivals(product);
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
       setAllBanners(images);
-      setCertificate(certificate.data?.[0]?.attributes?.image?.data)
-      setKnowMilk(knm.data)
+      setCertificate(certificate.data?.[0]?.attributes?.image?.data);
+      setKnowMilk(knm.data);
     })();
   }, []);
- 
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -119,14 +122,21 @@ const Home = () => {
   });
 
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll?'top-48':''}  `}>
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-   
-      <video  src='/video/banner.mp4' controls  muted   autoPlay loop playsInline  className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `}/>
+
+      <video
+        src="/video/banner.mp4"
+        controls
+        muted
+        autoPlay
+        loop
+        playsInline
+        className={`w-full  object-fill ${isScroll ? 'h-[700px]' : 'h-screen'}  `}
+      />
       {/* <CarouselImage images={banners || []}  /> */}
- 
+
       <section className="w-full    pt-20  relative z-[1] bg-primary-subtle ">
-     
         <div className="w-full">
           <div className=" w-full         ">
             <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
@@ -159,7 +169,6 @@ const Home = () => {
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
               slide
-            
               loop={true}
               className={`max-w-7xl  `}>
               {cardDetails?.map((card, id) => {
@@ -180,78 +189,60 @@ const Home = () => {
         {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
       </section>
 
-
-      
-
       <ParallaxBanner
         layers={[
-          { image: "/images/home-about.png", speed: -20 },
+          { image: '/images/home-about.png', speed: -20 },
           {
             speed: -15,
-            children: (
-<h></h>
-            ),
-          },
-           
+            children: <h></h>
+          }
         ]}
-        className="  w-full h-[600px]   object-contain "
-      >
-              <section className="w-full h-auto p-5     pt-12">
+        className="  w-full h-[600px]   object-contain ">
+        <section className="w-full h-auto p-5     pt-12">
+          <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
+            <div className="w-full h-full justify-center items-center flex  ">
+              <div
+                className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
+                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                  About KMF
+                </h1>
 
- 
-  <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
-    <div className='w-full h-full justify-center items-center flex  '>
-    <div
-      className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">About KMF</h1>
+                <div className="space-y-6">
+                  <TypeWriter text={homeAboutDetails?.[0]?.about1 || ''} delay={70} />
+                </div>
+              </div>
 
-      <div className="space-y-6">
-        <TypeWriter text={homeAboutDetails?.[0]?.about1 || ''} delay={70} />
-      </div>
-    </div>
+              <div
+                className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
+                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                  OUR BRAND NANDINI
+                </h1>
 
-    <div
-      className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">OUR BRAND NANDINI</h1>
+                <div className="space-y-6 h-[">
+                  <TypeWriter text={homeAboutDetails?.[0]?.about2 || ''} delay={70} />
+                </div>
+              </div>
+            </div>
 
-      <div className="space-y-6 h-[">
-        <TypeWriter text={homeAboutDetails?.[0]?.about2 || ''} delay={70} />
-      </div>
-
-    
-    </div>
-    </div>
-    
-    
-      <Link
-        href="/en/about/company-profile"
-        className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
-        Read More
-      </Link>
-   
-  
-   
-  </div>
-
- 
- 
- 
-
-</section>
-
-       
+            <Link
+              href="/en/about/company-profile"
+              className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
+              Read More
+            </Link>
+          </div>
+        </section>
       </ParallaxBanner>
-     
-
-     
-
 
       <section className="w-full h-fit  relative       ">
-      <img src='/images/Curve.svg' className='absolute inset-0 w-full  h-full object-contain'/>
+        <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain" />
 
-      <img src='/images/footer-top.png' className='absolute top-[87px] w-full h-full object-cover z-[-1]' style={{ transform: `translateY(${scrollY * 0.2}px)` }} />
+        <img
+          src="/images/footer-top.png"
+          className="absolute top-[87px] w-full h-full object-cover z-[-1]"
+          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+        />
 
-        <div className='   relative '>
+        <div className="   relative ">
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
               <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
@@ -261,7 +252,9 @@ const Home = () => {
             <div className="flex flex-col justify-center space-y-10 items-center">
               <div
                 className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Know Your Milk</h1>
+                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                  Know Your Milk
+                </h1>
 
                 <div className="space-y-6">
                   <p className="text-justify   text-lg  text-white  ">
@@ -277,26 +270,25 @@ const Home = () => {
                 </div>
               </div>
 
-              <KnmModel
-          closeModal={isModalOpen}
-         kymMilk={knowMilkItem}
-          close={setIsModalOpen}
-          
-               />
+              <KnmModel closeModal={isModalOpen} kymMilk={knowMilkItem} close={setIsModalOpen} />
               <div className=" w-full flex flex-wrap  justify-center  p-2 gap-3 items-center md:justify-around">
-
-                {knowMilk?.map((item,idx)=>{
-                   
-                  return(
-                    <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex w-40 flex-col justify-center items-center space-y-4">
-                    <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" className='transition-all duration-200 hover:scale-[1.1]' />
-                    <p className="  text-white  text-center font-heading">
-                      {item?.attributes?.title}
-                    </p>
-                  </div>
-                  )
+                {knowMilk?.map((item, idx) => {
+                  return (
+                    <div
+                      key={idx}
+                      onClick={() => handleKnowMilk(item)}
+                      className="flex w-40 flex-col justify-center items-center space-y-4">
+                      <img
+                        src={item?.attributes?.image?.data[0].attributes?.url}
+                        alt="imp-milk"
+                        className="transition-all duration-200 hover:scale-[1.1]"
+                      />
+                      <p className="  text-white  text-center font-heading">
+                        {item?.attributes?.title}
+                      </p>
+                    </div>
+                  );
                 })}
-                 
               </div>
             </div>
           </div>
@@ -304,53 +296,66 @@ const Home = () => {
       </section>
 
       <section className="w-full h-auto relative">
-      <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-        <div className="flex w-full flex-col justify-center items-center space-y-3">
-          <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">Notification</h1>
-        </div>
-
-        <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start">
-          <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
-            <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
-              <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
-                <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">Tender Notifications</h1>
-              </div>
-              <div className="w-full h-[375px] p-4 marquee flex flex-col" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-                {allTenders?.map((item, id) => {
-                  return (
-                    <div key={id} className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
-                      <FaRegHandPointRight size={20} color='red' /> 
-                      <p className='w-full'> {item?.attributes?.title}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className='w-full flex justify-end mt-3 rounded-md'>
-              <Link href={'/en/blog/notification'} className='p-2 bg-primary-main text-white '>Read more</Link>
-            </div>
+        <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+          <div className="flex w-full flex-col justify-center items-center space-y-3">
+            <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+              Notification
+            </h1>
           </div>
 
-          <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
-            <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px] p-5 rounded-lg">
-              <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">New Arrivals & Best Selling</h1>
-              <div className="marquee-notification h-full flex justify-evenly space-x-3">
-                {newArrivals?.map((item, id) => (
-                  <ArrivalCard
-                    key={id}
-                    title={item?.attributes?.title}
-                    imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
-                  />
-                ))}
+          <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
+            <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
+              <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
+                <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
+                  <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+                    Tender Notifications
+                  </h1>
+                </div>
+                <div
+                  className="w-full h-[375px] p-4 marquee flex flex-col"
+                  style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+                  {allTenders?.map((item, id) => {
+                    return (
+                      <div
+                        key={id}
+                        className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
+                        <FaRegHandPointRight size={20} color="red" />
+                        <p className="w-full"> {item?.attributes?.title}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="w-full flex justify-end mt-3 rounded-md">
+                <Link href={'/en/blog/notification'} className="p-2 bg-primary-main text-white ">
+                  Read more
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
+              <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
+                <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+                  New Arrivals & Best Selling
+                </h1>
+                <div className="marquee-notification h-full flex justify-evenly space-x-3">
+                  {newArrivals?.map((item, id) => {
+                    console.log("new arrival ",item)
+                    return (
+                      <ArrivalCard
+                        key={id}
+                        title={item?.attributes?.name}
+                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                        link={`/en/our-product/${item?.attributes?.subcategory?.data?.id}`}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-    </section>
-
-
+      </section>
 
       {/* QUICK LINK  */}
 
@@ -364,8 +369,9 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <div className="flex flex-col justify-center items-center">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">Quick Links</h1>
-       
+            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+              Quick Links
+            </h1>
           </div>
 
           <div className="  w-full h-auto  relative   ">
@@ -387,66 +393,57 @@ const Home = () => {
         </div>
       </section>
 
-
       <section className="w-full h-fit relative pt-20 pb-20     ">
-     
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <div className="flex justify-center w-full    flex-wrap   items-end  ">
-              <h1 className="text-5xl  text-center text-primary-gradient font-josefin w-full max-w-2xl shadow-md p-3 ">Explore The World Of KMF</h1>
+              <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
+                Explore The World Of KMF
+              </h1>
             </div>
-             
           </div>
 
           <div className=" relative w-full h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
-
-          <Swiper
-            watchSlidesProgress={true} 
-            grabCursor={true}
-            centeredSlides={true}
-            effect={'fade'}
-            
-            
-            slidesPerView={1}
-            modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
-            observeParents={true}
-            observer={true}
-            controller={true}
-            scrollbar={{ draggable: true }}
-            slide
-            
-            loop={true}
+            <Swiper
+              watchSlidesProgress={true}
+              grabCursor={true}
+              centeredSlides={true}
+              effect={'fade'}
+              slidesPerView={1}
+              modules={[Navigation, Pagination, Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+              observeParents={true}
+              observer={true}
+              controller={true}
+              scrollbar={{ draggable: true }}
+              slide
+              loop={true}
               className="w-full h-full">
-           
-                      <SwiperSlide  >
-                      <div className="p-4 w-full h-full  flex justify-center items-center     ">
-            <iframe   src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-            className="w-full h-full "></iframe>
-            </div>
-                        </SwiperSlide>
+              <SwiperSlide>
+                <div className="p-4 w-full h-full  flex justify-center items-center     ">
+                  <iframe
+                    src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    className="w-full h-full "></iframe>
+                </div>
+              </SwiperSlide>
 
-
-                        <SwiperSlide  >
-                        <div className="p-4 w-full h-full  flex justify-center items-center     ">
-            <iframe   src="https://www.youtube.com/embed/gNqoacqCryw?si=Ht2lRLBnb8MoDpyd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen  className="w-full h-full "></iframe>
-            </div>
-                        </SwiperSlide>
-
-
-                 
+              <SwiperSlide>
+                <div className="p-4 w-full h-full  flex justify-center items-center     ">
+                  <iframe
+                    src="https://www.youtube.com/embed/gNqoacqCryw?si=Ht2lRLBnb8MoDpyd"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    className="w-full h-full "></iframe>
+                </div>
+              </SwiperSlide>
             </Swiper>
-
-
-           
-
-
-         
-
-
-           
-           
-
-           
           </div>
 
           <div className="w-full flex justify-center  space-x-5">
@@ -465,56 +462,50 @@ const Home = () => {
         </div>
       </section>
 
-
       <section className="w-full h-fit   mb-20  relative          ">
         <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
           <div className="   h-full    justify-between items-center    ">
             <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
-              
-              <h1 className="text-2xl m-auto font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">Our  Certificates</h1>
+              <h1 className="text-2xl m-auto font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                Our Certificates
+              </h1>
             </div>
-           
 
-            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'marquee-sponser':''}   `}     >
-
-            <Swiper
-            watchSlidesProgress={true} 
-            slidesPerView={3}
-              
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false
-              }}
-              modules={[FreeMode, Autoplay]}
-              className="max-w-7xl m-auto">
-             {certificate?.map((item,idx)=>{
-                    return(
-                      <SwiperSlide key={idx}>
-                        <div   className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
-                        <img  src={item?.attributes?.url} className=' w-full h-full object-contain rounded-md inline-block'/>
-                        </div>
-                        </SwiperSlide>
-                    )
-
-                  })}
-            </Swiper>
-
-                  
+            <div
+              className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${
+                certificateRunning ? 'marquee-sponser' : ''
+              }   `}>
+              <Swiper
+                watchSlidesProgress={true}
+                slidesPerView={3}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false
+                }}
+                modules={[FreeMode, Autoplay]}
+                className="max-w-7xl m-auto">
+                {certificate?.map((item, idx) => {
+                  return (
+                    <SwiperSlide key={idx}>
+                      <div className="w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg ">
+                        <img
+                          src={item?.attributes?.url}
+                          className=" w-full h-full object-contain rounded-md inline-block"
+                        />
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
           </div>
-          </div>
-                
-       
         </div>
       </section>
-
-  
 
       {/* FOOTER SECTION  */}
       <Footer />
     </div>
   );
 };
- 
-
 
 export default Home;

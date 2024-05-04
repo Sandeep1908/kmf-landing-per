@@ -83,7 +83,7 @@ const axios =useApi()
         
             <div className="w-full flex flex-col space-y-2 justify-center items-start shadow-md  p-1   ">
             <div className=' w-full relative flex justify-center items-center'>
-            <img src='/images/heading/heading-primary.svg' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+         
 
 
                         <h1 className="w-full relative   m-auto text-center  text-primary-main text-xl   z-[100] ">

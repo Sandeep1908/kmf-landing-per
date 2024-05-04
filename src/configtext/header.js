@@ -237,7 +237,7 @@ export const mobileHeader = {
           link: '/en/animal-husbandery/scheme'
         },
         {
-          title: "Step",
+          title: "STEP",
           link: '/en/women-empowerment'
         },
 
@@ -274,12 +274,12 @@ export const mobileHeader = {
           link: '/en/portfolio/ksheerabhagaya'
         },
         {
-          title: "Insurance to Farmers",
+          title: "Incentives to Farmers",
           link: '/en/portfolio/ksheeradhare'
         },
         {
           title: "Veterinary Services",
-          link: '/en/animal-husbandery/animal-breeding'
+          link: '/en/animal-husbandery/animal-health'
         },
        
         
@@ -456,7 +456,7 @@ export const mobileHeader = {
           link: ''
         },
         {
-          title: "Insurance to Farmers",
+          title: "Incentives to Farmers",
           link: ''
         },
         {
