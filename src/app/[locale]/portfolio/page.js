@@ -290,7 +290,7 @@ function Portfolio() {
             )}
             <br />
 
-            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}>Read Less</button>}
+            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}> Read Less</button>}
             </p> 
 
             </div>
