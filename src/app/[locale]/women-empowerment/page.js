@@ -79,6 +79,17 @@ function WomenEmpowerment() {
             </Link>
             
       </div>
+      <div className="flex w-full    justify-center pt-10 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                
+
+            <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/portfolio#ACHIEVEMENTS':'/en/portfolio#ACHIEVEMENTS'}`}>
+            {locale==='kn'?'':'Back to portfolio'}
+              
+            </Link>
+
+          
+            
+      </div>
       <section className="w-full max-w-7xl m-auto h-auto p-10  flex justify-center items-center flex-col  space-y-6 bg-[#F6F6F6]">
       <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
           

@@ -64,10 +64,13 @@ const KsheeraDhare = () => {
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl text-center ' > Ksheerdhare Project </h1>
+                       <h1 className='text-primary-main text-2xl md:text-4xl text-center ' >  
+                       {locale === 'en' ? "Ksheerdhare Project" : "ಕ್ಷೀರ ಧಾರೆ,"}
+                       </h1>
                  <div className='mt-6'>
-                  <p className=' text-sm md:text-lg lg:text-sm xl:text-lg '>
-                  An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objectives:
+                  <p className=' text-sm md:text-lg lg:text-sm xl:text-2xl text-center '>
+                  {locale === 'en' ? "An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objectives:" : "ಕರ್ನಾಟಕ ರಾಜ್ಯ ಸರ್ಕಾರದ ದ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯ ಯೋಜನೆ. 'ಕ್ಷೀರಧಾರೆ' ಯೋಜನೆಯನ್ನು ಈ ಕೆಳಗಿನ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಜಾರಿಗೊಳಿಸಲಾಗಿದೆ."}
+                  
                   </p>
                  </div>
                        </div>
@@ -79,34 +82,39 @@ const KsheeraDhare = () => {
                
                  <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  Ksheerdhare Project </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl ' >   {locale === 'en' ? "Ksheerdhare Project" : "ಕ್ಷೀರ ಧಾರೆ,"} </h1>
                  <div className=' mt-10'>
                   <p className=''>
-                  An ambitious scheme of the Karnataka State Government, the Ksheerdhare scheme has been implemented for the following objectives:
-                
+                  {locale === 'en' ? "An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objectives:" : "ಕರ್ನಾಟಕ ರಾಜ್ಯ ಸರ್ಕಾರದ ದ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯ ಯೋಜನೆ. 'ಕ್ಷೀರಧಾರೆ' ಯೋಜನೆಯನ್ನು ಈ ಕೆಳಗಿನ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಜಾರಿಗೊಳಿಸಲಾಗಿದೆ."}                
                   </p>
                  </div>
                        </div>
                  </div>
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > Objectives of the Milk Producer Incentive Scheme:  </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl ' > 
+                       {locale === 'en' ? "Objectives of the Milk Producer Incentive Scheme:" : "1.	ಹಾಲು ಉತ್ಪಾದಕರ ಪ್ರೋತ್ಸಾಹ ಯೋಜನೆಯ ಉದ್ದೇಶಗಳು:"}
+                         </h1>
                  <div className=' mt-10'>
                   <ul className='list-disc text-left'>
                   <li>
-                  To make dairy farming profitable at village level to promote and expand dairy farming.
+                  {locale === 'en' ? "To make dairy farming profitable at village level to promote and expand dairy farming." : "•	ಹೈನುಗಾರಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ಮತ್ತು ವಿಸ್ತರಿಸಲು ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ಹೈನುಗಾರಿಕೆಯನ್ನು ಲಾಭದಾಯಕವಾಗಿಸಲು."}
+                  
 
                   </li>
                   <li>
-                  	To motivate youth / unemployed people to take up dairy farming at village level.
+                  {locale === 'en' ? "To motivate youth / unemployed people to take up dairy farming at village level." : "ಯುವಕರು/ನಿರುದ್ಯೋಗಿಗಳು ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ಹೈನುಗಾರಿಕೆಯನ್ನು ಕೈಗೊಳ್ಳುವಂತೆ ಪ್ರೇರೇಪಿಸುವುದು.,"}
+                  	
 
                   </li>
                   <li>
-                  For economic and social security of milk producers engaged in dairy farming.
+                  {locale === 'en' ? "For economic and social security of milk producers engaged in dairy farming." : "ಹೈನುಗಾರಿಕೆಯಲ್ಲಿ ತೊಡಗಿರುವ ಹಾಲು ಉತ್ಪಾದಕರ ರ‍್ಥಿಕ ಮತ್ತು ಸಾಮಾಜಿಕ ಭದ್ರತೆಗಾಗಿ."}
+                  
 
                   </li>
                   <li>
-                  	For increase in milk production for food security.
+                  {locale === 'en' ? "For increase in milk production for food security" : "ಆಹಾರ ಭದ್ರತೆಗಾಗಿ ಹಾಲಿನ ಉತ್ಪಾದನೆ ಹೆಚ್ಚಳಕ್ಕಾಗಿ."}
+                  	
 
                   </li>
                  
@@ -118,23 +126,29 @@ const KsheeraDhare = () => {
 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > Scheme implementation details </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl ' > 
+                       {locale === 'en' ? "Scheme implementation details" : "ಯೋಜನೆಯ ಅನುಷ್ಠಾನದ ವಿವರಗಳು"}
+                        </h1>
                  <div className='mt-10'>
                   <ul className='list-disc text-left'>
                   <li>
-                    The scheme was implemented on 08.09.2008.
+                  {locale === 'en' ? "The scheme was implemented on 08.09.2008." : "ಯೋಜನೆಯನ್ನು 08.09.2008 ರಂದು ಜಾರಿಗೊಳಿಸಲಾಯಿತು."}
+                    
 
                   </li>
                   <li>
-                	Incentive came into effect on 09.09.2008 (Rs.2/- per litre)
+                  {locale === 'en' ? "Incentive came into effect on 09.09.2008 (Rs.2/- per litre)" : "ಪ್ರೋತ್ಸಾಹಧನವು 09.09.2008 ರಂದು ಜಾರಿಗೆ ಬಂದಿತು (ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ರೂ.೨/-)"}
+                	
 
                   </li>
                   <li>
-                  Incentive per litre increased from Rs.2/- to Rs.4/- for milk on 14.05.2013.
+                  {locale === 'en' ? "Incentive per litre increased from Rs.2/- to Rs.4/- for milk on 14.05.2013." : "•	14.05.2013 ರಂದು ಹಾಲಿಗೆ ರೂ. 2/- ರಿಂದ ರೂ.4/- ಕ್ಕೆ ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ಪ್ರೋತ್ಸಾಹಧನವನ್ನು ಹೆಚ್ಚಿಸಲಾಗಿದೆ."}
+                  
 
                   </li>
                   <li>
-                  Incentive per litre increased from Rs.4/- to Rs.5/- per litre of milk and continued from 19.11.2016.
+                  {locale === 'en' ? "Incentive per litre increased from Rs.4/- to Rs.5/- per litre of milk and continued from 19.11.2016." : "•	ಪ್ರತಿ ಲೀಟರ್ ಹಾಲಿಗೆ ರೂ.4/- ರಿಂದ ರೂ.5/- ಕ್ಕೆ ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ಪ್ರೋತ್ಸಾಹಧನವನ್ನು ಹೆಚ್ಚಿಸಲಾಗಿದೆ ಮತ್ತು 19.11.2016 ರಿಂದ ಮುಂದುವರೆಯಿತು."}
+                  
 
                   </li>
                   </ul>
