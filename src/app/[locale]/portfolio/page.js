@@ -54,6 +54,7 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useMyContext } from '@/context/headerContext';
+import { useParams } from 'next/navigation';
 
 function Portfolio() {
   const [achievments, setAchievments] = useState([]);
@@ -73,7 +74,7 @@ function Portfolio() {
   const tabs = [
     {
       tabName: 'KMF Sanjeevini',
-      link: `/${locale}/women-empowerment`
+      link: `/${locale}/women-empowerment?id=9`
     },
     {
       tabName: 'KsheeraBhagya',
@@ -96,17 +97,17 @@ function Portfolio() {
       tabName: 'Sex Sorted Semen',
       link: `/${locale}/animal-husbandery/animal-breeding`
     },
+    // {
+    //   tabName: 'Cattle Feed To Farmers ',
+    //   link: `/${locale}/animal-husbandery/cattle-insurance`
+    // },
+    // {
+    //   tabName: 'Defence',
+    //   link: `/${locale}/portfolio/defence`
+    // },
     {
-      tabName: 'Cattle Feed To Farmers ',
-      link: `/${locale}/animal-husbandery/cattle-insurance`
-    },
-    {
-      tabName: 'Defence',
-      link: `/${locale}/portfolio/defence`
-    },
-    {
-      tabName: 'Ghee Supply',
-      link: `/${locale}/portfolio/gheesupply`
+      tabName: 'Marketing',
+      link: `/${locale}/portfolio/marketing`
     }
   ];
   useEffect(() => {
@@ -203,7 +204,11 @@ function Portfolio() {
               a nomadic lifestyle to settled agricultural communities, the realization that certain
               animals could provide a steady supply of milk marked a pivotal moment.
             </p>
+            
+            <a href="#history"> <button  className='mt-5 w-full flex justify-center text-primary-main'>
+                Read more                </button></a>
           </div>
+
         </div>
       </section>
       <section id="krisna" className="w-full h-[100vh] lg:h-[80vh] mt-10 md:mt-20">
@@ -215,12 +220,12 @@ function Portfolio() {
 
             <div className="w-full lg:w-[50%] h-full flex flex-col justify-center text-justify items-center p-3 lg:p-10">
               <h1 className="text-white text-lg md:text-4xl font-bold text-center ">
-              KSHEERA PITHAMHA - DR. VERGHESE KURIEN
+              KSHEERA PITHAMAHA - DR. VERGHESE KURIEN
 
               </h1>
               <p className="text-sm md:text-lg  lg:mt-10 text-white text-justify">
-              Dr. Verghese Kurien(26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution.
-Kurien graduated in physics from University of Madras in 1940 and received his masters in mechanical engineering from University of Michigan in 1947. In 1949, Kurien was sent by the Government of India to run its experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.
+              {locale === 'en' ? "Dr. Verghese Kurien(26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution. Kurien graduated in physics from University of Madras in 1940 and received his masters in mechanical engineering from University of Michigan in 1947. In 1949, Kurien was sent by the Government of India to run its experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative" : "ವರ್ಗೀಸ್ ಕುರಿಯನ್ (26 ನವೆಂಬರ್ 1921 - 9 ಸೆಪ್ಟೆಂಬರ್ 2012) ಒಬ್ಬ ಭಾರತೀಯ ಡೈರಿ ಇಂಜಿನಿಯರ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಉದ್ಯಮಿಯಾಗಿದ್ದು , ಅವರು ಶ್ವೇತ ಕ್ರಾಂತಿ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಹಾಲಿನ ಉತ್ಪಾದನೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾದ ಹೆಚ್ಚಳಕ್ಕೆ ಕಾರಣವಾದ ಉಪಕ್ರಮಗಳನ್ನು ಮುನ್ನಡೆಸಿದರು . ಕುರಿಯನ್ 1940 ರಲ್ಲಿ ಮದ್ರಾಸ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಭೌತಶಾಸ್ತ್ರದಲ್ಲಿ ಪದವಿ ಪಡೆದರು ಮತ್ತು 1947 ರಲ್ಲಿ ಮಿಚಿಗನ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಮೆಕ್ಯಾನಿಕಲ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ಪಡೆದರು. 1949 ರಲ್ಲಿ, ಕುರಿಯನ್ ಅವರನ್ನು ಆನಂದ್‌ನಲ್ಲಿ ಅದರ ಪ್ರಾಯೋಗಿಕ ಕ್ರೀಮರಿ ನಡೆಸಲು ಭಾರತ ಸರ್ಕಾರ ಕಳುಹಿಸಿತು, ಅಲ್ಲಿ ಅವರು ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಸಂಘವನ್ನು ಸ್ಥಾಪಿಸಿದರು. 1950 ರಲ್ಲಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟ ಲಿಮಿಟೆಡ್ ನಂತರ ಅಮುಲ್ ಆಯಿತು. ಅಮುಲ್ ಸಹಕಾರಿಯ ಅಂಗವಾಗಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರನ್ನು ಸಂಘಟಿಸಿ ನೇರವಾಗಿ ಗ್ರಾಹಕರಿಗೆ ಲಿಂಕ್ ಮಾಡಿತು. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಡೇರಿ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸುವುದರಿಂದ ಹಾಲು ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಡೇರಿ ಸಹಕಾರಿ ಯಶಸ್ವಿಯಾಗಿದೆ."}
+              
 
                 {/* Not only that, he had imported HF breed heifers from Holland and distributed them to the farmers here. With the aim of developing the countrys native breed heifers through artificial insemination, he got help from the central government and succeeded in importing 8 to 10 foreign breed bulls to Karnataka. He worked hard to increase milk production through breeding activities in Mysore, Bangalore, Mangalore and some areas of the hill country. Perhaps about dairy farming Mr. M.V.K. It is a fact that due to the influence of the foresight of Mr. R., the situation is now created that wherever you go in the entire state, you are driven by crossbred horses. */}
               </p>
@@ -237,17 +242,10 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
 
               </h1>
               <p className="text-sm md:text-lg  lg:mt-10 text-white text-justify">
+              {locale === 'en' ? "He was originally from Kolar district who was very concerned about the farmers. He was born in a village called Motakapalli in Mulbagilu taluk. Date 01.06.1918 is his birthday. He entered politics at one stage and was elected to the Lok Sabha for the first time in 1952. Central government led by Jawaharlal Nehru M.V.K. He was given the opportunity to serve as Agriculture and Food Minister. It was a time when the dairy farmers of the state relied on indigenous breeds of cattle for dairying. Mr.M.V.K said that if dairy farming continues like this, it will be difficult to meet the demand for milk from cities/towns. He had thought in those days. When he was a minister in the Union Cabinet, he had visited many foreign countries and was amazed to see the milk production capacity of the breeds there." : "ರೈತರ ಬಗ್ಗೆ ಅಪಾರ ಕಾಳಜಿ ಹೊಂದಿದ್ದ ಇವರು ಮೂಲತಃ ಕೋಲಾರ ಜಿಲ್ಲೆಯವರು. ಇವರು ಜನಿಸಿದ್ದು ಮುಳಬಾಗಿಲು ತಾಲ್ಲೂಕಿನ ಮೋತಕಪಲ್ಲಿ ಎಂಬ ಕುಗ್ರಾಮದಲ್ಲಿ. ದಿನಾಂಕ 01.06.1918 ಇವರ ಜನ್ಮದಿನ. ಒಂದು ಘಟ್ಟದಲ್ಲಿ ರಾಜಕೀಯ ಪ್ರವೇಶ ಮಾಡಿದ ಇವರು 1952 ರಲ್ಲಿ ಮೊದಲ ಬಾರಿ ಲೋಕಸಭೆಗೆ ಆಯ್ಕೆಯಾಗಿದ್ದರು. ಜವಹರಲಾಲ್ ನೆಹರು ನೇತೃತ್ವದ ಕೇಂದ್ರ ಸರ್ಕಾರ ಎಂ.ವಿ.ಕೆ. ರವರಿಗೆ “ಕೃಷಿ ಹಾಗು ಆಹಾರ ಸಚಿವ”ರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುವ ಅವಕಾಶವನ್ನು ಕಲ್ಪಿಸಿ ಕೊಟ್ಟಿತ್ತು. ರಾಜ್ಯದ ಹೈನುಗಾರರು ಹೈನುಗಾರಿಕೆಗಾಗಿ ನಾಡ ತಳಿ ಪಶುಗಳನ್ನು ನೆಚ್ಚಿಕೊಂಡಿದ್ದ ಕಾಲ ಅದಾಗಿತ್ತು. ಇಲ್ಲಿನ ಹೈನುಗಾರಿಕೆ ಹೀಗೆಯೇ ಮುಂದುವರೆದರೆ ನಗರ/ಪಟ್ಟಣಗಳಿಂದ ಹಾಲಿಗೆಂದು ಸೃಷ್ಟಿಯಾಗುವ ಬೇಡಿಕೆಯನ್ನು ನೀಗಿಸುವುದು ಕಷ್ಟ ಎಂಬುದನ್ನು ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೆ. ರವರು ಆ ದಿನಗಳಲ್ಲೇ ಯೋಚಿಸಿದ್ದರು. ಕೇಂದ್ರ ಮಂತ್ರಿ ಮಂಡಲದಲ್ಲಿ ಸಚಿವರಾಗಿದ್ದಾಗ ಸಾಕಷ್ಟು ವಿದೇಶಗಳನ್ನು ಸುತ್ತಿ ಬಂದಿದ್ದ ಅವರು ಅಲ್ಲಿನ ತಳಿಗಳ ಹಾಲುತ್ಪಾದನಾ ಸಾಮರ್ಥ್ಯವನ್ನು ಕಂಡು ಬೆರಗಾಗಿದ್ದರು."}
+              
                
-                He was originally from Kolar district who was very concerned about the farmers. He
-                was born in a village called Motakapalli in Mulbagilu taluk. Date 01.06.1918 is his
-                birthday. He entered politics at one stage and was elected to the Lok Sabha for the
-                first time in 1952. Central government led by Jawaharlal Nehru M.V.K. He was given
-                the opportunity to serve as Agriculture and Food Minister. It was a time when the
-                dairy farmers of the state relied on indigenous breeds of cattle for dairying. Mr.
-                M.V.K said that if dairy farming continues like this, it will be difficult to meet
-                the demand for milk from cities/towns. He had thought in those days. When he was a
-                minister in the Union Cabinet, he had visited many foreign countries and was amazed
-                to see the milk production capacity of the breeds there.
+                
                 {/* He believed that by placing technology and professional management in the hands of the farmers, the standard of living of millions of our poor people can be improved.
              The cooperative movement, he helped to create became a model not only for India, but for developing countries throughout the world. The Operation Flood Programme, of which Milk Producers; Cooperatives were the central plank, emerged as Indias largest rural employment programme and unleashed the larger dimension of dairy development. Dr. Kurien was the undisputed Milkman of India. Born on November 26, 1921 at Kozhikode, Kerala, he graduated in Science from the Loyola College in 1940 and obtained hisdegree in Engineering from the Guindy College of Engineering in Chennai. After a stint at TISCO, Jamshedpur, he obtained the Govt. of Indias scholarship to study Dairy Engineering. After some specialized training at the Imperial Institute of Animal Husbandry & Dairying, Bangalore, he left for the United States where he completed his Masters degree in Mechanical Engineering with Dairy Engineering as a minor subject from the Michigan State University in 1948. */}
               </p>
@@ -259,7 +257,7 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
         </div>
       </section>
 
-      <section className="w-full h-auto">
+      <section id='history' className="w-full h-auto">
         <div className=" h-[480px] flex flex-col lg:flex-row items-center mt-10 md:mt-20">
           <Swiper
             slidesPerView={slideView}
@@ -285,22 +283,20 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center">
                       {' '}
-                     HISTORY OF MILK
+                     HISTORY OF <br />  MILK
                     </h1>
-                    <p className="mt-6 md:mt-12 md:text-lg text-xl text-white">
-                    The history of milk is a fascinating journey that intertwines with the evolution of
-              human civilization and the domestication of animals. As early humans transitioned from
-              a nomadic lifestyle to settled agricultural communities,
+                    <p className="mt-6 md:mt-12 md:text-2xl text-2xl text-white">
+                    The history of milk is a fascinating journey that intertwines with the evolution of..
                     </p>
                   </div>
 
                   <div className="w-40 h-14 border-[1px] border-white z-50 ">
-                    <a href="#history-milk">
+                    <Link href={`/${locale}/portfolio/historyofmilk`}>
                       {' '}
                       <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
                         <p className="text-lg text-white">Know More</p>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 </div>
     </div>
@@ -333,13 +329,7 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
                         alt=""
                       />
                     </SwiperSlide>
-                    <SwiperSlide>
-                      <img
-                        className="w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
-                        src={band3.src}
-                        alt=""
-                      />
-                    </SwiperSlide>
+                  
                     <SwiperSlide>
                       <img
                         className="w-full h-full object-fill opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
@@ -355,9 +345,8 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
                       {' '}
                       BRAND AMBASSADOR
                     </h1>
-                    <p className="mt-6 md:mt-12 text-lg md:text-xl text-white">
-                    Karnataka Milk Federation appoints ambassadors from renowned Kannada artistes from time to time to increase the market reach of its products.
-
+                    <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
+                    Karnataka Milk Federation appoints ambassadors from renowned Kannada..
                     </p>
                   </div>
 
@@ -387,8 +376,8 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
                       {' '}
                       KMF ACHIEVEMENTS
                     </h1>
-                    <p className="mt-6 md:mt-12 text-lg md:text-xl text-white">
-                    KMF- Nandini Brand, a proud household name of Karnataka with its slogan of Quality Excellence from Cow to Consumer, has evolved into the most profitable dairy farmers organization in the state and a leading organization in South India.
+                    <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
+                    KMF- Nandini Brand, a proud household name of Karnataka with its slogan of..
                     </p>
                   </div>
 
@@ -435,7 +424,7 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
                 <div className="w-full h-full flex flex-col justify-center md:justify-between p-6 md:p-16 ">
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center "> SPONSORED</h1>
-                    <p className="mt-6 md:mt-12 text-2xl text-white">
+                    <p className="mt-6 md:mt-24 text-2xl text-white">
                       He was originally from Kolar district who was very concerned about the
                       farmers...
                     </p>
@@ -462,12 +451,9 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
 
          
         <div className="mt-1 w-full relative flex justify-center items-center">
-            <img
-              src="/images/heading/heading-primary.svg"
-              className="absolute z-[1] w-[450px] md:w-[550px] top-[-56px]   object-contain"
-            />
 
-            <h1 className="w-full relative max-w-[300px]  md:max-w-[350px] m-auto text-center  text-primary-main text-xl md:text-4xl  z-[100] ">
+
+            <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl ">
             KMF ACHIEVEMENTS
             </h1>
           </div>
@@ -614,13 +600,10 @@ Kurien graduated in physics from University of Madras in 1940 and received his m
         <div className='w-full pt-20 pb-20'>
 
          
-<div className="mt-1 w-full relative flex justify-center items-center">
-    <img
-      src="/images/heading/heading-primary.svg"
-      className="absolute z-[1] w-[450px] md:w-[550px] top-[-56px]   object-contain"
-    />
+<div className="mt-1 w-full  flex justify-center items-center">
+    
 
-    <h1 className="w-full relative max-w-[300px]  md:max-w-[350px] m-auto text-center  text-primary-main text-xl md:text-4xl  z-[100] ">
+    <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl   ">
     SPONSORED
     </h1>
   </div>

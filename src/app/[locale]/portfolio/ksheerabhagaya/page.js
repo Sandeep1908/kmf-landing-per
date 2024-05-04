@@ -229,83 +229,7 @@ const axios = useApi();
 
 
 
-      {/* <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
-        <thead className=" text-left ">
-          <tr className="text-md">
-          <th className="p-2">#</th>
-            <th className="p-2">GIST</th>
-            <th className="p-2 ">Schools	</th>
-
-              <th className='' >Anganwadi
-            </th>
-          </tr>
-        </thead>
-
-        <tbody className="text-left  text-md">
-
-              <tr className='border-t-2 border-black  '>
-                 <td className='p-2 text-md uppercase text-start font-content'>1</td>
-                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>Schools / Anganwadi covered</td>
-                <td className='p-2 text-md font-content border-r border-black'>55,683 nos</td>
-
-
-                  
-                 <td className='p-2 text-md' >64,000 nos</td>
-
-              </tr>
-              <tr className='border-t-2 border-black  '>
-                 <td className='p-2 text-md uppercase text-start font-content'>2</td>
-                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>No. of School / Anganwadi Children</td>
-                <td className='p-2 text-md font-content border-r border-black'>64 lakhs</td>
-
-
-                  
-                 <td className='p-2 text-md' >40 lakhs</td>
-
-              </tr>
-              <tr className='border-t-2 border-black  '>
-                 <td className='p-2 text-md uppercase text-start font-content'>3</td>
-                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>Beneficiaries</td>
-                <td className='p-2 text-md font-content border-r border-black'>1st to 10th standard in government and government aided schools in all over Karnataka</td>
-
-
-                  
-                 <td className='p-2 text-md' >	Children from 6 months to 6 years</td>
-
-              </tr>
-              <tr className='border-t-2 border-black  '>
-                 <td className='p-2 text-md uppercase text-start font-content'>4</td>
-                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>Milk Powder required</td>
-                <td className='p-2 text-md font-content border-r border-black'>WMP required per child is 18gms, ie., equivalent to serving 150ml of Milk. (given five times a week)	</td>
-
-
-                  
-                 <td className='p-2 text-md' >	SMP required per child is 18gms, ie., equivalent to serving 150ml of Milk. (given five times a week)</td>
-
-              </tr>
-              <tr className='border-t-2 border-black  '>
-                 <td className='p-2 text-md uppercase text-start font-content'>5</td>
-                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>Milk required per day</td>
-                <td className='p-2 text-md font-content border-r border-black'>5 LLPD</td>
-
-
-                  
-                 <td className='p-2 text-md' >		3 LLPD</td>
-
-              </tr>
-              <tr className='border-t-2 border-black  '>
-                 <td className='p-2 text-md uppercase text-start font-content'>6</td>
-                <td className='p-2 text-md uppercase text-start border border-r border-black font-content'>Cost/Child/one serve</td>
-                <td className='p-2 text-md font-content border-r border-black'>Rs.5.25 Approx.</td>
-
-
-                  
-                 <td className='p-2 text-md' >	Rs.5.25 Approx.</td>
-
-              </tr>
-          
-        </tbody>
-      </table> */}
+      
 
 
 
@@ -327,21 +251,26 @@ const axios = useApi();
                 
                 
                  </div>
-          <div className='max-w-6xl  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
+          <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
          
-            <div className='max-w-96 w-full h-96 pt-2 pb-2 '>
+            <div className='max-w-[50%] w-full h-96 '>
               
-                <div className='w-full h-full bg-[#3b75d8] shadow-xl flex justify-center items-center'>
-
-
+                <div className='relative w-full h-full  shadow-xl flex justify-center items-center'>
+                   <div className='absolute w-full h-full'>
+                       <div className='w-full h-full flex items-center justify-between'>
+                            <div className='w-16 h-8 bg-red-600' ></div>
+                            <div className='w-16 h-8 bg-red-600' ></div>
+                       </div>
+                   </div>
+{/* 
                 <VideoComponent onClick={openLightbox} />
-             {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />}
+             {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />} */}
 
 
-              {/* <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video> */}
+              <video autoPlay loop muted controls className='w-full h-full' src="/video/ksheerabhagaya.mov"></video>
                 </div>
             </div>
-            <div className='max-w-4xl w-full h-96 '>
+            <div className='max-w-[50%] w-full h-96 pr-5'>
             <Swiper
              slidesPerView={slideView}
               freeMode={true}
@@ -357,38 +286,23 @@ const axios = useApi();
                  
                       <SwiperSlide className='' >
                       <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={bhagaya1.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya1.src} alt="" />
-                          </PhotoView>
-                      
                     
-                    </PhotoProvider>
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya1.src} alt="" />
+                         
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={bhagaya2.src} height="400px"  >
+                     
                           <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={bhagaya2.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>
+                          
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center  w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={bhagaya3.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya3.src} alt="" />
-                          </PhotoView>
-                      
                     
-                    </PhotoProvider>                </div>
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya3.src} alt="" />
+                          </div>
                         </SwiperSlide>
                 
             </Swiper>

@@ -33,8 +33,8 @@ function OngoingAndFuture({ setLoading}) {
           {ongoingProjects?.map((item, idx) => {
          return (
           <tr key={idx}>
-            <td className="p-2 text-center ">{idx+1}</td>
-            <td className="p-2">{item?.attributes?.project_name}</td>
+            <td className="p-2 text-center text-lg ">{idx+1}</td>
+            <td className="p-2 text-lg">{item?.attributes?.project_name}</td>
           </tr>
         );
          
@@ -58,8 +58,8 @@ function OngoingAndFuture({ setLoading}) {
          
             return (
               <tr key={idx}>
-                <td className="p-2 text-center ">{idx+1}</td>
-                <td className="p-2">{item?.attributes?.project_name}</td>
+                <td className="p-2 text-center text-lg ">{idx+1}</td>
+                <td className="p-2 text-lg">{item?.attributes?.project_name}</td>
               </tr>
             );
           })}
