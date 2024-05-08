@@ -6,6 +6,7 @@ import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import Footer from '@/components/Footer';
 import home from '@/images/portfolio/hom.jpg';
+import home2 from '@/images/portfolio/history-of-milk2.png';
 
 
 
@@ -38,7 +39,7 @@ const HistoryOfMilk = () => {
          <section className={`w-full h-auto md:h-[90vh]    mt-10`}>
 
               
-           <img src={home.src} alt="" />
+           <img src={home2.src} alt="" />
 
         </section>
 
