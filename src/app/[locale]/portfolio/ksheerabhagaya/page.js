@@ -111,10 +111,10 @@ const axios = useApi();
                 <img className='w-full h-full' src={flag.src} alt="" />
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
-                    <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl text-center ' > KSHEERABHAGAYA </h1>
+                    <div className='max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto'>
+                       <h1 className='text-primary-main text-2xl md:text-4xl text-center ' > KSHEERABHAGAYA </h1>
                  <div className='mt-6'>
-                  <ul className=' text-sm md:text-lg lg:text-sm xl:text-lg list-disc text-left'>
+                  <ul className=' text-sm md:text-lg lg:text-sm xl:text-xl list-disc text-left'>
                   <li>
                   The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.
                   </li>

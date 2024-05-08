@@ -238,8 +238,8 @@ function Portfolio() {
               animals could provide a steady supply of milk marked a pivotal moment.
             </p>
             
-            <a href="#history"> <button  className='mt-5 w-full flex justify-center text-primary-main'>
-                Read more                </button></a>
+            <Link href={`/${locale}/portfolio/historyofmilk`}> <button  className='mt-5 w-full flex justify-center text-primary-main'>
+                Read more </button></Link>
           </div>
 
         </div>
@@ -511,7 +511,7 @@ function Portfolio() {
                     {' '}
                     <p
                       className={`${
-                        currentIndex === idx ? 'hover:text-orange-300' : 'text-black hover:text-orange-300'
+                        currentIndex === idx ? 'hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]' : 'text-black hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]'
                       } text-lg`}>
                       {' '}
                       {tab.tabName}
@@ -546,8 +546,8 @@ function Portfolio() {
               <img className="w-full h-full hidden  lg:block " src={flag.src} alt="" />
               <div className=" lg:absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full">
                 <div className="w-full h-full flex justify-center items-center">
-                  <div className="max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto">
-                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-3xl ">
+                  <div className="max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto">
+                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-4xl ">
                       {' '}
                       KMF Achievement{' '}
                     </h1>
@@ -565,7 +565,7 @@ function Portfolio() {
                             paragraph: ({children}) => {
                                      
                               return (
-                              <p>{children}</p>
+                              <p className='text-xl'>{children}</p>
                               )
                             },
                             list:({children}) =>{
@@ -584,7 +584,8 @@ function Portfolio() {
 
             <div className="w-full h-auto flex flex-wrap justify-center">
               {achievments?.map((item, id) => {
-                console.log("content",item?.attributes?.content)
+                console.log("achievments",item)
+                if(item?.attributes?.title !=='KMF Achievements' && item?.attributes?.title !=='ಕಹಾಮ ಸಾಧನೆಗಳು'){
                   return (
                     <div
                       key={id}
@@ -602,6 +603,7 @@ function Portfolio() {
                         <div className=" mt-20">
                           <ul className="list-disc text-left">
                             {item?.attributes?.content && (
+
                               <BlocksRenderer
                                 content={readMore ? item?.attributes?.content: item?.attributes?.content.slice(0,1)}
                                 blocks={{
@@ -628,6 +630,10 @@ function Portfolio() {
                       </div>
                     </div>
                   );
+                }
+                 
+                
+                
                 
               })}
             </div>
