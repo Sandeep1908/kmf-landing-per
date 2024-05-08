@@ -19,6 +19,7 @@ import rajkumar3 from '@/images/portfolio/rajkumar-3.jpg'
 import rajkumar4 from '@/images/portfolio/rajkumar-4.jpg'
 import rajkumar5 from '@/images/portfolio/rajkumar-5.jpg'
 import rajkumar6 from '@/images/portfolio/rajkumar-6.jpg'
+import brand from '@/images/portfolio/BrandAmbassador.png'
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -83,7 +84,10 @@ const BrandAmbassador = () => {
   return (<>
       <div className='w-full h-full'>
        
-      <section id='AMBASSADOR' className=' w-full h-auto '>
+      <section id='AMBASSADOR' className='relative w-full h-auto '>
+        <div className='absolute w-full h-full'>
+         <img className='w-full h-full'  src={brand.src} alt="" />
+        </div>
       <Carousels
        className='w-full '
         autoPlay={true}
@@ -98,7 +102,7 @@ const BrandAmbassador = () => {
             return(
               <div key={id} className='relative w-full h-[500px] md:h-[750px] '>
 
-              <div className='absolute w-full h-full top-0 left-0 bg-[#4f7ffc] opacity-80 z-[-10]'></div>
+              <div className='absolute w-full h-full top-0 left-0  opacity-50 z-[-10]'></div>
               {/* <div className='absolute w-full h-full top-0 left-0  opacity-80 z-[-1]'> <img className='' src={KRISHNAPPA.src} alt="" /></div> */}
     
               <div className='w-full h-full flex flex-col justify-center items-center  '>
@@ -107,7 +111,7 @@ const BrandAmbassador = () => {
                   <div className='max-w-[700px] m-auto'>
     
                  
-                     <h1 className='text-white text-xl md:text-5xl font-bold text-center'>{item?.attributes?.name}</h1>
+                     <h1 className='text-white text-xl md:text-5xl font-bold text-center uppercase'>{item?.attributes?.name}</h1>
                      {item?.attributes?.description?.map((des,id)=>{
 
               
@@ -133,7 +137,7 @@ const BrandAmbassador = () => {
         
       </section>
 
-      <section className='relative w-full h-auto bg-[#2858ac]'>
+      {/* <section className='relative w-full h-auto bg-[#2858ac]'>
           <div className='max-w-6xl  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
          
             <div className='max-w-96 w-full h-96 pt-2 pb-2 '>
@@ -144,7 +148,6 @@ const BrandAmbassador = () => {
              {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />}
 
 
-              {/* <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video> */}
                 </div>
             </div>
             <div className='max-w-4xl w-full h-96 '>
@@ -239,6 +242,124 @@ const BrandAmbassador = () => {
                         </SwiperSlide>
 
                   
+                
+            </Swiper>
+            </div>
+
+          </div>
+      </section> */}
+
+      <section className='relative w-full h-auto bg-[#2858ac] pt-10 pb-10'>
+    
+          <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
+         
+            <div className='max-w-[50%] w-full h-96 '>
+              
+                <div className='relative w-full h-full  shadow-xl flex justify-center items-center'>
+                   <div className='absolute w-full h-full'>
+                       <div className='w-full h-full flex items-center justify-between'>
+                            <div className='w-16 h-8 bg-red-600' ></div>
+                            <div className='w-16 h-8 bg-red-600' ></div>
+                       </div>
+                   </div>
+{/* 
+                <VideoComponent onClick={openLightbox} />
+             {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />} */}
+
+
+              <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
+                </div>
+            </div>
+            <div className='max-w-[50%] w-full h-96 pr-5'>
+            <Swiper
+             slidesPerView={slideView}
+              freeMode={true}
+           
+              
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              modules={[FreeMode, Autoplay]}
+              className="max-w-7xl m-auto">
+
+                 
+                       <SwiperSlide className='' >
+                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar1.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar1.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>
+                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar2.src} height="400px"  >
+                          <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={rajkumar2.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>
+                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center  w-full h-96 p-2 '>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar3.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar3.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
+                        </SwiperSlide> 
+                        <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2'>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar4.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar4.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2'>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar5.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar5.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                      <div className='flex justify-center items-center   w-full h-96 p-2'>
+                      <PhotoProvider >
+                          
+                          <PhotoView src={rajkumar6.src} height="400px"  >
+                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar6.src} alt="" />
+                          </PhotoView>
+                      
+                    
+                    </PhotoProvider>                </div>
+                        </SwiperSlide>
+                      <SwiperSlide>
+                     <Link href={`/${locale}/blog/gallery`}><div className='flex justify-center items-center   w-full h-96 p-2 '>
+                        <div className='w-full h-full flex justify-center items-center bg-slate-200'>
+
+                        <h1 className='text-3xl text-primary-main'>See More..</h1>
+                        </div>
+                </div></Link> 
+                        </SwiperSlide>
                 
             </Swiper>
             </div>

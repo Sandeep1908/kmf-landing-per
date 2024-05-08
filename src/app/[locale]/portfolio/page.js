@@ -71,6 +71,39 @@ function Portfolio() {
     setReadMore(!readMore);
   };
 
+
+  const [showFullText, setShowFullText] = useState(false);
+
+  const toggleTextVisibility = () => {
+    setShowFullText(!showFullText);
+  };
+
+
+  const kurienEnglishText = (
+       
+      "He was originally from Kolar district who was very concerned about the farmers. He was born in a village called Motakapalli in Mulbagilu taluk. Date 01.06.1918 is his birthday. He entered politics at one stage and was elected to the Lok Sabha for the first time in 1952. Central government led by Jawaharlal Nehru M.V.K. He was given the opportunity to serve as 'Agriculture and Food Minister'. t was a time when the dairy farmers of the state relied on indigenous breeds of cattle for dairying. Mr. M.V.K said that if dairy farming continues like this, it will be difficult to meet the demand for milk from cities/towns. He had thought in those days. He had visited many foreign countries when he was a minister in the Central Mantri Mandal and was amazed to see the milk production capacity of the breeds there. Not only that, he had imported HF breed heifers from Holland and distributed them to the farmers here. With the aim of developing the country's native breed heifers through artificial insemination, he had succeeded in importing 8 to 10 foreign breed heifers to Karnataka with the help of the central government. He worked hard to increase milk production through breeding activities in Mysore, Bangalore, Mangalore and some parts of the hill country. Perhaps about dairy farming Mr. M.V.K. It is a fact that due to the influence of the foresight of Mr. R., the situation is now created that wherever you go in the entire state, you are driven by crossbred horses.Overall, because of Mr. MV Krishnappa's concern for the state's dairy farming, BAMUL has grown to be the number one milk union in the state as far as milk storage is concerned. Hassan Milk Union, which is running at a gallop in terms of milk production, has the honour of being the second milk union at the state level today. The people of Karnataka involved in dairy farming are describing him as 'Father of Dairy Revolution', 'Dairy Brahma of Karnataka', 'Pioneer of Dairy Farming in Karnataka'. There is no doubt that all these are meaningful titles for Mr Honourable M.V.K., who had contributed significantly to the development of dairy farming in the state, passed away on 01.08.1980."
+  
+  );
+
+  const kurienKannadaText = (
+
+      "ರೈತರ ಬಗ್ಗೆ ಅಪಾರ ಕಾಳಜಿ ಹೊಂದಿದ್ದ ಇವರು ಮೂಲತಃ ಕೋಲಾರ ಜಿಲ್ಲೆಯವರು. ಇವರು ಜನಿಸಿದ್ದು ಮುಳಬಾಗಿಲು ತಾಲ್ಲೂಕಿನ ಮೋತಕಪಲ್ಲಿ ಎಂಬ ಕುಗ್ರಾಮದಲ್ಲಿ. ದಿನಾಂಕ 01.06.1918 ಇವರ ಜನ್ಮದಿನ. ಒಂದು ಘಟ್ಟದಲ್ಲಿ ರಾಜಕೀಯ ಪ್ರವೇಶ ಮಾಡಿದ ಇವರು 1952 ರಲ್ಲಿ ಮೊದಲ ಬಾರಿ ಲೋಕಸಭೆಗೆ ಆಯ್ಕೆಯಾಗಿದ್ದರು. ಜವಹರಲಾಲ್ ನೆಹರು ನೇತೃತ್ವದ ಕೇಂದ್ರ ಸರ್ಕಾರ ಎಂ.ವಿ.ಕೆ. ರವರಿಗೆ “ಕೃಷಿ ಹಾಗು ಆಹಾರ ಸಚಿವ”ರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುವ ಅವಕಾಶವನ್ನು ಕಲ್ಪಿಸಿ ಕೊಟ್ಟಿತ್ತು. ರಾಜ್ಯದ ಹೈನುಗಾರರು ಹೈನುಗಾರಿಕೆಗಾಗಿ ನಾಡ ತಳಿ ಪಶುಗಳನ್ನು ನೆಚ್ಚಿಕೊಂಡಿದ್ದ ಕಾಲ ಅದಾಗಿತ್ತು. ಇಲ್ಲಿನ ಹೈನುಗಾರಿಕೆ ಹೀಗೆಯೇ ಮುಂದುವರೆದರೆ ನಗರ/ಪಟ್ಟಣಗಳಿಂದ ಹಾಲಿಗೆಂದು ಸೃಷ್ಟಿಯಾಗುವ ಬೇಡಿಕೆಯನ್ನು ನೀಗಿಸುವುದು ಕಷ್ಟ ಎಂಬುದನ್ನು ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೆ. ರವರು ಆ ದಿನಗಳಲ್ಲೇ ಯೋಚಿಸಿದ್ದರು. ಕೇಂದ್ರ ಮಂತ್ರಿ ಮಂಡಲದಲ್ಲಿ ಸಚಿವರಾಗಿದ್ದಾಗ ಸಾಕಷ್ಟು ವಿದೇಶಗಳನ್ನು ಸುತ್ತಿ ಬಂದಿದ್ದ ಅವರು ಅಲ್ಲಿನ ತಳಿಗಳ ಹಾಲುತ್ಪಾದನಾ ಸಾಮರ್ಥ್ಯವನ್ನು ಕಂಡು ಬೆರಗಾಗಿದ್ದರು. ಮಾತ್ರವಲ್ಲ, ಹಾಲೆಂಡ್ ದೇಶದಿಂದ ಹೆಚ್.ಎಫ್ ತಳಿ ರಾಸುಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಂಡು ಇಲ್ಲಿನ ರೈತರಿಗೆ ಹಂಚಿಕೆ ಮಾಡಿದ್ದರು. ದೇಶದ ನಾಡ ತಳಿ ರಾಸುಗಳನ್ನು ಕೃತಕಗರ್ಭಧಾರಣೆ ಮೂಲಕ ಅಭಿವೃದ್ಧಿ ಪಡಿಸಬೇಕೆಂಬ ಉದ್ದೇಶದಿಂದ ಕೇಂದ್ರ ಸರ್ಕಾರದಿಂದÀ ನೆರವು ಪಡೆದ ಅವರು 8 ರಿಂದ 10 ವಿದೇಶಿ ತಳಿ ಹೋರಿಗಳನ್ನು ಸಹಿತ ಕರ್ನಾಟಕಕ್ಕೆ ಆಮದು ಮಾಡಿಕೊಳ್ಳುವಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿದ್ದರು. ರಾಜ್ಯದ ಮೈಸೂರು, ಬೆಂಗಳೂರು, ಮಂಗಳೂರು ಹಾಗು ಮಲೆನಾಡಿನ ಕೆಲವು ಪ್ರದೇಶಗಳಲ್ಲಿ ತಳಿವರ್ಧನೆ ಚಟುವಟಿಕೆ ಮೂಲಕ ಹಾಲುತ್ಪಾದನೆ ಹೆಚ್ಚಳಕ್ಕೆ ಶ್ರಮಿಸಿದ್ದರು. ಪ್ರಾಯಶಃ ಹೈನುಗಾರಿಕೆ ಬಗ್ಗೆ ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೆ. ರವರು ಹೊಂದಿದ್ದ ದೂರದೃಷ್ಟಿಯ ಪ್ರಭಾವದಿಂದಾಗಿ ಇಂದು ಇಡೀ ರಾಜ್ಯದಲ್ಲಿ ಎಲ್ಲಿಗೇ ಹೋದರೂ ಮಿಶ್ರತಳಿ ರಾಸುಗಳದ್ದೇ ಕಾರುಬಾರು ಎಂಬಂಥ ಪರಿಸ್ಥಿತಿ ಇದೀಗ ನಿರ್ಮಾಣವಾಗಿರುವುದು ಸತ್ಯ. ಒಟ್ಟಾರೆ, ರಾಜ್ಯದ ಹೈನುಗಾರಿಕೆ ಬಗ್ಗೆ ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೃಷ್ಣಪ್ಪ ರವರು ಹೊಂದಿದ್ದ ಕಾಳಜಿಯಿಂದಾಗಿ ಬಮುಲ್ ಇಂದು ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿಯೇ ಹಾಲು ಶೇಖರಣೆ ಕುರಿತಂತೆ ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿ ಮೊದಲ ಸ್ಥಾನದಲ್ಲಿರುವ ಹಾಲು ಒಕ್ಕೂಟವಾಗಿ ಬೆಳೆದು ನಿಂತಿದೆ. ಹಾಲುತ್ಪಾದನೆ ಕುರಿತಂತೆ ನಾಗಾಲೋಟದಲ್ಲಿ ಸಾಗುತ್ತಿರುವ ಹಾಸನ ಹಾಲು ಒಕ್ಕೂಟ ಸಹಿತ ಇಂದು ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿ ಎರಡನೇ ಸ್ಥಾನದಲ್ಲಿರುವ ಹಾಲು ಒಕ್ಕೂಟ ಎಂಬ ಕೀರ್ತಿಗೆ ಪಾತ್ರವಾಗಿದೆ. ಹೈನುಗಾರಿಕೆಯಲ್ಲಿ ತೊಡಗಿಸಿಕೊಂಡ ಕರ್ನಾಟಕದ ಮಂದಿ ಇವರನ್ನು “ಕ್ಷೀರಕ್ರಾಂತಿಯ ಪಿತಾಮಹ”, “ಕರ್ನಾಟಕದ ಕ್ಷೀರ ಬ್ರಹ್ಮ”, “ಕರ್ನಾಟಕ ಕಂಡ ಹೈನುಗಾರಿಕೆಯ ಹರಿಕಾರ” ಎಂದೆಲ್ಲಾ ಬಣ್ಣಿಸುತ್ತಿದ್ದಾರೆ. ಇವೆಲ್ಲವೂ ಶ್ರೀಯುತರ ಪಾಲಿಗೆ ಸಂದ ಅರ್ಥಪೂರ್ಣ ಬಿರುದುಗಳು ಎನ್ನುವುದರಲ್ಲಿ ಸಂದೇಹವೇ ಇಲ್ಲ. ರಾಜ್ಯದಲ್ಲಿನ ಹೈನುಗಾರಿಕೆ ಏಳಿಗೆಗಾಗಿ ಗಮನಾರ್ಹ ಕೊಡುಗೆ ನೀಡಿರುವ ಮಾನ್ಯ ಎಂ.ವಿ.ಕೆ.ರವರು ದಿನಾಂಕ 01.08.1980 ರಂದು ಇಹಲೋಕ ತ್ಯಜಿಸಿದರು.  "
+  );
+  const founderEnglishText = (
+       
+      "Verghese Kurien (26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution.In 1949, Kurien was sent by the Government of India to its run a experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers' Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.Kurien with then Prime Minister Lal Bahadur Shastri in 1964 Then-Prime Minister Lal Bahadur Shastri visited Anand to inaugurate Amul's cattle feed factory in October 1964 when he also interacted with the farmers about their cooperative. In 1965, Shastri tasked Kurien to replicate the dairy's Anand scheme nationwide, for which the National Dairy Development Board (NDDB) was founded. The board was led by Kurien on conditions that it be independent of governmental control and that it be set up at Anand, away from the capitals and closer to farmers. Kurien negotiated with donors like the UNICEF for aid to develop the cooperatives and opposed countries which lobbied against him stating that he wanted to 'convert aid into trade' contrary to his idea of making India self-sufficient in milk production.  He used the proceeds to encourage the movement of high-yield native cattle to urban areas and set up milk sheds and dairy farms nationwide to stabilize the dairy markets of big cities. The Anand model was replicated across Gujarat and Kurien brought all of them under the Gujarat Co-operative Milk Marketing Federation (GCMMF) in 1973 to sell their products under a single Amul brand on the 25th anniversary of establishment. Other states emulated setting up similar federations based on this scheme. In 1979, he founded the Institute of Rural Management Anand (IRMA) to groom managers for the cooperatives.He was awarded the Ramon Magsaysay Award in 1964 and World Food Prize in 1989. In 1999, he received Padma Vibhushan, India's second highest civilian honour. He was conferred the Order of Agricultural Merit by the French Government in 1997."
+  
+  );
+
+  const founderKannadaText = (
+
+      "ಉದ್ಯಮಿಯಾಗಿದ್ದು, ಅವರು ಶ್ವೇತ ಕ್ರಾಂತಿ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಹಾಲಿನ ಉತ್ಪಾದನೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾದ ಹೆಚ್ಚಳಕ್ಕೆ ಕಾರಣವಾದ ಉಪಕ್ರಮಗಳನ್ನು ಮುನ್ನಡೆಸಿದರು.1949 ರಲ್ಲಿ, ಕುರಿಯನ್ ಅವರನ್ನು ಭಾರತ ಸರ್ಕಾರವು ಆನಂದ್‌ನಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ ಕ್ರೀಮರಿಗೆ ಕಳುಹಿಸಿದರು, ಅಲ್ಲಿ ಅವರು 1950 ರಲ್ಲಿ ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟವನ್ನು ಸ್ಥಾಪಿಸಿದರು, ಅದು ನಂತರ ಅಮುಲ್ ಆಯಿತು. ಅಮುಲ್ ಸಹಕಾರಿಯ ಭಾಗವಾಗಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರನ್ನು ಸಂಘಟಿಸಿ ನೇರವಾಗಿ ಗ್ರಾಹಕರಿಗೆ ಲಿಂಕ್ ಮಾಡಿತು. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಡೈರಿ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸಿದ್ದರಿಂದ ಡೈರಿ ಸಹಕಾರಿಯು ಹಾಲಿನ ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿದೆ."
+  );
+
+  const kurienText = locale === 'en' ? kurienEnglishText : kurienKannadaText;
+  const founderText = locale === 'en' ? founderEnglishText : founderKannadaText;
+
+
   const tabs = [
     {
       tabName: 'KMF Sanjeevini',
@@ -205,15 +238,15 @@ function Portfolio() {
               animals could provide a steady supply of milk marked a pivotal moment.
             </p>
             
-            <a href="#history"> <button  className='mt-5 w-full flex justify-center text-primary-main'>
-                Read more                </button></a>
+            <Link href={`/${locale}/portfolio/historyofmilk`}> <button  className='mt-5 w-full flex justify-center text-primary-main'>
+                Read more </button></Link>
           </div>
 
         </div>
       </section>
-      <section id="krisna" className="w-full h-[100vh] lg:h-[80vh] mt-10 md:mt-20">
+      <section id="krisna" className="w-full h-auto mt-10 md:mt-20 " >
         <div className="w-full h-full">
-          <div className="relative max-w-7xl  h-full bg-[#f99457] m-auto flex flex-col lg:flex-row justify-center ">
+          <div className="relative max-w-7xl  h-full bg-[#f99457] m-auto flex flex-col lg:flex-row justify-center pt-7 pb-7">
             <div className="w-full lg:w-[50%]  lg:p-10 h-full flex justify-center items-center">
               <img className="w-[70%] lg:w-full" src={founderOfMilk2Img.src} alt="" />
             </div>
@@ -223,32 +256,43 @@ function Portfolio() {
               KSHEERA PITHAMAHA - DR. VERGHESE KURIEN
 
               </h1>
-              <p className="text-sm md:text-lg  lg:mt-10 text-white text-justify">
-              {locale === 'en' ? "Dr. Verghese Kurien(26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution. Kurien graduated in physics from University of Madras in 1940 and received his masters in mechanical engineering from University of Michigan in 1947. In 1949, Kurien was sent by the Government of India to run its experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative" : "ವರ್ಗೀಸ್ ಕುರಿಯನ್ (26 ನವೆಂಬರ್ 1921 - 9 ಸೆಪ್ಟೆಂಬರ್ 2012) ಒಬ್ಬ ಭಾರತೀಯ ಡೈರಿ ಇಂಜಿನಿಯರ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಉದ್ಯಮಿಯಾಗಿದ್ದು , ಅವರು ಶ್ವೇತ ಕ್ರಾಂತಿ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಹಾಲಿನ ಉತ್ಪಾದನೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾದ ಹೆಚ್ಚಳಕ್ಕೆ ಕಾರಣವಾದ ಉಪಕ್ರಮಗಳನ್ನು ಮುನ್ನಡೆಸಿದರು . ಕುರಿಯನ್ 1940 ರಲ್ಲಿ ಮದ್ರಾಸ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಭೌತಶಾಸ್ತ್ರದಲ್ಲಿ ಪದವಿ ಪಡೆದರು ಮತ್ತು 1947 ರಲ್ಲಿ ಮಿಚಿಗನ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಮೆಕ್ಯಾನಿಕಲ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ಪಡೆದರು. 1949 ರಲ್ಲಿ, ಕುರಿಯನ್ ಅವರನ್ನು ಆನಂದ್‌ನಲ್ಲಿ ಅದರ ಪ್ರಾಯೋಗಿಕ ಕ್ರೀಮರಿ ನಡೆಸಲು ಭಾರತ ಸರ್ಕಾರ ಕಳುಹಿಸಿತು, ಅಲ್ಲಿ ಅವರು ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಸಂಘವನ್ನು ಸ್ಥಾಪಿಸಿದರು. 1950 ರಲ್ಲಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟ ಲಿಮಿಟೆಡ್ ನಂತರ ಅಮುಲ್ ಆಯಿತು. ಅಮುಲ್ ಸಹಕಾರಿಯ ಅಂಗವಾಗಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರನ್ನು ಸಂಘಟಿಸಿ ನೇರವಾಗಿ ಗ್ರಾಹಕರಿಗೆ ಲಿಂಕ್ ಮಾಡಿತು. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಡೇರಿ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸುವುದರಿಂದ ಹಾಲು ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಡೇರಿ ಸಹಕಾರಿ ಯಶಸ್ವಿಯಾಗಿದೆ."}
-              
+              <p className='text-sm md:text-lg  lg:mt-10 text-white text-justify'>  {showFullText ? founderText : (
+              <>
+                {founderText.substring(0, 1000)}
+                <br />
+                {founderText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>Read More</button>}
+              </>
+            )}
+            <br />
 
-                {/* Not only that, he had imported HF breed heifers from Holland and distributed them to the farmers here. With the aim of developing the countrys native breed heifers through artificial insemination, he got help from the central government and succeeded in importing 8 to 10 foreign breed bulls to Karnataka. He worked hard to increase milk production through breeding activities in Mysore, Bangalore, Mangalore and some areas of the hill country. Perhaps about dairy farming Mr. M.V.K. It is a fact that due to the influence of the foresight of Mr. R., the situation is now created that wherever you go in the entire state, you are driven by crossbred horses. */}
-              </p>
+            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}>Read Less</button>}
+            </p> 
             </div>
           </div>
         </div>
       </section>
-      <section id="verghese" className="w-full h-[100vh] lg:h-[80vh] mt-5">
+      <section id="verghese" className="w-full h-auto mt-5">
         <div className="w-full h-full">
-          <div className="relative max-w-7xl  h-full bg-[#4f7ffc] m-auto flex flex-col lg:flex-row justify-center ">
+          <div className="relative max-w-7xl  h-full bg-[#4f7ffc] m-auto flex flex-col lg:flex-row justify-center pt-7 pb-7 ">
             <div className="order-last lg:order-1 w-full lg:w-[50%] h-full flex flex-col justify-center text-justify items-center p-3 lg:p-10">
               <h1 className="text-white text-lg md:text-4xl font-bold text-center ">
                 KARNATAKA KSHEERA BRAHMA - MR. MV KRISHNAPPA
 
               </h1>
-              <p className="text-sm md:text-lg  lg:mt-10 text-white text-justify">
-              {locale === 'en' ? "He was originally from Kolar district who was very concerned about the farmers. He was born in a village called Motakapalli in Mulbagilu taluk. Date 01.06.1918 is his birthday. He entered politics at one stage and was elected to the Lok Sabha for the first time in 1952. Central government led by Jawaharlal Nehru M.V.K. He was given the opportunity to serve as Agriculture and Food Minister. It was a time when the dairy farmers of the state relied on indigenous breeds of cattle for dairying. Mr.M.V.K said that if dairy farming continues like this, it will be difficult to meet the demand for milk from cities/towns. He had thought in those days. When he was a minister in the Union Cabinet, he had visited many foreign countries and was amazed to see the milk production capacity of the breeds there." : "ರೈತರ ಬಗ್ಗೆ ಅಪಾರ ಕಾಳಜಿ ಹೊಂದಿದ್ದ ಇವರು ಮೂಲತಃ ಕೋಲಾರ ಜಿಲ್ಲೆಯವರು. ಇವರು ಜನಿಸಿದ್ದು ಮುಳಬಾಗಿಲು ತಾಲ್ಲೂಕಿನ ಮೋತಕಪಲ್ಲಿ ಎಂಬ ಕುಗ್ರಾಮದಲ್ಲಿ. ದಿನಾಂಕ 01.06.1918 ಇವರ ಜನ್ಮದಿನ. ಒಂದು ಘಟ್ಟದಲ್ಲಿ ರಾಜಕೀಯ ಪ್ರವೇಶ ಮಾಡಿದ ಇವರು 1952 ರಲ್ಲಿ ಮೊದಲ ಬಾರಿ ಲೋಕಸಭೆಗೆ ಆಯ್ಕೆಯಾಗಿದ್ದರು. ಜವಹರಲಾಲ್ ನೆಹರು ನೇತೃತ್ವದ ಕೇಂದ್ರ ಸರ್ಕಾರ ಎಂ.ವಿ.ಕೆ. ರವರಿಗೆ “ಕೃಷಿ ಹಾಗು ಆಹಾರ ಸಚಿವ”ರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುವ ಅವಕಾಶವನ್ನು ಕಲ್ಪಿಸಿ ಕೊಟ್ಟಿತ್ತು. ರಾಜ್ಯದ ಹೈನುಗಾರರು ಹೈನುಗಾರಿಕೆಗಾಗಿ ನಾಡ ತಳಿ ಪಶುಗಳನ್ನು ನೆಚ್ಚಿಕೊಂಡಿದ್ದ ಕಾಲ ಅದಾಗಿತ್ತು. ಇಲ್ಲಿನ ಹೈನುಗಾರಿಕೆ ಹೀಗೆಯೇ ಮುಂದುವರೆದರೆ ನಗರ/ಪಟ್ಟಣಗಳಿಂದ ಹಾಲಿಗೆಂದು ಸೃಷ್ಟಿಯಾಗುವ ಬೇಡಿಕೆಯನ್ನು ನೀಗಿಸುವುದು ಕಷ್ಟ ಎಂಬುದನ್ನು ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೆ. ರವರು ಆ ದಿನಗಳಲ್ಲೇ ಯೋಚಿಸಿದ್ದರು. ಕೇಂದ್ರ ಮಂತ್ರಿ ಮಂಡಲದಲ್ಲಿ ಸಚಿವರಾಗಿದ್ದಾಗ ಸಾಕಷ್ಟು ವಿದೇಶಗಳನ್ನು ಸುತ್ತಿ ಬಂದಿದ್ದ ಅವರು ಅಲ್ಲಿನ ತಳಿಗಳ ಹಾಲುತ್ಪಾದನಾ ಸಾಮರ್ಥ್ಯವನ್ನು ಕಂಡು ಬೆರಗಾಗಿದ್ದರು."}
-              
-               
-                
-                {/* He believed that by placing technology and professional management in the hands of the farmers, the standard of living of millions of our poor people can be improved.
-             The cooperative movement, he helped to create became a model not only for India, but for developing countries throughout the world. The Operation Flood Programme, of which Milk Producers; Cooperatives were the central plank, emerged as Indias largest rural employment programme and unleashed the larger dimension of dairy development. Dr. Kurien was the undisputed Milkman of India. Born on November 26, 1921 at Kozhikode, Kerala, he graduated in Science from the Loyola College in 1940 and obtained hisdegree in Engineering from the Guindy College of Engineering in Chennai. After a stint at TISCO, Jamshedpur, he obtained the Govt. of Indias scholarship to study Dairy Engineering. After some specialized training at the Imperial Institute of Animal Husbandry & Dairying, Bangalore, he left for the United States where he completed his Masters degree in Mechanical Engineering with Dairy Engineering as a minor subject from the Michigan State University in 1948. */}
-              </p>
+
+
+           <p className='text-sm md:text-lg  lg:mt-10 text-white text-justify'>  {showFullText ? kurienText : (
+              <>
+                {kurienText.substring(0, 1000)}
+                <br />
+                {kurienText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>Read More</button>}
+              </>
+            )}
+            <br />
+
+            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}> Read Less</button>}
+            </p> 
+
             </div>
             <div className="order-1 lg:order-last w-full lg:w-[50%] lg:p-10 h-full flex justify-center items-center">
               <img className="w-[70%] lg:w-full" src={KRISHNAPPA.src} alt="" />
@@ -467,7 +511,7 @@ function Portfolio() {
                     {' '}
                     <p
                       className={`${
-                        currentIndex === idx ? 'hover:text-orange-300' : 'text-black hover:text-orange-300'
+                        currentIndex === idx ? 'hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]' : 'text-black hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]'
                       } text-lg`}>
                       {' '}
                       {tab.tabName}
@@ -502,8 +546,8 @@ function Portfolio() {
               <img className="w-full h-full hidden  lg:block " src={flag.src} alt="" />
               <div className=" lg:absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full">
                 <div className="w-full h-full flex justify-center items-center">
-                  <div className="max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto">
-                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-3xl ">
+                  <div className="max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto">
+                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-4xl ">
                       {' '}
                       KMF Achievement{' '}
                     </h1>
@@ -521,7 +565,7 @@ function Portfolio() {
                             paragraph: ({children}) => {
                                      
                               return (
-                              <p>{children}</p>
+                              <p className='text-xl'>{children}</p>
                               )
                             },
                             list:({children}) =>{
@@ -540,7 +584,8 @@ function Portfolio() {
 
             <div className="w-full h-auto flex flex-wrap justify-center">
               {achievments?.map((item, id) => {
-                console.log("content",item?.attributes?.title)
+                console.log("achievments",item)
+                if(item?.attributes?.title !=='KMF Achievements' && item?.attributes?.title !=='ಕಹಾಮ ಸಾಧನೆಗಳು'){
                   return (
                     <div
                       key={id}
@@ -558,6 +603,7 @@ function Portfolio() {
                         <div className=" mt-20">
                           <ul className="list-disc text-left">
                             {item?.attributes?.content && (
+
                               <BlocksRenderer
                                 content={readMore ? item?.attributes?.content: item?.attributes?.content.slice(0,1)}
                                 blocks={{
@@ -587,6 +633,10 @@ function Portfolio() {
                       </div>
                     </div>
                   );
+                }
+                 
+                
+                
                 
               })}
             </div>

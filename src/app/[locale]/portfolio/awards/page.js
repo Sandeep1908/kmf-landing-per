@@ -3,8 +3,14 @@ import React from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
+import award1 from '@/images/portfolio/Award1.png';
+import award2 from '@/images/portfolio/Award2.png';
+import award3 from '@/images/portfolio/Award3.png';
+import award4 from '@/images/portfolio/Award4.png';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
+import Marquee from './Marquee';
+
 
 
 
@@ -98,6 +104,88 @@ At the Bangalore Brand Summit 2014 award ceremony KMF was presented with an  Ind
               
                 
             </div>
+
+
+<div className='w-full h-auto mt-10 '>
+<h1 className="p-5  text-primary-main text-4xl uppercase text-center">Awards</h1>
+<div className="marquee-notification h-full flex lg:gap-5 xl:gap-44 justify-evenly space-x-3 mt-10">
+            <div
+                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
+                  >
+                  <div className="p-2 w-full h-[70%]">
+                        <img
+                        src={award1.src}
+                        alt="featured-img"
+                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
+                        style={{ transition: '.4s all' }}
+                        />
+                  </div>
+
+                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
+                        <h1 className="text-sm text-center group-hover:text-white  ">Award 1</h1>
+                  </div>
+
+                  
+                  </div>
+            <div
+                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
+                  >
+                  <div className="p-2 w-full h-[70%]">
+                        <img
+                        src={award2.src}
+                        alt="featured-img"
+                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
+                        style={{ transition: '.4s all' }}
+                        />
+                  </div>
+
+                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
+                        <h1 className="text-sm text-center group-hover:text-white  ">Award 2</h1>
+                  </div>
+
+                  
+                  </div>
+            <div
+                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
+                  >
+                  <div className="p-2 w-full h-[70%]">
+                        <img
+                        src={award3.src}
+                        alt="featured-img"
+                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
+                        style={{ transition: '.4s all' }}
+                        />
+                  </div>
+
+                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
+                        <h1 className="text-sm text-center group-hover:text-white  ">Award 3</h1>
+                  </div>
+
+                  
+                  </div>
+            <div
+                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
+                  >
+                  <div className="p-2 w-full h-[70%]">
+                        <img
+                        src={award4.src}
+                        alt="featured-img"
+                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
+                        style={{ transition: '.4s all' }}
+                        />
+                  </div>
+
+                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
+                        <h1 className="text-sm text-center group-hover:text-white  ">Award 4</h1>
+                  </div>
+
+                  
+                  </div>
+              </div>
+
+
+</div>
+            
            
       </div>
 

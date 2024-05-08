@@ -10,12 +10,26 @@ import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import useApi from '@/hooks/useApi';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-
+import KnmModel from '@/components/KymModel';
+import MarketModel from './marketModel';
 
 const Marketing = () => {
   const locale = useLocale().locale;
   const axios = useApi();
 
+  const [knowMarket,setKnowMarket]=useState([])
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // ... (existing code)
+
+   const handleMarket=(item)=>{
+    console.log("item",item)
+    setKnowMarket(item)
+    setIsModalOpen(true);
+   }
+   console.log("knowMarket",knowMarket)
 
   const [market, setMarket] = useState([]);
   useEffect(() => {
@@ -50,39 +64,54 @@ const Marketing = () => {
             <img className='absolute md:top-[-55px] top-[-35px] left-[38%] md:left-[47%] w-32 md:w-40 ' src={titleBG.src} alt="" />
         </div>
       </section>
-       <section className={`w-full h-auto md:h-[90vh] relative company-bg mt-20`}>
+       <section className={`w-full h-auto md:h-[75vh] relative company-bg mt-20`}>
 
                <div className='absolute w-full h-full '>
                      <div className='w-full h-full  z-[-1] flex justify-between items-center'>
-                           <div className='bg-red-600 w-28 h-7 '>
+                           <div className='bg-red-600 w-52 h-7 '>
 
                            </div>
-                           <div className='bg-red-600 w-28 h-7 '>
+                           <div className='bg-red-600 w-52 h-7 '>
 
                            </div>
                      </div>
                 </div>
-                <video autoPlay muted loop controls className='relative w-full h-full z-[10]' src="/video/gheesupply.mov"></video>
+                <video autoPlay muted loop controls className='relative w-[800px] m-auto h-full z-[10]' src="/video/market.mp4"></video>
 
       </section>
 
+      <MarketModel
+                    closeModal={isModalOpen}
+                    market={knowMarket}
+                     close={setIsModalOpen}
+          
+               />
 
-      <div className='w-full h-auto'>
+
+      <div className='w-full h-[600px]'>
         
-        <div className=' hidden lg:block relative w-full max-h-[500px] h-full z-[-1]'>
+        <div className=' hidden lg:block relative w-full max-h-[500px] h-full '>
             <img className='w-full h-full' src={flag.src} alt="" />
-            <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
+            <div className='absolute top-[60px] lg:top-0 xl:top-[20px] w-full h-full '>
                 <div className='w-full h-full flex justify-center items-center'>
-                <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                   <h1 className='text-primary-main text-2xl md:text-4xl text-center ' >  
-                   {locale === 'en' ? "Marketing" : ""}
+                <div className='relative z-[10] max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
+                   <h1 className='text-primary-main text-2xl md:text-4xl text-center mb-10' >  
+                      Marketing
                    </h1>
-             <div className='mt-6'>
-              <p className=' text-sm md:text-lg lg:text-sm xl:text-2xl text-center '>
-              {locale === 'en' ? "Excellent U.H.T. Milk is being supplied to Eastern Command and Northern Command an average of 28,000 liters per day for the Indian Defense Department. Butter and ghee in tins and milk powder are also supplied." : ""}
-              
-              </p>
-             </div>
+
+               
+              {market.map((item,idx)=>{
+                console.log()
+                return(
+                  <div key={idx} onClick={()=>handleMarket(item)} className='mt-2'>
+                     <h1  className='uppercase cursor-pointer text-sm md:text-lg lg:text-sm xl:text-xl text-center hover:text-white transition-all duration-200 hover:scale-[1.5]'>
+                      {item?.attributes?.title}
+                    </h1>
+                   
+                   </div>
+                )
+              })}
+            
                    </div>
                 </div>
             </div>
@@ -92,10 +121,10 @@ const Marketing = () => {
            
              <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                    <div className='m-auto'>
-                   <h1 className='text-primary-main text-2xl md:text-3xl ' >   {locale === 'en' ? "Ksheerdhare Project" : "ಕ್ಷೀರ ಧಾರೆ,"} </h1>
+                   <h1 className='text-primary-main text-2xl md:text-3xl ' >  Marketing </h1>
              <div className=' mt-10'>
               <p className=''>
-              {locale === 'en' ? "An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objectives:" : "ಕರ್ನಾಟಕ ರಾಜ್ಯ ಸರ್ಕಾರದ ದ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯ ಯೋಜನೆ. 'ಕ್ಷೀರಧಾರೆ' ಯೋಜನೆಯನ್ನು ಈ ಕೆಳಗಿನ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಜಾರಿಗೊಳಿಸಲಾಗಿದೆ."}                
+              An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objective                
               </p>
              </div>
                    </div>
@@ -103,10 +132,9 @@ const Marketing = () => {
 
 
 
-          
+{/*           
 
         {market.map((item,idx)=>{
-          console.log("items",item)
           return(
           
             <div key={idx} className='max-w-7xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
@@ -154,7 +182,7 @@ const Marketing = () => {
             </div>
 </div>
           )
-        })}
+        })} */}
  
          
 
