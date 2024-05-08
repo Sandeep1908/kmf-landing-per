@@ -6,25 +6,35 @@ import useLocale from '@/hooks/useLocale';
 import useApi from '@/hooks/useApi';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
  import Link from 'next/link';
-
+ import rightArrow from '@/images/women-empower/rightArrow.svg';
 
 function GOK() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
   const [scheme,setScheme]=useState([])
   const [readMore,setReadMore]=useState(false)
+  const [showmore,setShowMore]=useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [bhagaya,setBhagaya]=useState([])
 const axios=useApi()
-const [bhagaya,setBhagaya]=useState([])
+
+const handleButton = (idx) => {
+  setCurrentIndex(idx);
+};
   useEffect(()=>{
     (
       async()=>{
         const {data}=await axios.get('/api/goks?sort[0]=createdAt:asc')
         const { data: bhagaya } = await axios.get(`/api/ksheerabhagaya`);
-       
- 
-     
-      setBhagaya(bhagaya?.data);
-        setScheme(data.data)
+        const gokData = data?.data?.map((item, id) => {
+          return {
+            title: item?.attributes?.title,
+            content: item?.attributes?.content
+          };
+        });
+
+        setBhagaya(bhagaya?.data);
+        setScheme(gokData)
       }
     )()
   },[])
@@ -62,11 +72,12 @@ const [bhagaya,setBhagaya]=useState([])
           </div>
 
           <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
-            
-              <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
-              {locale==='kn'?'':'          Government Of Karnataka'}
+             
+              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              {locale==='kn'?'':'          Government Of India'}
               </h1>
             </div>
+    
 
             <section className='relative w-full max-w-7xl   m-auto pt-20   h-auto  '>
             {bhagaya && bhagaya.attributes && bhagaya.attributes.content && (
@@ -142,93 +153,93 @@ const [bhagaya,setBhagaya]=useState([])
                     />
                   )}
             </section>
+            <section className=" relative w-full   h-auto   ">
+            <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
+        <div className="w-full xl:max-w-2xl shadow-lg flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
+        <div className="mb-20  mt-20  relative w-full   flex justify-center items-center ">
+              <img
+                src="/images/heading/heading-color/group.png"
+                className="absolute   w-[530px] top-[-70px]    object-contain"
+              />
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              {scheme[currentIndex]?.title}
+              </h1>
+            </div>
+          
+          {scheme[currentIndex]?.content?.map((item, id) => {
+            return (
+              <p  key={id} className="text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
+            );
+          })}
+        </div>
 
+        <div className="flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white p-5">
+          <div>
+            <h1 className="text-xl uppercase">{locale==='kn'?``:`Government Of India `}</h1>
+          </div>
+
+          <div className="w-full h-ful pt-5 shadow-md">
+
+            <ul className="w-full flex flex-col justify-center items-center space-y-3">
+              {showmore?
+               scheme?.map((items, idx) => {
+                
+                  return (
+                    <li
+                      key={idx}
+                      className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      onClick={() => handleButton(idx)}>
+                      <img src={rightArrow.src} />
+                      <p
+                        className={`${
+                          idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
+                        } uppercase`}>
+                        {items.title}
+                      </p>
+                    </li>
+                  );
             
 
- 
-    
-            <section className=" relative w-full   h-auto   ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full h-full flex flex-col space-y-2 justify-center items-start    p-1   ">
-            <div className="w-full h-full flex justify-center items-center flex-wrap">
-              {scheme?.map((_, id) => {
-                if(_?.attributes?.title==='heading'){
                
-                  return <h1 key={id} className='text-2xl w-full text-center bg-primary-main text-white p-2 shadow-lg'>{_?.attributes?.content?.[0]?.children?.[0]?.text}</h1>
+              })
+              :
+              scheme?.map((items, idx) => {
+                if(idx<10){
+                  return (
+                    <li
+                      key={idx}
+                      className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      onClick={() => handleButton(idx)}>
+                      <img src={rightArrow.src} />
+                      <p
+                        className={`${
+                          idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
+                        } uppercase`}>
+                        {items.title}
+                      </p>
+                    </li>
+                  );
                 }
-                return (
-                  <div
-                    key={id}
-                    className="max-w-3xl w-full m-10 rounded-3xl  min-h-[400px] shadow-2xl bg-slate-50 p-16">
-                    <div className="m-auto">
 
+               
+              })
+              }
+             
+            {
+              showmore ?
+              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'>Show Less...</p>
+              :
+              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'>Show More...</p>
 
-                    <div className=' w-full relative flex justify-center items-center'>
-            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-50pxx]   object-contain'/>
-
-
-                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-lg   z-[100] ">
-                          {' '}
-                          {_?.attributes?.title}
-                        </h1>
-                        </div>
-
-
-
-                      
-                      <div className="mt-20">
-                      {_?.attributes?.content && (
-                          <BlocksRenderer
-                            content={readMore ? _?.attributes?.content: _?.attributes?.content.slice(0,3) }
-                            blocks={{
-                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
-                              heading: ({ children, level }) => {
-                                switch (level) {
-                                  case 1:
-                                    return (
-                                      <h1 className="text-2xl text-primary-main">{children}</h1>
-                                    );
-                                  case 2:
-                                    return <h2 className="text-lg">{children}</h2>;
-                                  case 3:
-                                    return <h3>{children}</h3>;
-                                  case 4:
-                                    return <h4>{children}</h4>;
-                                  case 5:
-                                    return <h5>{children}</h5>;
-                                  case 6:
-                                    return <h6>{children}</h6>;
-                                  default:
-                                    return <h1>{children}</h1>;
-                                }
-                              },
-                              list: ({ children }) => {
-                                return children
-                              },
-                              code: ({ children }) => (
-                                <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">
-                                  {children}
-                                </h1>
-                              )
-                            }}
-                          />
-                        )}
-
-{
-  _?.attributes?.content.length>3 &&
-
-<button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
-                  {readMore ? 'Read less' : 'Read more'}
-                </button>
             }
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            
+            </ul>
           </div>
         </div>
+      </section>
+
+
+         
       </section>
 
       <Footer />

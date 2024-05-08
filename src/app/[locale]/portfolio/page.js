@@ -540,7 +540,7 @@ function Portfolio() {
 
             <div className="w-full h-auto flex flex-wrap justify-center">
               {achievments?.map((item, id) => {
-                console.log("content",item?.attributes?.content)
+                console.log("content",item?.attributes?.title)
                   return (
                     <div
                       key={id}
@@ -576,9 +576,12 @@ function Portfolio() {
                               />
                             )}
 
-<button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
+ 
+ <button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
                   {readMore ? 'Read less' : 'Read more'}
                 </button>
+ 
+
                           </ul>
                         </div>
                       </div>

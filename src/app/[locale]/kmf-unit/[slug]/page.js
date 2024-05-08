@@ -27,7 +27,7 @@ function KmfUnitDetail() {
     (async () => {
       const { data } = await axios.get(`/api/units-of-kmfs/${param?.slug}`);
       
-      const { data:unions } = await axios.get('/api/units-of-kmfs');
+      const { data:unions } = await axios.get('/api/units-of-kmfs?sort[0]=order:asc');
       setAllUnits(unions?.data)
       setBanner(data?.data?.attributes?.bannervideo?.data?.attributes?.url)
       setBannerImg(data?.data?.attributes?.banner?.data?.attributes?.url)
