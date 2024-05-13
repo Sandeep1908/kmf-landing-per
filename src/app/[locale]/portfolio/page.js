@@ -135,14 +135,6 @@ function Portfolio() {
       tabName: 'Sex Sorted Semen',
       link: `/${locale}/animal-husbandery/animal-breeding`
     },
-    // {
-    //   tabName: 'Cattle Feed To Farmers ',
-    //   link: `/${locale}/animal-husbandery/cattle-insurance`
-    // },
-    // {
-    //   tabName: 'Defence',
-    //   link: `/${locale}/portfolio/defence`
-    // },
     {
       tabName: 'Marketing',
       link: `/${locale}/portfolio/marketing`

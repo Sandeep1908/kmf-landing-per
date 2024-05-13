@@ -143,7 +143,7 @@ const Marketing = () => {
               className={` max-w-7xl `}>
                    {slideVideos.map((item,id)=>{
                     return(
-                       <SwiperSlide className="swiper-sldier-card lg:p-10" >
+                       <SwiperSlide className="swiper-sldier-card lg:p-10" key={id} >
                   <div
                       className="w-full max-w-96 relative  h-96 bg-light-light4 rounded-md overflow-hidden   m-auto   "
                       style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
