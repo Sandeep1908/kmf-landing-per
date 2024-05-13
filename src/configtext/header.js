@@ -134,7 +134,7 @@ export const mobileHeader = {
 
     {
       title: 'KMF UNITS',
-      link:'/en/'
+      link:'/en/kmf-unit'
        
       // subItems: [
       //   {
@@ -348,6 +348,7 @@ export const mobileHeader = {
 
     {
       title: 'ಕಹಾಮ ಘಟಕಗಳು',
+      link:'/kn/kmf-unit'
        
       
     },

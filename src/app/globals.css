@@ -608,4 +608,20 @@ h1 {
 }
 
 
+.flicker {
+  width: 350px;
+  padding: 5px 10px;
+  border: 10px;
+  color: black;
+  border: 0;
+  border-radius: 10px;
+  outline: 0;
+  animation: wink 1.25s linear infinite;
+}
+.flicker:hover{
+  animation: none;
+}
 
+@keyframes wink {
+  50% {border-color: #fff; border-color:#f00; opacity: 0; }
+}

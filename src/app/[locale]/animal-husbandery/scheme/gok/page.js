@@ -74,7 +74,7 @@ const handleButton = (idx) => {
           <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {locale==='kn'?'':'          Government Of India'}
+              {locale==='kn'?'':'          Government Of Karnataka'}
               </h1>
             </div>
     
@@ -175,7 +175,7 @@ const handleButton = (idx) => {
 
         <div className="flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white p-5">
           <div>
-            <h1 className="text-xl uppercase">{locale==='kn'?``:`Government Of India `}</h1>
+            <h1 className="text-xl uppercase">{locale==='kn'?``:`Government Of Karnataka `}</h1>
           </div>
 
           <div className="w-full h-ful pt-5 shadow-md">

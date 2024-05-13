@@ -179,8 +179,12 @@ function Milk() {
                   return (
                     <div
                       key={id}
-                      className="w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ">
-                         {/* <img src='/images/product-new/new.gif' className='w-10 absolute right-5  z-[10]'/> */}
+                      className={`w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${item?.attributes?.isLatest?'flicker':''} `}>
+                        {
+                          item?.attributes?.isLatest &&
+                          <img src='/images/product-new/new.gif' className='w-20 absolute right-5  z-[10]'/>
+                        }
+                    
                       <div className="w-full   justify-center items-center flex p-2  ">
                         <Carousel
                           className="w-2xl h-96"
@@ -313,7 +317,7 @@ function Milk() {
                         key={idx}>
                         <ul className="">
                           {items?.attributes?.subcategories?.data?.map((item, index) => {
-                        console.log('items product',item)
+                         
                             return (
                               <Link
                               

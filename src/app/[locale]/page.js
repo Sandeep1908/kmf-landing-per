@@ -1,81 +1,79 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import CarouselImage from '@/components/CarouselImage';
+import React, { useEffect, useState } from 'react';
 
- 
-
-import { LinkCard } from '@/app/[locale]/Card.js';
+import { LinkCard } from './Card.js';
 import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
 import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
-import kymIco1 from '@/images/homeImages/kym/importance.tif.svg';
-import kymIco2 from '@/images/homeImages/kym/type.tif.svg';
-import kymIco3 from '@/images/homeImages/kym/nutrition.svg';
-import kymIco4 from '@/images/homeImages/kym/age.tif.svg';
+
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay,FreeMode } from 'swiper/modules';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectCoverflow,
+  Autoplay,
+  FreeMode
+} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Card from '@/app/[locale]/Card.js';
+import Card from './Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
-import { ParallaxBanner } from "react-scroll-parallax";
-import { FaRegHandPointRight } from "react-icons/fa";
-import KnmModel from '@/components/KymModel.js';
-
+import Rodal from 'rodal';
+import { ParallaxBanner } from 'react-scroll-parallax';
 import ArrivalCard from '@/components/ArrivalCard.js';
- import { useMyContext } from '@/context/headerContext';
+import { useMyContext } from '@/context/headerContext.js';
+import { FaRegHandPointRight } from 'react-icons/fa';
+
+import KnmModel from '@/components/KymModel.js';
+import CarouselImage from '@/components/CarouselImage.js';
+
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
-  const [liveTenders, setLiveTenders] = useState([]);
   const [banners, setAllBanners] = useState([]);
   const [cardDetails, setCardDetails] = useState([]);
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
   const [allTenders, setAllTenders] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
-  const [sponsored,setSponsored]=useState([])
-  const [certificateRunning,setCertificateRunning]=useState(false)
-  const [certificate,setCertificate]=useState([])
- const {isScroll,setIsScroll}=useMyContext()
-  const axios = useApi();
-  const videoRef=useRef()
-  const [knowMilk,setKnowMilk]=useState([])
-  const [knowMilkItem,setKnowMilkItem]=useState([])
- 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [certificate, setCertificate] = useState([]);
+  const [certificateRunning, setCertificateRunning] = useState(false);
+  const [knowMilk, setKnowMilk] = useState([]);
 
-  useEffect(()=>{
-    videoRef.current.muted=true
-  },[])
+  const { isScroll, setIsScroll } = useMyContext();
+  const axios = useApi();
+  const [knowMilkItem, setKnowMilkItem] = useState([]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+
+  // ... (existing code)
+
+  const handleKnowMilk = (item) => {
+    setKnowMilkItem(item);
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     (async () => {
-      const {data:certificate}= await axios.get('/api/certificates')
-   
-      const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-      
       const { data: banner } = await axios.get('/api/banners');
-
+      const { data: certificate } = await axios.get('/api/certificates');
+      const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
-      setAllBanners(images);
       const { data: arrivals } = await axios.get('/api/latestproducts');
-      // const { data: homenotification } = await axios.get('/api/homenotifications');
-      const { data: gallery } = await axios.get('/api/galleries');
-
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
+      const { data: knm } = await axios.get('/api/knowyourmilks');
+      const { data: allProduct } = await axios.get('/api/product-sub-items');
 
-      const {data:knm}=await axios.get('/api/knowyourmilks')
-      console.log("kmd",knm.data)
-      
+      let product = allProduct?.data?.filter((item) => item?.attributes?.isLatest === true);
+      product = [...arrivals?.data, ...product];
 
-      const videos = gallery?.data?.map((item) => item?.attributes?.video?.data?.attributes?.url);
-      const liveTenders = data?.data?.filter((item) => item.attributes?.status === 'live tender');
-      const pastTenders = data?.data?.filter((item) => item.attributes?.status === 'past tender');
       const homedetials = homeabout?.data?.map((item) => {
         return {
           about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
@@ -85,32 +83,29 @@ const Home = () => {
         };
       });
 
-      if (liveTenders.length === 0) {
-        setLiveTenders(pastTenders);
-      } else {
-        setLiveTenders(liveTenders);
-      }
-
-      // if (videos?.length > 2) {
-      //   setHomeVideo(videos?.slice(0, 2));
-      // } else {
-      //   setHomeVideo(videos);
-      // }
-
-      setNewArrivals(arrivals?.data);
-      // setHomeNotification(homenotification?.data);
+      setNewArrivals(product);
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
-      setCertificate(certificate.data?.[0]?.attributes?.image?.data)
-      setKnowMilk(knm.data)
+      setAllBanners(images);
+      setCertificate(certificate.data?.[0]?.attributes?.image?.data);
+      setKnowMilk(knm.data);
     })();
   }, []);
 
-  const handleKnowMilk=(item)=>{
-    setKnowMilkItem(item)
-    setIsModalOpen(true);
-   }
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const updateScreensize = () => {
@@ -127,367 +122,384 @@ const Home = () => {
   });
 
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll?'top-36':''}  `}>
-      {/* HOME CARAOUSAL IMAGE */}
-   
- 
-      <video ref={videoRef}src='/video/banner.mp4'   muted   autoPlay loop playsInline className={`w-full  object-fill ${isScroll?'h-[700px]':'h-screen'}  `} />
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    {/* HOME CARAOUSAL IMAGE */}
 
-      {/* <CarouselImage images={banners || []} /> */}
+    <video
+      src="/video/banner.mp4"
+      controls
+      muted
+      autoPlay
+      loop
+      playsInline
+      className={`w-full  object-fill ${isScroll ? 'h-[700px]' : 'h-screen'}  `}
+    />
+    {/* <CarouselImage images={banners || []}  /> */}
 
-      <section className="w-full   pt-20  relative z-[1] bg-primary-subtle ">
-         
-        <div className="w-full">
-          <div className=" w-full          p-10  ">
-            <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
-              
-            ಕೆ.ಎಂ.ಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
-            </h1>
-            <p className="text-[#595959] text-center font-heading     ">
- 
+    <section className="w-full    pt-20  relative z-[1] bg-primary-subtle ">
+      <div className="w-full">
+        <div className=" w-full         ">
+          <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
+          ಕೆ.ಎಂ.ಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
+          </h1>
+          <p className="text-[#595959] text-center     ">ಲಕ್ಷಾಂತರ ಗ್ರಾಹಕರ ಮೆಚ್ಚಿಗೆಯ ಬ್ರಾಂಡ್</p>
+        </div>
 
+        <div className="w-full relative z-10    ">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            coverflowEffect={{
+              rotate: 30,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: false
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false
+            }}
+            modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+            spaceBetween={40}
+            slidesPerView={previewCount}
+            navigation={true}
+            controller={true}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            slide
+            loop={true}
+            className={`max-w-7xl  `}>
+            {cardDetails?.map((card, id) => {
+              return (
+                <SwiperSlide className="swiper-sldier-card lg:p-10" key={id}>
+                  <Card
+                    imgUrl={card?.attributes?.image?.data?.attributes?.url}
+                    title={card?.attributes?.title}
+                    link={card?.attributes?.link}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </div>
 
-            ಲಕ್ಷಾಂತರ ಗ್ರಾಹಕರ ಮೆಚ್ಚಿಗೆಯ ಬ್ರಾಂಡ್</p>
+      {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
+    </section>
+
+    <ParallaxBanner
+      layers={[
+        { image: '/images/home-about.png', speed: -20 },
+        {
+          speed: -15,
+          children: <h></h>
+        }
+      ]}
+      className="  w-full h-[600px]   object-contain ">
+      <section className="w-full h-auto p-5     pt-12">
+        <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
+          <div className="w-full h-full justify-center items-center flex  ">
+            <div
+              className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+              ಕಹಾಮ ಬಗ್ಗೆ
+
+              </h1>
+
+              <div className="space-y-6">
+                <TypeWriter text={homeAboutDetails?.[0]?.about1 || ''} delay={70} />
+              </div>
+            </div>
+
+            <div
+              className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+              ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ
+
+              </h1>
+
+              <div className="space-y-6 h-[">
+                <TypeWriter text={homeAboutDetails?.[0]?.about2 || ''} delay={70} />
+              </div>
+            </div>
           </div>
 
-          <div className="w-full relative z-10 p-2   ">
+          <Link
+            href="/en/about/company-profile"
+            className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
+            ಮತ್ತಷ್ಟು ಓದು
+          </Link>
+        </div>
+      </section>
+    </ParallaxBanner>
+
+    <section className="w-full h-fit  relative       ">
+      <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain" />
+
+      <img
+        src="/images/footer-top.png"
+        className="absolute top-[87px] w-full h-full object-cover z-[-1]"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      />
+
+      <div className="   relative ">
+        <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
+          <Fade left>
+            <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
+              <img src={milkglassImg.src} className="w-full h-full" />
+            </div>
+          </Fade>
+          <div className="flex flex-col justify-center space-y-10 items-center">
+            <div
+              className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+              ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ
+              </h1>
+
+              <div className="space-y-6">
+                <p className="text-justify   text-lg  text-white  ">
+                ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದೆ, ಅದರ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅಂಶಕ್ಕಾಗಿ ವ್ಯಾಪಕವಾಗಿ ಸೇವಿಸಲಾಗುತ್ತದೆ ಮೂಳೆ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದೆ, ಒಟ್ಟಾರೆ ಯೋಗಕ್ಷೇಮಕ್ಕೆ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ. ವೈವಿಧ್ಯಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ಸೇರಿದೆ, ಹೆಸರುವಾಸಿಯಾಗಿದೆ ಅದರ ವ್ಯಾಪಕ ಲಭ್ಯತೆ, ಮತ್ತು ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯಗಳು ಆಹಾರದ ಆದ್ಯತೆಗಳು ಅಥವಾ ಲ್ಯಾಕ್ಟೋಸ್ ಅಸಹಿಷ್ಣುತೆಯೊಂದಿಗೆ. ಹಾಲಿನ ಬಹುಮುಖತೆಯು ವಿಸ್ತರಿಸುತ್ತದೆ ಪಾಕಶಾಲೆಯ ಬಳಕೆಗಳಿಗೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಪಾಕವಿಧಾನಗಳಲ್ಲಿ ಪ್ರಮುಖವಾಗಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ ಖಾರದ ಭಕ್ಷ್ಯಗಳು, ವಿವಿಧ ಅದರ ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳು.
+                </p>
+              </div>
+            </div>
+
+            <KnmModel closeModal={isModalOpen} kymMilk={knowMilkItem} close={setIsModalOpen} />
+            <div className=" w-full flex flex-wrap  justify-center  p-2 gap-3 items-center md:justify-around">
+              {knowMilk?.map((item, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    onClick={() => handleKnowMilk(item)}
+                    className="flex w-40 flex-col justify-center items-center space-y-4">
+                    <img
+                      src={item?.attributes?.image?.data[0].attributes?.url}
+                      alt="imp-milk"
+                      className="transition-all duration-200 hover:scale-[1.1]"
+                    />
+                    <p className="  text-white  text-center font-heading">
+                      {item?.attributes?.title}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="w-full h-auto relative">
+      <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+        <div className="flex w-full flex-col justify-center items-center space-y-3">
+          <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+          ಅಧಿಸೂಚನೆ
+          </h1>
+        </div>
+
+        <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
+          <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
+            <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
+              <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
+                <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+                ಟೆಂಡರ್ ಅಧಿಸೂಚನೆಗಳು
+                </h1>
+              </div>
+              <div
+                className="w-full h-[375px] p-4 marquee flex flex-col"
+                style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+                {allTenders?.map((item, id) => {
+                  return (
+                    <div
+                      key={id}
+                      className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
+                      <FaRegHandPointRight size={20} color="red" />
+                      <p className="w-full"> {item?.attributes?.title}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="w-full flex justify-end mt-3 rounded-md">
+              <Link href={'/en/blog/notification'} className="p-2 bg-primary-main text-white ">
+                ಮತ್ತಷ್ಟು ಓದು
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
+            <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
+              <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+              ಹೊಸ ಆಗಮನಗಳು ಮತ್ತು ಅತ್ಯುತ್ತಮ ಮಾರಾಟ
+              </h1>
+              <div className="marquee-notification h-full flex justify-evenly space-x-3">
+                {newArrivals?.map((item, id) => {
+                  console.log("new arrival ",item)
+                  return (
+                    <ArrivalCard
+                      key={id}
+                      title={item?.attributes?.name}
+                      imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                      link={`/en/our-product/${item?.attributes?.subcategory?.data?.id}`}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* QUICK LINK  */}
+
+    <section className=" relative w-full h-auto pt-5 pb-5 z-[100]      ">
+      <video
+        src="/video/vid.webm"
+        autoPlay
+        muted
+        loop
+        className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
+      />
+      <div className="w-full flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+            Quick Links
+          </h1>
+        </div>
+
+        <div className="  w-full h-auto  relative   ">
+          <Fade bottom>
+            <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
+              <Link href="/en/comingsoon">
+                <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
+              </Link>
+
+              <Link href="/en/comingsoon">
+                <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
+              </Link>
+              <Link href="/en/blog/gallery">
+                <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
+              </Link>
+            </div>
+          </Fade>
+        </div>
+      </div>
+    </section>
+
+    <section className="w-full h-fit relative pt-20 pb-20     ">
+      <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+        <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
+          <div className="flex justify-center w-full    flex-wrap   items-end  ">
+            <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
+              Explore The World Of KMF
+            </h1>
+          </div>
+        </div>
+
+        <div className=" relative w-full h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
+          <Swiper
+            watchSlidesProgress={true}
+            grabCursor={true}
+            centeredSlides={true}
+            effect={'fade'}
+            slidesPerView={1}
+            modules={[Navigation, Pagination, Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+            observeParents={true}
+            observer={true}
+            controller={true}
+            scrollbar={{ draggable: true }}
+            slide
+            loop={true}
+            className="w-full h-full">
+            <SwiperSlide>
+              <div className="p-4 w-full h-full  flex justify-center items-center     ">
+                <iframe
+                  src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  className="w-full h-full "></iframe>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <div className="p-4 w-full h-full  flex justify-center items-center     ">
+                <iframe
+                  src="https://www.youtube.com/embed/gNqoacqCryw?si=Ht2lRLBnb8MoDpyd"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  className="w-full h-full "></iframe>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+
+        <div className="w-full flex justify-center  space-x-5">
+          <Link href={'/en/blog'}>
+            <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
+            ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡು
+            </button>
+          </Link>
+
+          <Link href={'/en/contact'}>
+            <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
+            ಸಂಪರ್ಕದಲ್ಲಿರಲು
+            </button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    <section className="w-full h-fit   mb-20  relative          ">
+      <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
+        <div className="   h-full    justify-between items-center    ">
+          <div className="     w-full    justify-center p-10 z-[10]   items-center  ">
+            <h1 className="text-2xl m-auto font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+            ನಮ್ಮ ಪ್ರಮಾಣಪತ್ರಗಳು
+            </h1>
+          </div>
+
+          <div
+            className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${
+              certificateRunning ? 'marquee-sponser' : ''
+            }   `}>
             <Swiper
-              effect={'coverflow'}
-              grabCursor={true}
-              centeredSlides={true}
-              coverflowEffect={{
-                rotate: 30,
-                stretch: 0,
-                depth: 200,
-                modifier: 1,
-                slideShadows: false
-              }}
-              modules={[Navigation, Pagination, Scrollbar,Autoplay, A11y, EffectCoverflow]}
+              watchSlidesProgress={true}
+              slidesPerView={3}
               autoplay={{
-                delay: 3000,
+                delay: 2500,
                 disableOnInteraction: false
               }}
-              spaceBetween={40}
-              slidesPerView={previewCount}
-              navigation={true}
-              controller={true}
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              slide
-            
-              loop={true}
-              className={`max-w-7xl  `}>
-              {cardDetails?.map((card, id) => {
+              modules={[FreeMode, Autoplay]}
+              className="max-w-7xl m-auto">
+              {certificate?.map((item, idx) => {
                 return (
-                  <SwiperSlide className="swiper-sldier-card lg:p-10" key={id}>
-                    <Card
-                      imgUrl={card?.attributes?.image?.data?.attributes?.url}
-                      title={card?.attributes?.title}
-                      link={card?.attributes?.link}
-                    />
+                  <SwiperSlide key={idx}>
+                    <div className="w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg ">
+                      <img
+                        src={item?.attributes?.url}
+                        className=" w-full h-full object-contain rounded-md inline-block"
+                      />
+                    </div>
                   </SwiperSlide>
                 );
               })}
             </Swiper>
           </div>
         </div>
-
-        {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
-      </section>
-
-      <ParallaxBanner
-        layers={[
-          { image: "/images/home-about.png", speed: -20 },
-          {
-            speed: -15,
-            children: (
-<h></h>
-            ),
-          },
-           
-        ]}
-        className="  w-full h-[600px]   object-contain "
-      >
-              <section className="w-full h-auto p-5     pt-12">
-
- 
-  <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
-    <div className='w-full h-full justify-center items-center flex  '>
-    <div
-      className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಕಹಾಮ ಬಗ್ಗೆ
-</h1>
-
-      <div className="space-y-6">
-        <TypeWriter text={homeAboutDetails[0]?.about1 || ''} delay={70} />
       </div>
-    </div>
+    </section>
 
-    <div
-      className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-      <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ
-</h1>
-
-      <div className="space-y-6 h-[">
-        <TypeWriter text={homeAboutDetails[0]?.about2 || ''} delay={70} />
-      </div>
-
-    
-    </div>
-    </div>
-    
-    
-      <Link
-        href="/en/about/company-profile"
-        className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
-       ಮತ್ತಷ್ಟು ಓದು
-      </Link>
-   
-  
-   
+    {/* FOOTER SECTION  */}
+    <Footer />
   </div>
-
- 
- 
- 
-
-</section>
-
-       
-      </ParallaxBanner>
-
-      {/* QUICK LINK  */}
-
-      <section className=" relative w-full h-auto pt-5 pb-5 bg-primary-subtle  ">
-        <video
-          src="/video/vid.webm"
-          autoPlay
-          muted
-          loop
-          className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
-        />
-        <div className="w-full flex flex-col justify-center items-center">
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h1>
-             
-          </div>
-
-          <div className="  w-full h-auto  relative   ">
-            <Fade bottom>
-              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
-                <Link href="/en/comingsoon">
-                  <LinkCard title="ಬೇಡಿಕೆಯನ್ನು ಸಲ್ಲಿಸಿ" imgUrl={cartIco.src} />
-                </Link>
-
-                <Link href="/en/comingsoon">
-                  <LinkCard title="ಡೈರಿ ಪ್ರವಾಸ" imgUrl={locationIco.src} />
-                </Link>
-                <Link href="/kn/404">
-                  <LinkCard title="ನಂದಿನಿ ಕಮರ್ಷಿಯಲ್ಸ್" imgUrl={commercialIco.src} />
-                </Link>
-              </div>
-            </Fade>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full     h-auto relative  bg-curved ">
-        <div>
-          <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
-            <Fade left>
-              <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
-                <img src={milkglassImg.src} className="w-full h-full" />
-              </div>
-            </Fade>
-            <div className="flex flex-col justify-center pt-10 space-y-10 items-center">
-              <div
-                className={`flex relative w-full justify-center items-center flex-col space-y-7 pt-6 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white ">ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ</h1>
-
-                <div className="space-y-6">
-                  <p className="text-justify  font-heading text-white">
-                  ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದೆ, ಅದರ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅಂಶಕ್ಕಾಗಿ ವ್ಯಾಪಕವಾಗಿ ಸೇವಿಸಲಾಗುತ್ತದೆ
-                    ಮೂಳೆ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದೆ,
-                    ಒಟ್ಟಾರೆ ಯೋಗಕ್ಷೇಮಕ್ಕೆ ಕೊಡುಗೆ ನೀಡುತ್ತದೆ. ವೈವಿಧ್ಯಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ಸೇರಿದೆ, ಹೆಸರುವಾಸಿಯಾಗಿದೆ
-                    ಅದರ ವ್ಯಾಪಕ ಲಭ್ಯತೆ, ಮತ್ತು ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯಗಳು
-                    ಆಹಾರದ ಆದ್ಯತೆಗಳು ಅಥವಾ ಲ್ಯಾಕ್ಟೋಸ್ ಅಸಹಿಷ್ಣುತೆಯೊಂದಿಗೆ. ಹಾಲಿನ ಬಹುಮುಖತೆಯು ವಿಸ್ತರಿಸುತ್ತದೆ
-                    ಪಾಕಶಾಲೆಯ ಬಳಕೆಗಳಿಗೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಪಾಕವಿಧಾನಗಳಲ್ಲಿ ಪ್ರಮುಖವಾಗಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ
-                    ಖಾರದ ಭಕ್ಷ್ಯಗಳು, ವಿವಿಧ ಅದರ ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ
-                    ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳು.
-                  </p>
-                </div>
-              </div>
-
-              <KnmModel
-          closeModal={isModalOpen}
-         kymMilk={knowMilkItem}
-          close={setIsModalOpen}
-          
-               />
-              <div className=" w-full flex flex-wrap z-[10]  justify-center  p-2 gap-5 items-center md:justify-between">
-              {knowMilk?.map((item,idx)=>{
-                  
-                   return(
-                     <div key={idx} onClick={()=>handleKnowMilk(item)} className="flex w-40  flex-col justify-center items-center space-y-4">
-                     <img src={item?.attributes?.image?.data[0].attributes?.url} alt="imp-milk" />
-                     <p className="text-white  text-center font-heading">
-                       {item?.attributes?.title}
-                     </p>
-                   </div>
-                   )
-                 })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full h-auto relative  bg-primary-subtle    ">
-        <div className=" p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-          <div className="flex w-full   flex-col justify-center items-center  space-y-3  ">
-            <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಅಧಿಸೂಚನೆ</h1>
-
-           
-          </div>
-
-          <div className="w-full flex flex-col justify-around space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-5 lg:items-start ">
-            <div className=" relative w-full overflow-scroll flex flex-col     max-w-[400px]    ">
-             
-              
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden  justify-center h-[425px] items-center rounded-lg border-b-2 border-primary-main  ">
-                <div className='w-full h-[90px] shadow-black  shadow-md bg-white   z-30'>
-                  <h1 className='p-5 bg-primary-gradient text-white  uppercase text-center'>ಟೆಂಡರ್ ಅಧಿಸೂಚನೆಗಳು</h1>
-                </div>
-                <div className="w-full h-[375px] p-4 marquee   flex flex-col    ">
-                  {allTenders?.map((item, id) => {
-                    return (
-                      <div key={id} className="bg-white border m-2 p-2 text-xs flex justify-center  items-center space-x-2 rounded w-full ">
-                      <FaRegHandPointRight size={20} color='red' /> 
-                      <p className='w-full'> {item?.attributes?.title}</p>
-                     
-                    </div>
-                    );
-                  })}
-                </div>
-           
-              </div>
-
-
-               
-
-              <div className='w-full flex justify-end mt-3 rounded-md'>
-            
-            <Link href={'/kn/blog/notification'} className='  p-2 bg-primary-main text-white '>Read more</Link>
-            </div>
-            </div>
-
-            <div className=" relative w-full overflow-scroll  flex flex-col justify-center items-start  space-y-5 sm:max-w-[500px] md:max-w-[600px] lg:max-w-[800px]    ">
-              <div className="w-full flex flex-col shadow-md bg-white overflow-hidden space-y-4 justify-center items-center  h-[430px] p-5 rounded-lg border-b-2 border-primary-main  ">
-                <h1 className="text-4xl uppercase font-heading shadow-md shadow-black bg-primary-gradient text-white">ಹೊಸ ಆಗಮನಗಳು ಮತ್ತು ಅತ್ಯುತ್ತಮ ಮಾರಾಟ</h1>
-
-                <div className="w-full marquee-notification h-full flex  space-x-3 ">
-                  {newArrivals?.map((item, id) => {
-                    return (
-                      <ArrivalCard
-                        key={id}
-                        title={item?.attributes?.title}
-                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-
-               
-
-            
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full h-auto    ">
-        <div className=" p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-          <div className="flex  flex-col justify-center items-center  space-y-3 md:items-start">
-            <div className="flex justify-center flex-wrap   items-end  ">
-              <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">ಇತ್ತೀಚಿನ ಸುದ್ದಿ</h1>
-            </div>
-            
-          </div>
-
-          <div className=" relative w-full flex justify-evenly items-center gap-5   flex-wrap">
-          <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
-            <iframe  height="315" src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-            className="w-full sm:w-[540px]"></iframe>
-            </div>
-       
-            <div className="p-4  max-w-2xl flex justify-center items-center h-96    ">
-            <iframe   height="315" src="https://www.youtube.com/embed/L0yXRCdIF-M?si=eMZep5m-dhjEodgH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" className="w-full sm:w-[540px] allowfullscreen"></iframe>
-            </div>
-          </div>
-
-          <div className="w-full flex justify-center  space-x-5">
-            <Link href={'/en/blog'}>
-              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker     ">
-               
-ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡು
-              </button>
-            </Link>
-
-            <Link href={'/en/contact'}>
-              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker     ">
-              ಸಂಪರ್ಕದಲ್ಲಿರಲು
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-
-
-      <section className="w-full h-auto  relative          ">
-        <div className="  w-full h-full overflow-hidden  md:items-start m-auto">
-          <div className="   h-full    justify-between items-center    ">
-            <div className="     w-full flex   justify-center p-10 z-[10]   items-center  ">
-              
-              <h1 className="text-2xl flex justify-center items-center font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient  text-white">ನಮ್ಮ  ಪ್ರಮಾಣಪತ್ರಗಳು</h1>
-            </div>
-           
-
-            <div className={` w-full max-w-[2xl]  mb-5   flex justify-center  space-x-7 ${certificateRunning?'':''}   `} onMouseEnter={()=>setCertificateRunning(true)} onMouseLeave={()=>setCertificateRunning(false)} >
-            <Swiper
-             slidesPerView={3}
-              freeMode={true}
-              centeredSlides={true}
-              
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false
-              }}
-              modules={[FreeMode, Autoplay]}
-              className="max-w-5xl m-auto">
-             {certificate?.map((item,idx)=>{
-                    return(
-                      <SwiperSlide key={idx}>
-                        <div   className='w-72 h-40 bg-white border-orange-500-500 p-2 border-orange-400   border-8 rounded-lg '>
-                        <img  src={item?.attributes?.url} className=' w-full h-full object-contain rounded-md inline-block'/>
-                        </div>
-                        </SwiperSlide>
-                    )
-
-                  })}
-            </Swiper>
-          </div>
-          </div>
-                
-       
-        </div>
-      </section>
-
-      {/* FOOTER SECTION  */}
-      <Footer />
-    </div>
   );
 };
 

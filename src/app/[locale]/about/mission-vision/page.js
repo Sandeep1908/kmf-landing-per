@@ -18,35 +18,49 @@ function MissionVission() {
       const { data } = await axios.get('/api/mission-vissions');
 
       setPurpose(data.data[0]);
-      console.log(data.data[0]);
+       
     })();
   }, []);
 
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
-        {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-         */}
-        <video
-          src={purpose?.attributes?.bannervideo?.data?.attributes?.url}
-          muted
-          autoPlay
-          loop
-          playsInline
-          className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
-            isScroll ? 'h-[400px]' : ''
-          } `}
-        />
-      </section>
+      
+      {purpose?.attributes?.bannervideo ?
+       <section className={`w-full h-[600px] pt-28 relative  grid place-items-center `}>
+       {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+        */}
+       
+       <video
+         src={purpose?.attributes?.bannervideo?.data?.attributes?.url || ''}
+         muted
+         autoPlay
+         loop
+         controls
+         playsInline
+         className={`w-full  h-full    object-cover absolute top-0   ${
+           isScroll ? 'h-[400px]' : ''
+         } `}
+       />
+     </section>:
+      <section className={`w-full h-[500px] pt-28 relative  grid place-items-center `}>
+      {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
+       */}
+      
+      <img
+        src={purpose?.attributes?.banner?.data?.[0]?.attributes?.url || ''}
+        
+        className={`w-full  h-full    object-fill absolute top-0 z-[-1] ${
+          isScroll ? 'h-[400px]' : ''
+        } `}
+      />
+    </section>
+      }
 
       <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
             <div className="mb-20   relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute z-[-1] w-[500px] top-[-60px]    object-contain"
-              />
+             
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
                 {locale === 'en' ? 'Vission & Mission' : 'ಘನೋದ್ದೇಶ  ಮತ್ತು  ಧ್ಯೇಯದೃಷ್ಟಿ'}
               </h1>
@@ -77,10 +91,7 @@ function MissionVission() {
 
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
             <div className="mb-20   relative w-full  flex justify-center items-center ">
-              <img
-                src="/images/heading/heading-primary.svg"
-                className="absolute z-[-1] w-[500px] top-[-60px]    object-contain"
-              />
+             
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
                 {locale === 'en'
                   ? ` Objectives`
