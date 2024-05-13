@@ -39,6 +39,10 @@ import spon7 from '@/images/sponsored/7.jpg';
 import spon8 from '@/images/sponsored/8.jpg';
 import spon9 from '@/images/sponsored/9.jpg';
 import spon10 from '@/images/sponsored/10.png';
+import { IoMenu } from "react-icons/io5";
+import { GrClose } from "react-icons/gr";
+
+
 
 import './style.css';
 // Import Swiper styles
@@ -57,6 +61,7 @@ import { useMyContext } from '@/context/headerContext';
 import { useParams } from 'next/navigation';
 
 function Portfolio() {
+
   const [achievments, setAchievments] = useState([]);
   const [slideView, setSlideView] = useState(3);
   const axios = useApi();
@@ -176,10 +181,73 @@ function Portfolio() {
     window.addEventListener('resize', handleSlideView);
     return () => window.removeEventListener('resize', handleSlideView);
   }, []);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    console.log("sjdkjksjas")
+    setIsOpen(!isOpen);
+  };
+
  
   return (
     <div
-      className={`w-full h-full absolute   z-[-1]  ${isScroll?'top-48':''}`}>
+      className={`w-full h-full absolute  transition-all duration-700  z-[-1]  ${isScroll?'top-48':''}`}>
+  {/* <div className="w-full h-screen relative bg-slate-50 z-[-10] ">
+  <div className=" absolute z-50 top-8 right-40">
+    <p id="openMenu" onClick={toggleNavbar} className={`text-white relative z-[100] ${isOpen ? 'hidden' : ''}`}>
+      <IoMenu size={50} />
+    </p>
+  </div>
+  <div
+    id="imageDiv"
+    className={`transition-all duration-700 ${isOpen ? 'absolute w-full z-[-1] p-3 left-[-38%] h-[80%] top-[10%] overflow-hidden' : 'absolute w-full h-full z-[-1]'}`}
+  >
+    <div className=" relative w-full h-full">
+      <section className={`w-full h-full relative`}>
+        <Swiper
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false
+          }}
+          direction={'vertical'}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination, Autoplay, FreeMode]}
+          className="h-full"
+        >
+          {banners?.map((item, id) => {
+            return (
+              <SwiperSlide key={id}>
+                <img src={item?.attributes?.banner?.data?.attributes?.url} alt="" className="w-full h-full" />
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+      </section>
+      <p
+        id="openMenu"
+        onClick={toggleNavbar}
+        className={`text-3xl text-white absolute top-[50%] right-0 z-[100000] ${isOpen ? '' : 'hidden'}`}
+      >
+        <GrClose size={50} />
+      </p>
+    </div>
+  </div>
+  <div className="transition-all duration-700 absolute w-[38%] top-0 right-0 h-full bg-white z-[-2] shadow-xl">
+    <div className="w-full h-full flex items-center">
+      <div className="w-full flex flex-col justify-between items-start h-96 pl-12">
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">HISTORY OF MILK</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">BRAND AMBASSADOR</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">KMF ACHIEVEMENTS</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">SPONSORED</h1>
+      </div>
+    </div>
+  </div>
+</div> */}
+
+
       <section className={`w-full  h-[700px] relative  `}>
       <Swiper
       autoplay={{
@@ -210,13 +278,7 @@ function Portfolio() {
 
       </Swiper>
 
-        {/* <video
-          autoPlay
-          muted
-          loop
-          controls
-          className="w-full h-full"
-          src="/video/portfolio.mp4"></video> */}
+    
       </section>
 
       <section id='history-milk' className="w-full h-auto mt-10">

@@ -79,6 +79,55 @@ const BrandAmbassador = () => {
   },[])
 
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const tabs = [
+    {
+      tabName: "Dr. Puneeth Rajkumar",
+      data: ""
+    },
+    {
+      tabName: "Dr. Rajkumar",
+      data: ""
+    },
+    {
+      tabName: "Dr. Shivarajkumar",
+      data: ""
+    },
+    {
+      tabName: "Shri. Upendra Rao",
+      data: ""
+    },
+    
+  ];
+  const handleTabs = (idx) => {
+    setCurrentIndex(idx);
+  };
+
+
+  const bandImage=[
+    {
+      url:rajkumar1.src
+    },
+    {
+      url:rajkumar2.src
+    },
+    {
+      url:rajkumar3.src
+    },
+    {
+      url:rajkumar4.src
+    },
+    {
+      url:rajkumar5.src
+    },
+    {
+      url:rajkumar6.src
+    },
+    
+  ]
+
+
 
 
   return (<>
@@ -86,7 +135,7 @@ const BrandAmbassador = () => {
        
       <section id='AMBASSADOR' className='relative w-full h-auto '>
         <div className='absolute w-full h-full'>
-         <img className='w-full h-full'  src={brand.src} alt="" />
+         {/* <img className='w-full h-full'  src={brand.src} alt="" /> */}
         </div>
       <Carousels
        className='w-full '
@@ -102,8 +151,10 @@ const BrandAmbassador = () => {
             return(
               <div key={id} className='relative w-full h-[500px] md:h-[750px] '>
 
-              <div className='absolute w-full h-full top-0 left-0  opacity-50 z-[-10]'></div>
-              {/* <div className='absolute w-full h-full top-0 left-0  opacity-80 z-[-1]'> <img className='' src={KRISHNAPPA.src} alt="" /></div> */}
+              <div className='absolute w-full h-full top-0 left-0  bg-black opacity-50 z-[-1]'></div>
+              <div className='absolute w-full h-full top-0 left-0   z-[-10]'>
+                 <img className='w-full h-full object-cover' src={item?.attributes?.image?.data?.[0]?.attributes?.url} alt="" />
+                 </div>
     
               <div className='w-full h-full flex flex-col justify-center items-center  '>
               <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
@@ -137,117 +188,7 @@ const BrandAmbassador = () => {
         
       </section>
 
-      {/* <section className='relative w-full h-auto bg-[#2858ac]'>
-          <div className='max-w-6xl  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
-         
-            <div className='max-w-96 w-full h-96 pt-2 pb-2 '>
-                <div className='w-full h-full bg-[#3b75d8] shadow-xl flex justify-center items-center'>
-
-
-                <VideoComponent onClick={openLightbox} />
-             {lightboxOpen && <Lightbox videoUrl={videoUrl} onClose={closeLightbox} />}
-
-
-                </div>
-            </div>
-            <div className='max-w-4xl w-full h-96 '>
-            <Swiper
-             slidesPerView={slideView}
-              freeMode={true}
-           
-              
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false
-              }}
-              modules={[FreeMode, Autoplay]}
-              className="max-w-7xl m-auto">
-
-                 
-                      <SwiperSlide className='' >
-                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar1.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar1.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>
-                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar2.src} height="400px"  >
-                          <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={rajkumar2.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>
-                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center  w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar3.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar3.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2'>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar4.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar4.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2'>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar5.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar5.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2'>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar6.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar6.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                     <Link href={`/${locale}/blog/gallery`}><div className='flex justify-center items-center   w-full h-96 p-2 '>
-                        <div className='w-full h-full flex justify-center items-center bg-slate-200'>
-
-                        <h1 className='text-3xl text-primary-main'>See More..</h1>
-                        </div>
-                </div></Link> 
-                        </SwiperSlide>
-
-                  
-                
-            </Swiper>
-            </div>
-
-          </div>
-      </section> */}
+   
 
       <section className='relative w-full h-auto bg-[#2858ac] pt-10 pb-10'>
     
@@ -283,75 +224,24 @@ const BrandAmbassador = () => {
               modules={[FreeMode, Autoplay]}
               className="max-w-7xl m-auto">
 
-                 
-                       <SwiperSlide className='' >
-                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar1.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar1.src} alt="" />
-                          </PhotoView>
-                      
+                 {bandImage.map((item,id)=>{
+                  console.log(bandImage)
+                  return(
+                    <SwiperSlide key={id} className='' >
+                    <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                    <PhotoProvider >
+                        
+                        <PhotoView src={item.url} height="400px"  >
+                        <img className=' cursor-pointer m-auto w-full h-full object-cover' src={item.url} alt="" />
+                        </PhotoView>
                     
-                    </PhotoProvider>
-                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar2.src} height="400px"  >
-                          <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={rajkumar2.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>
-                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center  w-full h-96 p-2 '>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar3.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar3.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide> 
-                        <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2'>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar4.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar4.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2'>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar5.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar5.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
-                      <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2'>
-                      <PhotoProvider >
-                          
-                          <PhotoView src={rajkumar6.src} height="400px"  >
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={rajkumar6.src} alt="" />
-                          </PhotoView>
-                      
-                    
-                    </PhotoProvider>                </div>
-                        </SwiperSlide>
+                  
+                  </PhotoProvider>
+              </div>
+                      </SwiperSlide>
+                  )
+                 })}
+                     
                       <SwiperSlide>
                      <Link href={`/${locale}/blog/gallery`}><div className='flex justify-center items-center   w-full h-96 p-2 '>
                         <div className='w-full h-full flex justify-center items-center bg-slate-200'>
@@ -366,6 +256,81 @@ const BrandAmbassador = () => {
 
           </div>
       </section>
+
+
+
+
+      {/* <section className="max-w-[1282px]  m-auto grid grid-cols-3 gap-5   p-2 ">
+    <div
+      className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl  bg-white  shadow-sm"
+      >
+      <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
+
+      
+      <div className="w-full h-full flex flex-col justify-center items-center pt-10 mt-10 space-y-5 lg:items-start">
+      <div className="  relative w-full  flex justify-center items-center ">
+            
+              <h1 className=" text-primary-main relative max-w-[400px] m-auto text-center z-10 font-heading text-2xl font-extrabold uppercase">
+              Dr. Puneeth Rajkumar
+              </h1>
+            </div>
+
+ 
+ 
+<div className=" w-full h-full ">
+
+      
+      
+            <div className="">
+            <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
+
+            {bandImage.map((item,id)=>{
+                  console.log(bandImage)
+                  return(
+
+                    <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                    <PhotoProvider >
+                        
+                        <PhotoView src={item.url} height="400px"  >
+                        <img className=' cursor-pointer m-auto w-full h-full object-cover' src={item.url} alt="" />
+                        </PhotoView>
+                    
+                  
+                  </PhotoProvider>
+              </div>
+                  )
+                 })}
+            
+
+         
+            </div>
+  
+          <p className="text-xl font-josefin  text-justify">
+          
+          </p>
+    
+</div>
+</div>
+      </div>
+    </div>
+
+
+    <div className="w-full h-fit flex flex-col  shadow-md bg-white p-2 mt-10   justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+            <div className='w-full    shadow-md bg-white  '>
+              <h1 className='p-5 text-2xl'>Brand Ambassador</h1>
+            </div>
+            
+            {brandAmbassador?.map((item, id) => {
+                return (
+                  <p onClick={() => handleTabs(id)}  className={`${
+                    currentIndex === id ? ' bg-primary-main text-white  ' : ''
+                  } border m-1 p-1 text-lg rounded w-full  text-black`}>
+                  {item?.attributes?.name}
+                  </p>
+                );
+              })}
+          </div>
+  </section> */}
 
     </div>
 <Footer/>
