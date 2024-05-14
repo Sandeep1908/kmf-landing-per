@@ -11,6 +11,16 @@ import uparrowIco from '@/images/icons/uparrow.svg';
 
 import { useParams } from 'next/navigation';
 import TvcommercialAccordion from '@/components/TvcommercialAccordion';
+import { SwiperSlide,Swiper } from 'swiper/react';
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  EffectCoverflow,
+  Autoplay,
+  FreeMode
+} from 'swiper/modules';
 
 function Tvcommercial() {
   const [brandAmbassador, setBrandAmbassador] = useState([]);
@@ -47,7 +57,7 @@ function Tvcommercial() {
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
-      <section className="max-w-7xl h-fit m-auto pt-10   ">
+      <section className="max-w-[1500px] h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
           <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
             <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
@@ -90,53 +100,78 @@ function Tvcommercial() {
           </div>
         </div>
 
-        <div className="w-full h-auto bg-[#F6F6F6] ">
-          <section className="max-w-[1282px] w-full h-full bg-white   ">
-            <div className="w-full h-full flex flex-col space-x-5 justify-between items-start lg:flex-row lg:justify-start">
+        <div className="w-full h-auto bg-[#F6F6F6] mt-10 ">
+          <section className=" w-full h-full bg-white   ">
+            <div className="w-full h-full flex flex-col space-x-5 justify-center items-start lg:flex-row  ">
               <div className="w-full h-full flex flex-col space-y-28   ">
                 <div className="w-full h-full">
-                  <h1 className="text-2xl text-primary-main  ">Images</h1>
-                  <div className="w-full h-full  grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3     gap-5 lg:flex-row lg:items-start">
-                    {brandAmbassador?.map((items) => {
+             
+                  
+                  <Swiper
+              effect={'coverflow'}
+         
+              centeredSlides={true}
+              coverflowEffect={{
+                rotate: 30,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: false
+              }}
+              
+              modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+              spaceBetween={80}
+              slidesPerView={2}
+              navigation={true}
+             
+              controller={true}
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+              slide
+              loopedSlides={1}
+              loop={true}
+              className={`max-w-[1100px] m-auto    `}>
+
+{brandAmbassador?.map((items) => {
                       return items.attributes.assets?.data?.map((item, id) => {
                         const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
                         if (validExtensions.includes(item?.attributes?.ext)) {
                           return (
+                            <SwiperSlide className="swiper-sldier-card w-full lg:p-10" key={id}>
                             <img
                               key={id}
                               src={item?.attributes?.url}
                               className="w-96 h-80    transition-all duration-300 hover:scale-[1.1]"
                             />
+                          </SwiperSlide>
+                           
                           );
                         }
-                      });
-                    })}
-                  </div>
-                </div>
-
-                <div className="w-full h-full">
-                  <h1 className="text-2xl text-primary-main ">Videos</h1>
-                  <div className="w-full h-full  grid grid-cols-1 place-items-center sm:grid-cols-2 place-item-center     gap-5 lg:flex-row lg:items-start">
-                    {brandAmbassador?.map((items) => {
-                      return items.attributes.assets?.data?.map((item, id) => {
-                        const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
-                        if (!validExtensions.includes(item?.attributes?.ext)) {
+                        else{
                           return (
-                            <video
-                              autoPlay
+                            <SwiperSlide className="swiper-sldier-card w-full lg:p-10" key={id} >
+  <video
+                              
                               controls
                               loop
                               muted
                               key={id}
                               src={item?.attributes?.url}
-                              className="w-100   h-96  object-fill     transition-all duration-300 hover:scale-[1.1]"
+                              className="max-w-[380px]   h-96  object-fill     transition-all duration-300 hover:scale-[1.1]"
                             />
+                            </SwiperSlide>
+                          
                           );
                         }
                       });
                     })}
+               
+            </Swiper>
+                   
                   </div>
-                </div>
+               
+
+               
               </div>
 
               <div className=" w-full max-w-80 h-full transition-all duration-300  ">

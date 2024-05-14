@@ -24,8 +24,8 @@ function MissionVission() {
 
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-      
-      {purpose?.attributes?.bannervideo ?
+    
+      {purpose?.attributes?.bannervideo?.data ?
        <section className={`w-full h-[600px] pt-28 relative  grid place-items-center `}>
        {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
         */}
@@ -41,33 +41,35 @@ function MissionVission() {
            isScroll ? 'h-[400px]' : ''
          } `}
        />
-     </section>:
-      <section className={`w-full h-[500px] pt-28 relative  grid place-items-center `}>
-      {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-       */}
+     </section>
+     :
+      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+       
       
       <img
         src={purpose?.attributes?.banner?.data?.[0]?.attributes?.url || ''}
         
         className={`w-full  h-full    object-fill absolute top-0 z-[-1] ${
-          isScroll ? 'h-[400px]' : ''
+          isScroll ? 'h-[500px]' : ''
         } `}
       />
     </section>
       }
 
+ 
       <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
             <div className="mb-20   relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
-                {locale === 'en' ? 'Vission & Mission' : 'ಘನೋದ್ದೇಶ  ಮತ್ತು  ಧ್ಯೇಯದೃಷ್ಟಿ'}
+                 
+                {purpose?.attributes?.missionandvissiontitle}
               </h1>
             </div>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center  list-disc text-justify text-lg  md:justify-normal md:items-start">
-              <h1 className="text-xl">{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vission'}</h1>
+              <h1 className="text-xl">{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vision'}</h1>
               {purpose?.attributes?.vission?.map((item, id) => {
                 return <li key={id}>{item?.children[0].text}</li>;
               })}
@@ -93,13 +95,7 @@ function MissionVission() {
             <div className="mb-20   relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
-                {locale === 'en'
-                  ? ` Objectives`
-                  : `
-                
-
-               
-                ಉದ್ದೇಶಗಳು`}{' '}
+              {purpose?.attributes?.objectivetitle}
               </h1>
             </div>
 
@@ -118,11 +114,7 @@ function MissionVission() {
             <div className="mb-20   relative w-full  flex justify-center items-center ">
       
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
-                {locale === 'en'
-                  ? `                    Evolution`
-                  : `
-        
-           ಸಂಸ್ಥೆಯ ವಿಕಸನ.`}
+              {purpose?.attributes?.evalutiontitle}
               </h1>
             </div>
 

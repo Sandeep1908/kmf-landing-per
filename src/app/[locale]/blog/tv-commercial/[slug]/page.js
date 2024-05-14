@@ -107,14 +107,14 @@ function TvcommercialDetails() {
           </div>
         </div>
 
-        <div className="w-full h-auto bg-[#F6F6F6] ">
+        <div className="w-full h-auto bg-[#F6F6F6] mt-10 ">
           <section className="max-w-[1282px] w-full h-full bg-white   ">
             <div className="w-full h-full flex flex-col space-x-5 justify-between items-start lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col space-y-28   ">
 
             <div className='w-full h-full'>
 
-            <h1 className='text-2xl text-primary-main  '>Images</h1>
+          
              <div className='w-full h-full  grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3     gap-5 lg:flex-row lg:items-start'>
  
              {assets?.map((items)=>{
@@ -131,6 +131,20 @@ function TvcommercialDetails() {
                       />
                     );
                 } 
+                else{
+                  return (
+                    <video
+                      
+                      controls
+                      loop
+                      muted
+                      key={id}
+                      src={item?.attributes?.url}
+                      className="w-96   h-96      transition-all duration-300 hover:scale-[1.1]"
+                    />
+             
+                  );
+                }
               })
             )
           })
@@ -143,36 +157,7 @@ function TvcommercialDetails() {
            
              </div>
             </div>
-
-<div className='w-full h-full'>
-<h1 className='text-2xl text-primary-main '>Videos</h1>
-             <div className='w-full h-full  grid grid-cols-1 place-items-center sm:grid-cols-2      gap-5 lg:flex-row lg:items-start'>
-
-             {assets?.map((items)=>{
-                  return(
-                    items.attributes.assets?.data?.map((item,id)=>{
-                      const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
-                      if (!validExtensions.includes(item?.attributes?.ext)) {
-                        return (
-                          <video
-                            autoPlay
-                            controls
-                            loop
-                            muted
-                            key={id}
-                            src={item?.attributes?.url}
-                            className="w-96   h-96      transition-all duration-300 hover:scale-[1.1]"
-                          />
-                   
-                        );
-                      } 
-                    })
-                  )
-                })
-                  
-              }
-             </div>
-</div>
+ 
 
 
              
