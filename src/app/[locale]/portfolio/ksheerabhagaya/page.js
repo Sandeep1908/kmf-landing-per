@@ -80,18 +80,18 @@ const axios = useApi();
       <section className='w-full h-full'>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
-            KMF ACHIEVEMENTS
+            {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </Link>
 
            
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={''}>
-               KSHEERABHAGAYA
+                {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'}
             </Link>
           </div>
       <div className=' relative w-full h-auto flex flex-col items-center justify-center mt-20'>
 
-        <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' > KSHEERABHAGAYA </h1>
+        <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' > {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
         <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
         <img className='absolute top-[-50px] left-[49%] w-40 ' src={titleBG.src} alt="" />
 </div>
@@ -112,17 +112,19 @@ const axios = useApi();
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-4xl text-center ' > KSHEERABHAGAYA </h1>
+                       <h1 className='text-primary-main text-2xl md:text-4xl text-center ' > {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
                  <div className='mt-6'>
                   <ul className=' text-sm md:text-lg lg:text-sm xl:text-xl list-disc text-left'>
                   <li>
-                  The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.
+                  {locale === 'en' ? 'The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.' : 'ರಾಜ್ಯ ದ ಶಾಲಾಮಕ್ಕ ಳುಹಾಗೂಅಂಗ್ನವಾಡಿ ಮಕ್ಕ ಳುU Àಳ ಆರೀಗ್ಯ ಕ್ರ ಬೆಳ಴ಣಿಗೆ ಮತ್ತು ಸ಴ವತೀಮುಖ ಅಭಿವೃದ್ಧಿ ಗೆ ಅಗ್ತ್ಯ ವಾದಪ್ರ ೀಟೀನ್ ಮತ್ತು ಕೊಬ್ಬಿ ನಂದ್ಧಗೆಪೌಷ್ಠಿ ಕಂವದ ಆಹಾರ಴ನ್ನು ಒದಗಿಸಲು ಕೆಎಂಎಫ್ ಸಹಯೀಗ್ದಂದ್ಧಗೆ ಕರ್ನಾಟಕ ಸರ್ಕಾರವು 1 ಆಗ್ಸ್ಟ್ 2013 ರಂದು ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯನ್ನು ಪ್ರರ ರಂಭಿಸಿತ್ತ.'}  
                   </li>
                   <li>
-                  Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.
+                  {locale === 'en' ? 'Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.' : 'ಕ್ಷೀರ ಭಾಗ್ಯ ಯೋಜನೆಯು ರಾಜ್ಯದ ಬಡ ಮಕ್ಕಳಿಗೆ ಮತ್ತು ಹಾಲು ಉತ್ಪಾದಕರಿಗೆ ಅವರ ಹೆಚ್ಚುವರಿ ಹಾಲನ್ನು ವಿಲೇವಾರಿ ಮಾಡಲು ಕರ್ನಾಟಕದ ಗೌರವಾನ್ವಿತ ಸಿಎಂ ಅವರ ಸಲಹೆಯ ಆಧಾರದ ಮೇಲೆ ಕೆಎಂಎಫ್ ಕಲ್ಪಿಸಿದ ಕನಸಿನ ಯೋಜನೆಯಾಗಿದೆ.'}  
+                  
                   </li>
                   <li>
-                  The Gist of Ksheera Bhagya Scheme is as follows:
+                  {locale === 'en' ? 'The Gist of Ksheera Bhagya Scheme is as follows:' : 'ಕ್ಷೀರ ಭಾಗ್ಯ ಯೋಜನೆಯ ಸಾರಾಂಶ ಹೀಗಿದೆ:'}  
+                  
                   </li>
                 
                   </ul>
@@ -136,14 +138,15 @@ const axios = useApi();
                
                  <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  KSHEERABHAGAYA </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
                  <div className=' mt-10'>
                   <ul className='list-disc text-left'>
                   <li>
-                  The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.
+                  {locale === 'en' ? 'The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.' : 'ರಾಜ್ಯ ದ ಶಾಲಾಮಕ್ಕ ಳುಹಾಗೂಅಂಗ್ನವಾಡಿ ಮಕ್ಕಳು Àಳ ಆರೀಗ್ಯ ಕ್ರ ಬೆಳ಴ಣಿಗೆ ಮತ್ತು ಸ಴ವತೀಮುಖ ಅಭಿವೃದ್ಧಿ ಗೆ ಅಗ್ತ್ಯ ವಾದಪ್ರ ೀಟೀನ್ ಮತ್ತು ಕೊಬ್ಬಿ ನಂದ್ಧಗೆಪೌಷ್ಠಿ ಕಂವದ ಆಹಾರ಴ನ್ನು ಒದಗಿಸಲು ಕೆಎಂಎಫ್ ಸಹಯೀಗ್ದಂದ್ಧಗೆ ಕರ್ನಾಟಕ ಸರ್ಕಾರವು 1 ಆಗ್ಸ್ಟ್ 2013 ರಂದು ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯನ್ನು ಪ್ರರ ರಂಭಿಸಿತ್ತ.'}  
                   </li>
                   <li>
-                  Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.
+                  
+                  {locale === 'en' ? 'Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.' : 'ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯುಹಾಲು ಉತ್ಪಾ ದಕ್ರಿಗೆ ಅ಴ರ ಹೆಚ್ಚು ಴ರಿಹಾಲನ್ನು ವಿಲೇವಾರಿಮಾಡಲು ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಗೌರವಾನ್ವಿ ತ್ ಸಿಎಂ ಅ಴ರ ಸಲಹೆಯಆಧಾರದಮೇಲೆ ಕೆಎಂಎಫ್ರೂಪಿಸಿದ ವಿನೂತ್ನಯೀಜ್ನೆಯಾಗಿದೆ.'}  
                   </li>
                   <li>
                   The Gist of Ksheera Bhagya Scheme is as follows:
@@ -245,7 +248,7 @@ const axios = useApi();
       <section className='relative w-full h-auto bg-[#2858ac]'>
       <div className='max-w-6xl  m-auto w-full justify-center items-center text-center  pt-20'>
                   <p className='text-2xl text-white'>
-                  The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.
+                  {locale === 'en' ? 'The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.' : 'ರಾಜ್ಯ ದ ಶಾಲಾಮಕ್ಕ ಳುಹಾಗೂಅಂಗ್ನವಾಡಿ ಮಕ್ಕಳು Àಳ ಆರೀಗ್ಯ ಕ್ರ ಬೆಳ಴ಣಿಗೆ ಮತ್ತು ಸ಴ವತೀಮುಖ ಅಭಿವೃದ್ಧಿ ಗೆ ಅಗ್ತ್ಯ ವಾದಪ್ರ ೀಟೀನ್ ಮತ್ತು ಕೊಬ್ಬಿ ನಂದ್ಧಗೆಪೌಷ್ಠಿ ಕಂವದ ಆಹಾರ಴ನ್ನು ಒದಗಿಸಲು ಕೆಎಂಎಫ್ ಸಹಯೀಗ್ದಂದ್ಧಗೆ ಕರ್ನಾಟಕ ಸರ್ಕಾರವು 1 ಆಗ್ಸ್ಟ್ 2013 ರಂದು ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯನ್ನು ಪ್ರರ ರಂಭಿಸಿತ್ತ.'}  
                   </p>
                 
                 

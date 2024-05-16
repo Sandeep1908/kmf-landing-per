@@ -157,7 +157,7 @@ const BrandAmbassador = () => {
                  </div>
     
               <div className='w-full h-full flex flex-col justify-center items-center  '>
-              <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>BRAND AMBASSADOR</h1>
+              <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>{locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1>
                  <div className='w-full h-auto mt-6 md:mt-20'>
                   <div className='max-w-[700px] m-auto'>
     
@@ -191,6 +191,13 @@ const BrandAmbassador = () => {
    
 
       <section className='relative w-full h-auto bg-[#2858ac] pt-10 pb-10'>
+
+        <div className='w-full h-full p-10'>
+            <h1 className='max-w-6xl m-auto text-white text-3xl text-center'>
+            <i> {locale === 'en' ? 'Karnataka Milk Federation appoints ambassadors from renowned Kannada artistes from time to time to increase the market reach of its products.' : 'ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳವು ತನ್ನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ ವ್ಯಾಪ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸಲು ಹೆಸರಾಂತ ಕನ್ನಡದ ಕಲಾವಿದರನ್ನು ರಾಯಭಾರಿಗಳಾಗಿ ನೇಮಕ ಮಾಡಿದೆ.'} </i>
+            
+            </h1>
+        </div>
     
           <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
          

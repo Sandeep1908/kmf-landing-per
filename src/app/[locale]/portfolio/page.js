@@ -41,6 +41,7 @@ import spon9 from '@/images/sponsored/9.jpg';
 import spon10 from '@/images/sponsored/10.png';
 import { IoMenu } from "react-icons/io5";
 import { GrClose } from "react-icons/gr";
+import { LuMouse } from "react-icons/lu";
 
 
 
@@ -111,32 +112,32 @@ function Portfolio() {
 
   const tabs = [
     {
-      tabName: 'KMF Sanjeevini',
+      tabName: locale === 'en' ? 'KMF Sanjeevini' : 'ಕಹಾಮ ಬಗ್ಗೆ',
       link: `/${locale}/women-empowerment?id=9`
     },
     {
-      tabName: 'KsheeraBhagya',
+      tabName: locale === 'en' ? 'KsheeraBhagya' : 'ಕ್ಷೀರ ಭಾಗ್ಯ',
       link: `/${locale}/portfolio/ksheerabhagaya`
     },
     {
-      tabName: 'KsheeraDhare',
+      tabName: locale === 'en' ?  'KsheeraDhare' : 'ಕ್ಷೀರಧಾರೆ',
       link: `/${locale}/portfolio/ksheeradhare`
     },
 
     {
-      tabName: 'Schemes',
+      tabName:  locale === 'en' ?  'Schemes' : 'ಯೋಜನೆಗಳು',
       link: `/${locale}/animal-husbandery/scheme`
     },
     {
-      tabName: 'Awards',
+      tabName: locale === 'en' ?   'Awards' : 'ಪ್ರಶಸ್ತಿಗಳು',
       link: `/${locale}/portfolio/awards`
     },
     {
-      tabName: 'Sex Sorted Semen',
+      tabName:  locale === 'en' ?  'Sex Sorted Semen' : 'ಲಿಂಗ ವಿಂಗಡಿಸಲಾದ ವೀರ್ಯ',
       link: `/${locale}/animal-husbandery/animal-breeding`
     },
     {
-      tabName: 'Marketing',
+      tabName: locale === 'en' ?   'Marketing' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ',
       link: `/${locale}/portfolio/marketing`
     }
   ];
@@ -184,16 +185,20 @@ function Portfolio() {
  
   return (
     <div
-      className={`w-full h-full absolute  transition-all duration-700  z-[-1]  ${isScroll?'top-48':''}`}>
-  {/* <div className="w-full h-screen relative bg-slate-50 z-[-10] ">
+      className={`w-full h-full absolute  transition-all duration-700  z-[-1] overflow-x-hidden scroll-smooth  ${isScroll?'top-48':''}`}>
+  <div className="w-full h-screen relative bg-slate-50 z-[-10] ">
   <div className=" absolute z-50 top-8 right-40">
     <p id="openMenu" onClick={toggleNavbar} className={`text-white relative z-[100] ${isOpen ? 'hidden' : ''}`}>
       <IoMenu size={50} />
+     
     </p>
+  </div>
+  <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden':''} `}>
+  <a href="#history-milk"><LuMouse  className='' size={40} /></a>
   </div>
   <div
     id="imageDiv"
-    className={`transition-all duration-700 ${isOpen ? 'absolute w-full z-[-1] p-3 left-[-38%] h-[80%] top-[10%] overflow-hidden' : 'absolute w-full h-full z-[-1]'}`}
+    className={`transition-all duration-700 scroll-smooth ${isOpen ? 'absolute w-full z-[-1] p-3 left-[-38%] h-[80%] top-[10%] overflow-hidden' : 'absolute w-full h-full z-[-1]'}`}
   >
     <div className=" relative w-full h-full">
       <section className={`w-full h-full relative`}>
@@ -218,29 +223,34 @@ function Portfolio() {
           })}
         </Swiper>
       </section>
-      <p
-        id="openMenu"
-        onClick={toggleNavbar}
-        className={`text-3xl text-white absolute top-[50%] right-0 z-[100000] ${isOpen ? '' : 'hidden'}`}
-      >
-        <GrClose size={50} />
-      </p>
+     
     </div>
   </div>
-  <div className="transition-all duration-700 absolute w-[38%] top-0 right-0 h-full bg-white z-[-2] shadow-xl">
+  <div className={`transition-all duration-1000 scroll-smooth absolute w-[38%] top-0 h-full  z-[1000] shadow-xl bg-white ${isOpen ? '  right-0' : ' right-[-700px]'}`}>
+   <div className={` bg-zinc-800 rounded-full p-3 absolute top-[50%] left-[-40px] z-[100000] shadow-2xl  ${isOpen ? '' : 'hidden'}`}>
+   <p
+        id="openMenu"
+        onClick={toggleNavbar}
+        className="text-3xl text-white"
+      >
+        <GrClose size={40} />
+      </p>
+   </div>
+ 
+
     <div className="w-full h-full flex items-center">
       <div className="w-full flex flex-col justify-between items-start h-96 pl-12">
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">HISTORY OF MILK</h1>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">BRAND AMBASSADOR</h1>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">KMF ACHIEVEMENTS</h1>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">SPONSORED</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">{locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}</h1>
       </div>
     </div>
   </div>
-</div> */}
+</div>
 
 
-      <section className={`w-full  h-[700px] relative  `}>
+      {/* <section className={`w-full  h-[700px] relative  `}>
       <Swiper
       autoplay={{
         delay: 2500,
@@ -271,29 +281,28 @@ function Portfolio() {
       </Swiper>
 
     
-      </section>
+      </section> */}
 
       <section id='history-milk' className="w-full h-auto mt-10">
         <div className=" w-full flex flex-col items-center justify-center lg:mt-20 p-3">
           <h1 className="text-primary-main text-2xl md:text-5xl " style={{ fontFamily: 'cursive' }}>
             {' '}
-            <i> HISTORY OF MILK </i>
+            <i>       {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}   </i>
           </h1>
           <div className="mt-0 md:mt-4 text-center mr-auto ml-auto">
             <p className="text-3xl md:text-6xl font-bold">
-              LETS BEGIN THE <br />
-              JOURNEY OF MILK
+            {locale==='en'?'LETS BEGIN THE':'ಹಾಲು - ನಡೆದು'}
+            <br />
+            {locale==='en'?'JOURNEY OF MILK':' ಬಂದ ದಾರಿ'}
+       
             </p>
 
             <p className="text-lg md:text-2xl  mt-6 md:mt-16 max-w-[850px] text-center">
-              The history of milk is a fascinating journey that intertwines with the evolution of
-              human civilization and the domestication of animals. As early humans transitioned from
-              a nomadic lifestyle to settled agricultural communities, the realization that certain
-              animals could provide a steady supply of milk marked a pivotal moment.
+            {locale==='en'?'The history of milk is a fascinating journey that intertwines with the evolution of human civilization and the domestication of animals. As early humans transitioned from a nomadic lifestyle to settled agricultural communities, the realization that certain animals could provide a steady supply of milk marked a pivotal moment.':'ಹಾಲಿನ ಪ್ರಾಚೀನತೆಯು ಹಾಗೂ ಇತಿಹಾಸವು ಮಾನವನ ವಿಕಾಸ , ನಾಗರಿಕತೆ ಮತ್ತು ಪ್ರಾಣಿಗಳನ್ನು ಪಳಗಿಸಿ  ಸಾಕಾಣಿಕೆಯೊಂದಿಗೆ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ಆದಿ ಮಾನವರು ಅಲೆಮಾರಿ ಜೀವನಶೈಲಿಯಿಂದ ಸ್ಥಿರ ನೆಲೆಸಿದ ಕೃಷಿ ಸಮುದಾಯಗಳಿಗೆ ಪರಿವರ್ತನೆಯಾದಾಗ, ಕೆಲವು ಪ್ರಾಣಿಗಳು ಹಾಲಿನ ಸ್ಥಿರ ಪೂರೈಕೆಯನ್ನು ಒದಗಿಸಬಹುದು ಎಂಬ ಅರಿವು ಪ್ರಮುಖವಾದುದು'}  
             </p>
             
             <Link href={`/${locale}/portfolio/historyofmilk`}> <button  className='mt-5 w-full flex justify-center text-primary-main'>
-                Read more </button></Link>
+            {locale==='en'?'Read More..':'ಮುಂದುವರೆದಿದೆ....'}  </button></Link>
           </div>
 
         </div>
@@ -307,14 +316,14 @@ function Portfolio() {
 
             <div className="w-full lg:w-[50%] h-full flex flex-col justify-center text-justify items-center p-3 lg:p-10">
               <h1 className="text-white text-lg md:text-4xl font-bold text-center ">
-              KSHEERA PITHAMAHA - DR. VERGHESE KURIEN
+                   {locale==='en'?'KSHEERA PITHAMAHA - DR. VERGHESE KURIEN':' ಕ್ಷೀರ ಪಿತಾಮಹ - ಡಾ. ವರ್ಗೀಸ್ ಕುರಿಯನ್'}  
 
               </h1>
               <p className='text-sm md:text-lg  lg:mt-10 text-white text-justify'>  {showFullText ? founderText : (
               <>
                 {founderText.substring(0, 1000)}
                 <br />
-                {founderText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>Read More</button>}
+                {founderText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>{locale==='en'?'Read More..':'ಮುಂದುವರೆದಿದೆ....'} </button>}
               </>
             )}
             <br />
@@ -330,7 +339,7 @@ function Portfolio() {
           <div className="relative max-w-7xl  h-full bg-[#4f7ffc] m-auto flex flex-col lg:flex-row justify-center pt-7 pb-7 ">
             <div className="order-last lg:order-1 w-full lg:w-[50%] h-full flex flex-col justify-center text-justify items-center p-3 lg:p-10">
               <h1 className="text-white text-lg md:text-4xl font-bold text-center ">
-                KARNATAKA KSHEERA BRAHMA - MR. MV KRISHNAPPA
+                   {locale==='en'?'KARNATAKA KSHEERA BRAHMA - MR. MV KRISHNAPPA':'ಕರ್ನಾಟಕ ಕ್ಷೀರ ಬ್ರಹ್ಮ - ಶ್ರೀ. ಎಂ.ವಿ. ಕೃಷ್ಣಪ್ಪ'}  
 
               </h1>
 
@@ -339,7 +348,7 @@ function Portfolio() {
               <>
                 {kurienText.substring(0, 1000)}
                 <br />
-                {kurienText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>Read More</button>}
+                {kurienText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}> {locale==='en'?'Read More..':'ಮುಂದುವರೆದಿದೆ....'} </button>}
               </>
             )}
             <br />
@@ -381,10 +390,12 @@ function Portfolio() {
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center">
                       {' '}
-                     HISTORY OF <br />  MILK
+                      {locale==='en'?'HISTORY OF ':'ಹಾಲಿನ '} <br />
+                      {locale==='en'?' MILK':' ಇತಿಹಾಸ'}
                     </h1>
                     <p className="mt-6 md:mt-12 md:text-2xl text-2xl text-white">
-                    The history of milk is a fascinating journey that intertwines with the evolution of..
+                    {locale==='en'?'The history of milk is a fascinating journey that intertwines with the evolution of.. ':'ಹಾಲಿನ ಪ್ರಾಚೀನತೆಯು ಹಾಗೂ ಇತಿಹಾಸವು ಮಾನವನ ವಿಕಾಸ , ನಾಗರಿಕತೆ ಮತ್ತು '} 
+                    
                     </p>
                   </div>
 
@@ -392,7 +403,7 @@ function Portfolio() {
                     <Link href={`/${locale}/portfolio/historyofmilk`}>
                       {' '}
                       <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
-                        <p className="text-lg text-white">Know More</p>
+                        <p className="text-lg text-white">{locale === 'en' ?   'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p>
                       </div>
                     </Link>
                   </div>
@@ -441,10 +452,13 @@ function Portfolio() {
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center">
                       {' '}
-                      BRAND AMBASSADOR
+                       
+                      {locale==='en'?' BRAND':' ಕಹಾಮ'} <br /> 
+                      {locale==='en'?' AMBASSADOR':' ರಾಯಭಾರಿಗಳು'}
                     </h1>
                     <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
-                    Karnataka Milk Federation appoints ambassadors from renowned Kannada..
+                    {locale==='en'?'Karnataka Milk Federation appoints ambassadors from renowned Kannada artistes  ':'ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳವು ತನ್ನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ ವ್ಯಾಪ್ತಿಯನ್ನು '} 
+                    
                     </p>
                   </div>
 
@@ -452,7 +466,7 @@ function Portfolio() {
                     <Link href={`/${locale}/portfolio/brandambassador`}>
                       {' '}
                       <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
-                        <p className="text-lg text-white">Know More</p>
+                        <p className="text-lg text-white">{locale === 'en' ?   'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p>
                       </div>
                     </Link>
                   </div>
@@ -472,10 +486,13 @@ function Portfolio() {
                   <div className="w-full h-full z-50">
                     <h1 className="text-white text-3xl md:text-5xl text-center ">
                       {' '}
-                      KMF ACHIEVEMENTS
+                      {locale==='en'?'KMF ':'ಕಹಾಮ '} <br />
+                      {locale==='en'?' ACHIEVEMENTS':' ಸಾಧನೆಗಳು'}
                     </h1>
                     <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
-                    KMF- Nandini Brand, a proud household name of Karnataka with its slogan of..
+                    {locale==='en'?' KMF- Nandini Brand, a proud household name of Karnataka with its slogan of..':' ‘‘ಗೋವಿನಿಂದ ಗ್ರಾಹಕರಿಗೆ ಗುಣಮಟ್ಟದ ಉತ್ಕೃಷ್ಟತೆ” ಎಂಬ ಪರಿಕಲ್ಪನೆಯಡಿಯಲ್ಲಿ ಕರ್ನಾಟಕದ'}
+                    
+                    
                     </p>
                   </div>
 
@@ -483,7 +500,7 @@ function Portfolio() {
                     <a href="#ACHIEVEMENTS">
                       {' '}
                       <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
-                        <p className="text-lg text-white">Know More</p>
+                        <p className="text-lg text-white"> {locale === 'en' ?   'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p>
                       </div>
                     </a>
                   </div>
@@ -521,7 +538,7 @@ function Portfolio() {
                 </div>
                 <div className="w-full h-full flex flex-col justify-center md:justify-between p-6 md:p-16 ">
                   <div className="w-full h-full z-50">
-                    <h1 className="text-white text-3xl md:text-5xl text-center "> SPONSORED</h1>
+                    <h1 className="text-white text-3xl md:text-5xl text-center "> {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}</h1>
                     <p className="mt-6 md:mt-24 text-2xl text-white">
                       He was originally from Kolar district who was very concerned about the
                       farmers...
@@ -532,7 +549,7 @@ function Portfolio() {
                     <a href="#SPONSORED">
                       {' '}
                       <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
-                        <p className="text-lg text-white">Know More</p>
+                        <p className="text-lg text-white">{locale === 'en' ?   'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p>
                       </div>
                     </a>
                   </div>
@@ -552,7 +569,7 @@ function Portfolio() {
 
 
             <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl ">
-            KMF ACHIEVEMENTS
+            {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </h1>
           </div>
           </div>
@@ -603,7 +620,7 @@ function Portfolio() {
                   <div className="max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto">
                     <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-4xl ">
                       {' '}
-                      KMF Achievement{' '}
+                      {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}{' '}
                     </h1>
                     <div className="mt-6">
                       {achievments?.filter(
@@ -678,7 +695,7 @@ function Portfolio() {
 
  
  <button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
-                  {readMore ? 'Read less' : 'Read more'}
+                  {readMore ? 'Read less' : 'Read More'}
                 </button>
  
 
@@ -711,7 +728,7 @@ function Portfolio() {
     
 
     <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl   ">
-    SPONSORED
+    {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}
     </h1>
   </div>
   </div>

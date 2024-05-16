@@ -34,19 +34,19 @@ const KsheeraDhare = () => {
      <div className='w-full h-full'>
         <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
-            KMF ACHIEVEMENTS
+            {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </Link>
 
            
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={''}>
-               KSHEERADHARE
+                {locale === 'en' ?  'KSHEERADHARE' : 'ಕ್ಷೀರಧಾರೆ'}
             </Link>
           </div>
         <div className='w-full h-auto'>
         <div className=' relative w-full h-full flex flex-col items-center justify-center mt-20'>
 
-            <h1 className='text-primary-main text-2xl md:text-5xl  ' > KSHEERADHARE </h1>
+            <h1 className='text-primary-main text-2xl md:text-5xl  ' >  {locale === 'en' ?  'KSHEERADHARE' : 'ಕ್ಷೀರಧಾರೆ'} </h1>
             <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
 
             <img className='absolute top-[-50px] left-[52%] w-40 ' src={titleBG.src} alt="" />
@@ -93,12 +93,12 @@ const KsheeraDhare = () => {
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
                        <h1 className='text-primary-main text-2xl md:text-3xl ' > 
-                       {locale === 'en' ? "Objectives of the Milk Producer Incentive Scheme:" : "1.	ಹಾಲು ಉತ್ಪಾದಕರ ಪ್ರೋತ್ಸಾಹ ಯೋಜನೆಯ ಉದ್ದೇಶಗಳು:"}
+                       {locale === 'en' ? "Objectives of the Milk Producer Incentive Scheme:" : "ಹಾಲು ಉತ್ಪಾದಕರ ಪ್ರೋತ್ಸಾಹ ಯೋಜನೆಯ ಉದ್ದೇಶಗಳು:"}
                          </h1>
                  <div className=' mt-10'>
                   <ul className='list-disc text-left'>
                   <li>
-                  {locale === 'en' ? "To make dairy farming profitable at village level to promote and expand dairy farming." : "•	ಹೈನುಗಾರಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ಮತ್ತು ವಿಸ್ತರಿಸಲು ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ಹೈನುಗಾರಿಕೆಯನ್ನು ಲಾಭದಾಯಕವಾಗಿಸಲು."}
+                  {locale === 'en' ? "To make dairy farming profitable at village level to promote and expand dairy farming." : "	ಹೈನುಗಾರಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ಮತ್ತು ವಿಸ್ತರಿಸಲು ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ಹೈನುಗಾರಿಕೆಯನ್ನು ಲಾಭದಾಯಕವಾಗಿಸಲು."}
                   
 
                   </li>
@@ -142,12 +142,12 @@ const KsheeraDhare = () => {
 
                   </li>
                   <li>
-                  {locale === 'en' ? "Incentive per litre increased from Rs.2/- to Rs.4/- for milk on 14.05.2013." : "•	14.05.2013 ರಂದು ಹಾಲಿಗೆ ರೂ. 2/- ರಿಂದ ರೂ.4/- ಕ್ಕೆ ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ಪ್ರೋತ್ಸಾಹಧನವನ್ನು ಹೆಚ್ಚಿಸಲಾಗಿದೆ."}
+                  {locale === 'en' ? "Incentive per litre increased from Rs.2/- to Rs.4/- for milk on 14.05.2013." : "	14.05.2013 ರಂದು ಹಾಲಿಗೆ ರೂ. 2/- ರಿಂದ ರೂ.4/- ಕ್ಕೆ ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ಪ್ರೋತ್ಸಾಹಧನವನ್ನು ಹೆಚ್ಚಿಸಲಾಗಿದೆ."}
                   
 
                   </li>
                   <li>
-                  {locale === 'en' ? "Incentive per litre increased from Rs.4/- to Rs.5/- per litre of milk and continued from 19.11.2016." : "•	ಪ್ರತಿ ಲೀಟರ್ ಹಾಲಿಗೆ ರೂ.4/- ರಿಂದ ರೂ.5/- ಕ್ಕೆ ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ಪ್ರೋತ್ಸಾಹಧನವನ್ನು ಹೆಚ್ಚಿಸಲಾಗಿದೆ ಮತ್ತು 19.11.2016 ರಿಂದ ಮುಂದುವರೆಯಿತು."}
+                  {locale === 'en' ? "Incentive per litre increased from Rs.4/- to Rs.5/- per litre of milk and continued from 19.11.2016." : "	ಪ್ರತಿ ಲೀಟರ್ ಹಾಲಿಗೆ ರೂ.4/- ರಿಂದ ರೂ.5/- ಕ್ಕೆ ಪ್ರತಿ ಲೀಟರ್‌ಗೆ ಪ್ರೋತ್ಸಾಹಧನವನ್ನು ಹೆಚ್ಚಿಸಲಾಗಿದೆ ಮತ್ತು 19.11.2016 ರಿಂದ ಮುಂದುವರೆಯಿತು."}
                   
 
                   </li>
