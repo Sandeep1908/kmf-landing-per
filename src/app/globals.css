@@ -608,45 +608,22 @@ h1 {
 }
 
 
-.menu-button {
-  display: inline-block;
-  cursor: pointer;
+ 
+.flicker {
+  width: 350px;
+  padding: 5px 10px;
+  border: 10px;
+  color: black;
+  border: 0;
+  border-radius: 10px;
+  outline: 0;
+  animation: wink 1.25s linear infinite;
+}
+.flicker:hover{
+  animation: none;
 }
 
-.menu-icon {
-  width: 30px;
-  height: 20px;
-  position: relative;
+@keyframes wink {
+  50% {border-color: #fff; border-color:#f00; opacity: 0; }
 }
-
-.menu-bar {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #333;
-  margin-bottom: 5px;
-  transition: all 0.3s ease;
-}
-
-.menu-button:hover .menu-bar {
-  background-color: #fff; /* Change color on hover */
-}
-
-.menu-button:hover .button-text {
-  color: #fff; /* Change text color on hover */
-}
-
-.menu-button:hover .menu-bar:nth-child(2) {
-  opacity: 0; /* Hide middle bar on hover */
-}
-
-.menu-button:hover .menu-icon .menu-bar:first-child {
-  transform: translateY(8px) rotate(45deg); /* Rotate top bar */
-}
-
-.menu-button:hover .menu-icon .menu-bar:last-child {
-  transform: translateY(-8px) rotate(-45deg); /* Rotate bottom bar */
-}
-
-
-
+ 

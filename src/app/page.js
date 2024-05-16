@@ -186,7 +186,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <video src='/video/milk-video.mp4' autoPlay muted loop className='absolute inset-0 w-full h-full '/> */}
       </section>
 
       <ParallaxBanner

@@ -10,7 +10,8 @@ import BlogCard from './BlogCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import PressRelease from './PressRelease';
-import Tvcommercial from './Tvcommercial';
+ 
+import Link from 'next/link';
 
 function Gallery() {
  
@@ -28,10 +29,6 @@ function Gallery() {
       data:<PressRelease/>
 
     },
-    {
-      tabs:'Tv Commercials',
-      data:<Tvcommercial/>
-    }
     
   ]
 
@@ -76,6 +73,20 @@ function Gallery() {
                   </li>
                 );
               })}
+
+<Link href={`/${locale}/blog/tv-commercial`}>
+<li
+                    
+                    className={` 
+                      
+                     text-sm   relative before:absolute  
+                         
+                  uppercase`}
+                    >
+                    Tv commercial
+                  </li>
+
+                  </Link>
             </ul>
           </div>
         </div>

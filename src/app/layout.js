@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         <head>
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
         </head>
-        <body className=''>
+        <body className='relative'>
           <MyContextProvider>
           <Header />
           <ParallaxProvider>
@@ -46,6 +46,8 @@ export default function RootLayout({ children }) {
           </ParallaxProvider>
           </MyContextProvider>
           {''}
+       
+
        
         </body>
         
