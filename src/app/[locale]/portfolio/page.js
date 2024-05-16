@@ -538,7 +538,7 @@ function Portfolio() {
                 </div>
                 <div className="w-full h-full flex flex-col justify-center md:justify-between p-6 md:p-16 ">
                   <div className="w-full h-full z-50">
-                    <h1 className="text-white text-3xl md:text-5xl text-center "> {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}</h1>
+                    <h1 className="text-white text-3xl md:text-5xl text-center "> {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}</h1>
                     <p className="mt-6 md:mt-24 text-2xl text-white">
                       He was originally from Kolar district who was very concerned about the
                       farmers...
@@ -728,7 +728,7 @@ function Portfolio() {
     
 
     <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl   ">
-    {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}
+    {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
     </h1>
   </div>
   </div>
