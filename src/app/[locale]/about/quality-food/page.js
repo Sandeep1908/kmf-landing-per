@@ -24,6 +24,8 @@ function OrganizationChart() {
       }
     )()
   },[])
+
+  const imageArr=['/images/quality/1.jpg','/images/quality/2.jpg','/images/quality/3.jpg','/images/quality/4.jpg','/images/quality/5.jpg','/images/quality/6.jpg','/images/quality/7.jpg','/images/quality/8.jpg','/images/quality/9.jpg','/images/quality/10.jpg','/images/quality/11.jpg','/images/quality/12.jpg','/images/quality/13.jpg','/images/quality/14.jpg','/images/quality/15.jpg','/images/quality/16.jpg','/images/quality/17.jpg','/images/quality/18.jpg','/images/quality/19.jpg','/images/quality/20.jpg']
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
     <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
@@ -53,7 +55,15 @@ function OrganizationChart() {
             
           </div>
 
-          <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+          <div className='w-full mt-20 max-w-[1400px] m-auto h-auto  grid grid-cols-4 gap-5 '>
+        {imageArr?.map((item,id)=>{
+          return(
+            <img className='w-96 h-96 ' src={item} key={id}/>
+          )
+        })}
+          </div>
+
+          <div className="   mt-20  relative w-full  flex justify-center items-center ">
             
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'':'          Quality and Food Safety'}
@@ -97,6 +107,8 @@ function OrganizationChart() {
           children
         )
     },
+
+    
     code: ({ children }) => {
       const columns =
         children?.[0]?.props?.text.split(',')[0].trim() === 'columns'
