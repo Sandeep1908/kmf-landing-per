@@ -14,7 +14,7 @@ function PdfPreview({ pdfUrl }) {
   }
 
   return (
-    <div className="pdf-preview-container shadow-lg shadow-black  ">
+    <div className="pdf-preview-container  shadow-black  ">
       <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess} >
         <Page pageNumber={pageNumber} className="pdf-preview-page" width={400} />
       </Document>

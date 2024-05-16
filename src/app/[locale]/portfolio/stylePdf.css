@@ -5,7 +5,9 @@
     height: 600px;
     overflow: scroll;
   }
-  
+  .react-pdf__Page__textContent .textLayer{
+    display: none !important;
+  }
   .pdf-preview-page {
     margin-bottom: 20px;
     width: 100%;

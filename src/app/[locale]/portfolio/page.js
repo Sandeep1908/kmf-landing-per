@@ -60,6 +60,7 @@ import Link from 'next/link';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useMyContext } from '@/context/headerContext';
 import { useParams } from 'next/navigation';
+import PdfPreview from './PdfPreview';
 
 function Portfolio() {
 
@@ -717,7 +718,78 @@ function Portfolio() {
 
     
 
+      <section className='w-full h-auto mt-10 mb-10  '>
+<div className=' m-auto  '>
+<div className="mt-20 mb-5 w-full  flex justify-center items-center">
+    
+
+    <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl   ">
+    {locale === 'en' ?   'KSHEERASAGARA' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
+    </h1>
+  </div>
   
+    <div className='w-full p-7 '>
+    <div className='flex flex-col md:flex-row gap-6'>
+    <Swiper
+                    slidesPerView={3}
+                    freeMode={true}
+                    centeredSlides={false}
+                    autoplay={{
+                      delay: 4000,
+                      disableOnInteraction: false
+                    }}
+                    modules={[FreeMode, Autoplay]}
+                    className="w-full h-full">
+                    <SwiperSlide>
+                         <PdfPreview className="w-full h-full" pdfUrl="/pdJan.pdf"/>
+
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdDec23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdNov23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdOct23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdSept23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdAug23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdJul23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdJun23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdMay23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdApr23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdMar23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdFeb23.pdf"/>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                          <PdfPreview className="w-full h-full" pdfUrl="/pdJan23.pdf"/>
+                    </SwiperSlide>
+                  </Swiper>
+      
+
+    </div>
+</div>
+</div>
+
+</section>
+
+
 
       <section id="SPONSORED" className="w-full h-auto pt-10 md:pt-20 pb-10 md:pb-20  ">
         <div className="w-full text-center">
