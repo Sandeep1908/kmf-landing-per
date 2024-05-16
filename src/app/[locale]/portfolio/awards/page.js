@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
@@ -10,6 +10,8 @@ import award4 from '@/images/portfolio/Award4.png';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import Marquee from './Marquee';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import useApi from '@/hooks/useApi';
 
 
 
@@ -17,23 +19,36 @@ import Marquee from './Marquee';
 
 const Awards = () => {
       const locale = useLocale().locale;
-  return (
+      const axios = useApi();
+
+      const [award, setAward] = useState([]);
+      useEffect(() => {
+        (async () => {
+          const { data } = await axios.get('/api/awards');
+        
+          setAward(data.data)
+          console.log(data.data);
+        
+        })();
+      }, []);
+
+      return (
     <div className='w-full h-full'>
        <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
-            KMF ACHIEVEMENTS
+            {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </Link>
 
            
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={''}>
-            AWARDS
+             {locale === 'en' ?   'AWARDS' : 'ಪ್ರಶಸ್ತಿಗಳು'}
             </Link>
           </div>
     <div className='w-full h-auto mt-20'>
     <div className=' relative w-full h-full flex flex-col items-center justify-center mt-20'>
 
-        <h1 className='text-primary-main text-2xl md:text-5xl  ' > AWARDS </h1>
+        <h1 className='text-primary-main text-2xl md:text-5xl  ' > {locale === 'en' ?   'AWARDS' : 'ಪ್ರಶಸ್ತಿಗಳು'} </h1>
         <div className='bg-primary-main w-[100px] h-[4px] mt-2'></div>
 
         <img className='absolute top-[-50px] left-[47%] w-40 ' src={titleBG.src} alt="" />
@@ -107,80 +122,45 @@ At the Bangalore Brand Summit 2014 award ceremony KMF was presented with an  Ind
 
 
 <div className='w-full h-auto mt-10 '>
-<h1 className="p-5  text-primary-main text-4xl uppercase text-center">Awards</h1>
+<h1 className="p-5  text-primary-main text-4xl uppercase text-center">{locale === 'en' ?   'AWARDS' : 'ಪ್ರಶಸ್ತಿಗಳು'}</h1>
 <div className="marquee-notification h-full flex lg:gap-5 xl:gap-44 justify-evenly space-x-3 mt-10">
-            <div
+
+
+
+          {award.map((item,idx)=>{
+                console.log()
+                return(
+              <div key={idx}
                   className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
                   >
                   <div className="p-2 w-full h-[70%]">
-                        <img
-                        src={award1.src}
+                  <PhotoProvider >
+                          
+                          <PhotoView src={item?.attributes?.image?.data?.[0]?.attributes?.url} width="400px" height="400px"  >
+                         
+                          <img
+                        src={item?.attributes?.image?.data?.[0]?.attributes?.url}
                         alt="featured-img"
                         className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
-                        style={{ transition: '.4s all' }}
-                        />
+                        />   
+                                               </PhotoView>
+                      
+                    
+                    </PhotoProvider>
+                       
                   </div>
 
                   <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
-                        <h1 className="text-sm text-center group-hover:text-white  ">Award 1</h1>
+                        <h1 className="text-sm text-center group-hover:text-white  "> {item?.attributes?.title}
+</h1>
                   </div>
 
                   
                   </div>
-            <div
-                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
-                  >
-                  <div className="p-2 w-full h-[70%]">
-                        <img
-                        src={award2.src}
-                        alt="featured-img"
-                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
-                        style={{ transition: '.4s all' }}
-                        />
-                  </div>
+                )
+              })}
 
-                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
-                        <h1 className="text-sm text-center group-hover:text-white  ">Award 2</h1>
-                  </div>
-
-                  
-                  </div>
-            <div
-                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
-                  >
-                  <div className="p-2 w-full h-[70%]">
-                        <img
-                        src={award3.src}
-                        alt="featured-img"
-                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
-                        style={{ transition: '.4s all' }}
-                        />
-                  </div>
-
-                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
-                        <h1 className="text-sm text-center group-hover:text-white  ">Award 3</h1>
-                  </div>
-
-                  
-                  </div>
-            <div
-                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
-                  >
-                  <div className="p-2 w-full h-[70%]">
-                        <img
-                        src={award4.src}
-                        alt="featured-img"
-                        className=" w-full h-full rounded-full transition-all duration-100 group-hover:scale-[1.01] hover:rounded-none "
-                        style={{ transition: '.4s all' }}
-                        />
-                  </div>
-
-                  <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
-                        <h1 className="text-sm text-center group-hover:text-white  ">Award 4</h1>
-                  </div>
-
-                  
-                  </div>
+      
               </div>
 
 

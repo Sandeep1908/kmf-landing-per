@@ -608,6 +608,7 @@ h1 {
 }
 
 
+ 
 .flicker {
   width: 350px;
   padding: 5px 10px;
@@ -625,3 +626,4 @@ h1 {
 @keyframes wink {
   50% {border-color: #fff; border-color:#f00; opacity: 0; }
 }
+ 
