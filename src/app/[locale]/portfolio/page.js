@@ -185,8 +185,8 @@ function Portfolio() {
  
   return (
     <div
-      className={`w-full h-full absolute  transition-all duration-700  z-[-1] overflow-x-hidden scroll-smooth  ${isScroll?'top-48':''}`}>
-  <div className="w-full h-screen relative bg-slate-50 z-[-10] ">
+      className={`w-full h-full   transition-all duration-700  overflow-x-hidden scroll-smooth  ${isScroll?'top-48':''}`}>
+  <div className="w-full h-[100vh] relative bg-slate-50 z-[-10] ">
   <div className=" absolute z-50 top-8 right-40">
     <p id="openMenu" onClick={toggleNavbar} className={`text-white relative z-[100] ${isOpen ? 'hidden' : ''}`}>
       <IoMenu size={50} />
