@@ -8,7 +8,10 @@ import { useParams } from 'next/navigation';
 import useApi from '@/hooks/useApi';
 import { useMyContext } from '@/context/headerContext';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
- 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { PhotoProvider,PhotoView } from 'react-photo-view';
+import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
+
 function OrganizationChart() {
   const locale = useParams().locale;
   const axios= useApi()
@@ -55,12 +58,50 @@ function OrganizationChart() {
             
           </div>
 
-          <div className='w-full mt-20 max-w-[1400px] m-auto h-auto  grid grid-cols-4 gap-5 '>
-        {imageArr?.map((item,id)=>{
-          return(
-            <img className='w-96 h-96 ' src={item} key={id}/>
-          )
-        })}
+          <div className='w-full mt-20 relative m-auto h-auto     '>
+
+          <div className="absolute w-full h-full z-[-10] ">
+            <div className="w-full h-full flex justify-between items-center">
+              <div className="w-40 h-8 bg-red-600"></div>
+              <div className="w-40 h-8 bg-red-600"></div>
+            </div>
+          </div>
+            <Swiper
+           slidesPerView={3}
+              freeMode={true}
+           
+              spaceBetween={20}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              modules={[FreeMode, Autoplay]}
+              className="w-full max-w-[1400px] m-auto">
+
+                 {imageArr.map((item,id)=>{
+                 
+                  return(
+                    <SwiperSlide key={id} className='w-full' >
+                     
+                    <PhotoProvider className='w-full' >
+                        
+                        <PhotoView src={item} height="400px"  >
+                        <img className='w-full max-w-2xl h-96 object-fill' src={item} alt="" />
+                        </PhotoView>
+                    
+                  
+                  </PhotoProvider>
+          
+                      </SwiperSlide>
+                  )
+                 })}
+                     
+                      
+                      
+                
+            </Swiper>
+             
+        
           </div>
 
           <div className="   mt-20  relative w-full  flex justify-center items-center ">

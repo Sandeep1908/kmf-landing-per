@@ -232,7 +232,7 @@ const BrandAmbassador = () => {
               className="max-w-7xl m-auto">
 
                  {bandImage.map((item,id)=>{
-                  console.log(bandImage)
+                 
                   return(
                     <SwiperSlide key={id} className='' >
                     <div className='flex justify-center items-center   w-full h-96 p-2 '>

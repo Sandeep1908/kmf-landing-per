@@ -180,7 +180,7 @@ export const Header = () => {
             <img
           src={locale === 'kn' ? logokn.src : logo.src} // Use rotated logo when rotateLogo is true
           alt="logo-home"
-          className={`w-[100px] sm:w-[150px] ${rotateLogo ? 'rotate-logo' : ''}`} // Apply rotation class
+          className={`w-[100px] sm:w-[150px] ${rotateLogo ? '' : ''}`} // Apply rotation class
         />
               <p className={`font-extrabold font-heading  ${locale==='kn'?'text-[18px]':'text-xs sm:text-[14px]'}`}>
                 {headerItem?.attributes?.title}
