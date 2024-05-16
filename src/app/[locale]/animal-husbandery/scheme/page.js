@@ -78,6 +78,17 @@ function Scheme() {
             </Link>
             
       </div>
+      <div className="flex w-full    justify-center pt-10 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                
+
+                <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/portfolio#ACHIEVEMENTS':'/en/portfolio#ACHIEVEMENTS'}`}>
+                {locale==='kn'?'':'Back to portfolio'}
+                  
+                </Link>
+    
+              
+                
+          </div>
       <section className=" relative w-full h-auto   max-w-7xl m-auto pt-10  ">
       <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
             

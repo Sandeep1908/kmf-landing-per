@@ -183,7 +183,7 @@ const Marketing = () => {
             <div className='absolute top-[60px] lg:top-0 xl:top-[20px] w-full h-full '>
                 <div className='w-full h-full flex justify-center items-center'>
                 <div className='relative z-[10] max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                   <h1 className='text-primary-main text-2xl md:text-4xl text-center mb-10' >  
+                   <h1 className='text-primary-main text-2xl md:text-4xl text-center mb-10 font-bold' >  
                          {locale === 'en' ?   'Marketing' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ'}
                    </h1>
 
@@ -209,7 +209,7 @@ const Marketing = () => {
            
              <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                    <div className='m-auto'>
-                   <h1 className='text-primary-main text-2xl md:text-3xl ' >   {locale === 'en' ?   'Marketing' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ'} </h1>
+                   <h1 className='text-primary-main text-2xl md:text-3xl font-bold ' >   {locale === 'en' ?   'Marketing' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ'} </h1>
              <div className=' mt-10'>
               <p className=''>
               An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objective                

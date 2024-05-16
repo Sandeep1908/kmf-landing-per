@@ -48,9 +48,9 @@ const HistoryOfMilk = () => {
         <div className=" w-full flex flex-col items-center justify-center lg:mt-20 p-3">
         
           <div className="mt-0 md:mt-4  mr-auto ml-auto">
-            <p className=" text-primary-main text-3xl text-center md:text-6xl font-bold">
+            {/* <p className=" text-primary-main text-3xl text-center md:text-6xl font-bold">
             HISTORY OF MILK
-            </p>
+            </p> */}
 
             <p className="text-xl   mt-6 md:mt-16 max-w-7xl w-full  ">
             {locale === 'en' ? "The history of milk is a fascinating journey that intertwines with the evolution of human civilization and the domestication of animals. As early humans transitioned from a nomadic lifestyle to settled agricultural communities, the realization that certain animals could provide a steady supply of milk marked a pivotal moment. The domestication of animals like cows, goats, and sheep was a transformative development. Project" : "ಹಾಲಿನ ಇತಿಹಾಸವು ಮಾನವ ನಾಗರಿಕತೆಯ ವಿಕಾಸ ಮತ್ತು ಪ್ರಾಣಿಗಳ ಪಳಗಿಸುವಿಕೆಯೊಂದಿಗೆ ಹೆಣೆದುಕೊಂಡಿರುವ ಆಕರ್ಷಕ ಪ್ರಯಾಣವಾಗಿದೆ. ಆರಂಭಿಕ ಮಾನವರು ಅಲೆಮಾರಿ ಜೀವನಶೈಲಿಯಿಂದ ನೆಲೆಸಿದ ಕೃಷಿ ಸಮುದಾಯಗಳಿಗೆ ಪರಿವರ್ತನೆಯಾದಾಗ, ಕೆಲವು ಪ್ರಾಣಿಗಳು ಹಾಲಿನ ಸ್ಥಿರ ಪೂರೈಕೆಯನ್ನು ಒದಗಿಸಬಲ್ಲವು ಎಂಬ ಅರಿವು ಒಂದು ಪ್ರಮುಖ ಕ್ಷಣವಾಗಿದೆ. ಹಸುಗಳು, ಮೇಕೆಗಳು ಮತ್ತು ಕುರಿಗಳಂತಹ ಪ್ರಾಣಿಗಳ ಪಳಗಿಸುವಿಕೆಯು ಒಂದು ಪರಿವರ್ತನೆಯ ಬೆಳವಣಿಗೆಯಾಗಿದೆ."}
