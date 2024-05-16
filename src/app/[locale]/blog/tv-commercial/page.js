@@ -30,6 +30,7 @@ function Tvcommercial() {
   const [openAccordion, SetOpenAccordion] = useState(null);
   const [brandAsset, setBrandAsset] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [previewCount,setPreviewCount]=useState(1)
 
   const axios = useApi();
   const arrows = {
@@ -49,6 +50,19 @@ function Tvcommercial() {
     setSelectedVideo(null);
   };
 
+  useEffect(() => {
+    const updateScreensize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 768) {
+        setPreviewCount(2);
+      } else {
+        setPreviewCount(1);
+      }
+    };
+    updateScreensize();
+    window.addEventListener('resize', updateScreensize);
+    return () => window.removeEventListener('resize', updateScreensize);
+  });
 
   useEffect(() => {
     (async () => {
@@ -64,14 +78,18 @@ function Tvcommercial() {
   }, []);
 
   return (
-    <div className="w-full h-full  absolute top-36 z-[-1]     ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
-      </section>
+    <div className="w-full  absolute top-52 z-[-1]     ">
+    <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center  `}>
+    <div className="w-full h-full flex justify-between items-center">
+            <div className="w-40 h-8 bg-red-600"></div>
+            <div className="w-40 h-8 bg-red-600"></div>
+          </div>
+      <img src={'/images/gallery.png'} className="w-full max-w-7xl h-full object-fill absolute top-0 z-[-1]" />
+    </section>
       <section className="w-full h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
-          <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
-            <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+          <div className="   relative w-full  flex justify-center items-center ">
+            <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               {locale === 'en'
                 ? `Gallery`
                 : `
@@ -91,7 +109,7 @@ function Tvcommercial() {
                 </li>
               </Link>
 
-              <Link href={`/${locale}/blog/gallery`}>
+              <Link href={`/${locale}/blog/press-release`}>
                 <li
                   className={` 
                  text-sm relative  
@@ -120,7 +138,7 @@ function Tvcommercial() {
                   
                   <Swiper
               effect={'coverflow'}
-         
+              grabCursor={true}
               centeredSlides={true}
               coverflowEffect={{
                 rotate: 30,
@@ -129,17 +147,20 @@ function Tvcommercial() {
                 modifier: 1,
                 slideShadows: false
               }}
-              
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false
+              }}
               modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
-              spaceBetween={80}
-              slidesPerView={3}
+              spaceBetween={40}
+              slidesPerView={previewCount}
               navigation={true}
               controller={true}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
-             
-             
+              slide
               loop={true}
+             
               className={`max-w-[1100px] m-auto    `}>
 
 {brandAmbassador?.map((items) => {

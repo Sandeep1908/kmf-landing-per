@@ -12,6 +12,7 @@ import uparrowIco from '@/images/icons/uparrow.svg';
 import { useParams } from 'next/navigation';
 import TvcommercialAccordion from '@/components/TvcommercialAccordion';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import NandiniProducts from './NandiniProducts';
 
 
 function TvcommercialDetails() {
@@ -57,7 +58,7 @@ function TvcommercialDetails() {
  
         const { data: commercialCategory } = await axios.get('/api/tv-commercials');
         const { data: commercialItems } = await axios.get('/api/tv-commercial-items');
-        console.log("comercial items",commercialItems.data)
+ 
 
 
 
@@ -76,14 +77,18 @@ function TvcommercialDetails() {
   }, []);
 
   return (
-    <div className="w-full  absolute top-36 z-[-1]     ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
-      </section>
+    <div className="w-full  absolute top-52 z-[-1]     ">
+    <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center  `}>
+    <div className="w-full h-full flex justify-between items-center">
+            <div className="w-40 h-8 bg-red-600"></div>
+            <div className="w-40 h-8 bg-red-600"></div>
+          </div>
+      <img src={'/images/gallery.png'} className="w-full max-w-7xl h-full object-fill absolute top-0 z-[-1]" />
+    </section>
       <section className="w-full h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
-          <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
-            <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+          <div className="   relative w-full  flex justify-center items-center ">
+            <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               {locale === 'en'
                 ? `Gallery`
                 : `
@@ -91,7 +96,7 @@ function TvcommercialDetails() {
             </h1>
           </div>
 
-          <div className="w-full flex justify-center items-center pt-10 relative before:max-w-[1200px] before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
+          <div className="w-full flex justify-center items-center pt-10 relative before:absolute before:-bottom-3 before:w-full before:max-w-[1400px] before:h-0.5 before:bg-neutral-dark4">
             <ul className="flex gap-5">
               <Link href={`/${locale}/blog/gallery`}>
                 <li
@@ -103,7 +108,7 @@ function TvcommercialDetails() {
                 </li>
               </Link>
 
-              <Link href={`/${locale}/blog/gallery`}>
+              <Link href={`/${locale}/blog/press-release`}>
                 <li
                   className={` 
                  text-sm relative  
@@ -114,7 +119,7 @@ function TvcommercialDetails() {
               </Link>
 
               <Link href={`/${locale}/blog/tv-commercial`}>
-            
+             
               <li
                 className={` 
                    text-primary-main text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main
@@ -122,6 +127,7 @@ function TvcommercialDetails() {
                     uppercase`}>
                 Tv Commercials
               </li>
+
               </Link>
             </ul>
           </div>
@@ -133,10 +139,24 @@ function TvcommercialDetails() {
               <div className="w-full h-full flex flex-col space-y-28   ">
 
             <div className='w-full h-full'>
+              
 
+              {commercialCategory?.map((item,id)=>{
+                console.log(item)
+                
+                  if(item?.id!=parseInt(param?.slug)){
+                    return(
+                      <NandiniProducts key={id}/>
+                      
+                    )
+                  }
+                
+              })}
+       
           
-             <div className='w-full h-full  grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3     gap-5 lg:flex-row lg:items-start'>
+           <div className='w-full h-full mt-20  grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3     gap-5 lg:flex-row lg:items-start'>
  
+
 
  {
   subId ?

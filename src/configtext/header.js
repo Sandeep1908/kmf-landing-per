@@ -271,7 +271,7 @@ export const mobileHeader = {
           link: '/en/social-responsibility/nandini-hostels/'
         },
         {
-          title: "Awarness For Children",
+          title: "Child Empowerment",
           link: '/en/portfolio/ksheerabhagaya'
         },
         {
@@ -398,11 +398,11 @@ export const mobileHeader = {
 
 
     {
-      title: 'ಪಶುಸಂಗೋಪನೆ ವಿಭಾಗ',
+      title: 'ಪಶುಸಂಗೋಪನೆ',
       link: '/kn/animal-husbandery/procurement',
       subItems: [
         {
-          title: " ಹಾಲು ಶೇಖರಣೆ",
+          title: "  ಹಾಲು ಶೇಖರಣೆ",
           link: '/kn/animal-husbandery/procurement'
         },
         {
@@ -410,7 +410,7 @@ export const mobileHeader = {
           link: '/kn/animal-husbandery/animal-health'
         },
         {
-          title: "ಪಶು ಸಂತಾನೋತ್ಪತ್ತಿ ಕಾರ್ಯಕ",
+          title: "ಪಶು ಸಂತಾನೋತ್ಪತ್ತಿ ಕಾರ್ಯಕ್ರಮ",
           link: '/kn/animal-husbandery/animal-breeding'
         },
         {
@@ -423,7 +423,7 @@ export const mobileHeader = {
           link: '/kn/animal-husbandery/scheme'
         },
         {
-          title: "ಸ್ಟೆಪ್ ಯೋಜನೆ",
+          title: " ಸ್ಟೆಪ್ ಯೋಜನೆ",
           link: '/kn/women-empowerment'
         },
 
@@ -448,7 +448,7 @@ export const mobileHeader = {
      
 
     {
-      title: 'ಸಾಮಾಜಿಕ ಜವಾಬ್ದಾರಿಗಳ',
+      title: 'ಸಾಮಾಜಿಕ ಜವಾಬ್ದಾರಿಗಳು',
       link: '',
       subItems: [
         {
@@ -456,7 +456,7 @@ export const mobileHeader = {
           link: '/kn/social-responsibility/nandini-hostels/'
         },
         {
-          title: "ಮಕ್ಕಳಿಗಾಗಿ ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮ",
+          title: "ಮಕ್ಕಳ ಸಬಲೀಕರಣ",
           link: '/kn/portfolio/ksheerabhagaya'
         },
         {

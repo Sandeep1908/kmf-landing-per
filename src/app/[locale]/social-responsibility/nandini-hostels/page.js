@@ -56,10 +56,10 @@ function NandiniHostels() {
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
 
-          <div className="mb-20    relative w-full  flex justify-center items-center ">
+          <div className="mb-10    relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {locale==='kn'?'':'Nandini Hostels'}
+              {locale==='kn'?'ನಂದಿನಿ ವಸತಿ ನಿಲಯ':'Nandini Hostels'}
               </h1>
             </div>
            
@@ -76,13 +76,13 @@ function NandiniHostels() {
                 return (
                   <div
                     key={id}
-                    className="  w-full m-10 rounded-3xl    p-16">
+                    className="  w-full  rounded-3xl     ">
                     <div className="m-auto">
                       <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
                         {' '}
                         {_?.attributes?.title}{' '}
                       </h1>
-                      <div className="mt-10">
+                      <div className="mt-10 p-10">
                         {_?.attributes?.content && (
                           <BlocksRenderer
                             content={_?.attributes?.content}

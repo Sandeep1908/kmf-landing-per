@@ -25,12 +25,6 @@ function Gallery() {
       data:<BlogCard/>
       
     },
-    { 
-      tabs:'Press Release',
-      data:<PressRelease/>
-
-    },
-    
   ]
 
  
@@ -43,15 +37,19 @@ function Gallery() {
   };
 
   return (
-    <div className="w-full  absolute top-42 z-[-1]     ">
-      <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center company-bg`}>
-        <img src={'/images/gallery.png'} className="w-full h-full object-fill absolute top-0 z-[-1]" />
+    <div className="w-full  absolute top-52 z-[-1]     ">
+      <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center  `}>
+      <div className="w-full h-full flex justify-between items-center">
+              <div className="w-40 h-8 bg-red-600"></div>
+              <div className="w-40 h-8 bg-red-600"></div>
+            </div>
+        <img src={'/images/gallery.png'} className="w-full max-w-7xl h-full object-fill absolute top-0 z-[-1]" />
       </section>
       <section className="max-w-7xl h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
-        <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+        <div className="    relative w-full  flex justify-center items-center ">
           
-              <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               {locale==='en'?`Gallery`:`
 ಗ್ಯಾಲರಿ`}
               </h1>
@@ -66,7 +64,7 @@ function Gallery() {
                     key={idx}
                     className={`${
                       currentIndex === idx
-                        ? 'text-primary-main text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main'
+                        ? 'text-primary-main cursor-pointer text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main'
                         : 'text-sm'
                     } uppercase`}
                     onClick={() => handleClickItem(idx)}>
@@ -74,6 +72,19 @@ function Gallery() {
                   </li>
                 );
               })}
+              <Link href={`/${locale}/blog/press-release`}>
+<li
+                    
+                    className={` 
+                      
+                     text-sm   relative before:absolute  
+                         
+                  uppercase`}
+                    >
+                    Press Release
+                  </li>
+
+                  </Link>
 
 <Link href={`/${locale}/blog/tv-commercial`}>
 <li
