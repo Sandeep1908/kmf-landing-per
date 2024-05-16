@@ -4,7 +4,7 @@ import sweet from '@/images/recipes/sweet.jpg';
 import Footer from '@/components/Footer';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y ,} from 'swiper/modules';
 
 import useApi from '@/hooks/useApi';
 
@@ -18,6 +18,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useParams } from 'next/navigation';
+import { VscArrowSmallRight } from "react-icons/vsc";
+import { VscArrowSmallLeft } from "react-icons/vsc";
+
+
 
 const RecipeDetail = ({ slug }) => {
   const [recipeDetail, SetRecipeDetail] = useState([]);
@@ -51,34 +55,53 @@ const RecipeDetail = ({ slug }) => {
           </h1>
         </div>
 
-        <div className="w-full relative mt-10 md:mt-20 ">
-          <div className="absolute w-full h-full z-[-10] ">
+        <div className="w-full h-full relative mt-10 md:mt-20 ">
+        
+<div className='relative w-full h-auto'>
+<div className="absolute w-full h-full z-[-10] ">
             <div className="w-full h-full flex justify-between items-center">
               <div className="w-40 h-8 bg-red-600"></div>
               <div className="w-40 h-8 bg-red-600"></div>
             </div>
           </div>
 
+          <div className='absolute w-full h-full z-[10] '>
+              <div className="w-full h-full flex justify-center items-center">
+                <div className='max-w-3xl w-full h-full flex justify-between items-center p-5'>
+                <VscArrowSmallLeft size={60} className='text-white'/>
+                <VscArrowSmallRight size={60} className='text-white' />
+
+                </div>
+           
+            </div>
+              </div>
+
+
           <Carousels
-            className="w-2xl h-96"
+            className="w-2xl h-[500px]"
             autoPlay={true}
             interval={4000}
             showStatus={false}
             infiniteLoop
             showThumbs={false}
-            showIndicators={true}>
-            <div className="m-auto max-w-xl h-96 flex justify-center items-center p-1">
+            showIndicators={true}
+            showArrows={true} 
+            	
+            >
+          
+            <div className="m-auto max-w-3xl h-[500px] flex justify-center items-center p-1">
               <img
-                className=" w-80  md:w-[40%]  "
+                className="w-full  "
                 src={recipeDetail && recipeDetail?.attributes?.image?.data?.[0]?.attributes?.url}
                 alt=""
               />
+             
             </div>
 
             <div className="m-auto max-w-3xl h-[500px] flex justify-center items-center p-1">
               <video
                 className=" w-full h-full object-fill"
-                autoPlay
+                
                 muted
                 controls
                 loop
@@ -88,6 +111,16 @@ const RecipeDetail = ({ slug }) => {
                 }></video>
             </div>
           </Carousels>
+          </div>
+          <div className='w-full h-full flex justify-center items-center gap-10 p-10'>
+              <div className='w-20 h-20 bg-red-400'>
+                
+              </div>
+              <div className='w-20 h-20 bg-red-400'>
+                
+              </div>
+            
+          </div>
         </div>
       </div>
       <Footer />

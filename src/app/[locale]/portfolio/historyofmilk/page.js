@@ -20,18 +20,18 @@ const HistoryOfMilk = () => {
       <section className='w-full h-full'>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/portfolio/#ACHIEVEMENTS` || ''}>
-            KMF ACHIEVEMENTS
+            {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </Link>
 
            
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={''}>
-               HISTORY OF MILK
+            {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'} 
             </Link>
           </div>
       <div className=' relative w-full h-auto flex flex-col items-center justify-center mt-20'>
 
-        <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' > HISTORY OF MILK </h1>
+        <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' >  {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}  </h1>
         <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
         <img className='absolute top-[-50px] left-[49%] w-40 ' src={titleBG.src} alt="" />
 </div>
