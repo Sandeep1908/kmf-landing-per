@@ -43,7 +43,7 @@ function MissionVission() {
        />
      </section>
      :
-      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-[750px] pt-28 relative  grid place-items-center `}>
        
       
       <img
@@ -60,7 +60,7 @@ function MissionVission() {
       <section className="w-full max-w-5xl m-auto h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-5  lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
-            <div className="mb-20   relative w-full  flex justify-center items-center ">
+            <div className="mb-2   relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
                  
@@ -69,14 +69,14 @@ function MissionVission() {
             </div>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center  list-disc text-justify text-lg  md:justify-normal md:items-start">
-              <h1 className="text-xl">{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vision'}</h1>
+              <h1 className="text-4xl font-bold">{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vision'}</h1>
               {purpose?.attributes?.vission?.map((item, id) => {
                 return <li key={id}>{item?.children[0].text}</li>;
               })}
             </ul>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc   text-justify text-lg  md:justify-normal md:items-start">
-              <h1 className="text-xl">{locale === 'kn' ? 'ಧ್ಯೇಯದೃಷ್ಟಿ' : 'Mission'}</h1>
+              <h1 className="text-4xl font-bold">{locale === 'kn' ? 'ಧ್ಯೇಯದೃಷ್ಟಿ' : 'Mission'}</h1>
               {purpose?.attributes?.mission?.map((item, id) => {
                 return <li key={id}>{item?.children[0].text}</li>;
               })}

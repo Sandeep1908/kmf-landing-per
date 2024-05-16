@@ -3,9 +3,8 @@ import React, { useEffect, useState } from 'react';
 import organizationHero from '@/images/about/organization-chart/organization-hero.png';
 import mileStoneIco from '@/images/about/milestone/milestone.png';
 import { mileStone } from '@/configtext/milestone';
-import barIco from '@/images/about/milestone/bar.svg'
+import barIco from '@/images/about/milestone/bar.svg';
 
- 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
@@ -23,33 +22,37 @@ function OrganizationChart() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = description?.slice(indexOfFirstItem, indexOfLastItem);
-  const [banner,setBanner]=useState([])
-  const [loading,setLoading]=useState(true)
+  const [banner, setBanner] = useState([]);
+  const [loading, setLoading] = useState(true);
   const axios = useApi();
-  const locale=useLocale().locale
+  const locale = useLocale().locale;
+  const [openAccordion, setOpenAccordion] = useState(null);
+
+  const handleToggle = (idx, year) => {
+    handleYear(year);
+    setOpenAccordion(openAccordion === idx ? null : idx);
+  };
 
   useEffect(() => {
     (async () => {
       const { data } = await axios.get('/api/milestones?sort[0]=year:asc');
-      const {data:banner}=await axios.get('/api/milestone-banner')
+      const { data: banner } = await axios.get('/api/milestone-banner');
       const milestones = data?.data?.map((item) => {
         return { year: item?.attributes?.year, description: item?.attributes?.description };
       });
-console.log("milestones",data.data)
-      
+
       const filterdata = milestones?.filter(
         (item) => parseInt(item.year) >= selectedYear && parseInt(item.year) <= nextYear
       );
- 
-      setBanner(banner?.data)
+
+      setBanner(banner?.data);
       setDescription(filterdata);
-      setLoading(false)
+      setLoading(false);
     })();
 
     setMileStone(mileStone);
   }, [selectedYear, nextYear]);
 
-  
   const handleYear = (year, idx) => {
     if (year === selectedYear) {
       // If the clicked year is the same as the selected year, reset the range
@@ -79,8 +82,7 @@ console.log("milestones",data.data)
           onClick={() => paginate(i)}
           className={`mx-1 px-3 py-1 rounded ${
             currentPage === i ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
-          }`}
-        >
+          }`}>
           {i}
         </button>
       );
@@ -98,90 +100,172 @@ console.log("milestones",data.data)
   };
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img
-          src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
-          className="w-full h-full object-cover absolute top-0 z-[-1]"
-        />
-      </section>
+    <div className="w-full h-full absolute top-36 z-[-1]  ">
+      <h1 className=" text-primary-main w-full max-w-7xl m-auto text-center pt-20 font-heading text-3xl font-extrabold uppercase">
+        {locale === 'kn' ? 'ಮೈಲಿಗಲ್ಲು' : 'Milestones'}
+      </h1>
 
-      <section className="w-full  pt-10  ">
-        <div className="  w-full    lg:flex flex-col p-3 space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
-          <div className="w-full  flex flex-col justify-center items-start ">
-          <div className='mb-20   relative w-[500px]  m-auto '>
-        
-            <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">{locale==='kn'?'ಮೈಲಿಗಲ್ಲು':'Milestones'}</h1>
-</div>
+      <section className="w-full h-auto mb-[150px] m-auto  max-w-7xl     shadow-lg shadow-gray-600 mt-10">
+        {mileStone?.map((item, id) => {
+          if (id % 2 === 0) {
+            return (
+              <div className="w-full h-auto" key={id}>
+                <div className="w-full mb-10  space-x-5  flex justify-center items-center   relative">
+                  <div className="  relative max-w-60">
+                    <div className="w-40 h-40 border-white border-r-secondary-main   rounded-[50%] border-[20px]  flex justify-center items-center">
+                      <div className="w-20 h-20 border-secondary-main  rounded-full border-4"></div>
+                    </div>
 
-            <div className="w-full  pt-5 overflow-auto">
-              <ul className="w-full h-full flex flex-col space-y-5 justify-start items-start">
-                {currentProducts?.map((item, id) => {
-                  return (
-                    <li key={id} className="flex justify-start items-center space-x-4">
-                      <div className='relative'>
-                        <img src={mileStoneIco.src} />
-                        <p className='absolute top-[17px] left-2 text-xs'>{item.year}</p>
+                    <div
+                      onClick={() => handleToggle(id, item?.year)}
+                      className="  milestone-pulse w-5 h-5  flex justify-center items-center absolute bottom-[-25px]  left-[120px] rounded-full"></div>
+                  </div>
+
+                  <div className="text-5xl font-bold text-secondary-main">{item.year}</div>
+                </div>
+
+                {/* inner milestone */}
+
+                <div
+                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px]  transition-all duration-500 ${
+                    openAccordion === id ? 'block' : 'hidden'
+                  }`}>
+                  {description?.map((item, id) => {
+                    if (id % 2 == 0) {
+                      return (
+                        <div
+                          key={id}
+                          className="w-full  space-x-3     grid grid-cols-2   relative">
+
+                            <div className='flex justify-center items-center'>
+
+                            <div className="text-4xl font-bold text-secondary-main pt-2">
+                            {item.year}
+                          </div>
+
+                          <div className=" flex justify-center items-center    ">
+                            <div className="w-10 h-10 border-secondary-main  rounded-full border-[8px]"></div>
+
+                            <div className="flex justify-center items-center">
+                              <div className="  w-[140px] h-[2px] bg-black"></div>
+                              <div className="w-2 h-2 border-secondary-main  rounded-full border-[8px]"></div>
+                            </div>
+                          </div>
+                              </div>
+                        
+                         
+                          <div className="w-full max-w-96 m-auto">{item?.description}</div>
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div
+                          key={id}
+                          className="  w-full        grid grid-cols-2   relative">
+                          <div className=" w-full m-auto max-w-96 ">{item?.description}</div>
+
+
+                          <div className='flex justify-center items-center w-full'>
+                          <div className="     flex justify-center items-center    ">
+                            <div className=" flex justify-center items-center">
+                              <div className="w-2 h-2 border-primary-main  rounded-full border-[8px]"></div>
+                              <div className="  w-[140px] h-[2px] bg-black"></div>
+                            </div>
+                            <div className="w-10 h-10 border-primary-main  rounded-full border-[8px]"></div>
+                          </div>
+
+                          <div className=" inline-block text-4xl font-bold text-primary-main pt-2">
+                            {item.year}
+                          </div>
+                            </div>
+
+                         
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+            );
+          } else {
+            return (
+              <div className="w-full h-auto" key={id}>
+                <div className="w-full   flex justify-center items-center mb-10 space-x-5  ">
+                  <div className="text-5xl font-bold text-primary-main">{item.year}</div>
+                  <div className="w-full max-w-60 relative">
+                    <div className="w-40 h-40 border-l-primary-main border-white     rounded-[50%] border-[20px]  flex justify-center items-center">
+                      <div className="w-20 h-20 border-primary-main  rounded-full border-4"></div>
+                    </div>
+                    <div onClick={() => handleToggle(id, item?.year)} className=" milestone-pulse w-5 h-5  flex justify-center items-center absolute  bottom-[-25px]  left-[15px] rounded-full"></div>
+                  </div>
+                </div>
+
+                <div
+                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px]  transition-all duration-500 ${
+                    openAccordion === id ? 'block' : 'hidden'
+                  }`}>
+                  {description?.map((item, id) => {
+                    if (id % 2 == 0) {
+                      return (
+                        <div
+                        key={id}
+                        className="w-full  space-x-3     grid grid-cols-2   relative">
+
+                          <div className='flex justify-center items-center'>
+
+                          <div className="text-4xl font-bold text-secondary-main pt-2">
+                          {item.year}
+                        </div>
+
+                        <div className=" flex justify-center items-center    ">
+                          <div className="w-10 h-10 border-secondary-main  rounded-full border-[8px]"></div>
+
+                          <div className="flex justify-center items-center">
+                            <div className="  w-[140px] h-[2px] bg-black"></div>
+                            <div className="w-2 h-2 border-secondary-main  rounded-full border-[8px]"></div>
+                          </div>
+                        </div>
+                            </div>
+                      
+                       
+                        <div className="w-full max-w-96 m-auto">{item?.description}</div>
                       </div>
-                      <span>{item.description}</span>
-                    </li>
-                  );
-                })}
-              </ul>
+                      );
+                    } else {
+                      return (
+                        <div
+                        key={id}
+                        className="  w-full        grid grid-cols-2   relative">
+                        <div className=" w-full m-auto max-w-96 ">{item?.description}</div>
 
 
-  
-            </div>
+                        <div className='flex justify-center items-center w-full'>
+                        <div className="     flex justify-center items-center    ">
+                          <div className=" flex justify-center items-center">
+                            <div className="w-2 h-2 border-primary-main  rounded-full border-[8px]"></div>
+                            <div className="  w-[140px] h-[2px] bg-black"></div>
+                          </div>
+                          <div className="w-10 h-10 border-primary-main  rounded-full border-[8px]"></div>
+                        </div>
 
-            <div className={`flex justify-center items-center mt-10 space-x-2 mb-10 ${description?.length>8?'block':'hidden'}`}>
-          <button
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
-          >
-            Previous
-          </button>
+                        <div className=" inline-block text-4xl font-bold text-primary-main pt-2">
+                          {item.year}
+                        </div>
+                          </div>
 
-          {renderPaginationNumbers()}
+                       
+                      </div>
+                      );
+                    }
+                  })}
+                </div>
 
-          <button
-            onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === Math.ceil(description.length / itemsPerPage)}
-            className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800"
-          >
-            Next
-          </button>
-        </div>
-
-            <ul className="flex  justify-between  items-center    w-full mt-10  overflow-auto relative before:absolute before:w-full before:h-2 before:bg-primary-main before:top-0   ">
-
-              {mileStones?.map((item, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    className={` flex items-center justify-center pt-5 space-x-3 relative cursor-pointer ${nextYear===item.year?'border-t-8 border-secondary-main':''}       `}
-                    onClick={() => handleYear(item?.year,idx)}>
-                    <p
-                      className={` text-xl ${
-                        nextYear === item.year ? 'text-secondary-main font-heading' : 'text-primary-main'
-                      }`}>
-                      {item?.year}
-                    </p>
-                    {nextYear === item?.year && <img src={item?.image} />}
-                    {nextYear === item?.year && <img src={barIco.src} className='w-10 h-10 z-[-10] absolute top-[-4px] left-4'/>}
-
-                    
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-
-        
+              </div>
+            );
+          }
+        })}
       </section>
 
-      
       <Footer />
     </div>
   );

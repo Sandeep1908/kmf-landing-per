@@ -76,33 +76,32 @@ const axios =useApi()
             </Link>
             
       </div>
-    <section className=" relative w-full max-w-7xl m-auto h-auto pt-10  ">
-        <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
+    <section className=" relative w-full max-w-7xl m-auto h-auto pt-[150px]  ">
+        <div className="w-full shadow-md h-full flex flex-col        ">
           
 
         
-            <div className="w-full flex flex-col space-y-2 justify-center items-start shadow-md  p-1   ">
-            <div className=' w-full relative flex justify-center items-center'>
+             
+            <div className=' w-full relative flex   justify-center items-center'>
          
 
 
-                        <h1 className="w-full relative   m-auto text-center  text-primary-main text-xl   z-[100] ">
+                        <h1 className="w-full relative   m-auto text-center  text-primary-main text-4xl   z-[100] ">
                         Procurement
                         </h1>
-                        </div>
-             
-
-              {procure?.map((_, id) => {
+             </div>
+                       
+                       
+                       
+                       
+                        {procure?.map((_, id) => {
                 return (
                   <div
                     key={id}
-                    className="  w-full m-10 rounded-3xl    p-16">
+                    className="  w-full m-10 rounded-3xl    ">
                     <div className="m-auto">
-                      <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
-                        {' '}
-                        {_?.attributes?.title}{' '}
-                      </h1>
-                      <div className="mt-10">
+                    
+                      <div className=" ">
                         {_?.attributes?.content && (
                           <BlocksRenderer
                             content={_?.attributes?.content}
@@ -144,7 +143,10 @@ const axios =useApi()
                   </div>
                 );
               })}
-            </div>
+             
+ 
+             
+          
          
           
           

@@ -179,7 +179,7 @@ function Milk() {
                   return (
                     <div
                       key={id}
-                      className={`w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${item?.attributes?.isLatest?'flicker':''} `}>
+                      className={`w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${item?.attributes?.isLatest?'our-product-latest':''} `}>
                         {
                           item?.attributes?.isLatest &&
                           <img src='/images/product-new/new.gif' className='w-20 absolute right-5  z-[10]'/>

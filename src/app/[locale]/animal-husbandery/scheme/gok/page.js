@@ -66,7 +66,7 @@ const handleButton = (idx) => {
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/our-product/`}>
-              GOI
+              GOK
             </Link>
             
           </div>
@@ -74,7 +74,7 @@ const handleButton = (idx) => {
           <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {locale==='kn'?'':'          Government Of Karnataka'}
+              {locale==='kn'?'':'Government Of Karnataka'}
               </h1>
             </div>
     
@@ -161,7 +161,7 @@ const handleButton = (idx) => {
                 src="/images/heading/heading-color/group.png"
                 className="absolute   w-[530px] top-[-70px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-md font-extrabold uppercase">
               {scheme[currentIndex]?.title}
               </h1>
             </div>
@@ -183,6 +183,7 @@ const handleButton = (idx) => {
             <ul className="w-full flex flex-col justify-center items-center space-y-3">
               {showmore?
                scheme?.map((items, idx) => {
+               
                 
                   return (
                     <li
@@ -204,6 +205,7 @@ const handleButton = (idx) => {
               })
               :
               scheme?.map((items, idx) => {
+                console.log("gok",items)
                 if(idx<10){
                   return (
                     <li

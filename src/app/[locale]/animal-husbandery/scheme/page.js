@@ -10,17 +10,17 @@ function Scheme() {
   const schemes = [
     {
       title: 'Government of India Schemes',
-      link: '/en/animal-husbandery/scheme/goi',
+      link: `/${locale}/animal-husbandery/scheme/goi`,
       image:'https://ehealth.eletsonline.com/wp-content/uploads/2023/08/Government-of-India-logo.jpg'
     },
     {
       title: 'Government of Karnataka Schemes',
-      link: '/en/animal-husbandery/scheme/gok',
+      link: `/${locale}/animal-husbandery/scheme/gok`,
       image:'https://cdn.telanganatoday.com/wp-content/uploads/2021/04/Karnataka-govt-announces-state-wide-close-down-for-14-days.jpg'
     },
     {
       title: ' Other Schemes',
-      link: '/en/animal-husbandery/scheme/other-scheme',
+      link: `/${locale}/animal-husbandery/scheme/other-scheme`,
       image:'https://mc.webpcache.epapr.in/mcms.php?size=large&in=https://mcmscache.epapr.in/post_images/website_326/post_20395626/full.jpg'
     }
   ];

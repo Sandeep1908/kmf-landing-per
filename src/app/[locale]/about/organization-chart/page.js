@@ -72,7 +72,7 @@ function OrganizationChart() {
           <div className="mb-20   relative w-full  flex justify-center items-center ">
           
               
-              <h1 className=" text-white relative z-10 font-heading text-2xl font-extrabold uppercase">
+              <h1 className=" text-white relative z-10 font-heading text-4xl font-bold uppercase">
               {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
               </h1>
             </div>
@@ -101,22 +101,31 @@ function OrganizationChart() {
         </div>
        
       </ParallaxBanner>
-      <section className={`w-full max-w-5xl m-auto  mt-10 h-[500px] pt-28 relative  grid place-items-center `}>
+      <section className={` relativew-full w-full m-auto  mt-10 h-[500px] pt-28 relative  grid place-items-center `}>
+
+      <div className="absolute w-full h-full z-[-10] ">
+            <div className="w-full h-full flex justify-between items-center">
+              <div className="w-40 h-8 bg-red-600"></div>
+              <div className="w-40 h-8 bg-red-600"></div>
+            </div>
+          </div>
         <img
           src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
-          className="w-full h-full object-conatain absolute top-0 z-[-1]"
+          className=" max-w-7xl h-full object-conatain absolute top-0 z-[-1]"
         />
+
+
       </section>
 
       
 
   
 
-      <section className="w-full max-w-7xl m-auto h-auto  mt-20   ">
+      <section className="w-full  max-w-[1500px] m-auto h-auto  mt-20   ">
         <div className="   w-full  h-full flex flex-col p-3 space-y-2 lg:flex-row lg:p-5 lg:space-x-10">
           {locale === 'en' ? (
-            <div className="w-full flex flex-col justify-center items-start shadow-md ">
-                 <div className="mb-20   relative w-full  flex justify-center items-center ">
+            <div className="w-full flex flex-col justify-center items-start   ">
+                 <div className="mb-2  relative w-full    ">
            
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}

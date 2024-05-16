@@ -10,6 +10,7 @@ import BlogCard from './BlogCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import PressRelease from './PressRelease';
+import brand from '@/images/portfolio/BrandAmbassador.png'
  
 import Link from 'next/link';
 
@@ -42,9 +43,9 @@ function Gallery() {
   };
 
   return (
-    <div className="w-full  absolute top-36 z-[-1]     ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
-        <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
+    <div className="w-full  absolute top-42 z-[-1]     ">
+      <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center company-bg`}>
+        <img src={'/images/gallery.png'} className="w-full h-full object-fill absolute top-0 z-[-1]" />
       </section>
       <section className="max-w-7xl h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">

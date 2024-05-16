@@ -334,7 +334,7 @@ export const mobileHeader = {
     },
 
     {
-      title: 'KMF ಪೋರ್ಟ್ಫೋಲಿಯೋ',
+      title: 'ಕಹಾಮ ಪೋರ್ಟ್ಫೋಲಿಯೋ',
       link: '/kn/portfolio',
       imgUrl: homeIco.src
     },
@@ -445,30 +445,34 @@ export const mobileHeader = {
     
 
 
+     
+
     {
       title: 'ಸಾಮಾಜಿಕ ಜವಾಬ್ದಾರಿಗಳ',
       link: '',
       subItems: [
         {
-          title: "Nandini Hostels",
-          link: ''
+          title: "ನಂದಿನಿ ವಸತಿ ನಿಲಯ",
+          link: '/kn/social-responsibility/nandini-hostels/'
         },
         {
-          title: "Awarness For Children",
-          link: ''
+          title: "ಮಕ್ಕಳಿಗಾಗಿ ಜಾಗೃತಿ ಕಾರ್ಯಕ್ರಮ",
+          link: '/kn/portfolio/ksheerabhagaya'
         },
         {
-          title: "Incentives to Farmers",
-          link: ''
+          title: "ರೈತರಿಗೆ ಪ್ರೋತ್ಸಾಹ ಧನ",
+          link: '/kn/portfolio/ksheeradhare'
         },
         {
-          title: "Veterinary Services",
-          link: ''
+          title: "ಪಶುವೈದ್ಯಕೀಯ ಸೇವೆಗಳು",
+          link: '/kn/animal-husbandery/animal-health'
         },
        
         
       ],
     },
+
+   
      
      
     {

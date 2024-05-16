@@ -365,22 +365,24 @@ const Home = () => {
       <div className="w-full flex flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-            Quick Links
+          ಕ್ವಿಕ್ ಲಿಂಕ
           </h1>
         </div>
 
         <div className="  w-full h-auto  relative   ">
           <Fade bottom>
             <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
-              <Link href="/en/comingsoon">
-                <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
+              <Link href="/kn/comingsoon">
+                <LinkCard title="ಈಗಲೇ ಖರೀದಿಸಿ" imgUrl={cartIco.src} />
               </Link>
 
-              <Link href="/en/comingsoon">
-                <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
+              <Link href="/kn/comingsoon">
+                <LinkCard title="ಡೇರಿ ಪ್ರವಾಸ
+" imgUrl={locationIco.src} />
               </Link>
-              <Link href="/en/blog/gallery">
-                <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
+              <Link href="/en/blog/tv-commercial">
+                <LinkCard title="ನಂದಿನಿ ಕಮರ್ಷಿಯಲ್ಸ್
+" imgUrl={commercialIco.src} />
               </Link>
             </div>
           </Fade>
@@ -393,7 +395,8 @@ const Home = () => {
         <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
           <div className="flex justify-center w-full    flex-wrap   items-end  ">
             <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
-              Explore The World Of KMF
+            ಕೆಎಂಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
+
             </h1>
           </div>
         </div>

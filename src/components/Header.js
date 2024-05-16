@@ -306,7 +306,7 @@ export const Header = () => {
                           key={i}
                           className=" transition-all duration-300 hover:scale-[1.1] ">
                           <li
-                            className="  text-[14px] border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
+                            className="  text-[8px] sm:text-[10px] lg:text-[12px]  border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
                             onMouseEnter={() => setOpen(hasItems ? i : null)}>
                             {header.title}
                             {hasItems && (

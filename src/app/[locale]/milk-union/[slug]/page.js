@@ -14,7 +14,6 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useMyContext } from '@/context/headerContext';
-
 import { BlocksRenderer, Typography } from '@strapi/blocks-react-renderer';
 
 function MilkUnionDetail({ slug }) {

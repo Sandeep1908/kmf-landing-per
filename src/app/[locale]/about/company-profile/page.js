@@ -64,12 +64,12 @@ function CompanyProfile() {
 
       {/* <CarouselImage images={allbanners || []} /> */}
 
-      <section className="w-full h-auto p-20   relative flex justify-center items-center flex-col  space-y-6  ">
+      <section className="w-full h-auto p-10   relative flex justify-center items-center flex-col  space-y-6  ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">
           <div className="mb-20 w-full relative flex justify-center items-center">
         
 
-            <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-3xl   z-[100] ">
+            <h1 className="w-full uppercase relative max-w-[300px] m-auto text-center  text-primary-main text-3xl   z-[100] ">
               {locale === 'en' ? 'Company Profile' : 'ಕಹಾಮ ಪರಿಚಯ'}
             </h1>
           </div>
@@ -107,7 +107,7 @@ function CompanyProfile() {
             </ul>
           </div>
 
-          <div className="w-[650px]   h-fit  relative   flex justify-center items-center pt-20">
+          {/* <div className="w-[650px]   h-fit  relative   flex justify-center items-center pt-20">
             <img
               src="/images/heading/subheading.png"
               className="absolute z-[-1] w-fit    object-contain"
@@ -118,7 +118,7 @@ function CompanyProfile() {
           before:absolute before:w-40 before:m-auto before:h-1 before:bg-secondary-darker before:top-10 ">
               {tabs[currentIndex].tabName}
             </h1>
-          </div>
+          </div> */}
         </div>
       </section>
 
