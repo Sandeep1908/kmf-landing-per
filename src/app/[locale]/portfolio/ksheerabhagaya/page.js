@@ -112,7 +112,7 @@ const axios = useApi();
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-4xl text-center ' > {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
+                       <h1 className='text-primary-main text-2xl md:text-4xl text-center font-bold ' > {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
                  <div className='mt-6'>
                   <ul className=' text-sm md:text-lg lg:text-sm xl:text-xl list-disc text-left'>
                   <li>
@@ -138,7 +138,7 @@ const axios = useApi();
                
                  <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl font-bold ' >  {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
                  <div className=' mt-10'>
                   <ul className='list-disc text-left'>
                   <li>
@@ -148,9 +148,9 @@ const axios = useApi();
                   
                   {locale === 'en' ? 'Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.' : 'ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯುಹಾಲು ಉತ್ಪಾ ದಕ್ರಿಗೆ ಅ಴ರ ಹೆಚ್ಚು ಴ರಿಹಾಲನ್ನು ವಿಲೇವಾರಿಮಾಡಲು ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಗೌರವಾನ್ವಿ ತ್ ಸಿಎಂ ಅ಴ರ ಸಲಹೆಯಆಧಾರದಮೇಲೆ ಕೆಎಂಎಫ್ರೂಪಿಸಿದ ವಿನೂತ್ನಯೀಜ್ನೆಯಾಗಿದೆ.'}  
                   </li>
-                  <li>
+                  {/* <li>
                   The Gist of Ksheera Bhagya Scheme is as follows:
-                  </li>
+                  </li> */}
                 
                 
                   </ul>

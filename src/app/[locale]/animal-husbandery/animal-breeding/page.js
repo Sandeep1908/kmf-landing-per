@@ -86,6 +86,17 @@ return(
             </Link>
             
       </div>
+      <div className="flex w-full    justify-center pt-10 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+                
+
+                <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/portfolio#ACHIEVEMENTS':'/en/portfolio#ACHIEVEMENTS'}`}>
+                {locale==='kn'?'':'Back to portfolio'}
+                  
+                </Link>
+    
+              
+                
+          </div>
 
       <section className="w-full h-auto p-10 mt-10   relative flex justify-center items-center flex-col   ">
         <div className="w-full flex flex-col justify-center items-center space-y-5">

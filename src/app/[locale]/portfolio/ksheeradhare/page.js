@@ -64,7 +64,7 @@ const KsheeraDhare = () => {
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-4xl text-center ' >  
+                       <h1 className='text-primary-main text-2xl md:text-4xl text-center font-bold ' >  
                        {locale === 'en' ? "Ksheerdhare Project" : "ಕ್ಷೀರ ಧಾರೆ,"}
                        </h1>
                  <div className='mt-6'>
@@ -82,7 +82,7 @@ const KsheeraDhare = () => {
                
                  <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' >   {locale === 'en' ? "Ksheerdhare Project" : "ಕ್ಷೀರ ಧಾರೆ,"} </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl font-bold' >   {locale === 'en' ? "Ksheerdhare Project" : "ಕ್ಷೀರ ಧಾರೆ,"} </h1>
                  <div className=' mt-10'>
                   <p className=''>
                   {locale === 'en' ? "An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objectives:" : "ಕರ್ನಾಟಕ ರಾಜ್ಯ ಸರ್ಕಾರದ ದ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯ ಯೋಜನೆ. 'ಕ್ಷೀರಧಾರೆ' ಯೋಜನೆಯನ್ನು ಈ ಕೆಳಗಿನ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಜಾರಿಗೊಳಿಸಲಾಗಿದೆ."}                
@@ -92,7 +92,7 @@ const KsheeraDhare = () => {
                  </div>
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > 
+                       <h1 className='text-primary-main text-2xl md:text-3xl font-bold' > 
                        {locale === 'en' ? "Objectives of the Milk Producer Incentive Scheme:" : "ಹಾಲು ಉತ್ಪಾದಕರ ಪ್ರೋತ್ಸಾಹ ಯೋಜನೆಯ ಉದ್ದೇಶಗಳು:"}
                          </h1>
                  <div className=' mt-10'>
@@ -126,7 +126,7 @@ const KsheeraDhare = () => {
 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > 
+                       <h1 className='text-primary-main text-2xl md:text-3xl font-bold' > 
                        {locale === 'en' ? "Scheme implementation details" : "ಯೋಜನೆಯ ಅನುಷ್ಠಾನದ ವಿವರಗಳು"}
                         </h1>
                  <div className='mt-10'>
@@ -185,7 +185,7 @@ const KsheeraDhare = () => {
                               <thead className=" text-center bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
                                   return (
-                                    <th className="p-2 w-14   border-r border-black " key={id}>
+                                    <th className="p-2 w-14   border-r border-black font-bold " key={id}>
                                       {item}
                                     </th>
                                   );

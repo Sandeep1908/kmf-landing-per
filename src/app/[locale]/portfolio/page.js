@@ -618,7 +618,7 @@ function Portfolio() {
               <div className=" lg:absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full">
                 <div className="w-full h-full flex justify-center items-center">
                   <div className="max-w-xl lg:max-w-lg xl:max-w-3xl w-full m-auto">
-                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-4xl ">
+                    <h1 className="uppercase text-primary-main lg:mt-10 text-2xl md:text-4xl font-bold ">
                       {' '}
                       {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}{' '}
                     </h1>
@@ -636,7 +636,7 @@ function Portfolio() {
                             paragraph: ({children}) => {
                                      
                               return (
-                              <p className='text-xl'>{children}</p>
+                              <p className='text-xl '>{children}</p>
                               )
                             },
                             list:({children}) =>{
@@ -663,10 +663,10 @@ function Portfolio() {
                       className="max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16">
                       <div className="m-auto">
                         <div className=' w-[450px] relative'>
-            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-fit top-[-56px]   object-contain'/>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-fit top-[-48px]   object-contain'/>
 
 
-                        <h1 className="w-full relative max-w-[300px] m-auto  text-primary-main text-xl   z-[100] ">
+                        <h1 className="w-full relative max-w-[300px] m-auto  text-primary-main text-xl  font-bold z-[100] ">
                           {' '}
                           {item?.attributes?.title}
                         </h1>
