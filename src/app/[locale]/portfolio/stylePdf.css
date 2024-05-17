@@ -8,6 +8,9 @@
   .react-pdf__Page__textContent .textLayer{
     display: none !important;
   }
+  .react-pdf__Page .pdf-preview-page{
+    height: 300!important;
+  }
   .pdf-preview-page {
     margin-bottom: 20px;
     width: 100%;

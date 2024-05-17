@@ -61,6 +61,9 @@ import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useMyContext } from '@/context/headerContext';
 import { useParams } from 'next/navigation';
 import PdfPreview from './PdfPreview';
+// import PDFViewer2 from './PdfPreview2';
+// import PdfPreview2 from './PdfPreview2';
+import MyPdfViewer from './PdfPreview2';
 
 function Portfolio() {
 
@@ -78,6 +81,15 @@ function Portfolio() {
     setReadMore(!readMore);
   };
 
+
+  const [showPdf, setShowPdf] = useState(false);
+  const pdfUrlView = '/pdJan23.pdf'; // Ensure this path is correct
+
+  const handleButtonClickPdf = () => {
+      setShowPdf(true);
+  };
+
+  const pdfUrl2 = '/pdJan23.pdf';
 
   const [showFullText, setShowFullText] = useState(false);
 
@@ -292,9 +304,9 @@ function Portfolio() {
           </h1>
           <div className="mt-0 md:mt-4 text-center mr-auto ml-auto">
             <p className="text-3xl md:text-6xl font-bold">
-            {locale==='en'?'LETS BEGIN THE':'ಹಾಲು - ನಡೆದು'}
+            {locale==='en'?'LETS BEGIN THE':'ಹಾಲು - ಹುಟ್ಟು,'}
             <br />
-            {locale==='en'?'JOURNEY OF MILK':' ಬಂದ ದಾರಿ'}
+            {locale==='en'?'JOURNEY OF MILK':'ವಿಕಾಸ, ಬೆಳವಣಿಗೆಯ ಹಾದಿ'}
        
             </p>
 
@@ -569,7 +581,7 @@ function Portfolio() {
         <div className="mt-1 w-full relative flex justify-center items-center">
 
 
-            <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl ">
+            <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold ">
             {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </h1>
           </div>
@@ -718,13 +730,13 @@ function Portfolio() {
 
     
 
-      <section className='w-full h-auto mt-10 mb-10  '>
+      <section id="ksheerasagara" className='w-full h-auto mt-10 mb-10  '>
 <div className=' m-auto  '>
 <div className="mt-20 mb-5 w-full  flex justify-center items-center">
     
 
-    <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl   ">
-    {locale === 'en' ?   'KSHEERASAGARA' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
+    <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
+    {locale === 'en' ?   'KSHEERASAGARA MAGAZINE' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
     </h1>
   </div>
   
@@ -739,9 +751,9 @@ function Portfolio() {
                       disableOnInteraction: false
                     }}
                     modules={[FreeMode, Autoplay]}
-                    className="w-full h-full">
+                    className="w-full h-[530px]">
                     <SwiperSlide>
-                         <PdfPreview className="w-full h-full" pdfUrl="/pdJan.pdf"/>
+                         <PdfPreview className="" pdfUrl="/pdJan.pdf"/>
 
                     </SwiperSlide>
                     <SwiperSlide>
@@ -791,6 +803,8 @@ function Portfolio() {
 
 
 
+
+
       <section id="SPONSORED" className="w-full h-auto pt-10 md:pt-20 pb-10 md:pb-20  ">
         <div className="w-full text-center">
         <div className='w-full pt-20 pb-20'>
@@ -799,7 +813,7 @@ function Portfolio() {
 <div className="mt-1 w-full  flex justify-center items-center">
     
 
-    <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl   ">
+    <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
     {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
     </h1>
   </div>
