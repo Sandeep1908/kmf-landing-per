@@ -709,3 +709,8 @@ h1 {
 .our-product-latest {
   animation: cc-calto-action-ripple 0.6s linear infinite;
 }
+
+
+.react-pdf__Page__textContent .textLayer{
+  display: none !important;
+}
