@@ -141,15 +141,15 @@ function TvcommercialDetails() {
             <div className='w-full h-full'>
               
 
-              {commercialCategory?.map((item,id)=>{
-                console.log(item)
-                
-                  if(item?.id!=parseInt(param?.slug)){
-                    return(
-                      <NandiniProducts key={id}/>
-                      
-                    )
-                  }
+              {param?.slug ==='3' &&commercialCategory?.map((item,id)=>{
+                if(item?.id===3){
+                  return(
+                    <NandiniProducts key={id}/>
+                  )
+                }
+              
+              
+          
                 
               })}
        

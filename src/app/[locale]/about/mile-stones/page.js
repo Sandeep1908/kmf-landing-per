@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import Counter from '@/components/Counter';
 import useLocale from '@/hooks/useLocale';
+
 function OrganizationChart() {
   const [mileStones, setMileStone] = useState([]);
   const [selectedYear, setSelectedYear] = useState(1955);
@@ -38,31 +39,78 @@ function OrganizationChart() {
       const { data } = await axios.get('/api/milestones?sort[0]=year:asc');
       const { data: banner } = await axios.get('/api/milestone-banner');
       const milestones = data?.data?.map((item) => {
-        return { year: item?.attributes?.year, description: item?.attributes?.description };
+        return {
+           year: item?.attributes?.year, 
+           description: item?.attributes?.description };
       });
+
+      const filterDataDatewise=[
+        {
+          year:1955,
+          description:milestones?.filter(item=>item?.year >= 1955 && item?.year <= 1965)
+        },
+        {
+          year:1965,
+          description:milestones?.filter(item=>item?.year >= 1955 && item?.year <= 1965)
+        },
+        {
+          year:1975,
+          description:milestones?.filter(item=>item?.year >= 1965 && item?.year <= 1975)
+        },
+        {
+          year:1985,
+          description:milestones?.filter(item=>item?.year >= 1975 && item?.year <= 1985)
+        },
+        {
+          year:1995,
+          description:milestones?.filter(item=>item?.year >= 1985 && item?.year <= 1995)
+        },
+        {
+          year:2000,
+          description:milestones?.filter(item=>item?.year >= 1995 && item?.year <= 2000)
+        },
+        {
+          year:2005,
+          description:milestones?.filter(item=>item?.year >= 2000 && item?.year <= 2005)
+        },
+        {
+          year:2010,
+          description:milestones?.filter(item=>item?.year >= 2005 && item?.year <= 2010)
+        },
+        {
+          year:2015,
+          description:milestones?.filter(item=>item?.year >= 2010 && item?.year <= 2015)
+        },
+        {
+          year:2020,
+          description:milestones?.filter(item=>item?.year >= 2015 && item?.year <= 2020)
+        },
+        {
+          year:2025,
+          description:milestones?.filter(item=>item?.year >= 2020 && item?.year <= 2025)
+        },
+
+      ]
+ 
 
       const filterdata = milestones?.filter(
         (item) => parseInt(item.year) >= selectedYear && parseInt(item.year) <= nextYear
       );
-
+      setMileStone(filterDataDatewise);
       setBanner(banner?.data);
       setDescription(filterdata);
       setLoading(false);
     })();
 
-    setMileStone(mileStone);
+   
   }, [selectedYear, nextYear]);
 
-  const handleYear = (year, idx) => {
-    if (year === selectedYear) {
-      // If the clicked year is the same as the selected year, reset the range
-      setNextYear(selectedYear);
-      setSelectedYear(selectedYear);
-    } else {
-      // Update the range with the clicked year
-      setNextYear(year);
-      setSelectedYear(selectedYear);
-    }
+  const handleYear = (year) => {
+    const startYear = Math.min(selectedYear, year);
+    const endYear = Math.max(selectedYear, year);
+
+    setSelectedYear(startYear);
+    setNextYear(endYear);
   };
 
   const paginate = (pageNumber) => {
@@ -100,86 +148,69 @@ function OrganizationChart() {
   };
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]  ">
-      <h1 className=" text-primary-main w-full max-w-7xl m-auto text-center pt-20 font-heading text-3xl font-extrabold uppercase">
+    <div className="w-full h-full absolute top-36 z-[-1]">
+      <h1 className="text-primary-main w-full max-w-7xl m-auto text-center pt-20 font-heading text-3xl font-extrabold uppercase">
         {locale === 'kn' ? 'ಮೈಲಿಗಲ್ಲು' : 'Milestones'}
       </h1>
 
-      <section className="w-full h-auto mb-[150px] m-auto  max-w-7xl     shadow-lg shadow-gray-600 mt-10">
-        {mileStone?.map((item, id) => {
+      <section className="w-full h-auto mb-[150px] m-auto max-w-7xl shadow-lg shadow-gray-600 mt-10">
+        {mileStones?.sort((a, b) => b.year - a.year)?.map((item, id) => {
+           
           if (id % 2 === 0) {
             return (
               <div className="w-full h-auto" key={id}>
-                <div className="w-full mb-10  space-x-5  flex justify-center items-center   relative">
-                  <div className="  relative max-w-60">
-                    <div className="w-40 h-40 border-white border-r-secondary-main   rounded-[50%] border-[20px]  flex justify-center items-center">
-                      <div className="w-20 h-20 border-secondary-main  rounded-full border-4"></div>
+                <div className="w-full mb-10 space-x-5 flex justify-center items-center relative">
+                  <div className="relative max-w-60">
+                    <div className="w-40 h-40 border-white border-r-secondary-main rounded-[50%] border-[20px] flex justify-center items-center">
+                      <div className="w-20 h-20 border-secondary-main rounded-full border-4"></div>
                     </div>
 
                     <div
                       onClick={() => handleToggle(id, item?.year)}
-                      className="  milestone-pulse w-5 h-5  flex justify-center items-center absolute bottom-[-25px]  left-[120px] rounded-full"></div>
+                      className="milestone-pulse w-5 h-5 flex justify-center items-center absolute bottom-[-25px] left-[120px] rounded-full"></div>
                   </div>
 
                   <div className="text-5xl font-bold text-secondary-main">{item.year}</div>
                 </div>
 
                 {/* inner milestone */}
-
                 <div
-                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px]  transition-all duration-500 ${
+                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
                     openAccordion === id ? 'block' : 'hidden'
                   }`}>
-                  {description?.map((item, id) => {
-                    if (id % 2 == 0) {
+                   
+                  {item.description?.sort((a,b)=>b.year-a.year).map((item, id) => {
+                    console.log("indescription",item)
+                    if (id % 2 === 0) {
                       return (
-                        <div
-                          key={id}
-                          className="w-full  space-x-3     grid grid-cols-2   relative">
-
-                            <div className='flex justify-center items-center'>
-
-                            <div className="text-4xl font-bold text-secondary-main pt-2">
-                            {item.year}
-                          </div>
-
-                          <div className=" flex justify-center items-center    ">
-                            <div className="w-10 h-10 border-secondary-main  rounded-full border-[8px]"></div>
-
+                        <div key={id} className="w-full space-x-3 grid grid-cols-2 relative">
+                          <div className="flex justify-center items-center">
+                            <div className="text-4xl font-bold text-secondary-main pt-2">{item.year}</div>
                             <div className="flex justify-center items-center">
-                              <div className="  w-[140px] h-[2px] bg-black"></div>
-                              <div className="w-2 h-2 border-secondary-main  rounded-full border-[8px]"></div>
+                              <div className="w-10 h-10 border-secondary-main rounded-full border-[8px]"></div>
+                              <div className="flex justify-center items-center">
+                                <div className="w-[140px] h-[2px] bg-black"></div>
+                                <div className="w-2 h-2 border-secondary-main rounded-full border-[8px]"></div>
+                              </div>
                             </div>
                           </div>
-                              </div>
-                        
-                         
                           <div className="w-full max-w-96 m-auto">{item?.description}</div>
                         </div>
                       );
                     } else {
                       return (
-                        <div
-                          key={id}
-                          className="  w-full        grid grid-cols-2   relative">
-                          <div className=" w-full m-auto max-w-96 ">{item?.description}</div>
-
-
-                          <div className='flex justify-center items-center w-full'>
-                          <div className="     flex justify-center items-center    ">
-                            <div className=" flex justify-center items-center">
-                              <div className="w-2 h-2 border-primary-main  rounded-full border-[8px]"></div>
-                              <div className="  w-[140px] h-[2px] bg-black"></div>
+                        <div key={id} className="w-full grid grid-cols-2 relative">
+                          <div className="w-full m-auto max-w-96">{item?.description}</div>
+                          <div className="flex justify-center items-center w-full">
+                            <div className="flex justify-center items-center">
+                              <div className="flex justify-center items-center">
+                                <div className="w-2 h-2 border-primary-main rounded-full border-[8px]"></div>
+                                <div className="w-[140px] h-[2px] bg-black"></div>
+                              </div>
+                              <div className="w-10 h-10 border-primary-main rounded-full border-[8px]"></div>
                             </div>
-                            <div className="w-10 h-10 border-primary-main  rounded-full border-[8px]"></div>
+                            <div className="inline-block text-4xl font-bold text-primary-main pt-2">{item.year}</div>
                           </div>
-
-                          <div className=" inline-block text-4xl font-bold text-primary-main pt-2">
-                            {item.year}
-                          </div>
-                            </div>
-
-                         
                         </div>
                       );
                     }
@@ -190,76 +221,58 @@ function OrganizationChart() {
           } else {
             return (
               <div className="w-full h-auto" key={id}>
-                <div className="w-full   flex justify-center items-center mb-10 space-x-5  ">
+                <div className="w-full flex justify-center items-center mb-10 space-x-5">
                   <div className="text-5xl font-bold text-primary-main">{item.year}</div>
                   <div className="w-full max-w-60 relative">
-                    <div className="w-40 h-40 border-l-primary-main border-white     rounded-[50%] border-[20px]  flex justify-center items-center">
-                      <div className="w-20 h-20 border-primary-main  rounded-full border-4"></div>
+                    <div className="w-40 h-40 border-l-primary-main border-white rounded-[50%] border-[20px] flex justify-center items-center">
+                      <div className="w-20 h-20 border-primary-main rounded-full border-4"></div>
                     </div>
-                    <div onClick={() => handleToggle(id, item?.year)} className=" milestone-pulse w-5 h-5  flex justify-center items-center absolute  bottom-[-25px]  left-[15px] rounded-full"></div>
+                    <div
+                      onClick={() => handleToggle(id, item?.year)}
+                      className="milestone-pulse w-5 h-5 flex justify-center items-center absolute bottom-[-25px] left-[15px] rounded-full"></div>
                   </div>
                 </div>
 
                 <div
-                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px]  transition-all duration-500 ${
+                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
                     openAccordion === id ? 'block' : 'hidden'
                   }`}>
-                  {description?.map((item, id) => {
-                    if (id % 2 == 0) {
+                  {item?.description?.map((item, id) => {
+                    if (id % 2 === 0) {
                       return (
-                        <div
-                        key={id}
-                        className="w-full  space-x-3     grid grid-cols-2   relative">
-
-                          <div className='flex justify-center items-center'>
-
-                          <div className="text-4xl font-bold text-secondary-main pt-2">
-                          {item.year}
-                        </div>
-
-                        <div className=" flex justify-center items-center    ">
-                          <div className="w-10 h-10 border-secondary-main  rounded-full border-[8px]"></div>
-
+                        <div key={id} className="w-full space-x-3 grid grid-cols-2 relative">
                           <div className="flex justify-center items-center">
-                            <div className="  w-[140px] h-[2px] bg-black"></div>
-                            <div className="w-2 h-2 border-secondary-main  rounded-full border-[8px]"></div>
-                          </div>
-                        </div>
+                            <div className="text-4xl font-bold text-secondary-main pt-2">{item.year}</div>
+                            <div className="flex justify-center items-center">
+                              <div className="w-10 h-10 border-secondary-main rounded-full border-[8px]"></div>
+                              <div className="flex justify-center items-center">
+                                <div className="w-[140px] h-[2px] bg-black"></div>
+                                <div className="w-2 h-2 border-secondary-main rounded-full border-[8px]"></div>
+                              </div>
                             </div>
-                      
-                       
-                        <div className="w-full max-w-96 m-auto">{item?.description}</div>
-                      </div>
+                          </div>
+                          <div className="w-full max-w-96 m-auto">{item?.description}</div>
+                        </div>
                       );
                     } else {
                       return (
-                        <div
-                        key={id}
-                        className="  w-full        grid grid-cols-2   relative">
-                        <div className=" w-full m-auto max-w-96 ">{item?.description}</div>
-
-
-                        <div className='flex justify-center items-center w-full'>
-                        <div className="     flex justify-center items-center    ">
-                          <div className=" flex justify-center items-center">
-                            <div className="w-2 h-2 border-primary-main  rounded-full border-[8px]"></div>
-                            <div className="  w-[140px] h-[2px] bg-black"></div>
+                        <div key={id} className="w-full grid grid-cols-2 relative">
+                          <div className="w-full m-auto max-w-96">{item?.description}</div>
+                          <div className="flex justify-center items-center w-full">
+                            <div className="flex justify-center items-center">
+                              <div className="flex justify-center items-center">
+                                <div className="w-2 h-2 border-primary-main rounded-full border-[8px]"></div>
+                                <div className="w-[140px] h-[2px] bg-black"></div>
+                              </div>
+                              <div className="w-10 h-10 border-primary-main rounded-full border-[8px]"></div>
+                            </div>
+                            <div className="inline-block text-4xl font-bold text-primary-main pt-2">{item.year}</div>
                           </div>
-                          <div className="w-10 h-10 border-primary-main  rounded-full border-[8px]"></div>
                         </div>
-
-                        <div className=" inline-block text-4xl font-bold text-primary-main pt-2">
-                          {item.year}
-                        </div>
-                          </div>
-
-                       
-                      </div>
                       );
                     }
                   })}
                 </div>
-
               </div>
             );
           }
