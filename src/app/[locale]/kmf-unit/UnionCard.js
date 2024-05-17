@@ -23,7 +23,7 @@ function UnionCard({name,image,description,link}) {
 
 <Link href={link || ''} className='w-full flex flex-col justify-start items-start space-y-6'>
    
-        <h1 className='text-3xl text-primary-main'>{name}</h1>
+        <h1 className='text-3xl uppercase text-primary-main'>{name}</h1>
         <p className='text-sm  text-justify'>{description?.[0]?.children?.[0]?.text}</p>
     
      

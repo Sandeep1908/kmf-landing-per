@@ -50,6 +50,9 @@ function MilkUnionDetail({ slug }) {
     setReadMore(!readMore);
   };
 
+  const ReadMoreEn='ReadMore...'
+  const ReadLessEn='ReadLess'
+  
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       {banner ? (
@@ -171,7 +174,14 @@ function MilkUnionDetail({ slug }) {
                   <button
                     onClick={toggleReadMore}
                     className="w-full flex justify-end text-primary-main">
-                    {readMore ? 'Read less' : 'Read more'}
+
+                      {locale==='kn' ?
+                       readMore ? 'ಕಡಿಮೆ ಓದಿ' : 'ಮತ್ತಷ್ಟು ಓದಿ'
+                      :
+                      readMore ? 'Read Less' : 'Read More'
+                      }
+
+
                   </button>
                 </div>
               </div>

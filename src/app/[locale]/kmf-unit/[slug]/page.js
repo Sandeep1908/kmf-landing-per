@@ -135,15 +135,19 @@ function KmfUnitDetail() {
   </p>
 ))}
 
+ 
+
 <div
                 className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
                 onClick={() => setReadMore(true)}>
-                Read more...
+                  {locale==='kn'?'ಮತ್ತಷ್ಟು ಓದಿ':'Read more...'}
+                
               </div>
               <div
                 className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${!readMore?'hidden':'block'}`}
                 onClick={() => setReadMore(false)}>
-                Read Less...
+                  {locale==='kn'?'ಕಡಿಮೆ ಓದಿ':'Read Less...'}
+                
               </div>
 
 </div>

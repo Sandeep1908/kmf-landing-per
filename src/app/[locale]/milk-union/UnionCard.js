@@ -13,7 +13,7 @@ function UnionCard({name,image,description,link}) {
 
       <Carousel
                           className=" w-full h-full"
-                          autoPlay={false}
+                          autoPlay={true}
                           interval={2000}
                           showStatus={false}
                           infiniteLoop

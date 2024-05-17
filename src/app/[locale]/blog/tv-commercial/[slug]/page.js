@@ -13,6 +13,7 @@ import { useParams } from 'next/navigation';
 import TvcommercialAccordion from '@/components/TvcommercialAccordion';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import NandiniProducts from './NandiniProducts';
+import Punnet from './Punnet';
 
 
 function TvcommercialDetails() {
@@ -139,19 +140,15 @@ function TvcommercialDetails() {
               <div className="w-full h-full flex flex-col space-y-28   ">
 
             <div className='w-full h-full'>
-              
+             
 
-              {param?.slug ==='3' &&commercialCategory?.map((item,id)=>{
-                if(item?.id===3){
-                  return(
-                    <NandiniProducts key={id}/>
-                  )
-                }
+              {subId==='3' && param?.slug==='3' &&
+              <Punnet/>
+            }
+            {console.log(subId==null)}
+            {subId===null && param?.slug==='3' && <NandiniProducts/>}
               
-              
-          
-                
-              })}
+           
        
           
            <div className='w-full h-full mt-20  grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3     gap-5 lg:flex-row lg:items-start'>

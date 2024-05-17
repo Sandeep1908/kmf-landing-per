@@ -35,15 +35,15 @@ const locale=useLocale().locale
    
 
       <section className="w-full    pt-10 ">
-      <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
+      <div className="   relative w-full  flex justify-center items-center ">
           
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-4xl font-extrabold uppercase">
              {locale==='kn'?'':'KMF UNITS'}
               </h1>
             </div>
       <div className='flex justify-center space-x-3 items-center mt-10 border-b w-fit m-auto'>
-        <Link className='font-bold' href={`${locale==='kn'?'/kn':'/'}`}>Home</Link>
-        <Link className='text-primary-main font-bold' href={`/${locale}/milk-union`}>/ KMF UNITS</Link>
+        <Link className='font-bold hover:text-secondary-main' href={`${locale==='kn'?'/kn':'/'}`}>Home</Link>
+        <Link className='text-secondary-main font-bold ' href={`/${locale}/milk-union`}>/ KMF UNITS</Link>
       </div>
 
     

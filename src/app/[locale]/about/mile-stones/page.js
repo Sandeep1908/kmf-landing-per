@@ -153,7 +153,7 @@ function OrganizationChart() {
         {locale === 'kn' ? 'ಮೈಲಿಗಲ್ಲು' : 'Milestones'}
       </h1>
 
-      <section className="w-full h-auto mb-[150px] m-auto max-w-7xl shadow-lg shadow-gray-600 mt-10">
+      <section className="w-full pb-20 h-auto mb-[150px] m-auto max-w-7xl shadow-lg shadow-gray-600 mt-10">
         {mileStones?.sort((a, b) => b.year - a.year)?.map((item, id) => {
            
           if (id % 2 === 0) {
@@ -179,7 +179,7 @@ function OrganizationChart() {
                     openAccordion === id ? 'block' : 'hidden'
                   }`}>
                    
-                  {item.description?.sort((a,b)=>b.year-a.year).map((item, id) => {
+                  {item.description?.sort((a,b)=>b.year-a.year)?.map((item, id) => {
                     console.log("indescription",item)
                     if (id % 2 === 0) {
                       return (
@@ -237,7 +237,7 @@ function OrganizationChart() {
                   className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
                     openAccordion === id ? 'block' : 'hidden'
                   }`}>
-                  {item?.description?.map((item, id) => {
+                  {item?.description?.sort((a,b)=>b.year-a.year)?.map((item, id) => {
                     if (id % 2 === 0) {
                       return (
                         <div key={id} className="w-full space-x-3 grid grid-cols-2 relative">

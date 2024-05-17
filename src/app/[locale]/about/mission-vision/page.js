@@ -69,14 +69,14 @@ function MissionVission() {
             </div>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center  list-disc text-justify text-lg  md:justify-normal md:items-start">
-              <h1 className="text-4xl font-bold">{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vision'}</h1>
+              <h1 className={`text-4xl font-bold ${locale==='kn'?'text-xl':''}`}>{locale === 'kn' ? 'ಘನೋದ್ದೇಶ' : 'Vision'}</h1>
               {purpose?.attributes?.vission?.map((item, id) => {
                 return <li key={id}>{item?.children[0].text}</li>;
               })}
             </ul>
 
             <ul className="flex flex-col space-y-5 p-6 w-full h-full justify-center items-center list-disc   text-justify text-lg  md:justify-normal md:items-start">
-              <h1 className="text-4xl font-bold">{locale === 'kn' ? 'ಧ್ಯೇಯದೃಷ್ಟಿ' : 'Mission'}</h1>
+              <h1 className={`text-4xl font-bold ${locale==='kn'?'text-xl':''}`}>{locale === 'kn' ? 'ಧ್ಯೇಯದೃಷ್ಟಿ' : 'Mission'}</h1>
               {purpose?.attributes?.mission?.map((item, id) => {
                 return <li key={id}>{item?.children[0].text}</li>;
               })}

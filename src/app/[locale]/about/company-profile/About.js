@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import useApi from '@/hooks/useApi';
+import useLocale from '@/hooks/useLocale';
 
 function About({ setLoading }) {
   const [aboutUs, setAboutUs] = useState([]);
   const [readMore, setReadMore] = useState(false);
-
+const locale=useLocale().locale
   const axios = useApi();
   useEffect(() => {
     (async () => {
@@ -41,7 +42,7 @@ function About({ setLoading }) {
                 <div
               className={`w-full flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
               onClick={() => setReadMore(true)}>
-              Read more...
+            {locale==='kn'?'ಮತ್ತಷ್ಟು ಓದಿ...':'  Read more...'}
             </div>
 
       {readMore &&
@@ -55,7 +56,8 @@ function About({ setLoading }) {
           <div
               className={`w-full flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${!readMore?' hidden':'block'}`}
               onClick={() => setReadMore(false)}>
-              Read Less...
+            
+              {locale==='kn'?' ಕಡಿಮೆ ಓದಿ':'   Read Less...'}
             </div>
     </div>
   );
