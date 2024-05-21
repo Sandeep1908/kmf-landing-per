@@ -169,7 +169,7 @@ function Portfolio() {
 
   const tabs = [
     {
-      tabName: locale === 'en' ? 'KMF Sanjeevini' : 'ಕಹಾಮ ಬಗ್ಗೆ',
+      tabName: locale === 'en' ? 'KMF Sanjeevini' : 'ಕಹಾಮ ಸಂಜೀವಿನಿ',
       link: `/${locale}/women-empowerment?id=9`
     },
     {
@@ -190,7 +190,7 @@ function Portfolio() {
       link: `/${locale}/portfolio/awards`
     },
     {
-      tabName:  locale === 'en' ?  'Sex Sorted Semen' : 'ಲಿಂಗ ವಿಂಗಡಿಸಲಾದ ವೀರ್ಯ',
+      tabName:  locale === 'en' ?  'Sex Sorted Semen' : 'ಲಿಂಗ ನಿರ್ಧಾರಿತ ವೀರ್ಯನಳಿಕೆ',
       link: `/${locale}/animal-husbandery/animal-breeding`
     },
     {
@@ -300,16 +300,17 @@ function Portfolio() {
 
     <div className="w-full h-full flex flex-col justify- items-center">
        <div className='pt-16 h-[10%]'>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'PORTFOLIO':''}</h1>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'PORTFOLIO':'ಪೋರ್ಟ್ಫೋಲಿಯೋ'}</h1>
       </div>
       <div className="w-full h-[70%] flex flex-col justify-between items-start gap- pl-12 pt-16">
        <div> <Link href={`/${locale}/portfolio/historyofmilk`}><h1 className="text-primary-main text-3xl md:text-3xl">  {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}</h1></Link> 
                 <div className='flex flex-wrap gap-5 pt-4 '>
-                 <a href="#krisna"> <p>DR. VERGHESE KURIEN</p></a>
+                 <a href="#krisna"> <p>{locale==='en'?'DR. VERGHESE KURIEN':'ಡಾ. ವರ್ಗೀಸ್ ಕುರಿಯನ್'}  </p></a>
                   <p>|</p>
-                  <a href="#verghese"> <p>MR. MV KRISHNAPPA</p></a>
+                  <a href="#verghese"> <p>{locale==='en'?'MR. MV KRISHNAPPA':'ಶ್ರೀ. ಎಂ.ವಿ. ಕೃಷ್ಣಪ್ಪ'}  
+</p></a>
                   <p>|</p>
-                  <Link href={`/${locale}/portfolio/historyofmilk`}>  <p>HISTORY OF MILK</p></Link> 
+                  <Link href={`/${locale}/portfolio/historyofmilk`}>  <p>{locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}</p></Link> 
                 </div>
        </div>
        <div> <a href="#ACHIEVEMENTS"> <h1 className="text-primary-main text-3xl md:text-3xl ">  {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}</h1></a>
@@ -328,9 +329,9 @@ function Portfolio() {
        </div>
        <div>  <Link href={`/${locale}/portfolio/brandambassador`}>  <h1 className="text-primary-main text-3xl md:text-3xl ">  {locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1></Link>
        <div className='flex flex-wrap gap-5 pt-4  uppercase'>
-          <Link href={`/${locale}/portfolio/brandambassador`}>  <p>Know more</p></Link>
+          <Link href={`/${locale}/portfolio/brandambassador`}>  <p>{locale === 'en' ?   'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p></Link>
                   <p>|</p>
-                  <Link href={`/${locale}/blog/gallery`}>  <p>Gallery</p></Link>
+                  <Link href={`/${locale}/blog/gallery`}>  <p>{locale === 'en' ?   'GALLERY' : 'ಗ್ಯಾಲರಿ'}</p></Link>
                  
                 </div>
        </div>
@@ -508,12 +509,12 @@ function Portfolio() {
               <>
                 {founderText.substring(0, 1000)}
                 <br />
-                {founderText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>{locale==='en'?'Read More..':'ಮುಂದುವರೆದಿದೆ....'} </button>}
+                {founderText.length > 100 && <button className=' w-full text-center'  onClick={toggleTextVisibility}>{locale==='en'?'Read More..':'ಮತ್ತಷ್ಟು ಓದಿ....'} </button>}
               </>
             )}
             <br />
 
-            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}>Read Less</button>}
+            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}>{locale==='en'?'Read Less':'ಕಡಿಮೆ ಓದಿ....'}</button>}
             </p> 
             </div>
           </div>
@@ -538,7 +539,7 @@ function Portfolio() {
             )}
             <br />
 
-            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}> Read Less</button>}
+            {showFullText && <button className='w-full text-center' onClick={toggleTextVisibility}> {locale==='en'?'Read Less':'ಕಡಿಮೆ ಓದಿ....'}</button>}
             </p> 
 
             </div>
@@ -883,7 +884,7 @@ function Portfolio() {
 
  
  <button onClick={toggleReadMore} className='w-full flex justify-end text-primary-main'>
-                  {readMore ? 'Read less' : 'Read More'}
+                  {readMore ? locale==='en'?'Read Less':'ಕಡಿಮೆ ಓದಿ....' : locale==='en'?'Read More':'ಮತ್ತಷ್ಟು ಓದಿ....'}
                 </button>
  
 
