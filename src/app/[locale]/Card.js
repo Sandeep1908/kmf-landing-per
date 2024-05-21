@@ -17,7 +17,7 @@ function Card({ imgUrl, title, link }) {
           <img
             src={imgUrl}
             alt="featured-img"
-            className="  w-full  object-fill  h-full hover:scale-[1.1] "
+            className="  w-full  object-cover  h-full hover:scale-[1.1] "
             style={{ transition: '.4s all' }}
           />
         </div>

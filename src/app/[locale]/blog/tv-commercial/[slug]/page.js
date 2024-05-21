@@ -27,7 +27,11 @@ function TvcommercialDetails() {
   const param=useParams()
   const [commercialCategory, setCommercialCategory] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [subId,setSubId]=useState(null)
+  const vidLinks = [
+    'https://www.youtube.com/embed/4p2JGB-5y1Y?si=yQYm3CxsKByamgHI',
+    'https://www.youtube.com/embed/OHlTeqgxCZo?si=PS5o8Z90ugN60OkW',
+  
+  ];
   const handleVideoClick = (videoUrl) => {
     setSelectedVideo(videoUrl);
   };
@@ -37,11 +41,8 @@ function TvcommercialDetails() {
   };
 
  
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setSubId(window.location.search.split('=')[1] || null);
-    }
-  }, []);
+ const subId=window.location.search?.split("=")[1]
+ 
  
    
   const arrows = {
@@ -61,10 +62,11 @@ function TvcommercialDetails() {
         const { data: commercialItems } = await axios.get('/api/tv-commercial-items');
  
 
-
+ 
 
       if(subId){
        const brandAsset= brandAmbassador?.data?.filter(item=>item?.id===parseInt(subId))
+       console.log("subid Brand",brandAsset)
         setAssets(brandAsset)
       }
       else{
@@ -142,30 +144,62 @@ function TvcommercialDetails() {
             <div className='w-full h-full'>
              
 
-              {subId==='3' && param?.slug==='3' &&
-              <Punnet/>
-            }
-            {console.log(subId==null)}
-            {subId===null && param?.slug==='3' && <NandiniProducts/>}
+             
+           
               
            
        
           
-           <div className='w-full h-full mt-20  grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3     gap-5 lg:flex-row lg:items-start'>
+           <div className='w-full h-full   flex flex-col flex-wrap     gap-5 lg:flex-row lg:items-start'>
+
+
+          {subId && assets?.[0]?.attributes?.assets?.data?.[0]?.attributes?.ext.includes('.mp4') &&
+
+      
+          
+          <div className="w-full m-auto h-auto flex flex-col justify-center items-center ">
+          <video
+            src={assets?.[0]?.attributes?.assets?.data?.[0]?.attributes?.url}
+            title="YouTube video player"
+            loop
+            muted
+            controls
+            allowfullscreen
+            className="w-full max-w-[1400px] m-auto h-[500px]        "></video>
+        </div>
+          }
+
  
+     {!subId && param?.slug==='3' && <NandiniProducts/>}
+     
 
-
+{subId==='3' && param?.slug==='3' &&
+            vidLinks?.map((item, id) => {
+              return (
+                <iframe
+                  key={id}
+                  width="400"
+                  height="250"
+                  src={item}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+              );
+            })}
+ 
  {
   subId ?
   assets?.map((items)=>{
-                console.log("assets",items)
+               
     return(
       items.attributes.assets?.data?.map((item,id)=>{
     
     const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
     if (validExtensions.includes(item?.attributes?.ext)) {
       return (
-      <div key={id} className='w-full h-full relative'>
+      <div key={id} className=' w-full h-full relative'>
 
         <img
           
@@ -175,14 +209,7 @@ function TvcommercialDetails() {
 
 
 
-<div className="absolute h-full w-full bg-black/80 inset-0 flex items-center justify-center -bottom-10 hover:bottom-0 opacity-0 transition-all duration-300  card-hover">
-        <Link href={link|| ''}> <button className="bg-primary-main  w-48 h-12  uppercase    text-neutral-light4 font-semibold rounded-md">
-                {title}
-              </button>
-
-              </Link>
-           
-      </div>
+ 
         </div>
       );
   } 
@@ -195,7 +222,7 @@ function TvcommercialDetails() {
         muted
         key={id}
         src={item?.attributes?.url}
-        className="w-96   h-96      transition-all duration-300 hover:scale-[1.1]"
+        className="w-[400px]   h-[250px]      transition-all duration-300 hover:scale-[1.1]"
         onClick={() => handleVideoClick(item?.attributes?.url)}
       />
 
@@ -214,7 +241,7 @@ function TvcommercialDetails() {
     const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
     if (validExtensions.includes(items?.attributes?.assets?.data?.[0]?.attributes?.ext)) {
       return (
-       <div key={id} className='w-full h-full relative'>
+       <div key={id} className='  h-full relative'>
          <PhotoProvider >
 
 <PhotoView src={items?.attributes?.assets?.data?.[0]?.attributes?.url}>
@@ -236,6 +263,7 @@ function TvcommercialDetails() {
   } 
 
   else{
+ 
     return (
       <video
         
@@ -244,7 +272,7 @@ function TvcommercialDetails() {
         muted
         key={id}
         src={items?.attributes?.assets?.data?.[0]?.attributes?.url}
-        className="w-[400px]   h-60 object-fill      transition-all duration-300 hover:scale-[1.1]"
+        className="w-[400px]   h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
         onClick={() => handleVideoClick(items?.attributes?.assets?.data?.[0]?.attributes?.url)}
       />
 
@@ -255,7 +283,28 @@ function TvcommercialDetails() {
 })
  
 }        
-             
+
+
+
+            
+
+
+  {
+    assets?.map((items,id)=>{
+      return(
+        <iframe
+              key={id}
+              width="400"
+              height="250"
+              src={items?.attributes?.youtube_link}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+      )
+    })
+  }
                   
            
              </div>
@@ -280,7 +329,7 @@ function TvcommercialDetails() {
           </section>
           <div className=" w-full max-w-60 mr-10 h-full transition-all duration-300  ">
                 <TvcommercialAccordion
-                  title={'Brand Ambassador'}
+                  title={'BRAND AMBASSADOR'}
                   id={100}
                   open={openAccordion == 100}
                   arrow={arrows}

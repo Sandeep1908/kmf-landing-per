@@ -77,7 +77,7 @@ const axios =useApi()
             
       </div>
     <section className=" relative w-full max-w-7xl m-auto h-auto pt-[150px]  ">
-        <div className="w-full shadow-md h-full flex flex-col        ">
+        <div className="w-full shadow-md  h-full flex flex-col        ">
           
 
         
@@ -86,7 +86,7 @@ const axios =useApi()
          
 
 
-                        <h1 className="w-full relative   m-auto text-center  text-primary-main text-4xl   z-[100] ">
+                        <h1 className="w-full relative uppercase   m-auto text-center  text-primary-main text-4xl   z-[100] ">
                         Procurement
                         </h1>
              </div>
@@ -98,7 +98,7 @@ const axios =useApi()
                 return (
                   <div
                     key={id}
-                    className="  w-full m-10 rounded-3xl    ">
+                    className="  w-full  p-2 rounded-3xl    ">
                     <div className="m-auto">
                     
                       <div className=" ">

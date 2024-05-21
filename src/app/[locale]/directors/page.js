@@ -40,26 +40,26 @@ function Directors() {
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
-      <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
+      <section className={`w-full  h-[300px] pt-28 relative  grid place-items-center company-bg`}>
         <img src={directorImg.src} className="w-full h-full object-cover absolute   z-[-1]" />
       </section>
 
 
-      <section className="w-full   pt-10  shadow-lg bg-primary-subtle ">
-      <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+      <section className="w-full   pt-20  shadow-lg bg-primary-subtle ">
+      <div className="    relative w-full  flex justify-center items-center ">
             
-              <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               
           {locale === 'en' ? 'Board of Directors' : 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}
               </h1>
             </div>
          
-        <div className="p-12 h-full  ">
-        <div className='p-10 h-full flex justify-center items-center   '>
+        <div className="  h-full  ">
+        <div className='  h-full flex justify-center items-center   '>
         <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4   justify-center items-center  rounded-tl-3xl rounded-br-3xl flex flex-col   p-3'>
             <div className='md:w-1/2 flex   justify-center  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full transition-all duration-300 hover:scale-[1.1]  '  >
               <Zoom>
-              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[290px] transition-all duration-300   ' src={chairmain?.attributes?.image?.data?.attributes?.url} alt="" />
+              <img className='w-[200px] h-[200px]   object-contain  sm:w-[350px] sm:h-[390px] transition-all duration-300   ' src={chairmain?.attributes?.image?.data?.attributes?.url} alt="" />
               </Zoom>
             </div>
             <div className=' md:w-2/3 flex flex-col justify-center items-center mt-3 md:p-3 md:items-center lg:mt-0 '>

@@ -238,15 +238,10 @@ export const mobileHeader = {
           link: '/en/animal-husbandery/scheme'
         },
         {
-          title: "STEP",
+          title: "Step",
           link: '/en/women-empowerment'
         },
 
-      
-        
-        
-
-       
 
         
       ],

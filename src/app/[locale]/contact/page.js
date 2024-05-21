@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import mapImg from '@/images/contact/map.png';
 import map2Img from '@/images/contact/map_2.png';
 import plusImg from '@/images/contact/plus.svg';
@@ -13,8 +13,41 @@ import Input from '@/components/Input';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 
+
 const Contact = () => {
   const locale=useParams().locale
+  const [name,setName]=useState('')
+  const [organization,setOrganization]=useState('')
+  const [profession,setProfession]=useState('')
+  const [streetAdd,setStreetAdd]=useState('')
+  const [city,setCity]=useState('')
+  const [state,setState]=useState('')
+  const [pincode,setPincode]=useState('')
+  const [country,setCountry]=useState('')
+  const [telephone,setTelephone]=useState('')
+  const [fax,setFax]=useState('')
+  const [mobile,setMobile]=useState('')
+  const [email,setEmail]=useState('')
+  const [message,setMessage]=useState(''
+  )
+const [status,setStatus]=useState('')
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, organization, profession, streetAdd, city, state, pincode, country, telephone, fax, mobile, email, message }),
+    });
+
+    const data = await res.json();
+    setStatus(data.message);
+  };
+
+
+ 
+
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
       <section className={`w-full h-80 pt-28 relative  grid place-items-center company-bg`}>
@@ -52,31 +85,33 @@ const Contact = () => {
               </p>
 
               <div className="mt-3 w-full lg:grid grid-cols-1 md:grid-cols-2 gap-3 ">
-                <Input title="Name" type="text" style="mt-7  md:col-span-2" />
-                <Input title="Organisation *" type="text" style="mt-7 " />
-                <Input title="Profession *" type="text" style="mt-7 " />
+                <Input title="Name" type="text" style="mt-7  md:col-span-2"  setInfo={setName} />
+                <Input title="Organisation *" type="text" style="mt-7 " setInfo={setOrganization} />
+                <Input title="Profession *" type="text" style="mt-7 " setInfo={setProfession} />
 
-                <Input title="Street Address *" type="text" style="mt-7 md:col-span-2" />
-                <Input title="City *" type="text" style="mt-7" />
-                <Input title="State" type="text" style="mt-7" />
-                <Input title="Postal Code or Zip" type="number" style="mt-7" />
-                <Input title="Country *" type="text" style="mt-7" />
-                <Input title="Telephone" type="number" style="mt-7" />
-                <Input title="Fax" type="number" style="mt-7" />
-                <Input title="Mobile No *" type="number" style="mt-7" />
-                <Input title="E-mail *" type="email" style="mt-7" />
+                <Input title="Street Address *" type="text" style="mt-7 md:col-span-2" setInfo={setStreetAdd} />
+                <Input title="City *" type="text" style="mt-7" setInfo={setCity} />
+                <Input title="State" type="text" style="mt-7" setInfo={setState} />
+                <Input title="Postal Code or Zip" type="number" style="mt-7"  setInfo={setPincode}/>
+                <Input title="Country *" type="text" style="mt-7"  setInfo={setCountry}/>
+                <Input title="Telephone" type="number" style="mt-7" setInfo={setTelephone} />
+                <Input title="Fax" type="number" style="mt-7" setInfo={setFax} />
+                <Input title="Mobile No *" type="number" style="mt-7" setInfo={setMobile} />
+                <Input title="E-mail *" type="email" style="mt-7" setInfo={setEmail} />
                 <Input
                   title="Message"
                   type="text"
                   style="mt-7 col-span-2"
                   inputStyle="h-32  lg:h-64"
+                  setInfo={setMessage}
                 />
               </div>
 
               <div className="mt-10 md:mt-16 lg:mt-28 flex justify-center md:justify-end">
-                <button className="w-48 h-14 flex justify-center items-center bg-primary-main rounded-full">
+                <button onClick={handleSubmit} className="w-48 h-14 flex justify-center items-center bg-primary-main rounded-full">
                   <p className="text-base text-neutral-light4 font-heading font-semibold">Submit</p>
                 </button>
+                {status && <p className="mt-4 text-center">{status}</p>}
               </div>
             </div>
           </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-const Input = ({title,type,style,inputStyle}) => {
+const Input = ({title,type,style,inputStyle,setInfo}) => {
   return (
     <div className={style}>
       <label htmlFor="name" className='text-base  ' >{title}</label>
-      <input className={`mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4 ${inputStyle} `} type={type} />
+      <input onChange={(e)=>setInfo(e.target.value)} className={`mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4 ${inputStyle} `} type={type} />
     </div>
   )
 }

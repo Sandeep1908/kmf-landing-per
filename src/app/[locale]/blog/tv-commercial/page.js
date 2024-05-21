@@ -227,7 +227,7 @@ function Tvcommercial() {
 
           <div className=" w-full max-w-60 mr-10 h-full transition-all duration-300  ">
                 <TvcommercialAccordion
-                  title={'Brand Ambassador'}
+                  title={'BRAND AMBASSADOR'}
                   id={100}
                   open={openAccordion == 100}
                   arrow={arrows}
