@@ -164,7 +164,9 @@ export const Header = () => {
     setId(idx)
   }
 
+  const headerPathname=pathname===`/${locale}/portfolio`
  
+ console.log("headerpathname",headerPathname)
 
 
   return (
@@ -174,7 +176,7 @@ export const Header = () => {
 
         <div className={`w-full `}>
           <div
-            className={`w-full h-[150px] relative   bg-white p-10 flex justify-between items-center `}
+            className={`w-full h-[150px] relative   bg-white p-10 flex justify-between items-center ${headerPathname?'hidden':''}  `}
             onMouseEnter={() => setOpen(null)}>
             <div className=" max-w-xl flex justify-center items-center space-x-3">
             <img
