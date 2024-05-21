@@ -756,6 +756,7 @@ function Portfolio() {
             <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold ">
             {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}
             </h1>
+            <img className='absolute top-[-52px] left-[55%] w-40 ' src={titleBG.src} alt="" />
           </div>
           </div>
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> KMF ACHIEVEMENTS </h1> */}
@@ -906,12 +907,14 @@ function Portfolio() {
 
       <section id="ksheerasagara" className='w-full h-auto mt-10 mb-10  '>
 <div className=' m-auto  '>
-<div className="mt-20 mb-5 w-full  flex justify-center items-center">
+<div className="relative mt-20 mb-5 w-full  flex justify-center items-center">
     
 
     <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
     {locale === 'en' ?   'KSHEERASAGARA MAGAZINE' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
     </h1>
+    <img className='absolute top-[-52px] left-[60%] w-40 ' src={titleBG.src} alt="" />
+
   </div>
   
     <div className='w-full p-7 '>
@@ -984,12 +987,13 @@ function Portfolio() {
         <div className='w-full pt-20 pb-20'>
 
          
-<div className="mt-1 w-full  flex justify-center items-center">
+<div className="relative mt-1 w-full  flex justify-center items-center">
     
 
     <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
     {locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
     </h1>
+    <img className='absolute top-[-52px] left-[50%] w-40 ' src={titleBG.src} alt="" />
   </div>
   </div>
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1> */}
