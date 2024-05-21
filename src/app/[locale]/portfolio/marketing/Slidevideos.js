@@ -49,7 +49,8 @@ const CarouselImage = ({ images }) => {
           slideShadows: false
           
         }}
-        slidesPerView={1}
+        initialSlide={1}
+        slidesPerView={3}
         modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
         observeParents={true}
         observer={true}

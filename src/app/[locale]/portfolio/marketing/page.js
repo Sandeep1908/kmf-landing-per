@@ -29,8 +29,17 @@ const Marketing = () => {
   const locale = useLocale().locale;
   const axios = useApi();
   const [previewCount, setPreviewCount] = useState(1);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
  
-  
+  const handleVideoClick = (videoUrl) => {
+    setSelectedVideo(videoUrl);
+  };
+
+  const closeModal = () => {
+    setSelectedVideo(null);
+  };
+
 
   const [knowMarket,setKnowMarket]=useState([])
 
@@ -119,7 +128,7 @@ const Marketing = () => {
                 <Swiper
               effect={'coverflow'}
               grabCursor={true}
-              centeredSlides={true}
+              centeredSlides={false}
               coverflowEffect={{
                 rotate: 30,
                 stretch: 0,
@@ -149,9 +158,11 @@ const Marketing = () => {
                       style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
                       <div className="  w-full h-full">
                         
-                  <video autoPlay muted loop controls
+                  <video  muted loop controls
                    className='relative w-[800px] m-auto object-fill  h-full hover:scale-[1.1]  z-[10]' 
-                   src={item.url}>
+                   src={item.url}
+                   onClick={() => handleVideoClick(item.url)}
+                   >
 
                    </video>
 
@@ -281,7 +292,18 @@ const Marketing = () => {
       </div>
 
 
-   
+      {selectedVideo && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close z-40 " onClick={closeModal}>&times;</span>
+            <video controls src={selectedVideo} autoPlay className="modal-video w-full max-w-7xl h-[500px] object-fill">
+               
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      )}
+
 
 
 
