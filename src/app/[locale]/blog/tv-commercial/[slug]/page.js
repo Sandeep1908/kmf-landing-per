@@ -66,7 +66,7 @@ function TvcommercialDetails() {
 
       if(subId){
        const brandAsset= brandAmbassador?.data?.filter(item=>item?.id===parseInt(subId))
-       console.log("subid Brand",brandAsset)
+   
         setAssets(brandAsset)
       }
       else{

@@ -8,14 +8,14 @@ export async function POST(req) {
     port: 465,
     secure: true,
     auth: {
-      user: "sandbro7163337@gmail.com",
-      pass: "nsne npwq rfti xqbw",
+      user: "mis@kmf.coop",
+      pass: "nxhh whpa zhnw dfhm",
     },
   });
 
   const mailOptions = {
     from: email,
-    to: 'sandbro7163337@gmail.com', // replace with your recipient
+    to: 'mis@kmf.coop', // replace with your recipient
     subject: 'Contact Form Submission',
     text: `
       Name: ${name}

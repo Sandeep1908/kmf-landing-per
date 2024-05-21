@@ -259,7 +259,7 @@ export const mobileHeader = {
  
     {
       title: 'SOCIAL RESPONSIBILITY',
-      link: '',
+      link: '/en/social-responsibility/nandini-hostels/',
       subItems: [
         {
           title: "Nandini Hostels",
