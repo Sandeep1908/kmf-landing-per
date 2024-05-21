@@ -43,6 +43,18 @@ import { IoMenu } from "react-icons/io5";
 import { GrClose } from "react-icons/gr";
 import { LuMouse } from "react-icons/lu";
 
+import facebookIco from '@/images/footer/FB.svg';
+import mailIco from '@/images/footer/Email.svg';
+import twitterIco from '@/images/footer/X.svg';
+import insta from '@/images/footer/insta.svg';
+import ytIco from '@/images/footer/yt.svg';
+
+import downarrowIco from '@/images/icons/downarrow.svg';
+import uparrowIco from '@/images/icons/uparrow.svg';
+import locationIco from '@/images/header-ico/location.svg';
+import contactIco from '@/images/header-ico/contact.svg';
+import { usePathname } from 'next/navigation';
+
 
 
 import './style.css';
@@ -64,6 +76,8 @@ import PdfPreview from './PdfPreview';
 // import PDFViewer2 from './PdfPreview2';
 // import PdfPreview2 from './PdfPreview2';
 import MyPdfViewer from './PdfPreview2';
+import { useRouter } from 'next/navigation';
+
 
 function Portfolio() {
 
@@ -73,6 +87,36 @@ function Portfolio() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const locale = useLocale().locale;
   const [banners,setBanners]=useState([])
+  const [headerItem, setHeaderItem] = useState([]);
+  const params = useParams();
+  const pathname = usePathname();
+  const router = useRouter();
+
+
+
+
+  useEffect(() => {
+   
+    (async () => {
+       
+      const { data: header } = await axios.get('/api/header');
+      setHeaderItem(header?.data);
+
+    })();
+  }, [params.locale]);
+
+  const handleLanguageChange = () => {
+    
+    if (pathname === '/kn') {
+      return router.push('/');
+    }
+    if (pathname === '/') {
+      return router.push('/kn');
+    }
+    const newLanguagePrefix = pathname.startsWith('/kn') ? '/en' : '/kn';
+    const newUrl = pathname.replace(/^\/(kn|en)\//, newLanguagePrefix + '/');
+    router.push(newUrl);
+  };
  
   const [sponsore, setSponsore] = useState([]);
   const [readMore, setReadMore] = useState(false);
@@ -198,7 +242,7 @@ function Portfolio() {
  
   return (
     <div
-      className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  ${isScroll?'top-48':''}`}>
+      className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  `}>
   <div className="w-full h-screen relative bg-slate-50 z-[-10]  overflow-x-hidden">
   <div className=" absolute z-50 top-8 right-40">
     <p id="openMenu" onClick={toggleNavbar} className={`text-white relative z-[100] ${isOpen ? 'hidden' : ''}`}>
@@ -207,7 +251,10 @@ function Portfolio() {
     </p>
   </div>
   <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden':''} `}>
-  <a href="#history-milk"><LuMouse  className='' size={40} /></a>
+  {/* <a href="#history-milk"><LuMouse  className='' size={40} /></a> */}
+  <a href="#history-milk"> <div className='mouseAnime'>
+
+    </div></a>
   </div>
   <div
     id="imageDiv"
@@ -251,13 +298,138 @@ function Portfolio() {
    </div>
  
 
-    <div className="w-full h-full flex items-center">
-      <div className="w-full flex flex-col justify-between items-start h-96 pl-12">
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}</h1>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}</h1>
-        <h1 className="text-primary-main text-3xl md:text-5xl text-center">{locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}</h1>
+    <div className="w-full h-full flex flex-col justify- items-center">
+       <div className='pt-16 h-[10%]'>
+        <h1 className="text-primary-main text-3xl md:text-5xl text-center">  {locale==='en'?'PORTFOLIO':''}</h1>
       </div>
+      <div className="w-full h-[70%] flex flex-col justify-between items-start gap- pl-12 pt-16">
+       <div> <Link href={`/${locale}/portfolio/historyofmilk`}><h1 className="text-primary-main text-3xl md:text-3xl">  {locale==='en'?'HISTORY OF MILK':'ಹಾಲಿನ ಇತಿಹಾಸ'}</h1></Link> 
+                <div className='flex flex-wrap gap-5 pt-4 '>
+                 <a href="#krisna"> <p>DR. VERGHESE KURIEN</p></a>
+                  <p>|</p>
+                  <a href="#verghese"> <p>MR. MV KRISHNAPPA</p></a>
+                  <p>|</p>
+                  <Link href={`/${locale}/portfolio/historyofmilk`}>  <p>HISTORY OF MILK</p></Link> 
+                </div>
+       </div>
+       <div> <a href="#ACHIEVEMENTS"> <h1 className="text-primary-main text-3xl md:text-3xl ">  {locale==='en'?'KMF ACHIEVEMENTS':'ಕಹಾಮ ಸಾಧನೆಗಳು'}</h1></a>
+         
+              <div className='flex flex-wrap gap-5 pt-4 uppercase '>
+              {tabs?.map((item,id )=>{
+                return(<>
+                    <p><Link href={item.link}>{item?.tabName}</Link></p>
+                    {id < tabs.length - 1 && <p>|</p>}
+
+                     </>
+                      )
+                    })}
+                      </div>
+          
+       </div>
+       <div>  <Link href={`/${locale}/portfolio/brandambassador`}>  <h1 className="text-primary-main text-3xl md:text-3xl ">  {locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1></Link>
+       <div className='flex flex-wrap gap-5 pt-4  uppercase'>
+          <Link href={`/${locale}/portfolio/brandambassador`}>  <p>Know more</p></Link>
+                  <p>|</p>
+                  <Link href={`/${locale}/blog/gallery`}>  <p>Gallery</p></Link>
+                 
+                </div>
+       </div>
+       <div> <a href="#ksheerasagara"> <h1 className="text-primary-main text-3xl md:text-3xl ">{locale === 'en' ?   'KSHEERASAGARA MAGAZINE' : ''}</h1></a></div>
+       <div><a href="#SPONSORED"><h1 className="text-primary-main text-3xl md:text-3xl">{locale === 'en' ?   'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}</h1></a> </div>
+      </div>
+      <div className="flex flex-col justify-center h-[20%] ">
+              <div className="flex justify-center items-end space-x-5">
+                <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
+                  <div className="w-full flex space-x-5">
+                    <div className="flex justify-center items-center      ">
+                      <div className="">
+                        <img
+                          src={locationIco.src}
+                          className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                        />
+                      </div>
+
+                      <p className={` font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[12px]'}  `}>
+                        {headerItem?.attributes?.address?.map((item, id) => {
+                          return (
+                            <span key={id} className="block">
+                              {item?.children[0]?.text}
+                            </span>
+                          );
+                        })}
+                      </p>
+                    </div>
+
+                    <div className="flex space-x-5 justify-center p-2  items-center">
+                      <Link
+                        href={'https://www.facebook.com/kmfnandini.coop'}
+                        className="hover:scale-125 transition-all duration-300">
+                        <img src={facebookIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={'https://twitter.com/kmfnandinimilk'}
+                        className="hover:scale-125 transition-all duration-300">
+                        <img src={twitterIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={'https://www.kmfnandini.coop/en/contact-us'}
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={mailIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={
+                          'https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+                        }
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={insta.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={
+                          'https://www.youtube.com/@kmfnandini12'
+                        }
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={ytIco.src} className="w-7" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center items-center   ">
+                    <div>
+                      <img
+                        src={contactIco.src}
+                        className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                      />
+                    </div>
+                    <p className="text-[12px] w-[350px] font-heading  font-black/10 ">
+                      {headerItem?.attributes?.time?.map((item, id) => {
+                        return (
+                          <span key={id} className="block ">
+                            {item?.children[0]?.text}
+                          </span>
+                        );
+                      })}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-between  space-y-3">
+                  <button
+                    className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md "
+                    onClick={handleLanguageChange}>
+                    {locale === 'en' ? 'ಕನ್ನಡ' : 'English'}
+                  </button>
+                </div>
+              </div>
+
+              {/* <p className="text-sm text-red-600 font-bold flex justify-end pt-4 marquee-notification overflow-hidden">
+                {latestNews ? latestNews?.attributes?.title : ''}
+              </p> */}
+            </div>
+
+
     </div>
   </div>
 </div>
@@ -601,7 +773,9 @@ function Portfolio() {
                       {tab.tabName}
                     </p>
                   </Link>
-                  <p className="text-2xl font-bold">/</p>
+                  {idx < tabs.length - 1 && <p className="text-2xl font-bold">/</p>}
+
+                  
                 </div>
               );
             })}
