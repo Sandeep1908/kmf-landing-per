@@ -59,7 +59,7 @@ function TvcommercialDetails() {
         const { data: brandAmbassador } = await axios.get('/api/brand-ambassadors');
  
         const { data: commercialCategory } = await axios.get('/api/tv-commercials');
-        const { data: commercialItems } = await axios.get('/api/tv-commercial-items');
+        const { data: commercialItems } = await axios.get('/api/tv-commercial-items?sort[0]=createdAt:asc');
  
 
  
@@ -197,6 +197,7 @@ function TvcommercialDetails() {
       items.attributes.assets?.data?.map((item,id)=>{
     
     const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
+    const validExtensionsVid=['.mp4','.mov']
     if (validExtensions.includes(item?.attributes?.ext)) {
       return (
       <div key={id} className=' w-full h-full relative'>
@@ -214,6 +215,7 @@ function TvcommercialDetails() {
       );
   } 
   else{
+    if(validExtensionsVid.includes(item?.attributes?.ext))
     return (
       <video
         
@@ -222,7 +224,7 @@ function TvcommercialDetails() {
         muted
         key={id}
         src={item?.attributes?.url}
-        className="w-[400px]   h-[250px]      transition-all duration-300 hover:scale-[1.1]"
+        className="w-[400px]   h-[250px]     transition-all duration-300 hover:scale-[1.1]"
         onClick={() => handleVideoClick(item?.attributes?.url)}
       />
 
@@ -237,6 +239,8 @@ function TvcommercialDetails() {
 
   :
   assets?.map((items,id)=>{
+    
+    const validExtensionsVid=['.mp4','.mov']
  
     const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
     if (validExtensions.includes(items?.attributes?.assets?.data?.[0]?.attributes?.ext)) {
@@ -264,19 +268,22 @@ function TvcommercialDetails() {
 
   else{
  
-    return (
-      <video
-        
-        controls
-        loop
-        muted
-        key={id}
-        src={items?.attributes?.assets?.data?.[0]?.attributes?.url}
-        className="w-[400px]   h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
-        onClick={() => handleVideoClick(items?.attributes?.assets?.data?.[0]?.attributes?.url)}
-      />
-
-    );
+    if(validExtensionsVid.includes(items?.attributes?.assets?.data?.[0]?.attributes?.ext)){
+      return (
+        <video
+          
+          controls
+          loop
+          muted
+          key={id}
+          src={items?.attributes?.assets?.data?.[0]?.attributes?.url}
+          className="w-[400px]   h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+          onClick={() => handleVideoClick(items?.attributes?.assets?.data?.[0]?.attributes?.url)}
+        />
+  
+      );
+    }
+   
   }
 
   
@@ -291,18 +298,22 @@ function TvcommercialDetails() {
 
   {
     assets?.map((items,id)=>{
-      return(
-        <iframe
-              key={id}
-              width="400"
-              height="250"
-              src={items?.attributes?.youtube_link}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-      )
+      if(items?.attributes?.youtube_link){
+         
+        return(
+          <iframe
+                key={id}
+                width="400"
+                height="250"
+                src={items?.attributes?.youtube_link}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+        )
+      }
+      
     })
   }
                   
