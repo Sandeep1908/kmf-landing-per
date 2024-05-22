@@ -7,7 +7,9 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
  import useApi from '@/hooks/useApi';
  import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-
+ import { Swiper, SwiperSlide } from 'swiper/react';
+ import { PhotoProvider,PhotoView } from 'react-photo-view';
+ import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 function AnimalBreeding() {
   const axios =useApi()
   const { isScroll } = useMyContext();
@@ -30,24 +32,65 @@ function AnimalBreeding() {
     setReadMore(!readMore);
   };
 
+  const imageArr=[
+    '/animal-husbandary/animal-breeding/1.jpg',
+    '/animal-husbandary/animal-breeding/2.jpg',
+    '/animal-husbandary/animal-breeding/3.jpg',
+    '/animal-husbandary/animal-breeding/4.jpg',
+    '/animal-husbandary/animal-breeding/5.jpg',
+    '/animal-husbandary/animal-breeding/6.jpg',
+    '/animal-husbandary/animal-breeding/7.jpg',
+  ]
 
 return(
  
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
-        {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-         */}
-        <video
-          src="/video/precrument.mp4"
-          muted
-          autoPlay
-          loop
-          controls
-          playsInline
-          className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
-            isScroll ? 'h-[400px]' : ''
-          } `}
-        />
+      <div className='w-full mt-20 relative m-auto h-auto     '>
+
+<div className="absolute w-full h-full z-[-10] ">
+  <div className="w-full h-full flex justify-between items-center">
+    <div className="w-40 h-8 bg-red-600"></div>
+    <div className="w-40 h-8 bg-red-600"></div>
+  </div>
+</div>
+  <Swiper
+ slidesPerView={3}
+    freeMode={true}
+ 
+    spaceBetween={20}
+    autoplay={{
+      delay: 2500,
+      disableOnInteraction: false
+    }}
+    modules={[FreeMode, Autoplay]}
+    className="w-full max-w-[1400px] m-auto">
+
+       {imageArr.map((item,id)=>{
+       
+        return(
+          <SwiperSlide key={id} className='w-full' >
+           
+          <PhotoProvider className='w-full' >
+              
+              <PhotoView src={item} height="400px"  >
+              <img className='w-full max-w-2xl h-96 object-fill' src={item} alt="" />
+              </PhotoView>
+          
+        
+        </PhotoProvider>
+
+            </SwiperSlide>
+        )
+       })}
+           
+            
+            
+      
+  </Swiper>
+   
+
+</div>
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
@@ -56,13 +99,13 @@ return(
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
+            {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
               
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Animal Health'}
+            {locale==='kn'?'  ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -103,7 +146,7 @@ return(
        
 
       
-          <div className="mb-20     relative w-full  flex justify-center items-center ">
+          <div className="     relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
              {locale==='kn'?'':'Animal Breeding'}

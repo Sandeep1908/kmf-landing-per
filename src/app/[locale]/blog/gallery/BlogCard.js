@@ -57,7 +57,7 @@ function BlogCard() {
         }
 
     <div className='w-full flex justify-center items-center'>
-        <button onClick={()=>setItemShow(prev=>prev+15)} className=' w-full max-w-32 h-10 bg-green-500 text-white  shadow-md rounded-md'>Load More..</button>
+        <button onClick={()=>setItemShow(prev=>prev+15)} className=' w-full max-w-32 h-10 bg-green-500 text-white  shadow-md rounded-md'>{locale==='kn'?'ಮತ್ತಷ್ಟು ಓದಿ':'Load More...'}</button>
     </div>
           
     </div>

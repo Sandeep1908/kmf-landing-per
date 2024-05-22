@@ -20,22 +20,8 @@ function NandiniHostels() {
     })();
   }, []);
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-      <section className={`w-full h-[730px] pt-28 relative  grid place-items-center `}>
-        {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-         */}
-        <video
-          src="/video/precrument.mp4"
-          muted
-          autoPlay
-          loop
-          controls
-          playsInline
-          className={`w-full  h-full    object-cover absolute top-0   ${
-            isScroll ? 'h-[400px]' : ''
-          } `}
-        />
-      </section>
+    <div className={`w-full h-full absolute company-bg   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+  
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
               Home

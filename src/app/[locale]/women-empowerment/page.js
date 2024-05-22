@@ -34,7 +34,7 @@ function WomenEmpowerment() {
   }, []);
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
-      <section className={`w-full h-[800px] pt-28 relative  grid place-items-center company-bg`}>
+      <section className={`w-full h-[800px] pt-28 relative  grid place-items-center `}>
         <img
           src={'/images/step-bg.png'}
           className="w-full h-full object-fill absolute top-0 z-[-1]"
@@ -49,13 +49,13 @@ function WomenEmpowerment() {
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
+            {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
               
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Animal Health'}
+            {locale==='kn'?'  ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -98,7 +98,7 @@ function WomenEmpowerment() {
               </h1>
             </div>
          
-        <p className="text-justify text-lg text-neutral-dark1">
+        <p className="text-justify text-xl text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
           of Women & Child Development, Government of India, as one of the measures to ensure well

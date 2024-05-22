@@ -40,17 +40,25 @@ function Directors() {
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
-      <section className={`w-full  h-[300px] pt-28 relative  grid place-items-center company-bg`}>
-        <img src={directorImg.src} className="w-full h-full object-cover absolute   z-[-1]" />
+      <section className={`w-full  h-[700px] pt-28 relative  grid place-items-center  `}>
+        <img src={'/images/board-of-directors.jpg'} className="w-full h-full object-cover absolute   z-[-1]" />
+       
+
       </section>
 
+      <section className={`w-full  h-[700px] pt-28 relative  grid place-items-center  `}>
+      <img src={'/images/2922581_27195.jpg'} className="w-full h-full object-contain absolute   z-[-1]" />
+       
 
-      <section className="w-full   pt-20  shadow-lg bg-primary-subtle ">
+      </section>
+    
+
+      <section className="w-full   pt-20  shadow-lg   ">
       <div className="    relative w-full  flex justify-center items-center ">
             
               <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               
-          {locale === 'en' ? 'Board of Directors' : 'ನಿರ್ದೇಶಕರ ಮಂಡಳಿ'}
+          {locale === 'en' ? 'Board of Directors' : 'ಆಡಳಿತ ಮಂಡಳಿ ನಿರ್ದೇಶಕರ'}
               </h1>
             </div>
          

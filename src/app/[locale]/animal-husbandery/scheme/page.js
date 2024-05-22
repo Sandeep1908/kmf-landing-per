@@ -48,13 +48,13 @@ function Scheme() {
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
+            {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
               
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Animal Health'}
+            {locale==='kn'?'  ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>

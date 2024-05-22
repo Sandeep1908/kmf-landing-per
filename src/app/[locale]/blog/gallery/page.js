@@ -17,18 +17,18 @@ import Link from 'next/link';
 function Gallery() {
  
   const [currentIndex, setCurrentIndex] = useState(0);
- 
+  const locale=useParams().locale
  
   const tabs=[
     {
-      tabs:'News and Events',
+      tabs:locale==='kn'?'ಸುದ್ಧಿ ಮತ್ತು ಘಟನೆಗಳು':'News and Events',
       data:<BlogCard/>
       
     },
   ]
 
  
-  const locale=useParams().locale
+
   
 
   const handleClickItem = (idx) => {
@@ -81,7 +81,8 @@ function Gallery() {
                          
                   uppercase`}
                     >
-                    Press Release
+                      {locale==='kn'?'ಮಾದ್ಯಮ ಪ್ರಕಟಣೆ':'Press Release'}
+                   
                   </li>
 
                   </Link>
@@ -95,7 +96,7 @@ function Gallery() {
                          
                   uppercase`}
                     >
-                    Tv commercial
+                    {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹಿರಾತುಗಳ':'Tv commercial'}
                   </li>
 
                   </Link>

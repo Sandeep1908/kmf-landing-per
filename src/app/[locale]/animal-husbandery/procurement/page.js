@@ -46,13 +46,13 @@ const axios =useApi()
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
+            {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
               
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Animal Health'}
+            {locale==='kn'?'  ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -76,7 +76,7 @@ const axios =useApi()
             </Link>
             
       </div>
-    <section className=" relative w-full max-w-7xl m-auto h-auto pt-[150px]  ">
+    <section className=" relative w-full max-w-7xl m-auto h-auto pt-[50px]  ">
         <div className="w-full shadow-md  h-full flex flex-col        ">
           
 
@@ -87,7 +87,7 @@ const axios =useApi()
 
 
                         <h1 className="w-full relative uppercase   m-auto text-center  text-primary-main text-4xl   z-[100] ">
-                        Procurement
+                        {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
                         </h1>
              </div>
                        
@@ -106,7 +106,7 @@ const axios =useApi()
                           <BlocksRenderer
                             content={_?.attributes?.content}
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              paragraph: ({ children }) => <p className="text-lg">{children}</p>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:

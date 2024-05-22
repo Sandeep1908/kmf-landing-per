@@ -14,6 +14,8 @@ import TvcommercialAccordion from '@/components/TvcommercialAccordion';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import NandiniProducts from './NandiniProducts';
 import Punnet from './Punnet';
+import NewsAndMedia from './NewAndMedia';
+import FoodStops from './FoodStops';
 
 
 function TvcommercialDetails() {
@@ -28,8 +30,22 @@ function TvcommercialDetails() {
   const [commercialCategory, setCommercialCategory] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const vidLinks = [
-    'https://www.youtube.com/embed/4p2JGB-5y1Y?si=yQYm3CxsKByamgHI',
-    'https://www.youtube.com/embed/OHlTeqgxCZo?si=PS5o8Z90ugN60OkW',
+    {
+      link:'https://www.youtube.com/embed/4p2JGB-5y1Y?si=yQYm3CxsKByamgHI',
+      order:1
+    },
+    {
+      link:'https://www.youtube.com/embed/OHlTeqgxCZo?si=PS5o8Z90ugN60OkW',
+      order:2
+    },
+    {
+      link:'https://www.youtube.com/embed/VO-6K2rUrNU?si=dyOXQKqx6PNjMZt0',
+      order:3
+    },
+
+    
+    
+    
   
   ];
   const handleVideoClick = (videoUrl) => {
@@ -67,11 +83,14 @@ function TvcommercialDetails() {
       if(subId){
        const brandAsset= brandAmbassador?.data?.filter(item=>item?.id===parseInt(subId))
    
-        setAssets(brandAsset)
+        setAssets(brandAsset?.sort((a,b)=>b.attributes.createdAt-a.attributes.createdAt))
+     
       }
       else{
         const brandAsset= commercialItems?.data?.filter(item=> item?.attributes?.tv_commercial?.data?.id===parseInt(param.slug))
-        setAssets(brandAsset)
+        const sortedArray=brandAsset.sort((a,b)=>b.id-a.id)
+        console.log("sortedArray",sortedArray)
+        setAssets(brandAsset.sort((a,b)=>b?.id-a?.id))
       }
      
       setBrandAmbassador(brandAmbassador.data)
@@ -117,7 +136,7 @@ function TvcommercialDetails() {
                  text-sm relative  
                        
                   uppercase`}>
-                  Press Release
+                  {locale==='kn'?'ಮಾದ್ಯಮ ಪ್ರಕಟಣೆ':'Press Release'}
                 </li>
               </Link>
 
@@ -128,7 +147,7 @@ function TvcommercialDetails() {
                    text-primary-main text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main
                          
                     uppercase`}>
-                Tv Commercials
+                {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹಿರಾತುಗಳ':'Tv commercial'}s
               </li>
 
               </Link>
@@ -169,18 +188,24 @@ function TvcommercialDetails() {
         </div>
           }
 
- 
-     {!subId && param?.slug==='3' && <NandiniProducts/>}
+
+
+{!subId && param?.slug==='5' && <NewsAndMedia/>}
+{!subId && param?.slug==='3' && <NandiniProducts/>}
+{!subId && param?.slug==='4' && <FoodStops/>}
+
      
 
+
+{/* //punnet rajkumar */}
 {subId==='3' && param?.slug==='3' &&
-            vidLinks?.map((item, id) => {
+            vidLinks?.sort((a,b)=>b.order-a.order).map((item, id) => {
               return (
                 <iframe
                   key={id}
                   width="400"
                   height="250"
-                  src={item}
+                  src={item.link}
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

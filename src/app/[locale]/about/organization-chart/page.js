@@ -85,7 +85,7 @@ function OrganizationChart() {
 
           <Counter  title={locale==='kn'?"ಹಾಲು ಸಹಕಾರಿ ಸಂಘಗಳು":"Functioning Dairy co-coperative societies"} endNumber={15500}/>
 
-          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ  ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
 
           <Counter  title={locale==='kn'?"ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳು":"Milk and Milk Products"} endNumber={148}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಒಕ್ಕೂಟಗಳು":"Milk Unions"} endNumber={15}/>

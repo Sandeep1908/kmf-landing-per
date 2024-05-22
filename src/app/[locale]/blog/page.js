@@ -157,32 +157,7 @@ function Blog() {
           
 
 
-          {/* {currentProducts?.map((blog,id)=>{
-            return(
-              <div key={id} onClick={() => handleBlogItem(blog)}>
-
-              <NewsCard
-              key={id}
-              title={blog?.attributes?.title}
-              image={blog?.attributes?.image?.data?.attributes?.url}
-              date={blog?.attributes?.date}
-              createdBy="Admin"
-              description={blog?.attributes?.content}
-              link={`/${blog?.attributes?.locale}/blog/${blog?.id}`}
-            />
-            </div>
-            )
-          })}
-      
-      {isModalOpen && (
-        <BlogModal
-          closeModal={isModalOpen}
-          blogDetails={selectedBlog}
-          close={setIsModalOpen}
           
-        />
-      )}
-           */}
         </div>
 
         <div className="flex justify-center items-center mt-10 pb-10 space-x-2 ">

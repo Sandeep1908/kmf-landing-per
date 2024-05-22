@@ -74,7 +74,7 @@ function PressRelease() {
                   text-primary-main text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main
                         
                    uppercase`}>
-                  Press Release
+                  {locale==='kn'?'ಮಾದ್ಯಮ ಪ್ರಕಟಣೆ':'Press Release'}
                 </li>
               </Link>
 
@@ -86,7 +86,7 @@ function PressRelease() {
                 text-sm relative  
                     
                uppercase`}>
-                Tv Commercials
+                {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹಿರಾತುಗಳ':'Tv commercial'}s
               </li>
               </Link>
 

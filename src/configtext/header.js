@@ -397,7 +397,7 @@ export const mobileHeader = {
       link: '/kn/animal-husbandery/procurement',
       subItems: [
         {
-          title: "  ಹಾಲು ಶೇಖರಣೆ",
+          title: "   ಹಾಲು ಶೇಖರಣೆ",
           link: '/kn/animal-husbandery/procurement'
         },
         {

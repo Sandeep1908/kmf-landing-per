@@ -35,9 +35,9 @@ function AnimalHealth() {
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
-        {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
-         */}
-        <video
+         <img src={'/animal-husbandary/animal-husbandary.png'} className="w-full h-full absolute top-0 z-[-1]" />
+        
+        {/* <video
           src="/video/precrument.mp4"
           muted
           autoPlay
@@ -47,7 +47,7 @@ function AnimalHealth() {
           className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
             isScroll ? 'h-[400px]' : ''
           } `}
-        />
+        /> */}
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
@@ -56,13 +56,13 @@ function AnimalHealth() {
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
+            {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
               
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
-            {locale==='kn'?'ಹಾಲು ಶೇಖರಣೆ':'Animal Health'}
+            {locale==='kn'?'  ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
