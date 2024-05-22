@@ -41,6 +41,10 @@ import spon9 from '@/images/sponsored/9.jpg';
 import spon10 from '@/images/sponsored/10.png';
 import { IoMenu } from "react-icons/io5";
 import { GrClose } from "react-icons/gr";
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmRight } from "react-icons/hi";
+
+
 import { LuMouse } from "react-icons/lu";
 
 import facebookIco from '@/images/footer/FB.svg';
@@ -233,20 +237,28 @@ function Portfolio() {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isChangeIcon, setIsChangeIcon] = useState(false);
 
   const toggleNavbar = () => {
-    console.log("sjdkjksjas")
     setIsOpen(!isOpen);
+  };
+  const changeIcon = () => {
+    setIsChangeIcon(!isOpen);
+  };
+  const changeIcon2 = () => {
+    setIsChangeIcon(isOpen);
   };
 
  
   return (
     <div
       className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  `}>
-  <div className="w-full h-screen relative bg-slate-50 z-[-10]  overflow-x-hidden">
+  <div className="w-full h-[80vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
   <div className=" absolute z-50 top-8 right-40">
-    <p id="openMenu" onClick={toggleNavbar} className={`text-white relative z-[100] ${isOpen ? 'hidden' : ''}`}>
-      <IoMenu size={50} />
+    <p id="openMenu" onMouseEnter={changeIcon} onMouseLeave={changeIcon2} onClick={toggleNavbar} className={`text-white relative z-[100] transition-all duration-1000 ${isOpen ? 'hidden' : ''}`}>
+      {isChangeIcon ?  <HiArrowSmallLeft size={50} /> :<IoMenu size={50} /> } 
+       
+
      
     </p>
   </div>
@@ -291,9 +303,13 @@ function Portfolio() {
    <p
         id="openMenu"
         onClick={toggleNavbar}
-        className="text-3xl text-white"
+        className="text-3xl text-white transition-all duration-1000"
+        onMouseEnter={changeIcon} 
+        onMouseLeave={changeIcon2}
       >
-        <GrClose size={40} />
+             {isChangeIcon ?  <GrClose size={50} /> :< HiArrowSmRight size={50} /> } 
+           
+
       </p>
    </div>
  
