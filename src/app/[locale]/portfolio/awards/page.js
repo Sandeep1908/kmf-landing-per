@@ -70,7 +70,7 @@ const Awards = () => {
                 <div className='absolute top-[60px] lg:top-0 xl:top-[60px] w-full h-full'>
                     <div className='w-full h-full flex justify-center items-center'>
                     <div className='max-w-xl lg:max-w-lg xl:max-w-xl w-full m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' > 2004 to till date: The Unions & Dairies of  KMF have Won 14 National Energy Conservation Awards  From GOI. </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl ' > {locale === 'en' ?   '2009 : Nandini  Brand of KMF Won The Most Valuable Brand in Karnataka Award  in the Sunday Indian & IIPM regional excellence awards.' : 'ಕೆ.ಎಂ.ಎಫ್ ನ ನಂದಿನಿ ಬ್ರ್ಯಾಂಡ್ 2009 ರಲ್ಲಿ ಸಂಡೇ ಇಂಡಿಯನ್ ಮತ್ತು IIPM ಪ್ರಾದೇಶಿಕ ಶ್ರೇಷ್ಠ ಪ್ರಶಸ್ತಿಯಲ್ಲಿ ಕರ್ನಾಟಕದ ಅತ್ಯಂತ ಮೌಲ್ಯಯುತ ಬ್ರಾಂಡ್ ಎಂದು ಗುರುತಿಸಲ್ಪಟ್ಟಿದೆ.'} </h1>
                 
                        </div>
                     </div>
@@ -81,13 +81,13 @@ const Awards = () => {
                
                  <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  2004 to till date: The Unions & Dairies of  KMF have Won 14 National Energy Conservation Awards  From GOI.  </h1>
+                       <h1 className='text-primary-main text-2xl md:text-3xl ' >  {locale === 'en' ?   '2009 : Nandini  Brand of KMF Won The Most Valuable Brand in Karnataka Award  in the Sunday Indian & IIPM regional excellence awards.' : 'ಕೆ.ಎಂ.ಎಫ್ ನ ನಂದಿನಿ ಬ್ರ್ಯಾಂಡ್ 2009 ರಲ್ಲಿ ಸಂಡೇ ಇಂಡಿಯನ್ ಮತ್ತು IIPM ಪ್ರಾದೇಶಿಕ ಶ್ರೇಷ್ಠ ಪ್ರಶಸ್ತಿಯಲ್ಲಿ ಕರ್ನಾಟಕದ ಅತ್ಯಂತ ಮೌಲ್ಯಯುತ ಬ್ರಾಂಡ್ ಎಂದು ಗುರುತಿಸಲ್ಪಟ್ಟಿದೆ.'}   </h1>
 
                        </div>
                  </div>
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl  ' > 2009 : Nandini  Brand of KMF Won The Most Valuable Brand in Karnataka Award  in the Sunday Indian & IIPM regional excellence awards. </h1>
+                       <h1 className='text-primary-main text-2xl  ' > {locale === 'en' ?   '2009 : Nandini  Brand of KMF Won The Most Valuable Brand in Karnataka Award  in the Sunday Indian & IIPM regional excellence awards.' : 'ಕೆ.ಎಂ.ಎಫ್ ನ ನಂದಿನಿ ಬ್ರ್ಯಾಂಡ್ 2009 ರಲ್ಲಿ ಸಂಡೇ ಇಂಡಿಯನ್ ಮತ್ತು IIPM ಪ್ರಾದೇಶಿಕ ಶ್ರೇಷ್ಠ ಪ್ರಶಸ್ತಿಯಲ್ಲಿ ಕರ್ನಾಟಕದ ಅತ್ಯಂತ ಮೌಲ್ಯಯುತ ಬ್ರಾಂಡ್ ಎಂದು ಗುರುತಿಸಲ್ಪಟ್ಟಿದೆ.'}  </h1>
                  
                        </div>
                  </div>
@@ -95,23 +95,21 @@ const Awards = () => {
 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl  ' > 2010 : Indias Largest selling English monthly Magazine Readers Digest carried out a Trusted Brand Survey  during 2010 and has given confirmed  Gold Award in the Milk Category.  Survey comprised over 1.3 million readers across the country.  </h1>
+                       <h1 className='text-primary-main text-2xl  ' >  {locale === 'en' ?   '2010 : Indias Largest selling English monthly Magazine Readers Digest carried out a Trusted Brand Survey  during 2010 and has given confirmed  Gold Award in the Milk Category.  Survey comprised over 1.3 million readers across the country.' : 'ಭಾರತದಾದ್ಯಂತ ವಿಶ್ವಾಸನೀಯ ಹಾಗೂ ಜನಪ್ರಿಯ ಇಂಗ್ಲೀಷ್ ನಿಯತಕಾಲಿಕ ಪತ್ರಿಕೆಯಾದ ರೀಡರ್ಸ್ ಡೈಜೆಸ್ಟ್ ರವರು 2010 ರಲ್ಲಿ ವಿಶ್ವಾಸಾರ್ಹ ಬ್ರಾಂಡ್ ಸಮೀಕ್ಷೆಯನ್ನು ನಡೆಸಿ ಕೆ.ಎಂ.ಎಫ್ ನ ನಂದಿನಿಗೆ ಹಾಲು ವಿಭಾಗದಲ್ಲಿ ಚಿನ್ನದ ಪ್ರಶಸ್ತಿಯನ್ನು ನೀಡಿ ಗೌರವಿಸಿದೆ. ಸಮೀಕ್ಷೆಯು ದೇಶಾದ್ಯಂತ 1.3 ಮಿಲಿಯನ್ ಓದುಗರ ಅಭಿಪ್ರಾಯವನ್ನು ಒಳಗೊಂಡಿತ್ತು.'}   </h1>
                 
                        </div>
                  </div>
 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl  ' > “NANDINI” AWARDED AS ONE OF THE TOP BRAND IN THE BANGALORE BRAND SUMMIT-2014
-At the Bangalore Brand Summit 2014 award ceremony KMF was presented with an  Indias premier marketing award recognizing excellence among the Bangalore Hot 50 Brands. </h1>
+                       <h1 className='text-primary-main text-2xl  ' >{locale === 'en' ?   '“NANDINI” AWARDED AS ONE OF THE TOP BRAND IN THE BANGALORE BRAND SUMMIT-2014 At the Bangalore Brand Summit 2014 award ceremony KMF was presented with an  Indias premier marketing award recognizing excellence among the Bangalore Hot 50 Brands. ' : '2014 ರಲ್ಲಿ ಬೆಂಗಳೂರಿನಲ್ಲಿ ಜರುಗಿದ “ಬೆಂಗಳೂರು ಬ್ರಾಂಡ್ ಶೃಂಗಸಭೆ-2014” ರ ಪ್ರಶಸ್ತಿ ಪ್ರಧಾನ ಸಮಾರಂಭದಲ್ಲಿ ಕೆ.ಎಂ.ಎಫ್ ನ ನಂದಿನಿಯನ್ನು ಟಾಪ್ ಬ್ರಾಂಡ್‌ಗಳಲ್ಲೊಂದೆಂದು ಗುರುತಿಸುವುದರ ಜೊತೆಗೆ ಭಾರತದ ಪ್ರೀಮಿಯರ ಮಾರ್ಕೆಟಿಂಗ್ ಪ್ರಶಸ್ತಿಯನ್ನು ನೀಡಲಾಯಿತು.'} </h1>
                 
                        </div>
                  </div>
 
                  <div className='max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
-                       <h1 className='text-primary-main text-2xl  ' > 08-Jun-2015                                             
-                   Rotary Club of Bangalore president Ram Kumarr Seshu presented the Corporate Citizen Award, 2014-15, to KMF Managing Director Sri.S.N.Jayaram IAS, at the Rotary Club of Bangalore on Monday-08.06.2015. </h1>
+                       <h1 className='text-primary-main text-2xl  ' >  {locale === 'en' ? '08-Jun-2015 Rotary Club of Bangalore president Ram Kumarr Seshu presented the Corporate Citizen Award, 2014-15, to KMF Managing Director Sri.S.N.Jayaram IAS, at the Rotary Club of Bangalore on Monday-08.06.2015.' : '08.06.2015 ರಂದು ಬೆಂಗಳೂರಿನ ರೋಟರಿ ಕ್ಲಬ್‌ನಲ್ಲಿ ರೋಟರಿ ಕ್ಲಬ್ ಆಫ್ ಬೆಂಗಳೂರು ಅಧ್ಯಕ್ಷರಾದ ರಾಮ್ ಕುಮಾರ್ ಶೇಷು ರವರು 2014-15ನೇ ಸಾಲಿನ ಕಾರ್ಪೊರೇಟ್ ಸಿಟಿಜನ್ ಪ್ರಶಸ್ತಿಯನ್ನು ಕೆ.ಎಂ.ಎಫ್ ವ್ಯವಸ್ಥಾಪಕ ನಿರ್ದೇಶಕ ಶ್ರೀ.ಎಸ್.ಎನ್.ಜಯರಾಮ್ ಐಎಎಸ್ ಅವರಿಗೆ ಪ್ರದಾನ ಮಾಡಿದರು.'}  </h1>
                 
                        </div>
                  </div>

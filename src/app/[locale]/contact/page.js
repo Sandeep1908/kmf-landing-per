@@ -50,7 +50,7 @@ const [status,setStatus]=useState('')
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
-      <section className={`w-full h-80 pt-28 relative  grid place-items-center company-bg`}>
+      <section className={`w-full h-80 pt-14 relative  grid place-items-center company-bg`}>
       <iframe
             align="middle"
             allowfullscreen=""
@@ -65,8 +65,8 @@ const [status,setStatus]=useState('')
         <img className='w-full ' src={mapImg.src} alt="" />
       </div> */}
 
-      <div className="w-full bg-[#F6F6F6]">
-      <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+      <div className="w-full  bg-[#F6F6F6]">
+      <div className="mb-20  pt-20  relative w-full  flex justify-center items-center ">
            
               <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
               {locale==='en'?'CONTACT US':'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ'}
@@ -99,9 +99,10 @@ const [status,setStatus]=useState('')
                 <Input title="Mobile No *" type="number" style="mt-7" setInfo={setMobile} />
                 <Input title="E-mail *" type="email" style="mt-7" setInfo={setEmail} />
                 <Input
+                  
                   title="Message"
                   type="text"
-                  style="mt-7 col-span-2"
+                  style="mt-7 col-span-2 "
                   inputStyle="h-32  lg:h-64"
                   setInfo={setMessage}
                 />

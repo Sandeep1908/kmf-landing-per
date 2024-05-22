@@ -285,28 +285,39 @@ const axios = useApi();
               }}
               modules={[FreeMode, Autoplay]}
               className="max-w-7xl m-auto">
-
+         
                  
                       <SwiperSlide className='' >
                       <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                    
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya1.src} alt="" />
-                         
+                      <PhotoProvider>
+                           <PhotoView src={bhagaya3.src} height="400px">
+                              <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya1.src} alt="" />
+                          </PhotoView>
+                    </PhotoProvider>
                 </div>
+
+
                         </SwiperSlide>
                       <SwiperSlide>
                       <div className='flex justify-center items-center   w-full h-96 p-2 '>
-                     
+                  <PhotoProvider>     
+                      <PhotoView src={bhagaya3.src} height="400px">
                           <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={bhagaya2.src} alt="" />
-                          
+                          </PhotoView>
+                          </PhotoProvider>  
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
-                      <div className='flex justify-center items-center  w-full h-96 p-2 '>
-                    
+                   
+                 <div className='flex justify-center items-center  w-full h-96 p-2 '>
+                 <PhotoProvider> 
+                      <PhotoView src={bhagaya3.src} height="400px">
                           <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya3.src} alt="" />
+                          </PhotoView>
+                          </PhotoProvider>   
                           </div>
                         </SwiperSlide>
+
                 
             </Swiper>
             </div>
