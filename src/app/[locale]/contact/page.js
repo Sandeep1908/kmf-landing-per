@@ -43,6 +43,20 @@ const [status,setStatus]=useState('')
 
     const data = await res.json();
     setStatus(data.message);
+
+    setCity('')
+    setEmail('')
+    setCountry('')
+    setFax('')
+    setMessage('')
+    setMobile('')
+    setOrganization('')
+    setName('')
+    setProfession('')
+    setStreetAdd('')
+    setPincode('')
+    setTelephone('')
+    setState('')
   };
 
 

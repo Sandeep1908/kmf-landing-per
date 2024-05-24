@@ -4,6 +4,7 @@ import useApi from '@/hooks/useApi';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Zoom } from 'react-reveal';
 
 function PressRelease() {
     const [pressRel,setPressRel]=useState([])
@@ -30,6 +31,7 @@ function PressRelease() {
                 
                 return(
                     <div key={id} className='w-full max-w-72 h-72 m-2 shadow-lg'>
+                      <Zoom>
                         <PhotoProvider >
        
        <PhotoView src={item?.attributes?.url} height="400px"  >
@@ -38,7 +40,7 @@ function PressRelease() {
    
  
  </PhotoProvider>
-                     
+ </Zoom>
             </div>
                 )
             })

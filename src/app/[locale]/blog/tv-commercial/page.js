@@ -22,6 +22,7 @@ import {
   Autoplay,
   FreeMode
 } from 'swiper/modules';
+import { Fade } from 'react-reveal';
 
 function Tvcommercial() {
   const [brandAmbassador, setBrandAmbassador] = useState([]);
@@ -255,6 +256,8 @@ function Tvcommercial() {
                   return (
                     
                     <Link    key={id}  href={`/${locale}/blog/tv-commercial/${item?.id}` || ''}>
+                      <Fade right>
+                    
                     <li
                    
                    
@@ -265,6 +268,7 @@ function Tvcommercial() {
                         </div>
                       </button>
                     </li>
+                    </Fade>
                     </Link>
                   );
                 })}

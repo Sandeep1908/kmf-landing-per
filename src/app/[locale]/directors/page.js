@@ -8,6 +8,7 @@ import TeamCard from './TeamCard';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Zoom from 'react-reveal/Zoom';
+import { Fade } from 'react-reveal';
 
 
 function Directors() {
@@ -64,6 +65,7 @@ function Directors() {
          
         <div className="  h-full  ">
         <div className='  h-full flex justify-center items-center   '>
+          <Fade bottom>
         <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4   justify-center items-center  rounded-tl-3xl rounded-br-3xl flex flex-col   p-3'>
             <div className='md:w-1/2 flex   justify-center  items-center mt-6 lg:pt-3 lg:pb-3 md:mt-0 rounded-full transition-all duration-300 hover:scale-[1.1]  '  >
               <Zoom>
@@ -78,6 +80,8 @@ function Directors() {
            
             </div>
         </div>
+
+        </Fade>
     
       </div>
           <div className="grid md:grid-cols-4  sm:grid-cols-3 grid-cols-1 place-items-center gap-5 md:flex-row mt-10 justify-center">

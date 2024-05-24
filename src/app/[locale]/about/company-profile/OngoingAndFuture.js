@@ -3,6 +3,7 @@ import React from 'react';
 import useApi from '@/hooks/useApi';
 import { useState,useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import { Fade, Zoom } from 'react-reveal';
 function OngoingAndFuture({ setLoading}) {
 
   const [futureProjects,setFutureProjects]=useState([])
@@ -21,6 +22,7 @@ function OngoingAndFuture({ setLoading}) {
   },[])
   return (
     <div className="w-full flex-col    max-w-5xl m-auto h-full   overflow-auto  items-start justify-start p-10 space-y-5">
+  
       <table className="table-fixed  bg-[#FDF9F7] rounded-ld shadow-md border-spacing-y-2	 border-collapse border     min-w-full">
         <thead className=" ">
           <tr className="text-md   bg-secondary-lighter ">
@@ -29,19 +31,23 @@ function OngoingAndFuture({ setLoading}) {
           </tr>
         </thead>
 
+
+
         <tbody className="text-start  text-sm">
           {ongoingProjects?.map((item, idx) => {
          return (
           <tr key={idx}>
             <td className="p-2 text-center text-lg ">{idx+1}</td>
+            <Zoom>
             <td className="p-2 text-lg">{item?.attributes?.project_name}</td>
+            </Zoom>
           </tr>
         );
          
           })}
         </tbody>
       </table>
-
+    
 
 
 
@@ -58,8 +64,11 @@ function OngoingAndFuture({ setLoading}) {
          
             return (
               <tr key={idx}>
+                
                 <td className="p-2 text-center text-lg ">{idx+1}</td>
+                <Zoom>
                 <td className="p-2 text-lg">{item?.attributes?.project_name}</td>
+                </Zoom>
               </tr>
             );
           })}

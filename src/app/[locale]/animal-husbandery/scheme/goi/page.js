@@ -7,6 +7,7 @@ import useApi from '@/hooks/useApi';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
  import Link from 'next/link';
  import rightArrow from '@/images/women-empower/rightArrow.svg';
+import { Fade, Zoom } from 'react-reveal';
 
 function GOI() {
   const { isScroll } = useMyContext();
@@ -78,7 +79,10 @@ const handleButton = (idx) => {
             </div>
     
             <section className=" relative w-full   h-auto   ">
-            <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
+          
+          <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
+
+            <Fade left>
         <div className="w-full xl:max-w-2xl shadow-lg flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
         <div className="mb-20  mt-20  relative w-full   flex justify-center items-center ">
               <img
@@ -90,12 +94,15 @@ const handleButton = (idx) => {
               </h1>
             </div>
           
+         
           {scheme[currentIndex]?.content?.map((item, id) => {
             return (
               <p  key={id} className="text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
             );
           })}
+          
         </div>
+        </Fade>
 
         <div className="flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white p-5">
           <div>
@@ -109,18 +116,22 @@ const handleButton = (idx) => {
                scheme?.map((items, idx) => {
                 
                   return (
+                    
                     <li
                       key={idx}
                       className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} />
+                      <Fade right >
                       <p
                         className={`${
                           idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
                         } uppercase`}>
                         {items.title}
                       </p>
+                      </Fade>
                     </li>
+                     
                   );
             
 
@@ -135,12 +146,14 @@ const handleButton = (idx) => {
                       className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} />
+                      <Fade right>
                       <p
                         className={`${
                           idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
                         } uppercase`}>
                         {items.title}
                       </p>
+                      </Fade>
                     </li>
                   );
                 }

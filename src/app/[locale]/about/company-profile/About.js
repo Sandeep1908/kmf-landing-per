@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useApi from '@/hooks/useApi';
 import useLocale from '@/hooks/useLocale';
+import { Zoom } from 'react-reveal';
 
 function About({ setLoading }) {
   const [aboutUs, setAboutUs] = useState([]);
@@ -24,9 +25,11 @@ const locale=useLocale().locale
             if (idx < 2) {
               return (
                 <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
+                  <Zoom>
                   <p className="text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>
 
                 
+                </Zoom>
                 </div>
               );
         

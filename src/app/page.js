@@ -9,6 +9,7 @@ import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
 
 import Fade from 'react-reveal/Fade';
+import { Zoom } from 'react-reveal';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
 import {
@@ -24,15 +25,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './[locale]/Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
-import Rodal from 'rodal';
+ 
 import { ParallaxBanner } from 'react-scroll-parallax';
 import ArrivalCard from '@/components/ArrivalCard.js';
 import { useMyContext } from '@/context/headerContext.js';
 import { FaRegHandPointRight } from 'react-icons/fa';
 
 import KnmModel from '@/components/KymModel.js';
-import CarouselImage from '@/components/CarouselImage.js';
-
+ 
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
@@ -185,7 +185,6 @@ const Home = () => {
             </Swiper>
           </div>
         </div>
-
       </section>
 
       <ParallaxBanner
@@ -200,40 +199,50 @@ const Home = () => {
         <section className="w-full h-auto p-5     pt-12">
           <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
             <div className="w-full h-full justify-center items-center flex  ">
-              <div
-                className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
-                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-                  About KMF
-                </h1>
+              <Fade left>
+                <div
+                  className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
+                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                    About KMF
+                  </h1>
 
-                <div className="space-y-6">
-                  <TypeWriter text={homeAboutDetails?.[0]?.about1 || ''} delay={70} />
+                  <div className="space-y-6">
+                    <TypeWriter text={homeAboutDetails?.[0]?.about1 || ''} delay={70} />
+                  </div>
                 </div>
-              </div>
+              </Fade>
 
-              <div
-                className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
-                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-                  OUR BRAND NANDINI
-                </h1>
+              <Fade right>
+                <div
+                  className={`flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center  lg: max-w-5xl lg:pr-10 bg-img-2`}>
+                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                    OUR BRAND NANDINI
+                  </h1>
 
-                <div className="space-y-6 h-[">
-                  <TypeWriter text={homeAboutDetails?.[0]?.about2 || ''} delay={70} />
+                  <div className="space-y-6 h-[">
+                    <TypeWriter text={homeAboutDetails?.[0]?.about2 || ''} delay={70} />
+                  </div>
                 </div>
-              </div>
+              </Fade>
             </div>
+
+            <Fade bottom>
 
             <Link
               href="/en/about/company-profile"
               className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
               Read More
             </Link>
+            </Fade>
           </div>
         </section>
       </ParallaxBanner>
 
       <section className="w-full h-fit  relative       ">
+        <Fade bottom>
         <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain" />
+        </Fade>
+
 
         <img
           src="/images/footer-top.png"
@@ -249,6 +258,7 @@ const Home = () => {
               </div>
             </Fade>
             <div className="flex flex-col justify-center space-y-10 items-center">
+              <Fade right>
               <div
                 className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
                 <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
@@ -268,6 +278,7 @@ const Home = () => {
                   </p>
                 </div>
               </div>
+              </Fade>
 
               <KnmModel closeModal={isModalOpen} kymMilk={knowMilkItem} close={setIsModalOpen} />
               <div className=" w-full flex flex-wrap  justify-center  p-2 gap-3 items-center md:justify-around">
@@ -296,20 +307,24 @@ const Home = () => {
 
       <section className="w-full h-auto relative">
         <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+          <Fade top>
           <div className="flex w-full flex-col justify-center items-center space-y-3">
-            <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+            <h1 className="text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
               Notification
             </h1>
           </div>
+          </Fade>
 
           <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
             <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
               <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
+                <Fade left>
                 <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
                   <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
                     Tender Notifications
                   </h1>
                 </div>
+                </Fade>
                 <div
                   className="w-full h-[375px] p-4 marquee flex flex-col"
                   style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
@@ -334,12 +349,15 @@ const Home = () => {
 
             <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
               <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
+
+                <Fade right>
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
                   New Arrivals & Best Selling
                 </h1>
+                </Fade>
                 <div className="marquee-notification h-full flex justify-evenly space-x-3">
                   {newArrivals?.map((item, id) => {
-                    console.log("new arrival ",item)
+                    console.log('new arrival ', item);
                     return (
                       <ArrivalCard
                         key={id}
@@ -367,11 +385,13 @@ const Home = () => {
           className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
         />
         <div className="w-full flex flex-col justify-center items-center">
+          <Fade bottom>
           <div className="flex flex-col justify-center items-center">
             <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
               Quick Links
             </h1>
           </div>
+          </Fade>
 
           <div className="  w-full h-auto  relative   ">
             <Fade bottom>
@@ -380,10 +400,10 @@ const Home = () => {
                   <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
                 </Link>
 
-                <Link href="/en/comingsoon">
+                <Link href="/en/blog/tv-commercial/6">
                   <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
                 </Link>
-                <Link href="/en/blog/gallery">
+                <Link href="/en/blog/tv-commercial/">
                   <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
                 </Link>
               </div>
@@ -395,11 +415,13 @@ const Home = () => {
       <section className="w-full h-fit relative pt-20 pb-20     ">
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
+            <Zoom>
             <div className="flex justify-center w-full    flex-wrap   items-end  ">
               <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
                 Explore The World Of KMF
               </h1>
             </div>
+            </Zoom>
           </div>
 
           <div className=" relative w-full h-[800px] flex justify-evenly items-center gap-5   flex-wrap">

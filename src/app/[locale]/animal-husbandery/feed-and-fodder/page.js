@@ -6,6 +6,7 @@ import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useMyContext } from '@/context/headerContext';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import { Fade } from 'react-reveal';
 function FeedFodder() {
   const [feedFodder, setFeedFodder] = useState([]);
   const { isScroll } = useMyContext();
@@ -65,12 +66,13 @@ function FeedFodder() {
         <div className="      relative w-full  flex justify-center items-center ">
             
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {locale==='kn'?'':' Fodder Activities'}
+              {locale==='kn'?'ಮೇವು ಚಟುವಟಿಕೆಗಳು':' Fodder Activities'}
               </h1>
             </div>
        
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
+            <Fade bottom>
             <div className="w-full h-full flex justify-center items-center flex-wrap">
               {feedFodder?.map((_, id) => {
                 return (
@@ -125,6 +127,7 @@ function FeedFodder() {
                 );
               })}
             </div>
+            </Fade>
           </div>
         </div>
       </section>

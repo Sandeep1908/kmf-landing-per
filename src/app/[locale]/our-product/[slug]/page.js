@@ -14,6 +14,7 @@ import useLocale from '@/hooks/useLocale';
 import ProductAccordion from '@/components/ProductAccordion';
 import downarrowIco from '@/images/icons/downarrow.svg';
 import uparrowIco from '@/images/icons/uparrow.svg';
+import { Fade } from 'react-reveal';
  
 
 
@@ -185,6 +186,7 @@ function Milk() {
                           <img src='/images/product-new/new.gif' className='w-20 absolute right-5  z-[10]'/>
                         }
                     
+                    <Fade top>
                       <div className="w-full   justify-center items-center flex p-2  ">
                         <Carousel
                           className="w-2xl h-96"
@@ -221,7 +223,8 @@ function Milk() {
                           })}
                         </Carousel>
                       </div>
-
+                      </Fade>
+<Fade bottom>
                       <div
                         className="w-full h-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
                                   ">
@@ -250,6 +253,7 @@ function Milk() {
                           )}
                         </p>
                       </div>
+                      </Fade>
                     </div>
                   );
                 })}
@@ -282,11 +286,13 @@ function Milk() {
                                     href={`/${locale}/our-product/${items?.id}` || ''}
                                     key={index}
                                     onClick={() => setOpenNav((prev) => !prev)}>
+                                      <Fade right>
                                     <li
                                       key={index}
                                       className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
                                       <span>{item?.attributes?.name}</span>
                                     </li>
+                                    </Fade>
                                   </Link>
                                 );
                               })}
@@ -324,11 +330,13 @@ function Milk() {
                                 href={`/${locale}/our-product/${item?.id}` || ''}
                                 key={index}
                                 onClick={() => setOpenNav((prev) => !prev)}>
+                                  <Fade right>
                                 <li
                                   key={index}
                                   className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
                                   <span>{item?.attributes?.title}</span>
                                 </li>
+                                </Fade>
                               </Link>
                             );
                           })}

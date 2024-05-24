@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import organizationHero from '@/images/about/organization-chart/organization-hero.png';
 import milkRight from '@/images/about/organization-chart/milk-right.png';
 import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
- 
+import {Fade,Zoom} from 'react-reveal'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Footer from '@/components/Footer';
@@ -79,6 +79,7 @@ function OrganizationChart() {
             
                 
           </div>
+          <Zoom>
           <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 relative organization-bg'>
           <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರು":"Lakh Milk Producer Members"} endNumber={26}/>
@@ -93,8 +94,8 @@ function OrganizationChart() {
           <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ರೈತರಿಗೆ ಪಾವತಿ ":"Crores Payment Per day to farmers"} endNumber={24}/>
 
 
-
           </div>
+          </Zoom>
          
           
 
@@ -109,11 +110,13 @@ function OrganizationChart() {
               <div className="w-40 h-8 bg-red-600"></div>
             </div>
           </div>
+
+          <Fade bottom>
         <img
           src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
           className=" max-w-7xl h-full object-conatain absolute top-0 z-[-1]"
         />
-
+</Fade>
 
       </section>
 
@@ -131,11 +134,13 @@ function OrganizationChart() {
               {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
               </h1>
             </div>
-
+              <Fade bottom>
               <p className="text-lg text-justify p-2">
                 The organization is three tiered on Co-operative principles.
               </p>
+              </Fade>
 
+              <Fade bottom>
               <ul className="flex flex-col space-y-5 p-6 w-full  justify-center items-start list-disc text-justify text-lg  md:justify-normal md:items-start">
                 <li>Dairy Co-operative Societies at grass root level.</li>
 
@@ -143,12 +148,17 @@ function OrganizationChart() {
 
                 <li>Milk Federation at State level.</li>
               </ul>
+              </Fade>
+
+
+              <Fade bottom>
               <p className="text-lg text-justify p-2">
                 All above three are governed by democratically elected board from among the milk
                 producers. Under the direction of elected boards, KMF, various functional Units &
                 Unions are performing the assigned tasks to ensure fulfilment of organisation
                 objectives.
               </p>
+              </Fade>
             </div>
 
 

@@ -6,6 +6,7 @@ import useLocale from '@/hooks/useLocale'
 import Link from 'next/link'
 import useApi from '@/hooks/useApi'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
+import { Fade } from 'react-reveal'
 function Procurement() {
     const { isScroll}=useMyContext()
     const locale=useLocale().locale
@@ -106,7 +107,7 @@ const axios =useApi()
                           <BlocksRenderer
                             content={_?.attributes?.content}
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-lg">{children}</p>,
+                              paragraph: ({ children }) =><Fade bottom> <p className="text-lg">{children}</p></Fade>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:

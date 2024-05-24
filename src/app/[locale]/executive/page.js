@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Zoom from 'react-reveal/Zoom';
+import { Fade } from 'react-reveal';
  
 
 const Executive = () => {
@@ -117,6 +118,7 @@ const Executive = () => {
     
 
     <div className='  h-full flex justify-center items-center   '>
+      <Fade bottom>
     <div className='w-full max-w-7xl mt-auto min-h-44  md:h-2/4   justify-center items-center  rounded-tl-3xl rounded-br-3xl flex flex-col   p-3'>
             <div className='md:w-1/2 flex   justify-center  items-center mt-6 lg:pt-3 lg:pb-3 transition-all duration-300 md:mt-0 rounded-full hover:scale-[1.1]  '  >
               <Zoom>
@@ -131,6 +133,7 @@ const Executive = () => {
            
             </div>
         </div>
+        </Fade>
     
       </div>
     <div>
@@ -138,14 +141,17 @@ const Executive = () => {
 
     <div className='w-full max-w-[1400px] m-auto p-5  '>
       <div className=''>
+        <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
             Executive
         </h1>
+        </Fade>
       </div>
 
 
       <table className="      border-spacing-y-2	 border-collapse w-full border overflow-auto ">
         <thead className=" bg-primary-main text-white ">
+          <Fade top>
           <tr className="text-md    ">
             <th className="p-2 text-start font-heading ">Name</th>
           
@@ -158,6 +164,7 @@ const Executive = () => {
 
  
           </tr>
+          </Fade>
         </thead>
 
         <tbody className="text-start  text-md  bg-secondary-gradient">
@@ -168,6 +175,7 @@ const Executive = () => {
  return(
     
     <tr className='border-t ' key={id}>
+      <Fade bottom>
     <td className="p-1 text-md  ">{item?.attributes?.name}</td>
    
     <td className="p-1 text-md">{item?.attributes?.designation}</td>
@@ -175,6 +183,7 @@ const Executive = () => {
     <td className="p-1 text-md"> {item?.attributes?.working}</td>
     <td className="p-1 text-md"> {item?.attributes?.mobile}</td>
     <td className="p-1 text-md"> {item?.attributes?.email}</td>
+    </Fade>
   </tr>
    
  )
@@ -193,21 +202,25 @@ const Executive = () => {
 
       <div className='w-full max-w-[1400px] m-auto  p-5 '>
       <div className=''>
+        <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
             Union Chief
         </h1>
+        </Fade>
       </div>
 
 
       <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className="bg-primary-main text-white  ">
           <tr className="text-md ">
+<Fade top>
             <th className="p-2 text-start font-heading ">Name</th>
             <th className="p-2 text-start font-heading">Designation	</th>
             <th className="p-2 text-start font-heading">Place of working	</th>
             <th className="p-2 text-start  font-heading">Mobile No</th>
 
 <th className="p-2 text-start  font-heading">Email Id</th>
+</Fade>
           </tr>
         </thead>
 
@@ -219,11 +232,13 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
+    <Fade bottom>
   <td className="p-1 text-md  ">{item?.attributes?.name}</td>
   <td className="p-1 text-md">{item?.attributes?.designation}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.mobile}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
+  </Fade>
 
 </tr>
  )
@@ -242,21 +257,25 @@ const Executive = () => {
 
       <div className='w-full p-5  max-w-[1400px]  m-auto overflow-auto'>
       <div className=''>
+        <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
             Unit Chief
         </h1>
+        </Fade>
       </div>
 
 
       <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className=" w-full bg-primary-main text-white ">
           <tr className="text-md    ">
+            <Fade top>
             <th className="p-2 text-start font-heading">Name</th>
             <th className="p-2 text-start font-heading">Designation	</th>
             <th className="p-2 text-start font-heading ">Place of working	</th>
             <th className="p-2 text-start  font-heading">Mobile No</th>
 
 <th className="p-2 text-start  font-heading">Email Id</th>
+</Fade>
           </tr>
         </thead>
 
@@ -268,13 +287,14 @@ const Executive = () => {
  return(
     
   <tr className='border-t' key={id} >
+    <Fade bottom>
   <td className="p-1 text-md  ">{item?.attributes?.name}</td>
   <td className="p-1 text-md">{item?.attributes?.designation}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.mobile}</td>
 
   <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
-
+  </Fade>
 </tr>
    
  )

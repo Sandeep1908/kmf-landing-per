@@ -11,6 +11,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PhotoProvider,PhotoView } from 'react-photo-view';
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
+import { Fade, Zoom } from 'react-reveal';
 
 function OrganizationChart() {
   const locale = useParams().locale;
@@ -83,6 +84,7 @@ function OrganizationChart() {
                   return(
                     <SwiperSlide key={id} className='w-full' >
                      
+                     <Zoom>
                     <PhotoProvider className='w-full' >
                         
                         <PhotoView src={item} height="400px"  >
@@ -92,6 +94,7 @@ function OrganizationChart() {
                   
                   </PhotoProvider>
           
+          </Zoom>
                       </SwiperSlide>
                   )
                  })}
@@ -105,10 +108,13 @@ function OrganizationChart() {
           </div>
 
           <div className="   mt-20  relative w-full  flex justify-center items-center ">
+            <Fade bottom>
             
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'':'          Quality and Food Safety'}
               </h1>
+
+              </Fade>
             </div>
     
       <section className=" relative w-full flex flex-col p-2  space-y-3 mb-10 max-w-7xl m-auto h-auto pt-20  ">
@@ -119,8 +125,11 @@ function OrganizationChart() {
   content={quality?.attributes?.content}
   blocks={{
     // You can use the default components to set class names...
+    
     paragraph: ({ children }) => (
+      <Fade bottom>
       <p className="text-neutral900 w-full">{children}</p>
+      </Fade>
     ),
     // ...or point to a design system
     heading: ({ children, level }) => {
@@ -145,7 +154,9 @@ function OrganizationChart() {
      
    
         return(
-          children
+          <Fade bottom>
+          {children}
+          </Fade>
         )
     },
 

@@ -6,6 +6,7 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import useApi from '@/hooks/useApi';
+import { Fade } from 'react-reveal';
 function AnimalHealth() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
@@ -93,12 +94,12 @@ function AnimalHealth() {
           <div className="mb-20    relative w-full  flex justify-center items-center ">
                
               <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
-              {locale==='kn'?'':'Animal Health'}
+              {locale==='kn'?'ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
               </h1>
             </div>
            
 
-            
+            <Fade bottom>
 
             <div className="w-full h-full flex justify-center items-center flex-wrap  ">
             {animalHealth?.map((_, id) => {
@@ -179,6 +180,7 @@ function AnimalHealth() {
 
 
             </div>
+            </Fade>
           </div>
         </div>
       </section>
@@ -197,7 +199,7 @@ function AnimalHealth() {
             </div>
            
 
-            
+            <Fade bottom>
 
             <div className="w-full h-full flex justify-center items-center flex-wrap  ">
             {healthCamps?.map((_, id) => {
@@ -278,6 +280,7 @@ function AnimalHealth() {
 
 
             </div>
+            </Fade>
           </div>
         </div>
       </section>

@@ -6,6 +6,7 @@ import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import useApi from '@/hooks/useApi';
+import { Fade } from 'react-reveal';
 function NandiniHostels() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
@@ -64,16 +65,18 @@ function NandiniHostels() {
                     key={id}
                     className="  w-full  rounded-3xl     ">
                     <div className="m-auto">
+                      <Fade top>
                       <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
                         {' '}
                         {_?.attributes?.title}{' '}
                       </h1>
+                      </Fade>
                       <div className="mt-10 p-10">
                         {_?.attributes?.content && (
                           <BlocksRenderer
                             content={_?.attributes?.content}
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              paragraph: ({ children }) => <Fade bottom> <p className="text-md">{children}</p></Fade>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import ProductCard from './[slug]/ProductCard';
 import useLocale from '@/hooks/useLocale';
 import { useMyContext } from '@/context/headerContext';
+import { Fade, Zoom } from 'react-reveal';
 
 function Products() {
   const [categories, setCategories] = useState([]);
@@ -92,15 +93,19 @@ function Products() {
 
                
                 {item?.attributes?.hasNewProduct  &&
+                <Zoom>
                  <img src='/images/product-new/new.gif' className='w-10 absolute left-5 -top-8'/>
+                 </Zoom>
                 }
                
+               <Fade top>
                 <p
               
                 onClick={() => handleIdx(item?.id)}
                 className={`font-subheading transition-all duration-300 text-md cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
                 {item?.attributes?.title}
                 </p>
+                </Fade>
                 </div>
               
             );

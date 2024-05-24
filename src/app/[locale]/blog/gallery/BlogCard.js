@@ -3,6 +3,7 @@ import React,{useEffect,useState} from 'react'
 import useApi from '@/hooks/useApi';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import { Fade } from 'react-reveal';
  
 
 function BlogCard() {
@@ -29,25 +30,32 @@ function BlogCard() {
                 if(id<itemShow){
                     return(
                         <div key={id} className='w-full flex space-x-5 p-10 justify-center items-center'>
+                            <Fade left>
                         <Link href={`/${locale}/blog/${item?.id}`} className='w-40 h-20 flex flex-col justify-center items-center transition-all duration-300 border hover:scale-[1.2]'>
                                 <p className='text-xl'>{new Date(item?.attributes?.date).getDate()}</p>
                                 <div className='flex justify-center items-center text-sm text-slate-500'>
                                     <p >{monthsName[new Date(item?.attributes?.date).getMonth()]}</p>-<p>{new Date(item?.attributes?.date).getFullYear()}</p>
                                 </div>
                         </Link>
-    
+                                </Fade>
+
+                                <Fade right>
                         <div className='w-full'>
+                          
                                 <h1 className='text-xl text-primary-main'>{item?.attributes?.title}</h1>
                                 {item?.attributes?.content?.map((items,idx)=>{
                                     if(idx==0){
                                         return(
+
                                             <p key={idx} className='text-slate-500'>{items?.children[0]?.text}</p>
                                         )
                                     }
                                    
                                 })}
+                             
                                 <Link href={`/${locale}/blog/${item?.id}`} className='hover:text-green-500 uppercase'>Read More....</Link>
                         </div>
+                        </Fade>
                 </div>
                     )
                 }
