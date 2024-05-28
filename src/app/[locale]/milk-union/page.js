@@ -60,6 +60,7 @@ const locale=useLocale().locale
             
               <UnionCard
                 key={union?.id}
+                idx={id}
                 name={union?.attributes?.name}
                 image={union?.attributes?.image}
                 description={union?.attributes?.about}

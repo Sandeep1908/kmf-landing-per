@@ -50,8 +50,7 @@ function MilkUnionDetail({ slug }) {
     setReadMore(!readMore);
   };
 
-  const ReadMoreEn='ReadMore...'
-  const ReadLessEn='ReadLess'
+   
   
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
@@ -91,7 +90,7 @@ function MilkUnionDetail({ slug }) {
           <div className="w-full max-w-7xl h-full  col-span-2  m-auto p-5  rounded-tl-3xl  rounded-br-3xl   shadow-sm">
             <div className="w-full h-full flex flex-col space-x-5 justify-center items-center lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col justify-center items-center pt-10 space-y-5 lg:items-start">
-                <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+                <div className="    relative w-full  flex justify-center items-center ">
                
                   <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
                     {union?.attributes?.name}
@@ -108,7 +107,7 @@ function MilkUnionDetail({ slug }) {
                       blocks={{
                         // You can use the default components to set class names...
                         paragraph: ({ children }) => (
-                          <p className="text-neutral900 w-full">{children}</p>
+                          <p className="text-neutral900 text-justify w-full">{children}</p>
                         ),
                         // ...or point to a design system
                         heading: ({ children, level }) => {
@@ -139,30 +138,57 @@ function MilkUnionDetail({ slug }) {
                             <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
                               <thead className=" text-left ">
                                 {columns?.map((item, id) => {
-                                  return (
-                                    <th className="p-2   border-r border-black " key={id}>
-                                      {item}
-                                    </th>
-                                  );
+                                  if(id===0){
+                                    return (
+                                      <th className="p-2 w-14   border-r border-black " key={id}>
+                                        {item}
+                                      </th>
+                                    );
+                                  }else{
+                                    return (
+                                      <th className="p-2   border-r border-black " key={id}>
+                                        {item}
+                                      </th>
+                                    );
+                                  }
+                                 
                                 })}
                               </thead>
                               <tbody className="text-left  text-md ">
                                 <tr className="w-full ">
                                   {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
                                     children?.[0]?.props?.text?.split(',')?.map((item, id) => {
-                                      return (
-                                        <td
-                                          className=" p-2 text-md font-content border-r border-black "
-                                          key={id}>
-                                          {' '}
-                                          {item}
-                                        </td>
-                                      );
+                                      if(id===0){
+                                        return (
+                                          <td
+                                            className=" p-2 w-14 text-md font-content border-r border-black "
+                                            key={id}>
+                                            {' '}
+                                            {item}
+                                          </td>
+                                        );
+                                      }
+                                      else{
+                                        return (
+                                          <td
+                                            className=" p-2 text-sm font-content border-r border-black "
+                                            key={id}>
+                                            {' '}
+                                            {item}
+                                          </td>
+                                        );
+                                      }
+                                   
                                     })}
                                 </tr>
                               </tbody>
                             </table>
                           );
+                        },
+                        list:({children})=>{
+                          return <ul className='flex flex-col justify-start items-start space-y-2 list-disc pt-3'>
+                            {children}
+                            </ul>
                         },
 
                         // For links, you may want to use the component from your router or framework

@@ -18,6 +18,7 @@ import NewsAndMedia from './NewAndMedia';
 import FoodStops from './FoodStops';
 import DairyTour from './DairyTour';
 import { Fade } from 'react-reveal';
+import NandiniAdds from './NandiniAdds';
 
 
 function TvcommercialDetails() {
@@ -192,7 +193,7 @@ function TvcommercialDetails() {
 
 
 {!subId && param?.slug==='5' && <NewsAndMedia/>}
-{!subId && param?.slug==='3' && <NandiniProducts/>}
+{!subId && param?.slug==='3' && <NandiniAdds/>}
 {!subId && param?.slug==='4' && <FoodStops/>}
 {!subId && param?.slug==='6' && <DairyTour/>}
 

@@ -353,7 +353,7 @@ export const mobileHeader = {
       link: '/kn/our-product',
       subItems: [
         {
-          title: "ಉತ್ಪನ್ನಗಳು",
+          title: "ನಮ್ಮ ಉತ್ಪನ್ನಗಳು",
           link: '/kn/our-product'
         },
         {

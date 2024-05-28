@@ -9,6 +9,7 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Zoom from 'react-reveal/Zoom';
 import { Fade } from 'react-reveal';
+import { ParallaxBanner } from 'react-scroll-parallax';
 
 
 function Directors() {
@@ -41,17 +42,25 @@ function Directors() {
 
   return (
     <div className="w-full h-full absolute top-36 z-[-1] ">
+
+<ParallaxBanner
+      layers={[
+        { image: '/images/board-of-directors.jpeg', speed: -20 },
+        {
+          speed: -15,
+          children: <h></h>
+        }
+      ]}
+      className="  w-full h-[600px]   object-contain ">
       <section className={`w-full  h-[700px] pt-28 relative  grid place-items-center  `}>
-        <img src={'/images/board-of-directors.jpg'} className="w-full h-full object-cover absolute   z-[-1]" />
+        <img src={'/images/board-of-directors.jpeg'} className="w-full h-full object-cover absolute   z-[-1]" />
        
 
       </section>
+    </ParallaxBanner>
+     
 
-      <section className={`w-full  h-[700px] pt-28 relative  grid place-items-center  `}>
-      <img src={'/images/2922581_27195.jpg'} className="w-full h-full object-contain absolute   z-[-1]" />
-       
-
-      </section>
+     
     
 
       <section className="w-full   pt-20  shadow-lg   ">

@@ -4,44 +4,72 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Carousel } from 'react-responsive-carousel';
 import { Fade } from 'react-reveal';
 
-function UnionCard({ name, image, description, link }) {
-  return (
-    <div className=" w-full h-full flex justify-center items-center border-b  p-2    ">
+function UnionCard({ name, image, description, link, idx }) {
    
-  
-      <div className="w-full h-full flex justify-center items-center">
+  return (
+    
+    <div className=" w-full h-full grid grid-cols-2 border-b  p-2    ">
+      {idx % 2 === 0 ? (
         <Fade left>
-           
-        <Carousel
-          className=" w-full h-full"
-          autoPlay={true}
-          interval={2000}
-          showStatus={false}
-          infiniteLoop
-          showThumbs={false}
-          showIndicators={false}>
-          {image?.data?.map((item, id) => {
-            return (
-              <img
-                key={id}
-                src={item?.attributes?.url}
-                className=" max-w-[400px] h-full object-cover"
-              />
-            );
-          })}
-        </Carousel>
-        </Fade>
-      </div>
-    
+          <div className="w-full h-full flex justify-center items-center">
+            <Carousel
+              className=" w-full h-full"
+              autoPlay={true}
+              interval={2000}
+              showStatus={false}
+              infiniteLoop
+              showThumbs={false}
+              showIndicators={false}>
+              {image?.data?.map((item, id) => {
+                return (
+                  <img
+                    key={id}
+                    src={item?.attributes?.url}
+                    className=" max-w-[400px] h-full object-cover"
+                  />
+                );
+              })}
+            </Carousel>
+          </div>
 
-    
-      <Link href={link || ''} className="w-full flex flex-col justify-start items-start space-y-6">
-        <Fade right>
-        <h1 className="text-4xl uppercase text-primary-main">{name}</h1>
-        <p className="text-md  text-justify">{description?.[0]?.children?.[0]?.text}</p>
+          <Link
+            href={link || ''}
+            className="w-full flex flex-col justify-start items-start space-y-6">
+            <h1 className="text-4xl uppercase text-primary-main">{name}</h1>
+            <p className="text-md  text-justify">{description?.[0]?.children?.[0]?.text}</p>
+          </Link>
         </Fade>
-      </Link>
-       
+      ) : (
+        <Fade right>
+          <div className="w-full h-full flex justify-center items-center">
+            <Carousel
+              className=" w-full h-full"
+              autoPlay={true}
+              interval={2000}
+              showStatus={false}
+              infiniteLoop
+              showThumbs={false}
+              showIndicators={false}>
+              {image?.data?.map((item, id) => {
+                return (
+                  <img
+                    key={id}
+                    src={item?.attributes?.url}
+                    className=" max-w-[400px] h-full object-cover"
+                  />
+                );
+              })}
+            </Carousel>
+          </div>
+
+          <Link
+            href={link || ''}
+            className="w-full flex flex-col justify-start items-start space-y-6">
+            <h1 className="text-4xl uppercase text-primary-main">{name}</h1>
+            <p className="text-md  text-justify">{description?.[0]?.children?.[0]?.text}</p>
+          </Link>
+        </Fade>
+      )}
     </div>
   );
 }

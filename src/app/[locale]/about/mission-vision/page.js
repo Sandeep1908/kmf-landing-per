@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import useApi from '@/hooks/useApi';
 import { useMyContext } from '@/context/headerContext';
-import { Fade } from 'react-reveal';
+import { Fade, Zoom } from 'react-reveal';
 function MissionVission() {
   const locale = useParams().locale;
   const axios = useApi();
@@ -46,7 +46,7 @@ function MissionVission() {
      :
       <section className={`w-full h-[750px] pt-28 relative  grid place-items-center `}>
        
-      
+      <Fade top>
       <img
         src={purpose?.attributes?.banner?.data?.[0]?.attributes?.url || ''}
         
@@ -54,6 +54,7 @@ function MissionVission() {
           isScroll ? 'h-[500px]' : ''
         } `}
       />
+      </Fade>
     </section>
       }
 

@@ -11,7 +11,7 @@ function GrowthProcess({setLoading}) {
     (
       async()=>{
         const {data}=await axios.get('/api/growht-processes?sort[0]=year:asc')
-        const {data:growthProcessHeaderData}=await axios.get('/api/growthprocessheaders?sort[0]=createdAt:asc')
+        const {data:growthProcessHeaderData}=await axios.get('/api/growthprocessheaders?sort[0]=createdAt:desc')
       
  
        
@@ -32,24 +32,24 @@ function GrowthProcess({setLoading}) {
             <th className="p-2 border-r border-black">KEY ITEMS</th>
             <th className="p-2 border-r border-black ">UNIT</th>
             {growthProcess?.map((gp, id) => (
-              <th className='w-20 border-r border-black' key={id}>{gp?.attributes?.year}</th>
+              <th className='w-20 border-r border-black' key={gp?.id}>{gp?.attributes?.year}</th>
             ))}
           </tr>
         </thead>
 
         <tbody className="text-left  text-md">
           {growthProcessHeader.map((header, id) => {
-             
+             console.log("header",header)
           
             return (
-              <tr key={id} className='border-t-2 border-black    '>
-                 <td className='p-2 text-md uppercase text-center font-content'>{id+1}</td>
-                <td className='p-2 text-md uppercase text-center border border-r border-black font-content'>{header?.attributes?.header}</td>
-                <td className='p-2 text-md font-content border-r border-black'>{header?.attributes?.unit}</td>
+              <tr key={header?.id} className='border-t-2   border-black    '>
+                 <td className='p-2 text-md border-r  border-black uppercase text-center font-content'>{id+1}</td>
+                <td className='p-2 text-md  border-r uppercase text-center border   border-black font-content'>{header?.attributes?.header}</td>
+                <td className='p-2 text-md border-r font-content  border-black'>{header?.attributes?.unit}</td>
 
                 {growthProcess.map((gp, id) => {
                   
-                  return <td className='w-32 text-md  text-center ' key={id}>{gp?.attributes[header?.attributes?.key]}</td>;
+                  return <td className='w-32 text-md border-r border-black  text-center ' key={id}>{gp?.attributes[header?.attributes?.key]}</td>;
                 })}
               </tr>
             );

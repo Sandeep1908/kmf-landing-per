@@ -7,7 +7,8 @@ import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Zoom from 'react-reveal/Zoom';
 import { Fade } from 'react-reveal';
- 
+import { ParallaxBanner } from 'react-scroll-parallax';
+ import { useMyContext } from '@/context/headerContext';
 
 const Executive = () => {
   const [md,setMd]=useState([])
@@ -16,6 +17,7 @@ const Executive = () => {
   const [unitCheifs,setUnitCheif]=useState([])
   const [executives,setExecutives]=useState([])
  
+  const { isScroll, setIsScroll } = useMyContext();
 
 
   const axios =useApi()
@@ -100,11 +102,13 @@ const Executive = () => {
 
    
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
+    <div className={`w-full h-full absolute   z-[-1]  ${isScroll ? 'top-48' : ''} `}>
+
+ 
     <section
-      className={`w-full  h-[700px] pt-28 relative  grid place-items-center company-bg`}>
+      className={`w-full  h-[500px] pt-28 relative  grid place-items-center company-bg`}>
        
-      <img src="/images/executive.jpg" className="w-full h-full object-cover absolute top-0 z-[-1]" />
+      <img src="/images/executive.jpeg" className="w-full h-full object-cover absolute top-0 z-[-1]" />
     
     </section>
 

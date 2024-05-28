@@ -117,7 +117,7 @@ function OrganizationChart() {
               </Fade>
             </div>
     
-      <section className=" relative w-full flex flex-col p-2  space-y-3 mb-10 max-w-7xl m-auto h-auto pt-20  ">
+      <section className=" relative w-full flex flex-col p-2     mb-10 max-w-7xl m-auto h-auto pt-20  ">
    
 {
   quality?.attributes?.content &&
@@ -128,14 +128,14 @@ function OrganizationChart() {
     
     paragraph: ({ children }) => (
       <Fade bottom>
-      <p className="text-neutral900 w-full">{children}</p>
+      <p className="text-neutral900 w-full mb-3 mt-3">{children}</p>
       </Fade>
     ),
     // ...or point to a design system
     heading: ({ children, level }) => {
       switch (level) {
         case 1:
-          return <h1 className="text-2xl text-primary-main">{children}</h1>;
+          return <h1 className="text-2xl mt-2 mb-1 text-primary-main">{children}</h1>;
         case 2:
           return <h2 className="text-lg">{children}</h2>;
         case 3:
@@ -154,7 +154,7 @@ function OrganizationChart() {
      
    
         return(
-          <Fade bottom>
+          <Fade bottom >
           {children}
           </Fade>
         )
@@ -171,17 +171,37 @@ function OrganizationChart() {
         <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
           <thead className=" text-left ">
             {columns?.map((item, id) => {
-              return (
-                <th className="p-2   border-r border-black " key={id}>
-                  {item}
-                </th>
-              );
+              if(id===0){
+                return (
+                  <th className="p-2 w-16   border-r border-black " key={id}>
+                    {item}
+                  </th>
+                );
+              }
+              else{
+                return (
+                  <th className="p-2   border-r border-black " key={id}>
+                    {item}
+                  </th>
+                );
+              }
+             
             })}
           </thead>
           <tbody className="text-left  text-md ">
             <tr className="w-full ">
               {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
                 children?.[0]?.props?.text?.split(',')?.map((item, id) => {
+                  if(id===0){
+                    return(
+                      <td
+                      className=" w-16 p-2 text-md font-content border-r border-black "
+                      key={id}>
+                      {' '}
+                      {item}
+                    </td>
+                    )
+                  }
                   return (
                     <td
                       className=" p-2 text-md font-content border-r border-black "
