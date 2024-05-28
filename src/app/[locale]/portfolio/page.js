@@ -866,8 +866,8 @@ function Portfolio() {
                       {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
                     </h1>
                     <p className="mt-6 md:mt-24 text-2xl text-white">
-                      He was originally from Kolar district who was very concerned about the
-                      farmers...
+                    {locale === 'en' ? '"Nandini" is enhancing its brand image through sponsorship Expanding sales network..' : 'ಪ್ರಾಯೋಜಕತ್ವದ ಮೂಲಕ “ನಂದಿನಿ” ತನ್ನ ಬ್ರಾಂಡ್ ಇಮೇಜ್ ಹೆಚ್ಚಿಸಿಕೊಂಡು. ಮಾರಾಟಜಾಲ.. '}
+                    
                     </p>
                   </div>
 
