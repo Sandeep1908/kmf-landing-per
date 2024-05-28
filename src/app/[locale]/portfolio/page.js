@@ -111,6 +111,7 @@ function Portfolio() {
     router.push(newUrl);
   };
 
+  const[pdf, setPdf] = useState();
   const [sponsore, setSponsore] = useState([]);
   const [readMore, setReadMore] = useState(false);
   const { isScroll } = useMyContext();
@@ -142,7 +143,7 @@ function Portfolio() {
     "Verghese Kurien (26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution.In 1949, Kurien was sent by the Government of India to its run a experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers' Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.Kurien with then Prime Minister Lal Bahadur Shastri in 1964 Then-Prime Minister Lal Bahadur Shastri visited Anand to inaugurate Amul's cattle feed factory in October 1964 when he also interacted with the farmers about their cooperative. In 1965, Shastri tasked Kurien to replicate the dairy's Anand scheme nationwide, for which the National Dairy Development Board (NDDB) was founded. The board was led by Kurien on conditions that it be independent of governmental control and that it be set up at Anand, away from the capitals and closer to farmers. Kurien negotiated with donors like the UNICEF for aid to develop the cooperatives and opposed countries which lobbied against him stating that he wanted to 'convert aid into trade' contrary to his idea of making India self-sufficient in milk production.  He used the proceeds to encourage the movement of high-yield native cattle to urban areas and set up milk sheds and dairy farms nationwide to stabilize the dairy markets of big cities. The Anand model was replicated across Gujarat and Kurien brought all of them under the Gujarat Co-operative Milk Marketing Federation (GCMMF) in 1973 to sell their products under a single Amul brand on the 25th anniversary of establishment. Other states emulated setting up similar federations based on this scheme. In 1979, he founded the Institute of Rural Management Anand (IRMA) to groom managers for the cooperatives.He was awarded the Ramon Magsaysay Award in 1964 and World Food Prize in 1989. In 1999, he received Padma Vibhushan, India's second highest civilian honour. He was conferred the Order of Agricultural Merit by the French Government in 1997.";
 
   const founderKannadaText =
-    'ಉದ್ಯಮಿಯಾಗಿದ್ದು, ಅವರು ಶ್ವೇತ ಕ್ರಾಂತಿ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಹಾಲಿನ ಉತ್ಪಾದನೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾದ ಹೆಚ್ಚಳಕ್ಕೆ ಕಾರಣವಾದ ಉಪಕ್ರಮಗಳನ್ನು ಮುನ್ನಡೆಸಿದರು.1949 ರಲ್ಲಿ, ಕುರಿಯನ್ ಅವರನ್ನು ಭಾರತ ಸರ್ಕಾರವು ಆನಂದ್‌ನಲ್ಲಿ ಪ್ರಾಯೋಗಿಕ ಕ್ರೀಮರಿಗೆ ಕಳುಹಿಸಿದರು, ಅಲ್ಲಿ ಅವರು 1950 ರಲ್ಲಿ ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟವನ್ನು ಸ್ಥಾಪಿಸಿದರು, ಅದು ನಂತರ ಅಮುಲ್ ಆಯಿತು. ಅಮುಲ್ ಸಹಕಾರಿಯ ಭಾಗವಾಗಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರನ್ನು ಸಂಘಟಿಸಿ ನೇರವಾಗಿ ಗ್ರಾಹಕರಿಗೆ ಲಿಂಕ್ ಮಾಡಿತು. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಡೈರಿ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸಿದ್ದರಿಂದ ಡೈರಿ ಸಹಕಾರಿಯು ಹಾಲಿನ ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿದೆ.';
+    'ವರ್ಗೀಸ್ ಕುರಿಯನ್ (26 ನವೆಂಬರ್ 1921 - 9 ಸೆಪ್ಟೆಂಬರ್ 2012) ಒಬ್ಬ ಭಾರತೀಯ ಡೈರಿ ಇಂಜಿನಿಯರ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಉದ್ಯಮಿಯಾಗಿದ್ದು , ಅವರು ಶ್ವೇತ ಕ್ರಾಂತಿ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಹಾಲಿನ ಉತ್ಪಾದನೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾದ ಹೆಚ್ಚಳಕ್ಕೆ ಕಾರಣವಾದ ಉಪಕ್ರಮಗಳನ್ನು ಮುನ್ನಡೆಸಿದರು .ಕುರಿಯನ್ 1940 ರಲ್ಲಿ ಮದ್ರಾಸ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಭೌತಶಾಸ್ತ್ರದಲ್ಲಿ ಪದವಿ ಪಡೆದರು ಮತ್ತು 1947 ರಲ್ಲಿ ಮಿಚಿಗನ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಮೆಕ್ಯಾನಿಕಲ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ಪಡೆದರು. 1949 ರಲ್ಲಿ, ಕುರಿಯನ್ ಅವರನ್ನು ಆನಂದ್‌ನಲ್ಲಿ ಅದರ ಪ್ರಾಯೋಗಿಕ ಕ್ರೀಮರಿ ನಡೆಸಲು ಭಾರತ ಸರ್ಕಾರ ಕಳುಹಿಸಿತು, ಅಲ್ಲಿ ಅವರು ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಸಂಘವನ್ನು ಸ್ಥಾಪಿಸಿದರು. 1950 ರಲ್ಲಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟ ಲಿಮಿಟೆಡ್ ನಂತರ ಅಮುಲ್ ಆಯಿತು. ಅಮುಲ್ ಸಹಕಾರಿಯ ಅಂಗವಾಗಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರನ್ನು ಸಂಘಟಿಸಿ ನೇರವಾಗಿ ಗ್ರಾಹಕರಿಗೆ ಲಿಂಕ್ ಮಾಡಿತು. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಡೇರಿ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸುವುದರಿಂದ ಹಾಲು ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಡೇರಿ ಸಹಕಾರಿ ಯಶಸ್ವಿಯಾಗಿದೆ. 1964 ರ ಅಕ್ಟೋಬರ್‌ನಲ್ಲಿ ಅಮುಲ್‌ನ ಪಶು ಆಹಾರ ಕಾರ್ಖಾನೆಯನ್ನು ಉದ್ಘಾಟಿಸಲು ಅಂದಿನ ಪ್ರಧಾನಿ ಲಾಲ್ ಬಹದ್ದೂರ್ ಶಾಸ್ತ್ರಿ ಅವರು ಆನಂದ್ ಅವರನ್ನು ಭೇಟಿ ಮಾಡಿದರು , ಅವರು ತಮ್ಮ ಸಹಕಾರಿ ಸಂಘದ ಬಗ್ಗೆ ರೈತರೊಂದಿಗೆ ಸಂವಾದ ನಡೆಸಿದರು. 1965 ರಲ್ಲಿ, ಶಾಸ್ತ್ರಿ ಕುರಿಯನ್ ಅವರಿಗೆ ಡೈರಿಯ ಆನಂದ್ ಯೋಜನೆಯನ್ನು ರಾಷ್ಟ್ರವ್ಯಾಪಿ ಪುನರಾವರ್ತಿಸಲು ವಹಿಸಿದರು, ಇದಕ್ಕಾಗಿ ರಾಷ್ಟ್ರೀಯಡೇರಿಅಭಿವೃದ್ಧಿ ಮಂಡಳಿ (NDDB) ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಯಿತು.  ಆಡಳಿತ ಮಂಡಳಿಯು ಸರ್ಕಾರದ ನಿಯಂತ್ರಣದಿಂದ ಸ್ವತಂತ್ರವಾಗಿರಬೇಕು ಮತ್ತು ರಾಜಧಾನಿಗಳಿಂದ ದೂರವಿರುವ ಮತ್ತು ರೈತರಿಗೆ ಹತ್ತಿರವಾದ ಆನಂದ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಬೇಕು ಎಂಬ ಷರತ್ತುಗಳ ಮೇಲೆ ಕುರಿಯನ್ ನೇತೃತ್ವ ವಹಿಸಿದ್ದರು.  ಕುರಿಯನ್ ಅವರು ಸಹಕಾರಿ ಸಂಸ್ಥೆಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಸಹಾಯಕ್ಕಾಗಿ UNICEF ನಂತಹ ದಾನಿಗಳೊಂದಿಗೆ ಮಾತುಕತೆ ನಡೆಸಿದರು ಮತ್ತು ಹಾಲು ಉತ್ಪಾದನೆಯಲ್ಲಿ ಭಾರತವನ್ನು ಸ್ವಾವಲಂಬಿಯಾಗಿಸುವ ಅವರ ಕಲ್ಪನೆಗೆ ವಿರುದ್ಧವಾಗಿ "ಸಹಾಯವನ್ನು ವ್ಯಾಪಾರವಾಗಿ ಪರಿವರ್ತಿಸಲು" ಅವರು ಬಯಸುತ್ತಾರೆ ಎಂದು ತಮ್ಮ ವಿರುದ್ಧ ಲಾಬಿ ಮಾಡಿದ ದೇಶಗಳನ್ನು ವಿರೋಧಿಸಿದರು ಅವರು ಹೆಚ್ಚಿನ ಇಳುವರಿ ನೀಡುವ ಸ್ಥಳೀಯ ಜಾನುವಾರುಗಳನ್ನು ನಗರ ಪ್ರದೇಶಗಳಿಗೆ ಸಾಗಿಸಲು ಉತ್ತೇಜಿಸಲು ಮತ್ತು ದೊಡ್ಡ ನಗರಗಳಡೇರಿಮಾರುಕಟ್ಟೆಗಳನ್ನು ಸ್ಥಿರಗೊಳಿಸಲು ರಾಷ್ಟ್ರವ್ಯಾಪಿ ಹಾಲಿನ ಶೆಡ್‌ಗಳು ಮತ್ತು ಡೇರಿ ಫಾರ್ಮ್‌ಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಆದಾಯವನ್ನು ಬಳಸಿದರು.  ಆನಂದ್ ಮಾದರಿಯನ್ನು ಗುಜರಾತ್‌ನಾದ್ಯಂತ ಪುನರಾವರ್ತಿಸಲಾಯಿತು ಮತ್ತು ಕುರಿಯನ್ 1973 ರಲ್ಲಿ ಗುಜರಾತ್ ಕೋ-ಆಪರೇಟಿವ್ ಮಿಲ್ಕ್ ಮಾರ್ಕೆಟಿಂಗ್ ಫೆಡರೇಶನ್ (GCMMF) ಅಡಿಯಲ್ಲಿ ತಮ್ಮ ಉತ್ಪನ್ನಗಳನ್ನು ಸ್ಥಾಪನೆಯ 25 ನೇ ವಾರ್ಷಿಕೋತ್ಸವದಂದು ಒಂದೇ ಅಮುಲ್ ಬ್ರಾಂಡ್‌ನಲ್ಲಿ ಮಾರಾಟ ಮಾಡಲು ತಂದರು. [33] ಇತರ ರಾಜ್ಯಗಳು ಈ ಯೋಜನೆಯ ಆಧಾರದ ಮೇಲೆ ಇದೇ ರೀತಿಯ ಒಕ್ಕೂಟಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಅನುಕರಿಸಿದವು. 1979 ರಲ್ಲಿ, ಅವರು ಸಹಕಾರಿ ಸಂಸ್ಥೆಗಳಿಗೆ ವ್ಯವಸ್ಥಾಪಕರನ್ನು ರೂಪಿಸಲು ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ರೂರಲ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಆನಂದ್ (IRMA) ಅನ್ನು ಸ್ಥಾಪಿಸಿದರು.';
 
   const kurienText = locale === 'en' ? kurienEnglishText : kurienKannadaText;
   const founderText = locale === 'en' ? founderEnglishText : founderKannadaText;
@@ -183,10 +184,13 @@ function Portfolio() {
       const { data } = await axios.get('/api/kmf-achievements');
       const { data: sponsor } = await axios.get('/api/sponsoreds');
       const { data: banner } = await axios.get('/api/banners');
+      const { data: pdf } = await axios.get('/api/Ksheerasagramagazines');
 
       setBanners(banner.data);
       setSponsore(sponsor.data);
       setAchievments(data.data);
+      setPdf(pdf.data);
+      
     })();
   }, []);
 
@@ -987,7 +991,7 @@ function Portfolio() {
 
             <div className="w-full h-auto flex flex-wrap justify-center">
               {achievments?.map((item, id) => {
-                console.log('achievments', item);
+             
                 if (
                   item?.attributes?.title !== 'KMF Achievements' &&
                   item?.attributes?.title !== 'ಕಹಾಮ ಸಾಧನೆಗಳು'
@@ -1053,13 +1057,14 @@ function Portfolio() {
 
       <section id="ksheerasagara" className="w-full h-auto mt-10 mb-10  ">
         <div className=" m-auto  ">
-          <div className="relative mt-20 mb-5 w-full  flex justify-center items-center">
+          <div className=" mt-20 mb-5 w-full  flex justify-center items-center">
             <Fade top>
-            <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
-              {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
+            <h1 className="relative  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
+              {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಪ್ರಾಯೋಜಕತ್ವ'} 
+              <span><img className="absolute top-[-55px] right-[20px]  w-40 " src={titleBG.src} alt="" /></span>
             </h1>
             </Fade>
-            <img className="absolute top-[-52px] left-[60%] w-40 " src={titleBG.src} alt="" />
+
           </div>
 
           <div className="w-full p-7 ">
@@ -1074,45 +1079,18 @@ function Portfolio() {
                 }}
                 modules={[FreeMode, Autoplay]}
                 className="w-full h-[530px]">
-                <SwiperSlide>
-                  <PdfPreview className="" pdfUrl="/pdJan.pdf" />
+               {pdf?.map((item,id)=>{
+                console.log(item)
+             
+                return(
+                  <>
+                  <SwiperSlide key={id}>
+                  <PdfPreview className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url} />
                 </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdDec23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdNov23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdOct23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdSept23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdAug23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdJul23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdJun23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdMay23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdApr23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdMar23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdFeb23.pdf" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <PdfPreview className="w-full h-full" pdfUrl="/pdJan23.pdf" />
-                </SwiperSlide>
+                </>
+                )
+               })}   
+                
               </Swiper>
             </div>
           </div>
