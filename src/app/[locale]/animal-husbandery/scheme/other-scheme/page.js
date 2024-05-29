@@ -39,17 +39,25 @@ function Other() {
 
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandery/scheme` || ''}>
-              Schemes
+            {locale === "en" ? "Schemes":"ಯೋಜನೆಗಳು"}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/our-product/`}>
-              Other Schemes
+            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandery/scheme/goi`}>
+                  {locale === "en" ? "GOI":"ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು"}
+            </Link>
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandery/scheme/gok`}>
+               {locale === "en" ? "GOK":"ರಾಜ್ಯ ಸರಕಾರದ ಯೋಜನೆಗಳು"}
+            </Link>
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold  text-primary-main " href={`/${locale}/animal-husbandery/scheme/other-scheme`}>
+                {locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}
             </Link>
             
           </div>
       <h1 className="text-2xl w-full mt-5 p-3 uppercase bg-primary-main text-white  shadow-lg relative flex justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
-        Other Schemes
+      {locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}
       </h1>
       <section className=" relative w-full flex flex-col space-y-5 mb-10 max-w-7xl m-auto h-auto pt-10  ">
         <div className="w-full h-full flex space-y-3 flex-col">

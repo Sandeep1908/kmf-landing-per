@@ -31,6 +31,7 @@ const RecipeDetail = ({ slug }) => {
     (async () => {
       const { data: recipe } = await axios.get('/api/recipes');
       const recipeDetail = recipe?.data?.filter((item) => item?.id === parseInt(param.slug));
+      console.log("re-detailes",recipeDetail)
       SetRecipeDetail(recipeDetail[0]);
     })();
   }, []);
@@ -39,12 +40,12 @@ const RecipeDetail = ({ slug }) => {
     <div className="w-full h-full">
       <div className="w-full h-full mt-20 pb-40">
         <div className="flex flex-col justify-center items-center">
-          <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
-            <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
-              {locale === 'kn' ? '' : 'Nandini Recipies'}
+          <div className="mb-4  mt-20  relative w-full  flex justify-center items-center ">
+            <h1 className=" text-primary-main relative  m-auto text-center z-10 font-heading text-5xl font-extrabold uppercase">
+            {locale==='kn'?'ನಂದಿನಿ ಪಾಕವಿಧಾನಗಳು':'Nandini Recipies'}
             </h1>
           </div>
-          <div className="w-40 h-1 bg-primary-main mt-8"></div>
+          <div className="w-40 h-1 bg-primary-main mt-"></div>
           <h1 className="text-primary-main  text-2xl md:text-4xl mt-10">
             {recipeDetail && recipeDetail?.attributes?.title}
           </h1>

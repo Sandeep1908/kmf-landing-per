@@ -158,17 +158,17 @@ function Milk() {
             <h1 className="text-5xl text-primary-main text-center font-subheading">
               {title?.attributes?.Heading}
             </h1>
-            <p className="text-2xl ">{title?.attributes?.description}</p>
+            {/* <p className="text-2xl ">{title?.attributes?.description}</p> */}
           </div>
 
           <div
             className={`w-full h-full mt-10 max-w-[1600px] m-auto  flex flex-col space-y-5 ${
-              title?.attributes?.Heading ? 'mt-36' : ''
+              title?.attributes?.Heading ? 'mt-' : ''
             } `}>
 
-<div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+<div className="mb-20    relative w-full  flex justify-center items-center ">
             
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative  m-auto text-center z-10 font-heading text-4xl font-extrabold uppercase">
               {title?.attributes?.title} Family
               </h1>
             </div>

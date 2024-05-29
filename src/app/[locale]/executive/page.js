@@ -116,7 +116,7 @@ const Executive = () => {
     <div className="  relative w-full  flex justify-center items-center ">
            
               <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
-              {locale==='kn'?' ':'KMF Executives'}
+              {locale==='kn'?' ಕಹಾಮದ ಕಾರ್ಯನಿರ್ವಾಹಕ ಅಧಿಕಾರಿಗಳು':'KMF Executives'}
               </h1>
             </div>
     
@@ -147,7 +147,7 @@ const Executive = () => {
       <div className=''>
         <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
-            Executive
+              {locale === "en" ?"Executives":"ಕಾರ್ಯನಿರ್ವಾಹಕರು"}
         </h1>
         </Fade>
       </div>
@@ -157,14 +157,16 @@ const Executive = () => {
         <thead className=" bg-primary-main text-white ">
           <Fade top>
           <tr className="text-md    ">
-            <th className="p-2 text-start font-heading ">Name</th>
+            <th className="p-2 text-start font-heading ">
+              {locale === "en" ?"Name":"ಹೆಸರು"}
+              </th>
           
-            <th className="p-2 text-start font-heading">Designation	</th>
-            <th className="p-2 text-start font-heading ">Department</th>
-            <th className="p-2 text-start  font-heading">Place of working</th>
-            <th className="p-2 text-start  font-heading">Mobile No</th>
+            <th className="p-2 text-start font-heading">  {locale === "en" ?"Designation":"ಪದನಾಮ"}	</th>
+            <th className="p-2 text-start font-heading "> {locale === "en" ?"Department":"ವಿಭಾಗ"} </th>
+            <th className="p-2 text-start  font-heading"> {locale === "en" ?"Place of working":"ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ತಿರುವ ಸ್ಥಳ"}   </th>
+            <th className="p-2 text-start  font-heading"> {locale === "en" ?"Mobile No":"ದೂರವಾಣಿ ಸಂಖ್ಯೆ"}</th>
 
-            <th className="p-2 text-start  font-heading">Email Id</th>
+            <th className="p-2 text-start  font-heading">  {locale === "en" ?"Email Id":"ಇಮೇಲ್ ಐಡಿ"} </th>
 
  
           </tr>
@@ -184,8 +186,8 @@ const Executive = () => {
    
     <td className="p-1 text-md">{item?.attributes?.designation}</td>
     <td className="p-1 text-md  ">{item?.attributes?.department}</td>
-    <td className="p-1 text-md"> {item?.attributes?.working}</td>
-    <td className="p-1 text-md"> {item?.attributes?.mobile}</td>
+    <td className="p-1 text-md text-center"> {item?.attributes?.working}</td>
+    <td className="p-1 text-md text-center"> {item?.attributes?.mobile}</td>
     <td className="p-1 text-md"> {item?.attributes?.email}</td>
     </Fade>
   </tr>
@@ -208,7 +210,7 @@ const Executive = () => {
       <div className=''>
         <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
-            Union Chief
+                 {locale === "en" ?"Union Chief":"ಒಕ್ಕೂಟಗಳ ಮುಖ್ಯಸ್ಥರು"}
         </h1>
         </Fade>
       </div>
@@ -218,12 +220,12 @@ const Executive = () => {
         <thead className="bg-primary-main text-white  ">
           <tr className="text-md ">
 <Fade top>
-            <th className="p-2 text-start font-heading ">Name</th>
-            <th className="p-2 text-start font-heading">Designation	</th>
-            <th className="p-2 text-start font-heading">Place of working	</th>
-            <th className="p-2 text-start  font-heading">Mobile No</th>
+            <th className="p-2 text-start font-heading ">   {locale === "en" ?"Name":"ಹೆಸರು"}</th>
+            <th className="p-2 text-start font-heading"> {locale === "en" ?"Designation":"ಪದನಾಮ"}	</th>
+            <th className="p-2 text-start font-heading">{locale === "en" ?"Place of working":"ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ತಿರುವ ಸ್ಥಳ"} 	</th>
+            <th className="p-2   font-heading text-center">{locale === "en" ?"Mobile No":"ದೂರವಾಣಿ ಸಂಖ್ಯೆ"}</th>
 
-<th className="p-2 text-start  font-heading">Email Id</th>
+<th className="p-2 text-start  font-heading">{locale === "en" ?"Email Id":"ಇಮೇಲ್ ಐಡಿ"}</th>
 </Fade>
           </tr>
         </thead>
@@ -240,7 +242,7 @@ const Executive = () => {
   <td className="p-1 text-md  ">{item?.attributes?.name}</td>
   <td className="p-1 text-md">{item?.attributes?.designation}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.mobile}</td>
+  <td className="p-1 text-md overflow-auto text-center">{item?.attributes?.mobile}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
   </Fade>
 
@@ -263,7 +265,8 @@ const Executive = () => {
       <div className=''>
         <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
-            Unit Chief
+        {locale === "en" ?"Unit Chief":"ಘಟಕಗಳ ಮುಖ್ಯಸ್ಥರು"}
+              
         </h1>
         </Fade>
       </div>
@@ -273,12 +276,12 @@ const Executive = () => {
         <thead className=" w-full bg-primary-main text-white ">
           <tr className="text-md    ">
             <Fade top>
-            <th className="p-2 text-start font-heading">Name</th>
-            <th className="p-2 text-start font-heading">Designation	</th>
-            <th className="p-2 text-start font-heading ">Place of working	</th>
-            <th className="p-2 text-start  font-heading">Mobile No</th>
+            <th className="p-2 text-start font-heading"> {locale === "en" ?"Name":"ಹೆಸರು"}</th>
+            <th className="p-2 text-start font-heading"> {locale === "en" ?"Designation":"ಪದನಾಮ"}	</th>
+            <th className="p-2 text-start font-heading ">{locale === "en" ?"Place of working":"ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ತಿರುವ ಸ್ಥಳ"} 	</th>
+            <th className="p-2   font-heading text-center">{locale === "en" ?"Mobile No":"ದೂರವಾಣಿ ಸಂಖ್ಯೆ"}</th>
 
-<th className="p-2 text-start  font-heading">Email Id</th>
+<th className="p-2 text-start  font-heading">{locale === "en" ?"Email Id":"ಇಮೇಲ್ ಐಡಿ"}</th>
 </Fade>
           </tr>
         </thead>
@@ -295,7 +298,7 @@ const Executive = () => {
   <td className="p-1 text-md  ">{item?.attributes?.name}</td>
   <td className="p-1 text-md">{item?.attributes?.designation}</td>
   <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.mobile}</td>
+  <td className="p-1 text-md overflow-auto text-center">{item?.attributes?.mobile}</td>
 
   <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
   </Fade>
