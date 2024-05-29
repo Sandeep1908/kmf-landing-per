@@ -61,12 +61,21 @@ const handleButton = (idx) => {
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandery/scheme` || ''}>
-              Schemes
+               
+              {locale === "en" ? "Schemes":"ಯೋಜನೆಗಳು"}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/our-product/`}>
-              GOI
+            <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/animal-husbandery/scheme/goi`}>
+                  {locale === "en" ? "GOI":"ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು"}
+            </Link>
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandery/scheme/gok`}>
+               {locale === "en" ? "GOK":"ರಾಜ್ಯ ಸರಕಾರದ ಯೋಜನೆಗಳು"}
+            </Link>
+            <p className="text-primary-main">&gt;</p>
+            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandery/scheme/other-scheme`}>
+                {locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}
             </Link>
             
           </div>
@@ -74,7 +83,7 @@ const handleButton = (idx) => {
           <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
-              {locale==='kn'?'':'          Government Of India'}
+              {locale==='kn'?'ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು':'          Government Of India'}
               </h1>
             </div>
     
@@ -106,7 +115,7 @@ const handleButton = (idx) => {
 
         <div className="flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white p-5">
           <div>
-            <h1 className="text-xl uppercase">{locale==='kn'?``:`Government Of India `}</h1>
+            <h1 className="text-xl uppercase">{locale==='kn'?`ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು`:`Government Of India `}</h1>
           </div>
 
           <div className="w-full h-ful pt-5 shadow-md">
@@ -164,9 +173,9 @@ const handleButton = (idx) => {
              
             {
               showmore ?
-              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'>Show Less...</p>
+              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'>{locale === "en" ? "Show Less":"ಕಡಿಮೆ ಓದಿ"} ...</p>
               :
-              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'>Show More...</p>
+              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'> {locale === "en" ? "Show More":"ಮತ್ತಷ್ಟು ಓದಿ"}...</p>
 
             }
             

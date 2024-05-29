@@ -7,6 +7,8 @@ import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
 import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
+import milkglassKnImg from '@/images/homeImages/milk-glass-kn.png';
+
 
 import Fade from 'react-reveal/Fade';
 import Footer from '@/components/Footer';
@@ -248,14 +250,15 @@ const Home = () => {
         <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
           <Fade left>
             <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
-              <img src={milkglassImg.src} className="w-full h-full" />
+              <img src={milkglassKnImg.src} className="w-full h-full" />
             </div>
           </Fade>
           <div className="flex flex-col justify-center space-y-10 items-center">
             <div
               className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
               <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-              ನಿಮ್ಮ ಹಾಲನ್ನು ತಿಳಿಯಿರಿ
+              ಹಾಲಿನ ಬಗ್ಗೆ
+
               </h1>
 
               <div className="space-y-6">
@@ -331,7 +334,7 @@ const Home = () => {
           <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
             <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
               <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-              ಹೊಸ ಆಗಮನಗಳು ಮತ್ತು ಅತ್ಯುತ್ತಮ ಮಾರಾಟ
+              ಹೊಸ ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು
               </h1>
               <div className="marquee-notification h-full flex justify-evenly space-x-3">
                 {newArrivals?.map((item, id) => {

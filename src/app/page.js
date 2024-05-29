@@ -7,6 +7,7 @@ import cartIco from '@/images/homeImages/quikLink/cart.tif.svg';
 import locationIco from '@/images/homeImages/quikLink/location.tif.svg';
 import commercialIco from '@/images/homeImages/quikLink/commercial.svg';
 import milkglassImg from '@/images/homeImages/milkglass.png';
+import milkglassKnImg from '@/images/homeImages/milk-glass-kn.png';
 
 import Fade from 'react-reveal/Fade';
 import { Zoom } from 'react-reveal';
@@ -32,6 +33,7 @@ import { useMyContext } from '@/context/headerContext.js';
 import { FaRegHandPointRight } from 'react-icons/fa';
 
 import KnmModel from '@/components/KymModel.js';
+import useLocale from '@/hooks/useLocale.js';
  
 
 const Home = () => {
@@ -51,6 +53,9 @@ const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+
+  const locale = useLocale().locale;
+
 
   // ... (existing code)
 
@@ -254,7 +259,7 @@ const Home = () => {
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
               <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
-                <img src={milkglassImg.src} className="w-full h-full" />
+                {locale === "kn" ? <img src={milkglassKnImg.src} className="w-full h-full" /> : <img src={milkglassImg.src} className="w-full h-full" />}
               </div>
             </Fade>
             <div className="flex flex-col justify-center space-y-10 items-center">
@@ -267,14 +272,8 @@ const Home = () => {
 
                 <div className="space-y-6">
                   <p className="text-justify   text-lg  text-white  ">
-                    Milk is a nutrient-rich beverage, widely consumed for its high calcium content
-                    essential for bone health. It is a source of protein, vitamins, and minerals,
-                    contributing to overall well-being. Varieties include cow&apos;s milk, known for
-                    its widespread availability, and alternatives like almond or soy milk for those
-                    with dietary preferences or lactose intolerance. Milk&apos;s versatility extends
-                    to culinary uses, featuring prominently in recipes from creamy desserts to
-                    savory dishes, showcasing its cultural and nutritional significance in various
-                    global cuisines.
+                    {locale === "en" ? "Milk is a nutrient-rich beverage, widely consumed for its high calcium content essential for bone health. It is a source of protein, vitamins, and minerals, contributing to overall well-being. Varieties include cow&apos;s milk, known for its widespread availability, and alternatives like almond or soy milk for those with dietary preferences or lactose intolerance. Milk&apos;s versatility extends to culinary uses, featuring prominently in recipes from creamy desserts to savory dishes, showcasing its cultural and nutritional significance in various global cuisines.":"ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದ್ದು, ಮಾನವನ ಮೂಳೆಗಳ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯವಾದ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅನ್ನು ಒದಗಿಸುತ್ತಿದೆ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದ್ದು, ಒಟ್ಟಾರೆ ಮನುಷ್ಯನ ಸರ್ವಾಂಗಿಣ ಬೆಳವಣಿಗೆಗೆ ತುಂಬಾ ಅಗತ್ಯವಾಗಿದೆ. ಹಾಲಿನ ವಿಧಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ತುಂಬಾ ಹೆಸರುವಾಸಿಯಾಗಿದ್ದು, ವ್ಯಾಪಕವಾಗಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಲಭ್ಯವಿದೆ. ಇದಲ್ಲದೇ, ಲ್ಯಾಕ್ಟೋಸ್ ಅಂಶಗಳ ಅಲರ್ಜಿ ಹೊಂದಿದವರಿಗೆ ಹಾಗೂ ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯ ಸುಹಾಸಿತ ಹಾಲುಗಳು ಲಭ್ಯವಿರುತ್ತದೆ. ಹಾಲಿನಿಂದ ವಿವಿಧ ತೆರನಾದ ಭಕ್ಷಗಳನ್ನು ಮತ್ತು ಸಿಹಿಪಾಕವನ್ನು ತಯಾರಿಸಲಾಗುತ್ತದೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಖಾರದ ಭಕ್ಷ್ಯಗಳ ತಯಾರಿಕೆಯಲ್ಲಿ ಹಾಲನ್ನು ಪ್ರಮುಖವಾಗಿ ಉಪಯೋಗಿತ್ತಿದ್ದು, ವಿವಿಧ ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳಲ್ಲಿ ಹಾಲು ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಒತ್ತಿ ಹೇಳುತ್ತಿದೆ"}
+                    
                   </p>
                 </div>
               </div>
@@ -352,7 +351,8 @@ const Home = () => {
 
                 <Fade right>
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-                  New Arrivals & Best Selling
+                  {locale === "kn" ? "New Arrivals & Best Selling":"ಹೊಸ ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು"}
+                  
                 </h1>
                 </Fade>
                 <div className="marquee-notification h-full flex justify-evenly space-x-3">
@@ -442,13 +442,14 @@ const Home = () => {
               <SwiperSlide>
                 <div className="p-4 w-full h-full  flex justify-center items-center     ">
                   <iframe
-                    src="https://www.youtube.com/embed/aOULrMEL3yg?si=1aCT2EIAJWLXPmpK"
+                    src="https://www.youtube.com/embed/o4ltDjszjFM"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
                     className="w-full h-full "></iframe>
+                  
                 </div>
               </SwiperSlide>
 
@@ -462,6 +463,7 @@ const Home = () => {
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
                     className="w-full h-full "></iframe>
+                    
                 </div>
               </SwiperSlide>
             </Swiper>

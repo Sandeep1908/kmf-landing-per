@@ -102,7 +102,7 @@ function MissionVission() {
 
           <div className="w-full flex flex-col justify-center items-start shadow-md ">
             <Fade right>
-            <div className="mb-20   relative w-full  flex justify-center items-center ">
+            <div className="mb-8   relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
               {purpose?.attributes?.objectivetitle}
@@ -125,7 +125,7 @@ function MissionVission() {
         <div className="w-full  h-full flex flex-col p-3 justify-center items-center space-y-5 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col justify-center items-center shadow-md ">
               <Fade left>
-            <div className="mb-20   relative w-full  flex justify-center items-center ">
+            <div className="mb-8   relative w-full  flex justify-center items-center ">
               <h1 className=" text-primary-main font-heading text-3xl font-extrabold uppercase">
               {purpose?.attributes?.evalutiontitle}
               </h1>

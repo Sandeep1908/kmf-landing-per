@@ -135,7 +135,7 @@ function Portfolio() {
   };
 
   const kurienEnglishText =
-    "He was originally from Kolar district who was very concerned about the farmers. He was born in a village called Motakapalli in Mulbagilu taluk. Date 01.06.1918 is his birthday. He entered politics at one stage and was elected to the Lok Sabha for the first time in 1952. Central government led by Jawaharlal Nehru M.V.K. He was given the opportunity to serve as 'Agriculture and Food Minister'. t was a time when the dairy farmers of the state relied on indigenous breeds of cattle for dairying. Mr. M.V.K said that if dairy farming continues like this, it will be difficult to meet the demand for milk from cities/towns. He had thought in those days. He had visited many foreign countries when he was a minister in the Central Mantri Mandal and was amazed to see the milk production capacity of the breeds there. Not only that, he had imported HF breed heifers from Holland and distributed them to the farmers here. With the aim of developing the country's native breed heifers through artificial insemination, he had succeeded in importing 8 to 10 foreign breed heifers to Karnataka with the help of the central government. He worked hard to increase milk production through breeding activities in Mysore, Bangalore, Mangalore and some parts of the hill country. Perhaps about dairy farming Mr. M.V.K. It is a fact that due to the influence of the foresight of Mr. R., the situation is now created that wherever you go in the entire state, you are driven by crossbred horses.Overall, because of Mr. MV Krishnappa's concern for the state's dairy farming, BAMUL has grown to be the number one milk union in the state as far as milk storage is concerned. Hassan Milk Union, which is running at a gallop in terms of milk production, has the honour of being the second milk union at the state level today. The people of Karnataka involved in dairy farming are describing him as 'Father of Dairy Revolution', 'Dairy Brahma of Karnataka', 'Pioneer of Dairy Farming in Karnataka'. There is no doubt that all these are meaningful titles for Mr Honourable M.V.K., who had contributed significantly to the development of dairy farming in the state, passed away on 01.08.1980.";
+    "Mr. M.V. Krishnappa hailed from Kolar district and held a deep concern for the welfare of farmers. He was born in Motakapalli village in Mulbagilu Taluk on June 1st, 1918. Embarking on a political journey, he was first elected to the Lok Sabha in 1952. During his tenure, the central government, under the leadership of Jawaharlal Nehru, appointed him as the Agriculture and Food Minister. At that time, dairy farmers in the state primarily relied on indigenous cattle breeds. Mr. M.V.K. foresaw challenges in meeting urban milk demands if dairy farming continued as such. Thus, during his ministerial tenure, he observed the advanced milk production capacities of foreign breeds during visits abroad. In an effort to enhance indigenous breeds, he imported HF breed heifers from Holland and distributed them to farmers. Collaborating with the central government, he successfully imported 8 to 10 foreign breed heifers to Karnataka. His efforts extended to breeding activities in Mysore, Bangalore, Mangalore, and hill regions, significantly boosting milk production. Mr. M.V.K.'s foresight revolutionized dairy farming in Karnataka. BAMUL stands today as the leading milk union in the state, thanks to his initiatives. The Hassan Milk Union follows closely, recognized for its substantial milk production. Revered by Karnataka's dairy farming community as the 'Father of the Dairy Revolution,' 'Dairy Brahma of Karnataka,' and 'Pioneer of Dairy Farming in Karnataka,' Mr. M.V.K.'s contributions are indisputably significant. He passed away on August 1, 1980, leaving behind a legacy of dairy farming development in the state.";
 
   const kurienKannadaText =
     'ರೈತರ ಬಗ್ಗೆ ಅಪಾರ ಕಾಳಜಿ ಹೊಂದಿದ್ದ ಇವರು ಮೂಲತಃ ಕೋಲಾರ ಜಿಲ್ಲೆಯವರು. ಇವರು ಜನಿಸಿದ್ದು ಮುಳಬಾಗಿಲು ತಾಲ್ಲೂಕಿನ ಮೋತಕಪಲ್ಲಿ ಎಂಬ ಕುಗ್ರಾಮದಲ್ಲಿ. ದಿನಾಂಕ 01.06.1918 ಇವರ ಜನ್ಮದಿನ. ಒಂದು ಘಟ್ಟದಲ್ಲಿ ರಾಜಕೀಯ ಪ್ರವೇಶ ಮಾಡಿದ ಇವರು 1952 ರಲ್ಲಿ ಮೊದಲ ಬಾರಿ ಲೋಕಸಭೆಗೆ ಆಯ್ಕೆಯಾಗಿದ್ದರು. ಜವಹರಲಾಲ್ ನೆಹರು ನೇತೃತ್ವದ ಕೇಂದ್ರ ಸರ್ಕಾರ ಎಂ.ವಿ.ಕೆ. ರವರಿಗೆ “ಕೃಷಿ ಹಾಗು ಆಹಾರ ಸಚಿವ”ರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುವ ಅವಕಾಶವನ್ನು ಕಲ್ಪಿಸಿ ಕೊಟ್ಟಿತ್ತು. ರಾಜ್ಯದ ಹೈನುಗಾರರು ಹೈನುಗಾರಿಕೆಗಾಗಿ ನಾಡ ತಳಿ ಪಶುಗಳನ್ನು ನೆಚ್ಚಿಕೊಂಡಿದ್ದ ಕಾಲ ಅದಾಗಿತ್ತು. ಇಲ್ಲಿನ ಹೈನುಗಾರಿಕೆ ಹೀಗೆಯೇ ಮುಂದುವರೆದರೆ ನಗರ/ಪಟ್ಟಣಗಳಿಂದ ಹಾಲಿಗೆಂದು ಸೃಷ್ಟಿಯಾಗುವ ಬೇಡಿಕೆಯನ್ನು ನೀಗಿಸುವುದು ಕಷ್ಟ ಎಂಬುದನ್ನು ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೆ. ರವರು ಆ ದಿನಗಳಲ್ಲೇ ಯೋಚಿಸಿದ್ದರು. ಕೇಂದ್ರ ಮಂತ್ರಿ ಮಂಡಲದಲ್ಲಿ ಸಚಿವರಾಗಿದ್ದಾಗ ಸಾಕಷ್ಟು ವಿದೇಶಗಳನ್ನು ಸುತ್ತಿ ಬಂದಿದ್ದ ಅವರು ಅಲ್ಲಿನ ತಳಿಗಳ ಹಾಲುತ್ಪಾದನಾ ಸಾಮರ್ಥ್ಯವನ್ನು ಕಂಡು ಬೆರಗಾಗಿದ್ದರು. ಮಾತ್ರವಲ್ಲ, ಹಾಲೆಂಡ್ ದೇಶದಿಂದ ಹೆಚ್.ಎಫ್ ತಳಿ ರಾಸುಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಂಡು ಇಲ್ಲಿನ ರೈತರಿಗೆ ಹಂಚಿಕೆ ಮಾಡಿದ್ದರು. ದೇಶದ ನಾಡ ತಳಿ ರಾಸುಗಳನ್ನು ಕೃತಕಗರ್ಭಧಾರಣೆ ಮೂಲಕ ಅಭಿವೃದ್ಧಿ ಪಡಿಸಬೇಕೆಂಬ ಉದ್ದೇಶದಿಂದ ಕೇಂದ್ರ ಸರ್ಕಾರದಿಂದÀ ನೆರವು ಪಡೆದ ಅವರು 8 ರಿಂದ 10 ವಿದೇಶಿ ತಳಿ ಹೋರಿಗಳನ್ನು ಸಹಿತ ಕರ್ನಾಟಕಕ್ಕೆ ಆಮದು ಮಾಡಿಕೊಳ್ಳುವಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿದ್ದರು. ರಾಜ್ಯದ ಮೈಸೂರು, ಬೆಂಗಳೂರು, ಮಂಗಳೂರು ಹಾಗು ಮಲೆನಾಡಿನ ಕೆಲವು ಪ್ರದೇಶಗಳಲ್ಲಿ ತಳಿವರ್ಧನೆ ಚಟುವಟಿಕೆ ಮೂಲಕ ಹಾಲುತ್ಪಾದನೆ ಹೆಚ್ಚಳಕ್ಕೆ ಶ್ರಮಿಸಿದ್ದರು. ಪ್ರಾಯಶಃ ಹೈನುಗಾರಿಕೆ ಬಗ್ಗೆ ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೆ. ರವರು ಹೊಂದಿದ್ದ ದೂರದೃಷ್ಟಿಯ ಪ್ರಭಾವದಿಂದಾಗಿ ಇಂದು ಇಡೀ ರಾಜ್ಯದಲ್ಲಿ ಎಲ್ಲಿಗೇ ಹೋದರೂ ಮಿಶ್ರತಳಿ ರಾಸುಗಳದ್ದೇ ಕಾರುಬಾರು ಎಂಬಂಥ ಪರಿಸ್ಥಿತಿ ಇದೀಗ ನಿರ್ಮಾಣವಾಗಿರುವುದು ಸತ್ಯ. ಒಟ್ಟಾರೆ, ರಾಜ್ಯದ ಹೈನುಗಾರಿಕೆ ಬಗ್ಗೆ ಶ್ರೀಯುತ ಎಂ.ವಿ.ಕೃಷ್ಣಪ್ಪ ರವರು ಹೊಂದಿದ್ದ ಕಾಳಜಿಯಿಂದಾಗಿ ಬಮುಲ್ ಇಂದು ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿಯೇ  ಹಾಲು ಶೇಖರಣೆ ಕುರಿತಂತೆ ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿ ಮೊದಲ ಸ್ಥಾನದಲ್ಲಿರುವ ಹಾಲು ಒಕ್ಕೂಟವಾಗಿ ಬೆಳೆದು ನಿಂತಿದೆ. ಹಾಲುತ್ಪಾದನೆ ಕುರಿತಂತೆ ನಾಗಾಲೋಟದಲ್ಲಿ ಸಾಗುತ್ತಿರುವ ಹಾಸನ ಹಾಲು ಒಕ್ಕೂಟ ಸಹಿತ ಇಂದು ರಾಜ್ಯ ಮಟ್ಟದಲ್ಲಿ ಎರಡನೇ ಸ್ಥಾನದಲ್ಲಿರುವ ಹಾಲು ಒಕ್ಕೂಟ ಎಂಬ ಕೀರ್ತಿಗೆ ಪಾತ್ರವಾಗಿದೆ. ಹೈನುಗಾರಿಕೆಯಲ್ಲಿ ತೊಡಗಿಸಿಕೊಂಡ ಕರ್ನಾಟಕದ ಮಂದಿ ಇವರನ್ನು “ಕ್ಷೀರಕ್ರಾಂತಿಯ ಪಿತಾಮಹ”, “ಕರ್ನಾಟಕದ ಕ್ಷೀರ ಬ್ರಹ್ಮ”, “ಕರ್ನಾಟಕ ಕಂಡ ಹೈನುಗಾರಿಕೆಯ ಹರಿಕಾರ” ಎಂದೆಲ್ಲಾ ಬಣ್ಣಿಸುತ್ತಿದ್ದಾರೆ. ಇವೆಲ್ಲವೂ ಶ್ರೀಯುತರ ಪಾಲಿಗೆ ಸಂದ ಅರ್ಥಪೂರ್ಣ ಬಿರುದುಗಳು ಎನ್ನುವುದರಲ್ಲಿ ಸಂದೇಹವೇ ಇಲ್ಲ. ರಾಜ್ಯದಲ್ಲಿನ ಹೈನುಗಾರಿಕೆ ಏಳಿಗೆಗಾಗಿ ಗಮನಾರ್ಹ ಕೊಡುಗೆ ನೀಡಿರುವ ಮಾನ್ಯ ಎಂ.ವಿ.ಕೆ.ರವರು ದಿನಾಂಕ 01.08.1980 ರಂದು ಇಹಲೋಕ ತ್ಯಜಿಸಿದರು.  ';
@@ -143,7 +143,7 @@ function Portfolio() {
     "Verghese Kurien (26 November 1921 – 9 September 2012) was an Indian dairy engineer and social entrepreneur who led initiatives that contributed to the extensive increase in milk production termed the White Revolution.In 1949, Kurien was sent by the Government of India to its run a experimental creamery at Anand where he set up the Kaira District Cooperative Milk Producers' Union Limited in 1950 which later became Amul. Amul organised dairy farmers in the villages as a part of a cooperative and linked them to consumers directly. The dairy cooperative was successful in increasing milk production as consumers paid in cash to dairy farmers who controlled the marketing, procurement, and processing of milk and milk products as the owners of the cooperative.Kurien with then Prime Minister Lal Bahadur Shastri in 1964 Then-Prime Minister Lal Bahadur Shastri visited Anand to inaugurate Amul's cattle feed factory in October 1964 when he also interacted with the farmers about their cooperative. In 1965, Shastri tasked Kurien to replicate the dairy's Anand scheme nationwide, for which the National Dairy Development Board (NDDB) was founded. The board was led by Kurien on conditions that it be independent of governmental control and that it be set up at Anand, away from the capitals and closer to farmers. Kurien negotiated with donors like the UNICEF for aid to develop the cooperatives and opposed countries which lobbied against him stating that he wanted to 'convert aid into trade' contrary to his idea of making India self-sufficient in milk production.  He used the proceeds to encourage the movement of high-yield native cattle to urban areas and set up milk sheds and dairy farms nationwide to stabilize the dairy markets of big cities. The Anand model was replicated across Gujarat and Kurien brought all of them under the Gujarat Co-operative Milk Marketing Federation (GCMMF) in 1973 to sell their products under a single Amul brand on the 25th anniversary of establishment. Other states emulated setting up similar federations based on this scheme. In 1979, he founded the Institute of Rural Management Anand (IRMA) to groom managers for the cooperatives.He was awarded the Ramon Magsaysay Award in 1964 and World Food Prize in 1989. In 1999, he received Padma Vibhushan, India's second highest civilian honour. He was conferred the Order of Agricultural Merit by the French Government in 1997.";
 
   const founderKannadaText =
-    'ವರ್ಗೀಸ್ ಕುರಿಯನ್ (26 ನವೆಂಬರ್ 1921 - 9 ಸೆಪ್ಟೆಂಬರ್ 2012) ಒಬ್ಬ ಭಾರತೀಯ ಡೈರಿ ಇಂಜಿನಿಯರ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಉದ್ಯಮಿಯಾಗಿದ್ದು , ಅವರು ಶ್ವೇತ ಕ್ರಾಂತಿ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಹಾಲಿನ ಉತ್ಪಾದನೆಯಲ್ಲಿ ವ್ಯಾಪಕವಾದ ಹೆಚ್ಚಳಕ್ಕೆ ಕಾರಣವಾದ ಉಪಕ್ರಮಗಳನ್ನು ಮುನ್ನಡೆಸಿದರು .ಕುರಿಯನ್ 1940 ರಲ್ಲಿ ಮದ್ರಾಸ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಭೌತಶಾಸ್ತ್ರದಲ್ಲಿ ಪದವಿ ಪಡೆದರು ಮತ್ತು 1947 ರಲ್ಲಿ ಮಿಚಿಗನ್ ವಿಶ್ವವಿದ್ಯಾನಿಲಯದಿಂದ ಮೆಕ್ಯಾನಿಕಲ್ ಎಂಜಿನಿಯರಿಂಗ್‌ನಲ್ಲಿ ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ಪಡೆದರು. 1949 ರಲ್ಲಿ, ಕುರಿಯನ್ ಅವರನ್ನು ಆನಂದ್‌ನಲ್ಲಿ ಅದರ ಪ್ರಾಯೋಗಿಕ ಕ್ರೀಮರಿ ನಡೆಸಲು ಭಾರತ ಸರ್ಕಾರ ಕಳುಹಿಸಿತು, ಅಲ್ಲಿ ಅವರು ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಸಂಘವನ್ನು ಸ್ಥಾಪಿಸಿದರು. 1950 ರಲ್ಲಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟ ಲಿಮಿಟೆಡ್ ನಂತರ ಅಮುಲ್ ಆಯಿತು. ಅಮುಲ್ ಸಹಕಾರಿಯ ಅಂಗವಾಗಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರನ್ನು ಸಂಘಟಿಸಿ ನೇರವಾಗಿ ಗ್ರಾಹಕರಿಗೆ ಲಿಂಕ್ ಮಾಡಿತು. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಡೇರಿ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸುವುದರಿಂದ ಹಾಲು ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಡೇರಿ ಸಹಕಾರಿ ಯಶಸ್ವಿಯಾಗಿದೆ. 1964 ರ ಅಕ್ಟೋಬರ್‌ನಲ್ಲಿ ಅಮುಲ್‌ನ ಪಶು ಆಹಾರ ಕಾರ್ಖಾನೆಯನ್ನು ಉದ್ಘಾಟಿಸಲು ಅಂದಿನ ಪ್ರಧಾನಿ ಲಾಲ್ ಬಹದ್ದೂರ್ ಶಾಸ್ತ್ರಿ ಅವರು ಆನಂದ್ ಅವರನ್ನು ಭೇಟಿ ಮಾಡಿದರು , ಅವರು ತಮ್ಮ ಸಹಕಾರಿ ಸಂಘದ ಬಗ್ಗೆ ರೈತರೊಂದಿಗೆ ಸಂವಾದ ನಡೆಸಿದರು. 1965 ರಲ್ಲಿ, ಶಾಸ್ತ್ರಿ ಕುರಿಯನ್ ಅವರಿಗೆ ಡೈರಿಯ ಆನಂದ್ ಯೋಜನೆಯನ್ನು ರಾಷ್ಟ್ರವ್ಯಾಪಿ ಪುನರಾವರ್ತಿಸಲು ವಹಿಸಿದರು, ಇದಕ್ಕಾಗಿ ರಾಷ್ಟ್ರೀಯಡೇರಿಅಭಿವೃದ್ಧಿ ಮಂಡಳಿ (NDDB) ಅನ್ನು ಸ್ಥಾಪಿಸಲಾಯಿತು.  ಆಡಳಿತ ಮಂಡಳಿಯು ಸರ್ಕಾರದ ನಿಯಂತ್ರಣದಿಂದ ಸ್ವತಂತ್ರವಾಗಿರಬೇಕು ಮತ್ತು ರಾಜಧಾನಿಗಳಿಂದ ದೂರವಿರುವ ಮತ್ತು ರೈತರಿಗೆ ಹತ್ತಿರವಾದ ಆನಂದ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಬೇಕು ಎಂಬ ಷರತ್ತುಗಳ ಮೇಲೆ ಕುರಿಯನ್ ನೇತೃತ್ವ ವಹಿಸಿದ್ದರು.  ಕುರಿಯನ್ ಅವರು ಸಹಕಾರಿ ಸಂಸ್ಥೆಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಸಹಾಯಕ್ಕಾಗಿ UNICEF ನಂತಹ ದಾನಿಗಳೊಂದಿಗೆ ಮಾತುಕತೆ ನಡೆಸಿದರು ಮತ್ತು ಹಾಲು ಉತ್ಪಾದನೆಯಲ್ಲಿ ಭಾರತವನ್ನು ಸ್ವಾವಲಂಬಿಯಾಗಿಸುವ ಅವರ ಕಲ್ಪನೆಗೆ ವಿರುದ್ಧವಾಗಿ "ಸಹಾಯವನ್ನು ವ್ಯಾಪಾರವಾಗಿ ಪರಿವರ್ತಿಸಲು" ಅವರು ಬಯಸುತ್ತಾರೆ ಎಂದು ತಮ್ಮ ವಿರುದ್ಧ ಲಾಬಿ ಮಾಡಿದ ದೇಶಗಳನ್ನು ವಿರೋಧಿಸಿದರು ಅವರು ಹೆಚ್ಚಿನ ಇಳುವರಿ ನೀಡುವ ಸ್ಥಳೀಯ ಜಾನುವಾರುಗಳನ್ನು ನಗರ ಪ್ರದೇಶಗಳಿಗೆ ಸಾಗಿಸಲು ಉತ್ತೇಜಿಸಲು ಮತ್ತು ದೊಡ್ಡ ನಗರಗಳಡೇರಿಮಾರುಕಟ್ಟೆಗಳನ್ನು ಸ್ಥಿರಗೊಳಿಸಲು ರಾಷ್ಟ್ರವ್ಯಾಪಿ ಹಾಲಿನ ಶೆಡ್‌ಗಳು ಮತ್ತು ಡೇರಿ ಫಾರ್ಮ್‌ಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಆದಾಯವನ್ನು ಬಳಸಿದರು.  ಆನಂದ್ ಮಾದರಿಯನ್ನು ಗುಜರಾತ್‌ನಾದ್ಯಂತ ಪುನರಾವರ್ತಿಸಲಾಯಿತು ಮತ್ತು ಕುರಿಯನ್ 1973 ರಲ್ಲಿ ಗುಜರಾತ್ ಕೋ-ಆಪರೇಟಿವ್ ಮಿಲ್ಕ್ ಮಾರ್ಕೆಟಿಂಗ್ ಫೆಡರೇಶನ್ (GCMMF) ಅಡಿಯಲ್ಲಿ ತಮ್ಮ ಉತ್ಪನ್ನಗಳನ್ನು ಸ್ಥಾಪನೆಯ 25 ನೇ ವಾರ್ಷಿಕೋತ್ಸವದಂದು ಒಂದೇ ಅಮುಲ್ ಬ್ರಾಂಡ್‌ನಲ್ಲಿ ಮಾರಾಟ ಮಾಡಲು ತಂದರು. [33] ಇತರ ರಾಜ್ಯಗಳು ಈ ಯೋಜನೆಯ ಆಧಾರದ ಮೇಲೆ ಇದೇ ರೀತಿಯ ಒಕ್ಕೂಟಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಅನುಕರಿಸಿದವು. 1979 ರಲ್ಲಿ, ಅವರು ಸಹಕಾರಿ ಸಂಸ್ಥೆಗಳಿಗೆ ವ್ಯವಸ್ಥಾಪಕರನ್ನು ರೂಪಿಸಲು ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ರೂರಲ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಆನಂದ್ (IRMA) ಅನ್ನು ಸ್ಥಾಪಿಸಿದರು.';
+    "ವರ್ಗೀಸ್ ಕುರಿಯನ್ (26 ನವೆಂಬರ್ 1921 - 9 ಸೆಪ್ಟೆಂಬರ್ 2012) ಒಬ್ಬ ಭಾರತೀಯ ಡೈರಿ ಎಂಜಿನಿಯರ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಉದ್ಯಮಿಯಾಗಿದ್ದು, ಭಾರತೀಯ ಶ್ವೇತ ಕ್ರಾಂತಿಯ ಪಿತಾಮಹನೆಂದು ಕರೆಯಲ್ಪಡುವ ಕುರಿಯನ್ ರವರು ಭಾರತದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಹಾಲಿನ ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸಲು ಹಲವಾರು ಕ್ರಾಂತಿಕಾರಿ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಂಡರು. 1949 ರಲ್ಲಿ ಭಾರತ ಸರ್ಕಾರವು ಗುಜುರಾತಿನ ಆನಂದನಲ್ಲಿ ಪ್ರಾಯೋಗಿಕವಾಗಿ ಹಾಲು ಡೇರಿಯೊಂದನ್ನು ವರ್ಗೀಸ್ ಕುರಿಯನ್ ರವರ ನೇತೃತ್ವದಲ್ಲಿ ಪ್ರಾರಂಭಿಸಲಾಯಿತು. ಮುಂದುವರೆದು, ಪ್ರಾಯೋಗಿಕ ಹಂತದಲ್ಲಿ ಯಶಸ್ವಿಯಾದ ಹಾಲು ಡೇರಿಯೊಂದನ್ನು ಕುರಿಯನ್ ರವರ ಮಾರ್ಗದರ್ಶನದಂತೆ 1950 ರಲ್ಲಿ ಕೈರಾ ಜಿಲ್ಲಾ ಸಹಕಾರಿ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟ ನಿಯಮಿತವಾಗಿ ಸ್ಥಾಪಿತವಾಯಿತು. ಇದೇ ಮುಂದೆ “ಅಮುಲ್” ಆಗಿ ಮಾರ್ಪಟ್ಟಿತು. ಅಮುಲ್ ಸಹಕಾರಿ ತತ್ವದಡಿಯಲ್ಲಿ ಹಳ್ಳಿಗಳಲ್ಲಿ ಹೈನುಗಾರರು ಮತ್ತು ಗ್ರಾಹಕರ ನಡುವೆ ಸಂಪರ್ಕವನ್ನು ಏರ್ಪಡಿಸಿದೆ. ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಂಸ್ಕರಣೆಯನ್ನು ಸಹಕಾರಿ ಸಂಘದ ಮಾಲೀಕರಾಗಿ ನಿಯಂತ್ರಿಸುವ ಹಾಲು ಉತ್ಪಾದಕ ರೈತರಿಗೆ ಗ್ರಾಹಕರು ನಗದು ರೂಪದಲ್ಲಿ ಪಾವತಿಸಿದ್ದರಿಂದ ಡೇರಿ ಸಹಕಾರಿಯು ಹಾಲಿನ ಉತ್ಪಾದನೆಯನ್ನು ಹೆಚ್ಚಿಸುವಲ್ಲಿ ಯಶಸ್ವಿಯಾಗಿದೆ. 1964 ರಲ್ಲಿ ಕುರಿಯನ್ ರವರು ಅಂದಿನ ಪ್ರಧಾನಮಂತ್ರಿಗಳಾದ ಲಾಲ್ ಬಹಾದ್ದೂರ್ ಶಾಸ್ತ್ರಿ ರವರು ಕೈರಾದ ಆನಂದಗೆ ಭೇಟಿ ನೀಡಿ, ಅಮುಲ್ ಪಶು ಆಹಾರ ಘಟಕವನ್ನು ಉದ್ಘಾಟಿಸಿ, ಅಲ್ಲಿನ ಸ್ಥಳೀಯ ಹೈನುಗಾರರೊಂದಿಗೆ ಸಮಾಲೋಚಿಸಿದರು. ಅದರ ಪರಿಣಾಮವಾಗಿ 1965 ರಲ್ಲಿ ಶಾಸ್ತ್ರಿ ರವರು ಕುರಿಯನ್ ರವರ ನೇತೃತ್ವದಲ್ಲಿ ಅಮುಲ್ ಮಾದರಿಯ  ಒಕ್ಕೂಟ ವ್ಯವಸ್ಥೆಯನ್ನು ದೇಶಾದಾದ್ಯಂತ ವಿಸ್ತರಿಸಲು ತೀರ್ಮಾನಿಸಿದರು, ಇದರ ಪ್ರತಿಪಲವೇ National Dairy Development Board (NDDB).  NDDB ಯ ಪ್ರಥಮ  ಅದ್ಯಕ್ಷರಾಗುವಂತೆ ಕೋರಿದಾಗ, ಮಂಡಳಿಯು ಸರ್ಕಾರದ ನಿಯಂತ್ರಣದಿಂದ ಸ್ವತಂತ್ರವಾಗಿರಬೇಕು ಮತ್ತು ರಾಜಧಾನಿಗಳಿಂದ ದೂರವಿರುವ ಮತ್ತು ರೈತರಿಗೆ ಹತ್ತಿರವಾದ ಆನಂದ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಬೇಕು ಎಂಬ ಷರತ್ತುಗಳ ಮೇಲೆ ಕುರಿಯನ್ ನೇತೃತ್ವ ವಹಿಸಿದ್ದರು. ಕುರಿಯನ್ UNICEF ನಂತಹ  ಅಂತರಾಷ್ಟೀಯ ಸಂಸ್ಥೆಗಳಿಂದ  ಸಹಕಾರಿ ಸಂಸ್ಥೆಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಸಹಾಯ ಕೋರಿದಾಗ, ಅವರ ವಿರೋಧಿಗಳು  ಹಾಲು ಉತ್ಪಾದನೆಯಲ್ಲಿ ಭಾರತವನ್ನು ಸ್ವಾವಲಂಬಿಯಾಗಿಸುವ ಅವರ ಕಲ್ಪನೆಗೆ ವಿರುದ್ಧವಾಗಿ 'ಸಹಾಯವನ್ನು ವ್ಯಾಪಾರವಾಗಿ ಪರಿವರ್ತಿಸುತ್ತಿದ್ದಾರೆ' ಎಂದು ಅಪಪ್ರಚಾರ ಮಾಡಿದರು. ಹೆಚ್ಚಿನ ಇಳುವರಿ ನೀಡುವ ಸ್ಥಳೀಯ ಜಾನುವಾರುಗಳನ್ನು ನಗರ ಪ್ರದೇಶಗಳಿಗೆ ಸಾಗಿಸಲು ಪ್ರೋತ್ಸಾಹಿಸಲು ಮತ್ತು ದೊಡ್ಡ ನಗರಗಳ ಡೈರಿ ಮಾರುಕಟ್ಟೆಗಳನ್ನು ಸ್ಥಿರಗೊಳಿಸಲು ರಾಷ್ಟ್ರವ್ಯಾಪಿ ಹಾಲಿನ ಶೆಡ್‌ಗಳು ಮತ್ತು ಡೇರಿ ಫಾರ್ಮ್‌ಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಅವರು ಆದಾಯವನ್ನು ಬಳಸಿದರು. ಆನಂದ್ ಮಾದರಿಯನ್ನು ಗುಜರಾತ್‌ನಾದ್ಯಂತ ಯಶಸ್ವಿಯಾಗಿ ಅಳವಡಿಸಿ , ಮುಂದೆ ಕುರಿಯನ್ ರವರು 1973 ರಲ್ಲಿ ಗುಜರಾತ್ ಕೋ-ಆಪರೇಟಿವ್ ಮಿಲ್ಕ್ ಮಾರ್ಕೆಟಿಂಗ್ ಫೆಡರೇಶನ್ (GCMMF) ಅಡಿಯಲ್ಲಿ ಎಲ್ಲಾ ಉತ್ಪನ್ನಗಳನ್ನು ಅಮುಲ್ ಬ್ರಾಂಡ್‌ನಲ್ಲಿ ಮಾರಾಟ ಮಾಡಿ ಯಶಸ್ಸನ್ನು ಪಡೆದರು. ಇತರ ರಾಜ್ಯಗಳು ಈ ಯೋಜನೆಯ ಆಧಾರದ ಮೇಲೆ ಇದೇ ರೀತಿಯ ಒಕ್ಕೂಟಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಅನುಕರಿಸಿದವು. 1979 ರಲ್ಲಿ, ಅವರು ಸಹಕಾರಿ ಸಂಸ್ಥೆಗಳಿಗೆ ವ್ಯವಸ್ಥಾಪಕರನ್ನು ರೂಪಿಸಲು ಇನ್ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ರೂರಲ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಆನಂದ್ (IRMA) ಅನ್ನು ಸ್ಥಾಪಿಸಿದರು. ವರ್ಗೀಸ್ ಕುರಿಯನ್ ರವರಿಗೆ 1964 ರಲ್ಲಿ ರಾಮನ್ ಮ್ಯಾಗ್ಸೆಸೆ ಪ್ರಶಸ್ತಿ ಮತ್ತು 1989 ರಲ್ಲಿ ವಿಶ್ವ ಆಹಾರ ಪ್ರಶಸ್ತಿಯನ್ನು ನೀಡಲಾಯಿತು. 1999 ರಲ್ಲಿ ಅವರು ಭಾರತದ ಎರಡನೇ ಅತ್ಯುನ್ನತ ನಾಗರಿಕ ಗೌರವವಾದ ಪದ್ಮ ವಿಭೂಷಣವನ್ನು ಪಡೆದರು. ಅವರಿಗೆ 1997 ರಲ್ಲಿ ಫ್ರೆಂಚ್ ಸರ್ಕಾರವು ಆರ್ಡರ್ ಆಫ್ ಅಗ್ರಿಕಲ್ಚರಲ್ ಮೆರಿಟ್ ಅನ್ನು ನೀಡಿತು";
 
   const kurienText = locale === 'en' ? kurienEnglishText : kurienKannadaText;
   const founderText = locale === 'en' ? founderEnglishText : founderKannadaText;
@@ -233,6 +233,7 @@ function Portfolio() {
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  `}>
       <div className="w-full h-[80vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
         <div className=" absolute z-50 top-8 right-40">
+          
           <p
             id="openMenu"
             onMouseEnter={changeIcon}
@@ -241,9 +242,12 @@ function Portfolio() {
             className={`text-white relative z-[100] transition-all duration-1000 ${
               isOpen ? 'hidden' : ''
             }`}>
-            {isChangeIcon ? <HiArrowSmallLeft size={50} /> : <IoMenu size={50} />}
+            {isChangeIcon ? <HiArrowSmallLeft size={40} /> : <IoMenu size={40} />}
           </p>
         </div>
+        <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-[30px] right-[158px] opacity-45'>
+
+          </div>
         <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ''} `}>
           {/* <a href="#history-milk"><LuMouse  className='' size={40} /></a> */}
           <a href="#history-milk">
@@ -304,23 +308,28 @@ function Portfolio() {
             </p>
           </div>
 
-          <div className="w-full h-full flex flex-col justify- items-center">
-            <div className="pt-16 h-[10%]">
+          <div className="w-full h-full flex flex-col justify-between items-center">
+            <div className="pt-12 h-[10%]">
               <h1 className="text-primary-main text-3xl md:text-5xl text-center">
                 {' '}
                 {locale === 'en' ? 'PORTFOLIO' : 'ಪೋರ್ಟ್ಫೋಲಿಯೋ'}
               </h1>
             </div>
-            <div className="w-full h-[70%] flex flex-col justify-between items-start gap- pl-12 pt-16">
+            <div className="w-full h-[70%] flex flex-col justify- items-start gap-5 pl-12 pt-16">
               <div>
                 {' '}
                 <Link href={`/${locale}/portfolio/historyofmilk`}>
-                  <h1 className="text-primary-main text-3xl md:text-3xl">
+                  <h1 className="text-primary-main text-3xl md:text-2xl">
                     {' '}
                     {locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}
                   </h1>
                 </Link>
-                <div className="flex flex-wrap gap-5 pt-4 ">
+                <div className="flex flex-wrap gap-3  ">
+                <Link href={`/${locale}/portfolio/historyofmilk`}>
+                    {' '}
+                    <p>{locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}</p>
+                  </Link>
+                  <p>|</p>
                   <a href="#krisna">
                     {' '}
                     <p>{locale === 'en' ? 'DR. VERGHESE KURIEN' : 'ಡಾ. ವರ್ಗೀಸ್ ಕುರಿಯನ್'} </p>
@@ -330,23 +339,20 @@ function Portfolio() {
                     {' '}
                     <p>{locale === 'en' ? 'MR. MV KRISHNAPPA' : 'ಶ್ರೀ. ಎಂ.ವಿ. ಕೃಷ್ಣಪ್ಪ'}</p>
                   </a>
-                  <p>|</p>
-                  <Link href={`/${locale}/portfolio/historyofmilk`}>
-                    {' '}
-                    <p>{locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}</p>
-                  </Link>
+                  
+                 
                 </div>
               </div>
               <div>
                 {' '}
                 <a href="#ACHIEVEMENTS">
                   {' '}
-                  <h1 className="text-primary-main text-3xl md:text-3xl ">
+                  <h1 className="text-primary-main text-3xl md:text-2xl ">
                     {' '}
                     {locale === 'en' ? 'KMF ACHIEVEMENTS' : 'ಕಹಾಮ ಸಾಧನೆಗಳು'}
                   </h1>
                 </a>
-                <div className="flex flex-wrap gap-5 pt-4 uppercase ">
+                <div className="flex flex-wrap gap-3  uppercase ">
                   {tabs?.map((item, id) => {
                     return (
                       <>
@@ -363,12 +369,12 @@ function Portfolio() {
                 {' '}
                 <Link href={`/${locale}/portfolio/brandambassador`}>
                   {' '}
-                  <h1 className="text-primary-main text-3xl md:text-3xl ">
+                  <h1 className="text-primary-main text-3xl md:text-2xl ">
                     {' '}
                     {locale === 'en' ? ' BRAND AMBASSADOR' : ' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}
                   </h1>
                 </Link>
-                <div className="flex flex-wrap gap-5 pt-4  uppercase">
+                <div className="flex flex-wrap gap-5 pt-3  uppercase">
                   <Link href={`/${locale}/portfolio/brandambassador`}>
                     {' '}
                     <p>{locale === 'en' ? 'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p>
@@ -384,21 +390,21 @@ function Portfolio() {
                 {' '}
                 <a href="#ksheerasagara">
                   {' '}
-                  <h1 className="text-primary-main text-3xl md:text-3xl ">
-                    {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : ''}
+                  <h1 className="text-primary-main text-3xl md:text-2xl   ">
+                    {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'}
                   </h1>
                 </a>
               </div>
               <div>
                 <a href="#SPONSORED">
-                  <h1 className="text-primary-main text-3xl md:text-3xl">
-                    {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಿಕತ್ವ'}
+                  <h1 className="text-primary-main text-3xl md:text-2xl  mb-[10px]">
+                    {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
                   </h1>
                 </a>{' '}
               </div>
             </div>
-            <div className="flex flex-col justify-center h-[20%] ">
-              <div className="flex justify-center items-end space-x-5">
+            <div className="flex flex-col justify-center h-[25%]  ">
+              <div className="flex justify-center items-end space-x-3">
                 <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
                   <div className="w-full flex space-x-5">
                     <div className="flex justify-center items-center      ">
@@ -534,12 +540,12 @@ function Portfolio() {
             <i> {locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'} </i>
           </h1>
           </Fade>
-          <div className="mt-0 md:mt-4 text-center mr-auto ml-auto">
+          <div className="mt-0 md:mt-4 text-center mr-auto ml-auto flex flex-col justify-center items-center">
             <Fade left>
-            <p className="text-3xl md:text-6xl font-bold">
-              {locale === 'en' ? 'LETS BEGIN THE' : 'ಹಾಲು - ಹುಟ್ಟು,'}
+            <p className="text-3xl md:text-5xl font-bold">
+              {locale === 'en' ? 'LETS BEGIN THE' : 'ಹಾಲು - ಹುಟ್ಟು, ವಿಕಾಸ, ಬೆಳವಣಿಗೆಯ ಹಾದಿ'}
               <br />
-              {locale === 'en' ? 'JOURNEY OF MILK' : 'ವಿಕಾಸ, ಬೆಳವಣಿಗೆಯ ಹಾದಿ'}
+              {locale === 'en' ? 'JOURNEY OF MILK' : ''}
             </p>
 
             </Fade>
@@ -548,7 +554,7 @@ function Portfolio() {
             <p className="text-lg md:text-2xl  mt-6 md:mt-16 max-w-[850px] text-center">
               {locale === 'en'
                 ? 'The history of milk is a fascinating journey that intertwines with the evolution of human civilization and the domestication of animals. As early humans transitioned from a nomadic lifestyle to settled agricultural communities, the realization that certain animals could provide a steady supply of milk marked a pivotal moment.'
-                : 'ಹಾಲಿನ ಪ್ರಾಚೀನತೆಯು ಹಾಗೂ ಇತಿಹಾಸವು ಮಾನವನ ವಿಕಾಸ , ನಾಗರಿಕತೆ ಮತ್ತು ಪ್ರಾಣಿಗಳನ್ನು ಪಳಗಿಸಿ  ಸಾಕಾಣಿಕೆಯೊಂದಿಗೆ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ಆದಿ ಮಾನವರು ಅಲೆಮಾರಿ ಜೀವನಶೈಲಿಯಿಂದ ಸ್ಥಿರ ನೆಲೆಸಿದ ಕೃಷಿ ಸಮುದಾಯಗಳಿಗೆ ಪರಿವರ್ತನೆಯಾದಾಗ, ಕೆಲವು ಪ್ರಾಣಿಗಳು ಹಾಲಿನ ಸ್ಥಿರ ಪೂರೈಕೆಯನ್ನು ಒದಗಿಸಬಹುದು ಎಂಬ ಅರಿವು ಪ್ರಮುಖವಾದುದು'}
+                : 'ಹಾಲಿನ ಪ್ರಾಚೀನತೆಯು ಹಾಗೂ ಇತಿಹಾಸವು ಮಾನವನ ವಿಕಾಸ , ನಾಗರಿಕತೆ ಮತ್ತು ಪ್ರಾಣಿಗಳನ್ನು ಪಳಗಿಸಿ  ಸಾಕಾಣಿಕೆಯೊಂದಿಗೆ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ಆದಿ ಮಾನವರು ಅಲೆಮಾರಿ ಜೀವನಶೈಲಿಯಿಂದ ಸ್ಥಿರ ನೆಲೆಸಿದ ಕೃಷಿ ಸಮುದಾಯಗಳಿಗೆ ಪರಿವರ್ತನೆಯಾದಾಗ, ಕೆಲವು ಪ್ರಾಣಿಗಳು ಹಾಲಿನ ಸ್ಥಿರ ಪೂರೈಕೆಯನ್ನು ಒದಗಿಸಬಹುದು ಎಂಬ ಅರಿವು ಪ್ರಮುಖವಾದುದು.'}
             </p>
             </Fade>
 
@@ -1060,7 +1066,7 @@ function Portfolio() {
           <div className=" mt-20 mb-5 w-full  flex justify-center items-center">
             <Fade top>
             <h1 className="relative  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
-              {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಪ್ರಾಯೋಜಕತ್ವ'} 
+              {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'} 
               <span><img className="absolute top-[-55px] right-[20px]  w-40 " src={titleBG.src} alt="" /></span>
             </h1>
             </Fade>
@@ -1085,7 +1091,7 @@ function Portfolio() {
                 return(
                   <>
                   <SwiperSlide key={id}>
-                  <PdfPreview className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url} />
+                  <PdfPreview className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url}  count={id+1}/>
                 </SwiperSlide>
                 </>
                 )

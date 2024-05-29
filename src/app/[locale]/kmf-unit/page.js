@@ -10,6 +10,8 @@ import useApi from '@/hooks/useApi';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import useLocale from '@/hooks/useLocale';
+import { IoHomeOutline } from 'react-icons/io5';
+
 
 function KmfUnit() {
   const [kmfUnits, setKmfUnits] = useState([]);
@@ -42,8 +44,8 @@ const locale=useLocale().locale
               </h1>
             </div>
       <div className='flex justify-center space-x-3 items-center mt-10 border-b w-fit m-auto'>
-        <Link className='font-bold hover:text-secondary-main' href={`${locale==='kn'?'/kn':'/'}`}>Home</Link>
-        <Link className='text-secondary-main font-bold ' href={`/${locale}/milk-union`}>/ KMF UNITS</Link>
+        <Link className='font-bold hover:text-secondary-main' href={`${locale==='kn'?'/kn':'/'}`}><IoHomeOutline size={20} /></Link>
+        <Link className='text-secondary-main font-bold ' href={`/${locale}/milk-union`}>/   {locale==="en" ?"KMF UNITS":"ಕಹಾಮ ಘಟಕಗಳು"}</Link>
       </div>
 
     

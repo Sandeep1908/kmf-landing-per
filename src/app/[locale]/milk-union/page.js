@@ -10,6 +10,8 @@ import useApi from '@/hooks/useApi';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import useLocale from '@/hooks/useLocale';
+import { IoHomeOutline } from 'react-icons/io5';
+
 
 function MilkUnion() {
   const [milkUnion, setMilkUnions] = useState([]);
@@ -48,8 +50,8 @@ const locale=useLocale().locale
               </h1>
             </div>
       <div className='flex justify-center space-x-3 items-center mt-10 border-b w-fit m-auto'>
-        <Link className='font-bold hover:text-secondary-main' href={`${locale==='kn'?'/kn':'/'}`}>Home</Link>
-        <Link className='text-secondary-main font-bold hover:text-secondary-main' href={`/${locale}/milk-union`}>/ Milk Unions</Link>
+        <Link className='font-bold hover:text-secondary-main' href={`${locale==='kn'?'/kn':'/'}`}><IoHomeOutline size={20} /></Link>
+        <Link className='text-secondary-main font-bold hover:text-secondary-main' href={`/${locale}/milk-union`}>/ {locale==="en" ?"Milk Unions":"ಹಾಲು ಒಕ್ಕೂಟಗಳು"}</Link>
       </div>
 
     

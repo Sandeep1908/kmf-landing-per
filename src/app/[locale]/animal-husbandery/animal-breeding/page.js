@@ -11,6 +11,8 @@ import Link from 'next/link';
  import { PhotoProvider,PhotoView } from 'react-photo-view';
  import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 import { Fade, Zoom } from 'react-reveal';
+import { IoHomeOutline } from 'react-icons/io5';
+
 function AnimalBreeding() {
   const axios =useApi()
   const { isScroll } = useMyContext();
@@ -97,7 +99,7 @@ return(
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
-              {locale==='kn'?'Home':'Home'}
+                      <IoHomeOutline size={20} />
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -136,7 +138,7 @@ return(
                 
 
                 <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/portfolio#ACHIEVEMENTS':'/en/portfolio#ACHIEVEMENTS'}`}>
-                {locale==='kn'?'':'Back to portfolio'}
+                {locale==='kn'?'ಪೋರ್ಟ್ಫೋಲಿಯೋಗೆ ಹಿಂದಿರುಗಲು':'Back to portfolio'}
                   
                 </Link>
     

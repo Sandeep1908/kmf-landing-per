@@ -68,7 +68,7 @@ function Directors() {
             
               <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               
-          {locale === 'en' ? 'Board of Directors' : 'ಆಡಳಿತ ಮಂಡಳಿ ನಿರ್ದೇಶಕರ'}
+          {locale === 'en' ? 'Board of Directors' : 'ಆಡಳಿತ ಮಂಡಳಿ ನಿರ್ದೇಶಕರು'}
               </h1>
             </div>
          

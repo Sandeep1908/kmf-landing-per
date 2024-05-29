@@ -116,10 +116,10 @@ const axios = useApi();
                  <div className='mt-6'>
                   <ul className=' text-sm md:text-lg lg:text-sm xl:text-xl list-disc text-left'>
                   <li>
-                  {locale === 'en' ? 'The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.' : 'ರಾಜ್ಯ ದ ಶಾಲಾಮಕ್ಕ ಳುಹಾಗೂಅಂಗ್ನವಾಡಿ ಮಕ್ಕ ಳುU Àಳ ಆರೀಗ್ಯ ಕ್ರ ಬೆಳ಴ಣಿಗೆ ಮತ್ತು ಸ಴ವತೀಮುಖ ಅಭಿವೃದ್ಧಿ ಗೆ ಅಗ್ತ್ಯ ವಾದಪ್ರ ೀಟೀನ್ ಮತ್ತು ಕೊಬ್ಬಿ ನಂದ್ಧಗೆಪೌಷ್ಠಿ ಕಂವದ ಆಹಾರ಴ನ್ನು ಒದಗಿಸಲು ಕೆಎಂಎಫ್ ಸಹಯೀಗ್ದಂದ್ಧಗೆ ಕರ್ನಾಟಕ ಸರ್ಕಾರವು 1 ಆಗ್ಸ್ಟ್ 2013 ರಂದು ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯನ್ನು ಪ್ರರ ರಂಭಿಸಿತ್ತ.'}  
+                  {locale === 'en' ? 'The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.' : 'ರಾಜ್ಯದ ಶಾಲಾ ಮಕ್ಕಳು ಹಾಗೂ ಅಂಗನವಾಡಿ ಮಕ್ಕಳುಗಳ ಆರೋಗ್ಯಕರ ಬೆಳವಣಿಗೆ ಮತ್ತು ಸರ್ವತೋಮುಖ ಅಭಿವೃದ್ಧಿಗೆ ಅಗತ್ಯವಾದ ಪ್ರೋಟೀನ್ ಮತ್ತು ಕೊಬ್ಬಿನೊಂದಿಗೆ ಪೌಷ್ಠಿಕಾಂಶದ ಆಹಾರವನ್ನು ಒದಗಿಸಲು ಕೆಎಂಎಫ್ ಸಹಯೋಗದೊಂದಿಗೆ ಕರ್ನಾಟಕ ಸರ್ಕಾರವು 1 ಆಗಸ್ಟ್ 2013 ರಂದು ಕ್ಷೀರ ಭಾಗ್ಯ ಯೋಜನೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿತು.'}  
                   </li>
                   <li>
-                  {locale === 'en' ? 'Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.' : 'ಕ್ಷೀರ ಭಾಗ್ಯ ಯೋಜನೆಯು ರಾಜ್ಯದ ಬಡ ಮಕ್ಕಳಿಗೆ ಮತ್ತು ಹಾಲು ಉತ್ಪಾದಕರಿಗೆ ಅವರ ಹೆಚ್ಚುವರಿ ಹಾಲನ್ನು ವಿಲೇವಾರಿ ಮಾಡಲು ಕರ್ನಾಟಕದ ಗೌರವಾನ್ವಿತ ಸಿಎಂ ಅವರ ಸಲಹೆಯ ಆಧಾರದ ಮೇಲೆ ಕೆಎಂಎಫ್ ಕಲ್ಪಿಸಿದ ಕನಸಿನ ಯೋಜನೆಯಾಗಿದೆ.'}  
+                  {locale === 'en' ? 'Ksheera Bhagya Scheme was a dream project conceived by KMF based on the suggestion of honorable CM of Karnataka to help the poor children of the State and also the Milk producers to dispose their surplus milk.' : 'ಕ್ಷೀರ ಭಾಗ್ಯ ಯೋಜನೆಯು ಹಾಲು ಉತ್ಪಾದಕರಿಗೆ ಅವರ ಹೆಚ್ಚುವರಿ ಹಾಲನ್ನು ವಿಲೇವಾರಿ ಮಾಡಲು ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಗೌರವಾನ್ವಿತ ಸಿಎಂ ಅವರ ಸಲಹೆಯ ಆಧಾರದ ಮೇಲೆ ಕೆಎಂಎಫ್ ರೂಪಿಸಿದ ವಿನೂತನ ಯೋಜನೆಯಾಗಿದೆ.'}  
                   
                   </li>
                   <li>
@@ -247,9 +247,9 @@ const axios = useApi();
         
       <section className='relative w-full h-auto bg-[#2858ac]'>
       <div className='max-w-6xl  m-auto w-full justify-center items-center text-center  pt-20'>
-                  <p className='text-2xl text-white'>
-                  {locale === 'en' ? 'The Ksheera Bhagya Scheme was launched on 1st Aug 2013 by GOK in co-ordination with KMF to provide nutritious food with protein and fat which is essential for healthy growth and all-round development of School Children as well as Anganwadi in the State.' : 'ರಾಜ್ಯ ದ ಶಾಲಾಮಕ್ಕ ಳುಹಾಗೂಅಂಗ್ನವಾಡಿ ಮಕ್ಕಳು Àಳ ಆರೀಗ್ಯ ಕ್ರ ಬೆಳ಴ಣಿಗೆ ಮತ್ತು ಸ಴ವತೀಮುಖ ಅಭಿವೃದ್ಧಿ ಗೆ ಅಗ್ತ್ಯ ವಾದಪ್ರ ೀಟೀನ್ ಮತ್ತು ಕೊಬ್ಬಿ ನಂದ್ಧಗೆಪೌಷ್ಠಿ ಕಂವದ ಆಹಾರ಴ನ್ನು ಒದಗಿಸಲು ಕೆಎಂಎಫ್ ಸಹಯೀಗ್ದಂದ್ಧಗೆ ಕರ್ನಾಟಕ ಸರ್ಕಾರವು 1 ಆಗ್ಸ್ಟ್ 2013 ರಂದು ಕ್ಷ ೀರಭಾಗ್ಯಯೀಜ್ನೆಯನ್ನು ಪ್ರರ ರಂಭಿಸಿತ್ತ.'}  
-                  </p>
+
+
+                
                 
                 
                 

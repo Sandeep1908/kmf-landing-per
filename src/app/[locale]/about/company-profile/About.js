@@ -26,7 +26,7 @@ const locale=useLocale().locale
               return (
                 <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
                   <Zoom>
-                  <p className="text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>
+                  <p className="text-xl font-josefin   text-justify">{item?.children[0]?.text}</p>
 
                 
                 </Zoom>
@@ -37,13 +37,13 @@ const locale=useLocale().locale
           })
         : aboutUs?.map((item, idx) => {
             return (
-              <p key={idx} className="text-xl font-josefin  text-justify">
+              <p key={idx} className="text-xl font-josefin font-bold  text-justify">
                 {item?.children[0]?.text}
               </p>
             );
           })}
                 <div
-              className={`w-full flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
+              className={`w-full flex justify-end items-end text-lg  text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
               onClick={() => setReadMore(true)}>
             {locale==='kn'?'ಮತ್ತಷ್ಟು ಓದಿ...':'  Read more...'}
             </div>
@@ -51,7 +51,7 @@ const locale=useLocale().locale
       {readMore &&
         aboutUs?.map((item, idx) => {
           return (
-            <p key={idx} className="text-xl font-josefin  text-justify">
+            <p key={idx} className="text-xl font-josefin  text-justify ">
               {item?.children[0]?.text}
             </p>
           );

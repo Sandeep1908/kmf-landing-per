@@ -4,22 +4,24 @@ import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
+import { IoHomeOutline } from 'react-icons/io5';
+
 function Scheme() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
   const schemes = [
     {
-      title: 'Government of India Schemes',
+      title: `${locale === "en" ? "Government of India Schemes":"ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು"}`,
       link: `/${locale}/animal-husbandery/scheme/goi`,
       image:'https://ehealth.eletsonline.com/wp-content/uploads/2023/08/Government-of-India-logo.jpg'
     },
     {
-      title: 'Government of Karnataka Schemes',
+      title:  `${locale === "en" ? "Government of Karnataka Schemes":"ರಾಜ್ಯ ಸರಕಾರದ ಯೋಜನೆಗಳು"}`,
       link: `/${locale}/animal-husbandery/scheme/gok`,
       image:'https://cdn.telanganatoday.com/wp-content/uploads/2021/04/Karnataka-govt-announces-state-wide-close-down-for-14-days.jpg'
     },
     {
-      title: ' Other Schemes',
+      title: `${locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}` ,
       link: `/${locale}/animal-husbandery/scheme/other-scheme`,
       image:'https://mc.webpcache.epapr.in/mcms.php?size=large&in=https://mcmscache.epapr.in/post_images/website_326/post_20395626/full.jpg'
     }
@@ -43,7 +45,7 @@ function Scheme() {
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
-              {locale==='kn'?'Home':'Home'}
+                      <IoHomeOutline size={20} />
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -82,7 +84,7 @@ function Scheme() {
                 
 
                 <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/portfolio#ACHIEVEMENTS':'/en/portfolio#ACHIEVEMENTS'}`}>
-                {locale==='kn'?'':'Back to portfolio'}
+                {locale==='kn'?'ಪೋರ್ಟ್ಫೋಲಿಯೋಗೆ ಹಿಂದಿರುಗಲು':'Back to portfolio'}
                   
                 </Link>
     
@@ -116,7 +118,7 @@ function Scheme() {
                           <Link href= {item?.link || ''}>
                            
                             <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
-                              <p className="text-sm md:text-lg text-white">Know More</p>
+                              <p className="text-sm md:text-lg text-white">{locale === "en" ? "Know More": "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"}</p>
                             </div>
                           </Link>
                         </div>
@@ -139,7 +141,7 @@ function Scheme() {
                           <Link href={item?.link || ''}>
                             {' '}
                             <div className="w-full h-full flex justify-center items-center border-l-[3px] border-l-white hover:border-[3px]">
-                              <p className="text-sm md:text-lg text-white">Know More</p>
+                              <p className="text-sm md:text-lg text-white">{locale === "en" ? "Know More": "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"}</p>
                             </div>
                           </Link>
                         </div>
