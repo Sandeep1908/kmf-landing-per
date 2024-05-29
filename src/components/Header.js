@@ -166,7 +166,6 @@ export const Header = () => {
 
   const headerPathname=pathname===`/${locale}/portfolio`
  
- console.log("headerpathname",headerPathname)
 
 
   return (
