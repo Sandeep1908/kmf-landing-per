@@ -1085,7 +1085,7 @@ function Portfolio() {
                 return(
                   <>
                   <SwiperSlide key={id}>
-                  <PdfPreview className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url} />
+                  <PdfPreview className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url}  count={id+1}/>
                 </SwiperSlide>
                 </>
                 )

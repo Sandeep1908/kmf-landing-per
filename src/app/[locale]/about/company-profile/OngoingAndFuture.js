@@ -27,7 +27,7 @@ function OngoingAndFuture({ setLoading}) {
         <thead className=" ">
           <tr className="text-md   bg-secondary-lighter ">
           <th className="p-2">{locale==='en'?'S.NO':'ಕ್ರ.ಸಂ'}</th>
-            <th className="p-2 text-start">{locale==='en'?'ONGOING PROJECTS':'ಪ್ರಸ್ತುತ ಯೋಜನೆಗಳ'}</th>
+            <th className="p-2 text-start">{locale==='en'?'ONGOING PROJECTS':'ಪ್ರಸ್ತುತ ಯೋಜನೆಗಳು'}</th>
           </tr>
         </thead>
 

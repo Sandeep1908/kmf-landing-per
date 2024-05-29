@@ -29,7 +29,7 @@ function CompanyProfile() {
       data: <About setLoading={setLoading} name={'About us'} />
     },
     {
-      tabName: locale === 'en' ? 'The Growth Process' : 'ಪ್ರಕ್ರಿಯೆಯ ಬೆಳವಣಿಗೆ',
+      tabName: locale === 'en' ? 'The Growth Process' : 'ಬೆಳವಣಿಗೆ ಪ್ರಕ್ರಿಯೆಯ',
       data: <GrowthProcess setLoading={setLoading} name={'The Growth Process'} />
     },
 

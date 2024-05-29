@@ -72,18 +72,18 @@ function Products() {
       </section>
 
       <section className="w-full   max-w-[1500px]   m-auto mb-10">
-      <div className="mb-32  mt-20  relative w-full  flex justify-center items-center ">
+      <div className="mb-24  mt-20  relative w-full  flex justify-center items-center ">
           
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-3xl font-extrabold uppercase">
              {locale==='kn'?'ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು':'Our Products'}
               </h1>
             </div>
 
-        <div className="w-full  flex flex-wrap justify-between items-center space-x-6 ">
+        <div className="w-full  flex flex-wrap justify-between items-center space-x-4 ">
           <p
             className="font-subheading transition-all text-sm cursor-pointer  hover:scale-[1.1]"
             onClick={() => handleProduct('all')}>
-            All
+          {locale==='kn'?'ಎಲ್ಲವೂ':'  All   '}
           </p>
           {categories?.map((item, id) => {
              
@@ -102,7 +102,7 @@ function Products() {
                 <p
               
                 onClick={() => handleIdx(item?.id)}
-                className={`font-subheading transition-all duration-300 text-md cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
+                className={`font-subheading transition-all duration-300 text-sm cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
                 {item?.attributes?.title}
                 </p>
                 </Fade>
