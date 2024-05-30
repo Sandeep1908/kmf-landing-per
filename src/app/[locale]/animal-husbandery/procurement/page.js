@@ -6,6 +6,8 @@ import useLocale from '@/hooks/useLocale'
 import Link from 'next/link'
 import useApi from '@/hooks/useApi'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
+import { IoHomeOutline } from 'react-icons/io5';
+
 import { Fade } from 'react-reveal'
 function Procurement() {
     const { isScroll}=useMyContext()
@@ -35,14 +37,14 @@ const axios =useApi()
         loop
         controls
         playsInline
-        className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+        className={`w-full  h-full    object-cover absolute top-0  ${
           isScroll ? 'h-[400px]' : ''
         } `}
       />
     </section>
     <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
-              {locale==='kn'?'Home':'Home'}
+                      <IoHomeOutline size={20} />
             </Link>
 
             <p className="text-primary-main">&gt;</p>

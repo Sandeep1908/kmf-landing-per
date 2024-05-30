@@ -80,9 +80,9 @@ const [status,setStatus]=useState('')
       </div> */}
 
       <div className="w-full  bg-[#F6F6F6]">
-      <div className="mb-20  pt-20  relative w-full  flex justify-center items-center ">
+      <div className="mb-10  pt-10  relative w-full  flex justify-center items-center ">
            
-              <h1 className=" text-primary-main relative z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative z-10 font-heading text-5xl font-extrabold uppercase">
               {locale==='en'?'CONTACT US':'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ'}
               </h1>
             </div>
@@ -124,7 +124,7 @@ const [status,setStatus]=useState('')
 
               <div className="mt-10 md:mt-16 lg:mt-28 flex justify-center md:justify-end">
                 <button onClick={handleSubmit} className="w-48 h-14 flex justify-center items-center bg-primary-main rounded-full">
-                  <p className="text-base text-neutral-light4 font-heading font-semibold">Submit</p>
+                  <p className="text-base text-neutral-light4 font-heading font-semibold">{locale==='kn'?'ಸಲ್ಲಿಸಿ':'Submit'}</p>
                 </button>
                 {status && <p className="mt-4 text-center">{status}</p>}
               </div>
@@ -144,16 +144,15 @@ const [status,setStatus]=useState('')
                   <div className="ml-2 w-full ">
                     <p className="text-base font-semibold text-neutral-dark1">
                     {locale==='en'?'           Karnataka Co-operative Milk Producers Federation Ltd':`
-ಕರ್ನಾಟಕ ಸಹಕಾರ ಹಾಲು ಉತ್ಪಾದಕರ ಒಕ್ಕೂಟ ಲಿ`}
+ಕರ್ನಾಟಕ ಸಹಕಾರಿ ಹಾಲು ಉತ್ಪಾದಕರ ಮಹಾಮಂಡಳ ನಿಯಮಿತ, ಕಹಾಮ ಸಂಕೀರ್ಣ,`}
                       
            
                     </p>
                     <p className="text-sm  text-neutral-dark1">
                     {locale==='en'?`        #2915, KMF Complex,D.R.College Post,Dr.M.H.Marigowda Road,BENGALURU - 560 029.
                       Karnataka.`           :`
-
-                      #2915, ಕೆಎಂಎಫ್ ಕಾಂಪ್ಲೆಕ್ಸ್, ಡಿ.ಆರ್.ಕಾಲೇಜ್ ಪೋಸ್ಟ್, ಡಾ.ಎಂ.ಎಚ್.ಮರಿಗೌಡ ರಸ್ತೆ, ಬೆಂಗಳೂರು - 560 029.
-                      ಕರ್ನಾಟಕ.`}
+                      ಅಂಚೆ ಪೆಟ್ಟಿಗೆ ಸಂಖ್ಯೆ- 2915, ಡಿ.ಆರ್. ಕಾಲೇಜು ಪೋಸ್ಟ್, ಡಾ.ಎಂ.ಹೆಚ್.ಮರಿಗೌಡ ರಸ್ತೆ, ಬೆಂಗಳೂರು-560029, ಕರ್ನಾಟಕ
+                    `}
               
                     </p>
                   </div>
@@ -175,8 +174,7 @@ const [status,setStatus]=useState('')
                     {locale==='en'?`              1800 425 8030 10.00AM - 5.30PM Except on Second Saturday,Sunday &
                       GOVT.Holidays`           :`
 
-                      1800 425 8030 10.00AM - 5.30PM ಎರಡನೇ ಶನಿವಾರ, ಭಾನುವಾರ ಮತ್ತು ಹೊರತುಪಡಿಸಿ
-                      GOVT. ರಜಾದಿನಗಳು`}
+                      080-260 96800 ಸಹಾಯವಾಣಿ: 1800 425 8030 ಟೋಲ್ ಫ್ರೀ 10.00AM - 5.45PM (ಎರಡನೇ ಮತ್ತು ನಾಲ್ಕನೇ ಶನಿವಾರ, ಭಾನುವಾರ ಮತ್ತು ಇತರ ರಾಜ್ಯ ಸರ್ಕಾರಿ ರಜಾದಿನಗಳನ್ನು ಹೊರತುಪಡಿಸಿ`}
                 
                     </p>
                   </div>

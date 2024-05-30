@@ -87,7 +87,7 @@ function PressRelease() {
                 text-sm relative  
                     
                uppercase`}>
-                {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹಿರಾತುಗಳ':'Tv commercial'}s
+                {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹೀರಾತುಗಳು':'Tv commercial'}s
               </li>
               </Link>
 
