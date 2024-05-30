@@ -33,7 +33,7 @@ const handleButton = (idx) => {
           };
         });
 
-        console.log("data got",goiData)
+         
         setScheme(goiData)
       }
     )()

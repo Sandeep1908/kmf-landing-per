@@ -338,7 +338,7 @@ const Home = () => {
               </h1>
               <div className="marquee-notification h-full flex justify-evenly space-x-3">
                 {newArrivals?.map((item, id) => {
-                  console.log("new arrival ",item)
+                  
                   return (
                     <ArrivalCard
                       key={id}

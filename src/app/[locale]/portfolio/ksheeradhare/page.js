@@ -24,7 +24,7 @@ const KsheeraDhare = () => {
       const { data: dhare } = await axios.get(`/api/ksheera-dhare`);
        
  
-      console.log("dhare",dhare?.data)
+    
       setDhare(dhare?.data);
 
     })();

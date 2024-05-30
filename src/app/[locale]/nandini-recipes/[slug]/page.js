@@ -30,7 +30,7 @@ const RecipeDetail = ({ slug }) => {
     (async () => {
       const { data: recipe } = await axios.get('/api/recipes');
       const recipeDetail = recipe?.data?.filter((item) => item?.id === parseInt(param.slug));
-      console.log("inner recipeDetail", recipeDetail)
+       
       SetRecipeDetail(recipeDetail[0]);
     })();
   }, []);
@@ -67,7 +67,7 @@ const RecipeDetail = ({ slug }) => {
                 </div>
               </div>
             </div>
-{console.log("re-details", recipeDetail)}
+ 
             <Carousels
               className="w-2xl h-[500px]"
               autoPlay={true}

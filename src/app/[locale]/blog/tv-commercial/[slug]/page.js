@@ -92,7 +92,7 @@ function TvcommercialDetails() {
       else{
         const brandAsset= commercialItems?.data?.filter(item=> item?.attributes?.tv_commercial?.data?.id===parseInt(param.slug))
         const sortedArray=brandAsset.sort((a,b)=>b.id-a.id)
-        console.log("sortedArray",sortedArray)
+        
         setAssets(brandAsset.sort((a,b)=>b?.id-a?.id))
       }
      

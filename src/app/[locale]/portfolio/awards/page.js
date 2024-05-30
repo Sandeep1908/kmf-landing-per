@@ -27,7 +27,7 @@ const Awards = () => {
           const { data } = await axios.get('/api/awards');
         
           setAward(data.data)
-          console.log(data.data);
+           
         
         })();
       }, []);
@@ -126,7 +126,7 @@ const Awards = () => {
 
 
           {award.map((item,idx)=>{
-                console.log()
+                
                 return(
               <div key={idx}
                   className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "

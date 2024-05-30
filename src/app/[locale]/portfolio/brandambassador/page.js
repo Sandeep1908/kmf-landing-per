@@ -292,7 +292,7 @@ const BrandAmbassador = () => {
             <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
 
             {bandImage.map((item,id)=>{
-                  console.log(bandImage)
+                   
                   return(
 
                     <div className='flex justify-center items-center   w-full h-96 p-2 '>

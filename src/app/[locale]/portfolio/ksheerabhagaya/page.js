@@ -182,7 +182,7 @@ const axios = useApi();
                             <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
                               <thead className=" text-left bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
-                                  console.log(item,id)
+                              
                                   if(id===0){
                                     return(
                                       <th className="p-2 w-10  border-r border-black " key={id}>

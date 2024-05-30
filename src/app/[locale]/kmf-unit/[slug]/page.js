@@ -162,7 +162,7 @@ function KmfUnitDetail() {
             </div>
             
             {allUnits?.map((item, id) => {
-                console.log("allunits", param?.slug)
+              
                 return (
                   <Link key={id} href={`/${locale}/kmf-unit/${item?.id}`}>
                   <p  className={`  border m-1 p-1 text-xs rounded w-full ${item?.id===parseInt(param?.slug) ?'bg-primary-main text-white':''} `}>

@@ -5,7 +5,7 @@ import Rodal from 'rodal';
 
 
 const MarketModel = ({ closeModal,market ,close}) => {
-  console.log("market", market)
+   
  
   return (
 

@@ -252,7 +252,7 @@ function Tvcommercial() {
                 </TvcommercialAccordion>
 
                 {commercialCategory?.map((item, id) => {
-                  console.log("item",item)
+                   
                   return (
                     
                     <Link    key={id}  href={`/${locale}/blog/tv-commercial/${item?.id}` || ''}>

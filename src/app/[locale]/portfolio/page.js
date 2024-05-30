@@ -243,7 +243,7 @@ const toggleNavbar = () => {
   let randomNumber;
   do {
     randomNumber = getRandomInt(0, colours.length - 1);
-    console.log("randomNumber: " + randomNumber)
+ 
   } while (randomNumber === colorIndex); // Ensure the new color is different from the current one
   setColorIndex(randomNumber);
   setIsOpen(!isOpen);

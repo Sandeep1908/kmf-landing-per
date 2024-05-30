@@ -26,7 +26,7 @@ function Blog() {
   // ... (existing code)
 
   const handleBlogItem = (blogDetails) => {
-    console.log(blogDetails)
+ 
     setSelectedBlog(blogDetails);
     setIsModalOpen(true);
   };

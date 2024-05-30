@@ -4,7 +4,8 @@ import './globals.css'
 import { Header } from '../components/Header'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './page.module.css'
-import Footer from '../components/Footer'
+import logo from '@/images/logo/logo.png';
+ 
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -14,7 +15,6 @@ import 'rodal/lib/rodal.css';
  
 import { register } from 'swiper/element/bundle';
 import { ParallaxProvider } from "react-scroll-parallax";
-import { useRouter } from 'next/navigation';
 import { pdfjs } from 'react-pdf';
 
 import 'react-photo-view/dist/react-photo-view.css';
@@ -37,6 +37,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <head>
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+          <link rel="icon" type="image/png" href={logo.src}/>
         </head>
         <body className='relative'>
           <MyContextProvider>

@@ -26,7 +26,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from './[locale]/Card.js';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi.js';
- 
+
 import { ParallaxBanner } from 'react-scroll-parallax';
 import ArrivalCard from '@/components/ArrivalCard.js';
 import { useMyContext } from '@/context/headerContext.js';
@@ -34,11 +34,10 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
- 
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(1);
-  const [banners, setAllBanners] = useState([]);
+
   const [cardDetails, setCardDetails] = useState([]);
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
   const [allTenders, setAllTenders] = useState([]);
@@ -56,7 +55,6 @@ const Home = () => {
 
   const locale = useLocale().locale;
 
-
   // ... (existing code)
 
   const handleKnowMilk = (item) => {
@@ -66,10 +64,9 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      const { data: banner } = await axios.get('/api/banners');
       const { data: certificate } = await axios.get('/api/certificates');
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-      const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
+
       const { data: arrivals } = await axios.get('/api/latestproducts');
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
@@ -92,7 +89,7 @@ const Home = () => {
       setAllTenders(data?.data);
       setCardDetails(homecard?.data);
       setHomeAboutDetails(homedetials);
-      setAllBanners(images);
+ 
       setCertificate(certificate.data?.[0]?.attributes?.image?.data);
       setKnowMilk(knm.data);
     })();
@@ -232,12 +229,11 @@ const Home = () => {
             </div>
 
             <Fade bottom>
-
-            <Link
-              href="/en/about/company-profile"
-              className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
-              Read More
-            </Link>
+              <Link
+                href="/en/about/company-profile"
+                className="bg-primary-main flex justify-center items-center w-48 h-12  z-30 text-neutral-light4 font-semibold rounded-md">
+                Read More
+              </Link>
             </Fade>
           </div>
         </section>
@@ -245,9 +241,8 @@ const Home = () => {
 
       <section className="w-full h-fit  relative       ">
         <Fade bottom>
-        <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain" />
+          <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain" />
         </Fade>
-
 
         <img
           src="/images/footer-top.png"
@@ -259,24 +254,29 @@ const Home = () => {
           <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
               <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
-                {locale === "kn" ? <img src={milkglassKnImg.src} className="w-full h-full" /> : <img src={milkglassImg.src} className="w-full h-full" />}
+                {locale === 'kn' ? (
+                  <img src={milkglassKnImg.src} className="w-full h-full" />
+                ) : (
+                  <img src={milkglassImg.src} className="w-full h-full" />
+                )}
               </div>
             </Fade>
             <div className="flex flex-col justify-center space-y-10 items-center">
               <Fade right>
-              <div
-                className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
-                <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-                  Know Your Milk
-                </h1>
+                <div
+                  className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
+                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                    Know Your Milk
+                  </h1>
 
-                <div className="space-y-6">
-                  <p className="text-justify   text-lg  text-white  ">
-                    {locale === "en" ? "Milk is a nutrient-rich beverage, widely consumed for its high calcium content essential for bone health. It is a source of protein, vitamins, and minerals, contributing to overall well-being. Varieties include cow&apos;s milk, known for its widespread availability, and alternatives like almond or soy milk for those with dietary preferences or lactose intolerance. Milk&apos;s versatility extends to culinary uses, featuring prominently in recipes from creamy desserts to savory dishes, showcasing its cultural and nutritional significance in various global cuisines.":"ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದ್ದು, ಮಾನವನ ಮೂಳೆಗಳ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯವಾದ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅನ್ನು ಒದಗಿಸುತ್ತಿದೆ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದ್ದು, ಒಟ್ಟಾರೆ ಮನುಷ್ಯನ ಸರ್ವಾಂಗಿಣ ಬೆಳವಣಿಗೆಗೆ ತುಂಬಾ ಅಗತ್ಯವಾಗಿದೆ. ಹಾಲಿನ ವಿಧಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ತುಂಬಾ ಹೆಸರುವಾಸಿಯಾಗಿದ್ದು, ವ್ಯಾಪಕವಾಗಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಲಭ್ಯವಿದೆ. ಇದಲ್ಲದೇ, ಲ್ಯಾಕ್ಟೋಸ್ ಅಂಶಗಳ ಅಲರ್ಜಿ ಹೊಂದಿದವರಿಗೆ ಹಾಗೂ ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯ ಸುಹಾಸಿತ ಹಾಲುಗಳು ಲಭ್ಯವಿರುತ್ತದೆ. ಹಾಲಿನಿಂದ ವಿವಿಧ ತೆರನಾದ ಭಕ್ಷಗಳನ್ನು ಮತ್ತು ಸಿಹಿಪಾಕವನ್ನು ತಯಾರಿಸಲಾಗುತ್ತದೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಖಾರದ ಭಕ್ಷ್ಯಗಳ ತಯಾರಿಕೆಯಲ್ಲಿ ಹಾಲನ್ನು ಪ್ರಮುಖವಾಗಿ ಉಪಯೋಗಿತ್ತಿದ್ದು, ವಿವಿಧ ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳಲ್ಲಿ ಹಾಲು ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಒತ್ತಿ ಹೇಳುತ್ತಿದೆ"}
-                    
-                  </p>
+                  <div className="space-y-6">
+                    <p className="text-justify   text-lg  text-white  ">
+                      {locale === 'en'
+                        ? 'Milk is a nutrient-rich beverage, widely consumed for its high calcium content essential for bone health. It is a source of protein, vitamins, and minerals, contributing to overall well-being. Varieties include cow&apos;s milk, known for its widespread availability, and alternatives like almond or soy milk for those with dietary preferences or lactose intolerance. Milk&apos;s versatility extends to culinary uses, featuring prominently in recipes from creamy desserts to savory dishes, showcasing its cultural and nutritional significance in various global cuisines.'
+                        : 'ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದ್ದು, ಮಾನವನ ಮೂಳೆಗಳ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯವಾದ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅನ್ನು ಒದಗಿಸುತ್ತಿದೆ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದ್ದು, ಒಟ್ಟಾರೆ ಮನುಷ್ಯನ ಸರ್ವಾಂಗಿಣ ಬೆಳವಣಿಗೆಗೆ ತುಂಬಾ ಅಗತ್ಯವಾಗಿದೆ. ಹಾಲಿನ ವಿಧಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ತುಂಬಾ ಹೆಸರುವಾಸಿಯಾಗಿದ್ದು, ವ್ಯಾಪಕವಾಗಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಲಭ್ಯವಿದೆ. ಇದಲ್ಲದೇ, ಲ್ಯಾಕ್ಟೋಸ್ ಅಂಶಗಳ ಅಲರ್ಜಿ ಹೊಂದಿದವರಿಗೆ ಹಾಗೂ ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯ ಸುಹಾಸಿತ ಹಾಲುಗಳು ಲಭ್ಯವಿರುತ್ತದೆ. ಹಾಲಿನಿಂದ ವಿವಿಧ ತೆರನಾದ ಭಕ್ಷಗಳನ್ನು ಮತ್ತು ಸಿಹಿಪಾಕವನ್ನು ತಯಾರಿಸಲಾಗುತ್ತದೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಖಾರದ ಭಕ್ಷ್ಯಗಳ ತಯಾರಿಕೆಯಲ್ಲಿ ಹಾಲನ್ನು ಪ್ರಮುಖವಾಗಿ ಉಪಯೋಗಿತ್ತಿದ್ದು, ವಿವಿಧ ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳಲ್ಲಿ ಹಾಲು ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಒತ್ತಿ ಹೇಳುತ್ತಿದೆ'}
+                    </p>
+                  </div>
                 </div>
-              </div>
               </Fade>
 
               <KnmModel closeModal={isModalOpen} kymMilk={knowMilkItem} close={setIsModalOpen} />
@@ -307,22 +307,22 @@ const Home = () => {
       <section className="w-full h-auto relative">
         <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <Fade top>
-          <div className="flex w-full flex-col justify-center items-center space-y-3">
-            <h1 className="text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
-              Notification
-            </h1>
-          </div>
+            <div className="flex w-full flex-col justify-center items-center space-y-3">
+              <h1 className="text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                Notification
+              </h1>
+            </div>
           </Fade>
 
           <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
             <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
               <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
                 <Fade left>
-                <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
-                  <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-                    Tender Notifications
-                  </h1>
-                </div>
+                  <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
+                    <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+                      Tender Notifications
+                    </h1>
+                  </div>
                 </Fade>
                 <div
                   className="w-full h-[375px] p-4 marquee flex flex-col"
@@ -348,16 +348,13 @@ const Home = () => {
 
             <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
               <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
-
                 <Fade right>
-                <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-                  {locale === "kn" ? "New Arrivals & Best Selling":"ಹೊಸ ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು"}
-                  
-                </h1>
+                  <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+                    {locale === 'kn' ? 'New Arrivals & Best Selling' : 'ಹೊಸ ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು'}
+                  </h1>
                 </Fade>
                 <div className="marquee-notification h-full flex justify-evenly space-x-3">
                   {newArrivals?.map((item, id) => {
-                    console.log('new arrival ', item);
                     return (
                       <ArrivalCard
                         key={id}
@@ -386,11 +383,11 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <Fade bottom>
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-              Quick Links
-            </h1>
-          </div>
+            <div className="flex flex-col justify-center items-center">
+              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+                Quick Links
+              </h1>
+            </div>
           </Fade>
 
           <div className="  w-full h-auto  relative   ">
@@ -416,11 +413,11 @@ const Home = () => {
         <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <Zoom>
-            <div className="flex justify-center w-full    flex-wrap   items-end  ">
-              <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
-                Explore The World Of KMF
-              </h1>
-            </div>
+              <div className="flex justify-center w-full    flex-wrap   items-end  ">
+                <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
+                  Explore The World Of KMF
+                </h1>
+              </div>
             </Zoom>
           </div>
 
@@ -449,7 +446,6 @@ const Home = () => {
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
                     className="w-full h-full "></iframe>
-                  
                 </div>
               </SwiperSlide>
 
@@ -463,7 +459,6 @@ const Home = () => {
                     referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen
                     className="w-full h-full "></iframe>
-                    
                 </div>
               </SwiperSlide>
             </Swiper>

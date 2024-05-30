@@ -220,7 +220,7 @@ const handleButton = (idx) => {
               })
               :
               scheme?.map((items, idx) => {
-                console.log("gok",items)
+              
                 if(idx<10){
                   return (
                     <li

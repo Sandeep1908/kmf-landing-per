@@ -51,7 +51,7 @@ const locale=useLocale().locale
     
         <div className="max-w-7xl m-auto p-2 shadow-lg mt-10    shadow-white bg-white flex flex-col justify-center items-center space-y-5">
           {kmfUnits.map((unit, id) => {
-            console.log("units",unit)
+             
          
             return (
             

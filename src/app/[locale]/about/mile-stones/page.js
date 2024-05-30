@@ -180,7 +180,7 @@ function OrganizationChart() {
                   }`}>
                    
                   {item.description?.sort((a,b)=>b.year-a.year)?.map((item, id) => {
-                    console.log("indescription",item)
+                  
                     if (id % 2 === 0) {
                       return (
                         <div key={id} className="w-full space-x-3 grid grid-cols-2 relative">

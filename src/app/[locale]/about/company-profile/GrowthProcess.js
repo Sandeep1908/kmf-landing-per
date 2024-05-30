@@ -42,7 +42,7 @@ function GrowthProcess({ setLoading }) {
 
         <tbody className="text-left  text-md">
           {growthProcessHeader.map((header, id) => {
-            console.log('header', header);
+             
 
             return (
               <tr key={header?.id} className="border-t-2   border-black    ">

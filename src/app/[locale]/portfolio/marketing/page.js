@@ -49,11 +49,11 @@ const Marketing = () => {
   // ... (existing code)
 
    const handleMarket=(item)=>{
-    console.log("item",item)
+    
     setKnowMarket(item)
     setIsModalOpen(true);
    }
-   console.log("knowMarket",knowMarket)
+ 
 
   const [market, setMarket] = useState([]);
   useEffect(() => {
@@ -61,7 +61,7 @@ const Marketing = () => {
       const { data } = await axios.get('/api/gheesupplies');
     
       setMarket(data.data)
-      console.log(data.data);
+ 
     
     })();
   }, []);
@@ -200,7 +200,7 @@ const Marketing = () => {
 
                
               {market.map((item,idx)=>{
-                console.log()
+              
                 return(
                   <div key={idx} onClick={()=>handleMarket(item)} className='mt-2'>
                      <h1  className='uppercase cursor-pointer text-sm md:text-lg lg:text-sm xl:text-xl text-center hover:text-white transition-all duration-200 hover:scale-[1.5]'>
