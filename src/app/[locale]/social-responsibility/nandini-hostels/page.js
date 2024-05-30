@@ -5,6 +5,8 @@ import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
 import Link from 'next/link';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { IoHomeOutline } from 'react-icons/io5';
+
 import useApi from '@/hooks/useApi';
 import { Fade } from 'react-reveal';
 function NandiniHostels() {
@@ -25,17 +27,20 @@ function NandiniHostels() {
   
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
-              Home
+                      <IoHomeOutline size={20} />
+
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold    " href={` `}>
-              Social Responsiblites
+              {locale==='kn'?'ಸಾಮಾಜಿಕ ಜವಾಬ್ದಾರಿಗಳು':'Social Responsiblites'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main  " href={` `}>
-              Nandini Hostels
+
+            {locale==='kn'?'ನಂದಿನಿ ವಸತಿ ನಿಲಯ':'Nandini Hostels'}
+              
             </Link>
             
       </div>
@@ -45,7 +50,7 @@ function NandiniHostels() {
 
           <div className="mb-10    relative w-full  flex justify-center items-center ">
              
-              <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               {locale==='kn'?'ನಂದಿನಿ ವಸತಿ ನಿಲಯ':'Nandini Hostels'}
               </h1>
             </div>
@@ -66,7 +71,7 @@ function NandiniHostels() {
                     className="  w-full  rounded-3xl     ">
                     <div className="m-auto">
                       <Fade top>
-                      <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
+                      <h1 className="text-primary-main text-xl md:text-3xl text-center ">
                         {' '}
                         {_?.attributes?.title}{' '}
                       </h1>

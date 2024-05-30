@@ -25,13 +25,12 @@ const RecipeDetail = ({ slug }) => {
   const [recipeDetail, SetRecipeDetail] = useState([]);
   const axios = useApi();
   const param = useParams();
-  console.log(param);
   const locale = useLocale().locale;
   useEffect(() => {
     (async () => {
       const { data: recipe } = await axios.get('/api/recipes');
       const recipeDetail = recipe?.data?.filter((item) => item?.id === parseInt(param.slug));
-      console.log("re-detailes",recipeDetail)
+      console.log("inner recipeDetail", recipeDetail)
       SetRecipeDetail(recipeDetail[0]);
     })();
   }, []);
@@ -68,7 +67,7 @@ const RecipeDetail = ({ slug }) => {
                 </div>
               </div>
             </div>
-
+{console.log("re-details", recipeDetail)}
             <Carousels
               className="w-2xl h-[500px]"
               autoPlay={true}
@@ -85,7 +84,7 @@ const RecipeDetail = ({ slug }) => {
                   alt=""
                 />
               </div>
-
+                 
               <div className="m-auto max-w-3xl h-[500px] flex justify-center items-center p-1">
                 <video
                   className=" w-full h-full object-fill"

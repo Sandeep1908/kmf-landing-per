@@ -53,7 +53,7 @@ function BlogCard() {
                                    
                                 })}
                              
-                                <Link href={`/${locale}/blog/${item?.id}`} className='hover:text-green-500 uppercase'>Read More....</Link>
+                                <Link href={`/${locale}/blog/${item?.id}`} className='hover:text-green-500 uppercase'>{locale==='kn'?'ಮತ್ತಷ್ಟು ಓದಿ':'Read More...'}</Link>
                         </div>
                         </Fade>
                 </div>

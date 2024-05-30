@@ -401,7 +401,7 @@ export const mobileHeader = {
           link: '/kn/animal-husbandery/procurement'
         },
         {
-          title: "ಪಶು ಆರೋಗ",
+          title: "ಪಶು ಆರೋಗ್ಯ",
           link: '/kn/animal-husbandery/animal-health'
         },
         {
@@ -444,7 +444,7 @@ export const mobileHeader = {
 
     {
       title: 'ಸಾಮಾಜಿಕ ಜವಾಬ್ದಾರಿಗಳು',
-      link: '',
+      link: '/kn/social-responsibility/nandini-hostels/',
       subItems: [
         {
           title: "ನಂದಿನಿ ವಸತಿ ನಿಲಯ",

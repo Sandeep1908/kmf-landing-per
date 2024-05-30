@@ -11,6 +11,8 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PhotoProvider,PhotoView } from 'react-photo-view';
 import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
+import { IoHomeOutline } from 'react-icons/io5';
+
 import { Fade, Zoom } from 'react-reveal';
 
 function OrganizationChart() {
@@ -40,8 +42,9 @@ function OrganizationChart() {
        muted
        autoPlay
        loop
+       controls
        playsInline
-       className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+       className={`w-full  h-full    object-cover absolute top-0  ${
          isScroll ? 'h-[400px]' : ''
        } `}
      />
@@ -49,12 +52,13 @@ function OrganizationChart() {
 
    <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandery/scheme` || ''}>
-              Home
+            <IoHomeOutline size={20} />
             </Link>
 
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/our-product/`}>
-              Quality Food Safety
+             
+              {locale==='kn'?'ಗುಣಮಟ್ಟ ಮತ್ತು ಆಹಾರ ಸುರಕ್ಷತೆ':' Quality Food Safety'}
             </Link>
             
           </div>

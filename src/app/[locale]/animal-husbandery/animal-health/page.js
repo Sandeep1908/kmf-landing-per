@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import useApi from '@/hooks/useApi';
 import { Fade } from 'react-reveal';
+import { IoHomeOutline } from 'react-icons/io5';
+
 function AnimalHealth() {
   const { isScroll } = useMyContext();
   const locale = useLocale().locale;
@@ -52,7 +54,7 @@ function AnimalHealth() {
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
-              {locale==='kn'?'Home':'Home'}
+                      <IoHomeOutline size={20} />
             </Link>
 
             <p className="text-primary-main">&gt;</p>

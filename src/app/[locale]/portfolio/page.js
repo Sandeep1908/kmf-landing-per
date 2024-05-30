@@ -219,18 +219,47 @@ function Portfolio() {
   const [isOpen, setIsOpen] = useState(false);
   const [isChangeIcon, setIsChangeIcon] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
+
   const changeIcon = () => {
     setIsChangeIcon(!isOpen);
   };
   const changeIcon2 = () => {
     setIsChangeIcon(isOpen);
-  };
+  }; 
+
+  const colours = [
+    "blue-500", "green-500", "red-500", "yellow-500", "orange-500", "purple-500", "pink-500",
+    "brown-500", "red-950", "amber-500", "lime-500", "teal-500", "cyan-500"
+  ];
+ 
+  const [colorIndex, setColorIndex] = useState(0);
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; // The maximum is inclusive and the minimum is inclusive
+  }
+
+const toggleNavbar = () => {
+  let randomNumber;
+  do {
+    randomNumber = getRandomInt(0, colours.length - 1);
+    console.log("randomNumber: " + randomNumber)
+  } while (randomNumber === colorIndex); // Ensure the new color is different from the current one
+  setColorIndex(randomNumber);
+  setIsOpen(!isOpen);
+};
+
+useEffect(()=>{
+    setInterval(() => {
+        setColorIndex(getRandomInt(0,colours.length-1))
+    }, 2000);
+},[])
+
+const randColor = colours[colorIndex];
+
 
   return (
-    <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  `}>
+    <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
       <div className="w-full h-[80vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
         <div className=" absolute z-50 top-8 right-40">
           
@@ -239,7 +268,7 @@ function Portfolio() {
             onMouseEnter={changeIcon}
             onMouseLeave={changeIcon2}
             onClick={toggleNavbar}
-            className={`text-white relative z-[100] transition-all duration-1000 ${
+            className={`text-white relative z-[100] transition-all duration-1000  ${
               isOpen ? 'hidden' : ''
             }`}>
             {isChangeIcon ? <HiArrowSmallLeft size={40} /> : <IoMenu size={40} />}
@@ -319,7 +348,7 @@ function Portfolio() {
               <div>
                 {' '}
                 <Link href={`/${locale}/portfolio/historyofmilk`}>
-                  <h1 className="text-primary-main text-3xl md:text-2xl">
+                  <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
                     {' '}
                     {locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}
                   </h1>
@@ -347,7 +376,7 @@ function Portfolio() {
                 {' '}
                 <a href="#ACHIEVEMENTS">
                   {' '}
-                  <h1 className="text-primary-main text-3xl md:text-2xl ">
+                  <h1 className={`text-${randColor}   text-3xl md:text-2xl`}>
                     {' '}
                     {locale === 'en' ? 'KMF ACHIEVEMENTS' : 'ಕಹಾಮ ಸಾಧನೆಗಳು'}
                   </h1>
@@ -369,7 +398,7 @@ function Portfolio() {
                 {' '}
                 <Link href={`/${locale}/portfolio/brandambassador`}>
                   {' '}
-                  <h1 className="text-primary-main text-3xl md:text-2xl ">
+                  <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
                     {' '}
                     {locale === 'en' ? ' BRAND AMBASSADOR' : ' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}
                   </h1>
@@ -388,16 +417,20 @@ function Portfolio() {
               </div>
               <div>
                 {' '}
-                <a href="#ksheerasagara">
+                <a href="#ksheerasagaramagazine">
                   {' '}
-                  <h1 className="text-primary-main text-3xl md:text-2xl   ">
-                    {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'}
-                  </h1>
+
+                  {randColor &&
+                   <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
+                   {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'}
+                 </h1>
+                  }
+                 
                 </a>
               </div>
               <div>
                 <a href="#SPONSORED">
-                  <h1 className="text-primary-main text-3xl md:text-2xl  mb-[10px]">
+                  <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
                     {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
                   </h1>
                 </a>{' '}
@@ -1061,9 +1094,9 @@ function Portfolio() {
         </div>
       </section>
 
-      <section id="ksheerasagara" className="w-full h-auto mt-10 mb-10  ">
+      <section id="ksheerasagaramagazine" className="w-full h-auto mt-10 mb-10  ">
         <div className=" m-auto  ">
-          <div className=" mt-20 mb-5 w-full  flex justify-center items-center">
+          <div  className=" mt-20 mb-5 w-full  flex justify-center items-center">
             <Fade top>
             <h1 className="relative  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
               {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'} 
@@ -1074,7 +1107,7 @@ function Portfolio() {
           </div>
 
           <div className="w-full p-7 ">
-            <div className="flex flex-col md:flex-row gap-6">
+            <div  className="flex flex-col md:flex-row gap-6">
               <Swiper
                 slidesPerView={3}
                 freeMode={true}
@@ -1086,12 +1119,11 @@ function Portfolio() {
                 modules={[FreeMode, Autoplay]}
                 className="w-full h-[530px]">
                {pdf?.map((item,id)=>{
-                console.log(item)
              
                 return(
                   <>
                   <SwiperSlide key={id}>
-                  <PdfPreview className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url}  count={id+1}/>
+                  <PdfPreview id='ksheerasagara' className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url}  count={id+1}/>
                 </SwiperSlide>
                 </>
                 )

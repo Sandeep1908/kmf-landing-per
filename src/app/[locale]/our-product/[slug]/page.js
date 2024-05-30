@@ -142,7 +142,7 @@ function Milk() {
         <div className="w-full     pb-10">
           <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/our-product/` || ''}>
-              Our Products
+              {locale==='kn'?'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು':'Our Products'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -151,13 +151,14 @@ function Milk() {
             </Link>
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={''}>
-              {title?.attributes?.title} Family
+              {title?.attributes?.title} 
             </Link>
           </div>
           <div className="w-full max-w-7xl m-auto flex flex-col justify-center items-center space-y-4 pt-10 ">
-            <h1 className="text-5xl text-primary-main text-center font-subheading">
-              {title?.attributes?.Heading}
+            <h1 className="text-4xl text-primary-main text-center font-subheading">
+              {title?.attributes?.Heading} 
             </h1>
+        
             {/* <p className="text-2xl ">{title?.attributes?.description}</p> */}
           </div>
 
@@ -169,7 +170,7 @@ function Milk() {
 <div className="mb-20    relative w-full  flex justify-center items-center ">
             
               <h1 className=" text-primary-main relative  m-auto text-center z-10 font-heading text-4xl font-extrabold uppercase">
-              {title?.attributes?.title} Family
+              {title?.attributes?.title}     {locale==='kn'?' ':'Family'}
               </h1>
             </div>
              
@@ -262,7 +263,7 @@ function Milk() {
               <div className="w-60 pt-10 transition-all duration-300">
                 <div className="w-full h-fit transition-all duration-300 flex flex-col  shadow-lg    justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
                   <div className="w-full mb-2    shadow-md bg-primary-main  ">
-                    <h1 className="p-5 text-lg uppercase   text-white text-center w-full">Our Products</h1>
+                    <h1 className="p-5 text-lg uppercase   text-white text-center w-full">  {locale==='kn'?'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು':'Our Products'}</h1>
                   </div>
 
 

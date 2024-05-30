@@ -6,6 +6,8 @@ import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useMyContext } from '@/context/headerContext';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import { IoHomeOutline } from 'react-icons/io5';
+
 import { Fade } from 'react-reveal';
 function FeedFodder() {
   const [feedFodder, setFeedFodder] = useState([]);
@@ -26,7 +28,7 @@ function FeedFodder() {
    
     <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
-              {locale==='kn'?'Home':'Home'}
+                      <IoHomeOutline size={20} />
             </Link>
 
             <p className="text-primary-main">&gt;</p>

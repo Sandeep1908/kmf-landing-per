@@ -12,6 +12,15 @@ import Link from 'next/link';
  import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 import { Fade, Zoom } from 'react-reveal';
 import { IoHomeOutline } from 'react-icons/io5';
+import image1 from "@/images/animal-breeding/1.jpg"
+import image2 from "@/images/animal-breeding/2.jpg"
+import image3 from "@/images/animal-breeding/3.jpg"
+import image4 from "@/images/animal-breeding/4.jpg"
+import image5 from "@/images/animal-breeding/5.jpg"
+import image6 from "@/images/animal-breeding/6.jpg"
+import image7 from "@/images/animal-breeding/7.jpg"
+ 
+
 
 function AnimalBreeding() {
   const axios =useApi()
@@ -36,13 +45,7 @@ function AnimalBreeding() {
   };
 
   const imageArr=[
-    '/animal-husbandary/animal-breeding/1.jpg',
-    '/animal-husbandary/animal-breeding/2.jpg',
-    '/animal-husbandary/animal-breeding/3.jpg',
-    '/animal-husbandary/animal-breeding/4.jpg',
-    '/animal-husbandary/animal-breeding/5.jpg',
-    '/animal-husbandary/animal-breeding/6.jpg',
-    '/animal-husbandary/animal-breeding/7.jpg',
+    image1.src, image2.src, image3.src, image4.src, image5.src, image6.src, image7.src
   ]
 
 return(

@@ -96,7 +96,7 @@ function Gallery() {
                          
                   uppercase`}
                     >
-                    {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹಿರಾತುಗಳ':'Tv commercial'}
+                    {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹೀರಾತುಗಳು':'Tv commercial'}
                   </li>
 
                   </Link>
