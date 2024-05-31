@@ -58,6 +58,8 @@ function Notification() {
 
   const fetchTenders = async () => {
     const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
+    
+     
     const allData = data?.data?.map((item) => {
       return {
         last_date: item?.attributes?.last_date,
@@ -72,7 +74,7 @@ function Notification() {
 
     let years = allData?.map((item) => item.year);
     setYear(new Set(years));
-    setTenderItems(allData);
+    setTenderItems(data.data);
     setAllTenderItems(allData);
     setLoading(false);
   };
@@ -199,17 +201,22 @@ function Notification() {
         {showPdfPreview && <PdfPreview pdfUrl={selectedPdfUrl} onClose={() => setShowPdfPreview(false)} />}
 
         <div className="w-full h-full flex flex-col justify-evenly items-center flex-wrap pt-10 p-4 space-y-4   ">
+
+
+
+
           {currentProducts?.map((item, idx) => {
+            console.log("current",item)
             return (
               
                
               <Tenders
                 key={idx}
-                title={item?.title}
-                description={item?.description}
-                tenderNo={item?.tenderNo}
-                date={item?.last_date}
-                link={item?.link}
+                title={item?.attributes?.title}
+                description={item?.attributes?.description}
+                tenderNo={item?.attributes?.tenderNo}
+                date={item?.attributes?.last_date}
+                link={item?.attributes?.link}
                 handlePdfPreview={handlePdfPreview}
                 
               />

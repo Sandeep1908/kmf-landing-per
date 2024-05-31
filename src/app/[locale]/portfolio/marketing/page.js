@@ -3,14 +3,11 @@ import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
-import dhare1 from '@/images/portfolio/dhare1.jpg'
-import dhare2 from '@/images/portfolio/dhare2.jpg'
-import dhare3 from '@/images/portfolio/dhare3.jpg'
+ 
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
 import useApi from '@/hooks/useApi';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-import KnmModel from '@/components/KymModel';
+ 
 import MarketModel from './marketModel';
 import { SwiperSlide,Swiper } from 'swiper/react';
 import {

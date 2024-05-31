@@ -128,7 +128,7 @@ const Home = () => {
       {/* HOME CARAOUSAL IMAGE */}
 
       <video
-        src="/video/banner.mp4"
+        src="/video/milk.mp4"
         controls
         muted
         autoPlay
@@ -350,7 +350,7 @@ const Home = () => {
               <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
                 <Fade right>
                   <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-                    {locale === 'kn' ? 'New Arrivals & Best Selling' : 'ಹೊಸ ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು'}
+                    {locale === 'kn' ? 'ಹೊಸ ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು' : 'New Arrivals & Best Selling'}
                   </h1>
                 </Fade>
                 <div className="marquee-notification h-full flex justify-evenly space-x-3">
@@ -373,7 +373,7 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-5 pb-5 z-[100]      ">
+      <section className=" relative w-full h-auto pt-5 pb-5  z-[10]      ">
         <video
           src="/video/vid.webm"
           autoPlay
