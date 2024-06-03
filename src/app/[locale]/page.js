@@ -67,14 +67,14 @@ const Home = () => {
       const { data: certificate } = await axios.get('/api/certificates');
       const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
       const images = banner?.data?.map((img) => img?.attributes?.banner?.data?.attributes?.url);
-      const { data: arrivals } = await axios.get('/api/latestproducts');
+       
       const { data: homecard } = await axios.get('/api/homecards');
       const { data: homeabout } = await axios.get('/api/homeabouts');
       const { data: knm } = await axios.get('/api/knowyourmilks');
       const { data: allProduct } = await axios.get('/api/product-sub-items');
 
       let product = allProduct?.data?.filter((item) => item?.attributes?.isLatest === true);
-      product = [...arrivals?.data, ...product];
+     
 
       const homedetials = homeabout?.data?.map((item) => {
         return {
@@ -128,7 +128,7 @@ const Home = () => {
     {/* HOME CARAOUSAL IMAGE */}
 
     <video
-      src="/video/milk.mp4"
+      src="/video/banner.mp4"
       controls
       muted
       autoPlay

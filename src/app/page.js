@@ -128,7 +128,7 @@ const Home = () => {
       {/* HOME CARAOUSAL IMAGE */}
 
       <video
-        src="/video/milk.mp4"
+        src="/video/banner.mp4"
         controls
         muted
         autoPlay
