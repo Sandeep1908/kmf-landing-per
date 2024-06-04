@@ -14,6 +14,7 @@ function Notification() {
   const [tenderItems, setTenderItems] = useState([]);
   const [alltenderItems, setAllTenderItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentYearData,setCurrentYearData]=useState(null)
 
   const [currentPage, setCurrentPage] = useState(1);
   const [year, setYear] = useState([]);
@@ -57,8 +58,26 @@ function Notification() {
   };
 
   const fetchTenders = async () => {
-    const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-    
+    const { data } = await axios.get('/api/tender-notifications?sort[0]=createdAt:desc');
+
+
+        // Grouping the data by last_year
+        const groupedData = data.data.reduce((acc, item) => {
+          const year = new Date(item?.attributes?.last_date).getFullYear()
+     
+          
+          if (!acc[year]) {
+              acc[year] = [];
+          }
+          acc[year].push(item);
+          return acc;
+      }, {});
+
+      if(new Date().getFullYear() in groupedData){
+        setCurrentYearData(groupedData[new Date().getFullYear()]);
+      }
+      
+
      
     const allData = data?.data?.map((item) => {
       return {
@@ -203,10 +222,27 @@ function Notification() {
         <div className="w-full h-full flex flex-col justify-evenly items-center flex-wrap pt-10 p-4 space-y-4   ">
 
 
+          {
+            currentYearData?.sort((a,b)=>b.attributes.createdAt-a.attributes?.createdAt)?.map((item,id)=>{
+          return(
+            <Tenders
+            key={id}
+            title={item?.attributes?.title}
+            description={item?.attributes?.description}
+            tenderNo={item?.attributes?.tenderNo}
+            date={item?.attributes?.last_date}
+            link={item?.attributes?.link}
+            handlePdfPreview={handlePdfPreview}
+            
+          />
+          )
+          
+            })
+          }
 
 
           {currentProducts?.map((item, idx) => {
-            console.log("current",item)
+             
             return (
               
                
