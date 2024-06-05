@@ -224,6 +224,7 @@ function Notification() {
 
           {
             currentYearData?.sort((a,b)=>b.attributes.createdAt-a.attributes?.createdAt)?.map((item,id)=>{
+         
           return(
             <Tenders
             key={id}
@@ -231,7 +232,7 @@ function Notification() {
             description={item?.attributes?.description}
             tenderNo={item?.attributes?.tenderNo}
             date={item?.attributes?.last_date}
-            link={item?.attributes?.link}
+            link={item?.attributes?.pdf_file?.data?.attributes?.url}
             handlePdfPreview={handlePdfPreview}
             
           />
@@ -252,7 +253,7 @@ function Notification() {
                 description={item?.attributes?.description}
                 tenderNo={item?.attributes?.tenderNo}
                 date={item?.attributes?.last_date}
-                link={item?.attributes?.link}
+                link={item?.attributes?.pdf_file?.data?.attributes?.url}
                 handlePdfPreview={handlePdfPreview}
                 
               />

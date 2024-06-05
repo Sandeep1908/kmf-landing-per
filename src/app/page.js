@@ -155,7 +155,7 @@ const Home = () => {
       />
       {/* <CarouselImage images={banners || []}  /> */}
 
-      <section className="w-full    pt-20  relative z-[1] bg-primary-subtle ">
+      <section className="w-full    pt-20 pb-20  relative z-[1] bg-primary-subtle ">
         <div className="w-full">
           <div className=" w-full         ">
             <h1 className="text-4xl text-[#242424] text-center font-heading font-[400] tracking-wide md:text-4xl uppercase ">
@@ -214,10 +214,10 @@ const Home = () => {
             children: <h></h>
           }
         ]}
-        className="  w-full h-[600px]   object-contain ">
+        className="  w-full h-fit    object-contain ">
         <section className="w-full h-auto p-5     pt-12">
           <div className=" mt-10  w-full    space-y-5  flex flex-col justify-center items-center m-auto max-w-7xl  ">
-            <div className="w-full h-full justify-center items-center flex  ">
+            <div className="w-full h-full justify-center items-center flex flex-col md:flex-row  ">
               <Fade left>
                 <div
                   className={`flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl     lg:pr-10 bg-img`}>
@@ -256,9 +256,9 @@ const Home = () => {
         </section>
       </ParallaxBanner>
 
-      <section className="w-full h-fit  relative       ">
+      <section className="w-full h-fit  relative        ">
         <Fade bottom>
-          <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain" />
+          <img src="/images/Curve.svg" className="absolute inset-0 w-full  h-full object-contain hidden md:block" />
         </Fade>
 
         <img
@@ -267,8 +267,8 @@ const Home = () => {
           style={{ transform: `translateY(${scrollY * 0.2}px)` }}
         />
 
-        <div className="   relative ">
-          <div className=" pt-10 pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
+        <div className="   relative  bg-[#30ABDC] md:bg-transparent p-5   ">
+          <div className="   pb-10 lg:space-x-10  flex flex-col-reverse  justify-center items-center lg:flex-row lg:justify-center lg:items-center m-auto max-w-7xl">
             <Fade left>
               <div className="p-4 flex justify-center   items-center w-full h-[500px]   lg:max-w-xl">
                 {locale === 'kn' ? (
@@ -278,7 +278,7 @@ const Home = () => {
                 )}
               </div>
             </Fade>
-            <div className="flex flex-col justify-center space-y-10 items-center">
+            <div className="flex flex-col  justify-center space-y-10 items-center">
               <Fade right>
                 <div
                   className={`flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start  lg: max-w-[60rem] lg:pr-10  `}>
@@ -514,6 +514,7 @@ const Home = () => {
                 watchSlidesProgress={true}
                 slidesPerView={3}
                 autoplay={{
+                  
                   delay: 2500,
                   disableOnInteraction: false
                 }}
