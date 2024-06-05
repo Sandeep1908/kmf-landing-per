@@ -52,6 +52,7 @@ const Home = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [currentYearData,setCurrentYearData]=useState([])
 
   const locale = useLocale().locale;
 
@@ -72,6 +73,22 @@ const Home = () => {
       const { data: homeabout } = await axios.get('/api/homeabouts');
       const { data: knm } = await axios.get('/api/knowyourmilks');
       const { data: allProduct } = await axios.get('/api/product-sub-items');
+
+
+      const groupedData = data.data.reduce((acc, item) => {
+        const year = new Date(item?.attributes?.last_date).getFullYear()
+   
+        
+        if (!acc[year]) {
+            acc[year] = [];
+        }
+        acc[year].push(item);
+        return acc;
+    }, {});
+
+    if(new Date().getFullYear() in groupedData){
+      setCurrentYearData(groupedData[new Date().getFullYear()]);
+    }
 
       let product = allProduct?.data?.filter((item) => item?.attributes?.isLatest === true);
       product = [...arrivals?.data, ...product];
@@ -327,7 +344,7 @@ const Home = () => {
                 <div
                   className="w-full h-[375px] p-4 marquee flex flex-col"
                   style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-                  {allTenders?.map((item, id) => {
+                  {currentYearData?.sort((a,b)=>b.attributes.createdAt-a.attributes.createdAt)?.map((item, id) => {
                     return (
                       <div
                         key={id}
