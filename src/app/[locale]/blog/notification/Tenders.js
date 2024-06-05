@@ -15,7 +15,7 @@ function Tenders({ title, description, tenderNo, image, date, link,handlePdfPrev
           </div>
         </div>
         <div className=" shrink-0  flex  flex-col  items-end  justify-end">
-         <Link href={link || ''} className="text-sm leading-6 cursor-pointer bg-primary-gradient p-2   text-white" download> Download </Link> 
+         <Link href={link || ''} className="text-sm leading-6 cursor-pointer bg-primary-gradient p-2   text-white" download target='blank'> Download </Link> 
         </div>
       </li>
     
