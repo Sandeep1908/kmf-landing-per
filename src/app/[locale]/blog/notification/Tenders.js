@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import formatDateToDDMMYY from '@/lib/api/formatDate';
 
-function Tenders({ title, description, tenderNo, image, date, link,handlePdfPreview }) {
+function Tenders({ title, tenderNo, date, link,handlePdfPreview }) {
   return (
     <ul role="list" className="divide-y  bg-white divide-gray-100 w-full border-b-2 shadow-md p-3 border-primary-main  ">
   
@@ -11,7 +12,7 @@ function Tenders({ title, description, tenderNo, image, date, link,handlePdfPrev
           <div className="min-w-0 flex-auto">
             <p className="text-sm font-semibold leading-6 text-gray-900">{title}</p>
             <p className="mt-1 truncate text-xs leading-5 text-gray-500">{tenderNo}</p>
-            <p className="mt-1 truncate text-xs leading-5 text-gray-500">{date}</p>
+            <p className="mt-1 truncate text-xs leading-5 text-gray-500">{formatDateToDDMMYY(date)}</p>
           </div>
         </div>
         <div className=" shrink-0  flex  flex-col  items-end  justify-end">
