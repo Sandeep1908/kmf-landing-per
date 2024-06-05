@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.1",
+    "@vercel/speed-insights": "^1.0.11",
     "axios": "^1.6.3",
     "next": "14.0.0",
     "nodemailer": "^6.9.13",

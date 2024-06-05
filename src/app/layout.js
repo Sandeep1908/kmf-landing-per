@@ -11,7 +11,8 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import 'rodal/lib/rodal.css';
- 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
  
 import { register } from 'swiper/element/bundle';
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
           <Header />
           <ParallaxProvider>
           {children}
+          <SpeedInsights />
           </ParallaxProvider>
           </MyContextProvider>
           {''}
