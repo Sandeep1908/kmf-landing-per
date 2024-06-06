@@ -106,7 +106,7 @@ function PressRelease() {
                 <PhotoProvider >
 
 <PhotoView src={item?.attributes?.url} height="400px"  >
-<img src={item?.attributes?.url} className='w-full h-full object-fill'/>
+<img src={item?.attributes?.url} className='w-full max-w-72 h-72 '/>
 </PhotoView>
 
 

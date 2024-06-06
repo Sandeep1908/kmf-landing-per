@@ -1,60 +1,52 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import AboutHeroImg from '@/images/about/mission/about-hero.png';
 
- 
 import Footer from '@/components/Footer';
- 
+
 import BlogCard from './BlogCard';
-import useApi from '@/hooks/useApi';
+
 import { useParams } from 'next/navigation';
-import PressRelease from './PressRelease';
-import brand from '@/images/portfolio/BrandAmbassador.png'
- 
+
 import Link from 'next/link';
 
 function Gallery() {
- 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const locale=useParams().locale
- 
-  const tabs=[
+  const locale = useParams().locale;
+
+  const tabs = [
     {
-      tabs:locale==='kn'?'ಸುದ್ಧಿ ಮತ್ತು ಘಟನೆಗಳು':'News and Events',
-      data:<BlogCard/>
-      
-    },
-  ]
-
- 
-
-  
+      tabs: locale === 'kn' ? 'ಸುದ್ಧಿ ಮತ್ತು ಘಟನೆಗಳು' : 'News and Events',
+      data: <BlogCard />
+    }
+  ];
 
   const handleClickItem = (idx) => {
     setCurrentIndex(idx);
- 
   };
 
   return (
     <div className="w-full  absolute top-52 z-[-1]     ">
       <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center  `}>
-      <div className="w-full h-full flex justify-between items-center">
-              <div className="w-40 h-8 bg-red-600"></div>
-              <div className="w-40 h-8 bg-red-600"></div>
-            </div>
-        <img src={'/images/gallery.png'} className="w-full max-w-7xl h-full object-fill absolute top-0 z-[-1]" />
+        <div className="w-full h-full flex justify-between items-center">
+          <div className="w-40 h-8 bg-red-600"></div>
+          <div className="w-40 h-8 bg-red-600"></div>
+        </div>
+        <img
+          src={'/images/gallery.png'}
+          className="w-full max-w-7xl h-full object-fill absolute top-0 z-[-1]"
+        />
       </section>
       <section className="max-w-7xl h-fit m-auto pt-10   ">
         <div className="w-full space-y-5 p-4 ">
-        <div className="    relative w-full  flex justify-center items-center ">
-          
-              <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
-              {locale==='en'?`Gallery`:`
+          <div className="    relative w-full  flex justify-center items-center ">
+            <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
+              {locale === 'en'
+                ? `Gallery`
+                : `
 ಗ್ಯಾಲರಿ`}
-              </h1>
-            </div>
-          
+            </h1>
+          </div>
 
           <div className="w-full flex justify-center items-center pt-10 relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-neutral-dark4">
             <ul className="flex gap-5">
@@ -73,49 +65,37 @@ function Gallery() {
                 );
               })}
               <Link href={`/${locale}/blog/press-release`}>
-<li
-                    
-                    className={` 
+                <li
+                  className={` 
                       
                      text-sm   relative before:absolute  
                          
-                  uppercase`}
-                    >
-                      {locale==='kn'?'ಮಾದ್ಯಮ ಪ್ರಕಟಣೆ':'Press Release'}
-                   
-                  </li>
+                  uppercase`}>
+                  {locale === 'kn' ? 'ಮಾದ್ಯಮ ಪ್ರಕಟಣೆ' : 'Press Release'}
+                </li>
+              </Link>
 
-                  </Link>
-
-<Link href={`/${locale}/blog/tv-commercial`}>
-<li
-                    
-                    className={` 
+              <Link href={`/${locale}/blog/tv-commercial`}>
+                <li
+                  className={` 
                       
                      text-sm   relative before:absolute  
                          
-                  uppercase`}
-                    >
-                    {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹೀರಾತುಗಳು':'Tv commercial'}
-                  </li>
-
-                  </Link>
+                  uppercase`}>
+                  {locale === 'kn' ? 'ಟಿ.ವಿ. ಜಾಹೀರಾತುಗಳು' : 'Tv commercial'}
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
 
-
-<div className='w-full mt-10'>
-
-
-        {tabs?.map((tab, id) => {
-        if (currentIndex === id) {
-          return tab.data;
-        }
-      })} 
-      </div>
-
-       
+        <div className="w-full mt-10">
+          {tabs?.map((tab, id) => {
+            if (currentIndex === id) {
+              return tab.data;
+            }
+          })}
+        </div>
       </section>
 
       <Footer />

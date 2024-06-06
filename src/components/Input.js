@@ -2,12 +2,12 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Fade } from 'react-reveal'
 
-const Input = ({title,type,style,inputStyle,setInfo}) => {
+const Input = ({title,type,style,inputStyle,setInfo,astrik,value}) => {
   return (
     <div className={style}>
       <Fade bottom>
-      <label htmlFor="name" className='text-base  ' >{title}</label>
-      <input onChange={(e)=>setInfo(e.target.value)} className={`mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4 ${inputStyle} `} type={type} />
+      <label htmlFor="name" className='text-base  ' >{title} <span className='text-red-500'>{astrik}</span></label>
+      <input onChange={(e)=>setInfo(e.target.value)} value={value} className={`mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4 ${inputStyle} `} type={type} />
       </Fade>
     </div>
   )
