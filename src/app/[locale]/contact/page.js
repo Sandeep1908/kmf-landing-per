@@ -14,7 +14,12 @@ import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import { Fade } from 'react-reveal';
 import Confirmation from './Confirmation';
- 
+import { MdLocationOn } from "react-icons/md";
+import { FcCustomerSupport } from "react-icons/fc";
+
+import { FcCallback } from "react-icons/fc";
+import { ImWhatsapp } from "react-icons/im";
+import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
   const locale = useParams().locale;
@@ -84,7 +89,7 @@ const Contact = () => {
     setState('');
   }
 
-  
+
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
       <section className={`w-full h-80 pt-14 relative  grid place-items-center company-bg`}>
@@ -207,7 +212,7 @@ const Contact = () => {
                 </p>
                 <div className="flex flex-col lg:flex-row items-start w-full ">
                   <div className="w-1/5">
-                    <img src={locImg.src} alt="" className="w-full h-8" />
+                  <MdLocationOn size={40} color='red' />
                   </div>
 
                   <div className="ml-2 w-full ">
@@ -240,7 +245,7 @@ const Contact = () => {
                 </p>
                 <div className="flex items-start flex-col lg:flex-row ">
                   <div className="w-1/5">
-                    <img src={supportImg.src} alt="" className="w-full h-8" />
+                  <FcCustomerSupport size={40} />
                   </div>
 
                   <div className="ml-2 w-full">
@@ -267,7 +272,7 @@ const Contact = () => {
                 </p>
                 <div className="flex items-start flex-col lg:flex-row  ">
                   <div className="w-1/5">
-                    <img src={callImg.src} alt="" className="w-full h-8" />
+                  <FcCallback size={40} />
                   </div>
 
                   <div className="ml-2 w-full">
@@ -287,7 +292,7 @@ const Contact = () => {
                 </p>
                 <div className="flex items-start flex-col lg:flex-row  ">
                   <div className="w-1/5">
-                    <img src={waImg.src} alt="" className="w-full h-8" />
+                  <ImWhatsapp size={40} color='green' />
                   </div>
 
                   <div className="ml-2 w-full">
@@ -307,7 +312,8 @@ const Contact = () => {
                 </p>
                 <div className="flex items-start w-full flex-col lg:flex-row ">
                   <div className="w-1/5">
-                    <img src={mailImg.src} alt="" className="w-full h-8" />
+                  <MdEmail size={40} color='red' />
+ 
                   </div>
 
                   <div className="ml-2 w-full">
