@@ -213,7 +213,7 @@ export const mobileHeader = {
       link: '/en/about/quality-food'
     },
     {
-      title: 'ANIMAL HUSBANDARY',
+      title: 'ANIMAL HUSBANDAY',
       link: '/en/animal-husbandery/procurement',
       subItems: [
         {
