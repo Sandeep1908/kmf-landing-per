@@ -79,9 +79,9 @@ function Products() {
               </h1>
             </div>
 
-        <div className="w-full  flex flex-wrap justify-between items-center space-x-4 ">
+        <div className="w-full  grid grid-cols-4 gap-4 p-2 md:grid-cols-7 lg:grid-flow-col   md:space-x-4 ">
           <p
-            className="font-subheading transition-all text-sm cursor-pointer  hover:scale-[1.1]"
+            className="font-subheading transition-all w-full  text-center text-sm cursor-pointer  hover:scale-[1.1]"
             onClick={() => handleProduct('all')}>
           {locale==='kn'?'ಎಲ್ಲವೂ':'  All   '}
           </p>
@@ -102,7 +102,7 @@ function Products() {
                 <p
               
                 onClick={() => handleIdx(item?.id)}
-                className={`font-subheading transition-all duration-300 text-sm cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
+                className={`font-subheading w-full text-center transition-all duration-300 text-sm cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
                 {item?.attributes?.title}
                 </p>
                 </Fade>

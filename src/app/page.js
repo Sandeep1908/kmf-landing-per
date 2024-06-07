@@ -138,7 +138,7 @@ const Home = () => {
     updateScreensize();
     window.addEventListener('resize', updateScreensize);
     return () => window.removeEventListener('resize', updateScreensize);
-  });
+  },[]);
 
   return (
     <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-48' : ''}  `}>

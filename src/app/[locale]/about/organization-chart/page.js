@@ -69,10 +69,10 @@ function OrganizationChart() {
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>
           <div className='w-full flex justify-center items-center'>
-          <div className="mb-20   relative w-full  flex justify-center items-center ">
+          <div className="mb-10   relative w-full  flex justify-center items-center ">
           
               
-              <h1 className=" text-white relative z-10 font-heading text-4xl font-bold uppercase">
+              <h1 className=" text-white text-center relative z-10 font-heading text-4xl font-bold uppercase">
               {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
               </h1>
             </div>
@@ -102,7 +102,7 @@ function OrganizationChart() {
         </div>
        
       </ParallaxBanner>
-      <section className={` relativew-full w-full m-auto  mt-10 h-[500px] pt-28 relative  grid place-items-center `}>
+      <section className={` relativew-full w-full m-auto  mt-5 h-[500px]   relative  grid place-items-center `}>
 
       <div className="absolute w-full h-full z-[-10] ">
             <div className="w-full h-full flex justify-between items-center">
@@ -114,7 +114,7 @@ function OrganizationChart() {
           <Fade bottom>
         <img
           src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
-          className=" max-w-7xl h-full object-conatain absolute top-0 z-[-1]"
+          className="w-full max-w-7xl h-[500px] object-contain    "
         />
 </Fade>
 

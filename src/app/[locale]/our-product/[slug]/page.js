@@ -176,12 +176,12 @@ function Milk() {
              
 
             <div className="flex w-full justify-evenly items-start space-x-5">
-              <div className="w-full max-w-7xl m-auto h-full pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              <div className="w-full max-w-7xl m-auto h-full pt-10 place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                 {products?.map((item, id) => {
                   return (
                     <div
                       key={id}
-                      className={`w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${item?.attributes?.isLatest?'our-product-latest':''} `}>
+                      className={`max-w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${item?.attributes?.isLatest?'our-product-latest':''} `}>
                         {
                           item?.attributes?.isLatest &&
                           <img src='/images/product-new/new.gif' className='w-20 absolute right-5  z-[10]'/>
@@ -260,7 +260,7 @@ function Milk() {
                 })}
               </div>
 
-              <div className="w-60 pt-10 transition-all duration-300">
+              <div className="w-60 pt-10 transition-all duration-300 hidden lg:block">
                 <div className="w-full h-fit transition-all duration-300 flex flex-col  shadow-lg    justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
                   <div className="w-full mb-2    shadow-md bg-primary-main  ">
                     <h1 className="p-5 text-lg uppercase   text-white text-center w-full">  {locale==='kn'?'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು':'Our Products'}</h1>
