@@ -84,14 +84,14 @@ function OrganizationChart() {
           <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರು":"Lakh Milk Producer Members"} endNumber={26}/>
 
-          <Counter  title={locale==='kn'?"ಹಾಲು ಸಹಕಾರಿ ಸಂಘಗಳು":"Functioning Dairy co-coperative societies"} endNumber={15500}/>
+          <Counter  title={locale==='kn'?"ಹಾಲು ಸಹಕಾರಿ ಸಂಘಗಳು":"Functioning Dairy co-coperative societies"} endNumber={15700}/>
 
-          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ  ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ  ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={86}/>
 
           <Counter  title={locale==='kn'?"ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳು":"Milk and Milk Products"} endNumber={148}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಒಕ್ಕೂಟಗಳು":"Milk Unions"} endNumber={15}/>
           <Counter  title={locale==='kn'?"ಕಹಾಮ ಘಟಕಗಳು":"Kmf Units"} endNumber={15}/>
-          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ರೈತರಿಗೆ ಪಾವತಿ ":"Crores Payment Per day to farmers"} endNumber={24}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ರೈತರಿಗೆ ಪಾವತಿ ":"Crores Payment Per day to farmers"} endNumber={28}/>
 
 
           </div>
