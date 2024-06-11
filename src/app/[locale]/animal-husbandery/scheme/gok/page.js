@@ -100,7 +100,7 @@ const handleButton = (idx) => {
                               return (
                               
                     <div className=' w-full relative flex justify-center mt-20 mb-20 items-center'>
-                    <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-50pxx]   object-contain'/>
+                    <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px]    top-[-50pxx]   object-contain'/>
         
         
                                 <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-lg   z-[100] ">
@@ -130,7 +130,7 @@ const handleButton = (idx) => {
                               : [];
 
                           return (
-                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      w-full ">
+                            <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border overflow-auto     w-full ">
                               <thead className=" text-left bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
                                   return (
@@ -170,9 +170,9 @@ const handleButton = (idx) => {
         <div className="mb-20  mt-20  relative w-full   flex justify-center items-center ">
               <img
                 src="/images/heading/heading-color/group.png"
-                className="absolute   w-[530px] top-[-70px]    object-contain"
+                className="absolute   w-[530px] top-[-50px] sm:top-[-70px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-md font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-sm sm:text-md font-extrabold uppercase">
               {scheme[currentIndex]?.title}
               </h1>
             </div>

@@ -43,7 +43,7 @@ function Scheme() {
           } `}
         />
       </section>
-      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+      <div className="flex w-full  flex-wrap   justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
                       <IoHomeOutline size={20} />
             </Link>
@@ -100,11 +100,11 @@ function Scheme() {
             </div>
        
 
-        <div className="w-full  flex flex-wrap  pt-10 pb-10 justify-between items-center     ">
+        <div className="w-full  flex flex-wrap gap-5 pt-10 pb-10 justify-around items-center     ">
           {schemes?.map((item, id) => {
             if(id%2==0){
                 return (
-                    <div key={id} className="relative w-96  h-96   bg-[#f99457] group ">
+                    <div key={id} className="relative w-full  max-w-96  h-96   bg-[#f99457] group ">
                              <div className='absolute w-full h-full top-0 left-0 z-20'>
                      <img className='w-full h-full opacity-0  object-fill transition duration-0 group-hover:opacity-30 group-hover:duration-1000 ' src={item?.image} alt="" />
                 </div>
@@ -128,7 +128,7 @@ function Scheme() {
             }
             else{
                 return (
-                    <div key={id} className="relative w-96  h-96  shadow-lg group  bg-[#06427C] ">
+                    <div key={id} className="relative  w-full  max-w-96  h-96  shadow-lg group  bg-[#06427C] ">
                           <div className='absolute w-full h-full top-0 left-0 z-20'>
                      <img className='w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 ' src={item?.image} alt="" />
                 </div>

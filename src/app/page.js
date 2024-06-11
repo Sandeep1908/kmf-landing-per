@@ -482,7 +482,7 @@ const Home = () => {
           </div>
 
           <div className="w-full flex justify-center  space-x-5">
-            <Link href={'/en/blog'}>
+            <Link href={'/en/blog/gallery'}>
               <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
                 See more
               </button>
