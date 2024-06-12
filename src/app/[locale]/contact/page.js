@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { MdLocationOn, MdEmail } from 'react-icons/md';
 import { FcCustomerSupport, FcCallback } from 'react-icons/fc';
@@ -8,9 +8,11 @@ import { Fade } from 'react-reveal';
 import Input from '@/components/Input';
 import Footer from '@/components/Footer';
 import Confirmation from './Confirmation';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'; // Import country and region dropdowns
 
 const Contact = () => {
   const locale = useParams().locale;
+   
   const [formData, setFormData] = useState({
     name: '',
     organization: '',
@@ -24,32 +26,38 @@ const Contact = () => {
     fax: '',
     mobile: '',
     email: '',
-    message: ''
+    message: '',
+    reason: '' // New field for the dropdown
   });
 
   const [errors, setErrors] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (e) => {
+     
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value
     }));
+
+  };
+
+  const handleCountryChange = (val) => {
+    setFormData({ ...formData, country: val });
+  };
+
+  const handleStateChange = (val) => {
+    setFormData({ ...formData, state: val });
+  };
+
+  const handleCityChange = (selectedCity) => {
+    setFormData({ ...formData, city: selectedCity });
   };
 
   const validateForm = () => {
     const newErrors = {};
-    const requiredFields = [
-      'name',
-      'streetAdd',
-      'city',
-      'state',
-      'country',
-      'mobile',
-      'email',
-      'message'
-    ];
+    const requiredFields = ['name', 'streetAdd', 'city', 'state', 'country', 'mobile', 'message'];
 
     requiredFields.forEach((field) => {
       if (!formData[field]) {
@@ -100,7 +108,8 @@ const Contact = () => {
       fax: '',
       mobile: '',
       email: '',
-      message: ''
+      message: '',
+      reason: '' // Reset the reason field as well
     });
     setErrors({});
   };
@@ -142,7 +151,7 @@ const Contact = () => {
 
               <div className="mt-3 w-full lg:grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
-                  { title: 'Name', name: 'name', type: 'text', required: true, astrix: '*' },
+                  { title: 'Name', name: 'name', type: 'text', required: true, astrik: '*' },
                   { title: 'Organisation', name: 'organization', type: 'text' },
                   { title: 'Profession', name: 'profession', type: 'text' },
                   {
@@ -150,20 +159,18 @@ const Contact = () => {
                     name: 'streetAdd',
                     type: 'text',
                     required: true,
-                    astrix: '*'
+                    astrik: '*'
                   },
-                  { title: 'City', name: 'city', type: 'text', required: true, astrix: '*' },
-                  { title: 'State', name: 'state', type: 'text', required: true, astrix: '*' },
-                  { title: 'Postal Code or Zip', name: 'pincode', type: 'number', astrix: '*' },
-                  { title: 'Country', name: 'country', type: 'text', required: true, astrix: '*' },
+                  { title: 'Postal Code or Zip', name: 'pincode', type: 'number', astrik: '*' },
                   {
                     title: 'Mobile No',
                     name: 'mobile',
                     type: 'number',
                     required: true,
-                    astrix: '*'
+                    astrik: '*'
                   },
-                  { title: 'E-mail', name: 'email', type: 'email', required: true, astrix: '*' }
+                  { title: 'E-mail', name: 'email', type: 'email', required: true },
+                   
                 ].map((input, index) => (
                   <Input
                     key={index}
@@ -174,11 +181,66 @@ const Contact = () => {
                     value={formData[input.name]}
                     setInfo={handleChange}
                     required={input.required}
-                    astrik={input.astrix}
+                    astrik={input.astrik}
                   />
                 ))}
 
-                <div className="w-full md:col-span-2">
+
+                <div className="w-full mt-7  ">
+                  <label htmlFor="country" className="text-base">
+                    Country <span className="text-red-500">*</span>
+                  </label>
+                  <CountryDropdown
+                    value={formData.country}
+                    onChange={handleCountryChange}
+                    classes="mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4"
+                  />
+                </div>
+
+                <div className="w-full mt-7  ">
+                  <label htmlFor="state" className="text-base">
+                    State <span className="text-red-500">*</span>
+                  </label>
+                  <RegionDropdown
+                    country={formData.country}
+                    value={formData.state}
+                    onChange={handleStateChange}
+                    classes="mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4"
+                  />
+                </div>
+
+                <Input
+                    
+                    title={"City"}
+                    type={'text'}
+                    style="mt-7  "
+                    name={"city"}
+                    value={formData['city']}
+                    setInfo={handleChange}
+                    required={true}
+                    astrik={"*"}
+                  />
+
+                <div className="w-full mt-7 md:col-span-2">
+                  <label htmlFor="reason" className="text-base">
+                    Reason <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="reason"
+                    onChange={handleChange}
+                    value={formData.reason}
+                    className="mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4"
+                  >
+                    <option value="">Select a reason</option>
+                    <option value="Quality">Quality</option>
+                    <option value="MRP Related">MRP Related</option>
+                    <option value="New Agency/Parlour">New Agency/Parlour</option>
+                    <option value="Product Non-Availability">Product Non-Availability</option>
+                    <option value="Others">Others</option>
+                  </select>
+                </div>
+
+                <div className="w-full mt-7 md:col-span-2">
                   <Fade bottom>
                     <label htmlFor="message" className="text-base">
                       Message <span className="text-red-500">*</span>
@@ -186,8 +248,9 @@ const Contact = () => {
                     <textarea
                       name="message"
                       onChange={handleChange}
+                      disabled={!formData.reason}
                       value={formData.message}
-                      className="mt-4 w-full h-[200px] rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4"
+                      className="mt-4 w-full h-[200px] rounded-xl text-lg border border-neutral-dark4 p-2 bg-neutral-light4"
                     />
                   </Fade>
                 </div>
@@ -220,7 +283,7 @@ const Contact = () => {
               title={locale === 'en' ? 'Toll Free' : 'ಶುಲ್ಕರಹಿತ'}
               content={
                 locale === 'en'
-                  ? '1800 425 8030 10.00AM - 5.30PM Except on Second Saturday, Sunday & GOVT. Holidays'
+                  ? '1800 425 8030 10.00AM - 5.30PM Except on Second Saturday, Fourth Saturday & GOVT. Holidays'
                   : '080-260 96800 ಸಹಾಯವಾಣಿ: 1800 425 8030 ಟೋಲ್ ಫ್ರೀ 10.00AM - 5.45PM (ಎರಡನೇ ಮತ್ತು ನಾಲ್ಕನೇ ಶನಿವಾರ, ಭಾನುವಾರ ಮತ್ತು ಇತರ ರಾಜ್ಯ ಸರ್ಕಾರಿ ರಜಾದಿನಗಳನ್ನು ಹೊರತುಪಡಿಸಿ'
               }
             />

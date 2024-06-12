@@ -28,10 +28,10 @@ function Footer() {
     })();
   }, [params?.locale]);
   return (
-    <section className="w-full h-[430px]    relative       ">
+    <section className="w-full h-[450px]    relative       ">
       <img src='https://www.dodladairy.com/static/images/footer-bg.png' className='absolute inset-0 w-full h-full object-fill'/>
-      <div className=" z-10 relative h-full  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
-        <div className="   mt-[167px] w-full h-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
+      <div className=" z-10 relative h-fit  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
+        <div className="   md:mt-[167px] w-full h-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-1 max-w-96 space-y-5">
             <h1 className="text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
            {locale==='kn'?'ವಿಳಾಸ':'Address'}
@@ -83,7 +83,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full h-full justify-center items-center   space-y-6  flex-wrap md:flex-row">
+        <div className="flex flex-col w-full h-full justify-center items-center md:pt-10  space-y-6  flex-wrap md:flex-row">
           <div className="flex flex-col justify-start items-start">
             <p className="text-sm">© {footerItem?.[0]?.copyright}</p>
             <p className="text-sm">
