@@ -32,7 +32,8 @@ import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 
 const Home = () => {
-  const [previewCount, setPreviewCount] = useState(window.innerWidth > 768 ? 2 : 1);
+  const [previewCount, setPreviewCount] = useState(3);
+  const [certificatePrivew,setCertificatePreview]=useState(3)
   const [cardDetails, setCardDetails] = useState([]);
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
   const [allTenders, setAllTenders] = useState([]);
@@ -112,7 +113,14 @@ const Home = () => {
   useEffect(() => {
     const handleResize = () => {
       setPreviewCount(window.innerWidth > 768 ? 2 : 1);
-    };
+      setCertificatePreview(window.innerWidth> 1200?3:2)
+    };  
+
+    if(window.innerWidth <700){
+      setCertificatePreview(1)
+    }
+
+
 
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -478,7 +486,7 @@ const Home = () => {
             }`}>
             <Swiper
               watchSlidesProgress={true}
-              slidesPerView={window.innerWidth >1200?3:previewCount}
+              slidesPerView={certificatePrivew}
               spaceBetween={20}
               autoplay={{
                 delay: 2500,
