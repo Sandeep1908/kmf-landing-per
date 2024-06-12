@@ -72,7 +72,7 @@ const BrandAmbassador = () => {
   useEffect(()=>{
 (
   async()=>{
-    const {data}=await axios.get('/api/brand-ambassadors')
+    const {data}=await axios.get('/api/brand-ambassadors?sort[0]=createdAt:asc')
     setBrandAmbassador(data.data)
   }
 )()
@@ -142,6 +142,7 @@ const BrandAmbassador = () => {
         autoPlay={true}
         interval={4000}
         showStatus={false}
+        selectedItem={1}
         infiniteLoop
         showThumbs={false}
         showIndicators={true}
@@ -157,7 +158,7 @@ const BrandAmbassador = () => {
                  </div>
     
               <div className='w-full h-full flex flex-col justify-center items-center  '>
-              <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>{locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1>
+              {/* <h1 className=' text-white text-2xl md:text-6xl font-bold text-center'>{locale==='en'?' BRAND AMBASSADOR':' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}</h1> */}
                  <div className='w-full h-auto mt-6 md:mt-20'>
                   <div className='max-w-[700px] m-auto'>
     
@@ -190,24 +191,24 @@ const BrandAmbassador = () => {
 
    
 
-      <section className='relative w-full h-auto bg-[#2858ac] pt-10 pb-10'>
+      <section className='relative w-full h-auto bg-[#2858ac] pt-10 pb-10 mb-5'>
 
-        <div className='w-full h-full p-10'>
+        <div className='w-full h-full p-1 md:p-10'>
             <h1 className='max-w-6xl m-auto text-white text-3xl text-center'>
             <i> {locale === 'en' ? 'Karnataka Milk Federation appoints ambassadors from renowned Kannada artistes from time to time to increase the market reach of its products.' : 'ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳವು ತನ್ನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ ವ್ಯಾಪ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸಲು ಹೆಸರಾಂತ ಕನ್ನಡದ ಕಲಾವಿದರನ್ನು ರಾಯಭಾರಿಗಳಾಗಿ ನೇಮಕ ಮಾಡಿದೆ.'} </i>
             
             </h1>
         </div>
     
-          <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
+          <div className='w-full  h-[735px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
          
-            <div className='max-w-[50%] w-full h-96 '>
+            <div className='md:max-w-[50%] w-full h-96 '>
               
                 <div className='relative w-full h-full  shadow-xl flex justify-center items-center'>
                    <div className='absolute w-full h-full'>
                        <div className='w-full h-full flex items-center justify-between'>
-                            <div className='w-16 h-8 bg-red-600' ></div>
-                            <div className='w-16 h-8 bg-red-600' ></div>
+                            <div className='w-10 h-5 md:w-16 md:h-8 bg-red-600' ></div>
+                            <div className='w-10 h-5 md:w-16 md:h-8 bg-red-600' ></div>
                        </div>
                    </div>
 {/* 
@@ -218,7 +219,7 @@ const BrandAmbassador = () => {
               <video autoPlay loop muted controls className='w-full h-full' src="/video/brand-video.mp4"></video>
                 </div>
             </div>
-            <div className='max-w-[50%] w-full h-96 pr-5'>
+            <div className=' md:max-w-[50%] w-full h-96 md:pr-5'>
             <Swiper
              slidesPerView={slideView}
               freeMode={true}

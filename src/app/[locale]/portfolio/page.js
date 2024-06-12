@@ -260,9 +260,9 @@ const randColor = colours[colorIndex];
 
   return (
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
-      <div className="w-full h-[80vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
-        <div className=" absolute z-50 top-8 right-40">
-          
+      <div className="w-full h-[100vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
+        <div className=" absolute z-50 w-12 h-12 top-6 right-6 md:top-8 md:right-40">
+          <div className='w-full h-full flex justify-center items-center'>
           <p
             id="openMenu"
             onMouseEnter={changeIcon}
@@ -273,8 +273,10 @@ const randColor = colours[colorIndex];
             }`}>
             {isChangeIcon ? <HiArrowSmallLeft size={40} /> : <IoMenu size={40} />}
           </p>
+          </div>
+         
         </div>
-        <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-[30px] right-[158px] opacity-45'>
+        <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-6 right-6 md:top-8 md:right-40 opacity-45'>
 
           </div>
         <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ''} `}>
@@ -320,11 +322,11 @@ const randColor = colours[colorIndex];
           </div>
         </div>
         <div
-          className={`transition-all duration-1000 scroll-smooth absolute w-[38%] top-0 h-full  z-[1000] shadow-xl bg-white ${
+          className={`transition-all duration-1000 scroll-smooth absolute w-[75%] md:w-[38%] top-0 h-full  z-[1000] shadow-xl bg-white ${
             isOpen ? '  right-0' : ' right-[-700px]'
           }`}>
           <div
-            className={` bg-zinc-800 rounded-full p-3 absolute top-[50%] left-[-40px] z-[100000] shadow-2xl  ${
+            className={` bg-zinc-800 rounded-full p-3 absolute top-[50%] left-[-33px] md:left-[-40px] z-[100000] shadow-2xl  ${
               isOpen ? '' : 'hidden'
             }`}>
             <p
@@ -333,30 +335,30 @@ const randColor = colours[colorIndex];
               className="text-3xl text-white transition-all duration-1000"
               onMouseEnter={changeIcon}
               onMouseLeave={changeIcon2}>
-              {isChangeIcon ? <GrClose size={50} /> : <HiArrowSmRight size={50} />}
+              {isChangeIcon ? <GrClose size={30} /> : <HiArrowSmRight size={30} />}
             </p>
           </div>
 
-          <div className="w-full h-full flex flex-col justify-between items-center">
-            <div className="pt-12 h-[10%]">
-              <h1 className="text-primary-main text-3xl md:text-5xl text-center">
+          <div className="w-full h-full flex flex-col md:justify-around items-center">
+            <div className="pt-6 md:pt-12 h-[5%] md:h-[10%]">
+              <h1 className="text-primary-main text-xl md:text-5xl text-center">
                 {' '}
                 {locale === 'en' ? 'PORTFOLIO' : 'ಪೋರ್ಟ್ಫೋಲಿಯೋ'}
               </h1>
             </div>
-            <div className="w-full h-[70%] flex flex-col justify- items-start gap-5 pl-12 pt-16">
+            <div className="w-full h-[50%] md:h-[70%] flex flex-col justify-between items-start gap-2 md:gap-5 pl-6 md:pl-12 mt-10 md:pt-10">
               <div>
                 {' '}
                 <Link href={`/${locale}/portfolio/historyofmilk`}>
-                  <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
+                  <h1 className={`text-${randColor}  text-lg md:text-2xl`}>
                     {' '}
                     {locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}
                   </h1>
                 </Link>
-                <div className="flex flex-wrap gap-3  ">
+                <div className="flex flex-wrap gap-1 md:gap-3 text-[10px] md:text-base ">
                 <Link href={`/${locale}/portfolio/historyofmilk`}>
                     {' '}
-                    <p>{locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}</p>
+                    <p >{locale === 'en' ? 'HISTORY OF MILK' : 'ಹಾಲಿನ ಇತಿಹಾಸ'}</p>
                   </Link>
                   <p>|</p>
                   <a href="#krisna">
@@ -376,12 +378,12 @@ const randColor = colours[colorIndex];
                 {' '}
                 <a href="#ACHIEVEMENTS">
                   {' '}
-                  <h1 className={`text-${randColor}   text-3xl md:text-2xl`}>
+                  <h1 className={`text-${randColor}   text-lg md:text-2xl`}>
                     {' '}
                     {locale === 'en' ? 'KMF ACHIEVEMENTS' : 'ಕಹಾಮ ಸಾಧನೆಗಳು'}
                   </h1>
                 </a>
-                <div className="flex flex-wrap gap-3  uppercase ">
+                <div className="flex flex-wrap gap-3 text-[10px] md:text-base uppercase ">
                   {tabs?.map((item, id) => {
                     return (
                       <>
@@ -398,12 +400,12 @@ const randColor = colours[colorIndex];
                 {' '}
                 <Link href={`/${locale}/portfolio/brandambassador`}>
                   {' '}
-                  <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
+                  <h1 className={`text-${randColor}  text-lg md:text-2xl`}>
                     {' '}
                     {locale === 'en' ? ' BRAND AMBASSADOR' : ' ಕಹಾಮ ರಾಯಭಾರಿಗಳು'}
                   </h1>
                 </Link>
-                <div className="flex flex-wrap gap-5 pt-3  uppercase">
+                <div className="flex flex-wrap gap-5 pt-3 text-[10px] md:text-base uppercase">
                   <Link href={`/${locale}/portfolio/brandambassador`}>
                     {' '}
                     <p>{locale === 'en' ? 'Know More' : 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ'}</p>
@@ -421,7 +423,7 @@ const randColor = colours[colorIndex];
                   {' '}
 
                   {randColor &&
-                   <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
+                   <h1 className={`text-${randColor}  text-lg md:text-2xl`}>
                    {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'}
                  </h1>
                   }
@@ -430,16 +432,16 @@ const randColor = colours[colorIndex];
               </div>
               <div>
                 <a href="#SPONSORED">
-                  <h1 className={`text-${randColor}  text-3xl md:text-2xl`}>
+                  <h1 className={`text-${randColor}  text-lg md:text-2xl`}>
                     {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
                   </h1>
                 </a>{' '}
               </div>
             </div>
-            <div className="flex flex-col justify-center h-[25%]  ">
-              <div className="flex justify-center items-end space-x-3">
-                <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
-                  <div className="w-full flex space-x-5">
+            <div className="flex flex-col justify-center h-[40%] md:h-[40%] w-full p-3 md:pl-10">
+              <div className="flex flex-col justify-center md:justify-start  items-center  space-x-3 w-full">
+                <div className="  flex flex-col  justify-start md:justify-center items-start space-y-2  w-full  ">
+                  <div className="w-full flex   space-x-5" >
                     <div className="flex justify-center items-center      ">
                       <div className="">
                         <img
@@ -461,8 +463,28 @@ const randColor = colours[colorIndex];
                         })}
                       </p>
                     </div>
+                 
+                   
+                  </div>
 
-                    <div className="flex space-x-5 justify-center p-2  items-center">
+                  <div className="flex justify-center md:justify-start items-center w-full   ">
+                    <div>
+                      <img
+                        src={contactIco.src}
+                        className="w-10 h-7 hover:scale-125 transition-all duration-300"
+                      />
+                    </div>
+                    <p className="text-[12px] w-[350px] font-heading  font-black/10 ">
+                      {headerItem?.attributes?.time?.map((item, id) => {
+                        return (
+                          <span key={id} className="block ">
+                            {item?.children[0]?.text}
+                          </span>
+                        );
+                      })}
+                    </p>
+                  </div>
+                  <div className="flex space-x-5 justify-center p-2  items-center">
                       <Link
                         href={'https://www.facebook.com/kmfnandini.coop'}
                         className="hover:scale-125 transition-all duration-300">
@@ -494,28 +516,9 @@ const randColor = colours[colorIndex];
                         <img src={ytIco.src} className="w-7" />
                       </Link>
                     </div>
-                  </div>
-
-                  <div className="flex justify-center items-center   ">
-                    <div>
-                      <img
-                        src={contactIco.src}
-                        className="w-10 h-7 hover:scale-125 transition-all duration-300"
-                      />
-                    </div>
-                    <p className="text-[12px] w-[350px] font-heading  font-black/10 ">
-                      {headerItem?.attributes?.time?.map((item, id) => {
-                        return (
-                          <span key={id} className="block ">
-                            {item?.children[0]?.text}
-                          </span>
-                        );
-                      })}
-                    </p>
-                  </div>
                 </div>
 
-                <div className="flex flex-col justify-between  space-y-3">
+                <div className="flex flex-col justify-between md:justify-start space-y-3 ">
                   <button
                     className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md "
                     onClick={handleLanguageChange}>
@@ -701,7 +704,7 @@ const randColor = colours[colorIndex];
       </section>
 
       <section id="history" className="w-full h-auto">
-        <div className=" h-[480px] flex flex-col lg:flex-row items-center mt-10 md:mt-20">
+        <div className=" h-[410px] md:h-[480px] flex flex-col lg:flex-row items-center mt-10 md:mt-20">
           <Swiper
             slidesPerView={slideView}
             freeMode={true}
@@ -802,7 +805,7 @@ const randColor = colours[colorIndex];
                       {locale === 'en' ? ' BRAND' : ' ಕಹಾಮ'} <br />
                       {locale === 'en' ? ' AMBASSADOR' : ' ರಾಯಭಾರಿಗಳು'}
                     </h1>
-                    <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
+                    <p className="mt-6 md:mt-12 text-2xl md:text-2xl text-white">
                       {locale === 'en'
                         ? 'Karnataka Milk Federation appoints ambassadors from renowned Kannada artistes  '
                         : 'ಕರ್ನಾಟಕ ಹಾಲು ಮಹಾಮಂಡಳವು ತನ್ನ ಉತ್ಪನ್ನಗಳ ಮಾರುಕಟ್ಟೆ ವ್ಯಾಪ್ತಿಯನ್ನು '}
@@ -843,7 +846,7 @@ const randColor = colours[colorIndex];
                       {locale === 'en' ? 'KMF ' : 'ಕಹಾಮ '} <br />
                       {locale === 'en' ? ' ACHIEVEMENTS' : ' ಸಾಧನೆಗಳು'}
                     </h1>
-                    <p className="mt-6 md:mt-12 text-lg md:text-2xl text-white">
+                    <p className="mt-6 md:mt-12 text-2xl md:text-2xl text-white">
                       {locale === 'en'
                         ? ' KMF- Nandini Brand, a proud household name of Karnataka with its slogan of..'
                         : ' ‘‘ಗೋವಿನಿಂದ ಗ್ರಾಹಕರಿಗೆ ಗುಣಮಟ್ಟದ ಉತ್ಕೃಷ್ಟತೆ” ಎಂಬ ಪರಿಕಲ್ಪನೆಯಡಿಯಲ್ಲಿ ಕರ್ನಾಟಕದ'}
@@ -904,7 +907,7 @@ const randColor = colours[colorIndex];
                       {' '}
                       {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
                     </h1>
-                    <p className="mt-6 md:mt-24 text-2xl text-white">
+                    <p className="mt-16 md:mt-24 text-2xl text-white">
                     {locale === 'en' ? '"Nandini" is enhancing its brand image through sponsorship Expanding sales network..' : 'ಪ್ರಾಯೋಜಕತ್ವದ ಮೂಲಕ “ನಂದಿನಿ” ತನ್ನ ಬ್ರಾಂಡ್ ಇಮೇಜ್ ಹೆಚ್ಚಿಸಿಕೊಂಡು. ಮಾರಾಟಜಾಲ.. '}
                     
                     </p>
@@ -930,13 +933,13 @@ const randColor = colours[colorIndex];
 
       <section id="ACHIEVEMENTS" className="w-full h-auto mt-10 md:mt-20">
         <div className="w-full text-center">
-          <div className="w-full pt-20 pb-20">
+          <div className="w-full pt-10  md:pt-20 md:pb-20">
               <Fade bottom>
             <div className="mt-1 w-full relative flex justify-center items-center">
               <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold ">
                 {locale === 'en' ? 'KMF ACHIEVEMENTS' : 'ಕಹಾಮ ಸಾಧನೆಗಳು'}
               </h1>
-              <img className="absolute top-[-52px] left-[55%] w-40 " src={titleBG.src} alt="" />
+              <img className="absolute top-[-52px] left-[40%] md:left-[55%] w-40 " src={titleBG.src} alt="" />
             </div>
               </Fade>
           </div>
@@ -1013,7 +1016,7 @@ const randColor = colours[colorIndex];
                           }
                           blocks={{
                             paragraph: ({ children }) => {
-                              return  <p className="text-xl ">{children}</p>;
+                              return  <p className="text-lg md:text-xl ">{children}</p>;
                             },
                             list: ({ children }) => {
                               return children;
@@ -1040,13 +1043,13 @@ const randColor = colours[colorIndex];
                       key={id}
                       className="max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16">
                       <div className="m-auto">
-                        <div className=" w-[450px] relative">
+                        <div className="w-[300px] md:w-[450px] relative">
                           <img
                             src="/images/heading/heading-color/group.png"
-                            className="absolute z-[1] w-fit top-[-48px]   object-contain"
+                            className="absolute z-[1] w-fit top-[-25px] md:top-[-48px]   object-contain"
                           />
 
-                          <h1 className="w-full relative max-w-[300px] m-auto  text-primary-main text-xl  font-bold z-[100] ">
+                          <h1 className="w-full relative max-w-[250px] md:max-w-[300px] m-auto  text-primary-main text-sm md:text-xl  font-bold z-[100] ">
                             {' '}
                             {item?.attributes?.title}
                           </h1>
@@ -1096,7 +1099,7 @@ const randColor = colours[colorIndex];
 
       <section id="ksheerasagaramagazine" className="w-full h-auto mt-10 mb-10  ">
         <div className=" m-auto  ">
-          <div  className=" mt-20 mb-5 w-full  flex justify-center items-center">
+          <div  className=" mt-20 mb-5 w-full  flex  justify-center items-center">
             <Fade top>
             <h1 className="relative  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
               {locale === 'en' ? 'KSHEERASAGARA MAGAZINE' : 'ಕ್ಷೀರಸಾಗರ ಮಾಸಪತ್ರಿಕೆ'} 
@@ -1135,14 +1138,14 @@ const randColor = colours[colorIndex];
         </div>
       </section>
 
-      <section id="SPONSORED" className="w-full h-auto pt-10 md:pt-20 pb-10 md:pb-20  ">
+      <section id="SPONSORED" className="w-full h-auto  md:pt-20  md:pb-20  ">
         <div className="w-full text-center">
-          <div className="w-full pt-20 pb-20">
+          <div className="w-full pt-10 md:pt-20  md:pb-20">
             <div className="relative mt-1 w-full  flex justify-center items-center">
               <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
                 {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
               </h1>
-              <img className="absolute top-[-52px] left-[50%] w-40 " src={titleBG.src} alt="" />
+              <img className="absolute top-[-52px] left-[45%] md:left-[50%] w-40 " src={titleBG.src} alt="" />
             </div>
           </div>
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1> */}

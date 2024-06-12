@@ -37,7 +37,7 @@ const RecipeDetail = ({ slug }) => {
 
   return (
     <div className="w-full h-full">
-      <div className="w-full h-full mt-20 pb-40">
+      <div className="w-full h-full md:mt-20 md:pb-40">
         <div className="flex flex-col justify-center items-center">
           <div className="mb-4  mt-20  relative w-full  flex justify-center items-center ">
             <h1 className=" text-primary-main relative  m-auto text-center z-10 font-heading text-5xl font-extrabold uppercase">
@@ -59,7 +59,7 @@ const RecipeDetail = ({ slug }) => {
               </div>
             </div>
 
-            <div className="absolute w-full h-full z-[10] ">
+            <div className="absolute w-full h-full z-[1] ">
               <div className="w-full h-full flex justify-center items-center">
                 <div className="max-w-3xl w-full h-full flex justify-between items-center p-5">
                   <VscArrowSmallLeft size={60} className="text-white" />
@@ -69,7 +69,7 @@ const RecipeDetail = ({ slug }) => {
             </div>
  
             <Carousels
-              className="w-2xl h-[500px]"
+              className="w-2xl h-[500px] relative z-[2]"
               autoPlay={true}
               interval={4000}
               showStatus={false}
