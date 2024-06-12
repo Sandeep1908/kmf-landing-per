@@ -118,6 +118,10 @@ const Home = () => {
 
     if(window.innerWidth < 700){
       setCertificatePreview(1)
+      setPreviewCount(1)
+    }
+    else{
+      setPreviewCount(2)
     }
 
 
@@ -142,14 +146,14 @@ const Home = () => {
 
       <video
         className={`w-full object-fill ${isScroll ? 'h-[700px]' : 'h-screen'}`}
-        src="/video/banner.mp4"
-        type="video/mp4"
+        src="/video/banner.mov"
+         
         controls
         muted
         autoPlay
         loop
         playsInline
-        preload="auto">
+        >
       </video>
 
 
