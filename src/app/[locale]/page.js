@@ -113,7 +113,7 @@ const Home = () => {
   useEffect(() => {
     const handleResize = () => {
       setPreviewCount(window.innerWidth > 768 ? 2 : 1);
-      setCertificatePreview(window.innerWidth> 1200?3:2)
+      setCertificatePreview(window.innerWidth> 1200?3:1)
     };  
 
     if(window.innerWidth <700){
