@@ -29,7 +29,7 @@ function BlogCard() {
             blogs?.map((item,id)=>{
                 if(id<itemShow){
                     return(
-                        <div key={id} className='w-full flex space-x-5 p-10 justify-center items-center'>
+                        <div key={id} className='w-full flex flex-col md:flex-row  space-y-5 md:space-x-5 p-10 justify-center items-center'>
                             <Fade left>
                         <Link href={`/${locale}/blog/${item?.id}`} className='w-40 h-20 flex flex-col justify-center items-center transition-all duration-300 border hover:scale-[1.2]'>
                                 <p className='text-xl'>{new Date(item?.attributes?.date).getDate()}</p>
@@ -40,14 +40,14 @@ function BlogCard() {
                                 </Fade>
 
                                 <Fade right>
-                        <div className='w-full'>
+                        <div className='w-full text-center md:text-start'>
                           
                                 <h1 className='text-xl text-primary-main'>{item?.attributes?.title}</h1>
                                 {item?.attributes?.content?.map((items,idx)=>{
                                     if(idx==0){
                                         return(
 
-                                            <p key={idx} className='text-slate-500'>{items?.children[0]?.text}</p>
+                                            <p key={idx} className='text-slate-500 text-justify'>{items?.children[0]?.text}</p>
                                         )
                                     }
                                    

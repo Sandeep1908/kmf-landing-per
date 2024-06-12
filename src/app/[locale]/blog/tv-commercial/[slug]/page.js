@@ -150,7 +150,7 @@ function TvcommercialDetails() {
                    text-primary-main text-xl font-bold relative before:absolute before:-bottom-3 before:w-full before:h-0.5 before:bg-primary-main
                          
                     uppercase`}>
-                {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹೀರಾತುಗಳು':'Tv commercial'}s
+                {locale==='kn'?'ಟಿ.ವಿ. ಜಾಹೀರಾತುಗಳು':'Tv commercial'}
               </li>
 
               </Link>
@@ -158,7 +158,7 @@ function TvcommercialDetails() {
           </div>
         </div>
 
-        <div className="w-full h-auto   mt-10 flex ">
+        <div className="w-full h-auto   mt-10 flex flex-col-reverse justify-center items-center md:justify-normal md:items-start md:flex-row ">
           <section className="max-w-[1282px] m-auto w-full h-full bg-white   ">
             <div className="w-full h-full flex flex-col space-x-5 justify-between items-start lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col space-y-28   ">
@@ -207,8 +207,8 @@ function TvcommercialDetails() {
               return (
                 <iframe
                   key={id}
-                  width="400"
-                  height="250"
+                  className='max-w-[400px] h-[250px] '
+                  
                   src={item.link}
                   title="YouTube video player"
                   frameborder="0"

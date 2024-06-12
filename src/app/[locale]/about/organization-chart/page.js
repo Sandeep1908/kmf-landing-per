@@ -69,10 +69,10 @@ function OrganizationChart() {
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>
           <div className='w-full flex justify-center items-center'>
-          <div className="mb-20   relative w-full  flex justify-center items-center ">
+          <div className="mb-10   relative w-full  flex justify-center items-center ">
           
               
-              <h1 className=" text-white relative z-10 font-heading text-4xl font-bold uppercase">
+              <h1 className=" text-white text-center relative z-10 font-heading text-4xl font-bold uppercase">
               {locale==='kn'?'ಕಹಾಮ ಸಂಸ್ಥೆಯ ಬಗ್ಗೆ':'About Organization'}
               </h1>
             </div>
@@ -84,14 +84,14 @@ function OrganizationChart() {
           <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರು":"Lakh Milk Producer Members"} endNumber={26}/>
 
-          <Counter  title={locale==='kn'?"ಹಾಲು ಸಹಕಾರಿ ಸಂಘಗಳು":"Functioning Dairy co-coperative societies"} endNumber={15500}/>
+          <Counter  title={locale==='kn'?"ಹಾಲು ಸಹಕಾರಿ ಸಂಘಗಳು":"Functioning Dairy co-coperative societies"} endNumber={15700}/>
 
-          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ  ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={84}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ  ಹಾಲು ಶೇಖರಣೆ":"Lakh KGs of Milk Procurement Per day"} endNumber={86}/>
 
           <Counter  title={locale==='kn'?"ಹಾಲು ಮತ್ತು ಹಾಲಿನ ಉತ್ಪನ್ನಗಳು":"Milk and Milk Products"} endNumber={148}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಒಕ್ಕೂಟಗಳು":"Milk Unions"} endNumber={15}/>
           <Counter  title={locale==='kn'?"ಕಹಾಮ ಘಟಕಗಳು":"Kmf Units"} endNumber={15}/>
-          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ರೈತರಿಗೆ ಪಾವತಿ ":"Crores Payment Per day to farmers"} endNumber={24}/>
+          <Counter  title={locale==='kn'?"ಪ್ರತಿದಿನ ರೈತರಿಗೆ ಪಾವತಿ ":"Crores Payment Per day to farmers"} endNumber={28}/>
 
 
           </div>
@@ -102,7 +102,7 @@ function OrganizationChart() {
         </div>
        
       </ParallaxBanner>
-      <section className={` relativew-full w-full m-auto  mt-10 h-[500px] pt-28 relative  grid place-items-center `}>
+      <section className={` relativew-full w-full m-auto  mt-5 h-[500px]   relative  grid place-items-center `}>
 
       <div className="absolute w-full h-full z-[-10] ">
             <div className="w-full h-full flex justify-between items-center">
@@ -114,7 +114,7 @@ function OrganizationChart() {
           <Fade bottom>
         <img
           src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
-          className=" max-w-7xl h-full object-conatain absolute top-0 z-[-1]"
+          className="w-full max-w-7xl h-[500px] object-contain    "
         />
 </Fade>
 

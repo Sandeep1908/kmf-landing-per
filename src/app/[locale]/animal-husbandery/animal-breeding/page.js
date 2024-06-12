@@ -28,7 +28,7 @@ function AnimalBreeding() {
   const locale = useLocale().locale;
   const [animalBreeding, setAnimalBreeding] = useState([]);
   const [readMore, setReadMore] = useState(false);
-
+const [previewCount,setPreviewCount]=useState(3)
 
   useEffect(() => {
     (async () => {
@@ -43,6 +43,19 @@ function AnimalBreeding() {
   const toggleReadMore = () => {
     setReadMore(!readMore);
   };
+  useEffect(() => {
+    const updateScreensize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 768) {
+        setPreviewCount(3);
+      } else {
+        setPreviewCount(1);
+      }
+    };
+    updateScreensize();
+    window.addEventListener('resize', updateScreensize);
+    return () => window.removeEventListener('resize', updateScreensize);
+  },[]);
 
   const imageArr=[
     image1.src, image2.src, image3.src, image4.src, image5.src, image6.src, image7.src
@@ -51,8 +64,7 @@ function AnimalBreeding() {
 return(
  
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
-      <div className='w-full mt-20 relative m-auto h-auto     '>
+          <div className='w-full mt-20 relative m-auto h-auto     '>
 
 <div className="absolute w-full h-full z-[-10] ">
   <div className="w-full h-full flex justify-between items-center">
@@ -61,7 +73,7 @@ return(
   </div>
 </div>
   <Swiper
- slidesPerView={3}
+ slidesPerView={previewCount}
     freeMode={true}
  
     spaceBetween={20}
@@ -76,9 +88,8 @@ return(
        
         return(
           <SwiperSlide key={id} className='w-full' >
-
-            <Zoom>
            
+           <Zoom>
           <PhotoProvider className='w-full' >
               
               <PhotoView src={item} height="400px"  >
@@ -87,7 +98,8 @@ return(
           
         
         </PhotoProvider>
-        </Zoom>
+
+</Zoom>
             </SwiperSlide>
         )
        })}
@@ -99,8 +111,7 @@ return(
    
 
 </div>
-      </section>
-      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+      <div className="flex w-full  flex-wrap   justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
                       <IoHomeOutline size={20} />
             </Link>
@@ -178,12 +189,12 @@ return(
 
 
                     <div className=' w-full relative flex justify-center items-center'>
-            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-full max-w-[450px] top-[-30px] sm:top-[-56px] object-cover   sm:object-contain'/>
 
 <Fade bottom>
 
 
-                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-sm sm:text-xl   z-[100] ">
                           {' '}
                           {_?.attributes?.title}
                         </h1>

@@ -358,7 +358,7 @@ export const Header = () => {
           style={{ transition: 'all .5s' }}></div>
 
         <div
-          className={`w-[305px] h-screen  bg-primary-darker fixed top-0 z-[20]   lg:hidden  ${
+          className={`w-[305px] h-screen  bg-primary-darker fixed top-0 z-[20] overflow-scroll   lg:hidden  ${
             openNav ? 'left-0 ' : 'left-[-1200px]   '
           }`}
           style={{ transition: 'all .8s' }}>

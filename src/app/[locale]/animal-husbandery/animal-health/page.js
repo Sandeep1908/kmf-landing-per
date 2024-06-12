@@ -52,7 +52,7 @@ function AnimalHealth() {
           } `}
         /> */}
       </section>
-      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+      <div className="flex w-full flex-wrap    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
                       <IoHomeOutline size={20} />
             </Link>
@@ -108,17 +108,17 @@ function AnimalHealth() {
                 return (
                   <div
                     key={id}
-                    className="max-w-2xl w-full m-10 rounded-3xl min-h-[500px] relative   shadow-2xl bg-slate-50 p-16">
+                    className="max-w-2xl w-full  m-3 rounded-3xl min-h-[500px] relative   shadow-2xl bg-slate-50 p-16">
                     <div className="m-auto relative w-full h-full ">
 
                       
 
 
                     <div className=' w-full z-[-10]     flex justify-center items-center'>
-            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-30px] sm:top-[-56px] object-cover  sm:object-contain'/>
 
 
-                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-sm sm:text-xl   z-[100] ">
                         {_?.attributes?.title}
                         </h1>
                         </div>
@@ -215,10 +215,10 @@ function AnimalHealth() {
 
 
                     <div className=' w-full z-[-10]     flex justify-center items-center'>
-            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-56px]   object-contain'/>
+            <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px] top-[-30px] sm:top-[-56px]  object-cover  sm:object-contain'/>
 
 
-                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-xl   z-[100] ">
+                        <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-sm sm:text-xl   z-[100] ">
                         {_?.attributes?.title}
                         </h1>
                         </div>

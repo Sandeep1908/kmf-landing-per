@@ -21,7 +21,7 @@ function MilkUnion() {
 const locale=useLocale().locale
   useEffect(() => {
     (async () => {
-      const { data } = await Api.get('/api/milk-unions?sort[0]=createdAt:asc');
+      const { data } = await Api.get('/api/milk-unions?sort[0]=order:asc');
       
       setMilkUnions(data.data);
       setLoading(false)

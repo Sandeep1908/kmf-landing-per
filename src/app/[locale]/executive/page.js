@@ -131,8 +131,8 @@ const Executive = () => {
             </div>
             <div className=' md:w-2/3 flex flex-col justify-center items-center mt-3 md:p-3 md:items-center lg:mt-0 '>
               <div>
-                <p className='text-3xl md:text-4xl font-lato font-bold text-start text-black'>{md?.attributes?.name}</p>
-                <p className=' text-lg flex justify-center items-center  w-full  font-lato md:text-start text-black '>{md?.attributes?.description}</p>
+                <p className='text-3xl md:text-4xl font-lato font-bold text-center md:text-start text-black'>{md?.attributes?.name}</p>
+                <p className=' text-lg flex justify-center items-center  w-full  font-lato text-center md:text-start text-black '>{md?.attributes?.description}</p>
               </div>
            
             </div>
@@ -143,7 +143,7 @@ const Executive = () => {
     <div>
 
 
-    <div className='w-full max-w-[1400px] m-auto p-5  '>
+    <div className='w-full max-w-[1400px] m-auto p-5   '>
       <div className=''>
         <Fade top>
         <h1 className='text-3xl font-bold font-heading'>
@@ -152,9 +152,9 @@ const Executive = () => {
         </Fade>
       </div>
 
-
-      <table className="      border-spacing-y-2	 border-collapse w-full border overflow-auto ">
-        <thead className=" bg-primary-main text-white ">
+      <div className='w-full overflow-auto'>
+      <table className="      border-spacing-y-2	max-w-7xl  border-collapse w-full border overflow-auto ">
+        <thead className=" bg-primary-main text-white min-w-full ">
           <Fade top>
           <tr className="text-md    ">
             <th className="p-2 text-start font-heading ">
@@ -202,6 +202,10 @@ const Executive = () => {
       
         </tbody>
       </table>
+        </div>
+
+
+  
 
       </div>
 
@@ -216,7 +220,8 @@ const Executive = () => {
       </div>
 
 
-      <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
+     <div className='w-full overflow-auto'>
+     <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className="bg-primary-main text-white  ">
           <tr className="text-md ">
 <Fade top>
@@ -257,6 +262,7 @@ const Executive = () => {
       
         </tbody>
       </table>
+     </div>
 
       </div>
 
@@ -272,6 +278,7 @@ const Executive = () => {
       </div>
 
 
+      <div className='w-full overflow-auto'>
       <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
         <thead className=" w-full bg-primary-main text-white ">
           <tr className="text-md    ">
@@ -314,6 +321,7 @@ const Executive = () => {
       
         </tbody>
       </table>
+      </div>
 
       </div>
     </div>

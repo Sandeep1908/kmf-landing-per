@@ -130,7 +130,7 @@ function Tvcommercial() {
           </div>
         </div>
 
-        <div className="w-full h-auto   mt-10 flex ">
+        <div className="w-full h-auto   mt-10 flex flex-col-reverse justify-center items-center md:flex-row ">
           <section className=" max-w-[1200px] m-auto w-full h-full bg-white    ">
             <div className="w-full h-full flex flex-col space-x-5 justify-center items-start lg:flex-row  ">
               <div className="w-full h-full flex flex-col space-y-28   ">

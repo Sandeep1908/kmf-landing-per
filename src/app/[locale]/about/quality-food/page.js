@@ -21,6 +21,7 @@ function OrganizationChart() {
   const [banner,setBanner]=useState([])
   const [quality,setQuality]=useState([])
   const { isScroll, setIsScroll, id, setId } = useMyContext();
+  const [previewCount,setPreviewCount]=useState(1)
   useEffect(()=>{
     (
       async()=>{
@@ -29,7 +30,24 @@ function OrganizationChart() {
         setBanner(banner?.data)
       }
     )()
+
+     
+
   },[])
+
+  useEffect(() => {
+    const updateScreensize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 768) {
+        setPreviewCount(3);
+      } else {
+        setPreviewCount(1);
+      }
+    };
+    updateScreensize();
+    window.addEventListener('resize', updateScreensize);
+    return () => window.removeEventListener('resize', updateScreensize);
+  },[]);
 
   const imageArr=['/images/quality/1.jpg','/images/quality/2.jpg','/images/quality/3.jpg','/images/quality/4.jpg','/images/quality/5.jpg','/images/quality/6.jpg','/images/quality/7.jpg','/images/quality/8.jpg','/images/quality/9.jpg','/images/quality/10.jpg','/images/quality/11.jpg','/images/quality/12.jpg','/images/quality/13.jpg','/images/quality/14.jpg','/images/quality/15.jpg','/images/quality/16.jpg','/images/quality/17.jpg','/images/quality/18.jpg','/images/quality/19.jpg','/images/quality/20.jpg']
   return (
@@ -72,7 +90,7 @@ function OrganizationChart() {
             </div>
           </div>
             <Swiper
-           slidesPerView={3}
+           slidesPerView={previewCount}
               freeMode={true}
            
               spaceBetween={20}

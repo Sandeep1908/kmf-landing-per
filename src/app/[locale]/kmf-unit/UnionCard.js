@@ -7,12 +7,12 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 function UnionCard({name,image,description,link,idx}) {
  
   return (
-    <div className=" w-full h-full grid grid-cols-2 border-b  p-2    ">
+    <div className=" w-full h-full grid md:grid-cols-2 border-b  p-2    ">
       {
         idx % 2===0 
         ?
         <Fade left>
-        <div className='w-full h-72 flex justify-center items-center'>
+        <div className='w-full h-72 pb-10 flex justify-center items-center'>
     
 
   <PhotoProvider >
@@ -29,7 +29,7 @@ function UnionCard({name,image,description,link,idx}) {
 
 <Link href={link || ''} className='w-full flex flex-col justify-start items-start space-y-6'>
 
-    <h1 className='text-3xl uppercase text-primary-main'>{name}</h1>
+    <h1 className=' text-xl text-center  md:text-3xl md:text-start uppercase text-primary-main'>{name}</h1>
     <p className='text-sm  text-justify'>{description?.[0]?.children?.[0]?.text}</p>
 
  
@@ -41,7 +41,7 @@ function UnionCard({name,image,description,link,idx}) {
 
 
         <Fade right>
-            <div className='w-full h-72 flex justify-center items-center'>
+            <div className='w-full h-72 pb-10 flex justify-center items-center'>
         
 
       <PhotoProvider >
@@ -58,7 +58,7 @@ function UnionCard({name,image,description,link,idx}) {
 
 <Link href={link || ''} className='w-full flex flex-col justify-start items-start space-y-6'>
    
-        <h1 className='text-3xl uppercase text-primary-main'>{name}</h1>
+        <h1 className='text-xl text-center md:text-3xl md:text-start  uppercase text-primary-main'>{name}</h1>
         <p className='text-sm  text-justify'>{description?.[0]?.children?.[0]?.text}</p>
     
      
