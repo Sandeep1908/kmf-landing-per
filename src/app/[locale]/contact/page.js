@@ -223,7 +223,7 @@ const Contact = () => {
 
                 <div className="w-full mt-7 md:col-span-2">
                   <label htmlFor="reason" className="text-base">
-                    Reason <span className="text-red-500">*</span>
+                  Categories <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="reason"
