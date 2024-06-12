@@ -32,7 +32,7 @@ import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 
 const Home = () => {
-  const [previewCount, setPreviewCount] = useState(3);
+  const [previewCount, setPreviewCount] = useState(2);
   const [certificatePrivew,setCertificatePreview]=useState(3)
   const [cardDetails, setCardDetails] = useState([]);
   const [homeAboutDetails, setHomeAboutDetails] = useState([]);
