@@ -93,7 +93,7 @@ const axios = useApi();
 
         <h1 className='text-primary-main   flex justify-center items-center text-2xl md:text-4xl  ' > {locale === 'en' ? 'KSHEERABHAGYA' : 'ಕ್ಷೀರ ಭಾಗ್ಯ'} </h1>
         <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
-        <img className='absolute top-[-50px] left-[49%] w-40 ' src={titleBG.src} alt="" />
+        <img className='absolute top-[-50px] left-[40%] md:left-[49%] w-40 ' src={titleBG.src} alt="" />
 </div>
       </section>
          <section className={`w-full h-auto md:h-[90vh] relative  company-bg mt-10`}>
@@ -102,7 +102,7 @@ const axios = useApi();
 <img src={banner.src} alt="" />
 
         </section>
-        <section className='w-full h-full mt-20 '>
+        <section className='w-full h-full mt-10 md:mt-20 '>
          
           <div className='w-full h-auto'>
       
@@ -162,7 +162,7 @@ const axios = useApi();
             </div>
 
            
-          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-10 ">
+          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-2 md:p-10 ">
 
 
            
