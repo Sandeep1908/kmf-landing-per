@@ -6,7 +6,7 @@ const Input = ({title,type,style,inputStyle,setInfo,astrik,value,name}) => {
   return (
     <div className={style}>
       <Fade bottom>
-      <label htmlFor="name" className='text-base  ' >{title} <span className='text-red-500'>{astrik}</span></label>
+      <label htmlFor="name" className='text-base  ' >{title} <span className='text-red-500 text-xl'>{astrik}</span></label>
       <input  onChange={(e)=>setInfo(e)} name={name} value={value} className={`mt-4 w-full rounded-xl border border-neutral-dark4 p-2 bg-neutral-light4 ${inputStyle} `} type={type} />
       </Fade>
     </div>

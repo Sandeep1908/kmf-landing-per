@@ -55,39 +55,39 @@ function OrganizationChart() {
         },
         {
           year:1975,
-          description:milestones?.filter(item=>item?.year >= 1965 && item?.year <= 1975)
+          description:milestones?.filter(item=>item?.year > 1965 && item?.year <= 1975)
         },
         {
           year:1985,
-          description:milestones?.filter(item=>item?.year >= 1975 && item?.year <= 1985)
+          description:milestones?.filter(item=>item?.year > 1975 && item?.year <= 1985)
         },
         {
           year:1995,
-          description:milestones?.filter(item=>item?.year >= 1985 && item?.year <= 1995)
+          description:milestones?.filter(item=>item?.year > 1985 && item?.year <= 1995)
         },
         {
           year:2000,
-          description:milestones?.filter(item=>item?.year >= 1995 && item?.year <= 2000)
+          description:milestones?.filter(item=>item?.year > 1995 && item?.year <= 2000)
         },
         {
           year:2005,
-          description:milestones?.filter(item=>item?.year >= 2000 && item?.year <= 2005)
+          description:milestones?.filter(item=>item?.year > 2000 && item?.year <= 2005)
         },
         {
           year:2010,
-          description:milestones?.filter(item=>item?.year >= 2005 && item?.year <= 2010)
+          description:milestones?.filter(item=>item?.year > 2005 && item?.year <= 2010)
         },
         {
           year:2015,
-          description:milestones?.filter(item=>item?.year >= 2010 && item?.year <= 2015)
+          description:milestones?.filter(item=>item?.year > 2010 && item?.year <= 2015)
         },
         {
           year:2020,
-          description:milestones?.filter(item=>item?.year >= 2015 && item?.year <= 2020)
+          description:milestones?.filter(item=>item?.year > 2015 && item?.year <= 2020)
         },
         {
           year:2025,
-          description:milestones?.filter(item=>item?.year >= 2020 && item?.year <= 2025)
+          description:milestones?.filter(item=>item?.year > 2020 && item?.year <= 2025)
         },
 
       ]

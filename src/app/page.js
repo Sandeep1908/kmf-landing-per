@@ -30,6 +30,7 @@ import { useMyContext } from '@/context/headerContext.js';
 import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
+import { useSwiper } from 'swiper/react';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -46,6 +47,7 @@ const Home = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentYearData, setCurrentYearData] = useState([]);
   const [scrollY,setScrollY]=useState(null)
+  const [isMoveTender,setIsMoveTender]=useState(true)
 
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
@@ -139,6 +141,22 @@ const Home = () => {
     };
   }, []);
 
+  const NextSlider = () => {
+  
+    const swiper = useSwiper()
+   
+    useEffect(() => {
+      if (swiper.activeIndex === 0) {
+        
+        setTimeout(() => {
+            swiper.slideTo(1,1000)  
+        }, 3000) 
+      }
+    }, [swiper])
+  
+    return <></>
+  }
+
   return (
     <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
@@ -158,6 +176,10 @@ const Home = () => {
 
 
       <a className="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+      <a className="ca3-scroll-down-link1 ca3-scroll-down-arrow1 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+      <a className="ca3-scroll-down-link2 ca3-scroll-down-arrow2 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+ 
+      
       
       </div>
 
@@ -182,6 +204,7 @@ const Home = () => {
               effect="coverflow"
               grabCursor={true}
               centeredSlides={true}
+              ref={r => r.s}
               coverflowEffect={{
                 rotate: 30,
                 stretch: 0,
@@ -220,6 +243,7 @@ const Home = () => {
                   </SwiperSlide>
                 );
               })}
+                  <NextSlider />
             </Swiper>
           </div>
         </div>
@@ -353,18 +377,23 @@ const Home = () => {
                     </h1>
                   </div>
                 </Fade>
-                <div className="w-full h-[335px] p-4 overflow-y-scroll marquee">
+                <div className={`w-full h-[335px] p-4 overflow-y-scroll ${isMoveTender?'marquee':''} `}>
                   {currentYearData
                     ?.sort(
                       (a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt)
                     )
                     ?.map((item, id) => (
-                      <div
+                      
+                      <Link
                         key={id}
+                        href={item?.attributes?.pdf_file?.data?.attributes?.url || ''}
+                        target='blank'
+                        onMouseEnter={()=>setIsMoveTender(false)}
+                        onMouseLeave={()=>setIsMoveTender(true)}
                         className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full">
                         <FaRegHandPointRight size={20} color="red" />
                         <p className="w-full"> {item?.attributes?.title}</p>
-                      </div>
+                      </Link>
                     ))}
                 </div>
               </div>

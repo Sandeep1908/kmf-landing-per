@@ -42,15 +42,9 @@ function Notification() {
   const [selectedYear, setSelectedYear] = useState(0);
   
 
-  const [showPdfPreview, setShowPdfPreview] = useState(false); // State to manage PDF preview visibility
-  const [selectedPdfUrl, setSelectedPdfUrl] = useState(''); // State to store the URL of the selected PDF
-
  
 
-  const handlePdfPreview = (pdfUrl) => {
-    setSelectedPdfUrl(pdfUrl); // Set the URL of the selected PDF
-    setShowPdfPreview(true); // Show the PDF preview
-  };
+  
 
 
   const paginate = (pageNumber) => {
@@ -217,7 +211,7 @@ function Notification() {
             </ul>
           </div>
         </div>
-        {showPdfPreview && <PdfPreview pdfUrl={selectedPdfUrl} onClose={() => setShowPdfPreview(false)} />}
+        
 
         <div className="w-full h-full flex flex-col justify-evenly items-center flex-wrap pt-10 p-4 space-y-4   ">
 
@@ -233,7 +227,7 @@ function Notification() {
             tenderNo={item?.attributes?.tenderNo}
             date={item?.attributes?.last_date}
             link={item?.attributes?.pdf_file?.data?.attributes?.url}
-            handlePdfPreview={handlePdfPreview}
+            
             
           />
           )
@@ -254,7 +248,7 @@ function Notification() {
                 tenderNo={item?.attributes?.tenderNo}
                 date={item?.attributes?.last_date}
                 link={item?.attributes?.pdf_file?.data?.attributes?.url}
-                handlePdfPreview={handlePdfPreview}
+               
                 
               />
                

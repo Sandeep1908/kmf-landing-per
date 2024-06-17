@@ -154,7 +154,9 @@ const Home = () => {
 
 
 <a className="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-
+<a className="ca3-scroll-down-link1 ca3-scroll-down-arrow1 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+      <a className="ca3-scroll-down-link2 ca3-scroll-down-arrow2 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+ 
 </div>
     {/* <CarouselImage images={banners || []}  /> */}
 
