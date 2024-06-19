@@ -163,8 +163,19 @@ const Home = () => {
       <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
       <video
-        className={`w-full object-fill ${isScroll ? 'h-[700px]' : 'h-screen'}`}
+        className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
         src="/video/banner.mov"
+         
+        controls
+        muted
+        autoPlay
+        loop
+        playsInline
+        >
+      </video>
+      <video
+        className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
+        src="/video/bannermobile.mp4"
          
         controls
         muted
