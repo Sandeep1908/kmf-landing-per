@@ -258,15 +258,19 @@ useEffect(()=>{
 const randColor = colours[colorIndex];
 
 
-const [mobileWidth, setMobileWidth] = useState(null);
+const [pdfWidth, setPdfWidth] = useState(null);
 
 useEffect(()=>{
 const handleResize=()=>{
  if(window.innerWidth === 786){
-    setMobileWidth(1)
+  setPdfWidth(1)
+  console.log("pdfw",pdfWidth)
+  
  }
  else{
-   setMobileWidth(3)
+  setPdfWidth(3)
+  console.log("pdfw",pdfWidth)
+
  }
 }
 
@@ -1127,9 +1131,33 @@ window.addEventListener('resize',handleResize);
           </div>
 
           <div className="w-full p-7 ">
-            <div  className="flex flex-col md:flex-row gap-6">
+            <div  className="md:hidden flex flex-col md:flex-row gap-6">
               <Swiper
-                slidesPerView={mobileWidth}
+                slidesPerView={1}
+                freeMode={true}
+                centeredSlides={false}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false
+                }}
+                modules={[FreeMode, Autoplay]}
+                className="w-full h-[530px]">
+               {pdf?.map((item,id)=>{
+             
+                return(
+                  <>
+                  <SwiperSlide key={id}>
+                  <PdfPreview id='ksheerasagara' className="" pdfUrl={item?.attributes?.pdf?.data?.attributes?.url}  count={id+1}/>
+                </SwiperSlide>
+                </>
+                )
+               })}   
+                
+              </Swiper>
+            </div>
+            <div  className="hidden md:flex flex-col md:flex-row gap-6">
+              <Swiper
+                slidesPerView={3}
                 freeMode={true}
                 centeredSlides={false}
                 autoplay={{
