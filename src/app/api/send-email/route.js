@@ -23,14 +23,14 @@ export async function POST(req) {
     port: 465,
     secure: true,
     auth: {
-      user: "customercare.nandini@kmf.coop",
-      pass: "npts efzk uwmd upmg",
+      user: process.env.NEXT_PUBLIC_EMAIL,
+      pass: process.env.NEXT_PUBLIC_PASSWORD,
     },
   });
 
   const mailOptions = {
     from: email,
-    to: 'customercare.nandini@kmf.coop', // replace with your recipient
+    to: process.env.NEXT_PUBLIC_EMAIL, // replace with your recipient
     subject: 'Contact Form Submission',
     text: `
       Name: ${name}
