@@ -184,7 +184,7 @@ const Marketing = () => {
                />
 
 
-      <div className='w-full h-[600px]'>
+      <div className='w-full h-[400px] md:h-[600px]'>
         
         <div className=' hidden lg:block relative w-full max-h-[500px] h-full '>
             <img className='w-full h-full' src={flag.src} alt="" />
@@ -213,16 +213,27 @@ const Marketing = () => {
             </div>
         </div>  
 
-        <div className='w-full h-auto flex flex-wrap justify-center'>
+        <div className='w-full h-auto flex flex-wrap justify-center pt-10'>
            
              <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                    <div className='m-auto'>
-                   <h1 className='text-primary-main text-2xl md:text-3xl font-bold ' >   {locale === 'en' ?   'MARKETING' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ'} </h1>
-             <div className=' mt-10'>
+                   <h1 className='text-primary-main text-center text-2xl md:text-3xl font-bold ' >   {locale === 'en' ?   'MARKETING' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ'} </h1>
+             {/* <div className=' mt-10'>
               <p className=''>
               An ambitious scheme of the Karnataka State Government, the “Ksheerdhare” scheme has been implemented for the following objective                
               </p>
-             </div>
+             </div> */}
+               {market.map((item,idx)=>{
+              
+              return(
+                <div key={idx} onClick={()=>handleMarket(item)} className='mt-5'>
+                   <h1  className='uppercase cursor-pointer text-sm md:text-lg lg:text-sm xl:text-xl text-center hover:text-white transition-all duration-200 hover:scale-[1.5]'>
+                    {item?.attributes?.title}
+                  </h1>
+                 
+                 </div>
+              )
+            })}
                    </div>
              </div>
 

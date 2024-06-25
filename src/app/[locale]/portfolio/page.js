@@ -258,6 +258,23 @@ useEffect(()=>{
 const randColor = colours[colorIndex];
 
 
+const [mobileWidth, setMobileWidth] = useState(null);
+
+useEffect(()=>{
+const handleResize=()=>{
+ if(window.innerWidth === 786){
+    setMobileWidth(1)
+ }
+ else{
+   setMobileWidth(3)
+ }
+}
+
+window.addEventListener('resize',handleResize);
+
+},[])  
+
+
   return (
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
       <div className="w-full h-[100vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
@@ -1112,7 +1129,7 @@ const randColor = colours[colorIndex];
           <div className="w-full p-7 ">
             <div  className="flex flex-col md:flex-row gap-6">
               <Swiper
-                slidesPerView={3}
+                slidesPerView={mobileWidth}
                 freeMode={true}
                 centeredSlides={false}
                 autoplay={{
@@ -1145,7 +1162,7 @@ const randColor = colours[colorIndex];
               <h1 className="w-full  m-auto text-center  text-primary-main text-2xl md:text-5xl font-bold  ">
                 {locale === 'en' ? 'SPONSORED' : 'ಪ್ರಾಯೋಜಕತ್ವ'}
               </h1>
-              <img className="absolute top-[-52px] left-[45%] md:left-[50%] w-40 " src={titleBG.src} alt="" />
+              <img className="absolute top-[-52px] left-[35%] md:left-[50%] w-40 " src={titleBG.src} alt="" />
             </div>
           </div>
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1> */}

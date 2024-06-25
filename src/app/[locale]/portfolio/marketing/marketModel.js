@@ -1,15 +1,29 @@
 // TenderDetailsModal.jsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Rodal from 'rodal';
 
 
 const MarketModel = ({ closeModal,market ,close}) => {
+  const [mobileWidth, setMobileWidth] = useState(null);
+
+   useEffect(()=>{
+   const handleResize=()=>{
+    if(window.innerWidth === 786){
+       setMobileWidth(250)
+    }
+    else{
+      setMobileWidth(700)
+    }
+   }
+
+   window.addEventListener('resize',handleResize);
    
+   },[])  
  
   return (
 
-    <Rodal visible={closeModal} onClose={()=>close(!closeModal)} animation='door'  className='overflow-auto' width={700} height={600}>
+    <Rodal visible={closeModal} onClose={()=>close(!closeModal)} animation='door'  className='overflow-auto' width={mobileWidth} >
     <div className='w-full h-full p-4  flex flex-col justify-center items-center space-y-5 overflow-auto'>
 
       <div className='w-full h-[10%]'>
