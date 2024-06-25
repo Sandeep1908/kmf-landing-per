@@ -49,7 +49,7 @@ const KsheeraDhare = () => {
             <h1 className='text-primary-main text-2xl md:text-5xl  ' >  {locale === 'en' ?  'KSHEERADHARE' : 'ಕ್ಷೀರಧಾರೆ'} </h1>
             <div className='bg-primary-main w-[200px] h-[4px] mt-2'></div>
 
-            <img className='absolute top-[-50px] left-[52%] w-40 ' src={titleBG.src} alt="" />
+            <img className='absolute top-[-50px] left-[38%] md:left-[52%] w-40 ' src={titleBG.src} alt="" />
         </div>
 
 

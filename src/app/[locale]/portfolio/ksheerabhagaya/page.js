@@ -246,7 +246,7 @@ const axios = useApi();
         </section>
         
       <section className='relative w-full h-auto bg-[#2858ac]'>
-      <div className='max-w-6xl  m-auto w-full justify-center items-center text-center  pt-20'>
+      <div className='max-w-6xl  m-auto w-full justify-center items-center text-center  md:pt-20'>
 
 
                 
@@ -256,7 +256,7 @@ const axios = useApi();
                  </div>
           <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
          
-            <div className='max-w-[50%] w-full h-96 '>
+            <div className=' md:max-w-[50%] w-full h-96 '>
               
                 <div className='relative w-full h-full  shadow-xl flex justify-center items-center'>
                    <div className='absolute w-full h-full'>
@@ -273,7 +273,7 @@ const axios = useApi();
               <video autoPlay loop muted controls className='w-full h-full' src="/video/ksheerabhagaya.mov"></video>
                 </div>
             </div>
-            <div className='max-w-[50%] w-full h-96 pr-5'>
+            <div className='md:max-w-[50%] w-full h-96 pr-5'>
             <Swiper
              slidesPerView={slideView}
               freeMode={true}
