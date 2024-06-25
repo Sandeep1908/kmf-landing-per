@@ -38,8 +38,8 @@ function Notification() {
     'Nov',
     'Dec'
   ];
-  const [selectedMonth, setSelectedMonth] = useState('');
-  const [selectedYear, setSelectedYear] = useState(0);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
   
 
  
@@ -128,11 +128,13 @@ function Notification() {
   const handleFilter = () => {
     if (!selectedMonth) {
       const filterData = alltenderItems?.filter((item) => item.year == selectedYear);
+      console.log("selectemonth",filterData)
       setTenderItems(filterData);
     } else {
       const filterData = alltenderItems?.filter(
         (item) => item.year == selectedYear && item.month === selectedMonth
       );
+      console.log("selectboth",filterData)
       setTenderItems(filterData);
     }
   };
@@ -165,7 +167,9 @@ function Notification() {
                   name="country"
                   autocomplete="country-name"
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary-main sm:max-w-xs sm:text-sm sm:leading-6"
-                  onChange={(e) => setSelectedYear(e.target.value)}>
+                  onChange={(e) => setSelectedYear(e.target.value)}
+                  value={selectedYear}
+                  >
                   <option>Year</option>
                   {Array.from(year)?.map((item, idx) => {
                     return (
@@ -183,7 +187,9 @@ function Notification() {
                   name="country"
                   autocomplete="country-name"
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary-main sm:max-w-xs sm:text-sm sm:leading-6"
-                  onChange={(e) => setSelectedMonth(e.target.value)}>
+                  onChange={(e) => setSelectedMonth(e.target.value)}
+                  value={selectedMonth}
+                  >
                   <option>Month</option>
                   {monthNames?.map((item, idx) => {
                     return (
@@ -216,7 +222,8 @@ function Notification() {
         <div className="w-full h-full flex flex-col justify-evenly items-center flex-wrap pt-10 p-4 space-y-4   ">
 
 
-          {
+          { 
+           (!selectedYear && !selectedMonth) &&
             currentYearData?.sort((a,b)=>b.attributes.createdAt-a.attributes?.createdAt)?.map((item,id)=>{
          
           return(
@@ -237,17 +244,17 @@ function Notification() {
 
 
           {currentProducts?.map((item, idx) => {
-             
+             console.log('current product',item?.attributes?.title)
             return (
               
                
               <Tenders
                 key={idx}
-                title={item?.attributes?.title}
-                description={item?.attributes?.description}
-                tenderNo={item?.attributes?.tenderNo}
-                date={item?.attributes?.last_date}
-                link={item?.attributes?.pdf_file?.data?.attributes?.url}
+                title={item?.title}
+                description={item?.description}
+                tenderNo={item?.tenderNo}
+                date={item?.last_date}
+                link={item?.pdf_file?.data?.attributes?.url}
                
                 
               />

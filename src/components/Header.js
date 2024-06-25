@@ -22,7 +22,7 @@ import mailIco from '@/images/footer/Email.svg';
 import twitterIco from '@/images/footer/X.svg';
 import insta from '@/images/footer/insta.svg';
 import ytIco from '@/images/footer/yt.svg';
-
+import { FaLocationDot } from "react-icons/fa6";
 import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -175,26 +175,26 @@ export const Header = () => {
 
         <div className={`w-full `}>
           <div
-            className={`w-full h-[150px] relative   bg-white p-10 flex justify-between items-center ${headerPathname?'hidden':''}  `}
+            className={`w-full h-[120px] md:h-[150px] relative   bg-white p-2 md:p-10 flex justify-between items-center ${headerPathname?'hidden':''}  `}
             onMouseEnter={() => setOpen(null)}>
             <div className=" max-w-xl flex justify-center items-center space-x-3">
             <img
           src={locale === 'kn' ? logokn.src : logo.src} // Use rotated logo when rotateLogo is true
           alt="logo-home"
-          className={`w-[100px] sm:w-[150px] ${rotateLogo ? '' : ''}`} // Apply rotation class
+          className={`w-[70px] sm:w-[150px] ${rotateLogo ? '' : ''}`} // Apply rotation class
         />
-              <p className={`font-extrabold font-heading  ${locale==='kn'?'text-[18px]':'text-xs sm:text-[14px]'}`}>
+              <p className={`font-extrabold font-heading   ${locale==='kn'?'text-[12px] sm:text-[18px]':'text-[9px] sm:text-[14px]'}`}>
                 {headerItem?.attributes?.title}
               </p>
             </div>
 
-            <div className="flex flex-col  ">
+            <div className="flex md:flex-col h-full md:h-fit flex-col-reverse   ">
               <div className="flex justify-center items-end space-x-5">
                 <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
                   <div className="w-full flex space-x-5">
                     <div className="flex justify-center items-center      ">
                       <div className="">
-                        <img
+                      <img
                           src={locationIco.src}
                           className="w-10 h-7 hover:scale-125 transition-all duration-300"
                         />
@@ -268,7 +268,7 @@ export const Header = () => {
 
                 <div className="flex flex-col justify-between  space-y-3">
                   <button
-                    className="bg-primary-main w-[100px] h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md "
+                    className="bg-primary-main  w-16 h-5 md:w-[100px] md:h-[36px]  text-neutral-light4 text-xs font-semibold rounded-md "
                     onClick={handleLanguageChange}>
                     {locale === 'en' ? 'ಕನ್ನಡ' : 'English'}
                   </button>
@@ -358,7 +358,7 @@ export const Header = () => {
           style={{ transition: 'all .5s' }}></div>
 
         <div
-          className={`w-[305px] h-screen  bg-primary-darker fixed top-0 z-[20] overflow-scroll   lg:hidden  ${
+          className={`w-[305px] h-screen  bg-[#0E86E7] fixed top-0 z-[20] overflow-scroll   lg:hidden  ${
             openNav ? 'left-0 ' : 'left-[-1200px]   '
           }`}
           style={{ transition: 'all .8s' }}>
@@ -370,6 +370,73 @@ export const Header = () => {
             <div className="flex justify-center items-center">
               <img src={logo.src} alt="nav-logo" className="w-[150px]" />
             </div>
+
+            
+            <div className=" w-full  max-w-40 m-auto space-x-5 mt-10  flex justify-center items-center      ">
+                      <div className="w-fit">
+                      <FaLocationDot color='white' />
+                      </div>
+
+                      <p className={`w-full text-white font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[10px]'}  `}>
+                        {headerItem?.attributes?.address?.map((item, id) => {
+                          return (
+                            <span key={id} className="block">
+                              {item?.children[0]?.text}
+                            </span>
+                          );
+                        })}
+                      </p>
+           </div>
+
+
+           <div className=" w-full   p-2 m-auto space-x-5     flex justify-center items-center      ">
+                     
+
+                      <p className={`w-full text-white text-center font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[10px]'}  `}>
+                        {headerItem?.attributes?.time?.map((item, id) => {
+                          return (
+                            <span key={id} className="block">
+                              {item?.children[0]?.text}
+                            </span>
+                          );
+                        })}
+                      </p>
+           </div>
+
+           <div className="flex space-x-5 justify-center p-2  items-center">
+                      <Link
+                        href={'https://www.facebook.com/kmfnandini.coop'}
+                        className="hover:scale-125 transition-all duration-300">
+                        <img src={facebookIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={'https://twitter.com/kmfnandinimilk'}
+                        className="hover:scale-125 transition-all duration-300">
+                        <img src={twitterIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={'https://www.kmfnandini.coop/en/contact-us'}
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={mailIco.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={
+                          'https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+                        }
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={insta.src} className="w-7" />
+                      </Link>
+                      <Link
+                        href={
+                          'https://www.youtube.com/@kmfnandini12'
+                        }
+                        className="hover:scale-125 transition-all duration-300">
+                        {' '}
+                        <img src={ytIco.src} className="w-7" />
+                      </Link>
+                    </div>
 
             <div>
               <ul className="overflow-auto">
@@ -419,6 +486,8 @@ export const Header = () => {
                     );
                   }
                 })}
+
+                
               </ul>
             </div>
           </div>

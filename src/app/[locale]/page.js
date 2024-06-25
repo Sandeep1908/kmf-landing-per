@@ -135,7 +135,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-40 md:top-48' : ''}  `}>
     {/* HOME CARAOUSAL IMAGE */}
 
     <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
@@ -144,7 +144,7 @@ const Home = () => {
         className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
         src="/video/banner.mov"
          
-        controls
+    
         muted
         autoPlay
         loop
@@ -155,7 +155,7 @@ const Home = () => {
         className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
         src="/video/bannermobile.mp4"
          
-        controls
+      
         muted
         autoPlay
         loop
@@ -163,11 +163,11 @@ const Home = () => {
         >
       </video>
 
-
-<a className="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+      <iframe className="ca3-scroll-down-link" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
+{/* <a className="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
 <a className="ca3-scroll-down-link1 ca3-scroll-down-arrow1 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
       <a className="ca3-scroll-down-link2 ca3-scroll-down-arrow2 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
- 
+  */}
 </div>
     {/* <CarouselImage images={banners || []}  /> */}
 

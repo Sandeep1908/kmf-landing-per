@@ -35,14 +35,14 @@ function PressRelease() {
 
   return (
     <div className="w-full h-full  absolute top-52 z-[-1]     ">
-      <section className={`w-full   h-[700px] pt-28 relative  grid place-items-center  `}>
-      <div className="absolute w-full h-full z-[-10] ">
+      <section className={`w-full h-[200px] md:h-[450px] lg:h-[750px] pt-28 relative grid place-items-center  `}>
+      <div className="absolute w-full h-full hidden lg:block z-[-10] ">
             <div className="w-full h-full flex justify-between items-center">
               <div className="w-40 h-8 bg-red-600"></div>
               <div className="w-40 h-8 bg-red-600"></div>
             </div>
           </div>
-        <img src={'/images/press.png'} className="w-full max-w-7xl h-full object-cover absolute top-0 z-[-1]" />
+        <img src={'/images/press.png'} className="w-full max-w-7xl h-full object-contain absolute top-0 z-[-1]" />
       </section>
 
 

@@ -221,7 +221,7 @@ const Executive = () => {
 
 
      <div className='w-full overflow-auto'>
-     <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
+     <table className="  border-spacing-y-2	max-w-7xl  border-collapse w-full border overflow-auto">
         <thead className="bg-primary-main text-white  ">
           <tr className="text-md ">
 <Fade top>
@@ -279,7 +279,7 @@ const Executive = () => {
 
 
       <div className='w-full overflow-auto'>
-      <table className="  table-fixed   border-spacing-y-2	 border-collapse border     w-full overflow-auto">
+      <table className="  border-spacing-y-2	max-w-7xl  border-collapse w-full border overflow-auto">
         <thead className=" w-full bg-primary-main text-white ">
           <tr className="text-md    ">
             <Fade top>

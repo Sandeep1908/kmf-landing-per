@@ -44,7 +44,7 @@ function MissionVission() {
        />
      </section>
      :
-      <section className={`w-full h-[750px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-[200px] md:h-[450px] lg:h-[750px] pt-28 relative grid place-items-center `}>
        
       <Fade top>
       <img
