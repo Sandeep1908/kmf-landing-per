@@ -16,7 +16,7 @@ function PdfPreview({ pdfUrl,count }) {
 
   return (
     <div className="relative pdf-preview-container z-[1] group  ">
-          <div className='w-full'> <h1 className='pl-[40%] mb-5'>{count}</h1></div>
+          <div className='w-full'> <h1 className=' pl-[50%] md:pl-[40%] mb-5'>{count}</h1></div>
          <div className='w-[400px] h-[530px] absolute z-[5]   '>
           <div className='absolute w-full h-full bg-black z-[10] opacity-45 hidden group-hover:block'>  </div>
 

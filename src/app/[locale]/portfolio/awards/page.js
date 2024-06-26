@@ -129,7 +129,7 @@ const Awards = () => {
                 
                 return(
               <div key={idx}
-                  className="  w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
+                  className=" w-96 md:w-72     h-96  rounded-md overflow-hidden   m-auto group   transition-all duration-100  "
                   >
                   <div className="p-2 w-full h-[70%]">
                   <PhotoProvider >
