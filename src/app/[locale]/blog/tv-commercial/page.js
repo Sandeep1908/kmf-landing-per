@@ -227,29 +227,22 @@ function Tvcommercial() {
           </section>
 
           <div className=" w-full max-w-60 mr-10 h-full transition-all duration-300  ">
-                <TvcommercialAccordion
-                  title={'BRAND AMBASSADOR'}
-                  id={100}
-                  open={openAccordion == 100}
-                  arrow={arrows}
-                  onToggle={handleAccordionClick}>
-                  <ul className="">
-                    {brandAmbassador?.map((item, index) => {
-                      return (
-                        <Link
-                          href={`/${locale}/blog/tv-commercial/${item?.id}/?subid=${item?.id}` || ''}
-                          key={index}
-                          onClick={() => setOpenNav((prev) => !prev)}>
-                          <li
-                            key={index}
-                            className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
-                            <span>{item?.attributes?.name}</span>
-                          </li>
-                        </Link>
-                      );
-                    })}
-                  </ul>
-                </TvcommercialAccordion>
+               
+          <Link       href={`/${locale}/blog/tv-commercial/brandambassador`|| ''}>
+                      <Fade right>
+                    
+                    <li
+                   
+                   
+                      className="w-full list-none transition-all duration-300 bg-primary-main ">
+                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
+                        <div className="w-full flex space-x-2 ">
+                          <span className=" text-sm text-white uppercase">Brand Ambassador</span>
+                        </div>
+                      </button>
+                    </li>
+                    </Fade>
+                    </Link>
 
                 {commercialCategory?.map((item, id) => {
                    
