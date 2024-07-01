@@ -1,16 +1,28 @@
+'use client'
 // TenderDetailsModal.jsx
 
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Rodal from 'rodal';
 
 
 const KnmModel = ({ closeModal,kymMilk ,close}) => {
+  const [windowWidht,setWindowWidth]=useState(null)
+  useEffect(()=>{
+      const w=window.innerWidth;
+      if(w>700){
+        setWindowWidth(600)
+      }
+      else{
+        setWindowWidth(400)
+      }
+  },[])
  
+
   return (
 
-    <Rodal visible={closeModal} onClose={()=>close(!closeModal)} animation='door'  className='overflow-auto ' width={700} height={600}>
+    <Rodal visible={closeModal} onClose={()=>close(!closeModal)} animation='door'  className='overflow-auto w-full z-[10]' height={500} width={windowWidht}  >
     <div className='w-full h-full p-4 relative   flex flex-col justify-center items-center space-y-5 overflow-auto'>
 
       <div className='w-full h-[10%]'>

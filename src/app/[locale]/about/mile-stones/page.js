@@ -175,7 +175,7 @@ function OrganizationChart() {
 
                 {/* inner milestone */}
                 <div
-                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
+                  className={`w-full flex flex-col p-2 max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
                     openAccordion === id ? 'block' : 'hidden'
                   }`}>
                    
@@ -189,7 +189,7 @@ function OrganizationChart() {
                             <div className="flex justify-center items-center">
                               <div className="w-10 h-10 border-secondary-main rounded-full border-[8px]"></div>
                               <div className="flex justify-center items-center">
-                                <div className="w-[140px] h-[2px] bg-black"></div>
+                                <div className="w-[40px] md:w-[140px] h-[2px] bg-black"></div>
                                 <div className="w-2 h-2 border-secondary-main rounded-full border-[8px]"></div>
                               </div>
                             </div>
@@ -205,7 +205,7 @@ function OrganizationChart() {
                             <div className="flex justify-center items-center">
                               <div className="flex justify-center items-center">
                                 <div className="w-2 h-2 border-primary-main rounded-full border-[8px]"></div>
-                                <div className="w-[140px] h-[2px] bg-black"></div>
+                                <div className="w-[40px] md:w-[140px] h-[2px] bg-black"></div>
                               </div>
                               <div className="w-10 h-10 border-primary-main rounded-full border-[8px]"></div>
                             </div>
@@ -234,7 +234,7 @@ function OrganizationChart() {
                 </div>
 
                 <div
-                  className={`w-full flex flex-col max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
+                  className={`w-full flex flex-col p-2 max-w-5xl m-auto space-y-6 justify-center items-center mt-[150px] transition-all duration-500 ${
                     openAccordion === id ? 'block' : 'hidden'
                   }`}>
                   {item?.description?.sort((a,b)=>b.year-a.year)?.map((item, id) => {
@@ -246,7 +246,7 @@ function OrganizationChart() {
                             <div className="flex justify-center items-center">
                               <div className="w-10 h-10 border-secondary-main rounded-full border-[8px]"></div>
                               <div className="flex justify-center items-center">
-                                <div className="w-[140px] h-[2px] bg-black"></div>
+                                <div className="w-[40px] md:w-[140px] h-[2px] bg-black"></div>
                                 <div className="w-2 h-2 border-secondary-main rounded-full border-[8px]"></div>
                               </div>
                             </div>
@@ -262,7 +262,7 @@ function OrganizationChart() {
                             <div className="flex justify-center items-center">
                               <div className="flex justify-center items-center">
                                 <div className="w-2 h-2 border-primary-main rounded-full border-[8px]"></div>
-                                <div className="w-[140px] h-[2px] bg-black"></div>
+                                <div className="w-[40px] md:w-[140px] h-[2px] bg-black"></div>
                               </div>
                               <div className="w-10 h-10 border-primary-main rounded-full border-[8px]"></div>
                             </div>
