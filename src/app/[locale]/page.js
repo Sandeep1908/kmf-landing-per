@@ -30,6 +30,7 @@ import { useMyContext } from '@/context/headerContext.js';
 import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
+import Preloader from '@/components/Preloader.js';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -164,11 +165,12 @@ const Home = () => {
       </video>
 
       <iframe className="ca3-scroll-down-link" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
-{/* <a className="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-<a className="ca3-scroll-down-link1 ca3-scroll-down-arrow1 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-      <a className="ca3-scroll-down-link2 ca3-scroll-down-arrow2 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-  */}
+ 
 </div>
+
+    <Preloader imgURL={'/poster/knposter.jpeg'}/>
+
+
     {/* <CarouselImage images={banners || []}  /> */}
 
     <section className="w-full pt-20 pb-20 relative z-[1] bg-primary-subtle">

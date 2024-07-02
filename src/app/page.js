@@ -31,6 +31,7 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
+import Preloader from '@/components/Preloader.js';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -198,7 +199,7 @@ const Home = () => {
 
 
 
-        
+          <Preloader imgURL='/poster/engposter.jpeg'/>
    
 
       {/* <CarouselImage images={banners || []}  /> */}
