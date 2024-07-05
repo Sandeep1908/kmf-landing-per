@@ -349,7 +349,7 @@ export const Header = () => {
           </div>
    
         </div>
-        <div className=' h-5 bg-red-500 flex    '>
+        {/* <div className=' h-5 bg-red-500 flex    '>
                   <div className='marquee-latest w-full  flex space-x-5'>
 
                  
@@ -366,7 +366,7 @@ export const Header = () => {
                   </div>
                  
 
-          </div>
+          </div> */}
 
         {/* Mobile Header  */}
 
