@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
         <head>
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
           <link rel="icon" type="image/png" href={logo.src}/>
+     
         </head>
         <body className='relative'>
           <MyContextProvider>
@@ -54,6 +55,15 @@ export default function RootLayout({ children }) {
        
         </body>
         
+           
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DP4FBEQWDL"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DP4FBEQWDL');
+        </script>
       </html>
      
     </>
