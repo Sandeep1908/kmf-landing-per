@@ -27,6 +27,7 @@ import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
+import Preloader from './Preloader';
  
 export const Header = () => {
   const [openAccordion, SetOpenAccordion] = useState(null);
