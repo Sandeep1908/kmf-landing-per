@@ -347,7 +347,26 @@ export const Header = () => {
               </div>
             </div>
           </div>
+   
         </div>
+        <div className=' h-5 bg-red-500 flex    '>
+                  <div className='marquee-latest w-full  flex space-x-5'>
+
+                 
+                  <h1 className='  text-white'>Latest news</h1>
+                  <h1 className='  text-white'>Latest news</h1>
+
+                  <h1 className='  text-white'>Latest news</h1>
+
+                  <h1 className='  text-white'>Latest news</h1>
+
+                   
+
+                 
+                  </div>
+                 
+
+          </div>
 
         {/* Mobile Header  */}
 
