@@ -7,8 +7,6 @@ import './page.module.css'
 import logo from '@/images/logo/logo.png';
 import Head from 'next/head';
 
-
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -22,7 +20,7 @@ import { pdfjs } from 'react-pdf';
 
 import 'react-photo-view/dist/react-photo-view.css';
 import { MyContextProvider } from '@/context/headerContext';
-
+import Script from 'next/script';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -43,19 +41,7 @@ export default function RootLayout({ children }) {
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
           <link rel="icon" type="image/png" href={logo.src} />
         </head>
-        <Head>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-DP4FBEQWDL"></script>
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-DP4FBEQWDL');
-            `,
-              }}
-            />
-          </Head>
+   
         <body className='relative'>
           <MyContextProvider>
             <Header />
@@ -69,7 +55,18 @@ export default function RootLayout({ children }) {
 
 
         </body>
-
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-DP4FBEQWDL" />
+        <Script
+  id="show-banner"
+  dangerouslySetInnerHTML={{
+    __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DP4FBEQWDL');
+`,
+  }}
+/>
       </html>
 
     </>
