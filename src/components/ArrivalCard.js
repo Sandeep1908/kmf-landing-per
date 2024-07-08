@@ -19,9 +19,15 @@ function ArrivalCard({imgUrl,title,link}) {
       />
     </div>
 
+    {title &&
+    
     <div className="p-2  w-full   rounded-full bg-zinc-300 group-hover:bg-orange-500 ">
-      <h1 className="text-sm text-center group-hover:text-white  ">{title}</h1>
-    </div>
+
+    <h1 className="text-sm text-center group-hover:text-white  ">{title}</h1>
+  </div>
+    }
+
+ 
 
  
   </div>

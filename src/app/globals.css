@@ -354,10 +354,17 @@ body {
   width: 100%; /* Make the pseudo-element as wide as the container */
 }
 
+
+
+
 .marquee-notification > * {
   display: inline-block;
   margin-right: 20px; /* Adjust spacing between items as needed */
   animation: marquee-notification 4s linear infinite;
+}
+
+.marquee-notification:hover{
+  animation-play-state: paused;
 }
 
 @keyframes marquee-notification {

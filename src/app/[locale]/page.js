@@ -168,7 +168,7 @@ const Home = () => {
  
 </div>
 
-    <Preloader imgURL={'/poster/knposter.jpeg'}/>
+    
 
 
     {/* <CarouselImage images={banners || []}  /> */}
