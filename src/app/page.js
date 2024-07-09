@@ -63,7 +63,7 @@ const Home = () => {
     const [
       { data: certificate },
       { data: tenders },
-      { data: arrivals },
+     
       { data: homecard },
       { data: homeabout },
       { data: knm },
@@ -71,7 +71,7 @@ const Home = () => {
     ] = await Promise.all([
       axios.get('/api/certificates'),
       axios.get('/api/tender-notifications?sort[0]=last_date:desc'),
-      axios.get('/api/latestproducts'),
+   
       axios.get('/api/homecards'),
       axios.get('/api/homeabouts'),
       axios.get('/api/knowyourmilks'),
@@ -92,7 +92,7 @@ const Home = () => {
     }
 
     const latestProducts = allProduct.data.filter((item) => item?.attributes?.isLatest);
-    const product = [...arrivals.data, ...latestProducts];
+    const product = [...latestProducts];
 
     const homedetails = homeabout.data.map((item) => ({
       about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
@@ -160,6 +160,8 @@ const Home = () => {
 
   return (
     <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-40 md:top-48 ' : ''}  `}>
+
+ 
       {/* HOME CARAOUSAL IMAGE */}
       <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
@@ -188,11 +190,9 @@ const Home = () => {
 
       
       <iframe className="ca3-scroll-down-link" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
-      {/* <a className="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-      <a className="ca3-scroll-down-link1 ca3-scroll-down-arrow1 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-      <a className="ca3-scroll-down-link2 ca3-scroll-down-arrow2 " data-ca3_iconfont="ETmodules" data-ca3_icon=""></a> */}
- 
-      
+  
+
+  
       
       </div>
 
