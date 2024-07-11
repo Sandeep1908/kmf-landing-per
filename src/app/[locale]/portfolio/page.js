@@ -344,7 +344,7 @@ window.addEventListener('resize',handleResize);
         </div>
         <div
           className={`transition-all duration-1000 scroll-smooth absolute w-[75%] md:w-[38%] top-0 h-full  z-[1000] shadow-xl bg-white ${
-            isOpen ? '  right-0' : ' right-[-700px]'
+            isOpen ? '  right-0' : ' right-[-1000px]'
           }`}>
           <div
             className={` bg-zinc-800 rounded-full p-3 absolute top-[50%] left-[-33px] md:left-[-40px] z-[100000] shadow-2xl  ${
