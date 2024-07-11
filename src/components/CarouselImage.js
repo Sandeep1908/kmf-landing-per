@@ -20,6 +20,8 @@ const NextSlider = () => {
   const swiper = useSwiper()
  
   useEffect(() => {
+
+
     if (swiper.activeIndex === 0) {
       
       setTimeout(() => {
@@ -31,8 +33,8 @@ const NextSlider = () => {
   return <></>
 }
 
-const CarouselImage = ({ images }) => {
- 
+const CarouselImage = ({ images,mobile }) => {
+    
 
   return (
     <div className="relative w-full">
@@ -62,16 +64,25 @@ const CarouselImage = ({ images }) => {
         }}
         loop={true}
         className={`w-full h-[600px] pb-0`}>
-        {images?.map((img, id) => {
+
+       
+          
+         { images?.map((img, id) => {
           
           return (
             <SwiperSlide className="  " key={id}>
               <img src={img} className="w-full h-[600px]  object-fill " />
             </SwiperSlide>
           );
-        })}
+        })
+      }
+        
+   
+        
      <NextSlider />
       </Swiper>
+
+      
     </div>
   );
 };

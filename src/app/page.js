@@ -32,6 +32,7 @@ import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
 import Preloader from '@/components/Preloader.js';
+import CarouselImage from '@/components/CarouselImage.js';
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -53,6 +54,8 @@ const Home = () => {
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
+  const desktop=['/birthday/desktop/desktop-eng.jpeg','/birthday/desktop/desktop-en-2.jpeg']
+  const mobile=['/birthday/mobile/mobile-eng.jpeg']
 
   const handleKnowMilk = (item) => {
     setKnowMilkItem(item);
@@ -163,7 +166,7 @@ const Home = () => {
 
  
       {/* HOME CARAOUSAL IMAGE */}
-      <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
+      {/* <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
       <video
         className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
@@ -194,11 +197,11 @@ const Home = () => {
 
   
       
-      </div>
+      </div> */}
 
 
 
-
+<CarouselImage images={desktop || []} mobileImg={mobile || []}  />
          
    
 

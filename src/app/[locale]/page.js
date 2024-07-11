@@ -31,6 +31,8 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import Preloader from '@/components/Preloader.js';
+import CarouselImage from '@/components/CarouselImage.js';
+
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -51,6 +53,9 @@ const Home = () => {
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
+  const desktop=['/birthday/desktop/desktop-kn.jpeg','/birthday/desktop/desktop-kn-2.jpeg']
+  const mobile=['/birthday/mobile/mobile-kn.jpeg']
+
 
   const handleKnowMilk = (item) => {
     setKnowMilkItem(item);
@@ -139,7 +144,7 @@ const Home = () => {
     <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-40 md:top-48' : ''}  `}>
     {/* HOME CARAOUSAL IMAGE */}
 
-    <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
+    {/* <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
     <video
         className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
@@ -168,12 +173,12 @@ const Home = () => {
  
 
      
-</div>
+</div> */}
 
     
 
 
-    {/* <CarouselImage images={banners || []}  /> */}
+    <CarouselImage images={desktop || []} mobileImg={mobile || []}  />
 
     <section className="w-full pt-20 pb-20 relative z-[1] bg-primary-subtle">
         <div className="w-full">
