@@ -183,7 +183,7 @@ function Portfolio() {
     (async () => {
       const { data } = await axios.get('/api/kmf-achievements');
       const { data: sponsor } = await axios.get('/api/sponsoreds');
-      const { data: banner } = await axios.get('/api/banners');
+      const { data: banner } = await axios.get('/api/banners?sort[0]=createdAt:desc');
       const { data: pdf } = await axios.get('/api/Ksheerasagramagazines');
 
       setBanners(banner.data);
