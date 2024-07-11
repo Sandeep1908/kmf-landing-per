@@ -158,6 +158,7 @@ export const Header = () => {
   const handleAccordionClick = (accordionId) => {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
+  
   const handleMainHeader=(idx)=>{
   
     setOpen(null)
