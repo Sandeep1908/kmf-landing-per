@@ -318,7 +318,7 @@ window.addEventListener('resize',handleResize);
             <section className={`w-full h-full relative`}>
               <Swiper
                 autoplay={{
-                  delay: 2500,
+                  delay: 3500,
                   disableOnInteraction: false
                 }}
                 direction={'vertical'}
