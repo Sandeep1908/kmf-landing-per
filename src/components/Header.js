@@ -173,7 +173,7 @@ export const Header = () => {
     <>
       <div className={` w-full h-full relative z-20  ${isScroll?'block':'hidden'}  `}>
 
-        <Link href={`/${locale}/offers/`} className='w-24 h-15 fixed z-[10] right-5 top-2'>
+        <Link href={`/${locale}/offers/`} className='w-24 h-15 fixed z-[10] right-5 top-1'>
 
             <img src='/poster/offer.gif' className='w-full h-full'/>
         </Link>

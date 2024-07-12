@@ -33,57 +33,101 @@ const NextSlider = () => {
   return <></>
 }
 
-const CarouselImage = ({ images,mobile }) => {
-    
+const CarouselImage = ({ images,mobileImg }) => {
+    console.log("object",mobileImg)
 
   return (
-    <div className="relative w-full">
-      <Swiper
-        grabCursor={true}
-        centeredSlides={true}
-        effect={'fade'}
-        ref={r => r.s}
-        coverflowEffect={{
-          rotate: 45,
-          stretch: 0,
-          depth: 200,
-          modifier: 1,
-          slideShadows: false
-          
-        }}
-        slidesPerView={1}
-        modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
-        observeParents={true}
-        observer={true}
-        controller={true}
-        scrollbar={{ draggable: true }}
-        slide
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false
-        }}
-        loop={true}
-        className={`w-full h-[600px] pb-0`}>
+    <>
+      <div className="hidden md:block relative w-full">
+        <Swiper
+          grabCursor={true}
+          centeredSlides={true}
+          effect={'fade'}
+          ref={r => r.s}
+          coverflowEffect={{
+            rotate: 45,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: false
+            
+          }}
+          slidesPerView={1}
+          modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+          observeParents={true}
+          observer={true}
+          controller={true}
+          scrollbar={{ draggable: true }}
+          slide
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false
+          }}
+          loop={true}
+          className={`w-full h-[600px] pb-0`}>
 
-       
-          
-         { images?.map((img, id) => {
-          
-          return (
-            <SwiperSlide className="  " key={id}>
-              <img src={img} className="w-full h-[600px]  object-fill " />
-            </SwiperSlide>
-          );
-        })
-      }
         
-   
-        
-     <NextSlider />
-      </Swiper>
+            
+          { images?.map((img, id) => {
+            
+            return (
+              <SwiperSlide className="  " key={id}>
+                <img src={img} className="w-full h-[600px]  object-fill " />
+              </SwiperSlide>
+            );
+          })
+        }
+          
+    
+          
+      <NextSlider />
+        </Swiper>
 
-      
-    </div>
+        
+      </div>
+      <div className="md:hidden relative w-full">
+        <Swiper
+          grabCursor={true}
+          centeredSlides={true}
+          effect={'fade'}
+          ref={r => r.s}
+          coverflowEffect={{
+            rotate: 45,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: false
+            
+          }}
+          slidesPerView={1}
+          modules={[Navigation, Pagination,Fade, Autoplay, Scrollbar, A11y, EffectCoverflow]}
+          observeParents={true}
+          observer={true}
+          controller={true}
+          scrollbar={{ draggable: true }}
+          slide
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false
+          }}
+          loop={true}
+          className={`w-full h-[600px] pb-0`}>
+
+        
+          
+              <SwiperSlide className="  " >
+                <img src={mobileImg} className="w-full h-[600px]  object-fill " />
+              </SwiperSlide>
+          
+          
+    
+          
+      <NextSlider />
+        </Swiper>
+
+        
+      </div>
+    </> 
   );
 };
 CarouselImage.propTypes = {
