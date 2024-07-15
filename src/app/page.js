@@ -55,7 +55,7 @@ const Home = () => {
   const axios = useApi();
   const locale = useLocale().locale;
   const desktop=['/birthday/desktop/desktop-eng.jpeg','/birthday/desktop/desktop-en-2.jpeg']
-  const mobile=['/birthday/mobile/mobile-eng.jpeg']
+  const mobile=['/birthday/mobile/mobile-en.jpeg']
 
   const handleKnowMilk = (item) => {
     setKnowMilkItem(item);
