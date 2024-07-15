@@ -166,7 +166,7 @@ const Home = () => {
 
  
       {/* HOME CARAOUSAL IMAGE */}
-      {/* <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
+      <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
       <video
         className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
@@ -197,11 +197,11 @@ const Home = () => {
 
   
       
-      </div> */}
+      </div>
 
 
 
-<CarouselImage images={desktop || []} mobileImg={mobile || []}  />
+{/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
          
    
 

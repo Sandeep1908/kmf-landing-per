@@ -144,7 +144,7 @@ const Home = () => {
     <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-40 md:top-48' : ''}  `}>
     {/* HOME CARAOUSAL IMAGE */}
 
-    {/* <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
+    <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
     <video
         className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
@@ -173,12 +173,12 @@ const Home = () => {
  
 
      
-</div> */}
+</div>
 
     
 
 
-    <CarouselImage images={desktop || []} mobileImg={mobile || []}  />
+    {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
 
     <section className="w-full pt-20 pb-20 relative z-[1] bg-primary-subtle">
         <div className="w-full">
