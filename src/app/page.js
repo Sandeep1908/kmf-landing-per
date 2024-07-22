@@ -31,8 +31,7 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
-import Preloader from '@/components/Preloader.js';
-import CarouselImage from '@/components/CarouselImage.js';
+
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -166,10 +165,10 @@ const Home = () => {
 
  
       {/* HOME CARAOUSAL IMAGE */}
-      <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
+      <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}>
 
       <video
-        className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
+        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
         src="/video/banner.mov"
          
         muted
@@ -178,7 +177,7 @@ const Home = () => {
         playsInline
         >
       </video>
-      <video
+      {/* <video
         className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
         src="/video/bannermobile.mp4"
          
@@ -188,17 +187,42 @@ const Home = () => {
         loop
         playsInline
         >
-      </video>
+      </video> */}
 
 
       
-      <iframe className="absolute bottom-0 left-[40%] sm:left-[45%] " width={100} src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
+      <iframe className="absolute bottom-0 left-[40%] sm:left-[45%] hidden md:block " width={100} src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
   
 
   
       
       </div>
 
+
+
+{/* important */}
+      <div className='w-full h-20 flex justify-center items-center bg-red-600'>
+      <p className='text-white text-center '>Important: We have moved to H.No.8-2-293/82/A/1286, Plot No: 1286, Road No. 1 & 65, Jubilee Hills, Hyderabad- 500033, Telangana, India w.e.f 1-12-2022 </p>
+      </div>
+
+
+
+{/* Caution/ */}
+
+ <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
+
+
+    <p className='text-red-600 font-bold uppercase mr-3'>Caution:</p>
+    <div className='text-green-900   font-bold w-full text-sm  text-nowrap'>
+    Heritage Foods Limited. Since its incorporation (i.e. 05/06/1992) is not accepting any type of deposits from the public, if anybody is asking any type of deposits in the name of Heritage Foods Limited. Dont believe such false assurance.
+
+
+    </div>
+      
+    
+
+ </div>
+      
 
 
 {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
@@ -563,6 +587,42 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+
+                <div className='w-full h-full flex justify-center space-x-5 items-center'>
+                  <div className=' text-5xl  font-light font-serif'>
+                      Follow us:
+                  </div>
+
+                  <div className='w-fulll '>
+                        <ul className='w-full flex justify-center space-x-5 items-center'>
+                          <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
+                            <a href='https://www.facebook.com/kmfnandini.coop'>
+                              <img src='https://www.heritagefoods.in/static/images/fb.png'/>
+                            </a>
+                          </li>
+
+
+                          <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
+                            <a href='https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
+                              <img src='https://www.heritagefoods.in/static/images/is.png'/>
+                            </a>
+                          </li>
+
+
+                          <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
+                            <a href="https://www.youtube.com/@kmfnandini12">
+                              <img src='https://www.heritagefoods.in/static/images/yt.png'/>
+                            </a>
+                          </li>
+
+
+                        </ul>
+                  </div>
+                </div>
+
+
+
 
       {/* FOOTER SECTION  */}
       <Footer />

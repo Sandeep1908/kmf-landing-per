@@ -169,14 +169,35 @@ const Home = () => {
         >
       </video>
 
-      <iframe className="absolute bottom-0 left-[40%] sm:left-[45%]" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
+      <iframe width={100} className="absolute bottom-0 left-[40%] sm:left-[45%]" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
  
 
      
 </div>
 
     
+{/* important */}
+<div className='w-full h-10 flex justify-center items-center bg-red-600'>
+      <p className='text-white '>Important: We have moved to H.No.8-2-293/82/A/1286, Plot No: 1286, Road No. 1 & 65, Jubilee Hills, Hyderabad- 500033, Telangana, India w.e.f 1-12-2022 </p>
+      </div>
 
+
+
+{/* Caution/ */}
+
+ <div className='w-full h-14 bg-white flex justify-center items-center marquee-latest overflow-hidden'>
+
+
+    <p className='text-red-600 font-bold uppercase mr-3'>Caution:</p>
+    <p className='text-green-900 font-bold w-full overflow-x-hidden text-sm'>
+    Heritage Foods Limited. Since its incorporation (i.e. 05/06/1992) is not accepting any type of deposits from the public, if anybody is asking any type of deposits in the name of Heritage Foods Limited. Dont believe such false assurance.
+
+
+    </p>
+      
+    
+
+ </div>
 
     {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
 
@@ -536,6 +557,39 @@ const Home = () => {
         </div>
       </section>
 
+
+
+      <div className='w-full h-full flex justify-center space-x-5 items-center'>
+                  <div className=' text-5xl  font-light font-serif'>
+                      Follow us:
+                  </div>
+
+                  <div className='w-fulll '>
+                        <ul className='w-full flex justify-center space-x-5 items-center'>
+                          <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
+                            <a href='https://www.facebook.com/kmfnandini.coop'>
+                              <img src='https://www.heritagefoods.in/static/images/fb.png'/>
+                            </a>
+                          </li>
+
+
+                          <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
+                            <a href='https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
+                              <img src='https://www.heritagefoods.in/static/images/is.png'/>
+                            </a>
+                          </li>
+
+
+                          <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
+                            <a href="https://www.youtube.com/@kmfnandini12">
+                              <img src='https://www.heritagefoods.in/static/images/yt.png'/>
+                            </a>
+                          </li>
+
+
+                        </ul>
+                  </div>
+                </div>
     {/* FOOTER SECTION  */}
     <Footer />
   </div>

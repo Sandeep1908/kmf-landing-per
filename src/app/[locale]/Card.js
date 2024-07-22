@@ -11,7 +11,7 @@ function Card({ imgUrl, title, link }) {
   return (
  
       <div
-        className="w-full max-w-96 relative  h-96 bg-light-light4 rounded-md overflow-hidden   m-auto   "
+        className="w-full max-w-72 h-52 md:max-w-96 relative  md:h-96 bg-light-light4 rounded-md overflow-hidden   m-auto   "
         style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
         <div className="  w-full h-full">
           <img

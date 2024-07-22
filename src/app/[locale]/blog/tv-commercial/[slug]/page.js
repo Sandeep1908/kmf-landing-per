@@ -387,14 +387,14 @@ function TvcommercialDetails() {
                     </Link>
 
                 {commercialCategory?.map((item, id) => {
-                   
+ 
                   return (
                     
                     <Link    key={id}  href={`/${locale}/blog/tv-commercial/${item?.id}` || ''}>
                     <li
                    
                    
-                      className="w-full list-none transition-all duration-300 bg-primary-main ">
+                      className={`w-full list-none transition-all duration-300  bg-primary-main`}>
                       <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
                           <span className=" text-sm text-white">{item?.attributes?.title}</span>

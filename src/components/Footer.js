@@ -4,6 +4,9 @@ import locationVectorIco from '../images/footer/locationVector.svg';
 import callVectorIco from '../images/footer/callVector.svg';
 import msgVectorIco from '../images/footer/msgVector.svg';
 
+import { MdLocationOn, MdEmail } from 'react-icons/md';
+import { FcCustomerSupport, FcCallback } from 'react-icons/fc';
+
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
@@ -38,7 +41,7 @@ function Footer() {
             </h1>
 
             <div className="flex h-full justify-center items-start space-x-3">
-              <img src={locationVectorIco.src} className='hover:scale-125 transition-all duration-300' />
+              <MdLocationOn size={50} height={20} color='red'/>
 
               <div className="flex flex-col justify-center items-center md:items-start space-y-5">
                 <p className="text-neutral-dark1 text-left text-sm ">
@@ -55,8 +58,8 @@ function Footer() {
 
             </h1>
 
-            <div className="flex justify-center items-start space-x-3">
-              <img src={callVectorIco.src} className='hover:scale-125 transition-all duration-300' />
+            <div className="flex justify-start items-start space-x-3">
+            <FcCallback size={100} height={30} color='red'/>
 
               <div className="flex flex-col justify-center items-start space-y-5">
                 <p className="text-neutral-dark1 text-left text-sm">
@@ -74,8 +77,7 @@ function Footer() {
             </h1>
 
             <div className="flex justify-center items-start space-x-3">
-              <img src={msgVectorIco.src} className='hover:scale-125 transition-all duration-300' />
-
+            <MdEmail size={20} height={30} color='red'/>
               <div className="flex flex-col justify-center items-start space-y-5">
                 <p className="text-neutral-dark1 text-left text-sm"> {footerItem?.[0]?.email}</p>
               </div>
