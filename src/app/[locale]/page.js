@@ -169,7 +169,7 @@ const Home = () => {
         >
       </video>
 
-      <iframe className="ca3-scroll-down-link" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
+      <iframe className="absolute bottom-0 left-[40%] sm:left-[45%]" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
  
 
      
@@ -459,14 +459,26 @@ const Home = () => {
 
         <div className=" relative w-full h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
         <div className="p-4 w-full h-full  flex justify-center items-center     ">
-                  <video
+                  {/* <video
                     src="/video/explore.mp4"
                      muted
                      autoplay
                      controls
                      playsInline
                      loop
-                    className="w-full h-full "></video>
+                    className="w-full h-full "></video> */}
+
+
+
+<iframe
+                    src="https://www.youtube.com/embed/UP7nHvfaBGM?si=HxTA90PuLqpNO9Sz"
+                     muted
+                     autoplay
+                     controls
+                     playsInline
+                     loop
+                    className="w-full h-full "></iframe>
+
                 </div>
         </div>
 
