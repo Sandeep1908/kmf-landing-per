@@ -201,15 +201,15 @@ const Home = () => {
 
 
 {/* important */}
-      <div className='w-full h-20 flex justify-center items-center bg-red-600'>
+      {/* <div className='w-full h-20 flex justify-center items-center bg-red-600'>
       <p className='text-white text-center '>Important: We have moved to H.No.8-2-293/82/A/1286, Plot No: 1286, Road No. 1 & 65, Jubilee Hills, Hyderabad- 500033, Telangana, India w.e.f 1-12-2022 </p>
-      </div>
+      </div> */}
 
 
 
 {/* Caution/ */}
 
- <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
+ {/* <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
 
 
     <p className='text-red-600 font-bold uppercase mr-3'>Caution:</p>
@@ -221,7 +221,7 @@ const Home = () => {
       
     
 
- </div>
+ </div> */}
       
 
 
