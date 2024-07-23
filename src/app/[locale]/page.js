@@ -141,7 +141,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-40 md:top-48' : ''}  `}>
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48' : ''}  `}>
     {/* HOME CARAOUSAL IMAGE */}
 
     <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>

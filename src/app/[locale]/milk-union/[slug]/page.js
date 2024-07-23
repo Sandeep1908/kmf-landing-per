@@ -55,7 +55,7 @@ function MilkUnionDetail({ slug }) {
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
       {banner ? (
-        <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+        <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
           {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
            */}
 
@@ -67,7 +67,7 @@ function MilkUnionDetail({ slug }) {
             controls
             playsInline
             className={`w-full  h-full    object-fill absolute top-0  ${
-              isScroll ? 'h-[400px]' : ''
+              isScroll ? ' ' : ''
             } `}
           />
         </section>

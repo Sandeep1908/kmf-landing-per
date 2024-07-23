@@ -161,7 +161,7 @@ const Home = () => {
   }
 
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-40 md:top-48 ' : ''}  `}>
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
 
  
       {/* HOME CARAOUSAL IMAGE */}
@@ -258,7 +258,7 @@ const Home = () => {
               }}
               modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
               spaceBetween={40}
-              slidesPerView={previewCount}
+              slidesPerView={3}
               navigation={true}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
@@ -295,12 +295,12 @@ const Home = () => {
           { speed: -15, children: <div></div> } // Adjust if a specific element is needed
         ]}
         className="w-full  object-contain">
-        <section className="w-full h-auto md:h-[600px] p-5 pt-12">
+        <section className="w-full h-auto md:h-[600px] p-2 md:p-5 pt-12">
           <div className="mt-10 w-full space-y-5 flex flex-col justify-center items-center m-auto max-w-7xl">
-            <div className="w-full h-full flex flex-col md:flex-row justify-center items-center">
+            <div className="w-full h-full flex md:flex-row justify-center items-center">
               <Fade left>
-                <div className="flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl lg:pr-10 bg-img">
-                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                <div className="flex relative w-full justify-center items-center flex-col space-y-7  lg:items-center lg:max-w-5xl lg:pr-10 bg-img">
+                  <h1 className=" text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                     About KMF
                   </h1>
                   <div className="space-y-6">
@@ -309,8 +309,8 @@ const Home = () => {
                 </div>
               </Fade>
               <Fade right>
-                <div className="flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center lg:max-w-5xl lg:pr-10 bg-img-2">
-                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                <div className="flex relative h-full w-full justify-center items-center flex-col space-y-7 mt-3 p-2 md:p-6 z-10 lg:items-center lg:max-w-5xl lg:pr-10 bg-img-2">
+                  <h1 className="text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                     OUR BRAND NANDINI
                   </h1>
                   <div className="space-y-6">
@@ -322,7 +322,7 @@ const Home = () => {
             <Fade bottom>
               <Link
                 href="/en/about/company-profile"
-                className="bg-primary-main flex justify-center items-center w-48 h-12 z-30 text-neutral-light4 font-semibold rounded-md">
+                className="bg-primary-main flex justify-center items-center w-48 h-12 z-30 text-xs md:text-lg text-neutral-light4 font-semibold rounded-md">
                 Read More
               </Link>
             </Fade>
@@ -349,7 +349,7 @@ const Home = () => {
         <div className="relative bg-[#30ABDC] md:bg-transparent p-5">
           <div className="pb-10 lg:space-x-10 flex flex-col-reverse justify-center items-center lg:flex-row m-auto max-w-7xl">
             <Fade left>
-              <div className="p-4 flex justify-center items-center w-full h-[500px] lg:max-w-xl">
+              <div className="p-4 flex justify-center items-center w-full h-auto md:h-[500px] lg:max-w-xl">
                 <img
                   src={locale === 'kn' ? milkglassKnImg.src : milkglassImg.src}
                   className="w-full h-full"
@@ -361,12 +361,12 @@ const Home = () => {
             <div className="flex flex-col justify-center space-y-10 items-center">
               <Fade right>
                 <div className="flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start lg:max-w-[60rem] lg:pr-10">
-                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                  <h1 className=" text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                     Know Your Milk
                   </h1>
 
                   <div className="space-y-6">
-                    <p className="text-justify text-lg text-white">
+                    <p className="text-justify text-xs md:text-lg text-white">
                       {locale === 'en'
                         ? "Milk is a nutrient-rich beverage, widely consumed for its high calcium content essential for bone health. It is a source of protein, vitamins, and minerals, contributing to overall well-being. Varieties include cow's milk, known for its widespread availability, and alternatives like almond or soy milk for those with dietary preferences or lactose intolerance. Milk's versatility extends to culinary uses, featuring prominently in recipes from creamy desserts to savory dishes, showcasing its cultural and nutritional significance in various global cuisines."
                         : 'ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದ್ದು, ಮಾನವನ ಮೂಳೆಗಳ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯವಾದ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅನ್ನು ಒದಗಿಸುತ್ತಿದೆ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದ್ದು, ಒಟ್ಟಾರೆ ಮನುಷ್ಯನ ಸರ್ವಾಂಗಿಣ ಬೆಳವಣಿಗೆಗೆ ತುಂಬಾ ಅಗತ್ಯವಾಗಿದೆ. ಹಾಲಿನ ವಿಧಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ತುಂಬಾ ಹೆಸರುವಾಸಿಯಾಗಿದ್ದು, ವ್ಯಾಪಕವಾಗಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಲಭ್ಯವಿದೆ. ಇದಲ್ಲದೇ, ಲ್ಯಾಕ್ಟೋಸ್ ಅಂಶಗಳ ಅಲರ್ಜಿ ಹೊಂದಿದವರಿಗೆ ಹಾಗೂ ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯ ಸುಹಾಸಿತ ಹಾಲುಗಳು ಲಭ್ಯವಿರುತ್ತದೆ. ಹಾಲಿನಿಂದ ವಿವಿಧ ತೆರನಾದ ಭಕ್ಷಗಳನ್ನು ಮತ್ತು ಸಿಹಿಪಾಕವನ್ನು ತಯಾರಿಸಲಾಗುತ್ತದೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಖಾರದ ಭಕ್ಷ್ಯಗಳ ತಯಾರಿಕೆಯಲ್ಲಿ ಹಾಲನ್ನು ಪ್ರಮುಖವಾಗಿ ಉಪಯೋಗಿತ್ತಿದ್ದು, ವಿವಿಧ ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳಲ್ಲಿ ಹಾಲು ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಒತ್ತಿ ಹೇಳುತ್ತಿದೆ'}
@@ -382,13 +382,13 @@ const Home = () => {
                   <div
                     key={idx}
                     onClick={() => handleKnowMilk(item)}
-                    className="flex w-40 flex-col justify-center items-center space-y-4 cursor-pointer">
+                    className="flex w-32 flex-col justify-center items-center space-y-4 cursor-pointer">
                     <img
                       src={item?.attributes?.image?.data[0].attributes?.url}
                       alt={item?.attributes?.title}
                       className="transition-all duration-200 hover:scale-110"
                     />
-                    <p className="text-white text-center font-heading">{item?.attributes?.title}</p>
+                    <p className="text-white text-xs md:text-lg text-center font-heading">{item?.attributes?.title}</p>
                   </div>
                 ))}
               </div>
@@ -400,13 +400,13 @@ const Home = () => {
       <section className="w-full h-auto relative">
       <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
         <div className="flex w-full flex-col justify-center items-center space-y-3">
-          <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+          <h1 className=" text-xs md:text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
           NOTIFICATION
           </h1>
         </div>
 
         <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
-          <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
+          <div className="relative w-full overflow-scroll flex flex-col max-w-[300px] md:max-w-[400px] overflow-x-hidden overflow-y-hidden">
             <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
               <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
@@ -422,7 +422,7 @@ const Home = () => {
                       key={id}
                       className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
                       <FaRegHandPointRight size={20} color="red" />
-                      <p className="w-full"> {item?.attributes?.title}</p>
+                      <p className="w-full "> {item?.attributes?.title}</p>
                     </div>
                   );
                 })}
@@ -472,7 +472,7 @@ const Home = () => {
         <div className="w-full flex flex-col justify-center items-center">
           <Fade bottom>
             <div className="flex flex-col justify-center items-center">
-              <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+              <h1 className="md:text-2xl text-xs font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
                 Quick Links
               </h1>
             </div>
@@ -480,7 +480,7 @@ const Home = () => {
 
           <div className="  w-full h-auto  relative   ">
             <Fade bottom>
-              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
+              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-10 md:gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
                 <Link href="/en/comingsoon">
                   <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
                 </Link>
@@ -502,7 +502,7 @@ const Home = () => {
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <Zoom>
               <div className="flex justify-center w-full    flex-wrap   items-end  ">
-                <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
+                <h1 className=" text-2xl md:text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
                   Explore The World Of KMF
                 </h1>
               </div>
@@ -536,13 +536,13 @@ const Home = () => {
 
           <div className="w-full flex justify-center  space-x-5">
             <Link href={'/en/blog/gallery'}>
-              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
+              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-5 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
                 See more
               </button>
             </Link>
 
             <Link href={'/en/contact'}>
-              <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
+              <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-5 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
                 Get In Touch
               </button>
             </Link>
@@ -553,7 +553,7 @@ const Home = () => {
       <section className="w-full h-auto relative">
         <div className="p-4 md:p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start md:m-auto">
           <div className="w-full justify-center flex items-center space-y-3">
-            <h1 className="text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+            <h1 className="text-xs md:text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
               Our Certificates
             </h1>
           </div>
@@ -564,7 +564,7 @@ const Home = () => {
             }`}>
             <Swiper
               watchSlidesProgress={true}
-              slidesPerView={certificatePrivew}
+              slidesPerView={3}
               spaceBetween={20}
               autoplay={{
                 delay: 2500,
@@ -574,7 +574,7 @@ const Home = () => {
               className="w-full">
               {certificate?.map((item, idx) => (
                 <SwiperSlide key={idx} className="w-72 md:m-auto">
-                  <div className="w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
+                  <div className="max-w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
                     <img
                       src={item?.attributes?.url}
                       alt={`Certificate ${idx + 1}`}
@@ -590,32 +590,42 @@ const Home = () => {
 
 
                 <div className='w-full h-full flex justify-center space-x-5 items-center'>
+                  <Fade bottom>
+
+            
                   <div className=' text-5xl  font-light font-serif'>
                       Follow us:
                   </div>
+                  </Fade>
 
                   <div className='w-fulll '>
                         <ul className='w-full flex justify-center space-x-5 items-center'>
+                          <Fade top>
                           <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
                             <a href='https://www.facebook.com/kmfnandini.coop'>
                               <img src='https://www.heritagefoods.in/static/images/fb.png'/>
                             </a>
                           </li>
 
+                          </Fade>
 
+
+                          <Fade bottom>
                           <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
                             <a href='https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
                               <img src='https://www.heritagefoods.in/static/images/is.png'/>
                             </a>
                           </li>
+                          </Fade>
 
 
+                          <Fade top>
                           <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
                             <a href="https://www.youtube.com/@kmfnandini12">
                               <img src='https://www.heritagefoods.in/static/images/yt.png'/>
                             </a>
                           </li>
-
+                          </Fade>
 
                         </ul>
                   </div>

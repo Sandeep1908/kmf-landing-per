@@ -106,7 +106,7 @@ const Executive = () => {
 
  
     <section
-      className={`w-full  h-[500px] pt-28 relative  grid place-items-center company-bg`}>
+      className={`w-full h-full  md:h-[500px] pt-28 relative  grid place-items-center company-bg`}>
        
       <img src="/images/executive.jpeg" className="w-full h-full object-cover absolute top-0 z-[-1]" />
     

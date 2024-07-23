@@ -184,7 +184,7 @@ return(
                 return (
                   <div
                     key={id}
-                    className="max-w-3xl w-full m-10 rounded-3xl  min-h-[400px] shadow-2xl bg-slate-50 p-16">
+                    className="max-w-3xl w-full m-10 rounded-3xl  min-h-[400px] shadow-2xl bg-slate-50 p-5">
                     <div className="m-auto">
 
 

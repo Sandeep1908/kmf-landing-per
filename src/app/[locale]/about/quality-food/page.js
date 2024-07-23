@@ -52,7 +52,7 @@ function OrganizationChart() {
   const imageArr=['/images/quality/1.jpg','/images/quality/2.jpg','/images/quality/3.jpg','/images/quality/4.jpg','/images/quality/5.jpg','/images/quality/6.jpg','/images/quality/7.jpg','/images/quality/8.jpg','/images/quality/9.jpg','/images/quality/10.jpg','/images/quality/11.jpg','/images/quality/12.jpg','/images/quality/13.jpg','/images/quality/14.jpg','/images/quality/15.jpg','/images/quality/16.jpg','/images/quality/17.jpg','/images/quality/18.jpg','/images/quality/19.jpg','/images/quality/20.jpg']
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-    <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+    <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
      {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
       */}
      <video

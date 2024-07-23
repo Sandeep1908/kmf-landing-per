@@ -27,7 +27,7 @@ const axios =useApi()
 
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-    <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+    <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
       {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
        */}
       <video
@@ -42,7 +42,7 @@ const axios =useApi()
         } `}
       />
     </section>
-    <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+    <div className="flex w-full flex-wrap   justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
                       <IoHomeOutline size={20} />
             </Link>

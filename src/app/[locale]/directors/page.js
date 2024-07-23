@@ -51,8 +51,8 @@ function Directors() {
           children: <h></h>
         }
       ]}
-      className="  w-full h-[600px]   object-contain ">
-      <section className={`w-full  h-[700px] pt-28 relative  grid place-items-center  `}>
+      className="  w-full h-[300px] md:h-[600px]   object-contain ">
+      <section className={`w-full h-full  md:h-[700px] pt-28 relative  grid place-items-center  `}>
         <img src={'/images/board-of-directors.jpeg'} className="w-full h-full object-cover absolute   z-[-1]" />
        
 

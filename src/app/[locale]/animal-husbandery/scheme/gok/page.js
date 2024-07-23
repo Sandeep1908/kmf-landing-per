@@ -45,7 +45,7 @@ const handleButton = (idx) => {
   };
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
         <video
@@ -225,7 +225,7 @@ const handleButton = (idx) => {
                   return (
                     <li
                       key={idx}
-                      className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className="cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} />
                       <Fade right>

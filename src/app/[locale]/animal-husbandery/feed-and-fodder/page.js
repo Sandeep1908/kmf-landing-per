@@ -26,7 +26,7 @@ function FeedFodder() {
     
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
    
-    <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+    <div className="flex w-full flex-wrap    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
                       <IoHomeOutline size={20} />
             </Link>
@@ -80,7 +80,7 @@ function FeedFodder() {
                 return (
                   <div
                     key={id}
-                    className="max-w-xl w-full  m-10 rounded-3xl min-h-[500px] shadow-2xl bg-slate-50 p-16">
+                    className="max-w-xl w-full  m-10 rounded-3xl min-h-[500px] shadow-2xl bg-slate-50 p-5">
                     <div className="m-auto">
                       <h1 className="text-primary-main text-2xl md:text-3xl text-center ">
                         {' '}

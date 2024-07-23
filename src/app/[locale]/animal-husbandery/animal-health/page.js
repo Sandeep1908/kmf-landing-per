@@ -37,7 +37,7 @@ function AnimalHealth() {
   };
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
-      <section className={`w-full h-[700px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
          <img src={'/animal-husbandary/animal-husbandary.png'} className="w-full h-full absolute top-0 z-[-1]" />
         
         {/* <video
@@ -108,7 +108,7 @@ function AnimalHealth() {
                 return (
                   <div
                     key={id}
-                    className="max-w-2xl w-full  m-3 rounded-3xl min-h-[500px] relative   shadow-2xl bg-slate-50 p-16">
+                    className="max-w-2xl w-full  m-3 rounded-3xl min-h-[500px] relative   shadow-2xl bg-slate-50 p-4">
                     <div className="m-auto relative w-full h-full ">
 
                       
@@ -135,7 +135,7 @@ function AnimalHealth() {
                                 switch (level) {
                                   case 1:
                                     return (
-                                      <h1 className="text-2xl text-primary-main">{children}</h1>
+                                      <h1 className="text-xl text-primary-main">{children}</h1>
                                     );
                                   case 2:
                                     return <h2 className="text-lg">{children}</h2>;
@@ -208,7 +208,7 @@ function AnimalHealth() {
                 return (
                   <div
                     key={id}
-                    className="max-w-2xl w-full m-10 rounded-3xl min-h-[500px] relative   shadow-2xl bg-slate-50 p-16">
+                    className="max-w-2xl w-full m-10 rounded-3xl min-h-[500px] relative   shadow-2xl bg-slate-50 p-5">
                     <div className="m-auto relative w-full h-full ">
 
                       

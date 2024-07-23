@@ -31,7 +31,7 @@ function Footer() {
     })();
   }, [params?.locale]);
   return (
-    <section className="w-full h-[450px]    relative       ">
+    <section className="w-full h-[462px]    relative       ">
       <img src='https://www.dodladairy.com/static/images/footer-bg.png' className='absolute inset-0 w-full h-full object-fill'/>
       <div className=" z-10 relative h-fit  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
         <div className="   md:mt-[167px] w-full h-full flex flex-col justify-center items-center   md:flex-row md:justify-between md:items-start">
