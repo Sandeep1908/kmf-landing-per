@@ -281,11 +281,12 @@ window.addEventListener('resize',handleResize);
 // console.log("set timer" , SwiperTime)
 
   return (
-    <div className='w-full h-[100vh] relative z-[10] overflow-x-hidden '>
+    
 
   
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
-      <div className="w-full h-[30vh]  md:h-[100vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
+       <div className='w-full h-[30vh] md:h-[100vh] relative z-[100]'>
+      <div className="w-full  h-full relative bg-slate-50 z-[-10]  overflow-x-hidden">
         <div className=" absolute z-50 w-12 h-12 top-6 right-6 md:top-8 md:right-40">
           <div className='w-full h-full flex justify-center items-center'>
           <p
@@ -293,7 +294,7 @@ window.addEventListener('resize',handleResize);
             onMouseEnter={changeIcon}
             onMouseLeave={changeIcon2}
             onClick={toggleNavbar}
-            className={`text-white relative z-[1000] transition-all duration-1000  ${
+            className={`text-white relative z-[100] transition-all duration-1000  ${
               isOpen ? 'hidden' : ''
             }`}>
             {isChangeIcon ? <HiArrowSmallLeft size={40} /> : <IoMenu size={40} />}
@@ -304,8 +305,7 @@ window.addEventListener('resize',handleResize);
         <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-6 right-6 md:top-8 md:right-40 opacity-45'>
 
           </div>
-        <div className={`hidden md:block left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ''} `}>
-          {/* <a href="#history-milk"><LuMouse  className='' size={40} /></a> */}
+        <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ' hidden md:block'} `}>
           <a href="#history-milk">
             {' '}
             <div className="mouseAnime"></div>
@@ -313,9 +313,9 @@ window.addEventListener('resize',handleResize);
         </div>
         <div
           id="imageDiv"
-          className={`transition-all duration-700 scroll-smooth  ${
+          className={`transition-all duration-700 scroll-smooth ${
             isOpen
-              ? 'absolute w-full z-[-1] md:p-3 md:left-[-38%] h-[100%] md:h-[80%] top-0 md:top-[10%]  overflow-hidden'
+              ? 'absolute w-full z-[-1] p-0 md:p-3 left-0 md:left-[-38%] h-[100%] md:h-[80%] top-0 md:top-[10%] overflow-hidden'
               : 'absolute w-full h-full z-[-1]'
           }`}>
           <div className=" relative w-full h-full">
@@ -349,7 +349,7 @@ window.addEventListener('resize',handleResize);
       
       </div>
       <div
-          className={` transition-all duration-1000 scroll-smooth absolute w-[75%] md:w-[38%] top-0 h-[100vh]  z-[1000] shadow-xl bg-white ${
+          className={`transition-all duration-1000 scroll-smooth fixed w-[75%] md:w-[38%] top-0 h-[100vh]  z-[1000] shadow-xl bg-white ${
             isOpen ? '  right-0' : ' right-[-1000px]'
           }`}>
           <div
@@ -554,45 +554,15 @@ window.addEventListener('resize',handleResize);
                 </div>
               </div>
 
-              {/* <p className="text-sm text-red-600 font-bold flex justify-end pt-4 marquee-notification overflow-hidden">
-                {latestNews ? latestNews?.attributes?.title : ''}
-              </p> */}
+            
             </div>
           </div>
         </div>
+      </div>
 
-      {/* <section className={`w-full  h-[700px] relative  `}>
-      <Swiper
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false
-      }}
-        direction={'vertical'}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination,Autoplay,FreeMode]}
-        className="h-full"
-      >
+     
 
-        {banners?.map((item,id)=>{
-         
-          return(
-            <SwiperSlide key={id}>
-          
-            <img src={item?.attributes?.banner?.data?.attributes?.url} alt="" className='w-full h-[700px]' />
-         
-            </SwiperSlide>
-          )
-         
-        })}
-      
-
-
-      </Swiper>
-
-    
-      </section> */}
+        
 
       <section id="history-milk" className="w-full h-auto mt-10">
         <div className=" w-full flex flex-col items-center justify-center lg:mt-20 p-3">
@@ -1226,7 +1196,7 @@ window.addEventListener('resize',handleResize);
 
       <Footer />
     </div>
-    </div>
+  
   );
 }
 
