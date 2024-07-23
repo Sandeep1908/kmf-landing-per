@@ -88,6 +88,7 @@ function Portfolio() {
   const locale = useLocale().locale;
   const [banners, setBanners] = useState([]);
   const [headerItem, setHeaderItem] = useState([]);
+  // const [SwiperTime, setSwiperTime] = useState(3500);
   const params = useParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -277,11 +278,14 @@ const handleResize=()=>{
 window.addEventListener('resize',handleResize);
 
 },[])  
-
+// console.log("set timer" , SwiperTime)
 
   return (
+    <div className='w-full h-[100vh] relative z-[10] overflow-x-hidden '>
+
+  
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
-      <div className="w-full h-[100vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
+      <div className="w-full h-[30vh]  md:h-[100vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
         <div className=" absolute z-50 w-12 h-12 top-6 right-6 md:top-8 md:right-40">
           <div className='w-full h-full flex justify-center items-center'>
           <p
@@ -289,7 +293,7 @@ window.addEventListener('resize',handleResize);
             onMouseEnter={changeIcon}
             onMouseLeave={changeIcon2}
             onClick={toggleNavbar}
-            className={`text-white relative z-[100] transition-all duration-1000  ${
+            className={`text-white relative z-[1000] transition-all duration-1000  ${
               isOpen ? 'hidden' : ''
             }`}>
             {isChangeIcon ? <HiArrowSmallLeft size={40} /> : <IoMenu size={40} />}
@@ -300,7 +304,7 @@ window.addEventListener('resize',handleResize);
         <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-6 right-6 md:top-8 md:right-40 opacity-45'>
 
           </div>
-        <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ''} `}>
+        <div className={`hidden md:block left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ''} `}>
           {/* <a href="#history-milk"><LuMouse  className='' size={40} /></a> */}
           <a href="#history-milk">
             {' '}
@@ -309,16 +313,16 @@ window.addEventListener('resize',handleResize);
         </div>
         <div
           id="imageDiv"
-          className={`transition-all duration-700 scroll-smooth ${
+          className={`transition-all duration-700 scroll-smooth  ${
             isOpen
-              ? 'absolute w-full z-[-1] p-3 left-[-38%] h-[80%] top-[10%] overflow-hidden'
+              ? 'absolute w-full z-[-1] md:p-3 md:left-[-38%] h-[100%] md:h-[80%] top-0 md:top-[10%]  overflow-hidden'
               : 'absolute w-full h-full z-[-1]'
           }`}>
           <div className=" relative w-full h-full">
             <section className={`w-full h-full relative`}>
               <Swiper
                 autoplay={{
-                  delay: 3500,
+                  delay: 5000,
                   disableOnInteraction: false
                 }}
                 direction={'vertical'}
@@ -342,8 +346,10 @@ window.addEventListener('resize',handleResize);
             </section>
           </div>
         </div>
-        <div
-          className={`transition-all duration-1000 scroll-smooth absolute w-[75%] md:w-[38%] top-0 h-full  z-[1000] shadow-xl bg-white ${
+      
+      </div>
+      <div
+          className={` transition-all duration-1000 scroll-smooth absolute w-[75%] md:w-[38%] top-0 h-[100vh]  z-[1000] shadow-xl bg-white ${
             isOpen ? '  right-0' : ' right-[-1000px]'
           }`}>
           <div
@@ -554,7 +560,6 @@ window.addEventListener('resize',handleResize);
             </div>
           </div>
         </div>
-      </div>
 
       {/* <section className={`w-full  h-[700px] relative  `}>
       <Swiper
@@ -732,7 +737,7 @@ window.addEventListener('resize',handleResize);
             centeredSlides={false}
             autoplay={{
               delay: 2500,
-              disableOnInteraction: false
+              disableOnInteraction: false,
             }}
             modules={[FreeMode, Autoplay]}
             className="w-full h-full">
@@ -740,9 +745,9 @@ window.addEventListener('resize',handleResize);
 
               <Zoom>
               
-            <SwiperSlide className="" style={{ width: 100 }}>
-
-              <div className="relative  w-[100%]  h-full bg-[#f99457] group ">
+            <SwiperSlide  className="" style={{ width: 100 }}>
+              
+              <div  className="relative  w-[100%]  h-full bg-[#f99457] group ">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <img
                     className="w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
@@ -1220,6 +1225,7 @@ window.addEventListener('resize',handleResize);
       </section>
 
       <Footer />
+    </div>
     </div>
   );
 }
