@@ -88,7 +88,6 @@ function Portfolio() {
   const locale = useLocale().locale;
   const [banners, setBanners] = useState([]);
   const [headerItem, setHeaderItem] = useState([]);
-  // const [SwiperTime, setSwiperTime] = useState(3500);
   const params = useParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -278,14 +277,11 @@ const handleResize=()=>{
 window.addEventListener('resize',handleResize);
 
 },[])  
-// console.log("set timer" , SwiperTime)
+
 
   return (
-    
-
-  
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
-       <div className='w-full h-[30vh] md:h-[100vh] relative z-[100]'>
+      <div className='w-full h-[30vh] md:h-[100vh] relative z-[100]'>
       <div className="w-full  h-full relative bg-slate-50 z-[-10]  overflow-x-hidden">
         <div className=" absolute z-50 w-12 h-12 top-6 right-6 md:top-8 md:right-40">
           <div className='w-full h-full flex justify-center items-center'>
@@ -560,9 +556,38 @@ window.addEventListener('resize',handleResize);
         </div>
       </div>
 
-     
+      {/* <section className={`w-full  h-[700px] relative  `}>
+      <Swiper
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false
+      }}
+        direction={'vertical'}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination,Autoplay,FreeMode]}
+        className="h-full"
+      >
 
-        
+        {banners?.map((item,id)=>{
+         
+          return(
+            <SwiperSlide key={id}>
+          
+            <img src={item?.attributes?.banner?.data?.attributes?.url} alt="" className='w-full h-[700px]' />
+         
+            </SwiperSlide>
+          )
+         
+        })}
+      
+
+
+      </Swiper>
+
+    
+      </section> */}
 
       <section id="history-milk" className="w-full h-auto mt-10">
         <div className=" w-full flex flex-col items-center justify-center lg:mt-20 p-3">
@@ -707,7 +732,7 @@ window.addEventListener('resize',handleResize);
             centeredSlides={false}
             autoplay={{
               delay: 2500,
-              disableOnInteraction: false,
+              disableOnInteraction: false
             }}
             modules={[FreeMode, Autoplay]}
             className="w-full h-full">
@@ -715,9 +740,9 @@ window.addEventListener('resize',handleResize);
 
               <Zoom>
               
-            <SwiperSlide  className="" style={{ width: 100 }}>
-              
-              <div  className="relative  w-[100%]  h-full bg-[#f99457] group ">
+            <SwiperSlide className="" style={{ width: 100 }}>
+
+              <div className="relative  w-[100%]  h-full bg-[#f99457] group ">
                 <div className="absolute w-full h-full top-0 left-0 z-20">
                   <img
                     className="w-full h-full opacity-0 transition duration-0 group-hover:opacity-30 group-hover:duration-1000 "
@@ -940,10 +965,10 @@ window.addEventListener('resize',handleResize);
               </Fade>
           </div>
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> KMF ACHIEVEMENTS </h1> */}
-          <div className="w-full flex flex-col md:flex-row flex-wrap justify-center items-center mt-10 gap-5">
+          <div className="w-full flex  md:flex-row flex-wrap justify-center items-center mt-10 gap-1 md:gap-5">
             {tabs?.map((tab, idx) => {
               return (
-                <div key={idx} onClick={() => handleTabs(idx)} className="flex gap-3">
+                <div key={idx} onClick={() => handleTabs(idx)} className="flex gap-1 md:gap-3">
                   <Link href={tab.link}>
                     {' '}
 
@@ -953,13 +978,13 @@ window.addEventListener('resize',handleResize);
                         currentIndex === idx
                           ? 'hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]'
                           : 'text-black hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]'
-                      } text-lg`}>
+                      } text-[12px] md:text-lg`}>
                       {' '}
                       {tab.tabName}
                     </p>
                     </Fade>
                   </Link>
-                  {idx < tabs.length - 1 && <p className="text-2xl font-bold">/</p>}
+                  {idx < tabs.length - 1 && <p className="text-[12px] md:text-2xl font-bold">/</p>}
                 </div>
               );
             })}
@@ -1196,7 +1221,6 @@ window.addEventListener('resize',handleResize);
 
       <Footer />
     </div>
-  
   );
 }
 
