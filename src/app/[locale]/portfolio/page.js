@@ -281,7 +281,8 @@ window.addEventListener('resize',handleResize);
 
   return (
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
-      <div className="w-full h-[100vh] relative bg-slate-50 z-[-10]  overflow-x-hidden">
+     <div className='w-full h-[30vh] md:h-[100vh] relative z-[100]'>
+      <div className="w-full  h-full relative bg-slate-50 z-[-10]  overflow-x-hidden">
         <div className=" absolute z-50 w-12 h-12 top-6 right-6 md:top-8 md:right-40">
           <div className='w-full h-full flex justify-center items-center'>
           <p
@@ -300,8 +301,7 @@ window.addEventListener('resize',handleResize);
         <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-6 right-6 md:top-8 md:right-40 opacity-45'>
 
           </div>
-        <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ''} `}>
-          {/* <a href="#history-milk"><LuMouse  className='' size={40} /></a> */}
+        <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ' hidden md:block'} `}>
           <a href="#history-milk">
             {' '}
             <div className="mouseAnime"></div>
@@ -311,7 +311,7 @@ window.addEventListener('resize',handleResize);
           id="imageDiv"
           className={`transition-all duration-700 scroll-smooth ${
             isOpen
-              ? 'absolute w-full z-[-1] p-3 left-[-38%] h-[80%] top-[10%] overflow-hidden'
+              ? 'absolute w-full z-[-1] p-0 md:p-3 left-0 md:left-[-38%] h-[100%] md:h-[80%] top-0 md:top-[10%] overflow-hidden'
               : 'absolute w-full h-full z-[-1]'
           }`}>
           <div className=" relative w-full h-full">
@@ -342,8 +342,10 @@ window.addEventListener('resize',handleResize);
             </section>
           </div>
         </div>
-        <div
-          className={`transition-all duration-1000 scroll-smooth absolute w-[75%] md:w-[38%] top-0 h-full  z-[1000] shadow-xl bg-white ${
+      
+      </div>
+      <div
+          className={`transition-all duration-1000 scroll-smooth fixed w-[75%] md:w-[38%] top-0 h-[100vh]  z-[1000] shadow-xl bg-white ${
             isOpen ? '  right-0' : ' right-[-1000px]'
           }`}>
           <div
@@ -548,9 +550,7 @@ window.addEventListener('resize',handleResize);
                 </div>
               </div>
 
-              {/* <p className="text-sm text-red-600 font-bold flex justify-end pt-4 marquee-notification overflow-hidden">
-                {latestNews ? latestNews?.attributes?.title : ''}
-              </p> */}
+            
             </div>
           </div>
         </div>
@@ -725,7 +725,7 @@ window.addEventListener('resize',handleResize);
       </section>
 
       <section id="history" className="w-full h-auto">
-        <div className=" h-[410px] md:h-[480px] flex flex-col lg:flex-row items-center mt-10 md:mt-20">
+        <div className=" h-[410px]  md:h-[480px] flex flex-col lg:flex-row items-center mt-10 md:mt-20">
           <Swiper
             slidesPerView={slideView}
             freeMode={true}
