@@ -49,6 +49,7 @@ const Home = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentYearData, setCurrentYearData] = useState([]);
   const [scrollY,setScrollY]=useState(null)
+  const [newsHome,setNewsHome]=useState([])
 
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
@@ -70,7 +71,8 @@ const Home = () => {
       { data: homecard },
       { data: homeabout },
       { data: knm },
-      { data: allProduct }
+      { data: allProduct },
+      {data:newsImp}
     ] = await Promise.all([
       axios.get('/api/certificates'),
       axios.get('/api/tender-notifications?sort[0]=last_date:desc'),
@@ -78,7 +80,8 @@ const Home = () => {
       axios.get('/api/homecards'),
       axios.get('/api/homeabouts'),
       axios.get('/api/knowyourmilks'),
-      axios.get('/api/product-sub-items')
+      axios.get('/api/product-sub-items'),
+      axios.get('/api/home-new')
     ]);
 
     const groupedData = tenders.data.reduce((acc, item) => {
@@ -110,6 +113,7 @@ const Home = () => {
     setHomeAboutDetails(homedetails);
     setCertificate(certificate.data?.[0]?.attributes?.image?.data);
     setKnowMilk(knm.data);
+    setNewsHome(newsImp?.data)
   };
 
   useEffect(() => {
@@ -147,21 +151,9 @@ const Home = () => {
     <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
 
     <video
-        className={`w-full object-fill hidden sm:block ${isScroll ? 'h-[700px]' : 'h-screen'}`}
-        src="/video/banner.mov"
+        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
+        src="/video/bannernew.mp4"
          
-    
-        muted
-        autoPlay
-        loop
-        playsInline
-        >
-      </video>
-      <video
-        className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
-        src="/video/bannermobile.mp4"
-         
-      
         muted
         autoPlay
         loop
@@ -177,27 +169,40 @@ const Home = () => {
 
     
 {/* important */}
-{/* <div className='w-full h-10 flex justify-center items-center bg-red-600'>
-      <p className='text-white '>Important: We have moved to H.No.8-2-293/82/A/1286, Plot No: 1286, Road No. 1 & 65, Jubilee Hills, Hyderabad- 500033, Telangana, India w.e.f 1-12-2022 </p>
-      </div> */}
+
+
+
+{newsHome?.attributes?.important &&
+  <div className='w-full h-20 flex justify-center items-center bg-red-600'>
+      <p className='text-white text-center '>Important: {newsHome?.attributes?.important} </p>
+      </div>
+}
+        
+
+      
 
 
 
 {/* Caution/ */}
 
- {/* <div className='w-full h-14 bg-white flex justify-center items-center marquee-latest overflow-hidden'>
+
+{newsHome?.attributes?.caution &&
+ 
+ <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
 
 
     <p className='text-red-600 font-bold uppercase mr-3'>Caution:</p>
-    <p className='text-green-900 font-bold w-full overflow-x-hidden text-sm'>
-    Heritage Foods Limited. Since its incorporation (i.e. 05/06/1992) is not accepting any type of deposits from the public, if anybody is asking any type of deposits in the name of Heritage Foods Limited. Dont believe such false assurance.
+    <div className='text-green-900   font-bold w-full text-sm  text-nowrap'>
+    {newsHome?.attributes?.caution}
 
 
-    </p>
+    </div>
       
     
 
- </div> */}
+ </div>
+}
+
 
     {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
 

@@ -69,7 +69,7 @@ function CompanyProfile() {
           <div className="mb-20 w-full relative flex justify-center items-center">
         
 
-            <h1 className="w-full uppercase relative max-w-[300px] m-auto text-center  text-primary-main text-3xl   z-[100] ">
+            <h1 className="w-full uppercase relative max-w-[300px] m-auto text-center  text-primary-main text-3xl   z-[10] ">
               {locale === 'en' ? 'Company Profile' : 'ಕಹಾಮ ಪರಿಚಯ'}
             </h1>
           </div>

@@ -48,13 +48,12 @@ const Home = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentYearData, setCurrentYearData] = useState([]);
   const [scrollY,setScrollY]=useState(null)
-  const [isMoveTender,setIsMoveTender]=useState(true)
+  const [newsHome,setNewsHome]=useState([])
 
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
-  const desktop=['/birthday/desktop/desktop-eng.jpeg','/birthday/desktop/desktop-en-2.jpeg']
-  const mobile=['/birthday/mobile/mobile-en.jpeg']
+ 
 
   const handleKnowMilk = (item) => {
     setKnowMilkItem(item);
@@ -69,7 +68,8 @@ const Home = () => {
       { data: homecard },
       { data: homeabout },
       { data: knm },
-      { data: allProduct }
+      { data: allProduct },
+      {data:newsImp}
     ] = await Promise.all([
       axios.get('/api/certificates'),
       axios.get('/api/tender-notifications?sort[0]=last_date:desc'),
@@ -77,9 +77,12 @@ const Home = () => {
       axios.get('/api/homecards'),
       axios.get('/api/homeabouts'),
       axios.get('/api/knowyourmilks'),
-      axios.get('/api/product-sub-items')
+      axios.get('/api/product-sub-items'),
+      axios.get('/api/home-new')
     ]);
 
+   
+  
     const groupedData = tenders.data.reduce((acc, item) => {
       const year = new Date(item?.attributes?.last_date).getFullYear();
       if (!acc[year]) {
@@ -109,6 +112,8 @@ const Home = () => {
     setHomeAboutDetails(homedetails);
     setCertificate(certificate.data?.[0]?.attributes?.image?.data);
     setKnowMilk(knm.data);
+    setNewsHome(newsImp?.data)
+
   };
 
   useEffect(() => {
@@ -169,7 +174,7 @@ const Home = () => {
 
       <video
         className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
-        src="/video/banner.mov"
+        src="/video/bannernew.mp4"
          
         muted
         autoPlay
@@ -199,29 +204,48 @@ const Home = () => {
       </div>
 
 
+    
+    
+
+
+
+
 
 {/* important */}
-      {/* <div className='w-full h-20 flex justify-center items-center bg-red-600'>
-      <p className='text-white text-center '>Important: We have moved to H.No.8-2-293/82/A/1286, Plot No: 1286, Road No. 1 & 65, Jubilee Hills, Hyderabad- 500033, Telangana, India w.e.f 1-12-2022 </p>
-      </div> */}
+
+
+
+{newsHome?.attributes?.important &&
+  <div className='w-full h-20 flex justify-center items-center bg-red-600'>
+      <p className='text-white text-center '>Important: {newsHome?.attributes?.important} </p>
+      </div>
+}
+        
+
+      
 
 
 
 {/* Caution/ */}
 
- {/* <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
+
+{newsHome?.attributes?.caution &&
+ 
+ <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
 
 
     <p className='text-red-600 font-bold uppercase mr-3'>Caution:</p>
     <div className='text-green-900   font-bold w-full text-sm  text-nowrap'>
-    Heritage Foods Limited. Since its incorporation (i.e. 05/06/1992) is not accepting any type of deposits from the public, if anybody is asking any type of deposits in the name of Heritage Foods Limited. Dont believe such false assurance.
+    {newsHome?.attributes?.caution}
 
 
     </div>
       
     
 
- </div> */}
+ </div>
+}
+
       
 
 
@@ -296,7 +320,7 @@ const Home = () => {
         ]}
         className="w-full  object-contain">
         <section className="w-full h-auto md:h-[600px] p-2 md:p-5 md:pt-12">
-          <div className="mt-10 w-full space-y-5 flex flex-col justify-center items-center m-auto max-w-7xl">
+          <div className="md:mt-10 w-full space-y-5 flex flex-col justify-center items-center m-auto max-w-7xl">
             <div className="w-full h-full flex md:flex-row justify-center items-center">
               <Fade left>
                 <div className="flex relative w-full justify-center items-center flex-col space-y-7  lg:items-center lg:max-w-5xl lg:pr-10 bg-img">
@@ -360,7 +384,7 @@ const Home = () => {
 
             <div className="flex flex-col justify-center space-y-10 items-center">
               <Fade right>
-                <div className="flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start lg:max-w-[60rem] lg:pr-10">
+                <div className="flex relative w-full justify-center items-center flex-col space-y-3 md:pt-20 lg:items-start lg:max-w-[60rem] lg:pr-10">
                   <h1 className=" text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                     Know Your Milk
                   </h1>

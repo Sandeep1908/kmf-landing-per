@@ -376,11 +376,7 @@ export const Header = () => {
 
         {/* Mobile Header  */}
 
-        <div
-          className={`w-full h-screen bg-[#f7bd00]  fixed top-0 opacity-[0.60] lg:hidden  z-[10]   ${
-            openNav ? 'left-0 ' : 'left-[-1200px] '
-          }`}
-          style={{ transition: 'all .5s' }}></div>
+ 
 
         <div
           className={`w-[305px] h-screen  bg-[#0E86E7] fixed top-0 z-[20] overflow-scroll   lg:hidden  ${
