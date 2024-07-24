@@ -97,3 +97,16 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+
+    .react-pdf__Page__canvas{
+      width: 340px !important;
+    }
+    
+    #SPONSORED .swiper-slide{
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+  }
