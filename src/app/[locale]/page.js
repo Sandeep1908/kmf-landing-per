@@ -30,8 +30,7 @@ import { useMyContext } from '@/context/headerContext.js';
 import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
-import Preloader from '@/components/Preloader.js';
-import CarouselImage from '@/components/CarouselImage.js';
+import { useSwiper } from 'swiper/react';
 
 
 const Home = () => {
@@ -54,9 +53,7 @@ const Home = () => {
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
-  const desktop=['/birthday/desktop/desktop-kn.jpeg','/birthday/desktop/desktop-kn-2.jpeg']
-  const mobile=['/birthday/mobile/mobile-kn.jpeg']
-
+ 
 
   const handleKnowMilk = (item) => {
     setKnowMilkItem(item);
@@ -67,7 +64,7 @@ const Home = () => {
     const [
       { data: certificate },
       { data: tenders },
-   
+     
       { data: homecard },
       { data: homeabout },
       { data: knm },
@@ -76,7 +73,7 @@ const Home = () => {
     ] = await Promise.all([
       axios.get('/api/certificates'),
       axios.get('/api/tender-notifications?sort[0]=last_date:desc'),
-  
+   
       axios.get('/api/homecards'),
       axios.get('/api/homeabouts'),
       axios.get('/api/knowyourmilks'),
@@ -84,6 +81,8 @@ const Home = () => {
       axios.get('/api/home-new')
     ]);
 
+   
+  
     const groupedData = tenders.data.reduce((acc, item) => {
       const year = new Date(item?.attributes?.last_date).getFullYear();
       if (!acc[year]) {
@@ -114,6 +113,7 @@ const Home = () => {
     setCertificate(certificate.data?.[0]?.attributes?.image?.data);
     setKnowMilk(knm.data);
     setNewsHome(newsImp?.data)
+
   };
 
   useEffect(() => {
@@ -126,9 +126,14 @@ const Home = () => {
       setCertificatePreview(window.innerWidth> 1200?3:1)
     };  
 
-    if(window.innerWidth <700){
+    if(window.innerWidth < 700){
       setCertificatePreview(1)
+      setPreviewCount(1)
     }
+    else{
+      setPreviewCount(2)
+    }
+
 
 
 
@@ -144,15 +149,32 @@ const Home = () => {
     };
   }, []);
 
+  const NextSlider = () => {
+  
+    const swiper = useSwiper()
+   
+    useEffect(() => {
+      if (swiper.activeIndex === 0) {
+        
+        setTimeout(() => {
+            swiper.slideTo(1,1000)  
+        }, 3000) 
+      }
+    }, [swiper])
+  
+    return <></>
+  }
+
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48' : ''}  `}>
-    {/* HOME CARAOUSAL IMAGE */}
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
 
-    <div className={`w-full relative   ${isScroll ? 'h-[700px]' : 'h-screen'}`}>
+ 
+      {/* HOME CARAOUSAL IMAGE */}
+      <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}>
 
-    <video
+      <video
         className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
-        src="/video/bannernew.mp4"
+        src="/video/bannernew.mov"
          
         muted
         autoPlay
@@ -160,14 +182,35 @@ const Home = () => {
         playsInline
         >
       </video>
+      {/* <video
+        className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
+        src="/video/bannermobile.mp4"
+         
+      
+        muted
+        autoPlay
+        loop
+        playsInline
+        >
+      </video> */}
 
-      <iframe width={100} className="absolute bottom-0 left-[40%] sm:left-[45%]" src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
- 
 
-     
-</div>
+      
+      <iframe className="absolute bottom-0 left-[40%] sm:left-[45%] hidden md:block " width={100} src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
+  
+
+  
+      
+      </div>
+
 
     
+    
+
+
+
+
+
 {/* important */}
 
 
@@ -203,10 +246,16 @@ const Home = () => {
  </div>
 }
 
+      
 
-    {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
 
-    <section className="w-full pt-20 pb-20 relative z-[1] bg-primary-subtle">
+{/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
+         
+   
+
+      {/* <CarouselImage images={banners || []}  /> */}
+
+      <section className="w-full pt-20 pb-20 relative z-[1] bg-primary-subtle">
         <div className="w-full">
           <div className="w-full text-center">
             <h1 className="text-4xl text-[#242424] font-heading font-[400] tracking-wide md:text-4xl uppercase">
@@ -219,6 +268,7 @@ const Home = () => {
               effect="coverflow"
               grabCursor={true}
               centeredSlides={true}
+              ref={r => r.s}
               coverflowEffect={{
                 rotate: 30,
                 stretch: 0,
@@ -232,7 +282,7 @@ const Home = () => {
               }}
               modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
               spaceBetween={40}
-              slidesPerView={previewCount}
+              slidesPerView={3}
               navigation={true}
               pagination={{ clickable: true }}
               scrollbar={{ draggable: true }}
@@ -257,6 +307,7 @@ const Home = () => {
                   </SwiperSlide>
                 );
               })}
+                  <NextSlider />
             </Swiper>
           </div>
         </div>
@@ -267,13 +318,13 @@ const Home = () => {
           { image: '/images/home-about.png', speed: -20 },
           { speed: -15, children: <div></div> } // Adjust if a specific element is needed
         ]}
-        className="w-full h-fit object-contain">
-        <section className="w-full h-auto p-5 pt-12">
-          <div className="mt-10 w-full space-y-5 flex flex-col justify-center items-center m-auto max-w-7xl">
-            <div className="w-full h-full flex flex-col md:flex-row justify-center items-center">
+        className="w-full  object-contain">
+        <section className="w-full h-auto md:h-[600px] p-2 md:p-5 md:pt-12">
+          <div className="md:mt-10 w-full space-y-5 flex flex-col justify-center items-center m-auto max-w-7xl">
+            <div className="w-full h-full flex md:flex-row justify-center items-center">
               <Fade left>
-                <div className="flex relative w-full justify-center items-center flex-col space-y-7 p-6 lg:items-center lg:max-w-5xl lg:pr-10 bg-img">
-                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                <div className="flex relative w-full justify-center items-center flex-col space-y-7  lg:items-center lg:max-w-5xl lg:pr-10 bg-img">
+                  <h1 className=" text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                   ಕಹಾಮ ಬಗ್ಗೆ
 
                   </h1>
@@ -283,8 +334,8 @@ const Home = () => {
                 </div>
               </Fade>
               <Fade right>
-                <div className="flex relative h-full w-full justify-center items-center flex-col space-y-7 p-6 z-10 lg:items-center lg:max-w-5xl lg:pr-10 bg-img-2">
-                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                <div className="flex relative h-full w-full justify-center items-center flex-col space-y-7 mt-4 p-2 md:p-6 z-10 lg:items-center lg:max-w-5xl lg:pr-10 bg-img-2">
+                  <h1 className="text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                   ನಮ್ಮ ಬ್ರಾಂಡ್ ನಂದಿನಿ
 
                   </h1>
@@ -297,8 +348,8 @@ const Home = () => {
             <Fade bottom>
               <Link
                 href="/en/about/company-profile"
-                className="bg-primary-main flex justify-center items-center w-48 h-12 z-30 text-neutral-light4 font-semibold rounded-md">
-              ಮತ್ತಷ್ಟು ಓದು
+                className="bg-primary-main flex justify-center items-center w-48 h-12 z-30 text-xs md:text-lg text-neutral-light4 font-semibold rounded-md">
+                ಮತ್ತಷ್ಟು ಓದು
               </Link>
             </Fade>
           </div>
@@ -324,7 +375,7 @@ const Home = () => {
         <div className="relative bg-[#30ABDC] md:bg-transparent p-5">
           <div className="pb-10 lg:space-x-10 flex flex-col-reverse justify-center items-center lg:flex-row m-auto max-w-7xl">
             <Fade left>
-              <div className="p-4 flex justify-center items-center w-full h-[500px] lg:max-w-xl">
+              <div className="p-4 flex justify-center items-center w-full h-auto md:h-[500px] lg:max-w-xl">
                 <img
                   src={locale === 'kn' ? milkglassKnImg.src : milkglassImg.src}
                   className="w-full h-full"
@@ -335,13 +386,13 @@ const Home = () => {
 
             <div className="flex flex-col justify-center space-y-10 items-center">
               <Fade right>
-                <div className="flex relative w-full justify-center items-center flex-col space-y-3 pt-20 lg:items-start lg:max-w-[60rem] lg:pr-10">
-                  <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                <div className="flex relative w-full justify-center items-center flex-col space-y-3 md:pt-20 lg:items-start lg:max-w-[60rem] lg:pr-10">
+                  <h1 className=" text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                   ಹಾಲಿನ ಬಗ್ಗೆ
                   </h1>
 
                   <div className="space-y-6">
-                    <p className="text-justify text-lg text-white">
+                    <p className="text-justify text-xs md:text-lg text-white">
                       {locale === 'en'
                         ? "Milk is a nutrient-rich beverage, widely consumed for its high calcium content essential for bone health. It is a source of protein, vitamins, and minerals, contributing to overall well-being. Varieties include cow's milk, known for its widespread availability, and alternatives like almond or soy milk for those with dietary preferences or lactose intolerance. Milk's versatility extends to culinary uses, featuring prominently in recipes from creamy desserts to savory dishes, showcasing its cultural and nutritional significance in various global cuisines."
                         : 'ಹಾಲು ಪೌಷ್ಟಿಕಾಂಶ-ಭರಿತ ಪಾನೀಯವಾಗಿದ್ದು, ಮಾನವನ ಮೂಳೆಗಳ ಆರೋಗ್ಯಕ್ಕೆ ಅಗತ್ಯವಾದ ಹೆಚ್ಚಿನ ಕ್ಯಾಲ್ಸಿಯಂ ಅನ್ನು ಒದಗಿಸುತ್ತಿದೆ. ಇದು ಪ್ರೋಟೀನ್, ಜೀವಸತ್ವಗಳು ಮತ್ತು ಖನಿಜಗಳ ಮೂಲವಾಗಿದ್ದು, ಒಟ್ಟಾರೆ ಮನುಷ್ಯನ ಸರ್ವಾಂಗಿಣ ಬೆಳವಣಿಗೆಗೆ ತುಂಬಾ ಅಗತ್ಯವಾಗಿದೆ. ಹಾಲಿನ ವಿಧಗಳಲ್ಲಿ ಹಸುವಿನ ಹಾಲು ತುಂಬಾ ಹೆಸರುವಾಸಿಯಾಗಿದ್ದು, ವ್ಯಾಪಕವಾಗಿ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಲಭ್ಯವಿದೆ. ಇದಲ್ಲದೇ, ಲ್ಯಾಕ್ಟೋಸ್ ಅಂಶಗಳ ಅಲರ್ಜಿ ಹೊಂದಿದವರಿಗೆ ಹಾಗೂ ಬಾದಾಮಿ ಅಥವಾ ಸೋಯಾ ಹಾಲಿನಂತಹ ಪರ್ಯಾಯ ಸುಹಾಸಿತ ಹಾಲುಗಳು ಲಭ್ಯವಿರುತ್ತದೆ. ಹಾಲಿನಿಂದ ವಿವಿಧ ತೆರನಾದ ಭಕ್ಷಗಳನ್ನು ಮತ್ತು ಸಿಹಿಪಾಕವನ್ನು ತಯಾರಿಸಲಾಗುತ್ತದೆ, ಕೆನೆ ಸಿಹಿತಿಂಡಿಗಳಿಂದ ಖಾರದ ಭಕ್ಷ್ಯಗಳ ತಯಾರಿಕೆಯಲ್ಲಿ ಹಾಲನ್ನು ಪ್ರಮುಖವಾಗಿ ಉಪಯೋಗಿತ್ತಿದ್ದು, ವಿವಿಧ ಜಾಗತಿಕ ಪಾಕಪದ್ಧತಿಗಳಲ್ಲಿ ಹಾಲು ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಪೌಷ್ಟಿಕಾಂಶದ ಮಹತ್ವವನ್ನು ಒತ್ತಿ ಹೇಳುತ್ತಿದೆ'}
@@ -357,13 +408,13 @@ const Home = () => {
                   <div
                     key={idx}
                     onClick={() => handleKnowMilk(item)}
-                    className="flex w-40 flex-col justify-center items-center space-y-4 cursor-pointer">
+                    className="flex w-32 flex-col justify-center items-center space-y-4 cursor-pointer">
                     <img
                       src={item?.attributes?.image?.data[0].attributes?.url}
                       alt={item?.attributes?.title}
                       className="transition-all duration-200 hover:scale-110"
                     />
-                    <p className="text-white text-center font-heading">{item?.attributes?.title}</p>
+                    <p className="text-white text-xs md:text-lg text-center font-heading">{item?.attributes?.title}</p>
                   </div>
                 ))}
               </div>
@@ -372,16 +423,16 @@ const Home = () => {
         </div>
       </section>
 
-    <section className="w-full h-auto relative">
+      <section className="w-full h-auto relative">
       <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
         <div className="flex w-full flex-col justify-center items-center space-y-3">
-          <h1 className="text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+          <h1 className=" text-xs md:text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
           ಅಧಿಸೂಚನೆ
           </h1>
         </div>
 
         <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
-          <div className="relative w-full overflow-scroll flex flex-col max-w-[400px] overflow-x-hidden overflow-y-hidden">
+          <div className="relative w-full overflow-scroll flex flex-col max-w-[300px] md:max-w-[400px] overflow-x-hidden overflow-y-hidden">
             <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
               <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
@@ -397,7 +448,7 @@ const Home = () => {
                       key={id}
                       className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
                       <FaRegHandPointRight size={20} color="red" />
-                      <p className="w-full"> {item?.attributes?.title}</p>
+                      <p className="w-full "> {item?.attributes?.title}</p>
                     </div>
                   );
                 })}
@@ -405,7 +456,7 @@ const Home = () => {
             </div>
             <div className="w-full flex justify-end mt-3 rounded-md">
               <Link href={'/en/blog/notification'} className="p-2 bg-primary-main text-white ">
-                ಮತ್ತಷ್ಟು ಓದು
+              ಮತ್ತಷ್ಟು ಓದು
               </Link>
             </div>
           </div>
@@ -434,57 +485,58 @@ const Home = () => {
       </div>
     </section>
 
-    {/* QUICK LINK  */}
+      {/* QUICK LINK  */}
 
-    <section className=" relative w-full h-auto pt-5 pb-5 z-[100]      ">
-      <video
-        src="/video/vid.webm"
-        autoPlay
-        muted
-        loop
-        className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
-      />
-      <div className="w-full flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center">
-          <h1 className="text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
-          ಕ್ವಿಕ್ ಲಿಂಕ
-          </h1>
-        </div>
-
-        <div className="  w-full h-auto  relative   ">
+      <section className=" relative w-full h-auto pt-5 pb-5  z-[10]      ">
+        <video
+          src="/video/vid.webm"
+          autoPlay
+          muted
+          loop
+          className="absolute w-full h-full inset-0 object-contain   z-[-10] opacity-[.3]"
+        />
+        <div className="w-full flex flex-col justify-center items-center">
           <Fade bottom>
-            <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
-              <Link href="/kn/comingsoon">
-                <LinkCard title="ಈಗಲೇ ಖರೀದಿಸಿ" imgUrl={cartIco.src} />
-              </Link>
-
-              <Link href="/kn/comingsoon">
-                <LinkCard title="ಡೇರಿ ಪ್ರವಾಸ
-" imgUrl={locationIco.src} />
-              </Link>
-              <Link href="/en/blog/tv-commercial">
-                <LinkCard title="ನಂದಿನಿ ಕಮರ್ಷಿಯಲ್ಸ್
-" imgUrl={commercialIco.src} />
-              </Link>
+            <div className="flex flex-col justify-center items-center">
+              <h1 className="md:text-2xl text-xs font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+              ಕ್ವಿಕ್ ಲಿಂಕ
+              </h1>
             </div>
           </Fade>
-        </div>
-      </div>
-    </section>
 
-    <section className="w-full h-fit relative pt-20 pb-20     ">
-      <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-        <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
-          <div className="flex justify-center w-full    flex-wrap   items-end  ">
-            <h1 className="text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
-            ಕೆಎಂಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
+          <div className="  w-full h-auto  relative   ">
+            <Fade bottom>
+              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-10 md:gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
+                <Link href="/en/comingsoon">
+                  <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
+                </Link>
 
-            </h1>
+                <Link href="/en/blog/tv-commercial/6">
+                  <LinkCard title="Dairy Tour" imgUrl={locationIco.src} />
+                </Link>
+                <Link href="/en/blog/tv-commercial/">
+                  <LinkCard title="Nandini Commercials" imgUrl={commercialIco.src} />
+                </Link>
+              </div>
+            </Fade>
           </div>
         </div>
+      </section>
 
-        <div className=" relative w-full h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
-        <div className="p-4 w-full h-full  flex justify-center items-center     ">
+      <section className="w-full h-fit relative pt-20 pb-20     ">
+        <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+          <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
+            <Zoom>
+              <div className="flex justify-center w-full    flex-wrap   items-end  ">
+                <h1 className=" text-2xl md:text-5xl  text-center uppercase text-primary-gradient font-josefin w-full max-w-2xl  p-3 ">
+                ಕೆಎಂಎಫ್ ನಂದಿನಿಗೆ ಸ್ವಾಗತ
+                </h1>
+              </div>
+            </Zoom>
+          </div>
+
+          <div className=" relative w-full h-[300px] md:h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
+          <div className="p-4 w-full h-full  flex justify-center items-center     ">
                   {/* <video
                     src="/video/explore.mp4"
                      muted
@@ -494,9 +546,7 @@ const Home = () => {
                      loop
                     className="w-full h-full "></video> */}
 
-
-
-<iframe
+          <iframe
                     src="https://www.youtube.com/embed/UP7nHvfaBGM?si=HxTA90PuLqpNO9Sz"
                      muted
                      autoplay
@@ -505,29 +555,31 @@ const Home = () => {
                      loop
                     className="w-full h-full "></iframe>
 
+
+
                 </div>
+          </div>
+
+          <div className="w-full flex justify-center  space-x-5">
+            <Link href={'/en/blog/gallery'}>
+              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-5 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
+              ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡು
+              </button>
+            </Link>
+
+            <Link href={'/en/contact'}>
+              <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-5 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
+              ಸಂಪರ್ಕದಲ್ಲಿರಲು
+              </button>
+            </Link>
+          </div>
         </div>
+      </section>
 
-        <div className="w-full flex justify-center  space-x-5">
-          <Link href={'/en/blog/gallery'}>
-            <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
-            ಇನ್ನೂ ಹೆಚ್ಚು ನೋಡು
-            </button>
-          </Link>
-
-          <Link href={'/en/contact'}>
-            <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-6 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
-            ಸಂಪರ್ಕದಲ್ಲಿರಲು
-            </button>
-          </Link>
-        </div>
-      </div>
-    </section>
-
-    <section className="w-full h-auto relative">
+      <section className="w-full h-auto relative">
         <div className="p-4 md:p-10 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start md:m-auto">
           <div className="w-full justify-center flex items-center space-y-3">
-            <h1 className="text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+            <h1 className="text-xs md:text-2xl font-heading uppercase text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
             ನಮ್ಮ ಪ್ರಮಾಣಪತ್ರಗಳು
             </h1>
           </div>
@@ -538,7 +590,7 @@ const Home = () => {
             }`}>
             <Swiper
               watchSlidesProgress={true}
-              slidesPerView={certificatePrivew}
+              slidesPerView={3}
               spaceBetween={20}
               autoplay={{
                 delay: 2500,
@@ -548,7 +600,7 @@ const Home = () => {
               className="w-full">
               {certificate?.map((item, idx) => (
                 <SwiperSlide key={idx} className="w-72 md:m-auto">
-                  <div className="w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
+                  <div className="max-w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
                     <img
                       src={item?.attributes?.url}
                       alt={`Certificate ${idx + 1}`}
@@ -563,41 +615,54 @@ const Home = () => {
       </section>
 
 
+                <div className='w-full h-full flex justify-center space-x-5 items-center'>
+                  <Fade bottom>
 
-      <div className='w-full h-full flex justify-center space-x-5 items-center'>
+            
                   <div className=' text-5xl  font-light font-serif'>
                       Follow us:
                   </div>
+                  </Fade>
 
                   <div className='w-fulll '>
                         <ul className='w-full flex justify-center space-x-5 items-center'>
+                          <Fade top>
                           <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
                             <a href='https://www.facebook.com/kmfnandini.coop'>
                               <img src='https://www.heritagefoods.in/static/images/fb.png'/>
                             </a>
                           </li>
 
+                          </Fade>
 
+
+                          <Fade bottom>
                           <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
                             <a href='https://www.instagram.com/kmfnandini.coop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
                               <img src='https://www.heritagefoods.in/static/images/is.png'/>
                             </a>
                           </li>
+                          </Fade>
 
 
+                          <Fade top>
                           <li className='border-r-2 p-2 transition-all duration-150 hover:scale-[1.1]'>
                             <a href="https://www.youtube.com/@kmfnandini12">
                               <img src='https://www.heritagefoods.in/static/images/yt.png'/>
                             </a>
                           </li>
-
+                          </Fade>
 
                         </ul>
                   </div>
                 </div>
-    {/* FOOTER SECTION  */}
-    <Footer />
-  </div>
+
+
+
+
+      {/* FOOTER SECTION  */}
+      <Footer />
+    </div>
   );
 };
 
