@@ -37,7 +37,7 @@ function WomenEmpowerment() {
   }, []);
   return (
     <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
-      <section className={`w-full h-[800px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-full md:h-[800px] pt-28 relative  grid place-items-center `}>
         <img
           src={'/images/step-bg.png'}
           className="w-full h-full object-fill absolute top-0 z-[-1]"
@@ -45,7 +45,7 @@ function WomenEmpowerment() {
       </section>
 
 
-      <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
+      <div className="flex w-full   flex-wrap  justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
                       <Link className="  text-sm font-bold  " href={`/` || ''}>
                       <IoHomeOutline size={20} />
             </Link>
@@ -93,7 +93,7 @@ function WomenEmpowerment() {
           
             
       </div>
-      <section className="w-full max-w-7xl m-auto h-auto p-10  flex justify-center items-center flex-col  space-y-6  ">
+      <section className="w-full max-w-7xl m-auto h-auto p-4  flex justify-center items-center flex-col  space-y-6  ">
       <div className="   mt-20  relative w-full  flex justify-center items-center ">
           
               <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
@@ -101,7 +101,7 @@ function WomenEmpowerment() {
               </h1>
             </div>
          
-        <p className="text-justify text-xl text-neutral-dark1">
+        <p className="text-justify text-xs md:text-xl text-neutral-dark1">
           {locale === 'en'
             ? ` Support to Training and Employment Programme (STEP) for Women was launched by the Ministry
           of Women & Child Development, Government of India, as one of the measures to ensure well
@@ -116,17 +116,17 @@ function WomenEmpowerment() {
 
      
 
-      <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
+      <section className=" max-w-7xl m-auto h-auto p-5 flex   justify-center items-start    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
       <Fade top>
-        <div className="w-full xl:max-w-2xl flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
+        <div className="w-full xl:max-w-2xl flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-2 ">
 
        
-        <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+        <div className=" mb-5 md:mb-20  mt-20  relative w-full  flex justify-center items-center ">
               <img
                 src="/images/heading/heading-color/group.png"
-                className="absolute   w-[530px] top-[-70px]    object-contain"
+                className="absolute   w-[530px]  md:top-[-70px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-[5.5px] md:text-xl font-extrabold uppercase">
               {womenEmpower[currentIndex]?.title}
               </h1>
             </div>
@@ -134,7 +134,7 @@ function WomenEmpowerment() {
           
           {womenEmpower[currentIndex]?.description?.map((item, id) => {
             return (
-              <p  key={id} className="text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
+              <p  key={id} className="text-[7px] md:text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
             );
           })}
         </div>
@@ -142,18 +142,18 @@ function WomenEmpowerment() {
 
         <div className="flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white p-5">
           <div>
-            <h1 className="text-xl">{locale==='en'?`WOMEN EMPOWERTMENT`:`ಮಹಿಳಾ ಸಬಲೀಕರಣ`}</h1>
+            <h1 className=" text-xs md:text-xl">{locale==='en'?`WOMEN EMPOWERTMENT`:`ಮಹಿಳಾ ಸಬಲೀಕರಣ`}</h1>
           </div>
 
           <div className="w-full h-ful pt-5">
-            <ul className="w-full flex flex-col justify-center items-center space-y-3">
+            <ul className="w-full flex flex-col justify-center items-center space-y-1">
               {womenEmpower?.map((items, idx) => {
                 return (
                   <li
                     key={idx}
-                    className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                    className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-lg before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                     onClick={() => handleButton(idx)}>
-                    <img src={rightArrow.src} />
+                    <img src={rightArrow.src} className='w-2' />
                     <Fade right>
                     <p
                       className={`${

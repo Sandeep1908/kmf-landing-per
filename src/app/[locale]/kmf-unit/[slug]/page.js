@@ -57,7 +57,7 @@ function KmfUnitDetail() {
          } `}
        />
      </section>:
-      <section className={`w-full h-[500px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full h-full md:h-[500px] pt-28 relative  grid place-items-center `}>
       {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
        */}
       
@@ -114,7 +114,7 @@ function KmfUnitDetail() {
         if (idx < 5) {
           return (
             <div key={idx} className={`${readMore ? 'hidden' : ''}`}>
-              <p className="text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>
+              <p className=" text-xs md:text-xl font-josefin  text-justify">{item?.children[0]?.text}</p>
 
          
             </div>
@@ -123,14 +123,14 @@ function KmfUnitDetail() {
       })
     : unit?.attributes?.description?.map((item, idx) => {
         return (
-          <p key={idx} className="text-xl font-josefin  text-justify">
+          <p key={idx} className="text-xs md:text-xl font-josefin  text-justify">
             {item?.children[0]?.text}
           </p>
         );
       })}
 
 { readMore && unit?.attributes?.description?.map((item, idx) => (
-  <p key={idx} className="text-neutral-dark1 text-lg">
+  <p key={idx} className="text-neutral-dark1 text-xs md:text-lg">
     {item?.children[0]?.text}
   </p>
 ))}
@@ -138,13 +138,13 @@ function KmfUnitDetail() {
  
 
 <div
-                className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
+                className={`w-full  flex justify-end items-end text-xs md:text-lg text-primary-main hover:underline cursor-pointer ${readMore?'hidden':''}`}
                 onClick={() => setReadMore(true)}>
                   {locale==='kn'?'ಮತ್ತಷ್ಟು ಓದಿ':'Read more...'}
                 
               </div>
               <div
-                className={`w-full  flex justify-end items-end text-lg text-primary-main hover:underline cursor-pointer ${!readMore?'hidden':'block'}`}
+                className={`w-full  flex justify-end items-end text-xs md:text-lg text-primary-main hover:underline cursor-pointer ${!readMore?'hidden':'block'}`}
                 onClick={() => setReadMore(false)}>
                   {locale==='kn'?'ಕಡಿಮೆ ಓದಿ':'Read Less...'}
                 

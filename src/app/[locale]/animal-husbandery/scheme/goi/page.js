@@ -89,16 +89,16 @@ const handleButton = (idx) => {
     
             <section className=" relative w-full   h-auto   ">
           
-          <section className=" max-w-7xl m-auto h-auto p-10 flex flex-col justify-center items-center    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-5">
+          <section className=" max-w-7xl m-auto h-auto p-3 flex   justify-center items-start    space-y-6  xl:flex-row xl:justify-evenly xl:items-start md:space-x-2">
 
             <Fade left>
         <div className="w-full xl:max-w-2xl shadow-lg flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
-        <div className="mb-20  mt-20  relative w-full   flex justify-center items-center ">
+        <div className="md:mb-20  mt-20  relative w-full   flex justify-center items-center ">
               <img
                 src="/images/heading/heading-color/group.png"
-                className="absolute   w-[530px] top-[-50px] sm:top-[-70px]    object-contain"
+                className="absolute   w-[530px] top-[-30px] sm:top-[-50px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-sm md:text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-[5px] md:text-xl font-extrabold uppercase">
               {scheme[currentIndex]?.title}
               </h1>
             </div>
@@ -106,16 +106,16 @@ const handleButton = (idx) => {
          
           {scheme[currentIndex]?.content?.map((item, id) => {
             return (
-              <p  key={id} className="text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
+              <p  key={id} className="text-[10px] md:text-xl text-neutral-dark1 text-justify">{item?.children?.[0]?.text}</p>
             );
           })}
           
         </div>
         </Fade>
 
-        <div className="flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white p-5">
+        <div className="flex flex-col justify-center items-start rounded-tl-3xl   rounded-br-3xl  bg-white p-5">
           <div>
-            <h1 className="text-xl uppercase">{locale==='kn'?`ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು`:`Government Of India `}</h1>
+            <h1 className=" text-xs  text-center md:text-xl uppercase">{locale==='kn'?`ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು`:`Government Of India `}</h1>
           </div>
 
           <div className="w-full h-ful pt-5 shadow-md">
@@ -128,9 +128,9 @@ const handleButton = (idx) => {
                     
                     <li
                       key={idx}
-                      className=" relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className="  relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
-                      <img src={rightArrow.src} />
+                      <img src={rightArrow.src} className='w-4' />
                       <Fade right >
                       <p
                         className={`${
@@ -152,9 +152,9 @@ const handleButton = (idx) => {
                   return (
                     <li
                       key={idx}
-                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
-                      <img src={rightArrow.src} />
+                      <img src={rightArrow.src} className='w-2' />
                       <Fade right>
                       <p
                         className={`${

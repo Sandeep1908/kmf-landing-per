@@ -85,8 +85,8 @@ function OrganizationChart() {
 
           <div className="absolute w-full h-full z-[-10] ">
             <div className="w-full h-full flex justify-between items-center">
-              <div className="w-40 h-8 bg-red-600"></div>
-              <div className="w-40 h-8 bg-red-600"></div>
+              <div className="w-20 md:w-40 h-8 bg-red-600"></div>
+              <div className="w-20 md:w-40 h-8 bg-red-600"></div>
             </div>
           </div>
             <Swiper
@@ -110,7 +110,7 @@ function OrganizationChart() {
                     <PhotoProvider className='w-full' >
                         
                         <PhotoView src={item} height="400px"  >
-                        <img className='w-full max-w-2xl h-96 object-fill' src={item} alt="" />
+                        <img className=' m-auto w-52 h-52 md:w-[400px] md:h-96 object-fill' src={item} alt="" />
                         </PhotoView>
                     
                   

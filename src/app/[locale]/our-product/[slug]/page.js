@@ -15,8 +15,6 @@ import ProductAccordion from '@/components/ProductAccordion';
 import downarrowIco from '@/images/icons/downarrow.svg';
 import uparrowIco from '@/images/icons/uparrow.svg';
 import { Fade } from 'react-reveal';
- 
-
 
 function Milk() {
   const [products, setProducts] = useState([]);
@@ -38,8 +36,8 @@ function Milk() {
   const [categoryName, setCategoryName] = useState('');
   const [allSubCategories, setAllSubCategories] = useState([]);
   const [categories, setCategories] = useState([]);
-  const {setId}=useMyContext()
-  const [showMore,setShowMore]=useState(false)
+  const { setId } = useMyContext();
+  const [showMore, setShowMore] = useState(false);
   const arrows = {
     down: downarrowIco.src,
     up: uparrowIco.src
@@ -142,7 +140,7 @@ function Milk() {
         <div className="w-full     pb-10">
           <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
             <Link className="  text-sm font-bold  " href={`/${locale}/our-product/` || ''}>
-              {locale==='kn'?'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು':'Our Products'}
+              {locale === 'kn' ? 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು' : 'Our Products'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
@@ -151,14 +149,14 @@ function Milk() {
             </Link>
             <p className="text-primary-main">&gt;</p>
             <Link className="  text-sm font-bold text-primary-main" href={''}>
-              {title?.attributes?.title} 
+              {title?.attributes?.title}
             </Link>
           </div>
           <div className="w-full max-w-7xl m-auto flex flex-col justify-center items-center space-y-4 pt-10 ">
             <h1 className="text-4xl text-primary-main text-center font-subheading">
-              {title?.attributes?.Heading} 
+              {title?.attributes?.Heading}
             </h1>
-        
+
             {/* <p className="text-2xl ">{title?.attributes?.description}</p> */}
           </div>
 
@@ -166,14 +164,11 @@ function Milk() {
             className={`w-full h-full mt-10 max-w-[1600px] m-auto  flex flex-col space-y-5 ${
               title?.attributes?.Heading ? 'mt-' : ''
             } `}>
-
-<div className="mb-20    relative w-full  flex justify-center items-center ">
-            
+            <div className="mb-20    relative w-full  flex justify-center items-center ">
               <h1 className=" text-primary-main relative  m-auto text-center z-10 font-heading text-4xl font-extrabold uppercase">
-              {title?.attributes?.title}     {locale==='kn'?' ':'Family'}
+                {title?.attributes?.title} {locale === 'kn' ? ' ' : 'Family'}
               </h1>
             </div>
-             
 
             <div className="flex w-full justify-evenly items-start space-x-5">
               <div className="w-full max-w-7xl m-auto h-full pt-10 place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
@@ -181,79 +176,89 @@ function Milk() {
                   return (
                     <div
                       key={id}
-                      className={`max-w-96  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${item?.attributes?.isLatest?'our-product-latest':''} `}>
-                        {
-                          item?.attributes?.isLatest &&
-                          <img src='/images/product-new/new.gif' className='w-20 absolute right-5  z-[10]'/>
-                        }
-                    
-                    <Fade top>
-                      <div className="w-full   justify-center items-center flex p-2  ">
-                        <Carousel
-                          className="w-2xl h-96"
-                          autoPlay={false}
-                          interval={2000}
-                          showStatus={false}
-                          infiniteLoop
-                          showThumbs={false}
-                          showIndicators={false}>
-                          {item?.attributes?.image?.data?.map((item, id) => {
-                             
-                            const validExtensions = ['.png', '.jpg', '.jpeg','.JPG','.JPEG','.PNG'];
-                            if (validExtensions.includes(item?.attributes?.ext)) {
-                              return (
-                                <img
-                                  key={id}
-                                  src={item?.attributes?.url}
-                                  className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
-                                />
-                              );
-                            } else {
-                              return (
-                                <video
-                                  autoPlay
-                                  controls
-                                  loop
-                                  muted
-                                  key={id}
-                                  src={item?.attributes?.url}
-                                  className="w-full h-80   object-contain  transition-all duration-300 hover:scale-[1.1]"
-                                />
-                              );
-                            }
-                          })}
-                        </Carousel>
-                      </div>
-                      </Fade>
-<Fade bottom>
-                      <div
-                        className="w-full h-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
-                                  ">
-                        <p className="text-2xl text-center w-full">{item?.attributes?.name}</p>
-                        <p
-                          className={`text-center w-[80%] m-auto  p-3 rounded-lg ${
-                            item?.attributes?.quantity ? 'bg-yellow-300' : 'hidden'
-                          }`}>
-                          {item?.attributes?.quantity}
-                        </p>
-                        <p
-                          className={`text-md text-center w-full ${
-                            item?.attributes?.description ? '' : 'hidden'
-                          }`}>
-                          {expandedDescriptionIndex === id ||
-                          item?.attributes?.description?.length <= 50
-                            ? item?.attributes?.description
-                            : `${item?.attributes?.description?.substring(0, 100)}... `}
+                      className={`max-w-96 h-full  bg-[#F7F7F7] relative flex flex-col justify-between items-start ${
+                        item?.attributes?.isLatest ? 'our-product-latest' : ''
+                      } `}>
+                      {item?.attributes?.isLatest && (
+                        <img
+                          src="/images/product-new/new.gif"
+                          className="w-20 absolute right-5  z-[10]"
+                        />
+                      )}
 
-                          {item?.attributes?.description?.length > 100 && (
-                            <button
-                              className="text-primary-main"
-                              onClick={() => handleSeeMoreClick(id)}>
-                              {expandedDescriptionIndex === id ? 'See less' : 'See more'}
-                            </button>
-                          )}
-                        </p>
-                      </div>
+                      <Fade top>
+                        <div className="w-full   justify-center items-center flex p-2  ">
+                          <Carousel
+                            className="w-2xl h-96"
+                            autoPlay={false}
+                            interval={2000}
+                            showStatus={false}
+                            infiniteLoop
+                            showThumbs={false}
+                            showIndicators={false}>
+                            {item?.attributes?.image?.data?.map((item, id) => {
+                              const validExtensions = [
+                                '.png',
+                                '.jpg',
+                                '.jpeg',
+                                '.JPG',
+                                '.JPEG',
+                                '.PNG'
+                              ];
+                              if (validExtensions.includes(item?.attributes?.ext)) {
+                                return (
+                                  <img
+                                    key={id}
+                                    src={item?.attributes?.url}
+                                    className="w-40 h-80  object-contain  transition-all duration-300 hover:scale-[1.1]"
+                                  />
+                                );
+                              } else {
+                                return (
+                                  <video
+                                    autoPlay
+                                    controls
+                                    loop
+                                    muted
+                                    key={id}
+                                    src={item?.attributes?.url}
+                                    className="w-full h-80   object-contain  transition-all duration-300 hover:scale-[1.1]"
+                                  />
+                                );
+                              }
+                            })}
+                          </Carousel>
+                        </div>
+                      </Fade>
+                      <Fade bottom>
+                        <div
+                          className="w-full h-full  p-2 text-justify flex flex-col space-y-3 pb-3 justify-start items-start
+                                  ">
+                          <p className="text-2xl text-center w-full">{item?.attributes?.name}</p>
+                          <p
+                            className={`text-center w-[80%] m-auto  p-3 rounded-lg ${
+                              item?.attributes?.quantity ? 'bg-yellow-300' : 'hidden'
+                            }`}>
+                            {item?.attributes?.quantity}
+                          </p>
+                          <p
+                            className={`text-md text-center w-full ${
+                              item?.attributes?.description ? '' : 'hidden'
+                            }`}>
+                            {expandedDescriptionIndex === id ||
+                            item?.attributes?.description?.length <= 50
+                              ? item?.attributes?.description
+                              : `${item?.attributes?.description?.substring(0, 100)}... `}
+
+                            {item?.attributes?.description?.length > 100 && (
+                              <button
+                                className="text-primary-main"
+                                onClick={() => handleSeeMoreClick(id)}>
+                                {expandedDescriptionIndex === id ? 'See less' : 'See more'}
+                              </button>
+                            )}
+                          </p>
+                        </div>
                       </Fade>
                     </div>
                   );
@@ -263,16 +268,16 @@ function Milk() {
               <div className="w-60 pt-10 transition-all duration-300 hidden lg:block">
                 <div className="w-full h-fit transition-all duration-300 flex flex-col  shadow-lg    justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
                   <div className="w-full mb-2    shadow-md bg-primary-main  ">
-                    <h1 className="p-5 text-lg uppercase   text-white text-center w-full">  {locale==='kn'?'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು':'Our Products'}</h1>
+                    <h1 className="p-5 text-lg uppercase   text-white text-center w-full">
+                      {' '}
+                      {locale === 'kn' ? 'ನಮ್ಮ ಉತ್ಪನ್ನಗಳು' : 'Our Products'}
+                    </h1>
                   </div>
 
-
-                  {showMore ? 
-                      allSubCategories?.map((items, idx) => {
-                     
-                         
-                          return(
-                            <ProductAccordion
+                  {showMore
+                    ? allSubCategories?.map((items, idx) => {
+                        return (
+                          <ProductAccordion
                             title={items?.attributes?.title}
                             id={idx}
                             open={openAccordion == idx}
@@ -283,83 +288,55 @@ function Milk() {
                               {items?.attributes?.product_sub_items?.data?.map((item, index) => {
                                 return (
                                   <Link
-                                  
                                     href={`/${locale}/our-product/${items?.id}` || ''}
                                     key={index}
                                     onClick={() => setOpenNav((prev) => !prev)}>
-                                      <Fade right>
-                                    <li
-                                      key={index}
-                                      className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
-                                      <span>{item?.attributes?.name}</span>
-                                    </li>
+                                    <Fade right>
+                                      <li
+                                        key={index}
+                                        className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
+                                        <span>{item?.attributes?.name}</span>
+                                      </li>
                                     </Fade>
                                   </Link>
                                 );
                               })}
                             </ul>
                           </ProductAccordion>
-                          )
-                       
-                   
-                       
-                      
-                      
-    
-                         
+                        );
                       })
-                  :
-
-                  categories?.map((items, idx) => {
-                    
-                     
-                    if(idx<=10){
-                      return(
-                        <ProductAccordion
-                        title={items?.attributes?.title}
-                        id={idx}
-                        open={openAccordion == idx}
-                        arrow={arrows}
-                        onToggle={handleAccordionClick}
-                        key={idx}>
-                        <ul className="">
-                          {items?.attributes?.subcategories?.data?.map((item, index) => {
-                         
-                            return (
-                              <Link
-                              
-                                href={`/${locale}/our-product/${item?.id}` || ''}
-                                key={index}
-                                onClick={() => setOpenNav((prev) => !prev)}>
-                                  <Fade right>
-                                <li
-                                  key={index}
-                                  className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
-                                  <span>{item?.attributes?.title}</span>
-                                </li>
-                                </Fade>
-                              </Link>
-                            );
-                          })}
-                        </ul>
-                      </ProductAccordion>
-                      )
-                    }
-               
-                   
-                  
-                  
-
-                     
-                  })}
-                  
-                  
-                  
-                  
-
-              
-
-                 
+                    : categories?.map((items, idx) => {
+                        if (idx <= 10) {
+                          return (
+                            <ProductAccordion
+                              title={items?.attributes?.title}
+                              id={idx}
+                              open={openAccordion == idx}
+                              arrow={arrows}
+                              onToggle={handleAccordionClick}
+                              key={idx}>
+                              <ul className="">
+                                {items?.attributes?.subcategories?.data?.map((item, index) => {
+                                  return (
+                                    <Link
+                                      href={`/${locale}/our-product/${item?.id}` || ''}
+                                      key={index}
+                                      onClick={() => setOpenNav((prev) => !prev)}>
+                                      <Fade right>
+                                        <li
+                                          key={index}
+                                          className="flex items-center  relative  text-light-light4 border-b-2 border-b-light-light4 pb-2 space-x-3 ">
+                                          <span>{item?.attributes?.title}</span>
+                                        </li>
+                                      </Fade>
+                                    </Link>
+                                  );
+                                })}
+                              </ul>
+                            </ProductAccordion>
+                          );
+                        }
+                      })}
                 </div>
               </div>
             </div>

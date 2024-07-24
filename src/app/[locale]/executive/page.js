@@ -156,7 +156,7 @@ const Executive = () => {
       <table className="      border-spacing-y-2	max-w-7xl  border-collapse w-full border overflow-auto ">
         <thead className=" bg-primary-main text-white min-w-full ">
           <Fade top>
-          <tr className="text-md    ">
+          <tr className="  text-[5.5px]  md:text-lg   ">
             <th className="p-2 text-start font-heading ">
               {locale === "en" ?"Name":"ಹೆಸರು"}
               </th>
@@ -173,22 +173,22 @@ const Executive = () => {
           </Fade>
         </thead>
 
-        <tbody className="text-start  text-md  bg-secondary-gradient">
+        <tbody className="text-start text-xs     bg-secondary-gradient">
         {executives?.map((item,id)=>{
         
          
 
  return(
     
-    <tr className='border-t ' key={id}>
+    <tr className='border-t  text-[5.5px] md:text-lg' key={id}>
       <Fade bottom>
-    <td className="p-1 text-md  ">{item?.attributes?.name}</td>
+    <td className="p-1   ">{item?.attributes?.name}</td>
    
-    <td className="p-1 text-md">{item?.attributes?.designation}</td>
-    <td className="p-1 text-md  ">{item?.attributes?.department}</td>
-    <td className="p-1 text-md text-center"> {item?.attributes?.working}</td>
-    <td className="p-1 text-md text-center"> {item?.attributes?.mobile}</td>
-    <td className="p-1 text-md"> {item?.attributes?.email}</td>
+    <td className="p-1  ">{item?.attributes?.designation}</td>
+    <td className="p-1    ">{item?.attributes?.department}</td>
+    <td className="p-1  text-center"> {item?.attributes?.working}</td>
+    <td className="p-1  text-center"> {item?.attributes?.mobile}</td>
+    <td className="p-1  "> {item?.attributes?.email}</td>
     </Fade>
   </tr>
    
@@ -223,7 +223,7 @@ const Executive = () => {
      <div className='w-full overflow-auto'>
      <table className="  border-spacing-y-2	max-w-7xl  border-collapse w-full border overflow-auto">
         <thead className="bg-primary-main text-white  ">
-          <tr className="text-md ">
+          <tr className="text-[5.5px] md:text-lg ">
 <Fade top>
             <th className="p-2 text-start font-heading ">   {locale === "en" ?"Name":"ಹೆಸರು"}</th>
             <th className="p-2 text-start font-heading"> {locale === "en" ?"Designation":"ಪದನಾಮ"}	</th>
@@ -235,20 +235,20 @@ const Executive = () => {
           </tr>
         </thead>
 
-        <tbody className="text-start  text-md  bg-secondary-gradient">
+        <tbody className="text-start     bg-secondary-gradient">
         {unionCheifs?.map((item,id)=>{
  
 
 
  return(
     
-  <tr className='border-t' key={id} >
+  <tr className='border-t text-[5.5px] md:text-lg' key={id} >
     <Fade bottom>
-  <td className="p-1 text-md  ">{item?.attributes?.name}</td>
-  <td className="p-1 text-md">{item?.attributes?.designation}</td>
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
-  <td className="p-1 text-md overflow-auto text-center">{item?.attributes?.mobile}</td>
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
+  <td className="p-1    ">{item?.attributes?.name}</td>
+  <td className="p-1  ">{item?.attributes?.designation}</td>
+  <td className="p-1   overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1   overflow-auto text-center">{item?.attributes?.mobile}</td>
+  <td className="p-1   overflow-auto">{item?.attributes?.email}</td>
   </Fade>
 
 </tr>
@@ -281,7 +281,7 @@ const Executive = () => {
       <div className='w-full overflow-auto'>
       <table className="  border-spacing-y-2	max-w-7xl  border-collapse w-full border overflow-auto">
         <thead className=" w-full bg-primary-main text-white ">
-          <tr className="text-md    ">
+          <tr className="  text-[5.5px] md:text-lg   ">
             <Fade top>
             <th className="p-2 text-start font-heading"> {locale === "en" ?"Name":"ಹೆಸರು"}</th>
             <th className="p-2 text-start font-heading"> {locale === "en" ?"Designation":"ಪದನಾಮ"}	</th>
@@ -293,21 +293,21 @@ const Executive = () => {
           </tr>
         </thead>
 
-        <tbody className="text-start  text-md  bg-secondary-gradient">
+        <tbody className="text-start     bg-secondary-gradient">
         {unitCheifs?.map((item,id)=>{
  
 
 
  return(
     
-  <tr className='border-t' key={id} >
+  <tr className='border-t text-[5.5px] md:text-lg' key={id} >
     <Fade bottom>
-  <td className="p-1 text-md  ">{item?.attributes?.name}</td>
-  <td className="p-1 text-md">{item?.attributes?.designation}</td>
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.working}</td>
-  <td className="p-1 text-md overflow-auto text-center">{item?.attributes?.mobile}</td>
+  <td className="p-1    ">{item?.attributes?.name}</td>
+  <td className="p-1  ">{item?.attributes?.designation}</td>
+  <td className="p-1   overflow-auto">{item?.attributes?.working}</td>
+  <td className="p-1   overflow-auto text-center">{item?.attributes?.mobile}</td>
 
-  <td className="p-1 text-md overflow-auto">{item?.attributes?.email}</td>
+  <td className="p-1   overflow-auto">{item?.attributes?.email}</td>
   </Fade>
 </tr>
    
