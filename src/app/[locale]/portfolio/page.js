@@ -183,7 +183,7 @@ function Portfolio() {
     (async () => {
       const { data } = await axios.get('/api/kmf-achievements');
       const { data: sponsor } = await axios.get('/api/sponsoreds');
-      const { data: banner } = await axios.get('/api/banners');
+      const { data: banner } = await axios.get('/api/banners?sort[0]=createdAt:desc');
       const { data: pdf } = await axios.get('/api/Ksheerasagramagazines');
 
       setBanners(banner.data);
@@ -264,12 +264,12 @@ useEffect(()=>{
 const handleResize=()=>{
  if(window.innerWidth === 786){
   setPdfWidth(1)
-  console.log("pdfw",pdfWidth)
+  // console.log("pdfw",pdfWidth)
   
  }
  else{
   setPdfWidth(3)
-  console.log("pdfw",pdfWidth)
+  // console.log("pdfw",pdfWidth)
 
  }
 }
@@ -283,22 +283,32 @@ window.addEventListener('resize',handleResize);
     <div className={`w-full h-full absolute transition-all duration-700  z-[-1]  scroll-smooth  text-c `}>
      <div className='w-full h-[30vh] md:h-[100vh] relative z-[100]'>
       <div className="w-full  h-full relative bg-slate-50 z-[-10]  overflow-x-hidden">
-        <div className=" absolute z-50 w-12 h-12 top-6 right-6 md:top-8 md:right-40">
+        <div className=" absolute z-50 w-10 h-10 md:w-12 md:h-12 top-6 right-6 md:top-8 md:right-40">
           <div className='w-full h-full flex justify-center items-center'>
           <p
             id="openMenu"
             onMouseEnter={changeIcon}
             onMouseLeave={changeIcon2}
             onClick={toggleNavbar}
-            className={`text-white relative z-[100] transition-all duration-1000  ${
+            className={`text-white hidden md:block relative z-[100] transition-all duration-1000  ${
               isOpen ? 'hidden' : ''
             }`}>
             {isChangeIcon ? <HiArrowSmallLeft size={40} /> : <IoMenu size={40} />}
           </p>
+          <p
+            id="openMenu"
+            onMouseEnter={changeIcon}
+            onMouseLeave={changeIcon2}
+            onClick={toggleNavbar}
+            className={`text-white md:hidden relative z-[100] transition-all duration-1000  ${
+              isOpen ? 'hidden' : ''
+            }`}>
+            {isChangeIcon ? <HiArrowSmallLeft size={35} /> : <IoMenu size={35} />}
+          </p>
           </div>
          
         </div>
-        <div className='absolute z-[40] bg-black rounded-full w-12 h-12 top-6 right-6 md:top-8 md:right-40 opacity-45'>
+        <div className='absolute z-[40] bg-black rounded-full w-10 h-10 md:w-12 md:h-12 top-6 right-6 md:top-8 md:right-40 opacity-45'>
 
           </div>
         <div className={`left-[50%] absolute  bottom-[3%] ${isOpen ? 'hidden' : ' hidden md:block'} `}>
@@ -966,16 +976,16 @@ window.addEventListener('resize',handleResize);
           </div>
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> KMF ACHIEVEMENTS </h1> */}
           <div className="w-full flex  md:flex-row flex-wrap justify-center items-center mt-10  gap-1 md:gap-5">
-            {tabs?.map((tab, idx) => {
+            {tabs?.map((tab, id) => {
               return (
-                <div key={idx} onClick={() => handleTabs(idx)} className="flex gap-1 md:gap-3">
+                <div key={id} onClick={() => handleTabs(id)} className="flex gap-1 md:gap-3">
                   <Link href={tab.link}>
                     {' '}
 
                     <Fade top>
                     <p
                       className={`${
-                        currentIndex === idx
+                        currentIndex === id
                           ? 'hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]'
                           : 'text-black hover:text-orange-300 transition-all duration-200 hover:scale-[1.2]'
                       } text-[12px] md:text-lg`}>
@@ -984,7 +994,7 @@ window.addEventListener('resize',handleResize);
                     </p>
                     </Fade>
                   </Link>
-                  {idx < tabs.length - 1 && <p className="text-[12px] md:text-2xl font-bold">/</p>}
+                  {id < tabs.length - 1 && <p className="text-[12px] md:text-2xl font-bold">/</p>}
                 </div>
               );
             })}
@@ -1062,7 +1072,7 @@ window.addEventListener('resize',handleResize);
                   return (
                     <div
                       key={id}
-                      className="max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16">
+                      className=" max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16">
                       <div className="m-auto">
                         <div className="w-[300px] md:w-[450px] relative">
                           <img
