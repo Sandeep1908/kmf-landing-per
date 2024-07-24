@@ -93,7 +93,7 @@ function Directors() {
         </Fade>
     
       </div>
-          <div className="grid md:grid-cols-4  sm:grid-cols-3 grid-cols-1 place-items-center gap-5 md:flex-row mt-10 justify-center">
+          <div className="grid grid-cols-2 p-2 md:grid-cols-4  sm:grid-cols-3  place-items-center gap-5 md:flex-row mt-10 justify-center">
 
     
             {directors?.map((item, id) => {

@@ -28,7 +28,7 @@ function GrowthProcess({ setLoading }) {
     <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-[#FDF9F7]     overflow-auto  items-start justify-start p-10 space-y-5">
       <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border      min-w-full">
         <thead className=" text-center ">
-          <tr className="text-md bg-secondary-main   ">
+          <tr className="text-[5.6px]   md:text-lg bg-secondary-main   ">
             <th className="p-2 border-r border-black">S.NO</th>
             <th className="p-2 border-r border-black">KEY ITEMS</th>
             <th className="p-2 border-r border-black ">UNIT</th>
@@ -40,24 +40,24 @@ function GrowthProcess({ setLoading }) {
           </tr>
         </thead>
 
-        <tbody className="text-left  text-md">
+        <tbody className="text-left  text-[5.6px] md:text-lg">
           {growthProcessHeader.map((header, id) => {
              
 
             return (
               <tr key={header?.id} className="border-t-2   border-black    ">
-                <td className="p-2 text-md border-r  border-black uppercase text-center font-content">
+                <td className="p-2 text-[5.6px] md:text-lg border-r  border-black uppercase text-center font-content">
                   {id + 1}
                 </td>
-                <td className="p-2 text-md  border-r uppercase text-center border   border-black font-content">
+                <td className="p-2 text-[5.6px] md:text-lg  border-r uppercase text-center border   border-black font-content">
                   {header?.attributes?.header}
                 </td>
-                <td className="p-2 text-md border-r font-content  border-black">
+                <td className="p-2 text-[5.6px] md:text-lg border-r font-content  border-black">
                   {header?.attributes?.unit}
                 </td>
 
                 {growthProcess.map((gp, id) => {
-                  return<td className="w-32 text-md border-r border-black  text-center " key={id}>
+                  return<td className="max-w-32 text-[5.6px] md:text-lg border-r border-black  text-center " key={id}>
                     {gp?.attributes[header?.attributes?.key]}
                   </td>;
                 })}

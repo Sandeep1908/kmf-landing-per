@@ -295,7 +295,7 @@ const Home = () => {
           { speed: -15, children: <div></div> } // Adjust if a specific element is needed
         ]}
         className="w-full  object-contain">
-        <section className="w-full h-auto md:h-[600px] p-2 md:p-5 pt-12">
+        <section className="w-full h-auto md:h-[600px] p-2 md:p-5 md:pt-12">
           <div className="mt-10 w-full space-y-5 flex flex-col justify-center items-center m-auto max-w-7xl">
             <div className="w-full h-full flex md:flex-row justify-center items-center">
               <Fade left>
@@ -309,7 +309,7 @@ const Home = () => {
                 </div>
               </Fade>
               <Fade right>
-                <div className="flex relative h-full w-full justify-center items-center flex-col space-y-7 mt-3 p-2 md:p-6 z-10 lg:items-center lg:max-w-5xl lg:pr-10 bg-img-2">
+                <div className="flex relative h-full w-full justify-center items-center flex-col space-y-7 mt-4 p-2 md:p-6 z-10 lg:items-center lg:max-w-5xl lg:pr-10 bg-img-2">
                   <h1 className="text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                     OUR BRAND NANDINI
                   </h1>
