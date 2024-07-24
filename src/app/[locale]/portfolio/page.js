@@ -1140,8 +1140,8 @@ window.addEventListener('resize',handleResize);
 
           </div>
 
-          <div className="w-full p-7 ">
-            <div  className="md:hidden flex flex-col md:flex-row gap-6">
+          <div className="w-full p-5 lg:p-16">
+            <div  className="md:hidden w-full flex flex-col md:flex-row gap-6">
               <Swiper
                 slidesPerView={1}
                 freeMode={true}
@@ -1151,7 +1151,7 @@ window.addEventListener('resize',handleResize);
                   disableOnInteraction: false
                 }}
                 modules={[FreeMode, Autoplay]}
-                className="w-full h-[530px]">
+                className="w-[350px] lg:w-full h-[530px]">
                {pdf?.map((item,id)=>{
              
                 return(
@@ -1193,7 +1193,7 @@ window.addEventListener('resize',handleResize);
         </div>
       </section>
 
-      <section id="SPONSORED" className="w-full h-auto  md:pt-20  md:pb-20  ">
+      <section id="SPONSORED" className="w-full h-auto  md:pt-10  md:pb-20  ">
         <div className="w-full text-center">
           <div className="w-full pt-10 md:pt-20  md:pb-20">
             <div className="relative mt-1 w-full  flex justify-center items-center">
