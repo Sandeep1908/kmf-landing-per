@@ -43,7 +43,7 @@ const handleButton = (idx) => {
     setReadMore(!readMore);
   };
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -80,7 +80,7 @@ const handleButton = (idx) => {
             
           </div>
 
-          <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+          <div className=" md:mb-20  mt-10 md:mt-20  relative w-full  flex justify-center items-center ">
              
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು':'          Government Of India'}
@@ -128,7 +128,7 @@ const handleButton = (idx) => {
                     
                     <li
                       key={idx}
-                      className="  relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className="  relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} className='w-4' />
                       <Fade right >
@@ -152,7 +152,7 @@ const handleButton = (idx) => {
                   return (
                     <li
                       key={idx}
-                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} className='w-2' />
                       <Fade right>

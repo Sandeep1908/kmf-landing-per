@@ -63,7 +63,7 @@ const [previewCount,setPreviewCount]=useState(3)
 
 return(
  
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
           <div className='w-full mt-20 relative m-auto h-auto     '>
 
 <div className="absolute w-full h-full z-[-10] ">

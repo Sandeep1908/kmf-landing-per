@@ -102,7 +102,7 @@ const Executive = () => {
 
    
   return (
-    <div className={`w-full h-full absolute   z-[-1]  ${isScroll ? 'top-48' : ''} `}>
+    <div className={`w-full h-full absolute   z-[-1]  ${isScroll ? ' md:top-48' : ''} `}>
 
  
     <section

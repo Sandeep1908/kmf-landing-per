@@ -26,7 +26,7 @@ const axios =useApi()
     }, []);
 
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
     <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
       {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
        */}
@@ -109,7 +109,7 @@ const axios =useApi()
                           <BlocksRenderer
                             content={_?.attributes?.content}
                             blocks={{
-                              paragraph: ({ children }) =><Fade bottom> <p className="text-lg">{children}</p></Fade>,
+                              paragraph: ({ children }) =><Fade bottom> <p className=" text-sm text-justify md:text-lg">{children}</p></Fade>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:

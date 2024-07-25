@@ -24,7 +24,7 @@ function MissionVission() {
   }, []);
 
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
     
       {purpose?.attributes?.bannervideo?.data ?
        <section className={`w-full h-[600px] pt-28 relative  grid place-items-center `}>

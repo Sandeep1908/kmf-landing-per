@@ -324,7 +324,7 @@ const Home = () => {
             <div className="w-full h-full flex md:flex-row justify-center items-center">
               <Fade left>
                 <div className="flex relative w-full justify-center items-center flex-col space-y-7  lg:items-center lg:max-w-5xl lg:pr-10 bg-img">
-                  <h1 className=" text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
+                  <h1 className=" uppercase text-xs md:text-2xl font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient text-white">
                     About KMF
                   </h1>
                   <div className="space-y-6">
@@ -495,8 +495,8 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <Fade bottom>
-            <div className="flex flex-col justify-center items-center">
-              <h1 className="md:text-2xl text-xs font-heading text-center w-full shadow-md p-3 shadow-black bg-primary-gradient  text-white">
+            <div className="flex flex-col justify-center items-center w-40 h-4 pb-10">
+              <h1 className="uppercase md:text-xl text-xs font-heading text-center w-full shadow-md p-4 shadow-black bg-primary-gradient  text-white">
                 Quick Links
               </h1>
             </div>

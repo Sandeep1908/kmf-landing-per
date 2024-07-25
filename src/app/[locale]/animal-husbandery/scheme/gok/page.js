@@ -44,7 +44,7 @@ const handleButton = (idx) => {
     setReadMore(!readMore);
   };
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -88,12 +88,15 @@ const handleButton = (idx) => {
             </div>
     
 
-            <section className='relative w-full max-w-7xl   m-auto pt-20   h-auto  '>
+            <section className='relative w-full max-w-7xl  p-4  m-auto md:pt-20   h-auto  '>
             {bhagaya && bhagaya.attributes && bhagaya.attributes.content && (
                     <BlocksRenderer
                       content={ bhagaya.attributes.content}
                       blocks={{
                         // You can use the default components to set class names...
+                        paragraph:({children})=>{
+                          return <p className='text-xs text-justify p-3 md:text-lg'>{children}</p>
+                        },
                         heading: ({ children, level }) => {
                           switch (level) {
                             case 1:
@@ -103,14 +106,14 @@ const handleButton = (idx) => {
                     <img src='/images/heading/heading-color/group.png' className='absolute z-[1] w-[450px]    top-[-50pxx]   object-contain'/>
         
         
-                                <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-lg   z-[100] ">
+                                <h1 className="w-full relative max-w-[300px] m-auto text-center  text-primary-main text-sm md:text-lg   z-[100] ">
                                   {' '}
                                   {children}
                                 </h1>
-                                </div>
+                     </div>
                               );
                             case 2:
-                              return <h2 className="text-lg">{children}</h2>;
+                              return <h2 className=" text-sm md:text-lg">{children}</h2>;
                             case 3:
                               return <h3>{children}</h3>;
                             case 4:
@@ -133,23 +136,47 @@ const handleButton = (idx) => {
                             <table className="table-fixed  border-spacing-y-2	 border-collapse border-black border overflow-auto     w-full ">
                               <thead className=" text-left bg-orange-400 text-primary-main">
                                 {columns?.map((item, id) => {
-                                  return (
-                                    <th className="p-2  text-[5.5px] md:text-lg  border-r border-black " key={id}>
-                                      {item}
-                                    </th>
-                                  );
+                                  console.log(item,id)
+                                  if(id===0){
+                                    return (
+                                      <th className="p-2 w-[4px]  text-[5.5px] md:text-lg  border-r border-black " key={id}>
+                                        {item}
+                                      </th>
+                                    );
+                                  }else{
+                                    return (
+                                      <th className="p-2  text-[5.5px] md:text-lg  border-r border-black " key={id}>
+                                        {item}
+                                      </th>
+                                    );
+                                  }
+                               
                                 })}
                               </thead>
                               <tbody className="text-left  text-[5.5px] md:text-lg ">
                                 <tr className="w-full ">
                                   {children?.[0]?.props?.text.split(',')[0].trim() !== 'columns' &&
                                     children?.[0]?.props?.text?.split(',')?.map((item, id) => {
-                                      return (
-                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
-                                          {' '}
-                                          {item}
-                                        </td>
-                                      );
+
+                                      if(id===0){
+
+                                        return (
+                                          <td className=" w-[4px] p-2 text-md font-content border-r border-black " key={id}>
+                                            {' '}
+                                            {item}
+                                          </td>
+                                        );
+                                      }
+                                      else{
+
+                                        return (
+                                          <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                            {' '}
+                                            {item}
+                                          </td>
+                                        );
+                                      }
+                                    
                                     })}
                                 </tr>
                               </tbody>
@@ -202,7 +229,7 @@ const handleButton = (idx) => {
                     
                     <li
                       key={idx}
-                      className="  relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className="  relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} className='w-4' />
                       <Fade right >
@@ -226,7 +253,7 @@ const handleButton = (idx) => {
                   return (
                     <li
                       key={idx}
-                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} className='w-2' />
                       <Fade right>

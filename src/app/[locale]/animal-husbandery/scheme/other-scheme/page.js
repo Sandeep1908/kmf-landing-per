@@ -20,7 +20,7 @@ function Other() {
     )()
   },[])
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -56,11 +56,11 @@ function Other() {
             </Link>
             
           </div>
-      <h1 className="text-2xl w-full mt-5 p-3 uppercase bg-primary-main text-white  shadow-lg relative flex justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
+      <h1 className="text-2xl  w-full mt-5 p-3 uppercase bg-primary-main text-white  shadow-lg relative flex justify-center items-center before:absolute before:-bottom-3 before:w-40   before:h-1 before:bg-primary-main  ">
       {locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}
       </h1>
-      <section className=" relative w-full flex flex-col space-y-5 mb-10 max-w-7xl m-auto h-auto pt-10  ">
-        <div className="w-full h-full flex space-y-3 flex-col">
+      <section className=" relative  w-full flex flex-col space-y-5 mb-10 max-w-7xl m-auto h-auto pt-10  ">
+        <div className="w-full h-full flex space-y-3 flex-col text-center">
         {
   scheme?.[0]?.attributes?.Other &&
   <BlocksRenderer

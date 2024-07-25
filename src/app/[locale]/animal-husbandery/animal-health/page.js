@@ -36,7 +36,7 @@ function AnimalHealth() {
     setReadMoreHealth(!readMoreHealth);
   };
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
          <img src={'/animal-husbandary/animal-husbandary.png'} className="w-full h-full absolute top-0 z-[-1]" />
         
@@ -93,7 +93,7 @@ function AnimalHealth() {
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
 
-          <div className="mb-20    relative w-full  flex justify-center items-center ">
+          <div className="mb-5 md:mb-20    relative w-full  flex justify-center items-center ">
                
               <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               {locale==='kn'?'ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
@@ -130,7 +130,7 @@ function AnimalHealth() {
                           <BlocksRenderer
                             content={readMore ? _?.attributes?.content: _?.attributes?.content.slice(0,6) }
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              paragraph: ({ children }) => <p className="text-xs md:text-md">{children}</p>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:
@@ -193,7 +193,7 @@ function AnimalHealth() {
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
           <div className="w-full flex flex-col space-y-2 justify-center items-start    p-1   ">
 
-          <div className="mb-20    relative w-full  flex justify-center items-center ">
+          <div className="mb-5 md:mb-20     relative w-full  flex justify-center items-center ">
             
               <h1 className=" text-primary-main relative z-10 font-heading text-4xl font-extrabold uppercase">
               {locale==='kn'?'':'Health Camps'}
@@ -230,12 +230,12 @@ function AnimalHealth() {
                           <BlocksRenderer
                             content={readMore ? _?.attributes?.content: _?.attributes?.content.slice(0,6) }
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-md">{children}</p>,
+                              paragraph: ({ children }) => <p className="text-xs md:text-md">{children}</p>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:
                                     return (
-                                      <h1 className="text-2xl text-primary-main">{children}</h1>
+                                      <h1 className="md:text-2xl text-primary-main">{children}</h1>
                                     );
                                   case 2:
                                     return <h2 className="text-lg">{children}</h2>;
@@ -252,7 +252,7 @@ function AnimalHealth() {
                                 }
                               },
                               list: ({ children }) => {
-                                return <li>{children}</li>;
+                                return <li className='text-xs md:text-lg'>{children}</li>;
                               },
                               code: ({ children }) => (
                                 <h1 className="text-2xl bg-primary-main text-white p-2 shadow-lg">

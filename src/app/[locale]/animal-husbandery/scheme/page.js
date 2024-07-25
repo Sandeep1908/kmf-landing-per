@@ -27,7 +27,7 @@ function Scheme() {
     }
   ];
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? 'top-48' : ''}  `}>
+    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -92,7 +92,7 @@ function Scheme() {
                 
           </div>
       <section className=" relative w-full h-auto   max-w-7xl m-auto pt-10  ">
-      <div className="mb-20  mt-20  relative w-full  flex justify-center items-center ">
+      <div className="mb-5 md:mb-20 mt-10   md:mt-20  relative w-full  flex justify-center items-center ">
             
               <h1 className=" text-primary-main relative z-10 font-heading text-2xl font-extrabold uppercase">
               {locale==='kn'?'':'    Schemes'}
