@@ -158,8 +158,8 @@ function TvcommercialDetails() {
           </div>
         </div>
 
-        <div className="w-full h-auto   mt-10 flex flex-col-reverse justify-center items-center md:justify-normal md:items-start md:flex-row ">
-          <section className="max-w-[1282px] m-auto w-full h-full bg-white   ">
+        <div className="w-full h-auto    mt-10 flex   justify-center items-start   ">
+          <section className="max-w-[1282px] p-2 m-auto w-full h-full bg-white   ">
             <div className="w-full h-full flex flex-col space-x-5 justify-between items-start lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col space-y-28   ">
 
@@ -369,7 +369,7 @@ function TvcommercialDetails() {
             </div>
 
           </section>
-          <div className=" w-full max-w-60 mr-10 h-full transition-all duration-300  ">
+          <div className=" p-2 w-full max-w-60 mr-10 h-full transition-all duration-300  ">
           <Link       href={`/${locale}/blog/tv-commercial/brandambassador`|| ''}>
                       <Fade right>
                     
@@ -377,9 +377,9 @@ function TvcommercialDetails() {
                    
                    
                       className="w-full list-none transition-all duration-300 bg-primary-main ">
-                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
+                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-2 md:p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
-                          <span className=" text-sm text-white uppercase">Brand Ambassador</span>
+                          <span className=" text-[8px] md:text-sm text-white uppercase">Brand Ambassador</span>
                         </div>
                       </button>
                     </li>
@@ -395,9 +395,9 @@ function TvcommercialDetails() {
                    
                    
                       className={`w-full list-none transition-all duration-300  bg-primary-main`}>
-                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
+                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-2 md:p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
-                          <span className=" text-sm text-white">{item?.attributes?.title}</span>
+                          <span className="text-[8px] md:text-sm text-white">{item?.attributes?.title}</span>
                         </div>
                       </button>
                     </li>

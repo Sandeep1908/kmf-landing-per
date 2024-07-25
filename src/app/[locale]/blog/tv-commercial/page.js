@@ -130,8 +130,8 @@ function Tvcommercial() {
           </div>
         </div>
 
-        <div className="w-full h-auto   mt-10 flex flex-col-reverse justify-center items-center md:flex-row ">
-          <section className=" max-w-[1200px] m-auto w-full h-full bg-white    ">
+        <div className="w-full h-auto   mt-10 flex  justify-center items-center   ">
+          <section className="max-w-[1100px] p-3   m-auto w-full h-full bg-white    ">
             <div className="w-full h-full flex flex-col space-x-5 justify-center items-start lg:flex-row  ">
               <div className="w-full h-full flex flex-col space-y-28   ">
                 <div className="w-full h-full">
@@ -153,8 +153,8 @@ function Tvcommercial() {
                 disableOnInteraction: false
               }}
               modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
-              spaceBetween={40}
-              slidesPerView={previewCount}
+              spaceBetween={10}
+              slidesPerView={2}
               navigation={true}
               controller={true}
               pagination={{ clickable: true }}
@@ -162,7 +162,7 @@ function Tvcommercial() {
               slide
               loop={true}
              
-              className={`max-w-[1100px] m-auto    `}>
+              className={`md:max-w-[1100px] m-auto p-3   `}>
 
 {brandAmbassador?.map((items) => {
                       return items.attributes.assets?.data?.map((item, id) => {
@@ -177,7 +177,7 @@ function Tvcommercial() {
                             <img
                               key={id}
                               src={item?.attributes?.url}
-                              className="w-96 h-80    transition-all duration-300 hover:scale-[1.1]"
+                              className=" w-32 m-auto md:w-96 md:h-80    transition-all duration-300 hover:scale-[1.1]"
                             />
                             </PhotoView>
 
@@ -199,7 +199,7 @@ function Tvcommercial() {
                               muted
                               key={id}
                               src={item?.attributes?.url}
-                              className="max-w-[380px]   h-96  object-fill     transition-all duration-300 hover:scale-[1.1]"
+                              className="w-[160px] m-auto h-[180px]  md:w-[380px]   md:h-96  object-fill     transition-all duration-300 hover:scale-[1.1]"
                               onClick={() => handleVideoClick(item?.attributes?.url)}
                             />
 
@@ -226,7 +226,7 @@ function Tvcommercial() {
           
           </section>
 
-          <div className=" w-full max-w-60 mr-10 h-full transition-all duration-300  ">
+          <div className=" w-full max-w-60 mr-32 md:mr-10 h-full transition-all duration-300  ">
                
           <Link       href={`/${locale}/blog/tv-commercial/brandambassador`|| ''}>
                       <Fade right>
@@ -235,9 +235,9 @@ function Tvcommercial() {
                    
                    
                       className="w-full list-none transition-all duration-300 bg-primary-main ">
-                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
+                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-1 md:p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
-                          <span className=" text-sm text-white uppercase">Brand Ambassador</span>
+                          <span className="text-[8px] md:text-sm text-white uppercase">Brand Ambassador</span>
                         </div>
                       </button>
                     </li>
@@ -255,9 +255,9 @@ function Tvcommercial() {
                    
                    
                       className="w-full list-none transition-all duration-300 bg-primary-main ">
-                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
+                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-1 md:p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
-                          <span className=" text-sm text-white">{item?.attributes?.title}</span>
+                          <span className="text-[8px] md:text-sm text-white">{item?.attributes?.title}</span>
                         </div>
                       </button>
                     </li>

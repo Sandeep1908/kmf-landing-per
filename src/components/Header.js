@@ -27,6 +27,8 @@ import useApi from '@/hooks/useApi';
 import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
+import { RiMenuAddFill } from "react-icons/ri";
+
  
 export const Header = () => {
   const [openAccordion, SetOpenAccordion] = useState(null);
@@ -294,7 +296,7 @@ export const Header = () => {
               className={`w-full max-w-[85%] h-[50px]  m-auto p-5 z-20 relative   `}>
               <div className=" w-full h-full flex justify-between items-center lg:hidden ">
                 <div onClick={() => setOpenNav((prev) => !prev)}>
-                  <img src="http://el.commonsupport.com/newwp/hankcok/wp-content/themes/hankcok/assets/images/icons/icon-bar.png" />
+                      <RiMenuAddFill size={30} color='white'/>
                 </div>
               </div>
 

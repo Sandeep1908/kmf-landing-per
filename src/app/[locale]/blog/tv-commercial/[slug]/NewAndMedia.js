@@ -3,7 +3,7 @@ import React from 'react';
 function NewsAndMedia() {
  
   return (
-    <div className="w-full m-auto h-auto flex flex-col justify-center items-center ">
+    <div className="w-full p-2 m-auto h-auto flex flex-col justify-center items-center ">
       <iframe
         src="https://www.youtube.com/embed/UAgaqU1kQeA?si=J1AxtUwUVSzrUnP4"
         title="YouTube video player"
@@ -11,7 +11,7 @@ function NewsAndMedia() {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
-        className="w-full max-w-[1350px] m-auto h-[500px]"></iframe>
+        className="w-full   h-[300px]  md:max-w-[1350px] m-auto md:h-[500px]"></iframe>
     </div>
   );
 }
