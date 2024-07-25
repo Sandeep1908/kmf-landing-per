@@ -30,8 +30,8 @@ const locale=useLocale().locale
               </h1>
             </div>
 
-            <div className='w-full h-full mt-10 md:mt-20 p-5 mb-20 flex justify-center items-center'>
-            <div className='w-full h-full m-auto grid grid-cols-3 gap-36 '>
+            <div className='w-full h-full mt-10 md:mt-20 p-5 mb-28 md:mb-20 flex justify-center items-center'>
+            <div className='w-full h-full m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-36 '>
 
              {/* <Link > */}
         
