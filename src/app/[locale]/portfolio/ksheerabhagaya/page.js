@@ -134,7 +134,7 @@ const axios = useApi();
                 </div>
             </div>  
 
-            <div className='w-full h-auto flex flex-wrap justify-center'>
+            <div className='w-full h-auto flex flex-wrap justify-center '>
                
                  <div className='block lg:hidden max-w-xl w-full m-3 md:m-10 rounded-3xl  shadow-2xl h-auto bg-slate-50 p-6 md:p-16'>
                        <div className='m-auto'>
@@ -162,7 +162,7 @@ const axios = useApi();
             </div>
 
            
-          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50     overflow-auto  items-start justify-start p-2 md:p-10 ">
+          <div className="w-full flex-col max-w-7xl m-auto mb-10 rounded-md shadow-md  bg-slate-50   mt-6  overflow-auto  items-start justify-start p-4 md:p-10 ">
 
 
            
@@ -204,7 +204,7 @@ const axios = useApi();
                                     children?.[0]?.props?.text?.split(',')?.map((item, id) => {
                                       if(id===0){
                                         return(
-                                          <td className="w-10 p-2 text-md font-content border-r border-black " key={id}>
+                                          <td className="w-10 p-2  text-md font-content border-r border-black " key={id}>
                                           {' '}
                                           {item}
                                         </td>
@@ -212,7 +212,7 @@ const axios = useApi();
                                      
                                       }
                                       return (
-                                        <td className=" p-2 text-md font-content border-r border-black " key={id}>
+                                        <td className=" p-1 md:p-2 text-[12px] md:text-[16px] text-md font-content border-r border-black " key={id}>
                                           {' '}
                                           {item}
                                         </td>
@@ -254,12 +254,12 @@ const axios = useApi();
                 
                 
                  </div>
-          <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 justify-center items-center '>
+          <div className='w-full  h-[1000px] md:h-[500px]  m-auto flex flex-col  md:flex-row gap-6 md:justify-center items-center '>
          
             <div className=' md:max-w-[50%] w-full h-96 '>
               
                 <div className='relative w-full h-full  shadow-xl flex justify-center items-center'>
-                   <div className='absolute w-full h-full'>
+                   <div className='hidden md:block absolute w-full h-full'>
                        <div className='w-full h-full flex items-center justify-between'>
                             <div className='w-16 h-8 bg-red-600' ></div>
                             <div className='w-16 h-8 bg-red-600' ></div>
@@ -280,7 +280,7 @@ const axios = useApi();
            
               
               autoplay={{
-                delay: 2500,
+                delay: 250000,
                 disableOnInteraction: false
               }}
               modules={[FreeMode, Autoplay]}
@@ -288,10 +288,10 @@ const axios = useApi();
          
                  
                       <SwiperSlide className='' >
-                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                      <div className='flex justify-center items-center   w-full  h-[500px] md:h-96  p-2 '>
                       <PhotoProvider>
                            <PhotoView src={bhagaya3.src} height="400px">
-                              <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya1.src} alt="" />
+                              <img className=' cursor-pointer m-auto w-full h-full  md:object-cover' src={bhagaya1.src} alt="" />
                           </PhotoView>
                     </PhotoProvider>
                 </div>
@@ -299,20 +299,20 @@ const axios = useApi();
 
                         </SwiperSlide>
                       <SwiperSlide>
-                      <div className='flex justify-center items-center   w-full h-96 p-2 '>
+                      <div className='flex justify-center items-center   w-full h-[500px] md:h-96 p-2 '>
                   <PhotoProvider>     
                       <PhotoView src={bhagaya3.src} height="400px">
-                          <img className=' cursor-pointer  m-auto w-full h-full object-cover' src={bhagaya2.src} alt="" />
+                          <img className=' cursor-pointer  m-auto w-full h-full md:object-cover' src={bhagaya2.src} alt="" />
                           </PhotoView>
                           </PhotoProvider>  
                 </div>
                         </SwiperSlide>
                       <SwiperSlide>
                    
-                 <div className='flex justify-center items-center  w-full h-96 p-2 '>
+                 <div className='flex justify-center items-center  w-full h-[500px] md:h-96 p-2 '>
                  <PhotoProvider> 
                       <PhotoView src={bhagaya3.src} height="400px">
-                          <img className=' cursor-pointer m-auto w-full h-full object-cover' src={bhagaya3.src} alt="" />
+                          <img className=' cursor-pointer m-auto w-full h-full md:object-cover' src={bhagaya3.src} alt="" />
                           </PhotoView>
                           </PhotoProvider>   
                           </div>
