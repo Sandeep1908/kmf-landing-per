@@ -407,7 +407,7 @@ const Home = () => {
 
               <KnmModel closeModal={isModalOpen} kymMilk={knowMilkItem} close={setIsModalOpen} />
 
-              <div className="w-full flex flex-wrap justify-center p-2 gap-3 items-center md:justify-around">
+              <div className="w-full grid grid-cols-2 justify-center p-6  items-center">
                 {knowMilk?.map((item, idx) => (
                   <div
                     key={idx}
