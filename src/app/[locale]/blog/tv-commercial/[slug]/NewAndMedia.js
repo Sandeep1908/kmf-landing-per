@@ -11,7 +11,7 @@ function NewsAndMedia() {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
-        className="w-full   h-[300px]  md:max-w-[1350px] m-auto md:h-[500px]"></iframe>
+        className="w-72 m-auto md:w-full  md:max-w-[1350px]   md:h-[500px]"></iframe>
     </div>
   );
 }

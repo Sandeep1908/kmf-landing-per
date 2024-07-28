@@ -126,7 +126,7 @@ function WomenEmpowerment() {
                 src="/images/heading/heading-color/group.png"
                 className="absolute   w-[530px]  md:top-[-70px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-[5.5px] md:text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-[5.5px] md:text-sm font-extrabold uppercase">
               {womenEmpower[currentIndex]?.title}
               </h1>
             </div>

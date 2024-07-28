@@ -10,7 +10,7 @@ function FoodStops() {
         controls
         loop
         muted
-        className="w-full max-w-[1350px] m-auto h-[500px]"></video>
+        className="w-72 m-auto md:w-full  md:max-w-[1350px]   md:h-[500px]"></video>
     </div>
   );
 }

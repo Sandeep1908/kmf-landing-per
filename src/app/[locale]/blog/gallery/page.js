@@ -26,7 +26,7 @@ function Gallery() {
   };
 
   return (
-    <div className="w-full  absolute top-52 z-[-1]     ">
+    <div className="w-full  absolute md:top-52 z-[-1]     ">
       <section className={`w-full h-[200px] md:h-[450px] lg:h-[750px] pt-28 relative grid place-items-center  `}>
         <div className="w-full h-full lg:flex justify-between hidden -z-10  items-center">
           <div className="w-40 h-8 bg-red-600"></div>

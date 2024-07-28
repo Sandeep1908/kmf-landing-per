@@ -102,9 +102,9 @@ function TvcommercialDetails() {
   }, []);
 
   return (
-    <div className="w-full  absolute top-52 z-[-1]     ">
-    <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center  `}>
-    <div className="w-full h-full flex justify-between items-center">
+    <div className="w-full  absolute md:top-52 z-[-1]     ">
+    <section className={`w-full    h-[200px] md:h-[450px] lg:h-[750px] pt-28 relative  grid place-items-center  `}>
+    <div className="w-full h-full flex justify-between items-center relative z-[-10]">
             <div className="w-40 h-8 bg-red-600"></div>
             <div className="w-40 h-8 bg-red-600"></div>
           </div>
@@ -207,7 +207,7 @@ function TvcommercialDetails() {
               return (
                 <iframe
                   key={id}
-                  className='max-w-[400px] h-[250px] '
+                  className='w-72 m-auto md:w-full  md:max-w-[1350px]   md:h-[500px] '
                   
                   src={item.link}
                   title="YouTube video player"
@@ -253,7 +253,7 @@ function TvcommercialDetails() {
         muted
         key={id}
         src={item?.attributes?.url}
-        className="w-[400px]   h-[250px]     transition-all duration-300 hover:scale-[1.1]"
+        className=" w-72 md:w-[400px]   h-[250px]     transition-all duration-300 hover:scale-[1.1]"
         onClick={() => handleVideoClick(item?.attributes?.url)}
       />
 
@@ -306,7 +306,7 @@ function TvcommercialDetails() {
           muted
           key={id}
           src={items?.attributes?.assets?.data?.[0]?.attributes?.url}
-          className="w-[400px]   h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+          className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
           onClick={() => handleVideoClick(items?.attributes?.assets?.data?.[0]?.attributes?.url)}
         />
   
@@ -332,8 +332,7 @@ function TvcommercialDetails() {
         return(
           <iframe
                 key={id}
-                width="400"
-                height="250"
+                className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
                 src={items?.attributes?.youtube_link}
                 title="YouTube video player"
                 frameborder="0"

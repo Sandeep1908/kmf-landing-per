@@ -156,7 +156,7 @@ function KmfUnitDetail() {
     </div>
 
 
-    <div className="w-full h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
+    <div className="w-fit h-fit flex flex-col  shadow-md bg-white p-2  justify-start   items-start rounded-lg border-b-2 border-primary-main  ">
             <div className='w-full    shadow-md bg-white  '>
               <h1 className='p-5'>{locale==='kn'?'ಕಹಾಮ ಘಟಕಗಳು':'KMF UNITS'}</h1>
             </div>

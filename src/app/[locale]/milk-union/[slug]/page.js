@@ -140,13 +140,13 @@ function MilkUnionDetail({ slug }) {
                                 {columns?.map((item, id) => {
                                   if(id===0){
                                     return (
-                                      <th className="p-2 w-14   border-r border-black " key={id}>
+                                      <th className="p-2 w-14 text-[7px] md:text-base  border-r border-black " key={id}>
                                         {item}
                                       </th>
                                     );
                                   }else{
                                     return (
-                                      <th className="p-2   border-r border-black " key={id}>
+                                      <th className="p-2 text-[7px] md:text-base  border-r border-black " key={id}>
                                         {item}
                                       </th>
                                     );
@@ -161,7 +161,7 @@ function MilkUnionDetail({ slug }) {
                                       if(id===0){
                                         return (
                                           <td
-                                            className=" p-2 w-14 text-md font-content border-r border-black "
+                                            className=" p-2 w-14 text-[7px] md:text-base font-content border-r border-black "
                                             key={id}>
                                             {' '}
                                             {item}
@@ -171,7 +171,7 @@ function MilkUnionDetail({ slug }) {
                                       else{
                                         return (
                                           <td
-                                            className=" p-2 text-sm font-content border-r border-black "
+                                            className=" p-2 text-[7px] md:text-base font-content border-r border-black "
                                             key={id}>
                                             {' '}
                                             {item}
