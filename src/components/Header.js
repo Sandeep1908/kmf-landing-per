@@ -28,6 +28,7 @@ import { useParams, usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
 import { RiMenuAddFill } from "react-icons/ri";
+import { MdCall, MdLocationOn } from 'react-icons/md';
 
  
 export const Header = () => {
@@ -201,11 +202,8 @@ export const Header = () => {
                 <div className="  hidden lg:flex lg:flex-col  justify-start items-start space-y-2    ">
                   <div className="w-full flex space-x-5">
                     <div className="flex justify-center items-center      ">
-                      <div className="">
-                      <img
-                          src={locationIco.src}
-                          className="w-10 h-7 hover:scale-125 transition-all duration-300"
-                        />
+                      <div className="mr-2">
+                     <MdLocationOn size={30} color='red' className='transition-all duration-150 hover:scale-[1.1] cursor-pointer'/>
                       </div>
 
                       <p className={` font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[12px]'}  `}>
@@ -256,11 +254,8 @@ export const Header = () => {
                   </div>
 
                   <div className="flex justify-center items-center   ">
-                    <div>
-                      <img
-                        src={contactIco.src}
-                        className="w-10 h-7 hover:scale-125 transition-all duration-300"
-                      />
+                    <div className='mr-2'>
+                     <MdCall size={30} color='#30ABDC' className='transition-all duration-150 hover:scale-[1.1] cursor-pointer'/>
                     </div>
                     <p className="text-[12px] w-[350px] font-heading  font-black/10 ">
                       {headerItem?.attributes?.time?.map((item, id) => {

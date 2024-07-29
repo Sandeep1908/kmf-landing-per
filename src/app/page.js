@@ -501,7 +501,7 @@ const Home = () => {
         />
         <div className="w-full flex flex-col justify-center items-center">
           <Fade bottom>
-            <div className="flex flex-col justify-center items-center w-40 h-4 pb-10">
+            <div className="flex flex-col justify-center items-center w-60 h-4 pb-10">
               <h1 className="uppercase md:text-xl text-xs font-heading text-center w-full shadow-md p-4 shadow-black bg-primary-gradient  text-white">
                 Quick Links
               </h1>
@@ -551,7 +551,7 @@ const Home = () => {
                     className="w-full h-full "></video> */}
 
           <iframe
-                    src="https://www.youtube.com/embed/UP7nHvfaBGM?si=HxTA90PuLqpNO9Sz"
+                    src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
                      muted
                      autoplay
                      controls
