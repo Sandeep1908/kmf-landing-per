@@ -97,9 +97,9 @@ const handleButton = (idx) => {
         <div className="md:mb-20  mt-20  relative w-full   flex justify-center items-center ">
               <img
                 src="/images/heading/heading-color/group.png"
-                className="absolute   w-[530px] top-[-30px] sm:top-[-50px]    object-contain"
+                className="absolute   w-[530px] top-[-18px] sm:top-[-50px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-[5px] md:text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[100px]  sm:max-w-[300px] m-auto text-center z-10 font-heading text-[5px] md:text-[15px] font-extrabold uppercase">
               {scheme[currentIndex]?.title}
               </h1>
             </div>

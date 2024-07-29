@@ -195,12 +195,12 @@ const handleButton = (idx) => {
 
             <Fade left>
         <div className="w-full xl:max-w-2xl shadow-lg flex flex-col justify-center items-start rounded-tl-3xl  rounded-br-3xl  bg-white space-y-6 p-5 ">
-        <div className="md:mb-20  mt-20  relative w-full   flex justify-center items-center ">
+        <div className=" mb-5 md:mb-20  mt-20  relative w-full   flex justify-center items-center ">
               <img
                 src="/images/heading/heading-color/group.png"
-                className="absolute   w-[530px] top-[-30px] sm:top-[-50px]    object-contain"
+                className="absolute   w-[530px] top-[-18px] sm:top-[-50px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-[5px] md:text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[100px] md:max-w-[300px] m-auto text-center z-10 font-heading text-[4px] md:text-xl font-extrabold uppercase">
               {scheme[currentIndex]?.title}
               </h1>
             </div>
