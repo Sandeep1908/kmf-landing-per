@@ -9,6 +9,7 @@ import milkglassImg from '@/images/homeImages/milkglass.png';
 import milkglassKnImg from '@/images/homeImages/milk-glass-kn.png';
 import Fade from 'react-reveal/Fade';
 import { Zoom } from 'react-reveal';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
 import {
@@ -682,7 +683,8 @@ const Home = () => {
 
 
       {/* FOOTER SECTION  */}
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 };

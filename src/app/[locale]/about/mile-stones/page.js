@@ -7,6 +7,7 @@ import barIco from '@/images/about/milestone/bar.svg';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import Counter from '@/components/Counter';
@@ -279,7 +280,8 @@ function OrganizationChart() {
         })}
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

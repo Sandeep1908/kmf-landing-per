@@ -3,6 +3,7 @@
 import womenEmpwerImg from '@/images/women-empower/women-empower.png';
 import { womenEmpowerment } from '@/configtext/womenEmpowerment';
 import { useEffect, useState } from 'react';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -170,7 +171,8 @@ function WomenEmpowerment() {
         </div>
       </section>
       </div>
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

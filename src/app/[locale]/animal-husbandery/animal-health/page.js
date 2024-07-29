@@ -1,5 +1,6 @@
 'use client';
 import React, { useState,useEffect } from 'react';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
@@ -286,7 +287,8 @@ function AnimalHealth() {
           </div>
         </div>
       </section>
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

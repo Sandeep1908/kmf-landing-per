@@ -8,6 +8,7 @@ import mdkn from '@/images/portfolio/md-kn.png';
 import mden from '@/images/portfolio/md-en.png';
 import md from '@/images/portfolio/md.jpeg';
 import milkImg from '@/images/portfolio/milkImg.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import headImg from '@/images/directors/1-1.png';
@@ -1229,7 +1230,8 @@ window.addEventListener('resize',handleResize);
         </div>
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

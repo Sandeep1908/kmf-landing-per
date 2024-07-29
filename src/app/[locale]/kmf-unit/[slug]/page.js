@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '@/images/logo/logo.png';
 import HeroImg from '@/images/milk-union/milk-union-home.png'
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -176,7 +177,8 @@ function KmfUnitDetail() {
   </div>
  
 
-  <Footer />
+  <Follow/>
+<Footer />
 </div>
   );
 }

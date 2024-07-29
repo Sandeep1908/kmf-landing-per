@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import useApi from '@/hooks/useApi';
 import HeroImg from '@/images/milk-union/milk-union-home.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import ProductCard from './[slug]/ProductCard';
 import useLocale from '@/hooks/useLocale';
@@ -125,7 +126,8 @@ function Products() {
           })}
         </div>
       </section>
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

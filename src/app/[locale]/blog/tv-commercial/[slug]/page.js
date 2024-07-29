@@ -5,6 +5,7 @@ import AboutHeroImg from '@/images/about/mission/about-hero.png';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi';
 
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import downarrowIco from '@/images/icons/downarrow.svg';
 import uparrowIco from '@/images/icons/uparrow.svg';
@@ -421,7 +422,8 @@ function TvcommercialDetails() {
         </div>
       )}
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

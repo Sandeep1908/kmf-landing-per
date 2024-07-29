@@ -6,6 +6,7 @@ import AboutHeroImg from '@/images/about/mission/about-hero.png';
 import { tenders } from '@/configtext/tenders';
 import Tenders from './Tenders';
 import { previousTenders } from '@/configtext/previousTender';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import documentIco from '@/images/notification/Document.svg';
@@ -283,7 +284,8 @@ function Notification() {
           Next
         </button>
       </div>
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

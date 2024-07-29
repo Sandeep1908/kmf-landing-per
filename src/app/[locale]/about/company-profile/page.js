@@ -8,6 +8,7 @@ import About from './About';
 import UnitOfKMF from './UnitOfKMF';
 import OngoingAndFuture from './OngoingAndFuture';
 import { useParams } from 'next/navigation';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import CarouselImage from '@/components/CarouselImage';
@@ -147,7 +148,9 @@ function CompanyProfile() {
           </div> */}
       </div>
 
-      <Footer />
+
+      <Follow/>
+<Footer />
     </div>
   );
 }

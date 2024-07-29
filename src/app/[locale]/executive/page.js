@@ -2,6 +2,7 @@
 import React,{useState,useEffect} from 'react'
 import directorImg from '@/images/directors/directorsbg.png';
 
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';

@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import sweet from '@/images/recipes/sweet.jpg';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -104,7 +105,8 @@ const RecipeDetail = ({ slug }) => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 };

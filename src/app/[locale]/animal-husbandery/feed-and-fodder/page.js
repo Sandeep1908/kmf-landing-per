@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import useApi from '@/hooks/useApi';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { useMyContext } from '@/context/headerContext';
@@ -135,7 +136,8 @@ function FeedFodder() {
       </section>
   
 
-    <Footer />
+    <Follow/>
+<Footer />
  
      </div>
 

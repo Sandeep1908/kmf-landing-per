@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import AboutHeroImg from '@/images/about/mission/about-hero.png';
 import newsImg1 from '@/images/blog/newImg.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -150,7 +151,8 @@ const locale=useLocale().locale
         </div>
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

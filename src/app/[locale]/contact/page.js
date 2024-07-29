@@ -6,6 +6,7 @@ import { FcCustomerSupport, FcCallback } from 'react-icons/fc';
 import { ImWhatsapp } from 'react-icons/im';
 import { Fade } from 'react-reveal';
 import Input from '@/components/Input';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import Confirmation from './Confirmation';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'; // Import country and region dropdowns
@@ -305,7 +306,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 };

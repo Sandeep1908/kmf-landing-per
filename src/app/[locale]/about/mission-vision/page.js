@@ -4,6 +4,7 @@ import evolutionImg from '@/images/about/mission/evolution.jpeg';
 import CowImg1 from '@/images/about/mission/about-cow-1.png';
 import CowImg2 from '@/images/about/mission/about-cow-2.png';
 import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import useApi from '@/hooks/useApi';
@@ -153,7 +154,8 @@ function MissionVission() {
         {/* <img src={MilkBottomImg.src} className="w-full h-full " /> */}
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

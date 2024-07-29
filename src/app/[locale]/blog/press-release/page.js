@@ -5,6 +5,7 @@ import AboutHeroImg from '@/images/about/mission/about-hero.png';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi';
 
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
  
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -124,7 +125,8 @@ function PressRelease() {
 
       
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

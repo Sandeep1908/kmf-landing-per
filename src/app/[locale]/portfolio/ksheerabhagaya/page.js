@@ -4,6 +4,7 @@ import titleBG from '@/images/portfolio/title-bg.png';
 import bhagaya1 from '@/images/portfolio/bhagaya-1.png';
 import bhagaya2 from '@/images/portfolio/bhagaya-2.png';
 import bhagaya3 from '@/images/portfolio/bhagaya-3.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
 import banner from '@/images/portfolio/Childrens-min.png';

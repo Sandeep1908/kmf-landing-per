@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 
 import BlogCard from './BlogCard';
@@ -98,7 +99,8 @@ function Gallery() {
         </div>
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import comingSoonImg from '@/images/notfound/comingsoon.png'
 import ComingSoon from '../../comingsoon/page';

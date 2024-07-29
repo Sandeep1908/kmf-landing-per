@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
  import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import useApi from '@/hooks/useApi';
@@ -259,7 +260,8 @@ function OrganizationChart() {
 
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

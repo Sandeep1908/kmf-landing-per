@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import useApi from '@/hooks/useApi';
 
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import downarrowIco from '@/images/icons/downarrow.svg';
 import uparrowIco from '@/images/icons/uparrow.svg';
@@ -327,7 +328,8 @@ function BrandAmbassodor() {
         </div>
       )}
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

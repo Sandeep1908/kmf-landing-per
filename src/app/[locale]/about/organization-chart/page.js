@@ -6,6 +6,7 @@ import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
 import {Fade,Zoom} from 'react-reveal'
 import 'swiper/css';
 import 'swiper/css/navigation';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
  
@@ -204,7 +205,8 @@ function OrganizationChart() {
 
     
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

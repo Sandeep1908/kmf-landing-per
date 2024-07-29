@@ -9,6 +9,7 @@ import locationIco from '@/images/milk-union/icons/location_on.svg';
 import mailIco from '@/images/milk-union/icons/mail.svg';
 import callIco from '@/images/milk-union/icons/call.svg';
 import printIco from '@/images/milk-union/icons/print.svg';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -272,7 +273,8 @@ function MilkUnionDetail({ slug }) {
         </div>
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

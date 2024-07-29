@@ -5,6 +5,7 @@ import Logo from '@/images/logo/logo.png';
 import HeroImg from '@/images/milk-union/milk-union-home.png';
 import unionMapImg from '@/images/milk-union/union-map.png';
 import UnionCard from './UnionCard';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import Link from 'next/link';
@@ -70,7 +71,8 @@ const locale=useLocale().locale
         </div>
       </section>
 
-      <Footer />
+      <Follow/>
+<Footer />
     </div>
   );
 }

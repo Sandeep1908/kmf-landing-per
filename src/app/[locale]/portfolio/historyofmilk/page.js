@@ -4,6 +4,7 @@ import banner from '@/images/portfolio/Childrens-min.png';
 import titleBG from '@/images/portfolio/title-bg.png';
 import Link from 'next/link';
 import useLocale from '@/hooks/useLocale';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import home from '@/images/portfolio/hom.jpg';
 import home2 from '@/images/portfolio/history-of-milk2.png';

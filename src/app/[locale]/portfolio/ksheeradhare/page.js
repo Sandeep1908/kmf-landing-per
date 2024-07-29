@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import titleBG from '@/images/portfolio/title-bg.png';
+import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import flag from '@/images/portfolio/flag.jpg';
 import useLocale from '@/hooks/useLocale';
