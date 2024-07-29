@@ -7,6 +7,7 @@ import Link from 'next/link'
 import useApi from '@/hooks/useApi'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { IoHomeOutline } from 'react-icons/io5';
+import Follow from '@/components/Follow'
 
 import { Fade } from 'react-reveal'
 function Procurement() {
