@@ -131,7 +131,7 @@ function NandiniHostels() {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

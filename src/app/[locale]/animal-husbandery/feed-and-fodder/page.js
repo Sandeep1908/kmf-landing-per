@@ -136,7 +136,7 @@ function FeedFodder() {
       </section>
   
 
-    <Follow/>
+     
 <Footer />
  
      </div>

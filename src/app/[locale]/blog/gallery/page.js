@@ -99,7 +99,7 @@ function Gallery() {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

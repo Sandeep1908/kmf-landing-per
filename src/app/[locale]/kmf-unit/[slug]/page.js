@@ -177,7 +177,7 @@ function KmfUnitDetail() {
   </div>
  
 
-  <Follow/>
+   
 <Footer />
 </div>
   );

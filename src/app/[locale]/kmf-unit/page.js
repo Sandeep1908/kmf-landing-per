@@ -71,7 +71,7 @@ const locale=useLocale().locale
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

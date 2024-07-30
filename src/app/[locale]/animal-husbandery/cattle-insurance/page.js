@@ -106,7 +106,7 @@ function CattleInsuranceComponent() {
         }
       })} 
     
-      <Follow/>
+       
 <Footer />
     </div>
   );

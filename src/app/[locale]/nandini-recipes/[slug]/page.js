@@ -105,7 +105,7 @@ const RecipeDetail = ({ slug }) => {
           </div>
         </div>
       </div>
-      <Follow/>
+       
 <Footer />
     </div>
   );

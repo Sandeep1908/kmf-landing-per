@@ -10,6 +10,7 @@ import { FcCustomerSupport, FcCallback } from 'react-icons/fc';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Follow from './Follow';
 function Footer() {
   const [footerItem, setFooterItem] = useState([]);
   const params = useParams();
@@ -31,7 +32,10 @@ function Footer() {
     })();
   }, [params?.locale]);
   return (
-    <section className="w-full  md:h-[462px]    relative       ">
+    <section className="w-full mt-10  md:h-[462px]    relative       ">
+
+      <Follow/>
+    
       <img src='https://www.dodladairy.com/static/images/footer-bg.png' className='absolute inset-0 w-full h-full object-fill'/>
       <div className=" z-10 relative h-fit  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
         <div className="   md:mt-[167px] w-full h-full flex  justify-center items-start   md:flex-row md:justify-between md:items-start">
@@ -87,11 +91,11 @@ function Footer() {
 
         <div className="flex flex-col w-full h-full justify-center items-center md:pt-10  space-y-6  flex-wrap md:flex-row">
           <div className="flex flex-col justify-start items-start">
-            <p className="text-sm">© {footerItem?.[0]?.copyright}</p>
-            <p className="text-sm">
+            <p className="text-xs md:text-sm text-center">© {footerItem?.[0]?.copyright}</p>
+            <p className="text-xs md:text-sm text-center flex justify-center items-center w-full">
               {' '}
               All rights reserved to{' '}
-              <Link href={''} className="text-blue-500 font-bold">
+              <Link href={''} className="text-blue-500 text-[10px] ml-2 md:text-sm text-center font-bold">
                 {' '}
                 KMF-MIS (CENTRAL OFFICE).
               </Link>

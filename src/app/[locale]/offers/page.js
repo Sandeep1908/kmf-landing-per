@@ -94,7 +94,7 @@ function Offers() {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

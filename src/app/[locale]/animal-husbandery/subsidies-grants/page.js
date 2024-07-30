@@ -54,7 +54,7 @@ function Subsidies() {
       </section>
 
     
-      <Follow/>
+       
 <Footer />
     </div>
   );

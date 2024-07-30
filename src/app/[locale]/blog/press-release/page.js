@@ -125,7 +125,7 @@ function PressRelease() {
 
       
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

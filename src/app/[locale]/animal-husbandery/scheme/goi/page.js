@@ -189,7 +189,7 @@ const handleButton = (idx) => {
          
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

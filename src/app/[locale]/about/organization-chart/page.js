@@ -65,7 +65,7 @@ function OrganizationChart() {
           },
            
         ]}
-        className="  w-full   mt-10   object-contain "
+        className="  w-full   md:mt-10   object-contain "
       >
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>
@@ -81,7 +81,7 @@ function OrganizationChart() {
                 
           </div>
           <Zoom>
-          <div className=' w-full pt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 relative organization-bg'>
+          <div className=' w-full pt-10 grid grid-cols-4  md:h-[600px] gap-10 relative organization-bg'>
           <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರು":"Lakh Milk Producer Members"} endNumber={26}/>
 
@@ -103,19 +103,19 @@ function OrganizationChart() {
         </div>
        
       </ParallaxBanner>
-      <section className={` relativew-full w-full m-auto  mt-5 h-[500px]   relative  grid place-items-center `}>
+      <section className={` relativew-full w-full m-auto  mt-5 h-full md:h-[500px]   relative  grid place-items-center `}>
 
       <div className="absolute w-full h-full z-[-10] ">
             <div className="w-full h-full flex justify-between items-center">
-              <div className="w-40 h-8 bg-red-600"></div>
-              <div className="w-40 h-8 bg-red-600"></div>
+              <div className="w-20 md:w-40 h-8 bg-red-600"></div>
+              <div className="w-20 md:w-40 h-8 bg-red-600"></div>
             </div>
           </div>
 
           <Fade bottom>
         <img
           src={banner? banner?.attributes?.banner?.data?.attributes?.url:organizationHero.src}
-          className="w-full max-w-7xl h-[500px] object-contain    "
+          className=" w-96 md:w-full  md:max-w-7xl md:h-[500px] object-contain    "
         />
 </Fade>
 
@@ -205,7 +205,7 @@ function OrganizationChart() {
 
     
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

@@ -386,7 +386,11 @@ export const Header = () => {
             </div>
 
             <div className="flex justify-center items-center">
-              <img src={logo.src} alt="nav-logo" className="w-[150px]" />
+            <img
+          src={locale === 'kn' ? logokn.src : logo.src} // Use rotated logo when rotateLogo is true
+          alt="logo-home"
+          className={`w-[70px] sm:w-[150px] ${rotateLogo ? '' : ''}`} // Apply rotation class
+        />
             </div>
 
             
@@ -395,7 +399,7 @@ export const Header = () => {
                       <FaLocationDot color='white' />
                       </div>
 
-                      <p className={`w-full text-white font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[10px]'}  `}>
+                      <p className={`w-full text-white font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[10px]':'text-[10px]'}  `}>
                         {headerItem?.attributes?.address?.map((item, id) => {
                           return (
                             <span key={id} className="block">
@@ -410,7 +414,7 @@ export const Header = () => {
            <div className=" w-full   p-2 m-auto space-x-5     flex justify-center items-center      ">
                      
 
-                      <p className={`w-full text-white text-center font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[15px]':'text-[10px]'}  `}>
+                      <p className={`w-full text-white text-center font-heading flex flex-col font-black/10 ${locale==='kn'?'text-[10px]':'text-[10px]'}  `}>
                         {headerItem?.attributes?.time?.map((item, id) => {
                           return (
                             <span key={id} className="block">

@@ -160,7 +160,7 @@ const axios =useApi()
  
       </section>
   
-    <Follow/>
+     
 <Footer />
   </div>
   )

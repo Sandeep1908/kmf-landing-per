@@ -622,7 +622,7 @@ const Home = () => {
 
 
       {/* FOOTER SECTION  */}
-      <Follow/>
+       
 <Footer />
     </div>
   );

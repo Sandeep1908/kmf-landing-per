@@ -1230,7 +1230,7 @@ window.addEventListener('resize',handleResize);
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

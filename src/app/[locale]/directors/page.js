@@ -111,7 +111,7 @@ function Directors() {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

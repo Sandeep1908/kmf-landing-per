@@ -171,7 +171,7 @@ function WomenEmpowerment() {
         </div>
       </section>
       </div>
-      <Follow/>
+       
 <Footer />
     </div>
   );

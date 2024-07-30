@@ -273,7 +273,7 @@ function MilkUnionDetail({ slug }) {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

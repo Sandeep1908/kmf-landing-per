@@ -21,12 +21,12 @@ function Counter({endNumber,title}) {
 
   return (
     <div className='flex flex-col  space-y-2  justify-center items-center'>
-        <p className='text-[100px] text-white font-subheading flex justify-center items-center'>
+        <p className='text-lg lg:text-[100px] text-white font-subheading flex justify-center items-center'>
           {title==='Milk Unions' || title==='Kmf Units' || title==='ಹಾಲು ಒಕ್ಕೂಟಗಳು' || title==='ಕಹಾಮ ಘಟಕಗಳು' ?currentNumber.toLocaleString():currentNumber.toLocaleString().concat('+')}
           
           
           </p>
-        <p className={` text-white text-center uppercase ${locale==='kn'?'text-lg':'text-sm'} `}>{title}</p>
+        <p className={` text-white text-center uppercase ${locale==='kn'?' text-[6px] md:text-lg':'text-[6px] md:text-sm'} `}>{title}</p>
     </div>
   )
 }

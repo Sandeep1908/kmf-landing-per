@@ -155,7 +155,7 @@ function Scheme() {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

@@ -76,9 +76,9 @@ function BrandAmbassodor() {
   }, []);
 
   return (
-    <div className="w-full  absolute top-52 z-[-1]     ">
-    <section className={`w-full  h-[750px] pt-28 relative  grid place-items-center  `}>
-    <div className="w-full h-full flex justify-between items-center">
+    <div className="w-full  absolute md:top-52 z-[-1]     ">
+    <section className={`w-full h-[300px] md:h-[750px] pt-28 relative  grid place-items-center  `}>
+    <div className="w-full h-full flex justify-between relative z-[-10] items-center">
             <div className="w-40 h-8 bg-red-600"></div>
             <div className="w-40 h-8 bg-red-600"></div>
           </div>
@@ -132,12 +132,12 @@ function BrandAmbassodor() {
           </div>
         </div>
 
-        <div className="w-full h-auto   mt-10 flex flex-col-reverse justify-center items-center md:justify-normal md:items-start md:flex-row ">
+        <div className="w-full h-auto   mt-10 flex gap-10   justify-center items-start     ">
           <section className="max-w-[1282px] m-auto w-full h-full bg-white   ">
             <div className="w-full h-full flex flex-col space-x-5 justify-between items-start lg:flex-row lg:justify-start">
               <div className="w-full h-full flex flex-col space-y-28   ">
 
-            <div className='w-full h-full'>
+            <div className='w-full h-full pl-10'>
              
 
              
@@ -163,8 +163,7 @@ function BrandAmbassodor() {
               return (
                 <iframe
                 key={id}
-                width="400"
-                height="250"
+                 className="w-72 m-auto md:w-full  md:max-w-[1350px]   md:h-[500px]"
                 src={item?.link}
                 title="YouTube video player"
                 frameborder="0"
@@ -209,7 +208,7 @@ function BrandAmbassodor() {
         muted
         key={id}
         src={item?.attributes?.url}
-        className="w-[400px]   h-[250px]     transition-all duration-300 hover:scale-[1.1]"
+       className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
         onClick={() => handleVideoClick(item?.attributes?.url)}
       />
 
@@ -238,14 +237,15 @@ function BrandAmbassodor() {
         return(
           <iframe
                 key={id}
-                width="400"
-                height="250"
+                
                 src={items?.attributes?.youtube_link}
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
+                allowfullscreen
+                className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+                ></iframe>
         )
       }
       
@@ -279,37 +279,40 @@ function BrandAmbassodor() {
           <Link      href={`/${locale}/blog/tv-commercial/brandambassador`|| ''}>
                       <Fade right>
                     
-                    <li
-                   
-                   
-                      className="w-full list-none transition-all duration-300 bg-primary-main ">
-                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
-                        <div className="w-full flex space-x-2 ">
-                          <span className=" text-sm text-white uppercase">Brand Ambassador</span>
-                        </div>
-                      </button>
-                    </li>
+                      <li
+                    
+                    
+                    className="w-full list-none transition-all duration-300 bg-primary-main ">
+                    <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-1 md:p-4 w-full ">
+                      <div className="w-full flex space-x-2 ">
+                        <span className="text-[8px] md:text-sm text-white">BrandAmbassodor</span>
+                      </div>
+                    </button>
+                  </li>
                     </Fade>
                     </Link>
 
-                {commercialCategory?.map((item, id) => {
+                    {commercialCategory?.map((item, id) => {
                    
-                  return (
+                   return (
+                     
+                     <Link    key={id}  href={`/${locale}/blog/tv-commercial/${item?.id}` || ''}>
+                       <Fade right>
+                     
+                     <li
                     
-                    <Link    key={id}  href={`/${locale}/blog/tv-commercial/${item?.id}` || ''}>
-                    <li
-                   
-                   
-                      className="w-full list-none transition-all duration-300 bg-primary-main ">
-                      <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-4 w-full ">
-                        <div className="w-full flex space-x-2 ">
-                          <span className=" text-sm text-white">{item?.attributes?.title}</span>
-                        </div>
-                      </button>
-                    </li>
-                    </Link>
-                  );
-                })}
+                    
+                       className="w-full list-none transition-all duration-300 bg-primary-main ">
+                       <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-1 md:p-4 w-full ">
+                         <div className="w-full flex space-x-2 ">
+                           <span className="text-[8px] md:text-sm text-white">{item?.attributes?.title}</span>
+                         </div>
+                       </button>
+                     </li>
+                     </Fade>
+                     </Link>
+                   );
+                 })}
               </div>
         </div>
       </section>
@@ -328,7 +331,7 @@ function BrandAmbassodor() {
         </div>
       )}
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

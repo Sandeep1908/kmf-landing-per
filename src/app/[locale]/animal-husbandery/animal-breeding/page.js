@@ -263,7 +263,7 @@ return(
       </section>
     
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

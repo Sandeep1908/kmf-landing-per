@@ -126,7 +126,7 @@ function Products() {
           })}
         </div>
       </section>
-      <Follow/>
+       
 <Footer />
     </div>
   );

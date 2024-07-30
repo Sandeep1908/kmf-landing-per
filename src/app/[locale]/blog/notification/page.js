@@ -284,7 +284,7 @@ function Notification() {
           Next
         </button>
       </div>
-      <Follow/>
+       
 <Footer />
     </div>
   );

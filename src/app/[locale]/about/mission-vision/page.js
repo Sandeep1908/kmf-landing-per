@@ -154,7 +154,7 @@ function MissionVission() {
         {/* <img src={MilkBottomImg.src} className="w-full h-full " /> */}
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

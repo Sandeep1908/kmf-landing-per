@@ -422,7 +422,7 @@ function TvcommercialDetails() {
         </div>
       )}
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

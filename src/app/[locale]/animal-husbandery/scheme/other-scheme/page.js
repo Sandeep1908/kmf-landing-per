@@ -140,7 +140,7 @@ function Other() {
 
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

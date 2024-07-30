@@ -287,7 +287,7 @@ function AnimalHealth() {
           </div>
         </div>
       </section>
-      <Follow/>
+       
 <Footer />
     </div>
   );

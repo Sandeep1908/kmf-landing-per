@@ -280,7 +280,7 @@ function OrganizationChart() {
         })}
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

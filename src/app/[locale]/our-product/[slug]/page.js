@@ -345,7 +345,7 @@ function Milk() {
         </div>
       </section>
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

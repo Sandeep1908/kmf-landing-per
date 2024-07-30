@@ -182,7 +182,7 @@ function Blog() {
         </div>
       </section>
        
-      <Follow/>
+       
 <Footer />
     </div>
   );

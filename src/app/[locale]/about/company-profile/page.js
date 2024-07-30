@@ -149,7 +149,7 @@ function CompanyProfile() {
       </div>
 
 
-      <Follow/>
+       
 <Footer />
     </div>
   );

@@ -306,7 +306,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Follow/>
+       
 <Footer />
     </div>
   );
