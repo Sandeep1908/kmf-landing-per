@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade';
 
 function Follow() {
   return (
-    <div className='w-full   absolute top-[-31px] sm:top-[100px] flex justify-center space-x-5 items-center'>
+    <div className='w-full z-[10]  absolute top-[-31px] sm:top-[100px] flex justify-center space-x-5 items-center'>
     <Fade bottom>
 
 
