@@ -56,7 +56,7 @@ function Products() {
 
   return (
     <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
-      <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
+      <section className={`w-full   h-[300px] md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
         <video
@@ -73,7 +73,7 @@ function Products() {
       </section>
 
       <section className="w-full   max-w-[1500px]   m-auto mb-10">
-      <div className="mb-24  mt-20  relative w-full  flex justify-center items-center ">
+      <div className=" mb-4 md:mb-24 mt-4 md:mt-20  relative w-full  flex justify-center items-center ">
           
               <h1 className=" text-primary-main relative max-w-[300px] m-auto text-center z-10 font-heading text-3xl font-extrabold uppercase">
              {locale==='kn'?'ನಂದಿನಿ ಉತ್ಪನ್ನಗಳು':'Our Products'}

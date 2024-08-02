@@ -95,19 +95,19 @@ function PressRelease() {
             </ul>
           </div>
         </div>
-        <div className='w-full max-w-[1400px] m-auto  h-full  grid place-items-center grid-cols-1 sm:grid-cols:-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 '>
+        <div className='w-full max-w-[1400px] p-4 m-auto  h-full  grid place-items-center grid-cols-3  lg:grid-cols-4 gap-8 mb-20 '>
 
 {
 
     pressRel?.attributes?.pressRelease?.data?.map((item,id)=>{
         
         return(
-            <div key={id} className='w-full max-w-72 h-72 m-2 shadow-lg'>
+            <div key={id} className=' w-28 h-36 md:w-full md:max-w-72 md:h-72 m-2 shadow-lg'>
               <Zoom>
                 <PhotoProvider >
 
 <PhotoView src={item?.attributes?.url} height="400px"  >
-<img src={item?.attributes?.url} className='w-full max-w-72 h-72 '/>
+<img src={item?.attributes?.url} className='    w-full h-40 md:max-w-72 md:h-72 '/>
 </PhotoView>
 
 

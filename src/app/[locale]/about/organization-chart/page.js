@@ -70,7 +70,7 @@ function OrganizationChart() {
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>
           <div className='w-full flex justify-center items-center'>
-          <div className="mb-10   relative w-full  flex justify-center items-center ">
+          <div className="md:mb-10   relative w-full  flex justify-center items-center ">
           
               
               <h1 className=" text-white text-center relative z-10 font-heading text-4xl font-bold uppercase">
@@ -81,7 +81,7 @@ function OrganizationChart() {
                 
           </div>
           <Zoom>
-          <div className=' w-full pt-10 grid grid-cols-4  md:h-[600px] gap-10 relative organization-bg'>
+          <div className=' w-full md:pt-10 grid grid-cols-4  md:h-[600px] gap-10 relative organization-bg'>
           <Counter  title={locale==='kn'?'ಹಳ್ಳಿಗಳು':'Villages'} endNumber={24000}/>
           <Counter  title={locale==='kn'?"ಹಾಲು ಉತ್ಪಾದಕ ಸದಸ್ಯರು":"Lakh Milk Producer Members"} endNumber={26}/>
 
