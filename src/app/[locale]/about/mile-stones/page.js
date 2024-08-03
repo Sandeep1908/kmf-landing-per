@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import Counter from '@/components/Counter';
 import useLocale from '@/hooks/useLocale';
+import Fade from 'react-reveal'
 
 function OrganizationChart() {
   const [mileStones, setMileStone] = useState([]);
@@ -184,7 +185,9 @@ function OrganizationChart() {
                   
                     if (id % 2 === 0) {
                       return (
-                        <div key={id} className="w-full space-x-3 grid grid-cols-2 relative">
+                        <Fade bottom key={id}>
+                        <div  className="w-full space-x-3 grid grid-cols-2 relative">
+                               
                           <div className="flex justify-center items-center">
                             <div className="text-4xl font-bold text-secondary-main pt-2">{item.year}</div>
                             <div className="flex justify-center items-center">
@@ -195,11 +198,17 @@ function OrganizationChart() {
                               </div>
                             </div>
                           </div>
+                   
                           <div className="w-full max-w-96 m-auto">{item?.description}</div>
+                       
                         </div>
+                        </Fade>
                       );
                     } else {
+
+                     
                       return (
+                        <Fade bottom key={id}>
                         <div key={id} className="w-full grid grid-cols-2 relative">
                           <div className="w-full m-auto max-w-96">{item?.description}</div>
                           <div className="flex justify-center items-center w-full">
@@ -213,7 +222,9 @@ function OrganizationChart() {
                             <div className="inline-block text-4xl font-bold text-primary-main pt-2">{item.year}</div>
                           </div>
                         </div>
+                        </Fade>
                       );
+                     
                     }
                   })}
                 </div>
@@ -221,6 +232,7 @@ function OrganizationChart() {
             );
           } else {
             return (
+              
               <div className="w-full h-auto" key={id}>
                 <div className="w-full flex justify-center items-center mb-10 space-x-5">
                   <div className="text-5xl font-bold text-primary-main">{item.year}</div>
@@ -241,6 +253,7 @@ function OrganizationChart() {
                   {item?.description?.sort((a,b)=>b.year-a.year)?.map((item, id) => {
                     if (id % 2 === 0) {
                       return (
+                        <Fade bottom key={id}>
                         <div key={id} className="w-full space-x-3 grid grid-cols-2 relative">
                           <div className="flex justify-center items-center">
                             <div className="text-4xl font-bold text-secondary-main pt-2">{item.year}</div>
@@ -254,6 +267,7 @@ function OrganizationChart() {
                           </div>
                           <div className="w-full max-w-96 m-auto">{item?.description}</div>
                         </div>
+                        </Fade>
                       );
                     } else {
                       return (

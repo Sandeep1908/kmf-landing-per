@@ -235,7 +235,7 @@ function TvcommercialDetails() {
         <img
           
           src={item?.attributes?.url}
-          className="w-96 h-80    transition-all duration-300 hover:scale-[1.1]"
+          className="w-96 h-80    transition-all duration-300  "
         />
 
 
@@ -247,6 +247,8 @@ function TvcommercialDetails() {
   else{
     if(validExtensionsVid.includes(item?.attributes?.ext))
     return (
+
+      <div>
       <video
         
         controls
@@ -254,9 +256,11 @@ function TvcommercialDetails() {
         muted
         key={id}
         src={item?.attributes?.url}
-        className=" w-72 md:w-[400px]   h-[250px]     transition-all duration-300 hover:scale-[1.1]"
+        className=" w-72 md:w-[400px]   h-[250px]     transition-all duration-300  "
         onClick={() => handleVideoClick(item?.attributes?.url)}
       />
+
+</div>
 
     );
   }
@@ -283,7 +287,7 @@ function TvcommercialDetails() {
         <img
           
           src={items?.attributes?.assets?.data?.[0]?.attributes?.url}
-          className="w-96 h-80    transition-all duration-300 hover:scale-[1.1]"
+          className="w-96 h-80    transition-all duration-300  "
         />
         </PhotoView>
        </PhotoProvider>
@@ -299,18 +303,22 @@ function TvcommercialDetails() {
   else{
  
     if(validExtensionsVid.includes(items?.attributes?.assets?.data?.[0]?.attributes?.ext)){
+      console.log("items in gallery",items);
       return (
+
+        <div  key={id} className='w-72 mt-16  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 '>
         <video
           
           controls
           loop
           muted
-          key={id}
+         
           src={items?.attributes?.assets?.data?.[0]?.attributes?.url}
-          className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+          className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300  "
           onClick={() => handleVideoClick(items?.attributes?.assets?.data?.[0]?.attributes?.url)}
         />
-  
+        <h1 className='text-[8px] pt-5 shadow-lg p-3 md:text-lg '>{items?.attributes?.name}</h1>
+    </div>
       );
     }
    
@@ -331,15 +339,19 @@ function TvcommercialDetails() {
       if(items?.attributes?.youtube_link){
          
         return(
+
+          <div key={id} className='w-72  m-auto md:w-[400px] mt-16  md:h-[250px]'>
           <iframe
-                key={id}
-                className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+                
+                className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300  "
                 src={items?.attributes?.youtube_link}
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen></iframe>
+ <h1 className='text-[8px] pt-5   p-3 md:text-[12px] '>{items?.attributes?.name}</h1>
+                </div>
         )
       }
       
@@ -397,7 +409,7 @@ function TvcommercialDetails() {
                       className={`w-full list-none transition-all duration-300  bg-primary-main`}>
                       <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-2 md:p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
-                          <span className="text-[8px] md:text-sm text-white">{item?.attributes?.title}</span>
+                          <span className="text-[8px] md:text-[10px] text-start text-white">{item?.attributes?.title}</span>
                         </div>
                       </button>
                     </li>

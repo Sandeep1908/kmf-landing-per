@@ -103,7 +103,7 @@ function Products() {
                 <p
               
                 onClick={() => handleIdx(item?.id)}
-                className={`font-subheading w-full text-center transition-all duration-300 text-sm cursor-pointer  hover:scale-[1.1] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
+                className={`font-subheading w-full text-center transition-all duration-300 text-sm cursor-pointer  hover:scale-[1.3] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
                 {item?.attributes?.title}
                 </p>
                 </Fade>

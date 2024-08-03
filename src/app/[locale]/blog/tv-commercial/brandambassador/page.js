@@ -305,7 +305,7 @@ function BrandAmbassodor() {
                        className="w-full list-none transition-all duration-300 bg-primary-main ">
                        <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-1 md:p-4 w-full ">
                          <div className="w-full flex space-x-2 ">
-                           <span className="text-[8px] md:text-sm text-white">{item?.attributes?.title}</span>
+                           <span className="text-[8px]text-[8px] md:text-[10px] text-start text-white">{item?.attributes?.title}</span>
                          </div>
                        </button>
                      </li>
