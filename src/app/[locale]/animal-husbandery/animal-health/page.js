@@ -104,7 +104,7 @@ function AnimalHealth() {
 
             <Fade bottom>
 
-            <div className="w-full h-full flex justify-center items-center flex-wrap  ">
+            <div className="w-full h-full flex gap-10 justify-center items-center flex-wrap  ">
             {animalHealth?.map((_, id) => {
                 return (
                   <div
@@ -131,7 +131,7 @@ function AnimalHealth() {
                           <BlocksRenderer
                             content={readMore ? _?.attributes?.content: _?.attributes?.content.slice(0,6) }
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-xs md:text-md">{children}</p>,
+                              paragraph: ({ children }) => <p className="text-xs md:text-lg">{children}</p>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:
@@ -204,7 +204,7 @@ function AnimalHealth() {
 
             <Fade bottom>
 
-            <div className="w-full h-full flex justify-center items-center flex-wrap  ">
+            <div className="w-full h-full flex gap-10 justify-center items-center flex-wrap  ">
             {healthCamps?.map((_, id) => {
                 return (
                   <div
@@ -231,7 +231,7 @@ function AnimalHealth() {
                           <BlocksRenderer
                             content={readMore ? _?.attributes?.content: _?.attributes?.content.slice(0,6) }
                             blocks={{
-                              paragraph: ({ children }) => <p className="text-xs md:text-md">{children}</p>,
+                              paragraph: ({ children }) => <p className="text-xs md:text-lg">{children}</p>,
                               heading: ({ children, level }) => {
                                 switch (level) {
                                   case 1:
