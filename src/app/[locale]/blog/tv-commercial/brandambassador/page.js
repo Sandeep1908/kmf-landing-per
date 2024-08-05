@@ -160,6 +160,8 @@ function BrandAmbassodor() {
 
  
            { vidLinks?.sort((a,b)=>b.order-a.order).map((item, id) => {
+
+            if(id===0){
               return (
                 <iframe
                 key={id}
@@ -171,6 +173,21 @@ function BrandAmbassodor() {
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen></iframe>
               );
+            }
+            else{
+              return (
+                <iframe
+                key={id}
+                 className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+                src={item?.link}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              );
+            }
+              
             })}
  
  {
@@ -244,7 +261,7 @@ function BrandAmbassodor() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
-                className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300 hover:scale-[1.1]"
+                className="w-[160px] m-auto h-[180px]  md:w-[380px]   md:h-96  object-fill     transition-all duration-300 hover:scale-[1.1]"
                 ></iframe>
         )
       }
