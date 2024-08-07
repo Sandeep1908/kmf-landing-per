@@ -178,7 +178,7 @@ const Home = () => {
 
       <video
         className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
-        src="/video/banner.mov"
+        src="/video/bannernewvid.mov"
          
         muted
         autoPlay
