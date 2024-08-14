@@ -178,7 +178,7 @@ const Home = () => {
 
       <video
         className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
-        src="/video/banner.mov"
+        src="/video/bannerind.mov"
          controls
         muted
         autoPlay
@@ -186,6 +186,16 @@ const Home = () => {
         playsInline
         >
       </video>
+      {/* <video
+        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
+        src="/video/banner.mov"
+         controls
+        muted
+        autoPlay
+        loop
+        playsInline
+        >
+      </video> */}
       {/* <video
         className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
         src="/video/bannermobile.mp4"
