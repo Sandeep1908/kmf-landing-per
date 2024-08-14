@@ -255,7 +255,7 @@ export const mobileHeader = {
     },
 
     {
-      title: ' VIRTUAL TOUR',
+      title: 'VIRTUAL TOUR',
       link: 'https://turiya.co/360/KMF/'
     },
  
@@ -445,7 +445,7 @@ export const mobileHeader = {
     
 
     {
-      title: ' ವರ್ಚುವಲ್ ಟೂರ್',
+      title: 'ವರ್ಚುವಲ್ ಟೂರ್',
       link: 'https://turiya.co/360/KMF/'
     },
      

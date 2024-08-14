@@ -301,12 +301,13 @@ export const Header = () => {
                     const hasItems = header?.subItems?.length;
                     const isLink = header?.link;
                    
-
-
+                    const isVirtual=header.title==='VIRTUAL TOUR'|| header.title==='ವರ್ಚುವಲ್ ಟೂರ್'
+                   
                     
                       return (
                         <Link
                           href={isLink ? isLink : '#'}
+                          target={isVirtual?'_blank':'_self'}
                           key={i}
                           className=" transition-all duration-300 hover:scale-[1.1] ">
                           <li
