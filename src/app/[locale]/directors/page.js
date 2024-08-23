@@ -11,7 +11,7 @@ import { useParams } from 'next/navigation';
 import Zoom from 'react-reveal/Zoom';
 import { Fade } from 'react-reveal';
 import { ParallaxBanner } from 'react-scroll-parallax';
-
+import { useMyContext } from '@/context/headerContext';
 
 function Directors() {
   const [directors, setDirectors] = useState([]);
@@ -19,6 +19,7 @@ function Directors() {
   const locale = useParams().locale;
   const [chairmain, setChairman] = useState([]);
    
+  const {isScroll} =useMyContext()
 
   useEffect(() => {
     (async () => {
@@ -42,7 +43,7 @@ function Directors() {
  
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
+    <div className={`w-full h-full absolute top-0 z-[-1] ${isScroll?'top-36':''}`}>
 
 <ParallaxBanner
       layers={[

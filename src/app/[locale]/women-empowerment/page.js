@@ -11,13 +11,15 @@ import rightArrow from '@/images/women-empower/rightArrow.svg';
 import Link from 'next/link';
 import { Fade } from 'react-reveal';
 import { IoHomeOutline } from 'react-icons/io5';
-
+import { useMyContext } from '@/context/headerContext';
 
 function WomenEmpowerment() {
   const [womenEmpower, setWomenEmpower] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const locale = useParams()?.locale;
   const axios = useApi();
+
+  const {isScroll}=useMyContext()
 
   const handleButton = (idx) => {
     setCurrentIndex(idx);
@@ -37,7 +39,7 @@ function WomenEmpowerment() {
     })();
   }, []);
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] bg-[#F6F6F6] ">
+    <div className={`w-full h-full absolute top-0 z-[-1] bg-[#F6F6F6] ${isScroll?'top-36':''}`}>
       <section className={`w-full h-full md:h-[800px] pt-28 relative  grid place-items-center `}>
         <img
           src={'/images/step-bg.png'}

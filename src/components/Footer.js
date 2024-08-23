@@ -102,6 +102,8 @@ function Footer() {
             </p>
           </div>
         </div>
+
+        <p className='text-center text-xs md:text-xl w-full'>Design and Developed by <span className='text-blue-700 font-semibold'>Velozity Global Solutions Pvt Ltd.</span></p>
       </div>
     </section>
   );

@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import Follow from '@/components/Follow.js';
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
- 
+import { useMyContext } from '@/context/headerContext';
 import useApi from '@/hooks/useApi';
  
 import { achievements as achievementItems } from '@/configtext/companyProfile';
@@ -19,9 +19,8 @@ import { ParallaxBanner } from "react-scroll-parallax";
 function OrganizationChart() {
   const locale = useParams().locale;
   const [banner,setBanner]=useState([])
-  const [slideView, setSlideView] = useState(3);
-  const [achievments, setAchievments] = useState([]);
-  
+ 
+  const { isScroll, setIsScroll } = useMyContext();
 
   const axios=useApi()
   useEffect(()=>{
@@ -53,7 +52,7 @@ function OrganizationChart() {
     return () => window.removeEventListener('resize', handleSlideView);
   }, []);
   return (
-    <div className="w-full h-full absolute top-36 z-[-1] ">
+    <div className={`w-full h-full absolute top-0 z-[-1] ${isScroll ? 'top-36 md:h-[400px]' : 'h-[90vh]'}`}>
       <ParallaxBanner
         layers={[
           { image: "/images/home-about.png", speed: -20 },
@@ -65,7 +64,7 @@ function OrganizationChart() {
           },
            
         ]}
-        className="  w-full   md:mt-10   object-contain "
+        className={`  w-full       object-contain ${isScroll ? 'md:mt-10' : ''} `}
       >
            
            <div className='w-full h-fit max-w-[1400px]  pt-10 m-auto flex flex-col space-y-5 mb-5 relative bg-organization '>

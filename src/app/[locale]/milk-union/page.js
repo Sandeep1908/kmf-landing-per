@@ -13,12 +13,13 @@ import { useParams } from 'next/navigation';
 import useLocale from '@/hooks/useLocale';
 import { IoHomeOutline } from 'react-icons/io5';
 
-
+import { useMyContext } from '@/context/headerContext';
 function MilkUnion() {
   const [milkUnion, setMilkUnions] = useState([]);
   const Api = useApi();
   const params=useParams()
   const [loading,setLoading]=useState(true)
+  const {isScroll} =useMyContext()
 const locale=useLocale().locale
   useEffect(() => {
     (async () => {
@@ -29,7 +30,7 @@ const locale=useLocale().locale
     })();
   }, []);
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]  ">
+    <div className={`w-full h-full absolute top-0 z-[-1]  ${isScroll?'top-36':''}`}>
       <section className={`w-full h-72 pt-28 relative  grid place-items-center company-bg`}>
         <img src={HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
         <img src={Logo.src} alt="milk-union-logo" className="w-[200px] " />

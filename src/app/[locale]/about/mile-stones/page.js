@@ -1,19 +1,16 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import organizationHero from '@/images/about/organization-chart/organization-hero.png';
-import mileStoneIco from '@/images/about/milestone/milestone.png';
-import { mileStone } from '@/configtext/milestone';
-import barIco from '@/images/about/milestone/bar.svg';
-
+ 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
-import Counter from '@/components/Counter';
+ 
 import useLocale from '@/hooks/useLocale';
 import Fade from 'react-reveal'
 
+import { useMyContext } from '@/context/headerContext';
 function OrganizationChart() {
   const [mileStones, setMileStone] = useState([]);
   const [selectedYear, setSelectedYear] = useState(1955);
@@ -25,8 +22,8 @@ function OrganizationChart() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = description?.slice(indexOfFirstItem, indexOfLastItem);
-  const [banner, setBanner] = useState([]);
-  const [loading, setLoading] = useState(true);
+ const {isScroll} =useMyContext()
+  
   const axios = useApi();
   const locale = useLocale().locale;
   const [openAccordion, setOpenAccordion] = useState(null);
@@ -150,7 +147,7 @@ function OrganizationChart() {
   };
 
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]">
+    <div className={`w-full h-full absolute top-0 z-[-1] ${isScroll?'top-36':''}`}>
       <h1 className="text-primary-main w-full max-w-7xl m-auto text-center pt-20 font-heading text-3xl font-extrabold uppercase">
         {locale === 'kn' ? 'ಮೈಲಿಗಲ್ಲು' : 'Milestones'}
       </h1>
