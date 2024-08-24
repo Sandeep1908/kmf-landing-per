@@ -103,7 +103,7 @@ function Footer() {
           </div>
         </div>
 
-        <p className='text-center text-xs md:text-xl w-full'>Design and Developed by <span className='text-blue-700 font-semibold'>Velozity Global Solutions Pvt Ltd.</span></p>
+        <p className='text-center text-xs md:text-lg w-full'>Created with passion by  <Link href={'https://bit.ly/velozityglobal'} className='text-blue-500 underline'>Velozity Global</Link></p>
       </div>
     </section>
   );
