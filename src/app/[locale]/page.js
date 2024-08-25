@@ -330,7 +330,7 @@ const Home = () => {
 
       <ParallaxBanner
         layers={[
-          { image: '/images/home-about.jpg', speed: -20 },
+          { image: '/images/home-about.png', speed: -20 },
           { speed: -15, children: <div></div> } // Adjust if a specific element is needed
         ]}
         className="w-full  object-contain">
