@@ -20,6 +20,7 @@ import { pdfjs } from 'react-pdf';
 import 'react-photo-view/dist/react-photo-view.css';
 import { MyContextProvider } from '@/context/headerContext';
 import Script from 'next/script';
+import ScrollContext from '@/context/smoothScrollingContext';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -40,13 +41,16 @@ export default function RootLayout({ children }) {
         </head>
 
         <body className="relative">
+          <ScrollContext>
           <MyContextProvider>
+
             <Header />
             <ParallaxProvider>
               {children}
               <SpeedInsights />
             </ParallaxProvider>
           </MyContextProvider>
+          </ScrollContext>
           {''}
         </body>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DP4FBEQWDL" />

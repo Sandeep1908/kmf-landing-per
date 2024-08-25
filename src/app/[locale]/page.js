@@ -330,7 +330,7 @@ const Home = () => {
 
       <ParallaxBanner
         layers={[
-          { image: '/images/home-about.png', speed: -20 },
+          { image: '/images/home-about.jpg', speed: -20 },
           { speed: -15, children: <div></div> } // Adjust if a specific element is needed
         ]}
         className="w-full  object-contain">
@@ -381,7 +381,7 @@ const Home = () => {
         </Fade>
 
         <img
-          src="/images/footer-top.png"
+          src="/images/footer-top.jpg"
           className="absolute top-[87px] w-full h-full object-cover z-[-1]"
           style={{ transform: `translateY(${scrollY * 0.2}px)` }}
           alt="Footer Top"
