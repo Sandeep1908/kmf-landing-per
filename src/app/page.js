@@ -9,7 +9,7 @@ import milkglassImg from '@/images/homeImages/milkglass.png';
 import milkglassKnImg from '@/images/homeImages/milk-glass-kn.png';
 import Fade from 'react-reveal/Fade';
 import { Zoom } from 'react-reveal';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
 import {
@@ -177,7 +177,7 @@ const Home = () => {
       <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}>
 
       <video
-        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'h-screen'}`}
+        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
         src="/video/bannerind.mov"
          controls
         muted

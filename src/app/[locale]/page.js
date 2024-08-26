@@ -178,7 +178,7 @@ const Home = () => {
       <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}>
 
       <video
-        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
+        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
         src="/video/bannerind.mov"
         controls
         muted
