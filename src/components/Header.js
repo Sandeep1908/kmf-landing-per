@@ -309,7 +309,7 @@ export const Header = () => {
                           href={isLink ? isLink : '#'}
                           target={isVirtual?'_blank':'_self'}
                           key={i}
-                          className=" transition-all duration-300 hover:scale-[1.1] ">
+                          className={` transition-all duration-300 hover:scale-[1.1] ${isVirtual?'pluse':''}`}>
                           <li
                             className="  text-[8px] sm:text-[10px] lg:text-[12px]  border-light-light4 pl-2 pr-2 relative hover:text-secondary-lighter "
                             onMouseEnter={() => setOpen(hasItems ? i : null)}>
