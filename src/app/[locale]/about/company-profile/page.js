@@ -60,7 +60,7 @@ function CompanyProfile() {
         autoPlay
         loop
         playsInline
-        className={`w-full md:h-[600px] z-[-10] object-fill ${isScroll ? 'md:h-[400px]' : 'h-[90vh]'}  `}
+        className={`w-full md:h-[600px] z-[-10] object-fill ${isScroll ? 'md:h-[400px]' : ''}  `}
       />
 
       {/* <CarouselImage images={allbanners || []} /> */}
