@@ -9,7 +9,7 @@ import milkglassImg from '@/images/homeImages/milkglass.png';
 import milkglassKnImg from '@/images/homeImages/milk-glass-kn.png';
 import Fade from 'react-reveal/Fade';
 import { Zoom } from 'react-reveal';
- 
+
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
 import {
@@ -33,17 +33,16 @@ import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
 import { useQuery } from '@tanstack/react-query';
- 
 
 const fetchCertificates = async (axios) => {
   const { data } = await axios.get('/api/certificates');
   return data;
 };
 
-const fetchTenders = async (axios) => {
-  const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
-  return data;
-};
+// const fetchTenders = async (axios) => {
+//   const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
+//   return data;
+// };
 
 const fetchHomeCards = async (axios) => {
   const { data } = await axios.get('/api/homecards');
@@ -65,90 +64,63 @@ const fetchProducts = async (axios) => {
   return data;
 };
 
- 
-
-
 const Home = () => {
-  const [previewCount, setPreviewCount] = useState(2);
-  const [certificatePrivew,setCertificatePreview]=useState(3)
-  const [cardDetails, setCardDetails] = useState([]);
-  const [homeAboutDetails, setHomeAboutDetails] = useState([]);
-  const [allTenders, setAllTenders] = useState([]);
-  const [newArrivals, setNewArrivals] = useState([]);
-  const [certificate, setCertificate] = useState([]);
-  const [certificateRunning, setCertificateRunning] = useState(false);
-  const [knowMilk, setKnowMilk] = useState([]);
   const [knowMilkItem, setKnowMilkItem] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
   const [currentYearData, setCurrentYearData] = useState([]);
-  const [scrollY,setScrollY]=useState(null)
-  const [newsHome,setNewsHome]=useState([])
-
-  const { isScroll, setIsScroll } = useMyContext();
+  const [scrollY, setScrollY] = useState(null);
+  const [newsHome, setNewsHome] = useState([]);
+  const { isScroll } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
-
 
   const { data: certificates } = useQuery({
     queryKey: ['certificates'],
     queryFn: () => fetchCertificates(axios),
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 1000 // 1 hour
   });
-  
-  
-  const { data: tenders } = useQuery({
-    queryKey: ['tenders'],
-    queryFn: () => fetchTenders(axios),
-    staleTime: 60 * 60 * 1000, // 1 hour
-  });
-  
+
+  // const { data: tenders } = useQuery({
+  //   queryKey: ['tenders'],
+  //   queryFn: () => fetchTenders(axios),
+  //   staleTime: 60 * 60 * 1000 // 1 hour
+  // });
+
   const { data: homeCards } = useQuery({
     queryKey: ['homecards'],
     queryFn: () => fetchHomeCards(axios),
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 1000 // 1 hour
   });
 
-  
-  
   const { data: homeAbouts } = useQuery({
     queryKey: ['homeabouts'],
     queryFn: () => fetchHomeAbouts(axios),
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 1000 // 1 hour
   });
-  
+
   const { data: knowYourMilk } = useQuery({
     queryKey: ['knowyourmilks'],
     queryFn: () => fetchKnowYourMilk(axios),
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 1000 // 1 hour
   });
-  
+
   const { data: products } = useQuery({
     queryKey: ['products'],
     queryFn: () => fetchProducts(axios),
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 1000 // 1 hour
   });
-  
 
-
-
-
-
-
- 
+  const latestProducts = products?.data?.filter((item) => item?.attributes?.isLatest);
+  if (latestProducts) {
+    var product = [...latestProducts];
+  }
 
   const homedetails = homeAbouts?.data?.map((item) => ({
-  
     about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
     about2: item?.attributes?.about2?.[0]?.children?.[0]?.text,
     video1: item?.attributes?.video1?.data?.attributes?.url,
     video2: item?.attributes?.video2?.data?.attributes?.url
   }));
-
-
- 
- 
- 
 
   const handleKnowMilk = (item) => {
     setKnowMilkItem(item);
@@ -156,19 +128,12 @@ const Home = () => {
   };
 
   const fetchData = async () => {
-    const [
-    
-      { data: tenders },
-      { data: allProduct },
-      {data:newsImp}
-    ] = await Promise.all([
-    
-      axios.get('/api/tender-notifications?sort[0]=last_date:desc'),
-      axios.get('/api/product-sub-items'),
+    const [{ data: tender }, { data: newsImp }] = await Promise.all([
+      axios.get('/api/tender-notifications?_limit=20&_sort[0]=last_date:desc'),
       axios.get('/api/home-new')
     ]);
 
-    const groupedData = tenders?.data?.reduce((acc, item) => {
+    const groupedData = tender?.data?.reduce((acc, item) => {
       const year = new Date(item?.attributes?.last_date).getFullYear();
       if (!acc[year]) {
         acc[year] = [];
@@ -176,96 +141,47 @@ const Home = () => {
       acc[year].push(item);
       return acc;
     }, {});
+
   
-    if (new Date().getFullYear() in groupedData) {
-      setCurrentYearData(groupedData[new Date().getFullYear()]);
-    }
-  
-  
-     
-
-    const latestProducts = allProduct.data.filter((item) => item?.attributes?.isLatest);
-    const product = [...latestProducts];
-
-    
-
-    setNewArrivals(product);
-    setAllTenders(tenders.data);
- 
- 
-   
- 
-    setNewsHome(newsImp?.data)
-
+  const currentYear = new Date().getFullYear();
+  if (groupedData && groupedData[currentYear]) {
+    setCurrentYearData(groupedData[currentYear]);
+  }
+    setNewsHome(newsImp?.data);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setPreviewCount(window.innerWidth > 768 ? 2 : 1);
-      setCertificatePreview(window.innerWidth> 1200?3:1)
-    };  
-
-    if(window.innerWidth < 700){
-      setCertificatePreview(1)
-      setPreviewCount(1)
-    }
-    else{
-      setPreviewCount(2)
-    }
-
-
-
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const NextSlider = () => {
-  
-    const swiper = useSwiper()
-   
+    const swiper = useSwiper();
+
     useEffect(() => {
       if (swiper.activeIndex === 0) {
-        
         setTimeout(() => {
-            swiper.slideTo(1,1000)  
-        }, 3000) 
+          swiper.slideTo(1, 1000);
+        }, 3000);
       }
-    }, [swiper])
-  
-    return <></>
-  }
+    }, [swiper]);
+
+    return <></>;
+  };
 
   return (
-    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
-
- 
+    <div
+      className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
       <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}>
-
-      <video
-        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
-        src="/video/bannerind.mov"
-         controls
-        muted
-        autoPlay
-        loop
-        playsInline
-        >
-      </video>
-      {/* <video
+        <video
+          className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
+          src="/video/bannerind.mov"
+          controls
+          muted
+          autoPlay
+          loop
+          playsInline></video>
+        {/* <video
         className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
         src="/video/banner.mov"
          controls
@@ -275,7 +191,7 @@ const Home = () => {
         playsInline
         >
       </video> */}
-      {/* <video
+        {/* <video
         className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
         src="/video/bannermobile.mp4"
          
@@ -287,64 +203,32 @@ const Home = () => {
         >
       </video> */}
 
-
-      
-      <iframe className="absolute bottom-0 left-[40%] sm:left-[45%] hidden md:block " width={100} src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
-  
-
-  
-      
+        <iframe
+          className="absolute bottom-0 left-[40%] sm:left-[45%] hidden md:block "
+          width={100}
+          src="https://lottie.host/embed/8fc4672b-a346-4510-aef7-c3533c584e98/cTEVCEEGbE.json"></iframe>
       </div>
 
+      {/* important */}
 
-    
-    
+      {newsHome?.attributes?.important && (
+        <div className="w-full h-20 flex justify-center items-center bg-red-600">
+          <p className="text-white text-center ">Important: {newsHome?.attributes?.important} </p>
+        </div>
+      )}
 
+      {/* Caution/ */}
 
+      {newsHome?.attributes?.caution && (
+        <div className="w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto">
+          <p className="text-red-600 font-bold uppercase mr-3">Caution:</p>
+          <div className="text-green-900   font-bold w-full text-sm  text-nowrap">
+            {newsHome?.attributes?.caution}
+          </div>
+        </div>
+      )}
 
-
-
-{/* important */}
-
-
-
-{newsHome?.attributes?.important &&
-  <div className='w-full h-20 flex justify-center items-center bg-red-600'>
-      <p className='text-white text-center '>Important: {newsHome?.attributes?.important} </p>
-      </div>
-}
-        
-
-      
-
-
-
-{/* Caution/ */}
-
-
-{newsHome?.attributes?.caution &&
- 
- <div className='w-full min-h-14 bg-white flex justify-center items-center marquee-latest overflow-auto'>
-
-
-    <p className='text-red-600 font-bold uppercase mr-3'>Caution:</p>
-    <div className='text-green-900   font-bold w-full text-sm  text-nowrap'>
-    {newsHome?.attributes?.caution}
-
-
-    </div>
-      
-    
-
- </div>
-}
-
-      
-
-
-{/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
-         
-   
+      {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
 
       {/* <CarouselImage images={banners || []}  /> */}
 
@@ -361,7 +245,7 @@ const Home = () => {
               effect="coverflow"
               grabCursor={true}
               centeredSlides={true}
-              ref={r => r.s}
+              ref={(r) => r.s}
               coverflowEffect={{
                 rotate: 30,
                 stretch: 0,
@@ -400,7 +284,7 @@ const Home = () => {
                   </SwiperSlide>
                 );
               })}
-                  <NextSlider />
+              <NextSlider />
             </Swiper>
           </div>
         </div>
@@ -456,12 +340,7 @@ const Home = () => {
           />
         </Fade>
 
-        <img
-          src="/images/footer-top.jpg"
-          className="absolute top-[87px] w-full h-full object-cover z-[-1]"
-          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-          alt="Footer Top"
-        />
+       
 
         <div className="relative bg-[#30ABDC] md:bg-transparent p-5">
           <div className="pb-10 lg:space-x-10 flex flex-col-reverse justify-center items-center lg:flex-row m-auto max-w-7xl">
@@ -505,7 +384,9 @@ const Home = () => {
                       alt={item?.attributes?.title}
                       className="transition-all duration-200 hover:scale-110"
                     />
-                    <p className="text-white text-xs md:text-lg text-center font-heading">{item?.attributes?.title}</p>
+                    <p className="text-white text-xs md:text-lg text-center font-heading">
+                      {item?.attributes?.title}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -515,66 +396,73 @@ const Home = () => {
       </section>
 
       <section className="w-full h-auto relative">
-      <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
-        <div className="flex w-full flex-col justify-center items-center space-y-3">
-          <h1 className=" text-xs md:text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
-          NOTIFICATION
-          </h1>
-        </div>
+      <img
+          src="/images/footer-top.jpg"
+          className="absolute top-[87px] w-full h-full object-cover z-[-1]"
+          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+          alt="Footer Top"
+        />
+        <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+          <div className="flex w-full flex-col justify-center items-center space-y-3">
+            <h1 className=" text-xs md:text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
+              NOTIFICATION
+            </h1>
+          </div>
 
-        <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
-          <div className="relative w-full overflow-scroll flex flex-col max-w-[300px] md:max-w-[400px] overflow-x-hidden overflow-y-hidden">
-            <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
-              <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
+          <div className="w-full flex flex-col space-y-4 items-center lg:space-y-0 lg:flex-row lg:space-x-2 lg:items-start">
+            <div className="relative w-full overflow-scroll flex flex-col max-w-[300px] md:max-w-[400px] overflow-x-hidden overflow-y-hidden">
+              <div className="w-full flex flex-col shadow-2xl shadow-blue-300 overflow-hidden justify-center h-[425px] items-center rounded-lg border-2 border-primary-main">
+                <div className="w-full h-[90px] shadow-black shadow-md bg-white z-30">
+                  <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
+                    TENDER NOTIFICATIONS
+                  </h1>
+                </div>
+                <div
+                  className="w-full h-[375px] p-4 marquee flex flex-col"
+                  style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+                  {currentYearData
+                    ?.sort((a, b) => b.attributes.createdAt - a.attributes.createdAt)
+                    ?.map((item, id) => {
+                      return (
+                        <div
+                          key={id}
+                          className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
+                          <FaRegHandPointRight size={20} color="red" />
+                          <p className="w-full "> {item?.attributes?.title}</p>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
+              <div className="w-full flex justify-end mt-3 rounded-md">
+                <Link href={'/en/blog/notification'} className="p-2 bg-primary-main text-white ">
+                  Read more
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
+              <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-                TENDER NOTIFICATIONS
+                  NEW ARRIVALS & BEST SELLING
                 </h1>
-              </div>
-              <div
-                className="w-full h-[375px] p-4 marquee flex flex-col"
-                style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-                {currentYearData?.sort((a,b)=>b.attributes.createdAt-a.attributes.createdAt)?.map((item, id) => {
-                  return (
-                    <div
-                      key={id}
-                      className="bg-white border m-2 p-2 text-xs flex justify-center items-center space-x-2 rounded w-full ">
-                      <FaRegHandPointRight size={20} color="red" />
-                      <p className="w-full "> {item?.attributes?.title}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="w-full flex justify-end mt-3 rounded-md">
-              <Link href={'/en/blog/notification'} className="p-2 bg-primary-main text-white ">
-              Read more
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative w-full overflow-auto flex flex-col justify-center items-start space-y-5 ">
-            <div className="w-full flex flex-col shadow-md overflow-hidden space-y-4 justify-center items-center h-[430px]  rounded-lg">
-              <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
-              NEW ARRIVALS & BEST SELLING
-              </h1>
-              <div className="marquee-notification h-full flex justify-evenly space-x-3">
-                {newArrivals?.map((item, id) => {
-                  
-                  return (
-                    <ArrivalCard
-                      key={id}
-                      title={item?.attributes?.name}
-                      imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
-                      link={`/en/our-product/${item?.attributes?.subcategory?.data?.id}`}
-                    />
-                  );
-                })}
+                <div className="marquee-notification h-full flex justify-evenly space-x-3">
+                  {product?.map((item, id) => {
+                    return (
+                      <ArrivalCard
+                        key={id}
+                        title={item?.attributes?.name}
+                        imgUrl={item?.attributes?.image?.data?.[0]?.attributes?.url}
+                        link={`/en/our-product/${item?.attributes?.subcategory?.data?.id}`}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* QUICK LINK  */}
 
@@ -627,8 +515,8 @@ const Home = () => {
           </div>
 
           <div className=" relative w-full h-[300px] md:h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
-          <div className="p-4 w-full h-full  flex justify-center items-center     ">
-                  {/* <video
+            <div className="p-4 w-full h-full  flex justify-center items-center     ">
+              {/* <video
                     src="/video/explore.mp4"
                      muted
                      autoplay
@@ -637,18 +525,15 @@ const Home = () => {
                      loop
                     className="w-full h-full "></video> */}
 
-          <iframe
-                    src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
-                     muted
-                     autoplay
-                     controls
-                     playsInline
-                     loop
-                    className="w-full h-full "></iframe>
-
-
-
-                </div>
+              <iframe
+                src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
+                muted
+                autoplay
+                controls
+                playsInline
+                loop
+                className="w-full h-full "></iframe>
+            </div>
           </div>
 
           <div className="w-full flex justify-center  space-x-5">
@@ -675,10 +560,7 @@ const Home = () => {
             </h1>
           </div>
 
-          <div
-            className={`w-full max-w-[2xl] mb-5 flex justify-center items-center space-x-7 ${
-              certificateRunning ? 'marquee-sponser' : ''
-            }`}>
+          <div className={`w-full max-w-[2xl] mb-5 flex justify-center items-center space-x-7  `}>
             <Swiper
               watchSlidesProgress={true}
               slidesPerView={3}
@@ -690,31 +572,26 @@ const Home = () => {
               modules={[FreeMode, Autoplay]}
               className="w-full">
               {certificates?.data?.[0]?.attributes?.image?.data?.map((item, idx) => {
-                return(
+                return (
                   <SwiperSlide key={idx} className="w-72 md:m-auto">
-                  <div className="max-w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
-                    <img
-                      src={item?.attributes?.url}
-                      alt={`Certificate ${idx + 1}`}
-                      className="w-96 h-32 object-contain rounded-md inline-block"
-                    />
-                  </div>
-                </SwiperSlide>
-                )
+                    <div className="max-w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
+                      <img
+                        src={item?.attributes?.url}
+                        alt={`Certificate ${idx + 1}`}
+                        className="w-96 h-32 object-contain rounded-md inline-block"
+                      />
+                    </div>
+                  </SwiperSlide>
+                );
               })}
             </Swiper>
           </div>
         </div>
       </section>
 
- 
-
-
-
-
       {/* FOOTER SECTION  */}
-       
-<Footer />
+
+      <Footer />
     </div>
   );
 };
