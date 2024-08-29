@@ -1,9 +1,9 @@
 import useApi from '@/hooks/useApi';
 import React from 'react';
-// import { growhtProcess, growthProcessTableHeader } from '@/configtext/companyProfile.js';
+ 
 import { useState, useEffect } from 'react';
 import useLocale from '@/hooks/useLocale';
-import { Fade } from 'react-reveal';
+ 
 
 function GrowthProcess({ setLoading }) {
   const [growthProcess, setGrowthProcess] = useState([]);

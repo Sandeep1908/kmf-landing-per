@@ -1,42 +1,41 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-import AchienvmentCard from '../organization-chart/AchienvmentCard';
-import { achievements as achievementItems } from '@/configtext/companyProfile';
+ 
 import GrowthProcess from './GrowthProcess';
 import About from './About';
-import UnitOfKMF from './UnitOfKMF';
+ 
 import OngoingAndFuture from './OngoingAndFuture';
 import { useParams } from 'next/navigation';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
-import CarouselImage from '@/components/CarouselImage';
+ 
 import { useMyContext } from '@/context/headerContext';
-import Link from 'next/link';
+ 
 
 function CompanyProfile() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
+   
   const locale = useParams().locale;
   const axios = useApi();
-  const [allbanners, setAllBanners] = useState([]);
+ 
   const { isScroll, setIsScroll } = useMyContext();
-  const [isMuted, setIsMuted] = useState(true);
+   
 
   const tabs = [
     {
       tabName: locale === 'en' ? 'About us' : 'ಕಹಾಮ ಬಗ್ಗೆ',
-      data: <About setLoading={setLoading} name={'About us'} />
+      data: <About   name={'About us'} />
     },
     {
       tabName: locale === 'en' ? 'The Growth Process' : 'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
-      data: <GrowthProcess setLoading={setLoading} name={'The Growth Process'} />
+      data: <GrowthProcess   name={'The Growth Process'} />
     },
 
     {
       tabName: locale === 'en' ? 'Ongoing and Future Projects' : 'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
-      data: <OngoingAndFuture setLoading={setLoading} name={'Ongoing and Future Projects'} />
+      data: <OngoingAndFuture   name={'Ongoing and Future Projects'} />
     }
   ];
   const handleTabs = (idx) => {

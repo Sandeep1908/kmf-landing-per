@@ -14,7 +14,7 @@ import documentIco from '@/images/notification/Document.svg';
 function Notification() {
   const [tenderItems, setTenderItems] = useState([]);
   const [alltenderItems, setAllTenderItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+   
   const [currentYearData,setCurrentYearData]=useState(null)
 
   const [currentPage, setCurrentPage] = useState(1);

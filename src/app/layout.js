@@ -21,12 +21,15 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { MyContextProvider } from '@/context/headerContext';
 import Script from 'next/script';
 import ScrollContext from '@/context/smoothScrollingContext';
+import {QueryClient,QueryClientProvider} from '@tanstack/react-query'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
   import.meta.url
 ).toString();
 register();
+
+const queryClient= new QueryClient();
 
 export default function RootLayout({ children }) {
   return (
@@ -46,7 +49,9 @@ export default function RootLayout({ children }) {
 
             <Header />
             <ParallaxProvider>
+              <QueryClientProvider client={queryClient}>
               {children}
+              </QueryClientProvider>
               <SpeedInsights />
             </ParallaxProvider>
           </MyContextProvider>

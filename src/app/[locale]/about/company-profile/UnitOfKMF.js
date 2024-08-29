@@ -1,5 +1,5 @@
 import React from 'react'
-import { KMFunits } from '@/configtext/companyProfile'
+ 
 import useApi from '@/hooks/useApi'
 import { useState,useEffect } from 'react'
 import Link from 'next/link'

@@ -1,6 +1,6 @@
 'use client';
 import React,{useEffect,useState} from 'react';
-import Follow from '@/components/Follow.js';
+
 import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
@@ -13,13 +13,13 @@ import Link from 'next/link';
  import { FreeMode, Pagination, Autoplay } from 'swiper/modules';
 import { Fade, Zoom } from 'react-reveal';
 import { IoHomeOutline } from 'react-icons/io5';
-import image1 from "@/images/animal-breeding/1.jpg"
-import image2 from "@/images/animal-breeding/2.jpg"
-import image3 from "@/images/animal-breeding/3.jpg"
-import image4 from "@/images/animal-breeding/4.jpg"
-import image5 from "@/images/animal-breeding/5.jpg"
-import image6 from "@/images/animal-breeding/6.jpg"
-import image7 from "@/images/animal-breeding/7.jpg"
+import image1 from "@/images/animal-breeding/one.jpg"
+import image2 from "@/images/animal-breeding/two.jpg"
+import image3 from "@/images/animal-breeding/three.jpg"
+import image4 from "@/images/animal-breeding/four.jpg"
+import image5 from "@/images/animal-breeding/five.jpg"
+import image6 from "@/images/animal-breeding/six.jpg"
+import image7 from "@/images/animal-breeding/seven.jpg"
  
 
 

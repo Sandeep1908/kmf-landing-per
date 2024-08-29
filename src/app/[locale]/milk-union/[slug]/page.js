@@ -29,7 +29,7 @@ function MilkUnionDetail({ slug }) {
   const [readMore, setReadMore] = useState(false);
 
   const axios = useApi();
-  const [loading, setLoading] = useState(true);
+   
 
   const locale = useParams().locale;
   const { isScroll, setIsScroll, id, setId } = useMyContext();

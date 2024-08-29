@@ -18,3 +18,5 @@ const useApi = (locale) => {
 };
 
 export default useApi;
+
+

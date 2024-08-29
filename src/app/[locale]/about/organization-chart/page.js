@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import organizationHero from '@/images/about/organization-chart/organization-hero.png';
 import milkRight from '@/images/about/organization-chart/milk-right.png';
-import MilkBottomImg from '@/images/about/mission/milk-bottom.png';
+ 
 import {Fade,Zoom} from 'react-reveal'
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import { useParams } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';

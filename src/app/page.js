@@ -32,9 +32,40 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
-
+import { useQuery } from '@tanstack/react-query';
  
 
+const fetchCertificates = async (axios) => {
+  const { data } = await axios.get('/api/certificates');
+  return data;
+};
+
+const fetchTenders = async (axios) => {
+  const { data } = await axios.get('/api/tender-notifications?sort[0]=last_date:desc');
+  return data;
+};
+
+const fetchHomeCards = async (axios) => {
+  const { data } = await axios.get('/api/homecards');
+  return data;
+};
+
+const fetchHomeAbouts = async (axios) => {
+  const { data } = await axios.get('/api/homeabouts');
+  return data;
+};
+
+const fetchKnowYourMilk = async (axios) => {
+  const { data } = await axios.get('/api/knowyourmilks');
+  return data;
+};
+
+const fetchProducts = async (axios) => {
+  const { data } = await axios.get('/api/product-sub-items');
+  return data;
+};
+
+ 
 
 
 const Home = () => {
@@ -57,6 +88,66 @@ const Home = () => {
   const { isScroll, setIsScroll } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
+
+
+  const { data: certificates } = useQuery({
+    queryKey: ['certificates'],
+    queryFn: () => fetchCertificates(axios),
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
+  
+  
+  const { data: tenders } = useQuery({
+    queryKey: ['tenders'],
+    queryFn: () => fetchTenders(axios),
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
+  
+  const { data: homeCards } = useQuery({
+    queryKey: ['homecards'],
+    queryFn: () => fetchHomeCards(axios),
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
+
+  
+  
+  const { data: homeAbouts } = useQuery({
+    queryKey: ['homeabouts'],
+    queryFn: () => fetchHomeAbouts(axios),
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
+  
+  const { data: knowYourMilk } = useQuery({
+    queryKey: ['knowyourmilks'],
+    queryFn: () => fetchKnowYourMilk(axios),
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
+  
+  const { data: products } = useQuery({
+    queryKey: ['products'],
+    queryFn: () => fetchProducts(axios),
+    staleTime: 60 * 60 * 1000, // 1 hour
+  });
+  
+
+
+
+
+
+
+ 
+
+  const homedetails = homeAbouts?.data?.map((item) => ({
+  
+    about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
+    about2: item?.attributes?.about2?.[0]?.children?.[0]?.text,
+    video1: item?.attributes?.video1?.data?.attributes?.url,
+    video2: item?.attributes?.video2?.data?.attributes?.url
+  }));
+
+
+ 
+ 
  
 
   const handleKnowMilk = (item) => {
@@ -66,28 +157,18 @@ const Home = () => {
 
   const fetchData = async () => {
     const [
-      { data: certificate },
+    
       { data: tenders },
-     
-      { data: homecard },
-      { data: homeabout },
-      { data: knm },
       { data: allProduct },
       {data:newsImp}
     ] = await Promise.all([
-      axios.get('/api/certificates'),
+    
       axios.get('/api/tender-notifications?sort[0]=last_date:desc'),
-   
-      axios.get('/api/homecards'),
-      axios.get('/api/homeabouts'),
-      axios.get('/api/knowyourmilks'),
       axios.get('/api/product-sub-items'),
       axios.get('/api/home-new')
     ]);
 
-   
-  
-    const groupedData = tenders.data.reduce((acc, item) => {
+    const groupedData = tenders?.data?.reduce((acc, item) => {
       const year = new Date(item?.attributes?.last_date).getFullYear();
       if (!acc[year]) {
         acc[year] = [];
@@ -95,27 +176,25 @@ const Home = () => {
       acc[year].push(item);
       return acc;
     }, {});
-
+  
     if (new Date().getFullYear() in groupedData) {
       setCurrentYearData(groupedData[new Date().getFullYear()]);
     }
+  
+  
+     
 
     const latestProducts = allProduct.data.filter((item) => item?.attributes?.isLatest);
     const product = [...latestProducts];
 
-    const homedetails = homeabout.data.map((item) => ({
-      about1: item?.attributes?.about1?.[0]?.children?.[0]?.text,
-      about2: item?.attributes?.about2?.[0]?.children?.[0]?.text,
-      video1: item?.attributes?.video1?.data?.attributes?.url,
-      video2: item?.attributes?.video2?.data?.attributes?.url
-    }));
+    
 
     setNewArrivals(product);
     setAllTenders(tenders.data);
-    setCardDetails(homecard.data);
-    setHomeAboutDetails(homedetails);
-    setCertificate(certificate.data?.[0]?.attributes?.image?.data);
-    setKnowMilk(knm.data);
+ 
+ 
+   
+ 
     setNewsHome(newsImp?.data)
 
   };
@@ -302,7 +381,7 @@ const Home = () => {
               scrollbar={{ draggable: true }}
               loop={true}
               className="max-w-7xl">
-              {cardDetails?.map((card, id) => {
+              {homeCards?.data?.map((card, id) => {
                 const {
                   attributes: {
                     image: {
@@ -342,7 +421,7 @@ const Home = () => {
                     About KMF
                   </h1>
                   <div className="space-y-6">
-                    <TypeWriter text={homeAboutDetails?.[0]?.about1 || ''} delay={70} />
+                    <TypeWriter text={homedetails?.[0]?.about1 || ''} delay={70} />
                   </div>
                 </div>
               </Fade>
@@ -352,7 +431,7 @@ const Home = () => {
                     OUR BRAND NANDINI
                   </h1>
                   <div className="space-y-6">
-                    <TypeWriter text={homeAboutDetails?.[0]?.about2 || ''} delay={70} />
+                    <TypeWriter text={homedetails?.[0]?.about2 || ''} delay={70} />
                   </div>
                 </div>
               </Fade>
@@ -416,7 +495,7 @@ const Home = () => {
               <KnmModel closeModal={isModalOpen} kymMilk={knowMilkItem} close={setIsModalOpen} />
 
               <div className="w-full grid grid-cols-2 justify-center p-6  items-center ">
-                {knowMilk?.map((item, idx) => (
+                {knowYourMilk?.data?.map((item, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleKnowMilk(item)}
@@ -610,8 +689,9 @@ const Home = () => {
               }}
               modules={[FreeMode, Autoplay]}
               className="w-full">
-              {certificate?.map((item, idx) => (
-                <SwiperSlide key={idx} className="w-72 md:m-auto">
+              {certificates?.data?.[0]?.attributes?.image?.data?.map((item, idx) => {
+                return(
+                  <SwiperSlide key={idx} className="w-72 md:m-auto">
                   <div className="max-w-96 h-40   m-auto   bg-white border-orange-500-500 p-2 border-orange-400 border-8 rounded-lg">
                     <img
                       src={item?.attributes?.url}
@@ -620,7 +700,8 @@ const Home = () => {
                     />
                   </div>
                 </SwiperSlide>
-              ))}
+                )
+              })}
             </Swiper>
           </div>
         </div>

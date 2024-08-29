@@ -9,7 +9,7 @@ import milkglassImg from '@/images/homeImages/milkglass.png';
 import milkglassKnImg from '@/images/homeImages/milk-glass-kn.png';
 import Fade from 'react-reveal/Fade';
 import { Zoom } from 'react-reveal';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import TypeWriter from '@/components/TypeWriter';
 import {
@@ -32,11 +32,7 @@ import { FaRegHandPointRight } from 'react-icons/fa';
 import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
-import { FaFacebook, FaTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa6";
-import { SiGmail } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa6";
+ 
 
 const Home = () => {
   const [previewCount, setPreviewCount] = useState(2);
@@ -50,7 +46,7 @@ const Home = () => {
   const [knowMilk, setKnowMilk] = useState([]);
   const [knowMilkItem, setKnowMilkItem] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+ 
   const [currentYearData, setCurrentYearData] = useState([]);
   const [scrollY,setScrollY]=useState(null)
   const [newsHome,setNewsHome]=useState([])
@@ -187,27 +183,7 @@ const Home = () => {
         playsInline
         >
       </video>
-      {/* <video
-        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
-        src="/video/banner.mov"
-        controls
-        muted
-        autoPlay
-        loop
-        playsInline
-        >
-      </video> */}
-      {/* <video
-        className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
-        src="/video/bannermobile.mp4"
-         
-      
-        muted
-        autoPlay
-        loop
-        playsInline
-        >
-      </video> */}
+  
 
 
       
@@ -564,7 +540,7 @@ const Home = () => {
           <iframe
                     src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
                      muted
-                     autoplay
+                     autoPlay
                      controls
                      playsInline
                      loop

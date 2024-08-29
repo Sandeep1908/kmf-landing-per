@@ -1,12 +1,10 @@
 'use client';
 import React, { useState,useEffect } from 'react';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import { useMyContext } from '@/context/headerContext';
 import useLocale from '@/hooks/useLocale';
-import Link from 'next/link';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-import { IoHomeOutline } from 'react-icons/io5';
+ 
 
 import useApi from '@/hooks/useApi';
 import { Fade } from 'react-reveal';

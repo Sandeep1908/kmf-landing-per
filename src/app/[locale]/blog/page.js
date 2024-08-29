@@ -2,13 +2,10 @@
 
 import React,{useState,useEffect} from 'react';
 import AboutHeroImg from '@/images/about/mission/about-hero.png';
-import newsImg1 from '@/images/blog/newImg.png';
-import NewsCard from './NewsCard';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
-import useLocale from '@/hooks/useLocale';
-import BlogModal from './BlogModal';
+ 
 
 function Blog() {
 

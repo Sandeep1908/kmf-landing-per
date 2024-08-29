@@ -1,10 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Logo from '@/images/logo/logo.png';
-import HeroImg from '@/images/milk-union/milk-union-home.png';
-import ProductCard from './ProductCard';
-import { milkProducts } from '@/configtext/milk.js';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -25,8 +21,8 @@ function Milk() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = products?.slice(indexOfFirstItem, indexOfLastItem);
-  const [loading, setLoading] = useState(true);
-  const [banner, setBanner] = useState();
+   
+  
   const axios = useApi();
   const param = useParams();
   const pagesToShow = 4; // Number of pagination numbers to show
@@ -34,7 +30,7 @@ function Milk() {
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
   const { isScroll, setIsScroll } = useMyContext();
   const locale = useLocale().locale;
-  const [categoryName, setCategoryName] = useState('');
+ 
   const [allSubCategories, setAllSubCategories] = useState([]);
   const [categories, setCategories] = useState([]);
   const { setId } = useMyContext();

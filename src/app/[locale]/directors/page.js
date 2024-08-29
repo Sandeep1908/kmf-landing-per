@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-
-import directorImg from '@/images/directors/bod.jpg';
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import TeamCard from './TeamCard';
 import useApi from '@/hooks/useApi';
