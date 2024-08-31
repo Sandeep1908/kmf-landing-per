@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
- 
+
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
@@ -12,56 +12,67 @@ import ProductAccordion from '@/components/ProductAccordion';
 import downarrowIco from '@/images/icons/downarrow.svg';
 import uparrowIco from '@/images/icons/uparrow.svg';
 import { Fade } from 'react-reveal';
+import { useQuery } from '@tanstack/react-query';
+
+const fetchProducts = async (axios) => {
+  const { data } = await axios.get('/api/product-sub-items?sort[0]=createdAt:asc');
+  return data;
+};
+
+const fetchSubCategories = async (axios) => {
+  const { data } = await axios.get('/api/subcategories?sort[0]=createdAt:asc');
+  return data;
+};
+
+const fetchCategories = async (axios) => {
+  const { data } = await axios.get('/api/categories?sort[0]=order:asc');
+  return data;
+};
 
 function Milk() {
-  const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
   const [openAccordion, SetOpenAccordion] = useState(null);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = products?.slice(indexOfFirstItem, indexOfLastItem);
-   
-  
+
   const axios = useApi();
   const param = useParams();
-  const pagesToShow = 4; // Number of pagination numbers to show
-  const [title, setTitle] = useState('');
+
+  // const [title, setTitle] = useState('');
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
   const { isScroll, setIsScroll } = useMyContext();
   const locale = useLocale().locale;
-  const [banner,setBanner]=useState([])
- 
-  const [allSubCategories, setAllSubCategories] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const { setId } = useMyContext();
+
   const [showMore, setShowMore] = useState(false);
   const arrows = {
     down: downarrowIco.src,
     up: uparrowIco.src
   };
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`/api/subcategories?sort[0]=createdAt:asc`);
-      const { data: categories } = await axios.get('/api/categories?sort[0]=order:asc');
-      const { data: subItems } = await axios.get('/api/product-sub-items?sort[0]=createdAt:asc');
+  const { data: allproducts } = useQuery({
+    queryKey: ['products'],
+    queryFn: () => fetchProducts(axios),
+    staleTime: 60 * 60 * 1000 // 1 hour
+  });
 
-      const product = subItems?.data?.filter(
-        (item) => item?.attributes?.subcategory?.data?.id === parseInt(param?.slug)
-      );
+  const { data: subcategories } = useQuery({
+    queryKey: ['subcategories'],
+    queryFn: () => fetchSubCategories(axios),
+    staleTime: 60 * 60 * 1000 // 1 hour
+  });
 
-      const categoryName = data?.data?.filter((item) => item?.id === parseInt(param?.slug));
-      const categoryTitle = categories?.data?.filter((item) => item?.id === parseInt(param?.slug));
+  const { data: categories } = useQuery({
+    queryKey: ['categories'],
+    queryFn: () => fetchCategories(axios),
+    staleTime: 60 * 60 * 1000 // 1 hour
+  });
 
-      setCategories(categories.data);
-      setAllSubCategories(data.data);
-      setTitle(categoryName[0]);
-      setBanner(subItems?.data?.map((item) => item?.attributes?.banner?.data?.attributes?.url));
-      setProducts(product);
-      setLoading(false);
-    })();
-  }, []);
+  const product = allproducts?.data?.filter(
+    (item) => item?.attributes?.subcategory?.data?.id === parseInt(param?.slug)
+  );
+
+  const title = subcategories?.data?.filter((item) => item?.id === parseInt(param?.slug))[0];
 
   const handleSeeMoreClick = (index) => {
     setExpandedDescriptionIndex(index === expandedDescriptionIndex ? null : index);
@@ -70,53 +81,6 @@ function Milk() {
     SetOpenAccordion(openAccordion === accordionId ? null : accordionId);
   };
 
-  const renderPaginationNumbers = () => {
-    const totalPages = Math.ceil(products.length / itemsPerPage);
-    const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
-    const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
-
-    const paginationNumbers = [];
-    for (let i = startPage; i <= endPage; i++) {
-      paginationNumbers.push(
-        <button
-          key={i}
-          onClick={() => paginate(i)}
-          className={`mx-1 px-3 py-1 rounded ${
-            currentPage === i ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-800'
-          }`}>
-          {i}
-        </button>
-      );
-    }
-
-    if (startPage > 1) {
-      paginationNumbers.unshift(
-        <button
-          key="prev"
-          onClick={() => paginate(currentPage - 1)}
-          className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800">
-          Previous
-        </button>
-      );
-    }
-
-    if (endPage < totalPages) {
-      paginationNumbers.push(
-        <button
-          key="next"
-          onClick={() => paginate(currentPage + 1)}
-          className="mx-1 px-3 py-1 rounded bg-gray-300 text-gray-800">
-          Next
-        </button>
-      );
-    }
-
-    return paginationNumbers;
-  };
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
   return (
     <div className={`w-full h-full relative ${isScroll ? 'top-0' : ''}  `}>
       <section
@@ -170,7 +134,7 @@ function Milk() {
 
             <div className="flex w-full justify-evenly items-start space-x-5">
               <div className="w-full max-w-7xl m-auto h-full pt-10 place-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-                {products?.map((item, id) => {
+                {product?.map((item, id) => {
                   return (
                     <div
                       key={id}
@@ -273,7 +237,7 @@ function Milk() {
                   </div>
 
                   {showMore
-                    ? allSubCategories?.map((items, idx) => {
+                    ? subcategories?.data?.map((items, idx) => {
                         return (
                           <ProductAccordion
                             title={items?.attributes?.title}
@@ -303,7 +267,7 @@ function Milk() {
                           </ProductAccordion>
                         );
                       })
-                    : categories?.map((items, idx) => {
+                    : categories?.data?.map((items, idx) => {
                         if (idx <= 10) {
                           return (
                             <ProductAccordion
@@ -342,8 +306,7 @@ function Milk() {
         </div>
       </section>
 
-       
-<Footer />
+      <Footer />
     </div>
   );
 }

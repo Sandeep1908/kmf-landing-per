@@ -70,7 +70,7 @@ const Home = () => {
   const [currentYearData, setCurrentYearData] = useState([]);
   const [scrollY, setScrollY] = useState(null);
   const [newsHome, setNewsHome] = useState([]);
-  const { isScroll } = useMyContext();
+  const { isScroll, setOpenNav } = useMyContext();
   const axios = useApi();
   const locale = useLocale().locale;
 
@@ -170,9 +170,10 @@ const Home = () => {
 
   return (
     <div
+     
       className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
       {/* HOME CARAOUSAL IMAGE */}
-      <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}>
+      <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}  >
         <video
           className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
           src="/video/banner.mov"
@@ -515,15 +516,8 @@ const Home = () => {
           </div>
 
           <div className=" relative w-full h-[300px] md:h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
-            <div className="p-4 w-full h-full  flex justify-center items-center     ">
-              {/* <video
-                    src="/video/explore.mp4"
-                     muted
-                     autoplay
-                     controls
-                     playsInline
-                     loop
-                    className="w-full h-full "></video> */}
+             
+             
 
               <iframe
                 src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
@@ -532,8 +526,8 @@ const Home = () => {
                 controls
                 playsInline
                 loop
-                className="w-full h-full "></iframe>
-            </div>
+                className="md:w-full md:h-full object-contain "></iframe>
+           
           </div>
 
           <div className="w-full flex justify-center  space-x-5">

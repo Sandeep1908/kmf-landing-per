@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import logo from '@/images/logo/logo.png';
 import logokn from '@/images/logo/logo-kn.png';
 import rotatedLogo from '@/images/logo/logo-letter.png';
@@ -29,11 +29,11 @@ import { useRouter } from 'next/navigation';
 import { useMyContext } from '@/context/headerContext';
 import { RiMenuAddFill } from "react-icons/ri";
 import { MdCall, MdLocationOn } from 'react-icons/md';
-
+ 
  
 export const Header = () => {
   const [openAccordion, SetOpenAccordion] = useState(null);
-  const [openNav, setOpenNav] = useState(false);
+  
   const [open, setOpen] = useState(null);
   const [productSub, setProductSub] = useState([]);
   const [unionSub, setUnionSub] = useState([]);
@@ -50,7 +50,7 @@ export const Header = () => {
  const {isScroll,setIsScroll,id,setId}=useMyContext()
  const [products,setProducts]=useState([])
  const [rotateLogo, setRotateLogo] = useState(false); // State to control logo rotation
-
+  const {openNav,setOpenNav} =useMyContext()
  useEffect(() => {
    // When component mounts, trigger logo rotation after 1 second
    const timeout = setInterval(() => {
@@ -353,35 +353,16 @@ export const Header = () => {
           </div>
    
         </div>
-        {/* <div className=' h-5 bg-red-500 flex    '>
-                  <div className='marquee-latest w-full  flex space-x-5'>
-
-                 
-                  <h1 className='  text-white'>Latest news</h1>
-                  <h1 className='  text-white'>Latest news</h1>
-
-                  <h1 className='  text-white'>Latest news</h1>
-
-                  <h1 className='  text-white'>Latest news</h1>
-
-                   
-
-                 
-                  </div>
-                 
-
-          </div> */}
-
-        {/* Mobile Header  */}
+       
 
  
 
         <div
-          className={`w-[305px] h-screen  bg-[#0E86E7] fixed top-0 z-[20] overflow-scroll   lg:hidden  ${
+          className={`w-full h-screen  bg-[#0E86E7] fixed top-0 z-[20] overflow-scroll   lg:hidden  ${
             openNav ? 'left-0 ' : 'left-[-1200px]   '
           }`}
           style={{ transition: 'all .8s' }}>
-          <div>
+          <div className='w-full'>
             <div className="flex justify-end items-center p-5">
               <RxCrossCircled size={40} color="white" onClick={() => setOpenNav((prev) => !prev)} />
             </div>
