@@ -30,6 +30,7 @@ function Milk() {
   const [expandedDescriptionIndex, setExpandedDescriptionIndex] = useState(null);
   const { isScroll, setIsScroll } = useMyContext();
   const locale = useLocale().locale;
+  const [banner,setBanner]=useState([])
  
   const [allSubCategories, setAllSubCategories] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -117,9 +118,9 @@ function Milk() {
     setCurrentPage(pageNumber);
   };
   return (
-    <div className={`w-full h-full relative ${isScroll ? 'top-0' : 'top-36'}  `}>
+    <div className={`w-full h-full relative ${isScroll ? 'top-0' : ''}  `}>
       <section
-        className={`w-full h-[300px]    pt-28 relative  grid place-items-center ${
+        className={`w-full h-[300px]    relative  grid place-items-center ${
           isScroll ? 'md:h-[600px]' : 'h-[85vh]'
         }`}>
         <video

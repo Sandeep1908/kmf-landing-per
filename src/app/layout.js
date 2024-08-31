@@ -44,18 +44,20 @@ export default function RootLayout({ children }) {
         </head>
 
         <body className="relative">
+        <QueryClientProvider client={queryClient}>
           <ScrollContext>
           <MyContextProvider>
 
             <Header />
             <ParallaxProvider>
-              <QueryClientProvider client={queryClient}>
+            
               {children}
-              </QueryClientProvider>
+            
               <SpeedInsights />
             </ParallaxProvider>
           </MyContextProvider>
           </ScrollContext>
+          </QueryClientProvider>
           {''}
         </body>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-DP4FBEQWDL" />

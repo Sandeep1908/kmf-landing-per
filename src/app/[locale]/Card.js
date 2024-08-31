@@ -1,12 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
  
-import { useState } from 'react';
+ 
 import Link from 'next/link';
-import useLocale from '@/hooks/useLocale';
+ 
 
 function Card({ imgUrl, title, link }) {
-  const locale=useLocale().locale
+ 
  
   return (
  
