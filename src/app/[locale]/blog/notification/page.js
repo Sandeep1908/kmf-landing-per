@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import documentIco from '@/images/notification/Document.svg';
  import PdfPreview from './PdfPreview';
+ import { useMyContext } from '@/context/headerContext';
 function Notification() {
   const [tenderItems, setTenderItems] = useState([]);
   const [alltenderItems, setAllTenderItems] = useState([]);
@@ -22,7 +23,7 @@ function Notification() {
   const itemsPerPage = 8;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = tenderItems?.slice(indexOfFirstItem, indexOfLastItem);
+  const currentProducts = alltenderItems?.slice(indexOfFirstItem, indexOfLastItem);
   const axios = useApi();
   const pagesToShow = 4; // Number of pagination numbers to show
   const monthNames = [
@@ -42,7 +43,7 @@ function Notification() {
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
   
-
+const {isScroll}=useMyContext()
  
 
   
@@ -81,6 +82,7 @@ function Notification() {
         title: item?.attributes?.title,
         description: item?.attributes?.description,
         tenderNo: item?.attributes?.c_no,
+        startDate:item?.attributes?.createdAt,
         link: item?.attributes?.pdf_file?.data?.attributes?.url,
         month: monthNames[new Date(item?.attributes?.last_date).getMonth()]
       };
@@ -146,7 +148,7 @@ function Notification() {
     fetchTenders();
   };
   return (
-    <div className="w-full h-full absolute top-36 z-[-1]     ">
+    <div className={`w-full h-full absolute top-0 z-[-1]     ${isScroll?'top-36':''}`}>
       <section className={`w-full  h-80 pt-28 relative  grid place-items-center company-bg`}>
         <img src={AboutHeroImg.src} className="w-full h-full object-cover absolute top-0 z-[-1]" />
       </section>
@@ -222,8 +224,27 @@ function Notification() {
 
         <div className="w-full h-full flex flex-col justify-evenly items-center flex-wrap pt-10 p-4 space-y-4   ">
 
+        {currentProducts?.map((item, idx) => {
+              console.log("item data",item);
+             return (
+               
+               
+               <Tenders
+                 key={idx}
+                 title={item?.title}
+                 description={item?.description}
+                 tenderNo={item?.tenderNo}
+                 date={item?.last_date}
+                 link={item?.pdf_file?.data?.attributes?.url}
+                 startDate={item?.startDate}
+                
+                 
+               />
+                
+             );
+           })}
 
-          { 
+          {/* { 
            (!selectedYear && !selectedMonth) &&
             currentYearData?.sort((a,b)=>b.attributes.createdAt-a.attributes?.createdAt)?.map((item,id)=>{
          
@@ -235,7 +256,7 @@ function Notification() {
             tenderNo={item?.attributes?.tenderNo}
             date={item?.attributes?.last_date}
             link={item?.attributes?.pdf_file?.data?.attributes?.url}
-            
+            startDate={item?.attributes?.createdAt}
             
           />
           )
@@ -245,7 +266,7 @@ function Notification() {
 
 
           {currentProducts?.map((item, idx) => {
-             console.log('current product',item?.attributes?.title)
+             
             return (
               
                
@@ -261,7 +282,7 @@ function Notification() {
               />
                
             );
-          })}
+          })} */}
         </div>
 
         </div>

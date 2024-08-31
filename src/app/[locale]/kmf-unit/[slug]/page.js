@@ -39,7 +39,7 @@ function KmfUnitDetail() {
   }, []);
 
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
+    <div className={`w-full h-full absolute    z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
 
       {banner?
        <section className={`w-full h-full md:h-[600px] pt-28 relative  grid place-items-center `}>
@@ -53,7 +53,7 @@ function KmfUnitDetail() {
          loop
          controls
          playsInline
-         className={`w-full  h-full    object-cover absolute top-0   ${
+         className={`w-full  h-full    object-fill absolute top-2   ${
            isScroll ? '' : ''
          } `}
        />

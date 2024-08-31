@@ -79,12 +79,7 @@ const Home = () => {
     queryFn: () => fetchCertificates(axios),
     staleTime: 60 * 60 * 1000 // 1 hour
   });
-
-  // const { data: tenders } = useQuery({
-  //   queryKey: ['tenders'],
-  //   queryFn: () => fetchTenders(axios),
-  //   staleTime: 60 * 60 * 1000 // 1 hour
-  // });
+ 
 
   const { data: homeCards } = useQuery({
     queryKey: ['homecards'],
@@ -129,10 +124,11 @@ const Home = () => {
 
   const fetchData = async () => {
     const [{ data: tender }, { data: newsImp }] = await Promise.all([
-      axios.get('/api/tender-notifications?_limit=20&_sort[0]=last_date:desc'),
+      axios.get('/api/tender-notifications?sort[0]=createdAt:desc'),
       axios.get('/api/home-new')
     ]);
 
+    
     const groupedData = tender?.data?.reduce((acc, item) => {
       const year = new Date(item?.attributes?.last_date).getFullYear();
       if (!acc[year]) {
@@ -522,7 +518,7 @@ const Home = () => {
               <iframe
                 src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
                 muted
-                autoplay
+                autoPlay
                 controls
                 playsInline
                 loop

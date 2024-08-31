@@ -526,7 +526,7 @@ const Home = () => {
               <iframe
                 src="https://www.youtube.com/embed/UAgaqU1kQeA?si=CNrdzt5pl7mkoLJq"
                 muted
-                autoplay
+                autoPlay
                 controls
                 playsInline
                 loop

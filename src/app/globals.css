@@ -15,31 +15,37 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   font-family: Josefin Sans, sans-serif !important;
 }
+html{
 
+  scroll-behavior: smooth;
+  
+  }
 body {
-  
-  
+
+
   font-weight: 400;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Josefin Sans, sans-serif;
   /* background-color: #F6F6F6; */
- 
-  
+
+
 }
-*{
-  -ms-overflow-style: none;  
-  scrollbar-width: none; 
-  -webkit-scrollbar{
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  -webkit-scrollbar {
     display: none;
 
   }
 }
- 
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -153,7 +159,7 @@ body {
 }
 
 
- 
+
 .news-bg::before {
   content: '';
   position: absolute;
@@ -172,7 +178,7 @@ body {
 
 
 }
- 
+
 .bg-organization::before {
   content: '';
   position: absolute;
@@ -239,7 +245,7 @@ body {
   height: 100%;
   background: url('/images/Footer.png');
   /* background-repeat: n; */
-  background-size:cover;
+  background-size: cover;
   /* z-index: -2; */
 
 
@@ -275,7 +281,7 @@ body {
 
 }
 
-.bg-about::before{
+.bg-about::before {
   content: "";
   inset: 0;
   position: absolute;
@@ -294,8 +300,8 @@ body {
   width: 100%;
   height: 110%;
   background: url('/images/up-curved.svg');
-  
-  
+
+
   background-size: cover;
   background-origin: border-box;
   z-index: -2;
@@ -350,20 +356,23 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 100%; /* Position the pseudo-element after the original content */
-  width: 100%; /* Make the pseudo-element as wide as the container */
+  left: 100%;
+  /* Position the pseudo-element after the original content */
+  width: 100%;
+  /* Make the pseudo-element as wide as the container */
 }
 
 
 
 
-.marquee-notification > * {
+.marquee-notification>* {
   display: inline-block;
-  margin-right: 20px; /* Adjust spacing between items as needed */
+  margin-right: 20px;
+  /* Adjust spacing between items as needed */
   animation: marquee-notification 4s linear infinite;
 }
 
-.marquee-notification:hover{
+.marquee-notification:hover {
   animation-play-state: paused;
 }
 
@@ -376,7 +385,7 @@ body {
     transform: translateX(-100%);
   }
 }
- 
+
 
 h1 {
   font-family: 'Raleway', sans-serif;
@@ -511,7 +520,7 @@ h1 {
 .bg-heading::before {
   content: '';
   position: absolute;
-  top:10px;
+  top: 10px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -528,7 +537,7 @@ h1 {
 .bg-sub-heading::before {
   content: '';
   position: absolute;
-  top:10px;
+  top: 10px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -599,23 +608,27 @@ h1 {
   0% {
     transform: rotateY(0deg);
   }
+
   50% {
     transform: rotateY(180deg);
   }
-  75%{
+
+  75% {
     transform: rotateY(180deg);
   }
-  100%{
+
+  100% {
     transform: rotateY(0deg);
   }
 }
 
 .rotate-logo {
-  animation: rotate 2s ease forwards infinite; /* Apply rotation animation */
+  animation: rotate 2s ease forwards infinite;
+  /* Apply rotation animation */
 }
 
 
- 
+
 .flicker {
   width: 350px;
   padding: 5px 10px;
@@ -626,12 +639,17 @@ h1 {
   outline: 0;
   animation: wink 1.25s linear infinite;
 }
-.flicker:hover{
+
+.flicker:hover {
   animation: none;
 }
 
 @keyframes wink {
-  50% {border-color: #fff; border-color:#f00; opacity: 0; }
+  50% {
+    border-color: #fff;
+    border-color: #f00;
+    opacity: 0;
+  }
 }
 
 
@@ -660,7 +678,7 @@ h1 {
 .modal-content {
   position: relative;
   width: 80%;
-  
+
 
 }
 
@@ -681,17 +699,18 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
- border-radius: 50%;
+  border-radius: 50%;
   background-color: black;
 }
 
 @keyframes cc-calto-action-ripple {
   0% {
-  
+
     box-shadow: 0 4px 10px rgba(99, 160, 210), 0 0 0 0 rgba(255, 1, 52), 0 0 0 5px rgb(71, 22, 188), 0 0 0 10px rgba(99, 160, 210);
   }
+
   100% {
-     
+
     box-shadow: 0 4px 10px rgba(99, 160, 210), 0 0 0 5px rgba(255, 1, 52), 0 0 0 10px rgba(71, 22, 188), 0 0 0 20px rgba(37, 211, 102, 0);
   }
 }
@@ -699,26 +718,28 @@ h1 {
 
 @keyframes milestonepulse {
   0% {
-  
+
     box-shadow: 0 4px 10px rgba(255, 1, 52), 0 0 0 0 rgba(255, 1, 52), 0 0 0 5px rgb(255, 1, 52), 0 0 0 10px rgba(255, 1, 52);
   }
+
   100% {
-     
+
     box-shadow: 0 4px 10px rgba(255, 1, 52), 0 0 0 5px rgba(255, 1, 52), 0 0 0 10px rgba(255, 1, 52), 0 0 0 20px rgba(37, 211, 102, 0);
   }
 }
+
 .milestone-pulse {
   cursor: pointer;
   animation: milestonepulse 0.6s linear infinite;
 }
- 
+
 
 .our-product-latest {
   animation: cc-calto-action-ripple 0.6s linear infinite;
 }
 
 
-.react-pdf__Page__textContent .textLayer{
+.react-pdf__Page__textContent .textLayer {
   display: none !important;
 }
 
@@ -726,39 +747,40 @@ h1 {
 
 
 .mouseAnime {
-	width: 30px;
-	height: 60px;
-	border: 3px solid #333;
-	border-radius: 60px;
-	position: relative;
-	&::before {
-		content: '';
-		width: 12px;
-		height: 12px;
-		position: absolute;
-		top: 10px;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: #333;
-		border-radius: 50%;
-		opacity: 1;
-		animation: wheel 2s infinite;
-		-webkit-animation: wheel 2s infinite;
-	}
+  width: 30px;
+  height: 60px;
+  border: 3px solid #333;
+  border-radius: 60px;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    border-radius: 50%;
+    opacity: 1;
+    animation: wheel 2s infinite;
+    -webkit-animation: wheel 2s infinite;
+  }
 }
 
 @keyframes wheel {
-	to {
-		opacity: 0;
-		top: 50px;
-	}
+  to {
+    opacity: 0;
+    top: 50px;
+  }
 }
 
 @-webkit-keyframes wheel {
-	to {
-		opacity: 0;
-		top: 50px;
-	}
+  to {
+    opacity: 0;
+    top: 50px;
+  }
 }
 
 
@@ -770,9 +792,11 @@ h1 {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -786,14 +810,15 @@ h1 {
 
 
 .marquee-latest {
- 
-   
+
+
   animation: marquee-latest 30s linear infinite;
 }
 
 .marquee-latest:hover {
   animation-play-state: paused;
 }
+
 @keyframes marquee-latest {
   0% {
     transform: translateX(100%);
@@ -804,8 +829,8 @@ h1 {
   }
 }
 
-  
-.pluse{
+
+.pluse {
   animation: pulse 2s infinite;
 }
 
@@ -816,16 +841,16 @@ h1 {
     background-color: white;
     color: black;
   }
+
   25% {
     transform: scale(1, 1);
   }
+
   50% {
     transform: scale(1.2, 1.2);
   }
+
   100% {
     transform: scale(1, 1);
   }
 }
-
-
-

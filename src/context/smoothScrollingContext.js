@@ -1,41 +1,35 @@
 'use client'
 
-import { useEffect,useState,useContext,createContext } from "react"
+import { useEffect, useState, useContext, createContext } from "react"
 import Lenis from "lenis"
 
-const smoothScrollingContext=createContext()
+const SmoothScrollingContext = createContext()
 
+export const useSmoothScroller = () => useContext(SmoothScrollingContext)
 
-export const useSmoothScroller=()=>useContext(smoothScrollingContext)
+export default function ScrollContext({ children }) {
+    const [lenisRef, setLenis] = useState(null);
 
-export default function ScrollContext({children}){
-    const [lenisRef,setLenis]=useState(null);
-    const [rafState, setRaf]=useState(null);
+    useEffect(() => {
+        const scroller = new Lenis();
 
-    useEffect(()=>{
-        const scroller=new Lenis();
-        let rf;
-
-        function raf(time){
+        function raf(time) {
             scroller.raf(time);
             requestAnimationFrame(raf);
         }
 
-        rf=requestAnimationFrame(raf);
-        setRaf(rf);
-        setLenis(scroller)
+        const rafId = requestAnimationFrame(raf);
+        setLenis(scroller);
 
+        return () => {
+            cancelAnimationFrame(rafId);
+            scroller.destroy();
+        };
+    }, []);
 
-        return ()=>{
-            if(lenisRef){
-                cancelAnimationFrame(rafState);
-                lenisRef.destroy()
-            }
-        }
-
-    },[])
-
-    return <smoothScrollingContext.Provider value={lenisRef}>
-        {children}
-    </smoothScrollingContext.Provider>
+    return (
+        <SmoothScrollingContext.Provider value={lenisRef}>
+            {children}
+        </SmoothScrollingContext.Provider>
+    );
 }
