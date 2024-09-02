@@ -235,7 +235,7 @@ const {isScroll}=useMyContext()
                  description={item?.description}
                  tenderNo={item?.tenderNo}
                  date={item?.last_date}
-                 link={item?.pdf_file?.data?.attributes?.url}
+                 link={item?.link}
                  startDate={item?.startDate}
                 
                  

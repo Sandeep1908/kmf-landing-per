@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import formatDateToDDMMYY from '@/lib/api/formatDate';
 
-function Tenders({ title, tenderNo, date, link,handlePdfPreview,startDate }) {
+function Tenders({ title, tenderNo, date, link, handlePdfPreview, startDate }) {
   return (
     <ul role="list" className="divide-y  bg-white divide-gray-100 w-full border-b-2 shadow-md p-3 border-primary-main  ">
   

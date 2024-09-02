@@ -8,6 +8,7 @@ import ProductCard from './[slug]/ProductCard';
 import useLocale from '@/hooks/useLocale';
 import { useMyContext } from '@/context/headerContext';
 import { Fade, Zoom } from 'react-reveal';
+import Link from 'next/link';
 
 function Products() {
   const [categories, setCategories] = useState([]);
@@ -100,12 +101,12 @@ function Products() {
                 }
                
                <Fade top>
-                <p
-              
+                <Link
+                href='#product-cards'
                 onClick={() => handleIdx(item?.id)}
                 className={`font-subheading w-full text-center transition-all duration-300 text-sm cursor-pointer  hover:scale-[1.3] ${item?.id===currentIdx?'text-primary-main underline pb-1':''} ${locale==='kn'?'text-sm':''} `}>
                 {item?.attributes?.title}
-                </p>
+                </Link>
                 </Fade>
                 </div>
               
@@ -113,7 +114,7 @@ function Products() {
           })}
         </div>
 
-        <div className="w-full h-full grid grid-cols-3 p-2 place-items-center    gap-5 pt-10">
+        <div className="w-full h-full grid grid-cols-3 p-2 place-items-center    gap-5 pt-10" id='product-cards'>
           {subcategory?.map((item, idx) => {
             return (
               <ProductCard
