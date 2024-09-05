@@ -24,7 +24,7 @@ function Offers() {
   }, []);
   return (
     <div className={`w-full h-full absolute company-bg   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
-  
+  <iframe allowfullscreen="allowfullscreen" scrolling="no" className="fp-iframe object-contain" src="https://heyzine.com/flip-book/169ef9721a.html" style={{border: '1px solid lightgray' ,width: '100%' ,height: '688px'}} ></iframe>
       
       <section className=" relative w-full   h-auto pt-10  ">
         <div className="w-full  h-full flex flex-col p-3 space-y-3 lg:flex-row lg:p-10 lg:space-x-10">
