@@ -28,7 +28,15 @@ function Offers() {
       <div className='w-full relative'>
 
   <iframe allowfullscreen="allowfullscreen" scrolling="no" className="fp-iframe object-contain" src="https://heyzine.com/flip-book/169ef9721a.html" style={{border: '1px solid lightgray' ,width: '100%' ,height: '688px'}} ></iframe>
-      <img src='https://media4.giphy.com/media/VEiCgQaioMUeM40qo6/giphy.gif?cid=6c09b952t465yy34x5evbi7kqs00ojxmo1tpf7r15avxkzr5&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s' className='w-16 absolute right-[20px] bottom-[60px] sm:hidden '/>
+
+  
+    <div className='w-full rounded-full absolute right-[10px] bottom-[50px] sm:hidden  flex  justify-end items-end space-x-2'>
+    <p className='font-semibold text-blue-700'>Click Above</p>
+    <img src='https://media.tenor.com/LUNANcnXLiUAAAAM/up-arrow.gif'  className='rounded-full w-8'/>
+    </div>
+    
+      
+
       </div>
 
     
