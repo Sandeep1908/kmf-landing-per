@@ -28,15 +28,15 @@ function Offers() {
       <div className='w-full relative'>
 
   <iframe allowfullscreen="allowfullscreen" scrolling="no" className="fp-iframe object-contain" src="https://heyzine.com/flip-book/169ef9721a.html" style={{border: '1px solid lightgray' ,width: '100%' ,height: '688px'}} ></iframe>
-      <img src='https://media4.giphy.com/media/VEiCgQaioMUeM40qo6/giphy.gif?cid=6c09b952t465yy34x5evbi7kqs00ojxmo1tpf7r15avxkzr5&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s' className='w-16 absolute right-[20px] bottom-[60px] '/>
+      <img src='https://media4.giphy.com/media/VEiCgQaioMUeM40qo6/giphy.gif?cid=6c09b952t465yy34x5evbi7kqs00ojxmo1tpf7r15avxkzr5&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s' className='w-16 absolute right-[20px] bottom-[60px] sm:hidden '/>
       </div>
 
     
       
   <div className="w-full h-10 flex justify-center items-center mb-4  bg-red-600">
-    <marquee className="w-full max-w-[1400px] m-auto">
+    <marquee className="w-full  ">
     <p className="text-white w-auto text-sm text-center ">IMPORTANT: For Order / Enquiry Contact
-    Sunil Kumar A: 95139 98879  | Vishwanath: 95139 99133  </p>
+    Sunil Kumar A: 95139 98879  | Vishwanath: 95139 99133 |  Email kmfnandini2024@gmail.com website www.kmfnandini.coop </p>
     </marquee>
      
         </div>
