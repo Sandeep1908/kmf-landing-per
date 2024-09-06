@@ -32,12 +32,12 @@ function Footer() {
     })();
   }, [params?.locale]);
   return (
-    <section className="w-full mt-10  md:h-[462px]    relative       ">
+    <section className="w-full mt-10   md:h-[462px]    relative       ">
 
       <Follow/>
     
       <img src='https://www.dodladairy.com/static/images/footer-bg.png' className='absolute inset-0 w-full h-full object-fill'/>
-      <div className=" z-1 relative h-fit  max-w-[1282px]   m-auto flex flex-col justify-between items-center md:items-start">
+      <div className=" z-1 relative h-fit  max-w-[1282px]  pt-5  m-auto flex flex-col justify-between items-center md:items-start">
         <div className="   md:mt-[167px] w-full h-full flex  justify-center items-start   md:flex-row md:justify-between md:items-start">
           <div className="flex flex-col justify-center items-center md:items-start p-1 max-w-96 space-y-5">
             <h1 className="text-[12px] md:text-lg mb-5 relative before:absolute before:-bottom-3 before:w-10 before:h-1 before:bg-primary-lighter hover:scale-125 transition-all duration-300">
