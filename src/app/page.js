@@ -33,6 +33,7 @@ import KnmModel from '@/components/KymModel.js';
 import useLocale from '@/hooks/useLocale.js';
 import { useSwiper } from 'swiper/react';
 import { useQuery } from '@tanstack/react-query';
+import Preloader from '@/components/Preloader.js';
 
 const fetchCertificates = async (axios) => {
   const { data } = await axios.get('/api/certificates');
@@ -168,6 +169,8 @@ const Home = () => {
     <div
      
       className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
+
+        <Preloader/>
       {/* HOME CARAOUSAL IMAGE */}
       <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}  >
         <video
@@ -178,27 +181,7 @@ const Home = () => {
           autoPlay
           loop
           playsInline></video>
-        {/* <video
-        className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : ''}`}
-        src="/video/banner.mov"
-         controls
-        muted
-        autoPlay
-        loop
-        playsInline
-        >
-      </video> */}
-        {/* <video
-        className={`w-full object-fill block sm:hidden ${isScroll ? 'h-[700px]' : 'h-screen'}`}
-        src="/video/bannermobile.mp4"
-         
-      
-        muted
-        autoPlay
-        loop
-        playsInline
-        >
-      </video> */}
+     
 
         <iframe
           className="absolute bottom-0 left-[40%] sm:left-[45%] hidden md:block "
@@ -225,10 +208,9 @@ const Home = () => {
         </div>
       )}
 
-      {/* <CarouselImage images={desktop || []} mobileImg={mobile || []}  /> */}
+       
 
-      {/* <CarouselImage images={banners || []}  /> */}
-
+       
       <section className="w-full pt-20 pb-20 relative z-[1] bg-primary-subtle">
         <div className="w-full">
           <div className="w-full text-center">
