@@ -165,6 +165,14 @@ const Home = () => {
     return <></>;
   };
 
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div
      
@@ -322,6 +330,13 @@ const Home = () => {
        
 
         <div className="relative bg-[#30ABDC] md:bg-transparent p-5">
+
+        <img
+          src="/images/footer-top.jpg"
+          className="absolute w-full top-[87px] w-full h-full object-cover z-[-1]"
+          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+          alt="Footer Top"
+        />
           <div className="pb-10 lg:space-x-10 flex flex-col-reverse justify-center items-center lg:flex-row m-auto max-w-7xl">
             <Fade left>
               <div className="p-4 flex justify-center items-center w-full h-auto md:h-[500px] lg:max-w-xl">
@@ -374,13 +389,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-auto relative">
-      <img
-          src="/images/footer-top.jpg"
-          className="absolute top-[87px] w-full h-full object-cover z-[-1]"
-          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-          alt="Footer Top"
-        />
+      <section className="w-full h-auto relative" >
+     
         <div className="p-2 flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex w-full flex-col justify-center items-center space-y-3">
             <h1 className=" text-xs md:text-2xl font-heading text-center w-full max-w-96 shadow-md p-3 shadow-black bg-primary-gradient text-white">
@@ -425,7 +435,7 @@ const Home = () => {
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
                   NEW ARRIVALS & BEST SELLING
                 </h1>
-                <div className="marquee-notification h-full flex justify-evenly space-x-3">
+                <div className="marquee-notification w-full h-full flex justify-evenly space-x-3">
                   {product?.map((item, id) => {
                     return (
                       <ArrivalCard
