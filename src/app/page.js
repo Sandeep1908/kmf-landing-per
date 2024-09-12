@@ -329,11 +329,11 @@ const Home = () => {
 
        
 
-        <div className="relative bg-[#30ABDC] md:bg-transparent p-5">
+        <div className="w-full relative bg-[#30ABDC] md:bg-transparent mt-5 p-3 md:p-0  ">
 
         <img
           src="/images/footer-top.jpg"
-          className="absolute w-full top-[87px] w-full h-full object-cover z-[-1]"
+          className="absolute  top-[87px] w-full  object-cover z-[-1] hidden md:block"
           style={{ transform: `translateY(${scrollY * 0.2}px)` }}
           alt="Footer Top"
         />
@@ -455,7 +455,7 @@ const Home = () => {
 
       {/* QUICK LINK  */}
 
-      <section className=" relative w-full h-auto pt-5 pb-5  z-[10]      ">
+      <section className=" relative w-full h-auto pt-5 pb-6  z-[10]      ">
         <video
           src="/video/vid.webm"
           autoPlay
@@ -472,9 +472,9 @@ const Home = () => {
             </div>
           </Fade>
 
-          <div className="  w-full h-auto  relative   ">
+          <div className="  w-full h-auto mt-10  relative   ">
             <Fade bottom>
-              <div className="max-w-max m-auto p-3 flex flex-col justify-center items-center gap-10 md:gap-40  sm:flex-row sm:justify-around sm:items-center sm:flex-wrap">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
                 <Link href="/en/comingsoon">
                   <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
                 </Link>
@@ -491,8 +491,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full h-fit relative pt-20 pb-20     ">
-        <div className=" p-10 w-full flex flex-col items-center space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
+      <section className="w-full h-fit relative md:pt-20 md:pb-20 pb-10     ">
+        <div className=" p-3 md:p-10 w-full flex flex-col items-center md:space-y-10 justify-center max-w-[1600px] md:items-start m-auto">
           <div className="flex  w-full flex-col justify-center items-center  space-y-3 md:items-start">
             <Zoom>
               <div className="flex justify-center w-full    flex-wrap   items-end  ">
@@ -503,7 +503,7 @@ const Home = () => {
             </Zoom>
           </div>
 
-          <div className=" relative w-full h-[300px] md:h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
+          <div className=" relative w-full  h-[200px] object-cover  md:h-[800px] flex justify-evenly items-center gap-5   flex-wrap">
              
              
 
@@ -514,19 +514,19 @@ const Home = () => {
                 controls
                 playsInline
                 loop
-                className="md:w-full md:h-full object-contain "></iframe>
+                className="w-full h-full   object-cover "></iframe>
            
           </div>
 
-          <div className="w-full flex justify-center  space-x-5">
+          <div className="w-full flex justify-center mt-4  space-x-5">
             <Link href={'/en/blog/gallery'}>
-              <button className="w-44 h-5 border transition-all duration-300 uppercase bg-primary-main text-white p-5 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
+              <button className="w-32 h-8 text-xs border transition-all duration-300 uppercase bg-primary-main text-white  flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker   ">
                 See more
               </button>
             </Link>
 
             <Link href={'/en/contact'}>
-              <button className="w-44 h-5 border uppercase transition-all duration-300  bg-primary-main text-white p-5 flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker    ">
+              <button className="w-32 h-8 text-xs border transition-all duration-300 uppercase bg-primary-main text-white  flex items-center justify-center  rounded-full hover:scale-[1.1] hover:bg-secondary-darker     ">
                 Get In Touch
               </button>
             </Link>

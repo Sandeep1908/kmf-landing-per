@@ -4,11 +4,25 @@ import { RxCross2 } from "react-icons/rx";
 
 const Preloader = () => {
  
-  const [animationClass, setAnimationClass] = useState('');
+const [animationClass, setAnimationClass] = useState('');
 const imgURL='/poster/home-banner-card.jpeg'
 const [isBannerVisible, setIsBannerVisible] = useState(false);
 
 // Check local storage on initial load
+
+useEffect(() => {
+  if (isBannerVisible) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+
+  return () => {
+    document.body.style.overflow = 'auto';
+  };
+}, [isBannerVisible]);
+
+
 useEffect(() => {
   const isBannerDismissed = localStorage.getItem("bannerDismissed");
   if (!isBannerDismissed) {
@@ -38,7 +52,7 @@ if (!isBannerVisible) return null;
             
               
               <div className='m-auto w-full h-full'>
-                <img src={imgURL} alt="" className='w-[90%] h-[90%] m-auto' />
+                <img src={imgURL} alt="poster-logo" className='w-[90%] h-[90%] m-auto' />
               </div>
             </div>
           </div>
