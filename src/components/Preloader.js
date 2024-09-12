@@ -3,28 +3,36 @@ import { RxCross2 } from "react-icons/rx";
  
 
 const Preloader = () => {
-  const [isVisible, setIsVisible] = useState(true);
+ 
   const [animationClass, setAnimationClass] = useState('');
 const imgURL='/poster/home-banner-card.jpeg'
-  useEffect(() => {
-  
-    setAnimationClass('flash-animation');
-  }, []);
+const [isBannerVisible, setIsBannerVisible] = useState(false);
 
-  const handleClose = () => {
-    setIsVisible(false);
-  };
+// Check local storage on initial load
+useEffect(() => {
+  const isBannerDismissed = localStorage.getItem("bannerDismissed");
+  if (!isBannerDismissed) {
+    setIsBannerVisible(true);
+  }
+}, []);
 
-  if (!isVisible) return null;
+// Handle banner dismissal
+const closeBanner = () => {
+  localStorage.setItem("bannerDismissed", "true");
+  setIsBannerVisible(false);
+};
+
+if (!isBannerVisible) return null;
+
 
   return (
-    <div className='fixed w-full h-[100vh] top-0 z-[100]' onClick={handleClose}>
+    <div className='fixed w-full h-[100vh] top-0 z-[100]' onClick={closeBanner}>
       <div className={`relative w-full h-full ${animationClass}`}>
         <div className='absolute w-full h-full bg-black opacity-80 z-40' ></div>
         <div className='absolute w-full h-full z-[100]'>
           <div className='flex w-full h-full'>
             <div className='relative flex flex-col justify-center w-full max-w-[1200px] m-auto  rounded-lg  p-3'>
-              <div className='absolute border border-black shadow-lg rounded-full cursor-pointer top-[-10px] right-5' onClick={handleClose}>
+              <div className='absolute border border-black shadow-lg rounded-full cursor-pointer top-[-10px] right-5' onClick={closeBanner}>
                 <RxCross2 size={20} color='#fff' />
               </div>
             
