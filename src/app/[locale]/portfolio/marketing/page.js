@@ -112,16 +112,16 @@ const Marketing = () => {
 
                <div className='absolute w-full h-full '>
                      <div className='w-full h-full  z-[-1] flex justify-between items-center'>
-                           <div className='bg-red-600 w-48 h-7 '>
+                           <div className='bg-red-600 w-12 md:w-48 h-7 '>
 
                            </div>
-                           <div className='bg-red-600 w-48 h-7 '>
+                           <div className='bg-red-600 w-12 md:w-48 h-7 '>
 
                            </div>
                      </div>
                 </div>
                 {/* <video autoPlay muted loop controls className='relative w-[800px] m-auto h-full z-[10]' src="/video/market.mp4"></video> */}
-             
+{/*              
                 <div className="w-full h-full relative z-10    ">
                 <Swiper
               effect={'coverflow'}
@@ -134,10 +134,7 @@ const Marketing = () => {
                 modifier: 1,
                 slideShadows: false
               }}
-              // autoplay={{
-              //   delay: 3000,
-              //   disableOnInteraction: false
-              // }}
+             
               modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
               spaceBetween={10}
               slidesPerView={3}
@@ -173,7 +170,62 @@ const Marketing = () => {
                  
              
             </Swiper>
+          </div> */}
+
+
+
+
+          <div className="w-full relative z-10">
+            <Swiper
+              effect="coverflow"
+              grabCursor={true}
+              centeredSlides={true}
+              ref={(r) => r.s}
+              coverflowEffect={{
+                rotate: 30,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: false
+              }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false
+              }}
+              modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+              spaceBetween={40}
+              slidesPerView={3}
+              navigation={true}
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+              loop={true}
+              className="max-w-7xl">
+              {slideVideos.map((item,id) => {
+                               return (
+                  <SwiperSlide className="swiper-sldier-card lg:p-10" key={id}>
+                    <div
+                      className="w-full max-w-96 relative  h-96 bg-light-light4 rounded-md overflow-hidden   m-auto   "
+                      style={{ boxShadow: '0px 11px 49px 0px rgba(0, 0, 0, 0.15)' }}>
+                      <div className="  w-full h-full">
+                        
+                  <video  muted loop controls
+                   className='relative w-[800px] m-auto object-fill  h-full hover:scale-[1.1]  z-[10]' 
+                   src={item.url}
+                   onClick={() => handleVideoClick(item.url)}
+                   >
+
+                   </video>
+
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+              {/* <NextSlider /> */}
+            </Swiper>
           </div>
+
+
 
       </section>
 

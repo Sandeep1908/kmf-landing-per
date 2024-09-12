@@ -23,13 +23,13 @@ const MarketModel = ({ closeModal,market ,close}) => {
  
   return (
 
-    <Rodal visible={closeModal} onClose={()=>close(!closeModal)} animation='door'  className='overflow-auto' width={mobileWidth} >
-    <div className='w-full h-full p-4  flex flex-col justify-center items-center space-y-5 overflow-auto'>
+    <Rodal visible={closeModal} onClose={()=>close(!closeModal)} animation='door'  className='overflow-auto w-[90%]' width={mobileWidth} >
+    <div className='w-full h-full p-2 md:p-4  flex flex-col justify-center items-center space-y-5 overflow-auto'>
 
       <div className='w-full h-[10%]'>
 
     
-        <h1 className='text-2xl text-primary-main'>{market?.attributes?.title}</h1>
+        <h1 className='text-xl md:text-2xl text-primary-main'>{market?.attributes?.title}</h1>
         </div>
 
 
@@ -40,7 +40,7 @@ const MarketModel = ({ closeModal,market ,close}) => {
       <div className='w-full h-[70%]  '>
       {market?.attributes?.content?.map((item, idx) => {
                 return (
-                  <p key={idx} className="text-xl ove text-neutral-dark1 text-justify">
+                  <p key={idx} className="text-lg md:text-xl ove text-neutral-dark1 text-justify">
                     {item?.children[0]?.text}
                   </p>
                 );
