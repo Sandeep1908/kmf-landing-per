@@ -1,14 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Logo from '@/images/logo/logo.png';
-import HeroImg from '@/images/milk-union/milk-union-home.png'
-import Follow from '@/components/Follow.js';
+ 
 import Footer from '@/components/Footer';
 import useApi from '@/hooks/useApi';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { useMyContext } from '@/context/headerContext';
-
+import locationIco from '@/images/milk-union/icons/location_on.svg';
+import mailIco from '@/images/milk-union/icons/mail.svg';
+import callIco from '@/images/milk-union/icons/call.svg';
+import printIco from '@/images/milk-union/icons/print.svg';
 function KmfUnitDetail() {
   
   const [unit, setUnit] = useState([]);
@@ -176,7 +177,42 @@ function KmfUnitDetail() {
   </section>
   </div>
  
+  <section className="w-full   pb-10  p-2 bg-[#F6F6F6]">
+        <div className="max-w-[1282px] h-full  m-auto p-5  rounded-lg  bg-primary-darker text-white  shadow-sm ">
+          <div className="flex flex-col h-full space-y-1  p-2 justify-between items-start">
+            <h1 className="text-2xl">{unit?.attributes?.longtitle}</h1>
 
+            <div className="flex justify-center items-start space-x-4">
+              <img src={locationIco.src} className="w-5 h-5" />
+              <p className="text-lg">{unit?.attributes?.address}</p>
+            </div>
+
+            <div className="flex justify-center items-start space-x-4">
+              <img src={callIco.src} className="w-5 h-5" />
+              <p className="text-lg"> {unit?.attributes?.phone}</p>
+            </div>
+
+            <div className="flex justify-center items-start space-x-4">
+              <img src={printIco.src} className="w-5 h-5" />
+              <p className="text-lg"> {unit?.attributes?.fax}</p>
+            </div>
+
+            <div className="flex justify-center items-start space-x-4">
+              <img src={mailIco.src} className="w-5 h-5" />
+              <p className="text-lg"> {unit?.attributes?.email}</p>
+            </div>
+
+            <div className="flex justify-end items-end w-full space-x-4">
+              <Link href={unit?.attributes?.unionlink || ''}>
+                <p className="text-xl   transition-all duration-300 cursor-pointer hover:underline text-white ">
+                  {' '}
+                  {locale==="en" ?"Know More":"ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ"} ...
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
    
 <Footer />
 </div>
