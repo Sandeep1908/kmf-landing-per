@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './page.module.css';
 import logo from '@/images/logo/logo.png';
-import Head from 'next/head';
+ 
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -20,8 +20,9 @@ import { pdfjs } from 'react-pdf';
 import 'react-photo-view/dist/react-photo-view.css';
 import { MyContextProvider } from '@/context/headerContext';
 import Script from 'next/script';
-import ScrollContext from '@/context/smoothScrollingContext';
+ 
 import {QueryClient,QueryClientProvider} from '@tanstack/react-query'
+import { Analytics } from "@vercel/analytics/react"
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',
@@ -54,6 +55,7 @@ export default function RootLayout({ children }) {
               {children}
             
               <SpeedInsights />
+              <Analytics />
             </ParallaxProvider>
           </MyContextProvider>
           
