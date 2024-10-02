@@ -178,12 +178,12 @@ const Home = () => {
      
       className={`w-full h-full absolute    z-[-1] ${isScroll ? 'top-[170px] md:top-48 ' : ''}  `}>
 
-        <Preloader/>
+        {/* <Preloader/> */}
       {/* HOME CARAOUSAL IMAGE */}
       <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}  >
         <video
           className={`w-full object-fill  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
-          src="/video/banner-g.mov"
+          src="/video/banner-oct.mov"
           controls
           muted
           autoPlay
