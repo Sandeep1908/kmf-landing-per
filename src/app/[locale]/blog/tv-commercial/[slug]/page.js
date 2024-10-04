@@ -317,7 +317,7 @@ function TvcommercialDetails() {
           className="w-72  m-auto md:w-[400px]   md:h-[250px] object-fill      transition-all duration-300  "
           onClick={() => handleVideoClick(items?.attributes?.assets?.data?.[0]?.attributes?.url)}
         />
-        <h1 className='text-[8px] pt-5 shadow-lg p-3 md:text-lg '>{items?.attributes?.name}</h1>
+        <h1 className='text-[8px] pt-5 shadow-lg p-3 md:text-xs uppercase '>{items?.attributes?.name}</h1>
     </div>
       );
     }
@@ -350,7 +350,7 @@ function TvcommercialDetails() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen></iframe>
- <h1 className='text-[8px] pt-5   p-3 md:text-[12px] '>{items?.attributes?.name}</h1>
+ <h1 className='text-[8px] pt-5   p-3 md:text-sm uppercase '>{items?.attributes?.name}</h1>
                 </div>
         )
       }
@@ -391,7 +391,7 @@ function TvcommercialDetails() {
                       className="w-full list-none transition-all duration-300 bg-primary-main ">
                       <button className="flex items-center justify-between relative  text-light-light4 border-b-2 border-b-light4 p-2 md:p-4 w-full ">
                         <div className="w-full flex space-x-2 ">
-                          <span className=" text-[8px] md:text-sm text-white uppercase">Brand Ambassador</span>
+                          <span className=" text-[8px] md:text-[10px] text-white uppercase">Brand Ambassador</span>
                         </div>
                       </button>
                     </li>
