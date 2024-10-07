@@ -30,6 +30,11 @@ function BrandAmbassodor() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const vidLinks = [
     {
+      link:'/video/punnetmain.mp4',
+      order:0
+    },
+
+    {
       link:'https://www.youtube.com/embed/4p2JGB-5y1Y?si=yQYm3CxsKByamgHI',
       order:1
     },
@@ -145,7 +150,7 @@ function BrandAmbassodor() {
               
            
        <Fade bottom>
-           <div className='w-full h-full   flex flex-col flex-wrap     gap-5 lg:flex-row lg:items-start'>
+           <div className='w-full h-full   flex flex-col flex-wrap     gap-5 lg:flex-row lg:items-start '>
 
 
        
@@ -163,15 +168,20 @@ function BrandAmbassodor() {
 
             if(id===0){
               return (
-                <iframe
+                <video
                 key={id}
                  className="w-72 m-auto md:w-full  md:max-w-[1350px]   md:h-[500px]"
-                src={item?.link}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
+              src='/video/punnetmain.mp4'
+              playsInline
+              
+                muted
+                loop
+                
+                controls
+                autoPlay
+               
+               
+                ></video>
               );
             }
             else{

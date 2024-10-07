@@ -5,7 +5,7 @@ function NandiniAdds() {
   return (
     <div className="w-full m-auto h-auto flex flex-col justify-center items-center ">
     <video
-      src="https://kmf-public.s3.ap-south-1.amazonaws.com/KMF_SHIVARAJKUMAR_ADS_45_SEC_FINAL_1_5345abc41d.mp4"
+      src="https://kmf-public.s3.ap-south-1.amazonaws.com/NANDINI_MILK_90_SEC_8c8b8acfa5.mp4"
       title="YouTube video player"
       controls
       loop
@@ -16,3 +16,4 @@ function NandiniAdds() {
 }
 
 export default NandiniAdds;
+ 
