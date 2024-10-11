@@ -180,9 +180,9 @@ const Home = () => {
 
         {/* <Preloader/> */}
       {/* HOME CARAOUSAL IMAGE */}
-      <div className={`w-full relative   ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}  >
+      <div className={`w-full relative   ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px]  md:h-screen'}`}  >
         <video
-          className={`w-full object-cover  ${isScroll ? 'h-[200px] md:h-[700px]' : 'md:h-screen'}`}
+          className={`w-full object-cover  ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px]  md:h-screen'}`}
           src="/video/VijayDusmi.MP4"
           controls
           muted
