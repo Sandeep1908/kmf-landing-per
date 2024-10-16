@@ -6,12 +6,22 @@ function SecretInfo() {
 
     <div className='w-full h-full'>
       
-      <div className='w-full h-[98vh] flex justify-center items-center'>
+      
+      <div className='w-full  relative'>
 
-      <iframe allowfullscreen="" scrolling="no" className="fp-iframe"    style={{border: '1px solid lightgray', width: '100%', height: '381px'}} src="https://heyzine.com/flip-book/a4d70474a9.html"></iframe>
+  <iframe allowfullscreen="allowfullscreen" scrolling="no" className="fp-iframe object-contain" src="https://heyzine.com/flip-book/a4d70474a9.html" style={{border: '1px solid lightgray' ,width: '100%' ,height: '100vh'}} ></iframe>
+
+  
+    
+    
+      
+
+      </div>
+
+    
       </div>
    
-    </div>
+ 
   )
 }
 
