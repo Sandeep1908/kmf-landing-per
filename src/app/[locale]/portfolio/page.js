@@ -1207,9 +1207,33 @@ window.addEventListener('resize',handleResize);
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1> */}
           <div className="w-full flex justify-center items-center flex-wrap mt-10">
             <Swiper
-              slidesPerView={slideView}
+              // slidesPerView={slideView}
               freeMode={true}
               centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              watchSlidesProgress={true}
+              slidesPerView={3}
+              spaceBetween={20}
+             
+              modules={[FreeMode, Autoplay]}
+              className="max-w-7xl m-auto hidden">
+              {sponsore[0]?.attributes?.image?.data?.map((item, idx) => {
+                return (
+                  <SwiperSlide key={idx} className="hidden">
+                    <div className="flex justify-center items-center hidden  w-52 h-52 ">
+                      <img className="m-auto w-44 h-44" src={item?.attributes?.url} alt="" />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+            <Swiper
+              watchSlidesProgress={true}
+              slidesPerView={3}
+              spaceBetween={20}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false
@@ -1218,11 +1242,11 @@ window.addEventListener('resize',handleResize);
               className="max-w-7xl m-auto">
               {sponsore[0]?.attributes?.image?.data?.map((item, idx) => {
                 return (
-                  <SwiperSlide key={idx} className="">
-                    <div className="flex justify-center items-center   w-52 h-52 ">
-                      <img className="m-auto w-44 h-44" src={item?.attributes?.url} alt="" />
-                    </div>
-                  </SwiperSlide>
+                  <SwiperSlide key={idx} className=" text-center">
+                  <div className="flex justify-center items-center md:ml-[27%]  w-52 h-52 ">
+                    <img className="m-auto w-44 h-44" src={item?.attributes?.url} alt="" />
+                  </div>
+                </SwiperSlide>
                 );
               })}
             </Swiper>
