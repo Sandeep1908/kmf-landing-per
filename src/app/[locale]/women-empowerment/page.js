@@ -159,7 +159,7 @@ function WomenEmpowerment() {
                     <img src={rightArrow.src} className='w-2' />
                     <Fade right>
                     <p
-                      className={`${
+                      className={` cursor-pointer ${
                         idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
                       } uppercase`}>
                       {items.title}

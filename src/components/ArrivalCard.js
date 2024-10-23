@@ -6,9 +6,12 @@ import useLocale from '@/hooks/useLocale'
 function ArrivalCard({imgUrl,title,link}) {
     const locale=useLocale().locale
   return (
-    <Link href={link||''} className=' w-52  h-60   md:w-72 md:h-96'>
-    <div
-    className="    rounded-md overflow-hidden   m-auto group   transition-all duration-500  "
+    <div className=' w-52  h-60   md:w-72 md:h-96'>
+
+
+    <Link href={link||''}
+
+    className=" w-full h-full   rounded-md overflow-hidden   m-auto group   transition-all duration-500  "
      >
     <div className="p-2 w-full h-[70%]">
       <img
@@ -30,8 +33,8 @@ function ArrivalCard({imgUrl,title,link}) {
  
 
  
-  </div>
   </Link>
+  </div>
   )
 }
 

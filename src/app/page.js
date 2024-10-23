@@ -182,8 +182,8 @@ const Home = () => {
       {/* HOME CARAOUSAL IMAGE */}
       <div className={`w-full relative   ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px]  md:h-screen'}`}  >
         <video
-          className={`w-full object-cover  ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px]  md:h-screen'}`}
-          src="/video/VijayDusmi.MP4"
+          className={`w-full object-fill  ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px]  md:h-screen'}`}
+          src="/video/banner-oct.mov"
           controls
           muted
           autoPlay
@@ -435,7 +435,8 @@ const Home = () => {
                 <h1 className="p-5 bg-primary-gradient text-white uppercase text-center">
                   NEW ARRIVALS & BEST SELLING
                 </h1>
-                <div className="marquee-notification w-full h-full flex justify-evenly space-x-3">
+                <marquee className=" w-full h-full flex  space-x-3">
+                  <div className='flex space-x-5 items-center'>
                   {product?.map((item, id) => {
                     return (
                       <ArrivalCard
@@ -446,7 +447,9 @@ const Home = () => {
                       />
                     );
                   })}
-                </div>
+                  </div>
+                
+                </marquee>
               </div>
             </div>
           </div>

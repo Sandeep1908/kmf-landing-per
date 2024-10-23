@@ -19,7 +19,7 @@ function Scheme() {
     {
       title:  `${locale === "en" ? "Government of Karnataka Schemes":"ರಾಜ್ಯ ಸರಕಾರದ ಯೋಜನೆಗಳು"}`,
       link: `/${locale}/animal-husbandery/scheme/gok`,
-      image:'https://cdn.telanganatoday.com/wp-content/uploads/2021/04/Karnataka-govt-announces-state-wide-close-down-for-14-days.jpg'
+      image:'https://pngimagesfree.com/wp-content/uploads/Karnataka-Govt-Logo-PNG.png'
     },
     {
       title: `${locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}` ,

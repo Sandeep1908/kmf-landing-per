@@ -45,7 +45,7 @@ const handleButton = (idx) => {
     setReadMore(!readMore);
   };
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
+    <div className={`w-full h-full absolute     ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -56,7 +56,7 @@ const handleButton = (idx) => {
           loop
           controls
           playsInline
-          className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+          className={`w-full  h-full    object-cover absolute top-0   ${
             isScroll ? 'h-[400px]' : ''
           } `}
         />
@@ -200,7 +200,7 @@ const handleButton = (idx) => {
                 src="/images/heading/heading-color/group.png"
                 className="absolute   w-[530px] top-[-18px] sm:top-[-50px]    object-contain"
               />
-              <h1 className=" text-primary-main relative max-w-[100px] md:max-w-[300px] m-auto text-center z-10 font-heading text-[4px] md:text-xl font-extrabold uppercase">
+              <h1 className=" text-primary-main relative max-w-[100px] md:max-w-[300px] m-auto text-center z-10 font-heading text-[4px] md:text-sm font-extrabold uppercase">
               {scheme[currentIndex]?.title}
               </h1>
             </div>
@@ -223,14 +223,14 @@ const handleButton = (idx) => {
           <div className="w-full h-ful pt-5 shadow-md">
 
             <ul className="w-full flex flex-col justify-center items-center space-y-3">
-              {showmore?
-               scheme?.map((items, idx) => {
+          
+              { scheme?.map((items, idx) => {
                 
                   return (
                     
                     <li
                       key={idx}
-                      className="  relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
+                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 pb-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
                       onClick={() => handleButton(idx)}>
                       <img src={rightArrow.src} className='w-4' />
                       <Fade right >
@@ -248,38 +248,10 @@ const handleButton = (idx) => {
 
                
               })
-              :
-              scheme?.map((items, idx) => {
-                if(idx<10){
-                  return (
-                    <li
-                      key={idx}
-                      className=" cursor-pointer relative w-full h-full flex justify-start p-2 space-x-3 items-center text-[5.5px] md:text-sm before:absolute before:w-[120px]  md:before:w-full  before:h-0.5 before:bg-neutral-dark4 before:bottom-0"
-                      onClick={() => handleButton(idx)}>
-                      <img src={rightArrow.src} className='w-2' />
-                      <Fade right>
-                      <p
-                        className={`${
-                          idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
-                        } uppercase`}>
-                        {items.title}
-                      </p>
-                      </Fade>
-                    </li>
-                  );
-                }
-
-               
-              })
-              }
+              
+              
              
-            {
-              showmore ?
-              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'>{locale === "en" ? "Show Less":"ಕಡಿಮೆ ಓದಿ"} ...</p>
-              :
-              <p onClick={()=>setShowMore(!showmore)} className='p-2 cursor-pointer text-primary-main transition-all duration-100 text-xl  hover:scale-[1.02]'> {locale === "en" ? "Show More":"ಮತ್ತಷ್ಟು ಓದಿ"}...</p>
-
-            }
+}
             
             </ul>
           </div>

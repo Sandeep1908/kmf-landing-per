@@ -44,7 +44,7 @@ const handleButton = (idx) => {
     setReadMore(!readMore);
   };
   return (
-    <div className={`w-full h-full absolute   z-[-1] ${isScroll ? ' md:top-48' : ''}  `}>
+    <div className={`w-full h-full absolute     ${isScroll ? ' md:top-48' : ''}  `}>
       <section className={`w-full h-full md:h-[700px] pt-28 relative  grid place-items-center `}>
         {/* <img src={banner?banner[0]:HeroImg.src} className="w-full h-full absolute top-0 z-[-1]" />
          */}
@@ -55,7 +55,7 @@ const handleButton = (idx) => {
           loop
           controls
           playsInline
-          className={`w-full  h-full    object-cover absolute top-0 z-[-1] ${
+          className={`w-full  h-full    object-cover absolute top-0   ${
             isScroll ? 'h-[400px]' : ''
           } `}
         />
@@ -134,7 +134,7 @@ const handleButton = (idx) => {
                       <img src={rightArrow.src} className='w-4' />
                       <Fade right >
                       <p
-                        className={`${
+                        className={` cursor-pointer ${
                           idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
                         } uppercase`}>
                         {items.title}
@@ -158,7 +158,7 @@ const handleButton = (idx) => {
                       <img src={rightArrow.src} className='w-2' />
                       <Fade right>
                       <p
-                        className={`${
+                        className={`cursor-pointer ${
                           idx === currentIndex ? 'text-primary-main font-bold' : 'text-neutral-dark1'
                         } uppercase`}>
                         {items.title}
