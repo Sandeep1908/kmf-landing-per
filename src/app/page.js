@@ -475,9 +475,9 @@ const Home = () => {
             </div>
           </Fade>
 
-          <div className="  w-full h-auto mt-10  relative   ">
+          <div className="  w-full  m-auto h-auto mt-10  relative   ">
             <Fade bottom>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+              <div className="max-w-3xl m-auto grid grid-cols-2 md:grid-cols-3 gap-5">
                 <Link href="/en/comingsoon">
                   <LinkCard title="Place Your Order" imgUrl={cartIco.src} />
                 </Link>
