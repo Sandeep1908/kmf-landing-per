@@ -11,10 +11,11 @@ function PrivateInfo() {
             <div className='flex flex-col space-y-3 border p-2 '>
                   <div className='flex flex-col'>
                       <p className='text-lg font-[400]'>Manufactured & Packed By:</p>
-                      <h1 className='text-xl font-semibold'>Kwality Limited</h1>
-                      <p className='text-lg font-[400]'>Village Softa, Palwal, Haryana – 121 102
+                      <h1 className='text-xl font-semibold'>GovindJee Dairy Milk Pvt Ltd</h1>
+                      <p className='text-lg font-[400]'>NH-11, Village:Dhodhsar, Sikar Road,
+                      Tehsil:Chomu, District:Jaipur, Rajasthan - 303712.
                       </p>
-                      <h1 className='text-lg font-semibold'>Lic.No. 10012064000062</h1>
+                      <h1 className='text-lg font-semibold'>Lic.No. 10012013000295</h1>
                     </div>
 
                     <div>
