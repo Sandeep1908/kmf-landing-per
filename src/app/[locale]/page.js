@@ -180,7 +180,7 @@ const Home = () => {
       <div className={`w-full relative   ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px] md:h-screen'}`}  >
         <video
           className={`w-full object-fill  ${isScroll ? 'h-[240px] md:h-[812px]' : 'h-[240px] md:h-screen'}`}
-          src="/video/banner-nov.mov"
+          src="/video/banner.mov"
           controls
           muted
           autoPlay
