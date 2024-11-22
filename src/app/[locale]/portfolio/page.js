@@ -374,13 +374,13 @@ window.addEventListener('resize',handleResize);
           </div>
 
           <div className="w-full h-full flex flex-col md:justify-around items-center">
-            <div className="pt-6 md:pt-12 h-[5%] md:h-[10%]">
+            <div className="pt-6 md:pt-[70px]  h-[5%] md:h-[10%]">
               <h1 className="text-primary-main text-xl md:text-5xl text-center">
                 {' '}
                 {locale === 'en' ? 'PORTFOLIO' : 'ಪೋರ್ಟ್ಫೋಲಿಯೋ'}
               </h1>
             </div>
-            <div className="w-full h-[50%] md:h-[70%] flex flex-col justify-between items-start gap-2 md:gap-5 pl-6 md:pl-12 mt-10 md:pt-10">
+            <div className="w-full h-[50%] md:h-[65%] flex flex-col justify-between items-start gap-2 md:gap-3 pl-6 md:pl-12 mt-10 md:mt-8 ">
               <div>
                 {' '}
                 <Link href={`/${locale}/portfolio/historyofmilk`}>
@@ -472,7 +472,7 @@ window.addEventListener('resize',handleResize);
                 </a>{' '}
               </div>
             </div>
-            <div className="flex flex-col justify-center h-[40%] md:h-[40%] w-full p-3 md:pl-10">
+            <div className="flex flex-col justify-center h-[40%] md:h-[35%] w-full p-3 md:pl-10">
               <div className="flex flex-col justify-center md:justify-start  items-center  space-x-3 w-full">
                 <div className="  flex flex-col  justify-start md:justify-center items-start space-y-2  w-full  ">
                   <div className="w-full flex   space-x-5" >
@@ -1207,9 +1207,33 @@ window.addEventListener('resize',handleResize);
           {/* <h1 className="text-primary-main text-2xl md:text-6xl "> SPONSORED </h1> */}
           <div className="w-full flex justify-center items-center flex-wrap mt-10">
             <Swiper
-              slidesPerView={slideView}
+              // slidesPerView={slideView}
               freeMode={true}
               centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false
+              }}
+              watchSlidesProgress={true}
+              slidesPerView={3}
+              spaceBetween={20}
+             
+              modules={[FreeMode, Autoplay]}
+              className="max-w-7xl m-auto hidden">
+              {sponsore[0]?.attributes?.image?.data?.map((item, idx) => {
+                return (
+                  <SwiperSlide key={idx} className="hidden">
+                    <div className="flex justify-center items-center hidden  w-52 h-52 ">
+                      <img className="m-auto w-44 h-44" src={item?.attributes?.url} alt="" />
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+            <Swiper
+              watchSlidesProgress={true}
+              slidesPerView={3}
+              spaceBetween={20}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false
@@ -1218,11 +1242,11 @@ window.addEventListener('resize',handleResize);
               className="max-w-7xl m-auto">
               {sponsore[0]?.attributes?.image?.data?.map((item, idx) => {
                 return (
-                  <SwiperSlide key={idx} className="">
-                    <div className="flex justify-center items-center   w-52 h-52 ">
-                      <img className="m-auto w-44 h-44" src={item?.attributes?.url} alt="" />
-                    </div>
-                  </SwiperSlide>
+                  <SwiperSlide key={idx} className=" text-center">
+                  <div className="flex justify-center items-center md:ml-[27%]  w-52 h-52 ">
+                    <img className="m-auto w-44 h-44" src={item?.attributes?.url} alt="" />
+                  </div>
+                </SwiperSlide>
                 );
               })}
             </Swiper>
