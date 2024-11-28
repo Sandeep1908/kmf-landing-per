@@ -81,17 +81,18 @@ function TvcommercialDetails() {
         const { data: commercialCategory } = await axios.get('/api/tv-commercials');
         const { data: commercialItems } = await axios.get('/api/tv-commercial-items?sort[0]=createdAt:asc');
  
-
+         
  
 
       if(subId){
        const brandAsset= brandAmbassador?.data?.filter(item=>item?.id===parseInt(subId))
-   
+      
         setAssets(brandAsset?.sort((a,b)=>b.attributes.createdAt-a.attributes.createdAt))
      
       }
       else{
         const brandAsset= commercialItems?.data?.filter(item=> item?.attributes?.tv_commercial?.data?.id===parseInt(param.slug))
+        
         const sortedArray=brandAsset.sort((a,b)=>b.id-a.id)
         
         setAssets(brandAsset.sort((a,b)=>b?.id-a?.id))
@@ -101,6 +102,8 @@ function TvcommercialDetails() {
       setCommercialCategory(commercialCategory.data)
     })();
   }, []);
+
+ 
 
   return (
     <div className="w-full  absolute md:top-52 z-[-1]     ">
@@ -274,7 +277,8 @@ function TvcommercialDetails() {
   :
   assets?.map((items,id)=>{
     
-    const validExtensionsVid=['.mp4','.mov']
+    const validExtensionsVid=['.mp4','.mov','.MP4','.MOV']
+    console.log(items?.attributes?.assets?.data?.[0]?.attributes?.ext);
  
     const validExtensions = ['.png', '.jpg', '.jpeg', '.JPG', '.JPEG', '.PNG'];
     if (validExtensions.includes(items?.attributes?.assets?.data?.[0]?.attributes?.ext)) {
