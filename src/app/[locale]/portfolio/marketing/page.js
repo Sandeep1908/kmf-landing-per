@@ -96,7 +96,7 @@ const Marketing = () => {
 
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full relative'>
 
 
 
@@ -297,6 +297,7 @@ const Marketing = () => {
 
 
       </section>
+
 
       <MarketModel
                     closeModal={isModalOpen}
