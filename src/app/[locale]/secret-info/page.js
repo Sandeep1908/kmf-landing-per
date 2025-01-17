@@ -6,6 +6,7 @@ function SecretInfo() {
     {
       SlNo: 1,
       Code: 'BB',
+      title:'Bengaluru Co-operative Milk Union Limited.',
       ManufacturingAddress:
         'Bengaluru Dairy, Dr.M.H.Marigowda Road, D.R.College Post, Bengaluru – 560 029, Karnataka, India',
       LicNo: '10014043000721',
@@ -18,6 +19,7 @@ function SecretInfo() {
     {
       SlNo: 2,
       Code: 'BH',
+      title:'Bengaluru Co-operative Milk Union Limited.',
       ManufacturingAddress: 'Hosakote Dairy, Bengaluru rural – 562 114, Karnataka, India',
       LicNo: '10014043000701',
       ConsumerCareCell: {
@@ -29,6 +31,7 @@ function SecretInfo() {
     {
       SlNo: 3,
       Code: 'BK',
+      title:'Bengaluru Co-operative Milk Union Limited.',
       ManufacturingAddress:
         'Nandini Milk Products Complex, A Unit of BAMUL, Survey No. 275/1, Shivanahally, Kanakapura Taluk, Ramanagara – 562 117, Karnataka, India',
       LicNo: '10018043002112',
@@ -41,6 +44,7 @@ function SecretInfo() {
     {
       SlNo: 4,
       Code: 'BG',
+      title:'Belagavi Co-operative Milk Union Limited.',
       ManufacturingAddress: 'Mahantesh Nagar, Belagavi – 590 017, Karnataka, India',
       LicNo: '10015043001268',
       ConsumerCareCell: {
@@ -53,6 +57,8 @@ function SecretInfo() {
     {
       SlNo: 5,
       Code: 'CH',
+      title:'Chamarajanagara Co-operative Milk Union Limited.',
+      
       ManufacturingAddress:
         'Kuderu Village, Santhemarahalli Hobli, Chamarajanagara – 571 316, Karnataka',
       LicNo: '10018043002160',
@@ -65,6 +71,8 @@ function SecretInfo() {
     {
       SlNo: 6,
       Code: 'CB',
+      title:'Chikkaballapura Co-operative Milk Union Limited.',
+
       ManufacturingAddress:
         'Mega Dairy, Nandi Cross, Doddamarali Post, Chikkaballapura – 562 103, Karnataka, India',
       LicNo: '10017043001879',
@@ -78,6 +86,8 @@ function SecretInfo() {
     {
       SlNo: 7,
       Code: 'DM',
+      title:'Dakshina Kannada Co-operative Milk Union Limited',
+
       ManufacturingAddress: 'Mangalore dairy, Kulashekara, Mangalore – 575 005, Karnataka, India',
       LicNo: '10012043000216',
       ConsumerCareCell: {
@@ -90,6 +100,8 @@ function SecretInfo() {
     {
       SlNo: 8,
       Code: 'DU',
+      title:'Dakshina Kannada Co-operative Milk Union Limited',
+
       ManufacturingAddress: 'Udupi Dairy, Uggelbettu, Uppooru – 576 105, Udupi, Karnataka, India',
       LicNo: '10020043003096',
       ConsumerCareCell: {
@@ -102,6 +114,8 @@ function SecretInfo() {
     {
       SlNo: 9,
       Code: 'DA',
+      title:'Dharwad, Gadag & Uttarkannada Co-operative Milk Union Limited',
+
       ManufacturingAddress:
         'Product Dairy, KIADB Lakkamanahalli, Industrial Area, Dharwad – 580 004, Karnataka, India',
       LicNo: '10014043000750',
@@ -115,6 +129,8 @@ function SecretInfo() {
     {
       SlNo: 10,
       Code: 'DD',
+      title:'KMF Dempo Dairy Limited.',
+
       ManufacturingAddress:
         'Asangi Village, Rabakavi- Banahatti, Bagalkote – 587 311, Karnataka, India',
       LicNo: '10012043000255',
@@ -127,6 +143,8 @@ function SecretInfo() {
     {
       SlNo: 11,
       Code: 'HA',
+      title:'Hassan Co-operative Milk Union Limited.',
+
       ManufacturingAddress:
         'Main Dairy, Industrial Estate, B.M Road, Hassan – 573 201, Karnataka, India',
       LicNo: '10013043000493',
@@ -140,6 +158,8 @@ function SecretInfo() {
     {
       SlNo: 12,
       Code: 'HK',
+      title:'Hassan Co-operative Milk Union Limited.',
+
       ManufacturingAddress: 'Kudige Dairy, Somawarpet Taluk, Kodagu – 571 232, Karnataka, India',
       LicNo: '11215319000064',
       ConsumerCareCell: {
@@ -152,6 +172,8 @@ function SecretInfo() {
     {
       SlNo: 13,
       Code: 'SH',
+      title:'SKA Foods Speciality Private Limited.',
+
       ManufacturingAddress:
         'Dairy Plant with UHT Milk Plant, Survey No. 5/2, Jangamanakoppa Village, Karajagi Hobli, Agadi Post, Haveri – 581 128, Karnataka, India',
       LicNo: '11223999000010',
@@ -164,6 +186,8 @@ function SecretInfo() {
     {
       SlNo: 14,
       Code: 'KH',
+      title:'Kalaburagi – Bidar & Yadgir Co-operative Milk Union Limited.',
+      
       ManufacturingAddress: 'Humnabad, Kalaburagi – 585 104, Karnataka, India',
       LicNo: '10013043000520',
       ConsumerCareCell: {
@@ -175,6 +199,8 @@ function SecretInfo() {
     {
       SlNo: 15,
       Code: 'KB',
+      title:'Kalaburagi – Bidar & Yadgir Co-operative Milk Union Limited.',
+
       ManufacturingAddress: 'Bidar Dairy, Janawada Road, Bidar – 585 401, Karnataka, India',
       LicNo: '11215306000817',
       ConsumerCareCell: {
@@ -186,6 +212,8 @@ function SecretInfo() {
     {
       SlNo: 16,
       Code: 'KD',
+      title:'Kolar Co-operative Milk Union Limited.',
+
       ManufacturingAddress: 'Kolar Dairy, NH 75, Huttur Post, Kolar – 563 102, Karnataka, India',
       LicNo: '10012043000195',
       ConsumerCareCell: {
@@ -198,6 +226,8 @@ function SecretInfo() {
     {
       SlNo: 17,
       Code: 'MY',
+      title:'Mysore Co-operative Milk Union Limited',
+
       ManufacturingAddress: 'Allanahalli Village, Mysore – 570 028, Karnataka, India',
       LicNo: '10019043002527',
       ConsumerCareCell: {
@@ -210,6 +240,8 @@ function SecretInfo() {
     {
       SlNo: 18,
       Code: 'MYD',
+      title:'Mysore District Co-operative Milk Producers Societies Union Limited',
+
       ManufacturingAddress:
         'Main Dairy Complex, Male Mahadeshwara road, Siddarthanagara, Mysuru-570 011, Karnataka, India',
       LicNo: '11224999000439',
@@ -223,6 +255,8 @@ function SecretInfo() {
     {
       SlNo: 19,
       Code: 'MA',
+      title:'Mandya Co-operative Milk Union Limited',
+
       ManufacturingAddress: 'Product Dairy, Gejjalagere – 571 428, Mandya, Karnataka, India',
       LicNo: '10012043000208',
       ConsumerCareCell: {
@@ -235,6 +269,8 @@ function SecretInfo() {
     {
       SlNo: 20,
       Code: 'MK',
+      title:'Mandya Co-operative Milk Union Limited',
+
       ManufacturingAddress:
         'UHT Milk Plant, Kumbalagodu, Plot No. 13 A&B. KIADB Industrial Area, Kengeri Hobli, Bengaluru – 560 074, Karnataka, India',
       LicNo: '10013043000511',
@@ -248,6 +284,8 @@ function SecretInfo() {
     {
       SlNo: 21,
       Code: 'MD',
+      title:'Mother Dairy, A Unit of KMF',
+
       ManufacturingAddress: 'GKVK Post, Yelahanka, Bengaluru – 560 065, Karnataka, India',
       LicNo: '10012043000211',
       ConsumerCareCell: {
@@ -260,6 +298,8 @@ function SecretInfo() {
     {
       SlNo: 22,
       Code: 'NP',
+      title:'Nandini Milk Products',
+
       ManufacturingAddress:
         'KMF Complex, Dr.M.H.Marigowda Road, Bengaluru – 560 029, Karnataka, India',
       LicNo: '10014043000707',
@@ -272,6 +312,8 @@ function SecretInfo() {
     {
       SlNo: 23,
       Code: 'NC',
+      title:'Nandini Hi-Tech Product Plant',
+
       ManufacturingAddress:
         'Shettihalli Village, Janivara (Post), Channarayapatna Taluk, Hassan – 573 116, Karnataka, India',
       LicNo: '10013043000517',
@@ -285,6 +327,8 @@ function SecretInfo() {
     {
       SlNo: 24,
       Code: 'NR',
+      title:'Nandini Hi-Tech Mega Powder Plant',
+
       ManufacturingAddress:
         'Kannamangala village, Kasaba Hobli, Kanva Post, Channapatna Taluk, Ramanagara – 562 108, Karnataka',
       LicNo: '10019043002926',
@@ -297,6 +341,8 @@ function SecretInfo() {
     {
       SlNo: 25,
       Code: 'RB',
+      title:'Raichur, Ballari, Koppal & Vijayanagara Co-operative Milk Union Limited',
+
       ManufacturingAddress:
         'Ballari Dairy, Sanjay Gandhinagar, Cantonment, Ballari – 583 104, Karnataka, India',
       LicNo: '10013043000643',
@@ -310,6 +356,8 @@ function SecretInfo() {
     {
       SlNo: 26,
       Code: 'RR',
+      title:'Raichur, Ballari, Koppal & Vijayanagara Co-operative Milk Union Limited',
+
       ManufacturingAddress: 'Raichur Dairy, Raichur – 584 134, Karnataka, India',
       LicNo: '11219324000117',
       ConsumerCareCell: {
@@ -322,6 +370,8 @@ function SecretInfo() {
     {
       SlNo: 27,
       Code: 'BU',
+      title:'Raichur, Ballari, Koppal & Vijayanagara Co-operative Milk Union Limited',
+
       ManufacturingAddress: 'Budagumpa Dairy, Koppal – 583 228, Karnataka, India',
       LicNo: '10018043002051',
       ConsumerCareCell: {
@@ -334,6 +384,8 @@ function SecretInfo() {
     {
       SlNo: 28,
       Code: 'SS',
+      title:'Shivamogga, Davanagere & Chitradurga Co-operative MilkUnion Limited.',
+
       ManufacturingAddress:
         'Shivamogga Dairy, Machenahalli , Nidige Post, Shivamogga – 577 222, Karnataka, India',
       LicNo: '10012043000196',
@@ -346,6 +398,8 @@ function SecretInfo() {
     {
       SlNo: 29,
       Code: 'SD',
+      title:'Shivamogga, Davanagere & Chitradurga Co-operative MilkUnion Limited.',
+      
       ManufacturingAddress:
         'Davanagere Dairy, Doddabathi Post, Davanagere – 577 566, Karnataka, India',
       LicNo: '10012043000202',
@@ -358,6 +412,8 @@ function SecretInfo() {
     {
       SlNo: 30,
       Code: 'DS',
+      title:'Sirsi Dairy Private Limited.',
+
       ManufacturingAddress:
         'Survey No. 41, Hanumanti Village, Kumata Road, Sirsi – 581 450, Karnataka, India',
       LicNo: '11221329000351',
@@ -371,6 +427,8 @@ function SecretInfo() {
     {
       SlNo: 31,
       Code: 'TD',
+      title:'Tumkur Co-operative Milk Union Limited.',
+
       ManufacturingAddress: 'B.H Road, Mallasandra, Tumkur – 572 107, Karnataka, India',
       LicNo: '10012043000242',
       ConsumerCareCell: {
@@ -383,6 +441,8 @@ function SecretInfo() {
     {
       SlNo: 32,
       Code: 'VV',
+      title:'Vijayapur & Bagalkot Co-operative Milk Union Limited.',
+
       ManufacturingAddress: 'Vijayapur Dairy, Butanal, Vijayapur – 586 103, Karnataka, India',
       LicNo: '10020043003402',
       ConsumerCareCell: {
@@ -395,6 +455,8 @@ function SecretInfo() {
     {
       SlNo: 33,
       Code: 'VB',
+      title:'Vijayapur & Bagalkot Co-operative Milk Union Limited.',
+
       ManufacturingAddress: 'Bagalkot Dairy, Vijayapur – 587 102, Karnataka, India',
       LicNo: '11215301000249',
       ConsumerCareCell: {
@@ -407,6 +469,8 @@ function SecretInfo() {
     {
       SlNo: 34,
       Code: 'BI',
+      title:'Nandini Ice Cream Plant',
+
       ManufacturingAddress:
         'Nandini Ice Cream Plant, A Unit of KMF, Sanjay Gandhi Nagar, Cantonment, Ballari – 583 104, Karnataka, India',
       LicNo: '11214305000123',
@@ -438,12 +502,13 @@ function SecretInfo() {
                   <td className="px-4 py-2 border border-gray-300 text-center">{data.SlNo}</td>
                   <td className="px-4 py-2 border border-gray-300 text-center">{data.Code}</td>
                   <td className="px-4 py-2 border border-gray-300">
-                    <strong>{data.ManufacturingAddress}</strong> <br/>
+                    <strong>{data.title}</strong>
+                    <p>{data.ManufacturingAddress}</p>  
                     <strong>LIC NO: {data.LicNo}</strong> <br/>
-                    ConsumerCareCell: <p>{data?.ConsumerCareCell.Designation || ''}</p> <br/>
-                    <p>{data?.ConsumerCareCell.Email}</p> <br/>
-                    <p>{data?.ConsumerCareCell.Phone}</p> <br/>
-                    <p>{data?.ConsumerCareCell.TollFreeNo}</p> <br/>
+                    ConsumerCareCell: <p>{data?.ConsumerCareCell.Designation || ''}</p>  
+                    <p>{data?.ConsumerCareCell.Email}</p> 
+                    <p>{data?.ConsumerCareCell.Phone}</p>  
+                    <p>{data?.ConsumerCareCell.TollFreeNo}</p>  
                   </td>
                 </tr>
               ))}
