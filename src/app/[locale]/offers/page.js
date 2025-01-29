@@ -44,7 +44,7 @@ function Offers() {
   <div className="w-full h-10 flex justify-center items-center mb-4  bg-red-600">
     <marquee className="w-full  ">
     <p className="text-white w-auto text-sm text-center ">IMPORTANT: For Order / Enquiry Contact
-    Sunil Kumar A: 95139 98879  | Vishwanath: 95139 99133 |  Email kmfnandini2024@gmail.com website www.kmfnandini.coop </p>
+    Sunil Kumar A: 95139 98879  |  Email kmfnandini2024@gmail.com website www.kmfnandini.coop </p>
     </marquee>
      
         </div>
