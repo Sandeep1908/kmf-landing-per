@@ -5,12 +5,14 @@ import secretinfoImg from "@/images/privateInfo.png"
 function PrivateInfo() {
   return (
 
+
      <div className='w-full h-full'>
          
          <div className='w-full h-[98vh] flex justify-center items-center'>
             
             <div className='w-[95%] md:w-[50%] h-auto'>
                <img className='w-full h-full' src={secretinfoImg.src} alt="" />
+
             </div>
                
          </div>
