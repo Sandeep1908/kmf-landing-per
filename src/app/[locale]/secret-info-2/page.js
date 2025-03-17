@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '@/components/Header'
-import secretinfoImg from "@/images/secretImg2.png"
+import secretinfoImg from "@/images/scret-info-new.png"
 
 function SecretInfo2() {
   return (
