@@ -28,10 +28,10 @@ function CompanyProfile() {
       tabName: locale === 'en' ? 'About us' : 'ಕಹಾಮ ಬಗ್ಗೆ',
       data: <About   name={'About us'} />
     },
-    {
-      tabName: locale === 'en' ? 'The Growth Process' : 'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
-      data: <GrowthProcess   name={'The Growth Process'} />
-    },
+    // {
+    //   tabName: locale === 'en' ? 'The Growth Process' : 'ಬೆಳವಣಿಗೆಯ ಪ್ರಕ್ರಿಯೆ',
+    //   data: <GrowthProcess   name={'The Growth Process'} />
+    // },
 
     {
       tabName: locale === 'en' ? 'Ongoing and Future Projects' : 'ಭವಿಷ್ಯದ ಯೋಜನೆಗಳು',
