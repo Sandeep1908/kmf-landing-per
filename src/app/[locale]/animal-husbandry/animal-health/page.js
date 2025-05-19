@@ -59,28 +59,28 @@ function AnimalHealth() {
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandery/procurement':'/en/animal-husbandery/procurement'}`}>
+            <Link className="  text-sm font-bold " href={`${locale==='kn'?'/kn/animal-husbandry/procurement':'/en/animal-husbandry/procurement'}`}>
             {locale==='kn'?' ಹಾಲು ಶೇಖರಣೆ':'Procurement'}
               
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold text-primary-main " href={`${locale==='kn'?'/kn/animal-husbandery/animal-health':'/en/animal-husbandery/animal-health'}`}>
+            <Link className="  text-sm font-bold text-primary-main " href={`${locale==='kn'?'/kn/animal-husbandry/animal-health':'/en/animal-husbandry/animal-health'}`}>
             {locale==='kn'?'  ಪಶು ಆರೋಗ್ಯ':'Animal Health'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold   " href={`${locale==='kn'?'/kn/animal-husbandery/animal-breeding':'/en/animal-husbandery/animal-breeding'}`}>
+            <Link className="  text-sm font-bold   " href={`${locale==='kn'?'/kn/animal-husbandry/animal-breeding':'/en/animal-husbandry/animal-breeding'}`}>
             {locale==='kn'?'ಪಶು ಸಂತಾನಾಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮ':'Animal Breeding Program'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandery/feed-and-fodder':'/en/animal-husbandery/feed-and-fodder'}`}>
+            <Link className="  text-sm font-bold  " href={`${locale==='kn'?'/kn/animal-husbandry/feed-and-fodder':'/en/animal-husbandry/feed-and-fodder'}`}>
             {locale==='kn'?'ಮೇವು ಚಟುವಟಿಕೆಗಳು':'Fodder Activities'}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold   "  href={`${locale==='kn'?'/kn/animal-husbandery/scheme':'/en/animal-husbandery/scheme'}`}>
+            <Link className="  text-sm font-bold   "  href={`${locale==='kn'?'/kn/animal-husbandry/scheme':'/en/animal-husbandry/scheme'}`}>
             {locale==='kn'?'ಯೋಜನೆಗಳು/ ಅನುದಾನಗಳು':'Schemes/Grants'}
             </Link>
 

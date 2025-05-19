@@ -70,7 +70,7 @@ function OrganizationChart() {
    </section>
 
    <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
-            <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandery/scheme` || ''}>
+            <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandry/scheme` || ''}>
             <IoHomeOutline size={20} />
             </Link>
 
