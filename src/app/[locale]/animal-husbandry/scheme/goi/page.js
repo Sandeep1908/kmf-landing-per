@@ -61,21 +61,21 @@ const handleButton = (idx) => {
         />
       </section>
       <div className="flex w-full    justify-center pt-5 space-x-2 items-center relative before:absolute before:-bottom-3 before:w-20   before:h-0.5 before:bg-primary-main">
-            <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandery/scheme` || ''}>
+            <Link className="  text-sm font-bold  " href={`/${locale}/animal-husbandry/scheme` || ''}>
                
               {locale === "en" ? "Schemes":"ಯೋಜನೆಗಳು"}
             </Link>
 
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/animal-husbandery/scheme/goi`}>
+            <Link className="  text-sm font-bold text-primary-main  " href={`/${locale}/animal-husbandry/scheme/goi`}>
                   {locale === "en" ? "GOI":"ಕೇಂದ್ರ ಸರಕಾರದ ಯೋಜನೆಗಳು"}
             </Link>
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandery/scheme/gok`}>
+            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandry/scheme/gok`}>
                {locale === "en" ? "GOK":"ರಾಜ್ಯ ಸರಕಾರದ ಯೋಜನೆಗಳು"}
             </Link>
             <p className="text-primary-main">&gt;</p>
-            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandery/scheme/other-scheme`}>
+            <Link className="  text-sm font-bold   " href={`/${locale}/animal-husbandry/scheme/other-scheme`}>
                 {locale === "en" ? "Other Schemes":"ಇತರೆ ಯೋಜನೆಗಳು"}
             </Link>
             

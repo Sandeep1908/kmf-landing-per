@@ -213,29 +213,29 @@ export const mobileHeader = {
       link: '/en/about/quality-food'
     },
     {
-      title: 'ANIMAL HUSBANDAY',
-      link: '/en/animal-husbandery/procurement',
+      title: 'ANIMAL HUSBANDRY',
+      link: '/en/animal-husbandry/procurement',
       subItems: [
         {
           title: "Procurement",
-          link: '/en/animal-husbandery/procurement'
+          link: '/en/animal-husbandry/procurement'
         },
         {
           title: "Animal Health",
-          link: '/en/animal-husbandery/animal-health'
+          link: '/en/animal-husbandry/animal-health'
         },
         {
           title: "Animal Breeding Program",
-          link: '/en/animal-husbandery/animal-breeding'
+          link: '/en/animal-husbandry/animal-breeding'
         },
         {
           title: "Fodder Activities",
-          link: '/en/animal-husbandery/feed-and-fodder'
+          link: '/en/animal-husbandry/feed-and-fodder'
         },
   
         {
           title: "Schemes/Grants",
-          link: '/en/animal-husbandery/scheme'
+          link: '/en/animal-husbandry/scheme'
         },
         {
           title: "Step",
@@ -280,7 +280,7 @@ export const mobileHeader = {
         },
         {
           title: "Veterinary Services",
-          link: '/en/animal-husbandery/animal-health'
+          link: '/en/animal-husbandry/animal-health'
         },
        
         
@@ -399,28 +399,28 @@ export const mobileHeader = {
 
     {
       title: 'ಪಶುಸಂಗೋಪನೆ',
-      link: '/kn/animal-husbandery/procurement',
+      link: '/kn/animal-husbandry/procurement',
       subItems: [
         {
           title: "   ಹಾಲು ಶೇಖರಣೆ",
-          link: '/kn/animal-husbandery/procurement'
+          link: '/kn/animal-husbandry/procurement'
         },
         {
           title: "ಪಶು ಆರೋಗ್ಯ",
-          link: '/kn/animal-husbandery/animal-health'
+          link: '/kn/animal-husbandry/animal-health'
         },
         {
           title: "ಪಶು ಸಂತಾನೋತ್ಪತ್ತಿ ಕಾರ್ಯಕ್ರಮ",
-          link: '/kn/animal-husbandery/animal-breeding'
+          link: '/kn/animal-husbandry/animal-breeding'
         },
         {
           title: "ಮೇವು ಚಟುವಟಿಕೆಗಳು",
-          link: '/kn/animal-husbandery/feed-and-fodder'
+          link: '/kn/animal-husbandry/feed-and-fodder'
         },
   
         {
           title: "ಯೋಜನೆಗಳು/ ಅನುದಾನಗಳು",
-          link: '/kn/animal-husbandery/scheme'
+          link: '/kn/animal-husbandry/scheme'
         },
         {
           title: " ಸ್ಟೆಪ್ ಯೋಜನೆ",
@@ -468,7 +468,7 @@ export const mobileHeader = {
         },
         {
           title: "ಪಶುವೈದ್ಯಕೀಯ ಸೇವೆಗಳು",
-          link: '/kn/animal-husbandery/animal-health'
+          link: '/kn/animal-husbandry/animal-health'
         },
        
         

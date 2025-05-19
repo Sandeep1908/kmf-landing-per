@@ -165,7 +165,7 @@ function Portfolio() {
 
     {
       tabName: locale === 'en' ? 'Schemes' : 'ಯೋಜನೆಗಳು',
-      link: `/${locale}/animal-husbandery/scheme`
+      link: `/${locale}/animal-husbandry/scheme`
     },
     {
       tabName: locale === 'en' ? 'Awards' : 'ಪ್ರಶಸ್ತಿಗಳು',
@@ -173,7 +173,7 @@ function Portfolio() {
     },
     {
       tabName: locale === 'en' ? 'Sex Sorted Semen' : 'ಲಿಂಗ ನಿರ್ಧಾರಿತ ವೀರ್ಯನಳಿಕೆ',
-      link: `/${locale}/animal-husbandery/animal-breeding`
+      link: `/${locale}/animal-husbandry/animal-breeding`
     },
     {
       tabName: locale === 'en' ? 'Marketing' : 'ಕಹಾಮ ಮಾರುಕಟ್ಟೆ',
